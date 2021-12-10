@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "MeshCommonProto";
+option objc_class_prefix = "MCP";
+
+package mesh;
+
+message MeshPackage{
+  string name=1;
+  repeated string element=2;
+}

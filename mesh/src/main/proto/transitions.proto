@@ -1,0 +1,1526 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "TransitionsProto";
+option objc_class_prefix = "TSP";
+
+package transitions;
+
+import "routines.proto";
+
+enum MeshTypes{
+    DEFAULT_TYPE=0;
+    
+    PRODUCT_REVIEW = 1;
+    PURCHASE_SHIPMENT = 2;
+    CONTENT = 3;
+    KEYWORD = 4;
+    SERIALIZED_INVENTORY_ITEM = 5;
+    ALLOCATION_PLAN_STATUS = 6;
+    QUOTE_STATUS = 7;
+    ORDER_DELIVERY_SCHEDULE = 8;
+    PRODUCT_STATUS = 9;
+    PARTY_RELATIONSHIP = 10;
+    ORDER_RETURN_STATUS_FOR_SUPPLIER_RETURNS = 11;
+    PRODUCTION_RUN_STATUS = 12;
+    PROJECT = 13;
+    REQUIREMENT_STATUS = 14;
+    MANUFACTURING_TASK_AND_ROUTING_STATUS = 15;
+    MARKETING_CAMPAIGN = 16;
+    INVOICE_STATUS = 17;
+    TASK = 18;
+    WORKLOAD = 19;
+    PROJECT_ASSIGNMENT = 20;
+    SPRINT_STATUS = 21;
+    PICKLIST_ITEM = 22;
+    INVENTORY_TRANSFER = 23;
+    SCRUM_TASK = 24;
+    EXAMPLE = 25;
+    EVENT = 26;
+    NOT_APPLICABLE = 27;
+    PAYMENT_PREFERENCE = 28;
+    FIXED_ASSET_MAINTENANCE = 29;
+    SCRUM_PROJECT_STATUS = 30;
+    BUDGET = 31;
+    WORK_EFFORT_REVIEW = 32;
+    ORDER_RETURN_STATUS_FOR_CUSTOMER_RETURNS = 33;
+    PICKLIST = 34;
+    PAYMENT_STATUS = 35;
+    COMMUNICATION_EVENT_ROLE = 36;
+    ALLOCATION_PLAN_ITEM_STATUS = 37;
+    FINANCIAL_ACCOUNT_TRANS_STATUS = 38;
+    FINANCIAL_ACCOUNT_STATUS = 39;
+    PROJECT_STATUS = 40;
+    COMMUNICATION_EVENT = 41;
+    SCRUM_ASSIGNMENT = 42;
+    CALENDAR = 43;
+    SHIPMENT_ROUTE_SEGMENT_CARRIER_SERVICE = 44;
+    GL_RECONCILIATION_STATUS = 45;
+    PARTY = 46;
+    PROJECT_TASK = 47;
+    SHIPMENT = 48;
+    ORDER_ITEM = 49;
+    CUSTOM_REQUEST_STATUS = 50;
+    LEAD_STATUS = 51;
+    NON_SERIALIZED_INVENTORY_ITEM = 52;
+    ORDER = 53;
+    TIMESHEET = 54;
+    PARTY_INVITATION = 55;
+    CONTACT_LIST_PARTY = 56;
+}
+
+
+enum ProductReviewEvent{
+    
+    PR_REVIEW_APPROVED = 0;  // Review Approved
+    PR_REVIEW_DELETED = 1;  // Review Deleted
+}
+
+enum ProductReviewState{
+    
+    PRR_PENDING = 0;
+    PRR_APPROVED = 1;
+    PRR_DELETED = 2;
+}
+
+service ProductReviewProcessor{
+    
+    rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
+    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PurchaseShipmentEvent{
+    
+    PS_SHIP = 0;  // Ship
+    PS_RECEIVE = 1;  // Receive
+}
+
+enum PurchaseShipmentState{
+    
+    PURCH_SHIP_CREATED = 0;
+    PURCH_SHIP_SHIPPED = 1;
+    PURCH_SHIP_RECEIVED = 2;
+}
+
+service PurchaseShipmentProcessor{
+    
+    rpc Receive(routines.StateProposal) returns (routines.Response) {}
+    rpc Ship(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ContentEvent{
+    
+    CONTENT_FINAL_DRAFT_PUBLISHED = 0;  // Final draft Published
+    CONTENT_REVISED_DRAFT_PUBLISHED = 1;  // Revised draft published
+    CONTENT_DRAFT_REVISED = 2;  // Draft revised
+    CONTENT_PUBLISHED_NOT_REVISED = 3;  // published, not revised
+    CONTENT_IMAGE_PENDING = 4;  // Image Pending
+    CONTENT_AVAILABLE_TO_DEACTIVATED = 5;  // Available to Deactivated
+    CONTENT_FINAL_DRAFT = 6;  // Final draft
+    CONTENT_DEACTIVATED = 7;  // Deactivated
+    CONTENT_AVAILABLE = 8;  // Available
+    CONTENT_FIRST_DRAFT = 9;  // First draft
+    CONTENT_INITIAL_DRAFT_PUBLISHED = 10;  // Initial draft published
+}
+
+enum ContentState{
+    
+    CTNT_IN_PROGRESS = 0;
+    CTNT_INITIAL_DRAFT = 1;
+    CTNT_REVISED_DRAFT = 2;
+    CTNT_FINAL_DRAFT = 3;
+    CTNT_PUBLISHED = 4;
+    CTNT_AVAILABLE = 5;
+    CTNT_DEACTIVATED = 6;
+}
+
+service ContentProcessor{
+    
+    rpc RevisedDraftPublished(routines.StateProposal) returns (routines.Response) {}
+    rpc FinalDraftPublished(routines.StateProposal) returns (routines.Response) {}
+    rpc PublishedNotRevised(routines.StateProposal) returns (routines.Response) {}
+    rpc InitialDraftPublished(routines.StateProposal) returns (routines.Response) {}
+    rpc Deactivated(routines.StateProposal) returns (routines.Response) {}
+    rpc ImagePending(routines.StateProposal) returns (routines.Response) {}
+    rpc FinalDraft(routines.StateProposal) returns (routines.Response) {}
+    rpc Available(routines.StateProposal) returns (routines.Response) {}
+    rpc DraftRevised(routines.StateProposal) returns (routines.Response) {}
+    rpc AvailableToDeactivated(routines.StateProposal) returns (routines.Response) {}
+    rpc FirstDraft(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum KeywordEvent{
+    
+    KEYWORD_REVIEW_DISAPPROVED = 0;  // Review Disapproved
+    KEYWORD_REVIEW_APPROVED = 1;  // Review Approved
+}
+
+enum KeywordState{
+    
+    KW_APPROVED = 0;
+    KW_PENDING = 1;
+    KW_DISAPPROVED = 2;
+}
+
+service KeywordProcessor{
+    
+    rpc ReviewDisapproved(routines.StateProposal) returns (routines.Response) {}
+    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum SerializedInventoryItemEvent{
+    
+    SII_TRANSFER_COMPLETE = 0;  // Transfer Complete
+    SII_RELEASE_HOLD = 1;  // Release Hold
+    SII_CANCEL_PROMISE = 2;  // Cancel Promise
+    SII_BEING_TRANSFERED = 3;  // Being Transfered
+    SII_MAKE_RETURN_HELD = 4;  // Make Return Held
+    SII_MARK_AS_DEFECTIVE = 5;  // Mark As Defective
+    SII_DEACTIVATE = 6;  // Deactivate
+    SII_PROMISE = 7;  // Promise
+    SII_HOLD_INACTIVE = 8;  // Hold Inactive
+    SII_BEING_TRANSFERED_PROMISED = 9;  // Being Transfered (Promised)
+    SII_MARK_RETURN_DEFECTIVE = 10;  // Mark Return Defective
+    SII_RETURN_STATUS_PENDING = 11;  // Return Status Pending
+    SII_ORDER_ARRIVED = 12;  // Order Arrived
+    SII_TRANSFER_COMPLETE_PROMISED = 13;  // Transfer Complete (Promised)
+    SII_MAKE_RETURN_AVAILABLE = 14;  // Make Return Available
+    SII_DELIVER = 15;  // Deliver
+    SII_MARK_HELD_DEFECTIVE = 16;  // Mark Held Defective
+    SII_RETURN_INACTIVE = 17;  // Return Inactive
+    SII_HOLD = 18;  // Hold
+    SII_ACTIVATE = 19;  // Activate
+}
+
+enum SerializedInventoryItemState{
+    
+    INV_ON_ORDER = 0;
+    INV_AVAILABLE = 1;
+    INV_PROMISED = 2;
+    INV_DELIVERED = 3;
+    INV_ACTIVATED = 4;
+    INV_DEACTIVATED = 5;
+    INV_ON_HOLD = 6;
+    INV_BEING_TRANSFERED = 7;
+    INV_BEING_TRANS_PRM = 8;
+    INV_RETURNED = 9;
+    INV_DEFECTIVE = 10;
+}
+
+service SerializedInventoryItemProcessor{
+    
+    rpc Deliver(routines.StateProposal) returns (routines.Response) {}
+    rpc TransferCompletePromised(routines.StateProposal) returns (routines.Response) {}
+    rpc HoldInactive(routines.StateProposal) returns (routines.Response) {}
+    rpc TransferComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkHeldDefective(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
+    rpc OrderArrived(routines.StateProposal) returns (routines.Response) {}
+    rpc BeingTransfered(routines.StateProposal) returns (routines.Response) {}
+    rpc MakeReturnAvailable(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelPromise(routines.StateProposal) returns (routines.Response) {}
+    rpc Promise(routines.StateProposal) returns (routines.Response) {}
+    rpc ReturnStatusPending(routines.StateProposal) returns (routines.Response) {}
+    rpc ReturnInactive(routines.StateProposal) returns (routines.Response) {}
+    rpc Activate(routines.StateProposal) returns (routines.Response) {}
+    rpc Deactivate(routines.StateProposal) returns (routines.Response) {}
+    rpc BeingTransferedPromised(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkAsDefective(routines.StateProposal) returns (routines.Response) {}
+    rpc ReleaseHold(routines.StateProposal) returns (routines.Response) {}
+    rpc Hold(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum AllocationPlanStatusEvent{
+    
+    APS_CANCEL = 0;  // Cancel
+    APS_APPROVE = 1;  // Approve
+    APS_CREATE = 2;  // Create
+    APS_COMPLETE = 3;  // Complete
+}
+
+enum AllocationPlanStatusState{
+    
+    ALLOC_PLAN_CREATED = 0;
+    ALLOC_PLAN_APPROVED = 1;
+    ALLOC_PLAN_COMPLETED = 2;
+    ALLOC_PLAN_CANCELLED = 3;
+}
+
+service AllocationPlanStatusProcessor{
+    
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Create(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum QuoteStatusEvent{
+    
+    QS_ACCEPT_QUOTE = 0;  // Accept Quote
+    QS_ORDER_QUOTE = 1;  // Order Quote
+    QS_REJECT_QUOTE = 2;  // Reject Quote
+}
+
+enum QuoteStatusState{
+    
+    QUO_CREATED = 0;
+    QUO_APPROVED = 1;
+    QUO_ORDERED = 2;
+    QUO_REJECTED = 3;
+}
+
+service QuoteStatusProcessor{
+    
+    rpc RejectQuote(routines.StateProposal) returns (routines.Response) {}
+    rpc AcceptQuote(routines.StateProposal) returns (routines.Response) {}
+    rpc OrderQuote(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum OrderDeliveryScheduleEvent{
+    
+    ODS_APPROVE_DELIVERY_SCHEDULE = 0;  // Approve Delivery Schedule
+    ODS_ACCEPT_DELIVERY_INFORMATION = 1;  // Accept Delivery Information
+    ODS_ARRANGE_DELIVERY = 2;  // Arrange Delivery
+    ODS_CANCEL_DELIVERY = 3;  // Cancel Delivery
+}
+
+enum OrderDeliveryScheduleState{
+    
+    ODS_SUBMITTED = 0;
+    ODS_ACCEPTED = 1;
+    ODS_APPROVED = 2;
+    ODS_ARRANGED = 3;
+    ODS_CANCELLED = 4;
+}
+
+service OrderDeliveryScheduleProcessor{
+    
+    rpc AcceptDeliveryInformation(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelDelivery(routines.StateProposal) returns (routines.Response) {}
+    rpc ArrangeDelivery(routines.StateProposal) returns (routines.Response) {}
+    rpc ApproveDeliverySchedule(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProductStatusEvent{
+    
+    PS_PRODUCT_COMPLETE = 0;  // Product Complete
+}
+
+enum ProductStatusState{
+    
+    PRODUCT_ACTIVE = 0;
+    PRODUCT_CLOSED = 1;
+}
+
+service ProductStatusProcessor{
+    
+    rpc ProductComplete(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PartyRelationshipEvent{
+    
+    PR_EXPIRED = 0;  // Expired
+}
+
+enum PartyRelationshipState{
+    
+    PARTYREL_CREATED = 0;
+    PARTYREL_EXPIRED = 1;
+}
+
+service PartyRelationshipProcessor{
+    
+    rpc Expired(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum OrderReturnStatusForSupplierReturnsEvent{
+    
+    ORSFSR_ACCEPTED_RETURN_SHIPPED = 0;  // Accepted Return Shipped
+    ORSFSR_REQUESTED_RETURN_CANCELLED = 1;  // Requested Return Cancelled
+    ORSFSR_ACCEPTED_RETURN_CANCELLED = 2;  // Accepted Return Cancelled
+    ORSFSR_SHIPPED_RETURN_COMPLETED = 3;  // Shipped Return Completed
+    ORSFSR_REQUESTED_RETURN_ACCEPTED = 4;  // Requested Return Accepted
+    ORSFSR_SHIPPED_RETURN_CANCELLED = 5;  // Shipped Return Cancelled
+}
+
+enum OrderReturnStatusForSupplierReturnsState{
+    
+    SUP_RETURN_REQUESTED = 0;
+    SUP_RETURN_ACCEPTED = 1;
+    SUP_RETURN_SHIPPED = 2;
+    SUP_RETURN_COMPLETED = 3;
+    SUP_RETURN_CANCELLED = 4;
+}
+
+service OrderReturnStatusForSupplierReturnsProcessor{
+    
+    rpc AcceptedReturnShipped(routines.StateProposal) returns (routines.Response) {}
+    rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc ShippedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
+    rpc ShippedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProductionRunStatusEvent{
+    
+    PRS_CLOSE = 0;  // Close
+    PRS_START = 1;  // Start
+    PRS_CONFIRM = 2;  // Confirm
+    PRS_CANCEL = 3;  // Cancel
+    PRS_SCHEDULE = 4;  // Schedule
+    PRS_COMPLETE = 5;  // Complete
+}
+
+enum ProductionRunStatusState{
+    
+    PRUN_CREATED = 0;
+    PRUN_SCHEDULED = 1;
+    PRUN_DOC_PRINTED = 2;
+    PRUN_RUNNING = 3;
+    PRUN_COMPLETED = 4;
+    PRUN_CLOSED = 5;
+    PRUN_CANCELLED = 6;
+}
+
+service ProductionRunStatusProcessor{
+    
+    rpc Start(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc Schedule(routines.StateProposal) returns (routines.Response) {}
+    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+    rpc Close(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProjectEvent{
+    
+    PROJECT_BEGIN_PROJECT = 0;  // Begin Project
+    PROJECT_RESUME_PROJECT = 1;  // Resume Project
+    PROJECT_CANCEL = 2;  // Cancel
+}
+
+enum ProjectState{
+    
+    WEPR_PLANNING = 0;
+    WEPR_IN_PROGRESS = 1;
+    WEPR_COMPLETE = 2;
+    WEPR_ON_HOLD = 3;
+    WEPR_CANCELLED = 4;
+}
+
+service ProjectProcessor{
+    
+    rpc ResumeProject(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc BeginProject(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum RequirementStatusEvent{
+    
+    RS_ACCEPT_REQUIREMENT = 0;  // Accept Requirement
+    RS_ORDER_REQUIREMENT = 1;  // Order Requirement
+    RS_REJECT_REQUIREMENT = 2;  // Reject Requirement
+}
+
+enum RequirementStatusState{
+    
+    REQ_PROPOSED = 0;
+    REQ_CREATED = 1;
+    REQ_APPROVED = 2;
+    REQ_ORDERED = 3;
+    REQ_REJECTED = 4;
+}
+
+service RequirementStatusProcessor{
+    
+    rpc AcceptRequirement(routines.StateProposal) returns (routines.Response) {}
+    rpc RejectRequirement(routines.StateProposal) returns (routines.Response) {}
+    rpc OrderRequirement(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ManufacturingTaskAndRoutingStatusEvent{
+    
+    MTARS_ACTIVE = 0;  // Active
+    MTARS_INACTIVE = 1;  // Inactive
+}
+
+enum ManufacturingTaskAndRoutingStatusState{
+    
+    ROU_ACTIVE = 0;
+    ROU_INACTIVE = 1;
+}
+
+service ManufacturingTaskAndRoutingStatusProcessor{
+    
+    rpc Active(routines.StateProposal) returns (routines.Response) {}
+    rpc Inactive(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum MarketingCampaignEvent{
+    
+    MC_CANCEL_MARKETING_CAMPAIGN = 0;  // Cancel Marketing Campaign
+    MC_COMPLETE_MARKETING_CAMPAIGN = 1;  // Complete Marketing Campaign
+    MC_APPROVE_MARKETING_CAMPAIGN = 2;  // Approve Marketing Campaign
+    MC_MARKETING_CAMPAIGN_IN_PROGRESS = 3;  // Marketing Campaign In Progress
+}
+
+enum MarketingCampaignState{
+    
+    MKTG_CAMP_PLANNED = 0;
+    MKTG_CAMP_APPROVED = 1;
+    MKTG_CAMP_INPROGRESS = 2;
+    MKTG_CAMP_COMPLETED = 3;
+    MKTG_CAMP_CANCELLED = 4;
+}
+
+service MarketingCampaignProcessor{
+    
+    rpc ApproveMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+    rpc MarketingCampaignInProgress(routines.StateProposal) returns (routines.Response) {}
+    rpc CompleteMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum InvoiceStatusEvent{
+    
+    IS_ENABLE_SALES_INVOICE_UPDATE = 0;  // Enable sales invoice update
+    IS_PAY = 1;  // Pay
+    IS_WRITE_OFF = 2;  // Write Off
+    IS_RECEIVE = 3;  // Receive
+    IS_SEND = 4;  // Send
+    IS_MARK_READY = 5;  // Mark Ready
+    IS_CANCEL = 6;  // Cancel
+    IS_UNPAY = 7;  // Unpay
+    IS_ENABLE_PURCH_INVOICE_UPDATE = 8;  // Enable purch.invoice update
+    IS_MARK_RECEIVE = 9;  // Mark Receive
+    IS_MARK_APPROVED = 10;  // Mark Approved
+    IS_APPROVE = 11;  // Approve
+}
+
+enum InvoiceStatusState{
+    
+    INVOICE_IN_PROCESS = 0;
+    INVOICE_APPROVED = 1;
+    INVOICE_SENT = 2;
+    INVOICE_RECEIVED = 3;
+    INVOICE_READY = 4;
+    INVOICE_PAID = 5;
+    INVOICE_WRITEOFF = 6;
+    INVOICE_CANCELLED = 7;
+}
+
+service InvoiceStatusProcessor{
+    
+    rpc MarkReady(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkApproved(routines.StateProposal) returns (routines.Response) {}
+    rpc EnableSalesInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Receive(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkReceive(routines.StateProposal) returns (routines.Response) {}
+    rpc Pay(routines.StateProposal) returns (routines.Response) {}
+    rpc WriteOff(routines.StateProposal) returns (routines.Response) {}
+    rpc EnablePurchInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+    rpc Unpay(routines.StateProposal) returns (routines.Response) {}
+    rpc Send(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum TaskEvent{
+    
+    TASK_CANCEL = 0;  // Cancel
+    TASK_DELEGATE = 1;  // Delegate
+    TASK_COMPLETE = 2;  // Complete
+}
+
+enum TaskState{
+    
+    CAL_ACCEPTED = 0;
+    CAL_COMPLETED = 1;
+}
+
+service TaskProcessor{
+    
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum WorkloadEvent{
+    
+    WORKLOAD_DEFINITION_COMPLETE = 0;  // Definition Complete
+    WORKLOAD_WORKLOAD_COMPLETED = 1;  // Workload Completed
+    WORKLOAD_CANCEL_WORKLOAD = 2;  // Cancel Workload
+    WORKLOAD_IMPLEMENTATION_COMPLETE = 3;  // Implementation Complete
+    WORKLOAD_APPROVE = 4;  // Approve
+    WORKLOAD_TESTING_COMPLETE = 5;  // Testing Complete
+}
+
+enum WorkloadState{
+    
+    WLST_IN_DESIGN = 0;
+    WLST_DEFINED = 1;
+    WLST_APPROVED = 2;
+    WLST_IMPLEMENTED = 3;
+    WLST_TESTED = 4;
+    WLST_COMPLETE = 5;
+    WLST_CANCELLED = 6;
+}
+
+service WorkloadProcessor{
+    
+    rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelWorkload(routines.StateProposal) returns (routines.Response) {}
+    rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+    rpc WorkloadCompleted(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProjectAssignmentEvent{
+    
+    PA_ASSIGNMENT_COMPLETE = 0;  // Assignment Complete
+}
+
+enum ProjectAssignmentState{
+    
+    PAS_ASSIGNED = 0;
+    PAS_COMPLETED = 1;
+}
+
+service ProjectAssignmentProcessor{
+    
+    rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum SprintStatusEvent{
+    
+    SS_PRODUCT_COMPLETE_WITH_SPRINT_ACTIVE = 0;  // Product Complete with sprint active
+    SS_SPRINT_COMPLETE = 1;  // Sprint Complete
+    SS_PROJECT_RE_OPEN_WITH_SPRINT_OPEN = 2;  // Project Re-Open with Sprint Open
+    SS_PRODUCT_COMPLETE_WITH_SPRINT_CLOSE = 3;  // Product Complete with sprint close
+}
+
+enum SprintStatusState{
+    
+    SPRINT_ACTIVE = 0;
+    SPRINT_CLOSED = 1;
+}
+
+service SprintStatusProcessor{
+    
+    rpc ProductCompleteWithSprintActive(routines.StateProposal) returns (routines.Response) {}
+    rpc ProductCompleteWithSprintClose(routines.StateProposal) returns (routines.Response) {}
+    rpc SprintComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc ProjectReOpenWithSprintOpen(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PicklistItemEvent{
+    
+    PI_CANCEL = 0;  // Cancel
+    PI_COMPLETE = 1;  // Complete
+}
+
+enum PicklistItemState{
+    
+    PICKITEM_PENDING = 0;
+    PICKITEM_COMPLETED = 1;
+    PICKITEM_CANCELLED = 2;
+}
+
+service PicklistItemProcessor{
+    
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum InventoryTransferEvent{
+    
+    IT_INVENTORY_REQUEST_SCHEDULED = 0;  // Inventory Request Scheduled
+    IT_SCHEDULED_INVENTORY_IN_ROUTE = 1;  // Scheduled Inventory In Route
+    IT_IN_ROUTE_TRANSFER_COMPLETED = 2;  // In Route Transfer Completed
+    IT_INVENTORY_REQUEST_IN_ROUTE = 3;  // Inventory Request In Route
+    IT_SCHEDULED_INVENTORY_COMPLETED = 4;  // Scheduled Inventory Completed
+    IT_INVENTORY_REQUEST_CANCELLED = 5;  // Inventory Request Cancelled
+    IT_INVENTORY_REQUEST_COMPLETED = 6;  // Inventory Request Completed
+    IT_SCHEDULED_INVENTORY_CANCELLED = 7;  // Scheduled Inventory Cancelled
+}
+
+enum InventoryTransferState{
+    
+    IXF_REQUESTED = 0;
+    IXF_SCHEDULED = 1;
+    IXF_EN_ROUTE = 2;
+    IXF_COMPLETE = 3;
+    IXF_CANCELLED = 4;
+}
+
+service InventoryTransferProcessor{
+    
+    rpc InventoryRequestScheduled(routines.StateProposal) returns (routines.Response) {}
+    rpc ScheduledInventoryInRoute(routines.StateProposal) returns (routines.Response) {}
+    rpc InRouteTransferCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc InventoryRequestInRoute(routines.StateProposal) returns (routines.Response) {}
+    rpc InventoryRequestCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc InventoryRequestCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc ScheduledInventoryCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc ScheduledInventoryCancelled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ScrumTaskEvent{
+    
+    ST_TASK_RE_OPEN = 0;  // Task Re-Open
+    ST_ACTIVATED = 1;  // Activated
+    ST_TASK_ON_HOLD = 2;  // Task On Hold
+    ST_TASK_COMPLETE_WITH_PROJECT_COMPLETE = 3;  // Task Complete with Project Complete
+    ST_TASK_COMPLETE = 4;  // Task Complete
+}
+
+enum ScrumTaskState{
+    
+    STS_CREATED = 0;
+    STS_CREATED_UA = 1;
+    STS_CREATED_AS = 2;
+    STS_CREATED_IP = 3;
+    STS_COMPLETED = 4;
+    STS_ON_HOLD = 5;
+    STS_CANCELLED = 6;
+}
+
+service ScrumTaskProcessor{
+    
+    rpc Activated(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskCompleteWithProjectComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskReOpen(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ExampleEvent{
+    
+    EXAMPLE_DEFINITION_COMPLETE = 0;  // Definition Complete
+    EXAMPLE_IMPLEMENTATION_COMPLETE = 1;  // Implementation Complete
+    EXAMPLE_EXAMPLE_COMPLETED = 2;  // Example Completed
+    EXAMPLE_CANCEL_EXAMPLE = 3;  // Cancel Example
+    EXAMPLE_APPROVE = 4;  // Approve
+    EXAMPLE_TESTING_COMPLETE = 5;  // Testing Complete
+}
+
+enum ExampleState{
+    
+    EXST_IN_DESIGN = 0;
+    EXST_DEFINED = 1;
+    EXST_APPROVED = 2;
+    EXST_IMPLEMENTED = 3;
+    EXST_TESTED = 4;
+    EXST_COMPLETE = 5;
+    EXST_CANCELLED = 6;
+}
+
+service ExampleProcessor{
+    
+    rpc CancelExample(routines.StateProposal) returns (routines.Response) {}
+    rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+    rpc ExampleCompleted(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum EventEvent{
+    
+    EVENT_CONFIRM = 0;  // Confirm
+    EVENT_DECLINE = 1;  // Decline
+    EVENT_CANCEL = 2;  // Cancel
+    EVENT_ACCEPT = 3;  // Accept
+    EVENT_DELEGATE = 4;  // Delegate
+    EVENT_COMPLETE = 5;  // Complete
+}
+
+enum EventState{
+    
+    CAL_TENTATIVE = 0;
+    CAL_CONFIRMED = 1;
+}
+
+service EventProcessor{
+    
+    rpc Decline(routines.StateProposal) returns (routines.Response) {}
+    rpc Accept(routines.StateProposal) returns (routines.Response) {}
+    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum NotApplicableEvent{
+    
+    NA_CLOSE_PROJECT = 0;  // Close project
+}
+
+enum NotApplicableState{
+    
+    _NA_ = 0;
+}
+
+service NotApplicableProcessor{
+    
+    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PaymentPreferenceEvent{
+    
+    PP_PAYMENT_AUTHORIZED = 0;  // Payment Authorized
+    PP_PAYMENT_RECEIVED = 1;  // Payment Received
+    PP_PAYMENT_CANCELLED = 2;  // Payment Cancelled
+    PP_PAYMENT_REFUNDED = 3;  // Payment Refunded
+    PP_PAYMENT_SETTLED = 4;  // Payment Settled
+}
+
+enum PaymentPreferenceState{
+    
+    PAYMENT_NOT_RECEIVED = 0;
+    PAYMENT_NOT_AUTH = 1;
+    PAYMENT_RECEIVED = 2;
+    PAYMENT_AUTHORIZED = 3;
+    PAYMENT_SETTLED = 4;
+    PAYMENT_DECLINED = 5;
+    PAYMENT_REFUNDED = 6;
+    PAYMENT_CANCELLED = 7;
+}
+
+service PaymentPreferenceProcessor{
+    
+    rpc PaymentRefunded(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentAuthorized(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentSettled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum FixedAssetMaintenanceEvent{
+    
+    FAM_CREATED_MAINTENANCE_SCHEDULED = 0;  // Created Maintenance Scheduled
+    FAM_IN_PROCESS_MAINTENANCE_COMPLETED = 1;  // In-Process Maintenance Completed
+    FAM_CREATED_MAINTENACE_CANCELLED = 2;  // Created Maintenace Cancelled
+    FAM_CREATED_MAINTENANCE_IN_PROCESS = 3;  // Created Maintenance In-Process
+    FAM_SCHEDULED_MAINTENACE_CANCELLED = 4;  // Scheduled Maintenace Cancelled
+    FAM_SCHEDULED_MAINTENACE_IN_PROCESS = 5;  // Scheduled Maintenace In-Process
+}
+
+enum FixedAssetMaintenanceState{
+    
+    FAM_CREATED = 0;
+    FAM_SCHEDULED = 1;
+    FAM_IN_PROCESS = 2;
+    FAM_COMPLETED = 3;
+    FAM_CANCELLED = 4;
+}
+
+service FixedAssetMaintenanceProcessor{
+    
+    rpc ScheduledMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc CreatedMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc ScheduledMaintenaceInProcess(routines.StateProposal) returns (routines.Response) {}
+    rpc CreatedMaintenanceScheduled(routines.StateProposal) returns (routines.Response) {}
+    rpc CreatedMaintenanceInProcess(routines.StateProposal) returns (routines.Response) {}
+    rpc InProcessMaintenanceCompleted(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ScrumProjectStatusEvent{
+    
+    SPS_RE_OPEN_PROJECT = 0;  // Re-Open project
+    SPS_CLOSE_PROJECT = 1;  // Close project
+}
+
+enum ScrumProjectStatusState{
+    
+    SPJ_ACTIVE = 0;
+    SPJ_CLOSED = 1;
+}
+
+service ScrumProjectStatusProcessor{
+    
+    rpc ReOpenProject(routines.StateProposal) returns (routines.Response) {}
+    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum BudgetEvent{
+    
+    BUDGET_REVIEW_BUDGET = 0;  // Review Budget
+    BUDGET_APPROVED_BUDGET = 1;  // Approved Budget
+    BUDGET_REJECT_BUDGET = 2;  // Reject Budget
+    BUDGET_ACCEPT_BUDGET = 3;  // Accept Budget
+    BUDGET_SUBMIT_BUDGET = 4;  // Submit Budget
+}
+
+enum BudgetState{
+    
+    BG_CREATED = 0;
+    BG_REVIEWED = 1;
+    BG_APPROVED = 2;
+    BG_REJECTED = 3;
+}
+
+service BudgetProcessor{
+    
+    rpc SubmitBudget(routines.StateProposal) returns (routines.Response) {}
+    rpc RejectBudget(routines.StateProposal) returns (routines.Response) {}
+    rpc ReviewBudget(routines.StateProposal) returns (routines.Response) {}
+    rpc AcceptBudget(routines.StateProposal) returns (routines.Response) {}
+    rpc ApprovedBudget(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum WorkEffortReviewEvent{
+    
+    WER_REVIEW_APPROVED = 0;  // Review Approved
+    WER_REVIEW_DELETED = 1;  // Review Deleted
+}
+
+enum WorkEffortReviewState{
+    
+    WERV_PENDING = 0;
+    WERV_APPROVED = 1;
+    WERV_DELETED = 2;
+}
+
+service WorkEffortReviewProcessor{
+    
+    rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
+    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum OrderReturnStatusForCustomerReturnsEvent{
+    
+    ORSFCR_RECEIVED_RETURN_REQUIRES_MANUAL_REFUND = 0;  // Received Return Requires Manual Refund
+    ORSFCR_RECEIVED_RETURN_COMPLETED = 1;  // Received Return Completed
+    ORSFCR_ACCEPTED_RETURN_RECEIVED = 2;  // Accepted Return Received
+    ORSFCR_REQUESTED_RETURN_CANCELLED = 3;  // Requested Return Cancelled
+    ORSFCR_RECEIVED_RETURN_CANCELLED = 4;  // Received Return Cancelled
+    ORSFCR_ACCEPTED_RETURN_CANCELLED = 5;  // Accepted Return Cancelled
+    ORSFCR_REQUESTED_RETURN_ACCEPTED = 6;  // Requested Return Accepted
+}
+
+enum OrderReturnStatusForCustomerReturnsState{
+    
+    RETURN_REQUESTED = 0;
+    RETURN_ACCEPTED = 1;
+    RETURN_RECEIVED = 2;
+    RETURN_COMPLETED = 3;
+    RETURN_MAN_REFUND = 4;
+    RETURN_CANCELLED = 5;
+}
+
+service OrderReturnStatusForCustomerReturnsProcessor{
+    
+    rpc AcceptedReturnReceived(routines.StateProposal) returns (routines.Response) {}
+    rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc ReceivedReturnRequiresManualRefund(routines.StateProposal) returns (routines.Response) {}
+    rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
+    rpc ReceivedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc ReceivedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PicklistEvent{
+    
+    PICKLIST_PRINT = 0;  // Print
+    PICKLIST_CANCEL = 1;  // Cancel
+    PICKLIST_PICK = 2;  // Pick
+    PICKLIST_ASSIGN = 3;  // Assign
+}
+
+enum PicklistState{
+    
+    PICKLIST_INPUT = 0;
+    PICKLIST_ASSIGNED = 1;
+    PICKLIST_PRINTED = 2;
+    PICKLIST_PICKED = 3;
+    PICKLIST_CANCELLED = 4;
+}
+
+service PicklistProcessor{
+    
+    rpc Print(routines.StateProposal) returns (routines.Response) {}
+    rpc Pick(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Assign(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PaymentStatusEvent{
+    
+    PS_PAYMENT_NOT_PAID = 0;  // Payment Not Paid
+    PS_PAYMENT_CONFIRMED = 1;  // Payment Confirmed
+    PS_PAYMENT_VOIDED = 2;  // Payment Voided
+    PS_PAYMENT_RECEIVED = 3;  // Payment Received
+    PS_PAYMENT_CANCELLED = 4;  // Payment Cancelled
+    PS_PAYMENT_CONFIRMED_TO_SENT = 5;  // Payment Confirmed to Sent
+    PS_PAYMENT_SEND = 6;  // Payment Send
+    PS_PAYMENT_CONFIRMED_TO_RECEIVED = 7;  // Payment Confirmed to Received
+}
+
+enum PaymentStatusState{
+    
+    PMNT_NOT_PAID = 0;
+    PMNT_SENT = 1;
+    PMNT_RECEIVED = 2;
+    PMNT_CONFIRMED = 3;
+    PMNT_CANCELLED = 4;
+    PMNT_VOID = 5;
+}
+
+service PaymentStatusProcessor{
+    
+    rpc PaymentConfirmedToSent(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentNotPaid(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentConfirmed(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentSend(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentVoided(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
+    rpc PaymentConfirmedToReceived(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum CommunicationEventRoleEvent{
+    
+    CER_READ = 0;  // Read
+    CER_COMPLETED = 1;  // Completed
+}
+
+enum CommunicationEventRoleState{
+    
+    COM_ROLE_CREATED = 0;
+    COM_ROLE_READ = 1;
+    COM_ROLE_COMPLETED = 2;
+}
+
+service CommunicationEventRoleProcessor{
+    
+    rpc Read(routines.StateProposal) returns (routines.Response) {}
+    rpc Completed(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum AllocationPlanItemStatusEvent{
+    
+    APIS_CANCEL = 0;  // Cancel
+    APIS_APPROVE = 1;  // Approve
+    APIS_CREATE = 2;  // Create
+    APIS_COMPLETE = 3;  // Complete
+}
+
+enum AllocationPlanItemStatusState{
+    
+    ALLOC_PLAN_ITEM_CRTD = 0;
+    ALLOC_PLAN_ITEM_APRV = 1;
+    ALLOC_PLAN_ITEM_CMPL = 2;
+    ALLOC_PLAN_ITEM_CNCL = 3;
+}
+
+service AllocationPlanItemStatusProcessor{
+    
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Create(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum FinancialAccountTransStatusEvent{
+    
+    FATS_SET_APPROVED_TO_CANCELED = 0;  // Set Approved to Canceled
+    FATS_SET_CREATED_TO_APPROVED = 1;  // Set Created to Approved
+    FATS_SET_CREATED_TO_CANCELED = 2;  // Set Created to Canceled
+}
+
+enum FinancialAccountTransStatusState{
+    
+    FINACT_TRNS_APPROVED = 0;
+    FINACT_TRNS_CREATED = 1;
+    FINACT_TRNS_CANCELED = 2;
+}
+
+service FinancialAccountTransStatusProcessor{
+    
+    rpc SetApprovedToCanceled(routines.StateProposal) returns (routines.Response) {}
+    rpc SetCreatedToApproved(routines.StateProposal) returns (routines.Response) {}
+    rpc SetCreatedToCanceled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum FinancialAccountStatusEvent{
+    
+    FAS_SET_MANUALLY_FROZEN = 0;  // Set Manually Frozen
+    FAS_MANUALLY_FREEZE = 1;  // Manually Freeze
+    FAS_CANCEL = 2;  // Cancel
+    FAS_RE_ACTIVATE = 3;  // Re-activate
+    FAS_SET_NEGATIVE_PENDING_REPLENISHMENT = 4;  // Set Negative Pending Replenishment
+}
+
+enum FinancialAccountStatusState{
+    
+    FNACT_ACTIVE = 0;
+    FNACT_NEGPENDREPL = 1;
+    FNACT_MANFROZEN = 2;
+    FNACT_CANCELLED = 3;
+}
+
+service FinancialAccountStatusProcessor{
+    
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc SetManuallyFrozen(routines.StateProposal) returns (routines.Response) {}
+    rpc ManuallyFreeze(routines.StateProposal) returns (routines.Response) {}
+    rpc SetNegativePendingReplenishment(routines.StateProposal) returns (routines.Response) {}
+    rpc ReActivate(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProjectStatusEvent{
+    
+    PS_CLOSE_PROJECT = 0;  // Close project
+}
+
+enum ProjectStatusState{
+    
+    PRJ_ACTIVE = 0;
+    PRJ_CLOSED = 1;
+}
+
+service ProjectStatusProcessor{
+    
+    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum CommunicationEventEvent{
+    
+    CE_RESOLVE = 0;  // Resolve
+    CE_REFER = 1;  // Refer
+    CE_SET_PENDING_ONLY_VISIBLE_TO_ORIGINATOR = 2;  // Set Pending, only visible to originator
+    CE_CANCEL = 3;  // Cancel
+    CE_CORRECTED = 4;  // Corrected
+    CE_BOUNCED = 5;  // Bounced
+    CE_ENTERED_VISIBLE_TO_ALL_PARTICIPANTS = 6;  // Entered,visible to all participants
+    CE_SET_IN_PROGRESS_WAITING_TO_BE_SEND = 7;  // Set In Progress, waiting to be send
+    CE_COMPLETE = 8;  // Complete
+}
+
+enum CommunicationEventState{
+    
+    COM_PENDING = 0;
+    COM_ENTERED = 1;
+    COM_IN_PROGRESS = 2;
+    COM_UNKNOWN_PARTY = 3;
+    COM_COMPLETE = 4;
+    COM_RESOLVED = 5;
+    COM_REFERRED = 6;
+    COM_BOUNCED = 7;
+    COM_CANCELLED = 8;
+}
+
+service CommunicationEventProcessor{
+    
+    rpc Corrected(routines.StateProposal) returns (routines.Response) {}
+    rpc Refer(routines.StateProposal) returns (routines.Response) {}
+    rpc Bounced(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc SetPendingOnlyVisibleToOriginator(routines.StateProposal) returns (routines.Response) {}
+    rpc SetInProgressWaitingToBeSend(routines.StateProposal) returns (routines.Response) {}
+    rpc EnteredVisibleToAllParticipants(routines.StateProposal) returns (routines.Response) {}
+    rpc Resolve(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ScrumAssignmentEvent{
+    
+    SA_ASSIGNMENT_COMPLETE = 0;  // Assignment Complete
+}
+
+enum ScrumAssignmentState{
+    
+    SCAS_ASSIGNED = 0;
+    SCAS_COMPLETED = 1;
+}
+
+service ScrumAssignmentProcessor{
+    
+    rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum CalendarEvent{
+    
+    CALENDAR_SEND = 0;  // Send
+    CALENDAR_CONFIRM = 1;  // Confirm
+    CALENDAR_DECLINE = 2;  // Decline
+    CALENDAR_TENTATIVELY_PLAN = 3;  // Tentatively Plan
+    CALENDAR_CANCEL = 4;  // Cancel
+    CALENDAR_ACCEPT = 5;  // Accept
+    CALENDAR_DELEGATE = 6;  // Delegate
+    CALENDAR_COMPLETE = 7;  // Complete
+}
+
+enum CalendarState{
+    
+    CAL_IN_PLANNING = 0;
+    CAL_PLANNED = 1;
+    CAL_NEEDS_ACTION = 2;
+    CAL_SENT = 3;
+    CAL_DECLINED = 4;
+    CAL_DELEGATED = 5;
+    CAL_CANCELLED = 6;
+}
+
+service CalendarProcessor{
+    
+    rpc Decline(routines.StateProposal) returns (routines.Response) {}
+    rpc TentativelyPlan(routines.StateProposal) returns (routines.Response) {}
+    rpc Accept(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+    rpc Complete(routines.StateProposal) returns (routines.Response) {}
+    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+    rpc Send(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ShipmentRouteSegmentCarrierServiceEvent{
+    
+    SRSCS_CONFIRM = 0;  // Confirm
+    SRSCS_VOID = 1;  // Void
+    SRSCS_ACCEPT = 2;  // Accept
+}
+
+enum ShipmentRouteSegmentCarrierServiceState{
+    
+    SHRSCS_NOT_STARTED = 0;
+    SHRSCS_CONFIRMED = 1;
+    SHRSCS_ACCEPTED = 2;
+    SHRSCS_VOIDED = 3;
+}
+
+service ShipmentRouteSegmentCarrierServiceProcessor{
+    
+    rpc Accept(routines.StateProposal) returns (routines.Response) {}
+    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+    rpc Void(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum GlReconciliationStatusEvent{
+    
+    GRS_SET_CREATED_TO_RECONCILED = 0;  // Set Created to Reconciled
+}
+
+enum GlReconciliationStatusState{
+    
+    GLREC_CREATED = 0;
+    GLREC_RECONCILED = 1;
+}
+
+service GlReconciliationStatusProcessor{
+    
+    rpc SetCreatedToReconciled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PartyEvent{
+    
+    PARTY_ASSIGNED = 0;  // Assigned
+    PARTY_DISABLE = 1;  // Disable
+    PARTY_CONVERT_LEAD_TO_CONTACT = 2;  // Convert Lead To Contact
+    PARTY_RE_ENABLE = 3;  // Re-Enable
+}
+
+enum PartyState{
+    
+    PARTY_ENABLED = 0;
+    PARTY_DISABLED = 1;
+}
+
+service PartyProcessor{
+    
+    rpc Assigned(routines.StateProposal) returns (routines.Response) {}
+    rpc ConvertLeadToContact(routines.StateProposal) returns (routines.Response) {}
+    rpc ReEnable(routines.StateProposal) returns (routines.Response) {}
+    rpc Disable(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ProjectTaskEvent{
+    
+    PT_ACTIVATED = 0;  // Activated
+    PT_TASK_ON_HOLD = 1;  // Task On Hold
+    PT_TASK_COMPLETE = 2;  // Task Complete
+}
+
+enum ProjectTaskState{
+    
+    PTS_CREATED = 0;
+    PTS_CREATED_UA = 1;
+    PTS_CREATED_AS = 2;
+    PTS_CREATED_IP = 3;
+    PTS_COMPLETED = 4;
+    PTS_ON_HOLD = 5;
+    PTS_CANCELLED = 6;
+}
+
+service ProjectTaskProcessor{
+    
+    rpc Activated(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ShipmentEvent{
+    
+    SHIPMENT_SHIP = 0;  // Ship
+    SHIPMENT_PACK = 1;  // Pack
+    SHIPMENT_DELIVER = 2;  // Deliver
+    SHIPMENT_CANCEL = 3;  // Cancel
+    SHIPMENT_PICK = 4;  // Pick
+    SHIPMENT_SCHEDULE = 5;  // Schedule
+}
+
+enum ShipmentState{
+    
+    SHIPMENT_INPUT = 0;
+    SHIPMENT_SCHEDULED = 1;
+    SHIPMENT_PICKED = 2;
+    SHIPMENT_PACKED = 3;
+    SHIPMENT_SHIPPED = 4;
+    SHIPMENT_DELIVERED = 5;
+    SHIPMENT_CANCELLED = 6;
+}
+
+service ShipmentProcessor{
+    
+    rpc Deliver(routines.StateProposal) returns (routines.Response) {}
+    rpc Pick(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+    rpc Schedule(routines.StateProposal) returns (routines.Response) {}
+    rpc Ship(routines.StateProposal) returns (routines.Response) {}
+    rpc Pack(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum OrderItemEvent{
+    
+    OI_APPROVE_ITEM = 0;  // Approve Item
+    OI_REJECT_ITEM = 1;  // Reject Item
+    OI_COMPLETE_ITEM = 2;  // Complete Item
+    OI_CANCEL_ITEM = 3;  // Cancel Item
+}
+
+enum OrderItemState{
+    
+    ITEM_CREATED = 0;
+    ITEM_APPROVED = 1;
+    ITEM_COMPLETED = 2;
+    ITEM_REJECTED = 3;
+    ITEM_CANCELLED = 4;
+}
+
+service OrderItemProcessor{
+    
+    rpc CancelItem(routines.StateProposal) returns (routines.Response) {}
+    rpc CompleteItem(routines.StateProposal) returns (routines.Response) {}
+    rpc ApproveItem(routines.StateProposal) returns (routines.Response) {}
+    rpc RejectItem(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum CustomRequestStatusEvent{
+    
+    CRS_REVIEW_REQUEST = 0;  // Review Request
+    CRS_COMPLETE_REQUEST = 1;  // Complete Request
+    CRS_CANCEL_REQUEST = 2;  // Cancel Request
+    CRS_RE_OPEN_REQUEST = 3;  // Re-open Request
+    CRS_REJECT_REQUEST = 4;  // Reject Request
+    CRS_PENDING_CUSTOMER = 5;  // Pending customer
+    CRS_ACCEPT_REQUEST = 6;  // Accept Request
+    CRS_SUBMIT_REQUEST = 7;  // Submit Request
+}
+
+enum CustomRequestStatusState{
+    
+    CRQ_DRAFT = 0;
+    CRQ_SUBMITTED = 1;
+    CRQ_ACCEPTED = 2;
+    CRQ_REVIEWED = 3;
+    CRQ_COMPLETED = 4;
+    CRQ_REOPENED = 5;
+    CRQ_PENDING = 6;
+    CRQ_REJECTED = 7;
+    CRQ_CANCELLED = 8;
+}
+
+service CustomRequestStatusProcessor{
+    
+    rpc RejectRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc AcceptRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc PendingCustomer(routines.StateProposal) returns (routines.Response) {}
+    rpc CompleteRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc ReOpenRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc SubmitRequest(routines.StateProposal) returns (routines.Response) {}
+    rpc ReviewRequest(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum LeadStatusEvent{
+    
+    LS_QUALIFIED = 0;  // Qualified
+    LS_CONVERTED = 1;  // Converted
+    LS_DISABLED = 2;  // Disabled
+}
+
+enum LeadStatusState{
+    
+    LEAD_ASSIGNED = 0;
+    LEAD_CONVERTED = 1;
+    LEAD_QUALIFIED = 2;
+}
+
+service LeadStatusProcessor{
+    
+    rpc Converted(routines.StateProposal) returns (routines.Response) {}
+    rpc Qualified(routines.StateProposal) returns (routines.Response) {}
+    rpc Disabled(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum NonSerializedInventoryItemEvent{
+    
+    NSII_MARK_RETURN_DEFECTIVE = 0;  // Mark Return Defective
+    NSII_MAKE_RETURN_HELD = 1;  // Make Return Held
+}
+
+enum NonSerializedInventoryItemState{
+    
+    INV_NS_ON_HOLD = 0;
+    INV_NS_RETURNED = 1;
+    INV_NS_DEFECTIVE = 2;
+}
+
+service NonSerializedInventoryItemProcessor{
+    
+    rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
+    rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum OrderEvent{
+    
+    ORDER_PROCESS_ORDER = 0;  // Process Order
+    ORDER_SEND_ORDER = 1;  // Send Order
+    ORDER_REJECT_ORDER = 2;  // Reject Order
+    ORDER_APPROVE_ORDER = 3;  // Approve Order
+    ORDER_ORDER_CANCELLED = 4;  // Order Cancelled
+    ORDER_HOLD_ORDER = 5;  // Hold Order
+    ORDER_CANCEL_ORDER = 6;  // Cancel Order
+    ORDER_COMPLETE_ORDER = 7;  // Complete Order
+    ORDER_ORDER_COMPLETED = 8;  // Order Completed
+}
+
+enum OrderState{
+    
+    ORDER_CREATED = 0;
+    ORDER_SENT = 1;
+    ORDER_PROCESSING = 2;
+    ORDER_APPROVED = 3;
+    ORDER_HOLD = 4;
+    ORDER_COMPLETED = 5;
+    ORDER_REJECTED = 6;
+    ORDER_CANCELLED = 7;
+}
+
+service OrderProcessor{
+    
+    rpc SendOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc OrderCancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc ProcessOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc CompleteOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc HoldOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc ApproveOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc OrderCompleted(routines.StateProposal) returns (routines.Response) {}
+    rpc CancelOrder(routines.StateProposal) returns (routines.Response) {}
+    rpc RejectOrder(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum TimesheetEvent{
+    
+    TIMESHEET_CONFIRM_COMPLETE = 0;  // Confirm complete
+    TIMESHEET_APPROVE = 1;  // Approve
+}
+
+enum TimesheetState{
+    
+    TIMESHEET_IN_PROCESS = 0;
+    TIMESHEET_COMPLETED = 1;
+    TIMESHEET_APPROVED = 2;
+}
+
+service TimesheetProcessor{
+    
+    rpc ConfirmComplete(routines.StateProposal) returns (routines.Response) {}
+    rpc Approve(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum PartyInvitationEvent{
+    
+    PI_ACCEPTED = 0;  // Accepted
+    PI_DECLINED = 1;  // Declined
+    PI_CANCELLED = 2;  // Cancelled
+    PI_PENDING = 3;  // Pending
+}
+
+enum PartyInvitationState{
+    
+    PARTYINV_SENT = 0;
+    PARTYINV_PENDING = 1;
+    PARTYINV_ACCEPTED = 2;
+    PARTYINV_DECLINED = 3;
+    PARTYINV_CANCELLED = 4;
+}
+
+service PartyInvitationProcessor{
+    
+    rpc Declined(routines.StateProposal) returns (routines.Response) {}
+    rpc Cancelled(routines.StateProposal) returns (routines.Response) {}
+    rpc Pending(routines.StateProposal) returns (routines.Response) {}
+    rpc Accepted(routines.StateProposal) returns (routines.Response) {}
+}
+
+enum ContactListPartyEvent{
+    
+    CLP_SUBSCRIPTION_ACCEPTED_UNSUBSCRIBED = 0;  // Subscription Accepted - Unsubscribed
+    CLP_PENDING_ACCEPT = 1;  // Pending Accept
+    CLP_REJECT = 2;  // Reject
+    CLP_SUBSCRIPTION_IN_USE_UNSUBSCRIBED = 3;  // Subscription In Use - Unsubscribed
+    CLP_ACCEPT = 4;  // Accept
+    CLP_INVALID = 5;  // Invalid
+    CLP_SUBSCRIPTION_INVALID_UNSUBSCRIBED = 6;  // Subscription Invalid - Unsubscribed
+    CLP_SUBSCRIPTION_ACCEPTED_UNSUBSCRIPTION_PENDING = 7;  // Subscription Accepted - Unsubscription Pending
+    CLP_SUBSCRIPTION_IN_USE_UNSUBSCRIPTION_PENDING = 8;  // Subscription In Use - Unsubscription Pending
+    CLP_SUBSCRIPTION_INVALID_UNSUBSCRIPTION_PENDING = 9;  // Subscription Invalid - Unsubscription Pending
+    CLP_SUBSCRIPTION_PENDING_UNSUBSCRIPTION_PENDING = 10;  // Subscription Pending - Unsubscription Pending
+    CLP_LOCKED_IN_USE = 11;  // Locked - In Use
+}
+
+enum ContactListPartyState{
+    
+    CLPT_PENDING = 0;
+    CLPT_ACCEPTED = 1;
+    CLPT_REJECTED = 2;
+    CLPT_IN_USE = 3;
+    CLPT_INVALID = 4;
+    CLPT_UNSUBS_PENDING = 5;
+    CLPT_UNSUBSCRIBED = 6;
+}
+
+service ContactListPartyProcessor{
+    
+    rpc SubscriptionInUseUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionPendingUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+    rpc Reject(routines.StateProposal) returns (routines.Response) {}
+    rpc PendingAccept(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionInUseUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+    rpc Accept(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionAcceptedUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionInvalidUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionAcceptedUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+    rpc SubscriptionInvalidUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+    rpc LockedInUse(routines.StateProposal) returns (routines.Response) {}
+    rpc Invalid(routines.StateProposal) returns (routines.Response) {}
+}
+
+
+// total: 56
