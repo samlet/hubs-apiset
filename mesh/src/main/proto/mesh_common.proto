@@ -7,8 +7,14 @@ option objc_class_prefix = "MCP";
 
 package mesh;
 
+import "google/protobuf/any.proto";
+
 message MeshPackage{
   string name=1;
   repeated string element=2;
+}
+
+message MeshEvent{
+  map<string, google.protobuf.Any> params=1;
 }
 
