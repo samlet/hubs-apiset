@@ -11,3 +11,4 @@ message MeshPackage{
   string name=1;
   repeated string element=2;
 }
+

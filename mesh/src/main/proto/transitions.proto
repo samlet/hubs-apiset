@@ -79,9 +79,21 @@ enum ProductReviewEvent{
 
 enum ProductReviewState{
     
+//	ProductReview: PRR_PENDING
+//	├── Review Approved: Approved
+//	└── Review Deleted: Deleted
+
     PRR_PENDING = 0;
+    
+//	ProductReview: PRR_APPROVED
+//	└── Review Deleted: Deleted
+
     PRR_APPROVED = 1;
+    
+//	ProductReview: PRR_DELETED
+
     PRR_DELETED = 2;
+    
 }
 
 service ProductReviewProcessor{
@@ -98,9 +110,22 @@ enum PurchaseShipmentEvent{
 
 enum PurchaseShipmentState{
     
+//	PurchaseShipment: PURCH_SHIP_CREATED
+//	├── Receive: Received
+//	└── Ship: Shipped
+
     PURCH_SHIP_CREATED = 0;
+    
+//	PurchaseShipment: PURCH_SHIP_SHIPPED
+//	└── Receive: Received
+
     PURCH_SHIP_SHIPPED = 1;
+    
+//	PurchaseShipment: PURCH_SHIP_RECEIVED
+//	└── Ship: Shipped
+
     PURCH_SHIP_RECEIVED = 2;
+    
 }
 
 service PurchaseShipmentProcessor{
@@ -126,13 +151,45 @@ enum ContentEvent{
 
 enum ContentState{
     
+//	Content: CTNT_IN_PROGRESS
+//	├── First draft: Initial Draft
+//	├── published, not revised: Published
+//	├── Available: Available
+//	└── Image Pending: Pending
+
     CTNT_IN_PROGRESS = 0;
+    
+//	Content: CTNT_INITIAL_DRAFT
+//	├── Draft revised: Revised Draft
+//	└── Initial draft published: Published
+
     CTNT_INITIAL_DRAFT = 1;
+    
+//	Content: CTNT_REVISED_DRAFT
+//	├── Final draft: Final Draft
+//	└── Revised draft published: Published
+
     CTNT_REVISED_DRAFT = 2;
+    
+//	Content: CTNT_FINAL_DRAFT
+//	└── Final draft Published: Published
+
     CTNT_FINAL_DRAFT = 3;
+    
+//	Content: CTNT_PUBLISHED
+//	└── Deactivated: Deactivated
+
     CTNT_PUBLISHED = 4;
+    
+//	Content: CTNT_AVAILABLE
+//	└── Available to Deactivated: Deactivated
+
     CTNT_AVAILABLE = 5;
+    
+//	Content: CTNT_DEACTIVATED
+
     CTNT_DEACTIVATED = 6;
+    
 }
 
 service ContentProcessor{
@@ -158,9 +215,20 @@ enum KeywordEvent{
 
 enum KeywordState{
     
+//	Keyword: KW_APPROVED
+
     KW_APPROVED = 0;
+    
+//	Keyword: KW_PENDING
+//	├── Review Approved: Approved
+//	└── Review Disapproved: Disapproved
+
     KW_PENDING = 1;
+    
+//	Keyword: KW_DISAPPROVED
+
     KW_DISAPPROVED = 2;
+    
 }
 
 service KeywordProcessor{
@@ -195,17 +263,72 @@ enum SerializedInventoryItemEvent{
 
 enum SerializedInventoryItemState{
     
+//	SerializedInventoryItem: INV_ON_ORDER
+//	└── Order Arrived: Available
+
     INV_ON_ORDER = 0;
+    
+//	SerializedInventoryItem: INV_AVAILABLE
+//	├── Promise: Promised
+//	├── Hold: On Hold
+//	├── Mark As Defective: Defective
+//	└── Being Transfered: Being Transfered
+
     INV_AVAILABLE = 1;
+    
+//	SerializedInventoryItem: INV_PROMISED
+//	├── Cancel Promise: Available
+//	├── Deliver: Delivered
+//	├── Mark As Defective: Defective
+//	└── Being Transfered (Promised): Being Transfered (Promised)
+
     INV_PROMISED = 2;
+    
+//	SerializedInventoryItem: INV_DELIVERED
+//	├── Return Status Pending: Returned
+//	└── Activate: Activated
+
     INV_DELIVERED = 3;
+    
+//	SerializedInventoryItem: INV_ACTIVATED
+//	├── Deactivate: Deactivated
+//	└── Return Status Pending: Returned
+
     INV_ACTIVATED = 4;
+    
+//	SerializedInventoryItem: INV_DEACTIVATED
+//	├── Hold Inactive: On Hold
+//	└── Return Inactive: Returned
+
     INV_DEACTIVATED = 5;
+    
+//	SerializedInventoryItem: INV_ON_HOLD
+//	├── Release Hold: Available
+//	└── Mark Held Defective: Defective
+
     INV_ON_HOLD = 6;
+    
+//	SerializedInventoryItem: INV_BEING_TRANSFERED
+//	└── Transfer Complete: Available
+
     INV_BEING_TRANSFERED = 7;
+    
+//	SerializedInventoryItem: INV_BEING_TRANS_PRM
+//	└── Transfer Complete (Promised): Promised
+
     INV_BEING_TRANS_PRM = 8;
+    
+//	SerializedInventoryItem: INV_RETURNED
+//	├── Make Return Available: Available
+//	├── Make Return Held: On Hold
+//	└── Mark Return Defective: Defective
+
     INV_RETURNED = 9;
+    
+//	SerializedInventoryItem: INV_DEFECTIVE
+
     INV_DEFECTIVE = 10;
+    
 }
 
 service SerializedInventoryItemProcessor{
@@ -242,10 +365,27 @@ enum AllocationPlanStatusEvent{
 
 enum AllocationPlanStatusState{
     
+//	AllocationPlanStatus: ALLOC_PLAN_CREATED
+//	├── Approve: Approved
+//	└── Cancel: Cancelled
+
     ALLOC_PLAN_CREATED = 0;
+    
+//	AllocationPlanStatus: ALLOC_PLAN_APPROVED
+//	├── Create: Created
+//	├── Complete: Completed
+//	└── Cancel: Cancelled
+
     ALLOC_PLAN_APPROVED = 1;
+    
+//	AllocationPlanStatus: ALLOC_PLAN_COMPLETED
+
     ALLOC_PLAN_COMPLETED = 2;
+    
+//	AllocationPlanStatus: ALLOC_PLAN_CANCELLED
+
     ALLOC_PLAN_CANCELLED = 3;
+    
 }
 
 service AllocationPlanStatusProcessor{
@@ -265,10 +405,26 @@ enum QuoteStatusEvent{
 
 enum QuoteStatusState{
     
+//	QuoteStatus: QUO_CREATED
+//	├── Accept Quote: Approved
+//	└── Reject Quote: Rejected
+
     QUO_CREATED = 0;
+    
+//	QuoteStatus: QUO_APPROVED
+//	├── Order Quote: Ordered
+//	└── Reject Quote: Rejected
+
     QUO_APPROVED = 1;
+    
+//	QuoteStatus: QUO_ORDERED
+
     QUO_ORDERED = 2;
+    
+//	QuoteStatus: QUO_REJECTED
+
     QUO_REJECTED = 3;
+    
 }
 
 service QuoteStatusProcessor{
@@ -288,11 +444,33 @@ enum OrderDeliveryScheduleEvent{
 
 enum OrderDeliveryScheduleState{
     
+//	OrderDeliverySchedule: ODS_SUBMITTED
+//	├── Accept Delivery Information: Accepted
+//	└── Cancel Delivery: Delivery Cancelled
+
     ODS_SUBMITTED = 0;
+    
+//	OrderDeliverySchedule: ODS_ACCEPTED
+//	├── Approve Delivery Schedule: Schedule Approved
+//	└── Cancel Delivery: Delivery Cancelled
+
     ODS_ACCEPTED = 1;
+    
+//	OrderDeliverySchedule: ODS_APPROVED
+//	├── Arrange Delivery: Delivery Arranged
+//	└── Cancel Delivery: Delivery Cancelled
+
     ODS_APPROVED = 2;
+    
+//	OrderDeliverySchedule: ODS_ARRANGED
+//	└── Cancel Delivery: Delivery Cancelled
+
     ODS_ARRANGED = 3;
+    
+//	OrderDeliverySchedule: ODS_CANCELLED
+
     ODS_CANCELLED = 4;
+    
 }
 
 service OrderDeliveryScheduleProcessor{
@@ -310,8 +488,15 @@ enum ProductStatusEvent{
 
 enum ProductStatusState{
     
+//	ProductStatus: PRODUCT_ACTIVE
+//	└── Product Complete: Closed
+
     PRODUCT_ACTIVE = 0;
+    
+//	ProductStatus: PRODUCT_CLOSED
+
     PRODUCT_CLOSED = 1;
+    
 }
 
 service ProductStatusProcessor{
@@ -326,8 +511,15 @@ enum PartyRelationshipEvent{
 
 enum PartyRelationshipState{
     
+//	PartyRelationship: PARTYREL_CREATED
+//	└── Expired: Expired
+
     PARTYREL_CREATED = 0;
+    
+//	PartyRelationship: PARTYREL_EXPIRED
+
     PARTYREL_EXPIRED = 1;
+    
 }
 
 service PartyRelationshipProcessor{
@@ -347,11 +539,32 @@ enum OrderReturnStatusForSupplierReturnsEvent{
 
 enum OrderReturnStatusForSupplierReturnsState{
     
+//	OrderReturnStatusForSupplierReturns: SUP_RETURN_REQUESTED
+//	├── Requested Return Accepted: Accepted
+//	└── Requested Return Cancelled: Cancelled
+
     SUP_RETURN_REQUESTED = 0;
+    
+//	OrderReturnStatusForSupplierReturns: SUP_RETURN_ACCEPTED
+//	├── Accepted Return Shipped: Shipped
+//	└── Accepted Return Cancelled: Cancelled
+
     SUP_RETURN_ACCEPTED = 1;
+    
+//	OrderReturnStatusForSupplierReturns: SUP_RETURN_SHIPPED
+//	├── Shipped Return Completed: Completed
+//	└── Shipped Return Cancelled: Cancelled
+
     SUP_RETURN_SHIPPED = 2;
+    
+//	OrderReturnStatusForSupplierReturns: SUP_RETURN_COMPLETED
+
     SUP_RETURN_COMPLETED = 3;
+    
+//	OrderReturnStatusForSupplierReturns: SUP_RETURN_CANCELLED
+
     SUP_RETURN_CANCELLED = 4;
+    
 }
 
 service OrderReturnStatusForSupplierReturnsProcessor{
@@ -376,13 +589,44 @@ enum ProductionRunStatusEvent{
 
 enum ProductionRunStatusState{
     
+//	ProductionRunStatus: PRUN_CREATED
+//	├── Confirm: Confirmed
+//	├── Schedule: Scheduled
+//	├── Start: Running
+//	└── Cancel: Cancelled
+
     PRUN_CREATED = 0;
+    
+//	ProductionRunStatus: PRUN_SCHEDULED
+//	├── Confirm: Confirmed
+//	├── Start: Running
+//	└── Cancel: Cancelled
+
     PRUN_SCHEDULED = 1;
+    
+//	ProductionRunStatus: PRUN_DOC_PRINTED
+//	└── Start: Running
+
     PRUN_DOC_PRINTED = 2;
+    
+//	ProductionRunStatus: PRUN_RUNNING
+//	└── Complete: Completed
+
     PRUN_RUNNING = 3;
+    
+//	ProductionRunStatus: PRUN_COMPLETED
+//	└── Close: Closed
+
     PRUN_COMPLETED = 4;
+    
+//	ProductionRunStatus: PRUN_CLOSED
+
     PRUN_CLOSED = 5;
+    
+//	ProductionRunStatus: PRUN_CANCELLED
+
     PRUN_CANCELLED = 6;
+    
 }
 
 service ProductionRunStatusProcessor{
@@ -404,11 +648,31 @@ enum ProjectEvent{
 
 enum ProjectState{
     
+//	Project: WEPR_PLANNING
+//	└── Begin Project: In Progress
+
     WEPR_PLANNING = 0;
+    
+//	Project: WEPR_IN_PROGRESS
+//	├── Begin Project: On Hold
+//	└── Cancel: Cancelled
+
     WEPR_IN_PROGRESS = 1;
+    
+//	Project: WEPR_COMPLETE
+
     WEPR_COMPLETE = 2;
+    
+//	Project: WEPR_ON_HOLD
+//	├── Resume Project: In Progress
+//	└── Cancel: Cancelled
+
     WEPR_ON_HOLD = 3;
+    
+//	Project: WEPR_CANCELLED
+
     WEPR_CANCELLED = 4;
+    
 }
 
 service ProjectProcessor{
@@ -427,11 +691,32 @@ enum RequirementStatusEvent{
 
 enum RequirementStatusState{
     
+//	RequirementStatus: REQ_PROPOSED
+//	├── Accept Requirement: Approved
+//	└── Reject Requirement: Rejected
+
     REQ_PROPOSED = 0;
+    
+//	RequirementStatus: REQ_CREATED
+//	├── Accept Requirement: Approved
+//	└── Reject Requirement: Rejected
+
     REQ_CREATED = 1;
+    
+//	RequirementStatus: REQ_APPROVED
+//	├── Order Requirement: Ordered
+//	└── Reject Requirement: Rejected
+
     REQ_APPROVED = 2;
+    
+//	RequirementStatus: REQ_ORDERED
+
     REQ_ORDERED = 3;
+    
+//	RequirementStatus: REQ_REJECTED
+
     REQ_REJECTED = 4;
+    
 }
 
 service RequirementStatusProcessor{
@@ -449,8 +734,16 @@ enum ManufacturingTaskAndRoutingStatusEvent{
 
 enum ManufacturingTaskAndRoutingStatusState{
     
+//	ManufacturingTaskAndRoutingStatus: ROU_ACTIVE
+//	└── Inactive: Not well defined and unusable
+
     ROU_ACTIVE = 0;
+    
+//	ManufacturingTaskAndRoutingStatus: ROU_INACTIVE
+//	└── Active: Well defined and usable
+
     ROU_INACTIVE = 1;
+    
 }
 
 service ManufacturingTaskAndRoutingStatusProcessor{
@@ -469,11 +762,32 @@ enum MarketingCampaignEvent{
 
 enum MarketingCampaignState{
     
+//	MarketingCampaign: MKTG_CAMP_PLANNED
+//	├── Approve Marketing Campaign: Approved
+//	└── Cancel Marketing Campaign: Cancelled
+
     MKTG_CAMP_PLANNED = 0;
+    
+//	MarketingCampaign: MKTG_CAMP_APPROVED
+//	├── Marketing Campaign In Progress: In Progress
+//	└── Cancel Marketing Campaign: Cancelled
+
     MKTG_CAMP_APPROVED = 1;
+    
+//	MarketingCampaign: MKTG_CAMP_INPROGRESS
+//	├── Complete Marketing Campaign: Completed
+//	└── Cancel Marketing Campaign: Cancelled
+
     MKTG_CAMP_INPROGRESS = 2;
+    
+//	MarketingCampaign: MKTG_CAMP_COMPLETED
+
     MKTG_CAMP_COMPLETED = 3;
+    
+//	MarketingCampaign: MKTG_CAMP_CANCELLED
+
     MKTG_CAMP_CANCELLED = 4;
+    
 }
 
 service MarketingCampaignProcessor{
@@ -502,14 +816,61 @@ enum InvoiceStatusEvent{
 
 enum InvoiceStatusState{
     
+//	InvoiceStatus: INVOICE_IN_PROCESS
+//	├── Mark Ready: Ready for Posting
+//	├── Cancel: Cancelled
+//	├── Send: Sent
+//	├── Receive: Received
+//	├── Approve: Approved
+//	└── Receive: Received
+
     INVOICE_IN_PROCESS = 0;
+    
+//	InvoiceStatus: INVOICE_APPROVED
+//	├── Send: Sent
+//	├── Mark Ready: Ready for Posting
+//	└── Cancel: Cancelled
+
     INVOICE_APPROVED = 1;
+    
+//	InvoiceStatus: INVOICE_SENT
+//	├── Mark Approved: Approved
+//	├── Mark Ready: Ready for Posting
+//	├── Receive: Received
+//	├── Cancel: Cancelled
+//	└── Enable sales invoice update: In-Process
+
     INVOICE_SENT = 2;
+    
+//	InvoiceStatus: INVOICE_RECEIVED
+//	├── Mark Receive: Ready for Posting
+//	├── Cancel: Cancelled
+//	├── Enable purch.invoice update: In-Process
+//	└── Approve: Approved
+
     INVOICE_RECEIVED = 3;
+    
+//	InvoiceStatus: INVOICE_READY
+//	├── Pay: Paid
+//	├── Write Off: Write Off
+//	└── Cancel: Cancelled
+
     INVOICE_READY = 4;
+    
+//	InvoiceStatus: INVOICE_PAID
+//	├── Unpay: Ready for Posting
+//	└── Cancel: Cancelled
+
     INVOICE_PAID = 5;
+    
+//	InvoiceStatus: INVOICE_WRITEOFF
+
     INVOICE_WRITEOFF = 6;
+    
+//	InvoiceStatus: INVOICE_CANCELLED
+
     INVOICE_CANCELLED = 7;
+    
 }
 
 service InvoiceStatusProcessor{
@@ -537,8 +898,17 @@ enum TaskEvent{
 
 enum TaskState{
     
+//	Task: CAL_ACCEPTED
+//	├── Complete: Completed
+//	├── Cancel: Cancelled
+//	└── Delegate: Delegated
+
     CAL_ACCEPTED = 0;
+    
+//	Task: CAL_COMPLETED
+
     CAL_COMPLETED = 1;
+    
 }
 
 service TaskProcessor{
@@ -560,13 +930,44 @@ enum WorkloadEvent{
 
 enum WorkloadState{
     
+//	Workload: WLST_IN_DESIGN
+//	├── Definition Complete: Defined
+//	└── Cancel Workload: Cancelled
+
     WLST_IN_DESIGN = 0;
+    
+//	Workload: WLST_DEFINED
+//	├── Approve: Approved
+//	└── Cancel Workload: Cancelled
+
     WLST_DEFINED = 1;
+    
+//	Workload: WLST_APPROVED
+//	├── Implementation Complete: Implemented
+//	└── Cancel Workload: Cancelled
+
     WLST_APPROVED = 2;
+    
+//	Workload: WLST_IMPLEMENTED
+//	├── Testing Complete: Tested
+//	└── Cancel Workload: Cancelled
+
     WLST_IMPLEMENTED = 3;
+    
+//	Workload: WLST_TESTED
+//	├── Workload Completed: Complete
+//	└── Cancel Workload: Cancelled
+
     WLST_TESTED = 4;
+    
+//	Workload: WLST_COMPLETE
+
     WLST_COMPLETE = 5;
+    
+//	Workload: WLST_CANCELLED
+
     WLST_CANCELLED = 6;
+    
 }
 
 service WorkloadProcessor{
@@ -586,8 +987,15 @@ enum ProjectAssignmentEvent{
 
 enum ProjectAssignmentState{
     
+//	ProjectAssignment: PAS_ASSIGNED
+//	└── Assignment Complete: Completed
+
     PAS_ASSIGNED = 0;
+    
+//	ProjectAssignment: PAS_COMPLETED
+
     PAS_COMPLETED = 1;
+    
 }
 
 service ProjectAssignmentProcessor{
@@ -605,8 +1013,18 @@ enum SprintStatusEvent{
 
 enum SprintStatusState{
     
+//	SprintStatus: SPRINT_ACTIVE
+//	├── Sprint Complete: Closed
+//	└── Product Complete with sprint active: Closed
+
     SPRINT_ACTIVE = 0;
+    
+//	SprintStatus: SPRINT_CLOSED
+//	├── Project Re-Open with Sprint Open: Active
+//	└── Product Complete with sprint close: Closed
+
     SPRINT_CLOSED = 1;
+    
 }
 
 service SprintStatusProcessor{
@@ -625,9 +1043,20 @@ enum PicklistItemEvent{
 
 enum PicklistItemState{
     
+//	PicklistItem: PICKITEM_PENDING
+//	├── Complete: Completed
+//	└── Cancel: Cancelled
+
     PICKITEM_PENDING = 0;
+    
+//	PicklistItem: PICKITEM_COMPLETED
+
     PICKITEM_COMPLETED = 1;
+    
+//	PicklistItem: PICKITEM_CANCELLED
+
     PICKITEM_CANCELLED = 2;
+    
 }
 
 service PicklistItemProcessor{
@@ -650,11 +1079,34 @@ enum InventoryTransferEvent{
 
 enum InventoryTransferState{
     
+//	InventoryTransfer: IXF_REQUESTED
+//	├── Inventory Request Scheduled: Scheduled
+//	├── Inventory Request In Route: En-Route
+//	├── Inventory Request Completed: Complete
+//	└── Inventory Request Cancelled: Cancelled
+
     IXF_REQUESTED = 0;
+    
+//	InventoryTransfer: IXF_SCHEDULED
+//	├── Scheduled Inventory In Route: En-Route
+//	├── Scheduled Inventory Completed: Complete
+//	└── Scheduled Inventory Cancelled: Cancelled
+
     IXF_SCHEDULED = 1;
+    
+//	InventoryTransfer: IXF_EN_ROUTE
+//	└── In Route Transfer Completed: Complete
+
     IXF_EN_ROUTE = 2;
+    
+//	InventoryTransfer: IXF_COMPLETE
+
     IXF_COMPLETE = 3;
+    
+//	InventoryTransfer: IXF_CANCELLED
+
     IXF_CANCELLED = 4;
+    
 }
 
 service InventoryTransferProcessor{
@@ -680,13 +1132,40 @@ enum ScrumTaskEvent{
 
 enum ScrumTaskState{
     
+//	ScrumTask: STS_CREATED
+//	├── Task Complete: Completed
+//	├── Task On Hold: On Hold
+//	├── Task On Hold: Cancelled
+//	└── Task Complete with Project Complete: Closed
+
     STS_CREATED = 0;
+    
+//	ScrumTask: STS_CREATED_UA
+
     STS_CREATED_UA = 1;
+    
+//	ScrumTask: STS_CREATED_AS
+
     STS_CREATED_AS = 2;
+    
+//	ScrumTask: STS_CREATED_IP
+
     STS_CREATED_IP = 3;
+    
+//	ScrumTask: STS_COMPLETED
+//	└── Task Re-Open: Created
+
     STS_COMPLETED = 4;
+    
+//	ScrumTask: STS_ON_HOLD
+//	└── Activated: Created
+
     STS_ON_HOLD = 5;
+    
+//	ScrumTask: STS_CANCELLED
+
     STS_CANCELLED = 6;
+    
 }
 
 service ScrumTaskProcessor{
@@ -710,13 +1189,54 @@ enum ExampleEvent{
 
 enum ExampleState{
     
+//	Example: EXST_IN_DESIGN
+//	├── Definition Complete: Defined
+//	├── Cancel Example: Cancelled
+//	├── Definition Complete: Defined
+//	└── Cancel Example: Cancelled
+
     EXST_IN_DESIGN = 0;
+    
+//	Example: EXST_DEFINED
+//	├── Approve: Approved
+//	├── Cancel Example: Cancelled
+//	├── Approve: Approved
+//	└── Cancel Example: Cancelled
+
     EXST_DEFINED = 1;
+    
+//	Example: EXST_APPROVED
+//	├── Implementation Complete: Implemented
+//	├── Cancel Example: Cancelled
+//	├── Implementation Complete: Implemented
+//	└── Cancel Example: Cancelled
+
     EXST_APPROVED = 2;
+    
+//	Example: EXST_IMPLEMENTED
+//	├── Testing Complete: Tested
+//	├── Cancel Example: Cancelled
+//	├── Testing Complete: Tested
+//	└── Cancel Example: Cancelled
+
     EXST_IMPLEMENTED = 3;
+    
+//	Example: EXST_TESTED
+//	├── Example Completed: Complete
+//	├── Cancel Example: Cancelled
+//	├── Example Completed: Complete
+//	└── Cancel Example: Cancelled
+
     EXST_TESTED = 4;
+    
+//	Example: EXST_COMPLETE
+
     EXST_COMPLETE = 5;
+    
+//	Example: EXST_CANCELLED
+
     EXST_CANCELLED = 6;
+    
 }
 
 service ExampleProcessor{
@@ -741,8 +1261,20 @@ enum EventEvent{
 
 enum EventState{
     
+//	Event: CAL_TENTATIVE
+//	├── Accept: Accepted
+//	├── Decline: Declined
+//	├── Delegate: Delegated
+//	├── Cancel: Cancelled
+//	└── Confirm: Confirmed
+
     CAL_TENTATIVE = 0;
+    
+//	Event: CAL_CONFIRMED
+//	└── Complete: Completed
+
     CAL_CONFIRMED = 1;
+    
 }
 
 service EventProcessor{
@@ -762,7 +1294,12 @@ enum NotApplicableEvent{
 
 enum NotApplicableState{
     
+//	NotApplicable: _NA_
+//	├── Close project: Closed
+//	└── Close project: Closed
+
     _NA_ = 0;
+    
 }
 
 service NotApplicableProcessor{
@@ -781,14 +1318,45 @@ enum PaymentPreferenceEvent{
 
 enum PaymentPreferenceState{
     
+//	PaymentPreference: PAYMENT_NOT_RECEIVED
+//	├── Payment Received: Received
+//	└── Payment Cancelled: Cancelled
+
     PAYMENT_NOT_RECEIVED = 0;
+    
+//	PaymentPreference: PAYMENT_NOT_AUTH
+//	├── Payment Authorized: Authorized
+//	└── Payment Cancelled: Cancelled
+
     PAYMENT_NOT_AUTH = 1;
+    
+//	PaymentPreference: PAYMENT_RECEIVED
+
     PAYMENT_RECEIVED = 2;
+    
+//	PaymentPreference: PAYMENT_AUTHORIZED
+//	├── Payment Settled: Settled
+//	└── Payment Cancelled: Cancelled
+
     PAYMENT_AUTHORIZED = 3;
+    
+//	PaymentPreference: PAYMENT_SETTLED
+//	└── Payment Refunded: Refunded
+
     PAYMENT_SETTLED = 4;
+    
+//	PaymentPreference: PAYMENT_DECLINED
+
     PAYMENT_DECLINED = 5;
+    
+//	PaymentPreference: PAYMENT_REFUNDED
+
     PAYMENT_REFUNDED = 6;
+    
+//	PaymentPreference: PAYMENT_CANCELLED
+
     PAYMENT_CANCELLED = 7;
+    
 }
 
 service PaymentPreferenceProcessor{
@@ -812,11 +1380,32 @@ enum FixedAssetMaintenanceEvent{
 
 enum FixedAssetMaintenanceState{
     
+//	FixedAssetMaintenance: FAM_CREATED
+//	├── Created Maintenance Scheduled: Scheduled
+//	├── Created Maintenance In-Process: In Process
+//	└── Created Maintenace Cancelled: Cancelled
+
     FAM_CREATED = 0;
+    
+//	FixedAssetMaintenance: FAM_SCHEDULED
+//	├── Scheduled Maintenace In-Process: In Process
+//	└── Scheduled Maintenace Cancelled: Cancelled
+
     FAM_SCHEDULED = 1;
+    
+//	FixedAssetMaintenance: FAM_IN_PROCESS
+//	└── In-Process Maintenance Completed: Completed
+
     FAM_IN_PROCESS = 2;
+    
+//	FixedAssetMaintenance: FAM_COMPLETED
+
     FAM_COMPLETED = 3;
+    
+//	FixedAssetMaintenance: FAM_CANCELLED
+
     FAM_CANCELLED = 4;
+    
 }
 
 service FixedAssetMaintenanceProcessor{
@@ -837,8 +1426,16 @@ enum ScrumProjectStatusEvent{
 
 enum ScrumProjectStatusState{
     
+//	ScrumProjectStatus: SPJ_ACTIVE
+//	└── Close project: Closed
+
     SPJ_ACTIVE = 0;
+    
+//	ScrumProjectStatus: SPJ_CLOSED
+//	└── Re-Open project: Active
+
     SPJ_CLOSED = 1;
+    
 }
 
 service ScrumProjectStatusProcessor{
@@ -858,10 +1455,29 @@ enum BudgetEvent{
 
 enum BudgetState{
     
+//	Budget: BG_CREATED
+//	├── Review Budget: Reviewed
+//	├── Submit Budget: Approved
+//	└── Reject Budget: Rejected
+
     BG_CREATED = 0;
+    
+//	Budget: BG_REVIEWED
+//	├── Approved Budget: Approved
+//	└── Reject Budget: Rejected
+
     BG_REVIEWED = 1;
+    
+//	Budget: BG_APPROVED
+//	├── Accept Budget: Created
+//	└── Reject Budget: Rejected
+
     BG_APPROVED = 2;
+    
+//	Budget: BG_REJECTED
+
     BG_REJECTED = 3;
+    
 }
 
 service BudgetProcessor{
@@ -881,9 +1497,21 @@ enum WorkEffortReviewEvent{
 
 enum WorkEffortReviewState{
     
+//	WorkEffortReview: WERV_PENDING
+//	├── Review Approved: Approved
+//	└── Review Deleted: Deleted
+
     WERV_PENDING = 0;
+    
+//	WorkEffortReview: WERV_APPROVED
+//	└── Review Deleted: Deleted
+
     WERV_APPROVED = 1;
+    
+//	WorkEffortReview: WERV_DELETED
+
     WERV_DELETED = 2;
+    
 }
 
 service WorkEffortReviewProcessor{
@@ -905,12 +1533,37 @@ enum OrderReturnStatusForCustomerReturnsEvent{
 
 enum OrderReturnStatusForCustomerReturnsState{
     
+//	OrderReturnStatusForCustomerReturns: RETURN_REQUESTED
+//	├── Requested Return Accepted: Accepted
+//	└── Requested Return Cancelled: Cancelled
+
     RETURN_REQUESTED = 0;
+    
+//	OrderReturnStatusForCustomerReturns: RETURN_ACCEPTED
+//	├── Accepted Return Received: Received
+//	└── Accepted Return Cancelled: Cancelled
+
     RETURN_ACCEPTED = 1;
+    
+//	OrderReturnStatusForCustomerReturns: RETURN_RECEIVED
+//	├── Received Return Completed: Completed
+//	├── Received Return Cancelled: Cancelled
+//	└── Received Return Requires Manual Refund: Manual Refund Required
+
     RETURN_RECEIVED = 2;
+    
+//	OrderReturnStatusForCustomerReturns: RETURN_COMPLETED
+
     RETURN_COMPLETED = 3;
+    
+//	OrderReturnStatusForCustomerReturns: RETURN_MAN_REFUND
+
     RETURN_MAN_REFUND = 4;
+    
+//	OrderReturnStatusForCustomerReturns: RETURN_CANCELLED
+
     RETURN_CANCELLED = 5;
+    
 }
 
 service OrderReturnStatusForCustomerReturnsProcessor{
@@ -934,11 +1587,35 @@ enum PicklistEvent{
 
 enum PicklistState{
     
+//	Picklist: PICKLIST_INPUT
+//	├── Assign: Assigned
+//	├── Print: Printed
+//	├── Pick: Picked
+//	└── Cancel: Cancelled
+
     PICKLIST_INPUT = 0;
+    
+//	Picklist: PICKLIST_ASSIGNED
+//	├── Pick: Picked
+//	├── Print: Printed
+//	└── Cancel: Cancelled
+
     PICKLIST_ASSIGNED = 1;
+    
+//	Picklist: PICKLIST_PRINTED
+//	├── Pick: Picked
+//	└── Cancel: Cancelled
+
     PICKLIST_PRINTED = 2;
+    
+//	Picklist: PICKLIST_PICKED
+
     PICKLIST_PICKED = 3;
+    
+//	Picklist: PICKLIST_CANCELLED
+
     PICKLIST_CANCELLED = 4;
+    
 }
 
 service PicklistProcessor{
@@ -963,12 +1640,42 @@ enum PaymentStatusEvent{
 
 enum PaymentStatusState{
     
+//	PaymentStatus: PMNT_NOT_PAID
+//	├── Payment Send: Sent
+//	├── Payment Received: Received
+//	├── Payment Cancelled: Cancelled
+//	└── Payment Voided: Voided
+
     PMNT_NOT_PAID = 0;
+    
+//	PaymentStatus: PMNT_SENT
+//	├── Payment Confirmed: Confirmed
+//	├── Payment Voided: Voided
+//	└── Payment Not Paid: Not Paid
+
     PMNT_SENT = 1;
+    
+//	PaymentStatus: PMNT_RECEIVED
+//	├── Payment Confirmed: Confirmed
+//	├── Payment Voided: Voided
+//	└── Payment Not Paid: Not Paid
+
     PMNT_RECEIVED = 2;
+    
+//	PaymentStatus: PMNT_CONFIRMED
+//	├── Payment Confirmed to Sent: Sent
+//	└── Payment Confirmed to Received: Received
+
     PMNT_CONFIRMED = 3;
+    
+//	PaymentStatus: PMNT_CANCELLED
+
     PMNT_CANCELLED = 4;
+    
+//	PaymentStatus: PMNT_VOID
+
     PMNT_VOID = 5;
+    
 }
 
 service PaymentStatusProcessor{
@@ -991,9 +1698,21 @@ enum CommunicationEventRoleEvent{
 
 enum CommunicationEventRoleState{
     
+//	CommunicationEventRole: COM_ROLE_CREATED
+//	├── Read: Read
+//	└── Completed: Closed
+
     COM_ROLE_CREATED = 0;
+    
+//	CommunicationEventRole: COM_ROLE_READ
+//	└── Completed: Closed
+
     COM_ROLE_READ = 1;
+    
+//	CommunicationEventRole: COM_ROLE_COMPLETED
+
     COM_ROLE_COMPLETED = 2;
+    
 }
 
 service CommunicationEventRoleProcessor{
@@ -1012,10 +1731,27 @@ enum AllocationPlanItemStatusEvent{
 
 enum AllocationPlanItemStatusState{
     
+//	AllocationPlanItemStatus: ALLOC_PLAN_ITEM_CRTD
+//	├── Approve: Approved
+//	└── Cancel: Cancelled
+
     ALLOC_PLAN_ITEM_CRTD = 0;
+    
+//	AllocationPlanItemStatus: ALLOC_PLAN_ITEM_APRV
+//	├── Create: Created
+//	├── Complete: Completed
+//	└── Cancel: Cancelled
+
     ALLOC_PLAN_ITEM_APRV = 1;
+    
+//	AllocationPlanItemStatus: ALLOC_PLAN_ITEM_CMPL
+
     ALLOC_PLAN_ITEM_CMPL = 2;
+    
+//	AllocationPlanItemStatus: ALLOC_PLAN_ITEM_CNCL
+
     ALLOC_PLAN_ITEM_CNCL = 3;
+    
 }
 
 service AllocationPlanItemStatusProcessor{
@@ -1035,9 +1771,21 @@ enum FinancialAccountTransStatusEvent{
 
 enum FinancialAccountTransStatusState{
     
+//	FinancialAccountTransStatus: FINACT_TRNS_APPROVED
+//	└── Set Approved to Canceled: Canceled
+
     FINACT_TRNS_APPROVED = 0;
+    
+//	FinancialAccountTransStatus: FINACT_TRNS_CREATED
+//	├── Set Created to Approved: Approved
+//	└── Set Created to Canceled: Canceled
+
     FINACT_TRNS_CREATED = 1;
+    
+//	FinancialAccountTransStatus: FINACT_TRNS_CANCELED
+
     FINACT_TRNS_CANCELED = 2;
+    
 }
 
 service FinancialAccountTransStatusProcessor{
@@ -1058,10 +1806,30 @@ enum FinancialAccountStatusEvent{
 
 enum FinancialAccountStatusState{
     
+//	FinancialAccountStatus: FNACT_ACTIVE
+//	├── Set Negative Pending Replenishment: Negative Pending Replenishment
+//	├── Set Manually Frozen: Manually Frozen
+//	└── Cancel: Cancelled
+
     FNACT_ACTIVE = 0;
+    
+//	FinancialAccountStatus: FNACT_NEGPENDREPL
+//	├── Re-activate: Active
+//	├── Manually Freeze: Manually Frozen
+//	└── Cancel: Cancelled
+
     FNACT_NEGPENDREPL = 1;
+    
+//	FinancialAccountStatus: FNACT_MANFROZEN
+//	├── Re-activate: Active
+//	└── Cancel: Cancelled
+
     FNACT_MANFROZEN = 2;
+    
+//	FinancialAccountStatus: FNACT_CANCELLED
+
     FNACT_CANCELLED = 3;
+    
 }
 
 service FinancialAccountStatusProcessor{
@@ -1080,8 +1848,15 @@ enum ProjectStatusEvent{
 
 enum ProjectStatusState{
     
+//	ProjectStatus: PRJ_ACTIVE
+//	└── Close project: Closed
+
     PRJ_ACTIVE = 0;
+    
+//	ProjectStatus: PRJ_CLOSED
+
     PRJ_CLOSED = 1;
+    
 }
 
 service ProjectStatusProcessor{
@@ -1104,15 +1879,62 @@ enum CommunicationEventEvent{
 
 enum CommunicationEventState{
     
+//	CommunicationEvent: COM_PENDING
+//	├── Entered,visible to all participants: Entered
+//	├── Set In Progress, waiting to be send: In-Progress
+//	├── Complete: Closed
+//	└── Cancel: Cancelled
+
     COM_PENDING = 0;
+    
+//	CommunicationEvent: COM_ENTERED
+//	├── Set Pending, only visible to originator: Pending
+//	├── Set In Progress, waiting to be send: In-Progress
+//	├── Complete: Closed
+//	└── Cancel: Cancelled
+
     COM_ENTERED = 1;
+    
+//	CommunicationEvent: COM_IN_PROGRESS
+//	├── Complete: Closed
+//	├── Bounced: Bounced
+//	└── Cancel: Cancelled
+
     COM_IN_PROGRESS = 2;
+    
+//	CommunicationEvent: COM_UNKNOWN_PARTY
+//	├── Complete: Closed
+//	├── Corrected: Entered
+//	└── Cancel: Cancelled
+
     COM_UNKNOWN_PARTY = 3;
+    
+//	CommunicationEvent: COM_COMPLETE
+//	├── Resolve: Resolved
+//	├── Refer: Referred
+//	├── Bounced: Bounced
+//	└── Cancel: Cancelled
+
     COM_COMPLETE = 4;
+    
+//	CommunicationEvent: COM_RESOLVED
+//	└── Cancel: Cancelled
+
     COM_RESOLVED = 5;
+    
+//	CommunicationEvent: COM_REFERRED
+//	└── Cancel: Cancelled
+
     COM_REFERRED = 6;
+    
+//	CommunicationEvent: COM_BOUNCED
+
     COM_BOUNCED = 7;
+    
+//	CommunicationEvent: COM_CANCELLED
+
     COM_CANCELLED = 8;
+    
 }
 
 service CommunicationEventProcessor{
@@ -1135,8 +1957,15 @@ enum ScrumAssignmentEvent{
 
 enum ScrumAssignmentState{
     
+//	ScrumAssignment: SCAS_ASSIGNED
+//	└── Assignment Complete: Completed
+
     SCAS_ASSIGNED = 0;
+    
+//	ScrumAssignment: SCAS_COMPLETED
+
     SCAS_COMPLETED = 1;
+    
 }
 
 service ScrumAssignmentProcessor{
@@ -1158,13 +1987,46 @@ enum CalendarEvent{
 
 enum CalendarState{
     
+//	Calendar: CAL_IN_PLANNING
+//	├── Send: Planned
+//	└── Send: Needs Action (Approved)
+
     CAL_IN_PLANNING = 0;
+    
+//	Calendar: CAL_PLANNED
+//	└── Send: Needs Action (Approved)
+
     CAL_PLANNED = 1;
+    
+//	Calendar: CAL_NEEDS_ACTION
+//	├── Send: Sent
+//	├── Cancel: Cancelled
+//	├── Complete: Completed
+//	├── Tentatively Plan: Tentative
+//	└── Confirm: Confirmed
+
     CAL_NEEDS_ACTION = 2;
+    
+//	Calendar: CAL_SENT
+//	├── Decline: Declined
+//	├── Delegate: Delegated
+//	├── Cancel: Cancelled
+//	└── Accept: Accepted
+
     CAL_SENT = 3;
+    
+//	Calendar: CAL_DECLINED
+
     CAL_DECLINED = 4;
+    
+//	Calendar: CAL_DELEGATED
+
     CAL_DELEGATED = 5;
+    
+//	Calendar: CAL_CANCELLED
+
     CAL_CANCELLED = 6;
+    
 }
 
 service CalendarProcessor{
@@ -1188,10 +2050,26 @@ enum ShipmentRouteSegmentCarrierServiceEvent{
 
 enum ShipmentRouteSegmentCarrierServiceState{
     
+//	ShipmentRouteSegmentCarrierService: SHRSCS_NOT_STARTED
+//	└── Confirm: Confirmed
+
     SHRSCS_NOT_STARTED = 0;
+    
+//	ShipmentRouteSegmentCarrierService: SHRSCS_CONFIRMED
+//	├── Accept: Accepted
+//	└── Void: Voided
+
     SHRSCS_CONFIRMED = 1;
+    
+//	ShipmentRouteSegmentCarrierService: SHRSCS_ACCEPTED
+//	└── Void: Voided
+
     SHRSCS_ACCEPTED = 2;
+    
+//	ShipmentRouteSegmentCarrierService: SHRSCS_VOIDED
+
     SHRSCS_VOIDED = 3;
+    
 }
 
 service ShipmentRouteSegmentCarrierServiceProcessor{
@@ -1208,8 +2086,15 @@ enum GlReconciliationStatusEvent{
 
 enum GlReconciliationStatusState{
     
+//	GlReconciliationStatus: GLREC_CREATED
+//	└── Set Created to Reconciled: Reconciled
+
     GLREC_CREATED = 0;
+    
+//	GlReconciliationStatus: GLREC_RECONCILED
+
     GLREC_RECONCILED = 1;
+    
 }
 
 service GlReconciliationStatusProcessor{
@@ -1227,8 +2112,18 @@ enum PartyEvent{
 
 enum PartyState{
     
+//	Party: PARTY_ENABLED
+//	├── Disable: Disabled
+//	├── Assigned: Assigned
+//	└── Convert Lead To Contact: Converted
+
     PARTY_ENABLED = 0;
+    
+//	Party: PARTY_DISABLED
+//	└── Re-Enable: Enabled
+
     PARTY_DISABLED = 1;
+    
 }
 
 service PartyProcessor{
@@ -1248,13 +2143,38 @@ enum ProjectTaskEvent{
 
 enum ProjectTaskState{
     
+//	ProjectTask: PTS_CREATED
+//	├── Task Complete: Completed
+//	├── Task On Hold: On Hold
+//	└── Task On Hold: Cancelled
+
     PTS_CREATED = 0;
+    
+//	ProjectTask: PTS_CREATED_UA
+
     PTS_CREATED_UA = 1;
+    
+//	ProjectTask: PTS_CREATED_AS
+
     PTS_CREATED_AS = 2;
+    
+//	ProjectTask: PTS_CREATED_IP
+
     PTS_CREATED_IP = 3;
+    
+//	ProjectTask: PTS_COMPLETED
+
     PTS_COMPLETED = 4;
+    
+//	ProjectTask: PTS_ON_HOLD
+//	└── Activated: Created
+
     PTS_ON_HOLD = 5;
+    
+//	ProjectTask: PTS_CANCELLED
+
     PTS_CANCELLED = 6;
+    
 }
 
 service ProjectTaskProcessor{
@@ -1276,13 +2196,45 @@ enum ShipmentEvent{
 
 enum ShipmentState{
     
+//	Shipment: SHIPMENT_INPUT
+//	├── Schedule: Scheduled
+//	├── Pick: Picked
+//	├── Pack: Packed
+//	└── Cancel: Cancelled
+
     SHIPMENT_INPUT = 0;
+    
+//	Shipment: SHIPMENT_SCHEDULED
+//	├── Pick: Picked
+//	├── Pack: Packed
+//	└── Cancel: Cancelled
+
     SHIPMENT_SCHEDULED = 1;
+    
+//	Shipment: SHIPMENT_PICKED
+//	├── Pack: Packed
+//	└── Cancel: Cancelled
+
     SHIPMENT_PICKED = 2;
+    
+//	Shipment: SHIPMENT_PACKED
+//	└── Ship: Shipped
+
     SHIPMENT_PACKED = 3;
+    
+//	Shipment: SHIPMENT_SHIPPED
+//	└── Deliver: Delivered
+
     SHIPMENT_SHIPPED = 4;
+    
+//	Shipment: SHIPMENT_DELIVERED
+
     SHIPMENT_DELIVERED = 5;
+    
+//	Shipment: SHIPMENT_CANCELLED
+
     SHIPMENT_CANCELLED = 6;
+    
 }
 
 service ShipmentProcessor{
@@ -1305,11 +2257,32 @@ enum OrderItemEvent{
 
 enum OrderItemState{
     
+//	OrderItem: ITEM_CREATED
+//	├── Approve Item: Approved
+//	├── Reject Item: Rejected
+//	└── Cancel Item: Cancelled
+
     ITEM_CREATED = 0;
+    
+//	OrderItem: ITEM_APPROVED
+//	├── Complete Item: Completed
+//	└── Cancel Item: Cancelled
+
     ITEM_APPROVED = 1;
+    
+//	OrderItem: ITEM_COMPLETED
+//	└── Approve Item: Approved
+
     ITEM_COMPLETED = 2;
+    
+//	OrderItem: ITEM_REJECTED
+
     ITEM_REJECTED = 3;
+    
+//	OrderItem: ITEM_CANCELLED
+
     ITEM_CANCELLED = 4;
+    
 }
 
 service OrderItemProcessor{
@@ -1334,15 +2307,70 @@ enum CustomRequestStatusEvent{
 
 enum CustomRequestStatusState{
     
+//	CustomRequestStatus: CRQ_DRAFT
+//	├── Accept Request: Open
+//	├── Submit Request: Submitted
+//	└── Cancel Request: Cancelled
+
     CRQ_DRAFT = 0;
+    
+//	CustomRequestStatus: CRQ_SUBMITTED
+//	├── Accept Request: Open
+//	├── Complete Request: Completed
+//	├── Reject Request: Rejected
+//	├── Cancel Request: Cancelled
+//	└── Pending customer: Pending Cust.
+
     CRQ_SUBMITTED = 1;
+    
+//	CustomRequestStatus: CRQ_ACCEPTED
+//	├── Review Request: Being implemented
+//	├── Complete Request: Completed
+//	├── Cancel Request: Cancelled
+//	└── Pending Customer: Pending Cust.
+
     CRQ_ACCEPTED = 2;
+    
+//	CustomRequestStatus: CRQ_REVIEWED
+//	├── Complete Request: Completed
+//	├── Cancel Request: Cancelled
+//	├── Pending Customer: Pending Cust.
+//	└── Accept Request: Open
+
     CRQ_REVIEWED = 3;
+    
+//	CustomRequestStatus: CRQ_COMPLETED
+//	├── Re-open Request: Being implemented
+//	└── Re-open Request: Reopened
+
     CRQ_COMPLETED = 4;
+    
+//	CustomRequestStatus: CRQ_REOPENED
+//	├── Complete Request: Completed
+//	├── Cancel Request: Cancelled
+//	├── Pending Customer: Pending Cust.
+//	├── Accept Request: Open
+//	└── Review Request: Being implemented
+
     CRQ_REOPENED = 5;
+    
+//	CustomRequestStatus: CRQ_PENDING
+//	├── Submit Request: Submitted
+//	├── Accept Request: Open
+//	├── Review Request: Being implemented
+//	└── Cancel Request: Cancelled
+
     CRQ_PENDING = 6;
+    
+//	CustomRequestStatus: CRQ_REJECTED
+
     CRQ_REJECTED = 7;
+    
+//	CustomRequestStatus: CRQ_CANCELLED
+//	└── Re-open Request: Open
+
     CRQ_CANCELLED = 8;
+    
 }
 
 service CustomRequestStatusProcessor{
@@ -1366,9 +2394,22 @@ enum LeadStatusEvent{
 
 enum LeadStatusState{
     
+//	LeadStatus: LEAD_ASSIGNED
+//	├── Converted: Converted
+//	├── Qualified: Qualified
+//	└── Disabled: Disabled
+
     LEAD_ASSIGNED = 0;
+    
+//	LeadStatus: LEAD_CONVERTED
+//	└── Disabled: Disabled
+
     LEAD_CONVERTED = 1;
+    
+//	LeadStatus: LEAD_QUALIFIED
+
     LEAD_QUALIFIED = 2;
+    
 }
 
 service LeadStatusProcessor{
@@ -1386,9 +2427,20 @@ enum NonSerializedInventoryItemEvent{
 
 enum NonSerializedInventoryItemState{
     
+//	NonSerializedInventoryItem: INV_NS_ON_HOLD
+
     INV_NS_ON_HOLD = 0;
+    
+//	NonSerializedInventoryItem: INV_NS_RETURNED
+//	├── Make Return Held: On Hold (Non-Serialized)
+//	└── Mark Return Defective: Defective (Non-Serialized)
+
     INV_NS_RETURNED = 1;
+    
+//	NonSerializedInventoryItem: INV_NS_DEFECTIVE
+
     INV_NS_DEFECTIVE = 2;
+    
 }
 
 service NonSerializedInventoryItemProcessor{
@@ -1412,14 +2464,58 @@ enum OrderEvent{
 
 enum OrderState{
     
+//	Order: ORDER_CREATED
+//	├── Process Order: Processing
+//	├── Approve Order: Approved
+//	├── Hold Order: Held
+//	├── Reject Order: Rejected
+//	└── Cancel Order: Cancelled
+
     ORDER_CREATED = 0;
+    
+//	Order: ORDER_SENT
+//	├── Order Completed: Completed
+//	└── Order Cancelled: Cancelled
+
     ORDER_SENT = 1;
+    
+//	Order: ORDER_PROCESSING
+//	├── Hold Order: Held
+//	├── Approve Order: Approved
+//	├── Reject Order: Rejected
+//	└── Cancel Order: Cancelled
+
     ORDER_PROCESSING = 2;
+    
+//	Order: ORDER_APPROVED
+//	├── Send Order: Sent
+//	├── Process Order: Processing
+//	├── Complete Order: Completed
+//	├── Cancel Order: Cancelled
+//	└── Hold Order: Held
+
     ORDER_APPROVED = 3;
+    
+//	Order: ORDER_HOLD
+//	├── Process Order: Processing
+//	├── Approve Order: Approved
+//	└── Cancel Order: Cancelled
+
     ORDER_HOLD = 4;
+    
+//	Order: ORDER_COMPLETED
+//	└── Approve Order: Approved
+
     ORDER_COMPLETED = 5;
+    
+//	Order: ORDER_REJECTED
+
     ORDER_REJECTED = 6;
+    
+//	Order: ORDER_CANCELLED
+
     ORDER_CANCELLED = 7;
+    
 }
 
 service OrderProcessor{
@@ -1443,9 +2539,20 @@ enum TimesheetEvent{
 
 enum TimesheetState{
     
+//	Timesheet: TIMESHEET_IN_PROCESS
+//	└── Confirm complete: Completed
+
     TIMESHEET_IN_PROCESS = 0;
+    
+//	Timesheet: TIMESHEET_COMPLETED
+//	└── Approve: Approved
+
     TIMESHEET_COMPLETED = 1;
+    
+//	Timesheet: TIMESHEET_APPROVED
+
     TIMESHEET_APPROVED = 2;
+    
 }
 
 service TimesheetProcessor{
@@ -1464,11 +2571,32 @@ enum PartyInvitationEvent{
 
 enum PartyInvitationState{
     
+//	PartyInvitation: PARTYINV_SENT
+//	├── Pending: Invitation Pending
+//	├── Accepted: Invitation Accepted
+//	├── Declined: Invitation Declined
+//	└── Cancelled: Invitation Cancelled
+
     PARTYINV_SENT = 0;
+    
+//	PartyInvitation: PARTYINV_PENDING
+//	├── Accepted: Invitation Accepted
+//	└── Cancelled: Invitation Cancelled
+
     PARTYINV_PENDING = 1;
+    
+//	PartyInvitation: PARTYINV_ACCEPTED
+
     PARTYINV_ACCEPTED = 2;
+    
+//	PartyInvitation: PARTYINV_DECLINED
+
     PARTYINV_DECLINED = 3;
+    
+//	PartyInvitation: PARTYINV_CANCELLED
+
     PARTYINV_CANCELLED = 4;
+    
 }
 
 service PartyInvitationProcessor{
@@ -1497,13 +2625,49 @@ enum ContactListPartyEvent{
 
 enum ContactListPartyState{
     
+//	ContactListParty: CLPT_PENDING
+//	├── Accept: Accepted
+//	├── Reject: Rejected
+//	├── Subscription Pending - Unsubscription Pending: Unsubscription pending
+//	└── Subscription Accepted - Unsubscribed: Unsubscribed
+
     CLPT_PENDING = 0;
+    
+//	ContactListParty: CLPT_ACCEPTED
+//	├── Reject: Rejected
+//	├── Locked - In Use: In Use
+//	├── Invalid: Invalid
+//	├── Subscription Accepted - Unsubscription Pending: Unsubscription pending
+//	└── Subscription Accepted - Unsubscribed: Unsubscribed
+
     CLPT_ACCEPTED = 1;
+    
+//	ContactListParty: CLPT_REJECTED
+//	├── Accept: Accepted
+//	└── Pending Accept: Pending Acceptance
+
     CLPT_REJECTED = 2;
+    
+//	ContactListParty: CLPT_IN_USE
+//	├── Subscription In Use - Unsubscription Pending: Unsubscription pending
+//	└── Subscription In Use - Unsubscribed: Unsubscribed
+
     CLPT_IN_USE = 3;
+    
+//	ContactListParty: CLPT_INVALID
+//	├── Subscription Invalid - Unsubscription Pending: Unsubscription pending
+//	└── Subscription Invalid - Unsubscribed: Unsubscribed
+
     CLPT_INVALID = 4;
+    
+//	ContactListParty: CLPT_UNSUBS_PENDING
+
     CLPT_UNSUBS_PENDING = 5;
+    
+//	ContactListParty: CLPT_UNSUBSCRIBED
+
     CLPT_UNSUBSCRIBED = 6;
+    
 }
 
 service ContactListPartyProcessor{
