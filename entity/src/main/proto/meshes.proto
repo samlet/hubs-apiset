@@ -9,9 +9,11 @@ package meshes;
 
 //import "hubs.proto";
 import "routines.proto";
+import "condition.proto";
 
 service Meshes{
   rpc UpdateStatus(StatusProposal) returns (routines.Response) {}
+  rpc FindObjects(condition.QueryObjects) returns (stream routines.Envelope) {}
 }
 
 message StatusProposal{

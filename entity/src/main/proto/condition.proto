@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ConditionProto";
+option objc_class_prefix = "CDP";
+
+package condition;
+
+enum ConditionType{
+  EQ=0;
+  LT=1;
+  GE=2;
+  GT=3;
+  LE=4;
+}
+
+enum ConditionsType{
+  OR=0;
+  AND=1;
+}
+
+// eq, ge, gt, le, lt
+message ConditionData{
+  ConditionType cond_type=1;
+  string name=2;
+  string value=3;
+}
+
+message ConditionsData{
+  ConditionsType conds_type=1;
+  repeated ConditionData conditions=2;
+  repeated ConditionsData embeddings=3;
+}
+
+message SymbolValue{
+  string name=1;
+}
+
+message QueryObjects{
+  SymbolValue symbol=1;
+  ConditionsData conditions=2;
+}

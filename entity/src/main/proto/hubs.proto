@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
-
+import "condition.proto";
 
 // The Order Header service definition.
 service OrderHeaderService {
@@ -22,6 +22,9 @@ service OrderHeaderService {
     rpc Find(OrderHeaderFlatData) returns (OrderHeaderFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (OrderHeaderFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream OrderHeaderData) {}
+    rpc FindList(routines.QueryList) returns (stream OrderHeaderData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream OrderHeaderData) {}
 }
 
 // The Order Item service definition.
@@ -33,6 +36,8 @@ service OrderItemService {
     rpc Find(OrderItemFlatData) returns (OrderItemFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (OrderItemFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream OrderItemData) {}
+    rpc FindList(routines.QueryList) returns (stream OrderItemData) {}
 }
 
 // The Payment service definition.
@@ -44,6 +49,8 @@ service PaymentService {
     rpc Find(PaymentFlatData) returns (PaymentFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (PaymentFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream PaymentData) {}
+    rpc FindList(routines.QueryList) returns (stream PaymentData) {}
 }
 
 // The Invoice service definition.
@@ -55,6 +62,8 @@ service InvoiceService {
     rpc Find(InvoiceFlatData) returns (InvoiceFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (InvoiceFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream InvoiceData) {}
+    rpc FindList(routines.QueryList) returns (stream InvoiceData) {}
 }
 
 // The Invoice Item service definition.
@@ -66,6 +75,8 @@ service InvoiceItemService {
     rpc Find(InvoiceItemFlatData) returns (InvoiceItemFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (InvoiceItemFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream InvoiceItemData) {}
+    rpc FindList(routines.QueryList) returns (stream InvoiceItemData) {}
 }
 
 // The Product service definition.
@@ -77,6 +88,8 @@ service ProductService {
     rpc Find(ProductFlatData) returns (ProductFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (ProductFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductData) {}
 }
 
 // The Shipment service definition.
@@ -88,6 +101,8 @@ service ShipmentService {
     rpc Find(ShipmentFlatData) returns (ShipmentFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (ShipmentFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ShipmentData) {}
+    rpc FindList(routines.QueryList) returns (stream ShipmentData) {}
 }
 
 // The Inventory Item service definition.
@@ -99,6 +114,8 @@ service InventoryItemService {
     rpc Find(InventoryItemFlatData) returns (InventoryItemFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (InventoryItemFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream InventoryItemData) {}
+    rpc FindList(routines.QueryList) returns (stream InventoryItemData) {}
 }
 
 // The Product Store service definition.
@@ -110,6 +127,8 @@ service ProductStoreService {
     rpc Find(ProductStoreFlatData) returns (ProductStoreFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (ProductStoreFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductStoreData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductStoreData) {}
 }
 
 // The Party service definition.
@@ -121,6 +140,8 @@ service PartyService {
     rpc Find(PartyFlatData) returns (PartyFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (PartyFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream PartyData) {}
+    rpc FindList(routines.QueryList) returns (stream PartyData) {}
 }
 
 // The Person service definition.
@@ -132,6 +153,8 @@ service PersonService {
     rpc Find(PersonFlatData) returns (PersonFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (PersonFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream PersonData) {}
+    rpc FindList(routines.QueryList) returns (stream PersonData) {}
 }
 
 // The Party Group service definition.
@@ -143,6 +166,8 @@ service PartyGroupService {
     rpc Find(PartyGroupFlatData) returns (PartyGroupFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (PartyGroupFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream PartyGroupData) {}
+    rpc FindList(routines.QueryList) returns (stream PartyGroupData) {}
 }
 
 // The UserLogin service definition.
@@ -154,6 +179,8 @@ service UserLoginService {
     rpc Find(UserLoginFlatData) returns (UserLoginFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (UserLoginFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream UserLoginData) {}
+    rpc FindList(routines.QueryList) returns (stream UserLoginData) {}
 }
 
 // The Product Category service definition.
@@ -165,6 +192,8 @@ service ProductCategoryService {
     rpc Find(ProductCategoryFlatData) returns (ProductCategoryFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (ProductCategoryFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductCategoryData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductCategoryData) {}
 }
 
 // The Catalog service definition.
@@ -176,6 +205,8 @@ service ProdCatalogService {
     rpc Find(ProdCatalogFlatData) returns (ProdCatalogFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (ProdCatalogFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProdCatalogData) {}
+    rpc FindList(routines.QueryList) returns (stream ProdCatalogData) {}
 }
 
 // The Billing Account service definition.
@@ -187,6 +218,8 @@ service BillingAccountService {
     rpc Find(BillingAccountFlatData) returns (BillingAccountFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (BillingAccountFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream BillingAccountData) {}
+    rpc FindList(routines.QueryList) returns (stream BillingAccountData) {}
 }
 
 // The Financial Account service definition.
@@ -198,6 +231,8 @@ service FinAccountService {
     rpc Find(FinAccountFlatData) returns (FinAccountFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (FinAccountFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream FinAccountData) {}
+    rpc FindList(routines.QueryList) returns (stream FinAccountData) {}
 }
 
 // The Quote service definition.
@@ -209,6 +244,8 @@ service QuoteService {
     rpc Find(QuoteFlatData) returns (QuoteFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (QuoteFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream QuoteData) {}
+    rpc FindList(routines.QueryList) returns (stream QuoteData) {}
 }
 
 // The Fixed Asset service definition.
@@ -220,6 +257,8 @@ service FixedAssetService {
     rpc Find(FixedAssetFlatData) returns (FixedAssetFlatData) {}
     rpc DeleteById(routines.Identity) returns (routines.Response) {}
     rpc FindById(routines.Identity) returns (FixedAssetFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream FixedAssetData) {}
+    rpc FindList(routines.QueryList) returns (stream FixedAssetData) {}
 }
 
 // flat-ent: Order Header

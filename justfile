@@ -1,5 +1,7 @@
 stub:
-	mvn compile -f entity/pom.xml
+	# mvn compile -f entity/pom.xml
+	mvn install -DskipTests -f entity/pom.xml
+
 mesh:
 	mvn compile -f mesh/pom.xml
 
