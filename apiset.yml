@@ -1,0 +1,8 @@
+facadeProto: facade/src/main/proto
+meshProto: mesh/src/main/proto
+
+entities:
+  - Party
+  - Person
+  - PartyGroup
+

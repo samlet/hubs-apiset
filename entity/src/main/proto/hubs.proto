@@ -13,6 +13,147 @@ import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
 
+
+// The Catalog service definition.
+service ProdCatalogService {
+    rpc Create(ProdCatalogData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProdCatalogFlatData) returns (routines.Response) {}
+    rpc Update(ProdCatalogFlatData) returns (routines.Response) {}
+    rpc Delete(ProdCatalogFlatData) returns (routines.Response) {}
+    rpc Find(ProdCatalogFlatData) returns (ProdCatalogFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProdCatalogFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProdCatalogData) {}
+    rpc FindList(routines.QueryList) returns (stream ProdCatalogData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProdCatalogData) {}
+}
+
+// The Product Store service definition.
+service ProductStoreService {
+    rpc Create(ProductStoreData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductStoreFlatData) returns (routines.Response) {}
+    rpc Update(ProductStoreFlatData) returns (routines.Response) {}
+    rpc Delete(ProductStoreFlatData) returns (routines.Response) {}
+    rpc Find(ProductStoreFlatData) returns (ProductStoreFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductStoreFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductStoreData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductStoreData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductStoreData) {}
+}
+
+// The Product Store Inventory Facility Applicability service definition.
+service ProductStoreFacilityService {
+    rpc Create(ProductStoreFacilityData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductStoreFacilityFlatData) returns (routines.Response) {}
+    rpc Update(ProductStoreFacilityFlatData) returns (routines.Response) {}
+    rpc Delete(ProductStoreFacilityFlatData) returns (routines.Response) {}
+    rpc Find(ProductStoreFacilityFlatData) returns (ProductStoreFacilityFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductStoreFacilityFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductStoreFacilityData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductStoreFacilityData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductStoreFacilityData) {}
+}
+
+// The Product Store Catalog Association service definition.
+service ProductStoreCatalogService {
+    rpc Create(ProductStoreCatalogData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductStoreCatalogFlatData) returns (routines.Response) {}
+    rpc Update(ProductStoreCatalogFlatData) returns (routines.Response) {}
+    rpc Delete(ProductStoreCatalogFlatData) returns (routines.Response) {}
+    rpc Find(ProductStoreCatalogFlatData) returns (ProductStoreCatalogFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductStoreCatalogFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductStoreCatalogData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductStoreCatalogData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductStoreCatalogData) {}
+}
+
+// The WebSite service definition.
+service WebSiteService {
+    rpc Create(WebSiteData) returns (routines.Response) {}
+    rpc StoreOrUpdate(WebSiteFlatData) returns (routines.Response) {}
+    rpc Update(WebSiteFlatData) returns (routines.Response) {}
+    rpc Delete(WebSiteFlatData) returns (routines.Response) {}
+    rpc Find(WebSiteFlatData) returns (WebSiteFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (WebSiteFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream WebSiteData) {}
+    rpc FindList(routines.QueryList) returns (stream WebSiteData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream WebSiteData) {}
+}
+
+// The Catalog Category Association service definition.
+service ProdCatalogCategoryService {
+    rpc Create(ProdCatalogCategoryData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProdCatalogCategoryFlatData) returns (routines.Response) {}
+    rpc Update(ProdCatalogCategoryFlatData) returns (routines.Response) {}
+    rpc Delete(ProdCatalogCategoryFlatData) returns (routines.Response) {}
+    rpc Find(ProdCatalogCategoryFlatData) returns (ProdCatalogCategoryFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProdCatalogCategoryFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProdCatalogCategoryData) {}
+    rpc FindList(routines.QueryList) returns (stream ProdCatalogCategoryData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProdCatalogCategoryData) {}
+}
+
+// The Product Category service definition.
+service ProductCategoryService {
+    rpc Create(ProductCategoryData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductCategoryFlatData) returns (routines.Response) {}
+    rpc Update(ProductCategoryFlatData) returns (routines.Response) {}
+    rpc Delete(ProductCategoryFlatData) returns (routines.Response) {}
+    rpc Find(ProductCategoryFlatData) returns (ProductCategoryFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductCategoryFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductCategoryData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductCategoryData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductCategoryData) {}
+}
+
+// The Product Category Rollup service definition.
+service ProductCategoryRollupService {
+    rpc Create(ProductCategoryRollupData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductCategoryRollupFlatData) returns (routines.Response) {}
+    rpc Update(ProductCategoryRollupFlatData) returns (routines.Response) {}
+    rpc Delete(ProductCategoryRollupFlatData) returns (routines.Response) {}
+    rpc Find(ProductCategoryRollupFlatData) returns (ProductCategoryRollupFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductCategoryRollupFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductCategoryRollupData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductCategoryRollupData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductCategoryRollupData) {}
+}
+
+// The Product Category Member service definition.
+service ProductCategoryMemberService {
+    rpc Create(ProductCategoryMemberData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductCategoryMemberFlatData) returns (routines.Response) {}
+    rpc Update(ProductCategoryMemberFlatData) returns (routines.Response) {}
+    rpc Delete(ProductCategoryMemberFlatData) returns (routines.Response) {}
+    rpc Find(ProductCategoryMemberFlatData) returns (ProductCategoryMemberFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductCategoryMemberFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductCategoryMemberData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductCategoryMemberData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductCategoryMemberData) {}
+}
+
+// The Product service definition.
+service ProductService {
+    rpc Create(ProductData) returns (routines.Response) {}
+    rpc StoreOrUpdate(ProductFlatData) returns (routines.Response) {}
+    rpc Update(ProductFlatData) returns (routines.Response) {}
+    rpc Delete(ProductFlatData) returns (routines.Response) {}
+    rpc Find(ProductFlatData) returns (ProductFlatData) {}
+    rpc DeleteById(routines.Identity) returns (routines.Response) {}
+    rpc FindById(routines.Identity) returns (ProductFlatData) {}
+    rpc FindRelations(routines.QueryRelations) returns (stream ProductData) {}
+    rpc FindList(routines.QueryList) returns (stream ProductData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ProductData) {}
+}
+
 // The Order Header service definition.
 service OrderHeaderService {
     rpc Create(OrderHeaderData) returns (routines.Response) {}
@@ -38,6 +179,7 @@ service OrderItemService {
     rpc FindById(routines.Identity) returns (OrderItemFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream OrderItemData) {}
     rpc FindList(routines.QueryList) returns (stream OrderItemData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream OrderItemData) {}
 }
 
 // The Payment service definition.
@@ -51,6 +193,7 @@ service PaymentService {
     rpc FindById(routines.Identity) returns (PaymentFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream PaymentData) {}
     rpc FindList(routines.QueryList) returns (stream PaymentData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream PaymentData) {}
 }
 
 // The Invoice service definition.
@@ -64,6 +207,7 @@ service InvoiceService {
     rpc FindById(routines.Identity) returns (InvoiceFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream InvoiceData) {}
     rpc FindList(routines.QueryList) returns (stream InvoiceData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream InvoiceData) {}
 }
 
 // The Invoice Item service definition.
@@ -77,19 +221,7 @@ service InvoiceItemService {
     rpc FindById(routines.Identity) returns (InvoiceItemFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream InvoiceItemData) {}
     rpc FindList(routines.QueryList) returns (stream InvoiceItemData) {}
-}
-
-// The Product service definition.
-service ProductService {
-    rpc Create(ProductData) returns (routines.Response) {}
-    rpc StoreOrUpdate(ProductFlatData) returns (routines.Response) {}
-    rpc Update(ProductFlatData) returns (routines.Response) {}
-    rpc Delete(ProductFlatData) returns (routines.Response) {}
-    rpc Find(ProductFlatData) returns (ProductFlatData) {}
-    rpc DeleteById(routines.Identity) returns (routines.Response) {}
-    rpc FindById(routines.Identity) returns (ProductFlatData) {}
-    rpc FindRelations(routines.QueryRelations) returns (stream ProductData) {}
-    rpc FindList(routines.QueryList) returns (stream ProductData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream InvoiceItemData) {}
 }
 
 // The Shipment service definition.
@@ -103,6 +235,7 @@ service ShipmentService {
     rpc FindById(routines.Identity) returns (ShipmentFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream ShipmentData) {}
     rpc FindList(routines.QueryList) returns (stream ShipmentData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream ShipmentData) {}
 }
 
 // The Inventory Item service definition.
@@ -116,19 +249,7 @@ service InventoryItemService {
     rpc FindById(routines.Identity) returns (InventoryItemFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream InventoryItemData) {}
     rpc FindList(routines.QueryList) returns (stream InventoryItemData) {}
-}
-
-// The Product Store service definition.
-service ProductStoreService {
-    rpc Create(ProductStoreData) returns (routines.Response) {}
-    rpc StoreOrUpdate(ProductStoreFlatData) returns (routines.Response) {}
-    rpc Update(ProductStoreFlatData) returns (routines.Response) {}
-    rpc Delete(ProductStoreFlatData) returns (routines.Response) {}
-    rpc Find(ProductStoreFlatData) returns (ProductStoreFlatData) {}
-    rpc DeleteById(routines.Identity) returns (routines.Response) {}
-    rpc FindById(routines.Identity) returns (ProductStoreFlatData) {}
-    rpc FindRelations(routines.QueryRelations) returns (stream ProductStoreData) {}
-    rpc FindList(routines.QueryList) returns (stream ProductStoreData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream InventoryItemData) {}
 }
 
 // The Party service definition.
@@ -142,6 +263,7 @@ service PartyService {
     rpc FindById(routines.Identity) returns (PartyFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream PartyData) {}
     rpc FindList(routines.QueryList) returns (stream PartyData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream PartyData) {}
 }
 
 // The Person service definition.
@@ -155,6 +277,7 @@ service PersonService {
     rpc FindById(routines.Identity) returns (PersonFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream PersonData) {}
     rpc FindList(routines.QueryList) returns (stream PersonData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream PersonData) {}
 }
 
 // The Party Group service definition.
@@ -168,6 +291,7 @@ service PartyGroupService {
     rpc FindById(routines.Identity) returns (PartyGroupFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream PartyGroupData) {}
     rpc FindList(routines.QueryList) returns (stream PartyGroupData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream PartyGroupData) {}
 }
 
 // The UserLogin service definition.
@@ -181,32 +305,7 @@ service UserLoginService {
     rpc FindById(routines.Identity) returns (UserLoginFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream UserLoginData) {}
     rpc FindList(routines.QueryList) returns (stream UserLoginData) {}
-}
-
-// The Product Category service definition.
-service ProductCategoryService {
-    rpc Create(ProductCategoryData) returns (routines.Response) {}
-    rpc StoreOrUpdate(ProductCategoryFlatData) returns (routines.Response) {}
-    rpc Update(ProductCategoryFlatData) returns (routines.Response) {}
-    rpc Delete(ProductCategoryFlatData) returns (routines.Response) {}
-    rpc Find(ProductCategoryFlatData) returns (ProductCategoryFlatData) {}
-    rpc DeleteById(routines.Identity) returns (routines.Response) {}
-    rpc FindById(routines.Identity) returns (ProductCategoryFlatData) {}
-    rpc FindRelations(routines.QueryRelations) returns (stream ProductCategoryData) {}
-    rpc FindList(routines.QueryList) returns (stream ProductCategoryData) {}
-}
-
-// The Catalog service definition.
-service ProdCatalogService {
-    rpc Create(ProdCatalogData) returns (routines.Response) {}
-    rpc StoreOrUpdate(ProdCatalogFlatData) returns (routines.Response) {}
-    rpc Update(ProdCatalogFlatData) returns (routines.Response) {}
-    rpc Delete(ProdCatalogFlatData) returns (routines.Response) {}
-    rpc Find(ProdCatalogFlatData) returns (ProdCatalogFlatData) {}
-    rpc DeleteById(routines.Identity) returns (routines.Response) {}
-    rpc FindById(routines.Identity) returns (ProdCatalogFlatData) {}
-    rpc FindRelations(routines.QueryRelations) returns (stream ProdCatalogData) {}
-    rpc FindList(routines.QueryList) returns (stream ProdCatalogData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream UserLoginData) {}
 }
 
 // The Billing Account service definition.
@@ -220,6 +319,7 @@ service BillingAccountService {
     rpc FindById(routines.Identity) returns (BillingAccountFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream BillingAccountData) {}
     rpc FindList(routines.QueryList) returns (stream BillingAccountData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream BillingAccountData) {}
 }
 
 // The Financial Account service definition.
@@ -233,6 +333,7 @@ service FinAccountService {
     rpc FindById(routines.Identity) returns (FinAccountFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream FinAccountData) {}
     rpc FindList(routines.QueryList) returns (stream FinAccountData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream FinAccountData) {}
 }
 
 // The Quote service definition.
@@ -246,6 +347,7 @@ service QuoteService {
     rpc FindById(routines.Identity) returns (QuoteFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream QuoteData) {}
     rpc FindList(routines.QueryList) returns (stream QuoteData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream QuoteData) {}
 }
 
 // The Fixed Asset service definition.
@@ -259,6 +361,350 @@ service FixedAssetService {
     rpc FindById(routines.Identity) returns (FixedAssetFlatData) {}
     rpc FindRelations(routines.QueryRelations) returns (stream FixedAssetData) {}
     rpc FindList(routines.QueryList) returns (stream FixedAssetData) {}
+    rpc FindObjects(condition.QueryObjects) returns (stream FixedAssetData) {}
+}
+
+// flat-ent: Catalog
+message ProdCatalogFlatData {
+    option (routines.entity_type) = "ProdCatalog";
+    option (routines.keys).keys = "prod_catalog_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: prodCatalogId
+        
+    string prod_catalog_id = 1;    
+    string catalog_name = 2;    
+    routines.Indicator use_quick_add = 3;    
+    string style_sheet = 4;    
+    string header_logo = 5;    
+    string content_path_prefix = 6;    
+    string template_path_prefix = 7;    
+    routines.Indicator view_allow_perm_reqd = 8;    
+    routines.Indicator purchase_allow_perm_reqd = 9;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10;    
+    google.protobuf.Timestamp created_tx_stamp = 11;  
+}
+
+// flat-ent: Product Store
+message ProductStoreFlatData {
+    option (routines.entity_type) = "ProductStore";
+    option (routines.keys).keys = "product_store_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId
+        
+    string product_store_id = 1;
+    string primary_store_group_id = 2; // ProductStoreGroup    
+    string store_name = 3;    
+    string company_name = 4;    
+    string title = 5;    
+    string subtitle = 6;    
+    string pay_to_party_id = 7;    
+    int64 days_to_cancel_non_pay = 8;    
+    routines.Indicator manual_auth_is_capture = 9;    
+    routines.Indicator prorate_shipping = 10;    
+    routines.Indicator prorate_taxes = 11;    
+    routines.Indicator view_cart_on_add = 12;    
+    routines.Indicator auto_save_cart = 13;    
+    routines.Indicator auto_approve_reviews = 14;    
+    routines.Indicator is_demo_store = 15;    
+    routines.Indicator is_immediately_fulfilled = 16;    
+    string inventory_facility_id = 17;    
+    routines.Indicator one_inventory_facility = 18;    
+    routines.Indicator check_inventory = 19;    
+    routines.Indicator reserve_inventory = 20;
+    string reserve_order_enum_id = 21; // Enumeration    
+    routines.Indicator require_inventory = 22;    
+    routines.Indicator balance_res_on_order_creation = 23;
+    string requirement_method_enum_id = 24; // Enumeration    
+    string order_number_prefix = 25;    
+    string default_locale_string = 26;
+    string default_currency_uom_id = 27; // Uom    
+    string default_time_zone_string = 28;
+    string default_sales_channel_enum_id = 29; // Enumeration    
+    routines.Indicator allow_password = 30;    
+    string default_password = 31;    
+    routines.Indicator explode_order_items = 32;    
+    routines.Indicator check_gc_balance = 33;    
+    routines.Indicator retry_failed_auths = 34;
+    string header_approved_status = 35; // StatusItem
+    string item_approved_status = 36; // StatusItem
+    string digital_item_approved_status = 37; // StatusItem
+    string header_declined_status = 38; // StatusItem
+    string item_declined_status = 39; // StatusItem
+    string header_cancel_status = 40; // StatusItem
+    string item_cancel_status = 41; // StatusItem    
+    string auth_declined_message = 42;    
+    string auth_fraud_message = 43;    
+    string auth_error_message = 44;    
+    string visual_theme_id = 45;
+    string store_credit_account_enum_id = 46; // Enumeration    
+    routines.Indicator use_primary_email_username = 47;    
+    routines.Indicator require_customer_role = 48;    
+    routines.Indicator auto_invoice_digital_items = 49;    
+    routines.Indicator req_ship_addr_for_dig_items = 50;    
+    routines.Indicator show_checkout_gift_options = 51;    
+    routines.Indicator select_payment_type_per_item = 52;    
+    routines.Indicator show_prices_with_vat_tax = 53;    
+    routines.Indicator show_tax_is_exempt = 54;    
+    string vat_tax_auth_geo_id = 55;    
+    string vat_tax_auth_party_id = 56;    
+    routines.Indicator enable_auto_suggestion_list = 57;    
+    routines.Indicator enable_dig_prod_upload = 58;    
+    routines.Indicator prod_search_exclude_variants = 59;    
+    string dig_prod_upload_category_id = 60;    
+    routines.Indicator auto_order_cc_try_exp = 61;    
+    routines.Indicator auto_order_cc_try_other_cards = 62;    
+    routines.Indicator auto_order_cc_try_later_nsf = 63;    
+    int64 auto_order_cc_try_later_max = 64;    
+    int64 store_credit_valid_days = 65;    
+    routines.Indicator auto_approve_invoice = 66;    
+    routines.Indicator auto_approve_order = 67;    
+    routines.Indicator ship_if_capture_fails = 68;    
+    routines.Indicator set_owner_upon_issuance = 69;    
+    routines.Indicator req_return_inventory_receive = 70;    
+    routines.Indicator add_to_cart_remove_incompat = 71;    
+    routines.Indicator add_to_cart_replace_upsell = 72;    
+    routines.Indicator split_pay_pref_per_shp_grp = 73;    
+    routines.Indicator managed_by_lot = 74;    
+    routines.Indicator show_out_of_stock_products = 75;    
+    routines.Indicator order_decimal_quantity = 76;    
+    routines.Indicator allow_comment = 77;    
+    routines.Indicator allocate_inventory = 78;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 79;    
+    google.protobuf.Timestamp created_tx_stamp = 80;  
+}
+
+// flat-ent: Product Store Inventory Facility Applicability
+message ProductStoreFacilityFlatData {
+    option (routines.entity_type) = "ProductStoreFacility";
+    option (routines.keys).keys = "product_store_id, facility_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, facilityId, fromDate
+    string id = 150;     
+    string product_store_id = 1;    
+    string facility_id = 2;    
+    google.protobuf.Timestamp from_date = 3;    
+    google.protobuf.Timestamp thru_date = 4;    
+    int64 sequence_num = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+
+// flat-ent: Product Store Catalog Association
+message ProductStoreCatalogFlatData {
+    option (routines.entity_type) = "ProductStoreCatalog";
+    option (routines.keys).keys = "product_store_id, prod_catalog_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, prodCatalogId, fromDate
+    string id = 150;     
+    string product_store_id = 1;    
+    string prod_catalog_id = 2;    
+    google.protobuf.Timestamp from_date = 3;    
+    google.protobuf.Timestamp thru_date = 4;    
+    int64 sequence_num = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+
+// flat-ent: WebSite
+message WebSiteFlatData {
+    option (routines.entity_type) = "WebSite";
+    option (routines.keys).keys = "web_site_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: webSiteId
+        
+    string web_site_id = 1;    
+    string site_name = 2;    
+    string http_host = 3;    
+    string http_port = 4;    
+    string https_host = 5;    
+    string https_port = 6;    
+    routines.Indicator enable_https = 7;    
+    string webapp_path = 8;    
+    string standard_content_prefix = 9;    
+    string secure_content_prefix = 10;    
+    string cookie_domain = 11;
+    string visual_theme_set_id = 12; // VisualThemeSet    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13;    
+    google.protobuf.Timestamp created_tx_stamp = 14;    
+    string product_store_id = 15;    
+    routines.Indicator allow_product_store_change = 16;    
+    string hosted_path_alias = 17;    
+    routines.Indicator is_default = 18;    
+    routines.Indicator display_maintenance_page = 19;  
+}
+
+// flat-ent: Catalog Category Association
+message ProdCatalogCategoryFlatData {
+    option (routines.entity_type) = "ProdCatalogCategory";
+    option (routines.keys).keys = "prod_catalog_id, product_category_id, prod_catalog_category_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: prodCatalogId, productCategoryId, prodCatalogCategoryTypeId, fromDate
+    string id = 150;     
+    string prod_catalog_id = 1;    
+    string product_category_id = 2;
+    string prod_catalog_category_type_id = 3; // ProdCatalogCategoryType    
+    google.protobuf.Timestamp from_date = 4;    
+    google.protobuf.Timestamp thru_date = 5;    
+    int64 sequence_num = 6;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7;    
+    google.protobuf.Timestamp created_tx_stamp = 8;  
+}
+
+// flat-ent: Product Category
+message ProductCategoryFlatData {
+    option (routines.entity_type) = "ProductCategory";
+    option (routines.keys).keys = "product_category_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productCategoryId
+        
+    string product_category_id = 1;    
+    string product_category_type_id = 2;    
+    string primary_parent_category_id = 3;    
+    string category_name = 4;    
+    string description = 5;    
+    string long_description = 6;    
+    string category_image_url = 7;    
+    string link_one_image_url = 8;    
+    string link_two_image_url = 9;    
+    string detail_screen = 10;    
+    routines.Indicator show_in_select = 11;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12;    
+    google.protobuf.Timestamp created_tx_stamp = 13;  
+}
+
+// flat-ent: Product Category Rollup
+message ProductCategoryRollupFlatData {
+    option (routines.entity_type) = "ProductCategoryRollup";
+    option (routines.keys).keys = "product_category_id, parent_product_category_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productCategoryId, parentProductCategoryId, fromDate
+    string id = 150;     
+    string product_category_id = 1;    
+    string parent_product_category_id = 2;    
+    google.protobuf.Timestamp from_date = 3;    
+    google.protobuf.Timestamp thru_date = 4;    
+    int64 sequence_num = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+
+// flat-ent: Product Category Member
+message ProductCategoryMemberFlatData {
+    option (routines.entity_type) = "ProductCategoryMember";
+    option (routines.keys).keys = "product_category_id, product_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productCategoryId, productId, fromDate
+    string id = 150;     
+    string product_category_id = 1;    
+    string product_id = 2;    
+    google.protobuf.Timestamp from_date = 3;    
+    google.protobuf.Timestamp thru_date = 4;    
+    string comments = 5;    
+    int64 sequence_num = 6;    
+    routines.FixedPoint quantity = 7;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8;    
+    google.protobuf.Timestamp created_tx_stamp = 9;  
+}
+
+// flat-ent: Product
+message ProductFlatData {
+    option (routines.entity_type) = "Product";
+    option (routines.keys).keys = "product_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId
+        
+    string product_id = 1;    
+    string product_type_id = 2;    
+    string primary_product_category_id = 3;    
+    string facility_id = 4;    
+    google.protobuf.Timestamp introduction_date = 5;    
+    google.protobuf.Timestamp release_date = 6;    
+    google.protobuf.Timestamp support_discontinuation_date = 7;    
+    google.protobuf.Timestamp sales_discontinuation_date = 8;    
+    routines.Indicator sales_disc_when_not_avail = 9;    
+    string internal_name = 10;    
+    string brand_name = 11;    
+    string comments = 12;    
+    string product_name = 13;    
+    string description = 14;    
+    string long_description = 15;    
+    string price_detail_text = 16;    
+    string small_image_url = 17;    
+    string medium_image_url = 18;    
+    string large_image_url = 19;    
+    string detail_image_url = 20;    
+    string original_image_url = 21;    
+    string detail_screen = 22;    
+    string inventory_message = 23;
+    string inventory_item_type_id = 24; // InventoryItemType    
+    routines.Indicator require_inventory = 25;
+    string quantity_uom_id = 26; // Uom    
+    routines.FixedPoint quantity_included = 27;    
+    int64 pieces_included = 28;    
+    routines.Indicator require_amount = 29;    
+    routines.Currency fixed_amount = 30;
+    string amount_uom_type_id = 31; // UomType
+    string weight_uom_id = 32; // Uom    
+    routines.FixedPoint shipping_weight = 33;    
+    routines.FixedPoint product_weight = 34;
+    string height_uom_id = 35; // Uom    
+    routines.FixedPoint product_height = 36;    
+    routines.FixedPoint shipping_height = 37;
+    string width_uom_id = 38; // Uom    
+    routines.FixedPoint product_width = 39;    
+    routines.FixedPoint shipping_width = 40;
+    string depth_uom_id = 41; // Uom    
+    routines.FixedPoint product_depth = 42;    
+    routines.FixedPoint shipping_depth = 43;
+    string diameter_uom_id = 44; // Uom    
+    routines.FixedPoint product_diameter = 45;    
+    routines.FixedPoint product_rating = 46;
+    string rating_type_enum = 47; // Enumeration    
+    routines.Indicator returnable = 48;    
+    routines.Indicator taxable = 49;    
+    routines.Indicator charge_shipping = 50;    
+    routines.Indicator auto_create_keywords = 51;    
+    routines.Indicator include_in_promotions = 52;    
+    routines.Indicator is_virtual = 53;    
+    routines.Indicator is_variant = 54;
+    string virtual_variant_method_enum = 55; // Enumeration
+    string origin_geo_id = 56; // Geo
+    string requirement_method_enum_id = 57; // Enumeration    
+    int64 bill_of_material_level = 58;    
+    routines.FixedPoint reserv_max_persons = 59;    
+    routines.FixedPoint reserv_2nd_p_p_perc = 60;    
+    routines.FixedPoint reserv_nth_p_p_perc = 61;    
+    string config_id = 62;    
+    google.protobuf.Timestamp created_date = 63;    
+    string created_by_user_login = 64;    
+    google.protobuf.Timestamp last_modified_date = 65;    
+    string last_modified_by_user_login = 66;    
+    routines.Indicator in_shipping_box = 67;    
+    string default_shipment_box_type_id = 68;    
+    string lot_id_filled_in = 69;    
+    routines.Indicator order_decimal_quantity = 70;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 71;    
+    google.protobuf.Timestamp created_tx_stamp = 72;  
 }
 
 // flat-ent: Order Header
@@ -457,89 +903,6 @@ message InvoiceItemFlatData {
     google.protobuf.Timestamp created_tx_stamp = 21;  
 }
 
-// flat-ent: Product
-message ProductFlatData {
-    option (routines.entity_type) = "Product";
-    option (routines.keys).keys = "product_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = true;
-    // keys: productId
-        
-    string product_id = 1;    
-    string product_type_id = 2;    
-    string primary_product_category_id = 3;    
-    string facility_id = 4;    
-    google.protobuf.Timestamp introduction_date = 5;    
-    google.protobuf.Timestamp release_date = 6;    
-    google.protobuf.Timestamp support_discontinuation_date = 7;    
-    google.protobuf.Timestamp sales_discontinuation_date = 8;    
-    routines.Indicator sales_disc_when_not_avail = 9;    
-    string internal_name = 10;    
-    string brand_name = 11;    
-    string comments = 12;    
-    string product_name = 13;    
-    string description = 14;    
-    string long_description = 15;    
-    string price_detail_text = 16;    
-    string small_image_url = 17;    
-    string medium_image_url = 18;    
-    string large_image_url = 19;    
-    string detail_image_url = 20;    
-    string original_image_url = 21;    
-    string detail_screen = 22;    
-    string inventory_message = 23;
-    string inventory_item_type_id = 24; // InventoryItemType    
-    routines.Indicator require_inventory = 25;
-    string quantity_uom_id = 26; // Uom    
-    routines.FixedPoint quantity_included = 27;    
-    int64 pieces_included = 28;    
-    routines.Indicator require_amount = 29;    
-    routines.Currency fixed_amount = 30;
-    string amount_uom_type_id = 31; // UomType
-    string weight_uom_id = 32; // Uom    
-    routines.FixedPoint shipping_weight = 33;    
-    routines.FixedPoint product_weight = 34;
-    string height_uom_id = 35; // Uom    
-    routines.FixedPoint product_height = 36;    
-    routines.FixedPoint shipping_height = 37;
-    string width_uom_id = 38; // Uom    
-    routines.FixedPoint product_width = 39;    
-    routines.FixedPoint shipping_width = 40;
-    string depth_uom_id = 41; // Uom    
-    routines.FixedPoint product_depth = 42;    
-    routines.FixedPoint shipping_depth = 43;
-    string diameter_uom_id = 44; // Uom    
-    routines.FixedPoint product_diameter = 45;    
-    routines.FixedPoint product_rating = 46;
-    string rating_type_enum = 47; // Enumeration    
-    routines.Indicator returnable = 48;    
-    routines.Indicator taxable = 49;    
-    routines.Indicator charge_shipping = 50;    
-    routines.Indicator auto_create_keywords = 51;    
-    routines.Indicator include_in_promotions = 52;    
-    routines.Indicator is_virtual = 53;    
-    routines.Indicator is_variant = 54;
-    string virtual_variant_method_enum = 55; // Enumeration
-    string origin_geo_id = 56; // Geo
-    string requirement_method_enum_id = 57; // Enumeration    
-    int64 bill_of_material_level = 58;    
-    routines.FixedPoint reserv_max_persons = 59;    
-    routines.FixedPoint reserv_2nd_p_p_perc = 60;    
-    routines.FixedPoint reserv_nth_p_p_perc = 61;    
-    string config_id = 62;    
-    google.protobuf.Timestamp created_date = 63;    
-    string created_by_user_login = 64;    
-    google.protobuf.Timestamp last_modified_date = 65;    
-    string last_modified_by_user_login = 66;    
-    routines.Indicator in_shipping_box = 67;    
-    string default_shipment_box_type_id = 68;    
-    string lot_id_filled_in = 69;    
-    routines.Indicator order_decimal_quantity = 70;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 71;    
-    google.protobuf.Timestamp created_tx_stamp = 72;  
-}
-
 // flat-ent: Shipment
 message ShipmentFlatData {
     option (routines.entity_type) = "Shipment";
@@ -620,97 +983,6 @@ message InventoryItemFlatData {
     string fixed_asset_id = 26;    
     google.protobuf.Timestamp last_updated_tx_stamp = 27;    
     google.protobuf.Timestamp created_tx_stamp = 28;  
-}
-
-// flat-ent: Product Store
-message ProductStoreFlatData {
-    option (routines.entity_type) = "ProductStore";
-    option (routines.keys).keys = "product_store_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = true;
-    // keys: productStoreId
-        
-    string product_store_id = 1;
-    string primary_store_group_id = 2; // ProductStoreGroup    
-    string store_name = 3;    
-    string company_name = 4;    
-    string title = 5;    
-    string subtitle = 6;    
-    string pay_to_party_id = 7;    
-    int64 days_to_cancel_non_pay = 8;    
-    routines.Indicator manual_auth_is_capture = 9;    
-    routines.Indicator prorate_shipping = 10;    
-    routines.Indicator prorate_taxes = 11;    
-    routines.Indicator view_cart_on_add = 12;    
-    routines.Indicator auto_save_cart = 13;    
-    routines.Indicator auto_approve_reviews = 14;    
-    routines.Indicator is_demo_store = 15;    
-    routines.Indicator is_immediately_fulfilled = 16;    
-    string inventory_facility_id = 17;    
-    routines.Indicator one_inventory_facility = 18;    
-    routines.Indicator check_inventory = 19;    
-    routines.Indicator reserve_inventory = 20;
-    string reserve_order_enum_id = 21; // Enumeration    
-    routines.Indicator require_inventory = 22;    
-    routines.Indicator balance_res_on_order_creation = 23;
-    string requirement_method_enum_id = 24; // Enumeration    
-    string order_number_prefix = 25;    
-    string default_locale_string = 26;
-    string default_currency_uom_id = 27; // Uom    
-    string default_time_zone_string = 28;
-    string default_sales_channel_enum_id = 29; // Enumeration    
-    routines.Indicator allow_password = 30;    
-    string default_password = 31;    
-    routines.Indicator explode_order_items = 32;    
-    routines.Indicator check_gc_balance = 33;    
-    routines.Indicator retry_failed_auths = 34;
-    string header_approved_status = 35; // StatusItem
-    string item_approved_status = 36; // StatusItem
-    string digital_item_approved_status = 37; // StatusItem
-    string header_declined_status = 38; // StatusItem
-    string item_declined_status = 39; // StatusItem
-    string header_cancel_status = 40; // StatusItem
-    string item_cancel_status = 41; // StatusItem    
-    string auth_declined_message = 42;    
-    string auth_fraud_message = 43;    
-    string auth_error_message = 44;    
-    string visual_theme_id = 45;
-    string store_credit_account_enum_id = 46; // Enumeration    
-    routines.Indicator use_primary_email_username = 47;    
-    routines.Indicator require_customer_role = 48;    
-    routines.Indicator auto_invoice_digital_items = 49;    
-    routines.Indicator req_ship_addr_for_dig_items = 50;    
-    routines.Indicator show_checkout_gift_options = 51;    
-    routines.Indicator select_payment_type_per_item = 52;    
-    routines.Indicator show_prices_with_vat_tax = 53;    
-    routines.Indicator show_tax_is_exempt = 54;    
-    string vat_tax_auth_geo_id = 55;    
-    string vat_tax_auth_party_id = 56;    
-    routines.Indicator enable_auto_suggestion_list = 57;    
-    routines.Indicator enable_dig_prod_upload = 58;    
-    routines.Indicator prod_search_exclude_variants = 59;    
-    string dig_prod_upload_category_id = 60;    
-    routines.Indicator auto_order_cc_try_exp = 61;    
-    routines.Indicator auto_order_cc_try_other_cards = 62;    
-    routines.Indicator auto_order_cc_try_later_nsf = 63;    
-    int64 auto_order_cc_try_later_max = 64;    
-    int64 store_credit_valid_days = 65;    
-    routines.Indicator auto_approve_invoice = 66;    
-    routines.Indicator auto_approve_order = 67;    
-    routines.Indicator ship_if_capture_fails = 68;    
-    routines.Indicator set_owner_upon_issuance = 69;    
-    routines.Indicator req_return_inventory_receive = 70;    
-    routines.Indicator add_to_cart_remove_incompat = 71;    
-    routines.Indicator add_to_cart_replace_upsell = 72;    
-    routines.Indicator split_pay_pref_per_shp_grp = 73;    
-    routines.Indicator managed_by_lot = 74;    
-    routines.Indicator show_out_of_stock_products = 75;    
-    routines.Indicator order_decimal_quantity = 76;    
-    routines.Indicator allow_comment = 77;    
-    routines.Indicator allocate_inventory = 78;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 79;    
-    google.protobuf.Timestamp created_tx_stamp = 80;  
 }
 
 // flat-ent: Party
@@ -832,52 +1104,6 @@ message UserLoginFlatData {
     google.protobuf.Timestamp last_updated_tx_stamp = 16;    
     google.protobuf.Timestamp created_tx_stamp = 17;    
     string party_id = 18;  
-}
-
-// flat-ent: Product Category
-message ProductCategoryFlatData {
-    option (routines.entity_type) = "ProductCategory";
-    option (routines.keys).keys = "product_category_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = true;
-    // keys: productCategoryId
-        
-    string product_category_id = 1;    
-    string product_category_type_id = 2;    
-    string primary_parent_category_id = 3;    
-    string category_name = 4;    
-    string description = 5;    
-    string long_description = 6;    
-    string category_image_url = 7;    
-    string link_one_image_url = 8;    
-    string link_two_image_url = 9;    
-    string detail_screen = 10;    
-    routines.Indicator show_in_select = 11;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 12;    
-    google.protobuf.Timestamp created_tx_stamp = 13;  
-}
-
-// flat-ent: Catalog
-message ProdCatalogFlatData {
-    option (routines.entity_type) = "ProdCatalog";
-    option (routines.keys).keys = "prod_catalog_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = true;
-    // keys: prodCatalogId
-        
-    string prod_catalog_id = 1;    
-    string catalog_name = 2;    
-    routines.Indicator use_quick_add = 3;    
-    string style_sheet = 4;    
-    string header_logo = 5;    
-    string content_path_prefix = 6;    
-    string template_path_prefix = 7;    
-    routines.Indicator view_allow_perm_reqd = 8;    
-    routines.Indicator purchase_allow_perm_reqd = 9;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10;    
-    google.protobuf.Timestamp created_tx_stamp = 11;  
 }
 
 // flat-ent: Billing Account
@@ -1374,7 +1600,7 @@ message ProductCategoryRollupData {
     option (routines.entity_type) = "ProductCategoryRollup";
     option (routines.keys).keys = "product_category_id, parent_product_category_id, from_date";
     option (routines.keys).combine = true;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: productCategoryId, parentProductCategoryId, fromDate
     string id = 200; 
@@ -1387,6 +1613,14 @@ message ProductCategoryRollupData {
     int64 sequence_num = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
     google.protobuf.Timestamp created_tx_stamp = 7;
+    
+    // relations
+    ProductCategoryData current_product_category = 8; // ref(CurrentProductCategory): productCategoryId
+    ProductCategoryData parent_product_category = 9; // ref(ParentProductCategory): parentProductCategoryId
+    repeated ProductCategoryRollupData child_product_category_rollup = 10; // ref(ChildProductCategoryRollup): productCategoryId
+    repeated ProductCategoryRollupData parent_product_category_rollup = 11; // ref(ParentProductCategoryRollup): parentProductCategoryId
+    repeated ProductCategoryRollupData sibling_product_category_rollup = 12; // ref(SiblingProductCategoryRollup): parentProductCategoryId
+    
         
 }
 
@@ -2948,7 +3182,7 @@ message ProdCatalogCategoryData {
     option (routines.entity_type) = "ProdCatalogCategory";
     option (routines.keys).keys = "prod_catalog_id, product_category_id, prod_catalog_category_type_id, from_date";
     option (routines.keys).combine = true;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: prodCatalogId, productCategoryId, prodCatalogCategoryTypeId, fromDate
     string id = 200; 
@@ -2962,6 +3196,11 @@ message ProdCatalogCategoryData {
     int64 sequence_num = 6;    
     google.protobuf.Timestamp last_updated_tx_stamp = 7;    
     google.protobuf.Timestamp created_tx_stamp = 8;
+    
+    // relations
+    ProdCatalogData prod_catalog = 9; // ref(ProdCatalog): prodCatalogId
+    ProductCategoryData product_category = 10; // ref(ProductCategory): productCategoryId
+    
         
 }
 
@@ -3831,7 +4070,7 @@ message ProductStoreCatalogData {
     option (routines.entity_type) = "ProductStoreCatalog";
     option (routines.keys).keys = "product_store_id, prod_catalog_id, from_date";
     option (routines.keys).combine = true;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: productStoreId, prodCatalogId, fromDate
     string id = 200; 
@@ -3844,6 +4083,11 @@ message ProductStoreCatalogData {
     int64 sequence_num = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
     google.protobuf.Timestamp created_tx_stamp = 7;
+    
+    // relations
+    ProductStoreData product_store = 8; // ref(ProductStore): productStoreId
+    ProdCatalogData prod_catalog = 9; // ref(ProdCatalog): prodCatalogId
+    
         
 }
 
@@ -4458,7 +4702,7 @@ message ProductStoreFacilityData {
     option (routines.entity_type) = "ProductStoreFacility";
     option (routines.keys).keys = "product_store_id, facility_id, from_date";
     option (routines.keys).combine = true;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: productStoreId, facilityId, fromDate
     string id = 200; 
@@ -4471,6 +4715,10 @@ message ProductStoreFacilityData {
     int64 sequence_num = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
     google.protobuf.Timestamp created_tx_stamp = 7;
+    
+    // relations
+    ProductStoreData product_store = 8; // ref(ProductStore): productStoreId
+    
         
 }
 
@@ -4479,7 +4727,7 @@ message WebSiteData {
     option (routines.entity_type) = "WebSite";
     option (routines.keys).keys = "web_site_id";
     option (routines.keys).combine = false;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: webSiteId
     
@@ -4499,11 +4747,19 @@ message WebSiteData {
     string visual_theme_set_id = 12; // VisualThemeSet    
     google.protobuf.Timestamp last_updated_tx_stamp = 13;    
     google.protobuf.Timestamp created_tx_stamp = 14;    
-    string product_store_id = 15;    
-    routines.Indicator allow_product_store_change = 16;    
-    string hosted_path_alias = 17;    
-    routines.Indicator is_default = 18;    
-    routines.Indicator display_maintenance_page = 19;
+    routines.Indicator allow_product_store_change = 15;    
+    string hosted_path_alias = 16;    
+    routines.Indicator is_default = 17;    
+    routines.Indicator display_maintenance_page = 18;
+    
+    // relations
+    ProductStoreData product_store = 19; // ref(ProductStore): productStoreId
+    repeated EbayConfigData ebay_config = 20; // ref(EbayConfig): webSiteId
+    repeated OrderHeaderData order_header = 21; // ref(OrderHeader): webSiteId
+    repeated SubscriptionResourceData subscription_resource = 22; // ref(SubscriptionResource): webSiteId
+    repeated WebAnalyticsConfigData web_analytics_config = 23; // ref(WebAnalyticsConfig): webSiteId
+    repeated WebSiteContentData web_site_content = 24; // ref(WebSiteContent): webSiteId
+    
         
 }
 
@@ -5876,7 +6132,7 @@ message ProductCategoryMemberData {
     option (routines.entity_type) = "ProductCategoryMember";
     option (routines.keys).keys = "product_category_id, product_id, from_date";
     option (routines.keys).combine = true;
-    option (routines.flat) = true;
+    option (routines.flat) = false;
     option (routines.has_table) = true;
     // keys: productCategoryId, productId, fromDate
     string id = 200; 
@@ -5891,6 +6147,11 @@ message ProductCategoryMemberData {
     routines.FixedPoint quantity = 7;    
     google.protobuf.Timestamp last_updated_tx_stamp = 8;    
     google.protobuf.Timestamp created_tx_stamp = 9;
+    
+    // relations
+    ProductData product = 10; // ref(Product): productId
+    ProductCategoryData product_category = 11; // ref(ProductCategory): productCategoryId
+    
         
 }
 
