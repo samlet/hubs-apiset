@@ -29,23 +29,6 @@ message ContentAssocTypeData {
     google.protobuf.Timestamp created_tx_stamp = 4;  
 }
 
-// flat-ent: Custom Method
-message CustomMethodData {
-    option (routines.entity_type) = "CustomMethod";
-    option (routines.keys).keys = "custom_method_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: customMethodId
-        
-    string custom_method_id = 1;
-    string custom_method_type_id = 2; // CustomMethodType    
-    string custom_method_name = 3;    
-    string description = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
-}
-
 // flat-ent: Credit Card Type GL Account
 message CreditCardTypeGlAccountData {
     option (routines.entity_type) = "CreditCardTypeGlAccount";
@@ -54,12 +37,13 @@ message CreditCardTypeGlAccountData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: cardType, organizationPartyId
-    string id = 150;     
+        
     string card_type = 1;    
     string organization_party_id = 2;    
     string gl_account_id = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Cost Component Calculation
@@ -78,8 +62,8 @@ message CostComponentCalcData {
     routines.Currency fixed_cost = 5;    
     routines.Currency variable_cost = 6;    
     int64 per_milli_second = 7;
-    string currency_uom_id = 8; // Uom
-    string cost_custom_method_id = 9; // CustomMethod    
+    string currency_uom_id = 8; // Uom    
+    string cost_custom_method_id = 9;    
     google.protobuf.Timestamp last_updated_tx_stamp = 10;    
     google.protobuf.Timestamp created_tx_stamp = 11;  
 }
@@ -140,12 +124,13 @@ message GeoAssocData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: geoId, geoIdTo
-    string id = 150; 
+    
     string geo_id = 1; // Geo
     string geo_id_to = 2; // Geo
     string geo_assoc_type_id = 3; // GeoAssocType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Product Price Purpose
@@ -726,12 +711,13 @@ message VarianceReasonGlAccountData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: varianceReasonId, organizationPartyId
-    string id = 150; 
+    
     string variance_reason_id = 1; // VarianceReason    
     string organization_party_id = 2;    
     string gl_account_id = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Content Association Predicate
@@ -856,12 +842,13 @@ message EntityGroupEntryData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: entityGroupId, entityOrPackage
-    string id = 150; 
+    
     string entity_group_id = 1; // EntityGroup    
     string entity_or_package = 2;    
     string appl_enum_id = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Product Content Type
@@ -1167,13 +1154,14 @@ message StatusValidChangeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: statusId, statusIdTo
-    string id = 150;     
+        
     string status_id = 1;
     string status_id_to = 2; // StatusItem    
     string condition_expression = 3;    
     string transition_name = 4;    
     google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
+    google.protobuf.Timestamp created_tx_stamp = 6;    
+    string id = 7;  
 }
 
 // flat-ent: Quantity Break Type
@@ -1657,14 +1645,15 @@ message UserPreferenceData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: userLoginId, userPrefTypeId
-    string id = 150;     
+        
     string user_login_id = 1;    
     string user_pref_type_id = 2;
     string user_pref_group_type_id = 3; // UserPrefGroupType    
     string user_pref_value = 4;    
     string user_pref_data_type = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
 }
 
 // flat-ent: Fedex Shipment Gateway Configuration
@@ -1692,6 +1681,23 @@ message ShipmentGatewayFedexData {
     string rate_estimate_template = 14;    
     google.protobuf.Timestamp last_updated_tx_stamp = 15;    
     google.protobuf.Timestamp created_tx_stamp = 16;  
+}
+
+// flat-ent: Skill Type
+message SkillTypeData {
+    option (routines.entity_type) = "SkillType";
+    option (routines.keys).keys = "skill_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: skillTypeId
+        
+    string skill_type_id = 1;
+    string parent_type_id = 2; // SkillType    
+    routines.Indicator has_table = 3;    
+    string description = 4;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
+    google.protobuf.Timestamp created_tx_stamp = 6;  
 }
 
 // flat-ent: Geographic Boundary
@@ -1722,11 +1728,12 @@ message ContactMechTypePurposeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: contactMechTypeId, contactMechPurposeTypeId
-    string id = 150; 
+    
     string contact_mech_type_id = 1; // ContactMechType
     string contact_mech_purpose_type_id = 2; // ContactMechPurposeType    
     google.protobuf.Timestamp last_updated_tx_stamp = 3;    
-    google.protobuf.Timestamp created_tx_stamp = 4;  
+    google.protobuf.Timestamp created_tx_stamp = 4;    
+    string id = 5;  
 }
 
 // flat-ent: Tracking Code Type
@@ -1785,14 +1792,15 @@ message ContentPurposeOperationData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: contentPurposeTypeId, contentOperationId, roleTypeId, statusId, privilegeEnumId
-    string id = 150; 
+    
     string content_purpose_type_id = 1; // ContentPurposeType
     string content_operation_id = 2; // ContentOperation
     string role_type_id = 3; // RoleType
     string status_id = 4; // StatusItem
     string privilege_enum_id = 5; // Enumeration    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
 }
 
 // flat-ent: Catalog Category Association Type
@@ -2071,28 +2079,13 @@ message FinAccountTypeGlAccountData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: finAccountTypeId, organizationPartyId
-    string id = 150; 
+    
     string fin_account_type_id = 1; // FinAccountType    
     string organization_party_id = 2;    
     string gl_account_id = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
-}
-
-// flat-ent: Calendar
-message TechDataCalendarData {
-    option (routines.entity_type) = "TechDataCalendar";
-    option (routines.keys).keys = "calendar_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: calendarId
-        
-    string calendar_id = 1;    
-    string description = 2;
-    string calendar_week_id = 3; // TechDataCalendarWeek    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: General Ledger XBRL Class
@@ -2109,35 +2102,6 @@ message GlXbrlClassData {
     string description = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
     google.protobuf.Timestamp created_tx_stamp = 5;  
-}
-
-// flat-ent: Week definition
-message TechDataCalendarWeekData {
-    option (routines.entity_type) = "TechDataCalendarWeek";
-    option (routines.keys).keys = "calendar_week_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: calendarWeekId
-        
-    string calendar_week_id = 1;    
-    string description = 2;    
-    google.type.TimeOfDay monday_start_time = 3;    
-    double monday_capacity = 4;    
-    google.type.TimeOfDay tuesday_start_time = 5;    
-    double tuesday_capacity = 6;    
-    google.type.TimeOfDay wednesday_start_time = 7;    
-    double wednesday_capacity = 8;    
-    google.type.TimeOfDay thursday_start_time = 9;    
-    double thursday_capacity = 10;    
-    google.type.TimeOfDay friday_start_time = 11;    
-    double friday_capacity = 12;    
-    google.type.TimeOfDay saturday_start_time = 13;    
-    double saturday_capacity = 14;    
-    google.type.TimeOfDay sunday_start_time = 15;    
-    double sunday_capacity = 16;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 17;    
-    google.protobuf.Timestamp created_tx_stamp = 18;  
 }
 
 // flat-ent: Payment Gateway Config Type
@@ -2247,12 +2211,13 @@ message InvoiceItemTypeMapData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: invoiceItemMapKey, invoiceTypeId
-    string id = 150;     
+        
     string invoice_item_map_key = 1;
     string invoice_type_id = 2; // InvoiceType    
     string invoice_item_type_id = 3;    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Web Analytics Type
@@ -2372,12 +2337,13 @@ message ReturnItemTypeMapData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: returnItemMapKey, returnHeaderTypeId
-    string id = 150;     
+        
     string return_item_map_key = 1;
     string return_header_type_id = 2; // ReturnHeaderType
     string return_item_type_id = 3; // ReturnAdjustmentType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
 }
 
 // flat-ent: Product Feature Applicability Type
@@ -2420,14 +2386,15 @@ message GlAccountCategoryMemberData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: glAccountId, glAccountCategoryId, fromDate
-    string id = 150;     
+        
     string gl_account_id = 1;
     string gl_account_category_id = 2; // GlAccountCategory    
     google.protobuf.Timestamp from_date = 3;    
     google.protobuf.Timestamp thru_date = 4;    
     routines.FixedPoint amount_percentage = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
 }
 
 // flat-ent: Invoice Item Type
@@ -2623,8 +2590,8 @@ message CustomMethodTypeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: customMethodTypeId
-    
-    string custom_method_type_id = 1; // CustomMethodType
+        
+    string custom_method_type_id = 1;
     string parent_type_id = 2; // CustomMethodType    
     routines.Indicator has_table = 3;    
     string description = 4;    
@@ -2910,14 +2877,15 @@ message GlAccountOrganizationData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: glAccountId, organizationPartyId
-    string id = 150;     
+        
     string gl_account_id = 1;    
     string organization_party_id = 2;
     string role_type_id = 3; // RoleType    
     google.protobuf.Timestamp from_date = 4;    
     google.protobuf.Timestamp thru_date = 5;    
     google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
 }
 
 // flat-ent: Tax Authority Rate Type
@@ -2943,15 +2911,16 @@ message UomConversionData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: uomId, uomIdTo
-    string id = 150; 
+    
     string uom_id = 1; // Uom
     string uom_id_to = 2; // Uom    
-    double conversion_factor = 3;
-    string custom_method_id = 4; // CustomMethod    
+    double conversion_factor = 3;    
+    string custom_method_id = 4;    
     int64 decimal_scale = 5;    
     string rounding_mode = 6;    
     google.protobuf.Timestamp last_updated_tx_stamp = 7;    
-    google.protobuf.Timestamp created_tx_stamp = 8;  
+    google.protobuf.Timestamp created_tx_stamp = 8;    
+    string id = 9;  
 }
 
 // flat-ent: Product Content Type
