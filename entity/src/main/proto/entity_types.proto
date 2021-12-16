@@ -11,6 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
+import "condition.proto";
 
 
 // flat-ent: Content Association Type
@@ -340,23 +341,6 @@ message ShoppingListTypeData {
     string description = 2;    
     google.protobuf.Timestamp last_updated_tx_stamp = 3;    
     google.protobuf.Timestamp created_tx_stamp = 4;  
-}
-
-// flat-ent: EmplPosition Type
-message EmplPositionTypeData {
-    option (routines.entity_type) = "EmplPositionType";
-    option (routines.keys).keys = "empl_position_type_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: emplPositionTypeId
-        
-    string empl_position_type_id = 1;
-    string parent_type_id = 2; // EmplPositionType    
-    routines.Indicator has_table = 3;    
-    string description = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
 }
 
 // flat-ent: Responsibility Type
@@ -1421,22 +1405,6 @@ message UomData {
     google.protobuf.Timestamp created_tx_stamp = 7;  
 }
 
-// flat-ent: Payment Method Type GL Account
-message PaymentMethodTypeGlAccountData {
-    option (routines.entity_type) = "PaymentMethodTypeGlAccount";
-    option (routines.keys).keys = "payment_method_type_id, organization_party_id";
-    option (routines.keys).combine = true;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: paymentMethodTypeId, organizationPartyId
-    string id = 150; 
-    string payment_method_type_id = 1; // PaymentMethodType    
-    string organization_party_id = 2;    
-    string gl_account_id = 3;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
-}
-
 // flat-ent: Cost Component Type
 message CostComponentTypeData {
     option (routines.entity_type) = "CostComponentType";
@@ -1452,28 +1420,6 @@ message CostComponentTypeData {
     string description = 4;    
     google.protobuf.Timestamp last_updated_tx_stamp = 5;    
     google.protobuf.Timestamp created_tx_stamp = 6;  
-}
-
-// flat-ent: Unit Of Measure Conversion Entity for those Units of Measure whose conversion values change over time (ie, currencies)
-message UomConversionDatedData {
-    option (routines.entity_type) = "UomConversionDated";
-    option (routines.keys).keys = "uom_id, uom_id_to, from_date";
-    option (routines.keys).combine = true;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: uomId, uomIdTo, fromDate
-    string id = 150; 
-    string uom_id = 1; // Uom
-    string uom_id_to = 2; // Uom    
-    google.protobuf.Timestamp from_date = 3;    
-    google.protobuf.Timestamp thru_date = 4;    
-    double conversion_factor = 5;
-    string custom_method_id = 6; // CustomMethod    
-    int64 decimal_scale = 7;    
-    string rounding_mode = 8;
-    string purpose_enum_id = 9; // Enumeration    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10;    
-    google.protobuf.Timestamp created_tx_stamp = 11;  
 }
 
 // flat-ent: Entity for storing data about Interview Types
@@ -1655,22 +1601,6 @@ message AgreementContentTypeData {
     string description = 4;    
     google.protobuf.Timestamp last_updated_tx_stamp = 5;    
     google.protobuf.Timestamp created_tx_stamp = 6;  
-}
-
-// flat-ent: GL Account Organization
-message GlAccountTypeDefaultData {
-    option (routines.entity_type) = "GlAccountTypeDefault";
-    option (routines.keys).keys = "gl_account_type_id, organization_party_id";
-    option (routines.keys).combine = true;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: glAccountTypeId, organizationPartyId
-    string id = 150; 
-    string gl_account_type_id = 1; // GlAccountType    
-    string organization_party_id = 2;    
-    string gl_account_id = 3;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
 }
 
 // flat-ent: Segment Group Type
@@ -2034,22 +1964,6 @@ message RateTypeData {
     google.protobuf.Timestamp created_tx_stamp = 4;  
 }
 
-// flat-ent: Maps PaymentTypes to GlAccountTypes, allowing user to configure payments and gl accounts
-message PaymentGlAccountTypeMapData {
-    option (routines.entity_type) = "PaymentGlAccountTypeMap";
-    option (routines.keys).keys = "payment_type_id, organization_party_id";
-    option (routines.keys).combine = true;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: paymentTypeId, organizationPartyId
-    string id = 150; 
-    string payment_type_id = 1; // PaymentType    
-    string organization_party_id = 2;
-    string gl_account_type_id = 3; // GlAccountType    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
-}
-
 // flat-ent: Training Class Type
 message TrainingClassTypeData {
     option (routines.entity_type) = "TrainingClassType";
@@ -2179,39 +2093,6 @@ message TechDataCalendarData {
     string calendar_week_id = 3; // TechDataCalendarWeek    
     google.protobuf.Timestamp last_updated_tx_stamp = 4;    
     google.protobuf.Timestamp created_tx_stamp = 5;  
-}
-
-// flat-ent: Party (organization) accounting preferences
-message PartyAcctgPreferenceData {
-    option (routines.entity_type) = "PartyAcctgPreference";
-    option (routines.keys).keys = "party_id";
-    option (routines.keys).combine = false;
-    option (routines.flat) = true;
-    option (routines.has_table) = false;
-    // keys: partyId
-        
-    string party_id = 1;    
-    int64 fiscal_year_start_month = 2;    
-    int64 fiscal_year_start_day = 3;
-    string tax_form_id = 4; // Enumeration
-    string cogs_method_id = 5; // Enumeration
-    string base_currency_uom_id = 6; // Uom
-    string invoice_seq_cust_meth_id = 7; // CustomMethod    
-    string invoice_id_prefix = 8;    
-    int64 last_invoice_number = 9;    
-    google.protobuf.Timestamp last_invoice_restart_date = 10;    
-    routines.Indicator use_invoice_id_for_returns = 11;
-    string quote_seq_cust_meth_id = 12; // CustomMethod    
-    string quote_id_prefix = 13;    
-    int64 last_quote_number = 14;
-    string order_seq_cust_meth_id = 15; // CustomMethod    
-    string order_id_prefix = 16;    
-    int64 last_order_number = 17;    
-    string refund_payment_method_id = 18;
-    string error_gl_journal_id = 19; // GlJournal    
-    routines.Indicator enable_accounting = 20;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 21;    
-    google.protobuf.Timestamp created_tx_stamp = 22;  
 }
 
 // flat-ent: General Ledger XBRL Class
