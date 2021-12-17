@@ -8,6 +8,11 @@ option objc_class_prefix = "FCP";
 package facade;
 
 import "google/protobuf/any.proto";
+import "routines.proto";
+
+service ProdCatalogService {
+  rpc FindList(routines.QueryList) returns (stream EntityBucket) {}
+}
 
 message FacadePackage{
   string name=1;
@@ -16,5 +21,24 @@ message FacadePackage{
 
 message FacadeEvent{
   map<string, google.protobuf.Any> params=1;
+}
+
+message ModelField{
+  string name=1;
+}
+
+message ModelEntity{
+  string name=1;
+}
+
+message EntityBucket{
+  string entity_type=1;
+  repeated EntityValue values=2;
+}
+
+message EntityValue{
+  map<string, EntityBucket> buckets=1;
+  map<string, string> values=2;
+  string entity_type=3;
 }
 

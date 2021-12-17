@@ -19,8 +19,8 @@ extend google.protobuf.MessageOptions {
 }
 
 message EntityKey{
-  string keys=1;
-  bool combine=2;
+  string keys = 1;
+  bool combine = 2;
 }
 
 // Interface exported by the server.
@@ -31,24 +31,24 @@ service Routines {
 }
 
 message QueryRelations{
-  string key=1;
-  repeated string relations=2;
+  string key = 1;
+  repeated string relations = 2;
 }
 
 message QueryList{
-  int32 limit=1;
-  int32 offset=2;
-  repeated string relations=3;
+  int32 limit = 1;
+  int32 offset = 2;
+  repeated string relations = 3;
 }
 
 message StateProposal{
-  Envelope data=1;
-  string stateType=2;  // type enum
-  string stateValue=3;  // value enum
+  Envelope data = 1;
+  string stateType = 2;  // type enum
+  string stateValue = 3;  // value enum
 }
 
 message Identity{
-  string type=1;
+  string type = 1;
   string value = 2;
 }
 
@@ -101,7 +101,7 @@ message Response{
     ERR = 1;
   }
 
-  Result result=1;
+  Result result = 1;
   string message = 2;
 }
 
@@ -154,8 +154,20 @@ message PeriodTimeData{
 
 enum Indicator{
   NO = 0;
-  YES = 1;
-  UNKNOWN = 2;
+
+  // first, second, third, fourth, fifth, sixth, seventh, eighth, ninth
+  FIRST = 1;
+  SECOND = 2;
+  THIRD = 3;
+  FOURTH = 4;
+  FIFTH = 5;
+  SIXTH = 6;
+  SEVENTH = 7;
+  EIGHTH = 8;
+  NINTH = 9;
+
+  YES = 10;
+  UNKNOWN = 11;
 }
 
 message DecimalValue {
