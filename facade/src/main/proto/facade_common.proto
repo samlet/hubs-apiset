@@ -10,8 +10,13 @@ package facade;
 import "google/protobuf/any.proto";
 import "routines.proto";
 
-service ProdCatalogService {
-  rpc FindList(routines.QueryList) returns (stream EntityBucket) {}
+service DataStoreService {
+  rpc FindList(QueryProfile) returns (stream EntityBucket) {}
+}
+
+message QueryProfile{
+  string delegatorName=1;
+  int32 page=2;
 }
 
 message FacadePackage{
