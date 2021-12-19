@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "GlAccountClassProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: General Ledger Account Class
+message GlAccountClassData {
+    option (routines.entity_type) = "GlAccountClass";
+    option (routines.keys).keys = "gl_account_class_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: glAccountClassId
+        
+    string gl_account_class_id = 1;
+    string parent_class_id = 2; // GlAccountClass    
+    string description = 3;    
+    routines.Indicator is_asset_class = 4;    
+    int64 sequence_num = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+

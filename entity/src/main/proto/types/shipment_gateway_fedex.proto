@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ShipmentGatewayFedexProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Fedex Shipment Gateway Configuration
+message ShipmentGatewayFedexData {
+    option (routines.entity_type) = "ShipmentGatewayFedex";
+    option (routines.keys).keys = "shipment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: shipmentGatewayConfigId
+    
+    string shipment_gateway_config_id = 1; // ShipmentGatewayConfig    
+    string connect_url = 2;    
+    string connect_soap_url = 3;    
+    int64 connect_timeout = 4;    
+    string access_account_nbr = 5;    
+    string access_meter_number = 6;    
+    string access_user_key = 7;    
+    string access_user_pwd = 8;    
+    string label_image_type = 9;    
+    string default_dropoff_type = 10;    
+    string default_packaging_type = 11;    
+    string template_shipment = 12;    
+    string template_subscription = 13;    
+    string rate_estimate_template = 14;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15;    
+    google.protobuf.Timestamp created_tx_stamp = 16;  
+}
+

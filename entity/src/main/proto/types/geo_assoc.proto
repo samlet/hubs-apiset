@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "GeoAssocProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Geographic Boundary Association
+message GeoAssocData {
+    option (routines.entity_type) = "GeoAssoc";
+    option (routines.keys).keys = "geo_id, geo_id_to";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: geoId, geoIdTo
+    
+    string geo_id = 1; // Geo
+    string geo_id_to = 2; // Geo
+    string geo_assoc_type_id = 3; // GeoAssocType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
+    google.protobuf.Timestamp created_tx_stamp = 5;    
+    string id = 6;  
+}
+

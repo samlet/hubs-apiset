@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "GlAccountCategoryMemberProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: General Ledger Account Category Member
+message GlAccountCategoryMemberData {
+    option (routines.entity_type) = "GlAccountCategoryMember";
+    option (routines.keys).keys = "gl_account_id, gl_account_category_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: glAccountId, glAccountCategoryId, fromDate
+        
+    string gl_account_id = 1;
+    string gl_account_category_id = 2; // GlAccountCategory    
+    google.protobuf.Timestamp from_date = 3;    
+    google.protobuf.Timestamp thru_date = 4;    
+    routines.FixedPoint amount_percentage = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
+}
+

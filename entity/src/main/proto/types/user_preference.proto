@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "UserPreferenceProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Application preferences for a given userLogin.
+message UserPreferenceData {
+    option (routines.entity_type) = "UserPreference";
+    option (routines.keys).keys = "user_login_id, user_pref_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: userLoginId, userPrefTypeId
+        
+    string user_login_id = 1;    
+    string user_pref_type_id = 2;
+    string user_pref_group_type_id = 3; // UserPrefGroupType    
+    string user_pref_value = 4;    
+    string user_pref_data_type = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;    
+    string id = 8;  
+}
+

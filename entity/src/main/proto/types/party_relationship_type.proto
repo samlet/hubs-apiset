@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartyRelationshipTypeProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Party Relationship Type
+message PartyRelationshipTypeData {
+    option (routines.entity_type) = "PartyRelationshipType";
+    option (routines.keys).keys = "party_relationship_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: partyRelationshipTypeId
+        
+    string party_relationship_type_id = 1;
+    string parent_type_id = 2; // PartyRelationshipType    
+    routines.Indicator has_table = 3;    
+    string party_relationship_name = 4;    
+    string description = 5;
+    string role_type_id_valid_from = 6; // RoleType
+    string role_type_id_valid_to = 7; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8;    
+    google.protobuf.Timestamp created_tx_stamp = 9;  
+}
+

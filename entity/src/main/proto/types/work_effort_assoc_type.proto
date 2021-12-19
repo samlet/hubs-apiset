@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkEffortAssocTypeProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Work Effort Association Type
+message WorkEffortAssocTypeData {
+    option (routines.entity_type) = "WorkEffortAssocType";
+    option (routines.keys).keys = "work_effort_assoc_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: workEffortAssocTypeId
+        
+    string work_effort_assoc_type_id = 1;
+    string parent_type_id = 2; // WorkEffortAssocType    
+    routines.Indicator has_table = 3;    
+    string description = 4;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
+    google.protobuf.Timestamp created_tx_stamp = 6;  
+}
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "UomConversionProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Unit Of Measure Conversion Type
+message UomConversionData {
+    option (routines.entity_type) = "UomConversion";
+    option (routines.keys).keys = "uom_id, uom_id_to";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: uomId, uomIdTo
+    
+    string uom_id = 1; // Uom
+    string uom_id_to = 2; // Uom    
+    double conversion_factor = 3;    
+    string custom_method_id = 4;    
+    int64 decimal_scale = 5;    
+    string rounding_mode = 6;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7;    
+    google.protobuf.Timestamp created_tx_stamp = 8;    
+    string id = 9;  
+}
+

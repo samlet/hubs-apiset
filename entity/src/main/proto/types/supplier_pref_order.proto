@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SupplierPrefOrderProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Preference Type
+message SupplierPrefOrderData {
+    option (routines.entity_type) = "SupplierPrefOrder";
+    option (routines.keys).keys = "supplier_pref_order_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: supplierPrefOrderId
+        
+    string supplier_pref_order_id = 1;    
+    string description = 2;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3;    
+    google.protobuf.Timestamp created_tx_stamp = 4;  
+}
+

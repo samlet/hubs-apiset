@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CostComponentCalcProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Cost Component Calculation
+message CostComponentCalcData {
+    option (routines.entity_type) = "CostComponentCalc";
+    option (routines.keys).keys = "cost_component_calc_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: costComponentCalcId
+        
+    string cost_component_calc_id = 1;    
+    string description = 2;
+    string cost_gl_account_type_id = 3; // GlAccountType
+    string offsetting_gl_account_type_id = 4; // GlAccountType    
+    routines.Currency fixed_cost = 5;    
+    routines.Currency variable_cost = 6;    
+    int64 per_milli_second = 7;
+    string currency_uom_id = 8; // Uom    
+    string cost_custom_method_id = 9;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10;    
+    google.protobuf.Timestamp created_tx_stamp = 11;  
+}
+

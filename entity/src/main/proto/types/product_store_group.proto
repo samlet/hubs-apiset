@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductStoreGroupProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: ProductStore Group
+message ProductStoreGroupData {
+    option (routines.entity_type) = "ProductStoreGroup";
+    option (routines.keys).keys = "product_store_group_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: productStoreGroupId
+        
+    string product_store_group_id = 1;    
+    string product_store_group_type_id = 2;
+    string primary_parent_group_id = 3; // ProductStoreGroup    
+    string product_store_group_name = 4;    
+    string description = 5;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+

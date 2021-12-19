@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ShipmentGatewayUspsProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: USPS Shipment Gateway Configuration
+message ShipmentGatewayUspsData {
+    option (routines.entity_type) = "ShipmentGatewayUsps";
+    option (routines.keys).keys = "shipment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: shipmentGatewayConfigId
+    
+    string shipment_gateway_config_id = 1; // ShipmentGatewayConfig    
+    string connect_url = 2;    
+    string connect_url_labels = 3;    
+    int64 connect_timeout = 4;    
+    string access_user_id = 5;    
+    string access_password = 6;    
+    int64 max_estimate_weight = 7;    
+    string test = 8;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9;    
+    google.protobuf.Timestamp created_tx_stamp = 10;  
+}
+

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CountryAddressFormatProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: CountryAddressFormat
+message CountryAddressFormatData {
+    option (routines.entity_type) = "CountryAddressFormat";
+    option (routines.keys).keys = "geo_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: geoId
+    
+    string geo_id = 1; // Geo
+    string geo_assoc_type_id = 2; // GeoAssocType    
+    string require_state_province_id = 3;    
+    routines.Indicator require_postal_code = 4;    
+    string postal_code_regex = 5;    
+    routines.Indicator has_postal_code_ext = 6;    
+    routines.Indicator require_postal_code_ext = 7;    
+    string address_format = 8;    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9;    
+    google.protobuf.Timestamp created_tx_stamp = 10;  
+}
+

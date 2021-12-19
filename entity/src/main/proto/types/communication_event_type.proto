@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommunicationEventTypeProto";
+option objc_class_prefix = "ETP";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+// import "date.proto";
+// import "timeofday.proto";
+import "routines.proto";
+// import "condition.proto";
+
+
+// flat-ent: Communication Event Type
+message CommunicationEventTypeData {
+    option (routines.entity_type) = "CommunicationEventType";
+    option (routines.keys).keys = "communication_event_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = false;
+    // keys: communicationEventTypeId
+        
+    string communication_event_type_id = 1;
+    string parent_type_id = 2; // CommunicationEventType    
+    routines.Indicator has_table = 3;    
+    string description = 4;
+    string contact_mech_type_id = 5; // ContactMechType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
+    google.protobuf.Timestamp created_tx_stamp = 7;  
+}
+
