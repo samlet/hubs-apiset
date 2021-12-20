@@ -23,11 +23,11 @@ message EnumerationTypeData {
     option (routines.has_table) = false;
     // keys: enumTypeId
     
-    string enum_type_id = 1; // EnumerationType
-    string parent_type_id = 2; // EnumerationType    
-    routines.Indicator has_table = 3;    
-    string description = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
+    string enum_type_id = 1 [json_name = "enum_type_id"]; // EnumerationType
+    string parent_type_id = 2 [json_name = "parent_type_id"]; // EnumerationType    
+    routines.Indicator has_table = 3 [json_name = "has_table"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];  
 }
 

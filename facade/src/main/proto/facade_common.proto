@@ -13,6 +13,7 @@ import "routines.proto";
 service DataStoreService {
   rpc FindList(QueryProfile) returns (stream EntityBucket) {}
   rpc QueryTypeList(TypeProfile) returns (stream SeedType) {}
+  rpc StoreOrUpdate(EntityValue) returns (routines.Response) {}
 }
 
 message TypeProfile{

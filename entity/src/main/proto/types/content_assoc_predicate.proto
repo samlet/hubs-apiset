@@ -23,9 +23,9 @@ message ContentAssocPredicateData {
     option (routines.has_table) = false;
     // keys: contentAssocPredicateId
         
-    string content_assoc_predicate_id = 1;    
-    string description = 2;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3;    
-    google.protobuf.Timestamp created_tx_stamp = 4;  
+    string content_assoc_predicate_id = 1 [json_name = "content_assoc_predicate_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];  
 }
 

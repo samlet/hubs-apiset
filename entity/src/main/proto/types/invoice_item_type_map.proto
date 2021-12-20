@@ -23,11 +23,11 @@ message InvoiceItemTypeMapData {
     option (routines.has_table) = false;
     // keys: invoiceItemMapKey, invoiceTypeId
         
-    string invoice_item_map_key = 1;
-    string invoice_type_id = 2; // InvoiceType    
-    string invoice_item_type_id = 3;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;    
-    string id = 6;  
+    string invoice_item_map_key = 1 [json_name = "invoice_item_map_key"];
+    string invoice_type_id = 2 [json_name = "invoice_type_id"]; // InvoiceType    
+    string invoice_item_type_id = 3 [json_name = "invoice_item_type_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];  
 }
 

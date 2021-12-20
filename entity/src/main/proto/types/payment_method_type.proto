@@ -23,10 +23,10 @@ message PaymentMethodTypeData {
     option (routines.has_table) = false;
     // keys: paymentMethodTypeId
         
-    string payment_method_type_id = 1;    
-    string description = 2;    
-    string default_gl_account_id = 3;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;  
+    string payment_method_type_id = 1 [json_name = "payment_method_type_id"];    
+    string description = 2 [json_name = "description"];    
+    string default_gl_account_id = 3 [json_name = "default_gl_account_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];  
 }
 

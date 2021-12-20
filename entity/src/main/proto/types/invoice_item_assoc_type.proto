@@ -23,11 +23,11 @@ message InvoiceItemAssocTypeData {
     option (routines.has_table) = false;
     // keys: invoiceItemAssocTypeId
         
-    string invoice_item_assoc_type_id = 1;
-    string parent_type_id = 2; // InvoiceItemAssocType    
-    routines.Indicator has_table = 3;    
-    string description = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
+    string invoice_item_assoc_type_id = 1 [json_name = "invoice_item_assoc_type_id"];
+    string parent_type_id = 2 [json_name = "parent_type_id"]; // InvoiceItemAssocType    
+    routines.Indicator has_table = 3 [json_name = "has_table"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];  
 }
 

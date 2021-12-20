@@ -23,13 +23,13 @@ message BenefitTypeData {
     option (routines.has_table) = false;
     // keys: benefitTypeId
         
-    string benefit_type_id = 1;    
-    string benefit_name = 2;
-    string parent_type_id = 3; // BenefitType    
-    routines.Indicator has_table = 4;    
-    string description = 5;    
-    double employer_paid_percentage = 6;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7;    
-    google.protobuf.Timestamp created_tx_stamp = 8;  
+    string benefit_type_id = 1 [json_name = "benefit_type_id"];    
+    string benefit_name = 2 [json_name = "benefit_name"];
+    string parent_type_id = 3 [json_name = "parent_type_id"]; // BenefitType    
+    routines.Indicator has_table = 4 [json_name = "has_table"];    
+    string description = 5 [json_name = "description"];    
+    double employer_paid_percentage = 6 [json_name = "employer_paid_percentage"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];  
 }
 

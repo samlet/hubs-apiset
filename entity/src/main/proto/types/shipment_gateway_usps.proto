@@ -23,15 +23,15 @@ message ShipmentGatewayUspsData {
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
     
-    string shipment_gateway_config_id = 1; // ShipmentGatewayConfig    
-    string connect_url = 2;    
-    string connect_url_labels = 3;    
-    int64 connect_timeout = 4;    
-    string access_user_id = 5;    
-    string access_password = 6;    
-    int64 max_estimate_weight = 7;    
-    string test = 8;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9;    
-    google.protobuf.Timestamp created_tx_stamp = 10;  
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id"]; // ShipmentGatewayConfig    
+    string connect_url = 2 [json_name = "connect_url"];    
+    string connect_url_labels = 3 [json_name = "connect_url_labels"];    
+    int64 connect_timeout = 4 [json_name = "connect_timeout"];    
+    string access_user_id = 5 [json_name = "access_user_id"];    
+    string access_password = 6 [json_name = "access_password"];    
+    int64 max_estimate_weight = 7 [json_name = "max_estimate_weight"];    
+    string test = 8 [json_name = "test"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];  
 }
 

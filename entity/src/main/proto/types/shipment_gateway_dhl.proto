@@ -23,18 +23,18 @@ message ShipmentGatewayDhlData {
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
     
-    string shipment_gateway_config_id = 1; // ShipmentGatewayConfig    
-    string connect_url = 2;    
-    int64 connect_timeout = 3;    
-    string head_version = 4;    
-    string head_action = 5;    
-    string access_user_id = 6;    
-    string access_password = 7;    
-    string access_account_nbr = 8;    
-    string access_shipping_key = 9;    
-    string label_image_format = 10;    
-    string rate_estimate_template = 11;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 12;    
-    google.protobuf.Timestamp created_tx_stamp = 13;  
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id"]; // ShipmentGatewayConfig    
+    string connect_url = 2 [json_name = "connect_url"];    
+    int64 connect_timeout = 3 [json_name = "connect_timeout"];    
+    string head_version = 4 [json_name = "head_version"];    
+    string head_action = 5 [json_name = "head_action"];    
+    string access_user_id = 6 [json_name = "access_user_id"];    
+    string access_password = 7 [json_name = "access_password"];    
+    string access_account_nbr = 8 [json_name = "access_account_nbr"];    
+    string access_shipping_key = 9 [json_name = "access_shipping_key"];    
+    string label_image_format = 10 [json_name = "label_image_format"];    
+    string rate_estimate_template = 11 [json_name = "rate_estimate_template"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];  
 }
 

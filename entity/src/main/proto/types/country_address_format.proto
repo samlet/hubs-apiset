@@ -23,15 +23,15 @@ message CountryAddressFormatData {
     option (routines.has_table) = false;
     // keys: geoId
     
-    string geo_id = 1; // Geo
-    string geo_assoc_type_id = 2; // GeoAssocType    
-    string require_state_province_id = 3;    
-    routines.Indicator require_postal_code = 4;    
-    string postal_code_regex = 5;    
-    routines.Indicator has_postal_code_ext = 6;    
-    routines.Indicator require_postal_code_ext = 7;    
-    string address_format = 8;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9;    
-    google.protobuf.Timestamp created_tx_stamp = 10;  
+    string geo_id = 1 [json_name = "geo_id"]; // Geo
+    string geo_assoc_type_id = 2 [json_name = "geo_assoc_type_id"]; // GeoAssocType    
+    string require_state_province_id = 3 [json_name = "require_state_province_id"];    
+    routines.Indicator require_postal_code = 4 [json_name = "require_postal_code"];    
+    string postal_code_regex = 5 [json_name = "postal_code_regex"];    
+    routines.Indicator has_postal_code_ext = 6 [json_name = "has_postal_code_ext"];    
+    routines.Indicator require_postal_code_ext = 7 [json_name = "require_postal_code_ext"];    
+    string address_format = 8 [json_name = "address_format"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];  
 }
 

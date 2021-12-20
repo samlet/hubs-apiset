@@ -23,16 +23,16 @@ message CostComponentCalcData {
     option (routines.has_table) = false;
     // keys: costComponentCalcId
         
-    string cost_component_calc_id = 1;    
-    string description = 2;
-    string cost_gl_account_type_id = 3; // GlAccountType
-    string offsetting_gl_account_type_id = 4; // GlAccountType    
-    routines.Currency fixed_cost = 5;    
-    routines.Currency variable_cost = 6;    
-    int64 per_milli_second = 7;
-    string currency_uom_id = 8; // Uom    
-    string cost_custom_method_id = 9;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10;    
-    google.protobuf.Timestamp created_tx_stamp = 11;  
+    string cost_component_calc_id = 1 [json_name = "cost_component_calc_id"];    
+    string description = 2 [json_name = "description"];
+    string cost_gl_account_type_id = 3 [json_name = "cost_gl_account_type_id"]; // GlAccountType
+    string offsetting_gl_account_type_id = 4 [json_name = "offsetting_gl_account_type_id"]; // GlAccountType    
+    routines.Currency fixed_cost = 5 [json_name = "fixed_cost"];    
+    routines.Currency variable_cost = 6 [json_name = "variable_cost"];    
+    int64 per_milli_second = 7 [json_name = "per_milli_second"];
+    string currency_uom_id = 8 [json_name = "currency_uom_id"]; // Uom    
+    string cost_custom_method_id = 9 [json_name = "cost_custom_method_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];  
 }
 

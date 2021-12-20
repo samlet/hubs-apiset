@@ -23,16 +23,16 @@ message CustomTimePeriodData {
     option (routines.has_table) = false;
     // keys: customTimePeriodId
         
-    string custom_time_period_id = 1;
-    string parent_period_id = 2; // CustomTimePeriod
-    string period_type_id = 3; // PeriodType    
-    int64 period_num = 4;    
-    string period_name = 5;    
-    google.protobuf.Timestamp from_date = 6;    
-    google.protobuf.Timestamp thru_date = 7;    
-    routines.Indicator is_closed = 8;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9;    
-    google.protobuf.Timestamp created_tx_stamp = 10;    
-    string organization_party_id = 11;  
+    string custom_time_period_id = 1 [json_name = "custom_time_period_id"];
+    string parent_period_id = 2 [json_name = "parent_period_id"]; // CustomTimePeriod
+    string period_type_id = 3 [json_name = "period_type_id"]; // PeriodType    
+    int64 period_num = 4 [json_name = "period_num"];    
+    string period_name = 5 [json_name = "period_name"];    
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];    
+    routines.Indicator is_closed = 8 [json_name = "is_closed"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string organization_party_id = 11 [json_name = "organization_party_id"];  
 }
 

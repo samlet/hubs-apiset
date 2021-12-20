@@ -23,11 +23,11 @@ message WebSiteContentTypeData {
     option (routines.has_table) = false;
     // keys: webSiteContentTypeId
         
-    string web_site_content_type_id = 1;    
-    string description = 2;
-    string parent_type_id = 3; // WebSiteContentType    
-    routines.Indicator has_table = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
+    string web_site_content_type_id = 1 [json_name = "web_site_content_type_id"];    
+    string description = 2 [json_name = "description"];
+    string parent_type_id = 3 [json_name = "parent_type_id"]; // WebSiteContentType    
+    routines.Indicator has_table = 4 [json_name = "has_table"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];  
 }
 

@@ -23,11 +23,11 @@ message ReturnItemTypeMapData {
     option (routines.has_table) = false;
     // keys: returnItemMapKey, returnHeaderTypeId
         
-    string return_item_map_key = 1;
-    string return_header_type_id = 2; // ReturnHeaderType
-    string return_item_type_id = 3; // ReturnAdjustmentType    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4;    
-    google.protobuf.Timestamp created_tx_stamp = 5;    
-    string id = 6;  
+    string return_item_map_key = 1 [json_name = "return_item_map_key"];
+    string return_header_type_id = 2 [json_name = "return_header_type_id"]; // ReturnHeaderType
+    string return_item_type_id = 3 [json_name = "return_item_type_id"]; // ReturnAdjustmentType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];  
 }
 

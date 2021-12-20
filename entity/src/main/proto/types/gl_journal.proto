@@ -23,12 +23,12 @@ message GlJournalData {
     option (routines.has_table) = false;
     // keys: glJournalId
         
-    string gl_journal_id = 1;    
-    string gl_journal_name = 2;    
-    string organization_party_id = 3;    
-    routines.Indicator is_posted = 4;    
-    google.protobuf.Timestamp posted_date = 5;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    string gl_journal_id = 1 [json_name = "gl_journal_id"];    
+    string gl_journal_name = 2 [json_name = "gl_journal_name"];    
+    string organization_party_id = 3 [json_name = "organization_party_id"];    
+    routines.Indicator is_posted = 4 [json_name = "is_posted"];    
+    google.protobuf.Timestamp posted_date = 5 [json_name = "posted_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];  
 }
 

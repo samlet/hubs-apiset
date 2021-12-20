@@ -23,9 +23,9 @@ message SupplierPrefOrderData {
     option (routines.has_table) = false;
     // keys: supplierPrefOrderId
         
-    string supplier_pref_order_id = 1;    
-    string description = 2;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3;    
-    google.protobuf.Timestamp created_tx_stamp = 4;  
+    string supplier_pref_order_id = 1 [json_name = "supplier_pref_order_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];  
 }
 

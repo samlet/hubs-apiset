@@ -23,11 +23,11 @@ message ProdConfItemContentTypeData {
     option (routines.has_table) = false;
     // keys: confItemContentTypeId
         
-    string conf_item_content_type_id = 1;
-    string parent_type_id = 2; // ProdConfItemContentType    
-    routines.Indicator has_table = 3;    
-    string description = 4;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5;    
-    google.protobuf.Timestamp created_tx_stamp = 6;  
+    string conf_item_content_type_id = 1 [json_name = "conf_item_content_type_id"];
+    string parent_type_id = 2 [json_name = "parent_type_id"]; // ProdConfItemContentType    
+    routines.Indicator has_table = 3 [json_name = "has_table"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];  
 }
 

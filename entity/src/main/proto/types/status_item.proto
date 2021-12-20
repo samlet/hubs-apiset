@@ -23,12 +23,12 @@ message StatusItemData {
     option (routines.has_table) = false;
     // keys: statusId
         
-    string status_id = 1;
-    string status_type_id = 2; // StatusType    
-    string status_code = 3;    
-    string sequence_id = 4;    
-    string description = 5;    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6;    
-    google.protobuf.Timestamp created_tx_stamp = 7;  
+    string status_id = 1 [json_name = "status_id"];
+    string status_type_id = 2 [json_name = "status_type_id"]; // StatusType    
+    string status_code = 3 [json_name = "status_code"];    
+    string sequence_id = 4 [json_name = "sequence_id"];    
+    string description = 5 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];  
 }
 
