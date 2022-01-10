@@ -57,9 +57,10 @@ message ConfigItem{
   string key = 2;
 }
 
-message StringValue{
-  string value = 1;
-}
+// replace with com.google.protobuf.StringValue
+//message StringValue{
+//  string value = 1;
+//}
 
 
 message Filter{

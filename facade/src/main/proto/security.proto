@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SecurityProto";
+option objc_class_prefix = "SCP";
+
+package facade;
+
+//import "google/protobuf/any.proto";
+import "routines.proto";
+
+
+message PermissionsEvent{
+  enum SecurityEventType{
+    ADD_PERMISSIONS = 0;
+    DELETE_PERMISSIONS = 1;
+  }
+  SecurityEventType event_type = 1;
+  string login_id = 2;
+  repeated string permissions = 3;
+}
+
+message RolesEvent{
+  enum SecurityEventType{
+    ADD_ROLES = 0;
+    DELETE_ROLES = 1;
+  }
+  SecurityEventType event_type = 1;
+  string login_id = 2;
+  repeated string roles = 3;  // 对应的是security-groups
+}
+

@@ -14,3 +14,7 @@ mesh:
 # just inst fund
 inst mod:
     mvn install -DskipTests -f {{mod}}/pom.xml
+
+clean-types:
+	rm entity/src/main/proto/types/*.proto
+
