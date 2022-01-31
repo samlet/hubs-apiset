@@ -1,0 +1,225 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingFixedassetProto";
+option objc_class_prefix = "AccountingFixedasset";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Fixed Asset
+message FixedAssetFlatData {
+    option (routines.entity_type) = "FixedAsset";
+    option (routines.keys).keys = "fixed_asset_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];    
+    string parent_fixed_asset_id = 3 [json_name = "parent_fixed_asset_id"];    
+    string instance_of_product_id = 4 [json_name = "instance_of_product_id"];
+    string class_enum_id = 5 [json_name = "class_enum_id"]; // Enumeration    
+    string party_id = 6 [json_name = "party_id"];
+    string role_type_id = 7 [json_name = "role_type_id"]; // RoleType    
+    string fixed_asset_name = 8 [json_name = "fixed_asset_name"];    
+    string acquire_order_id = 9 [json_name = "acquire_order_id"];    
+    string acquire_order_item_seq_id = 10 [json_name = "acquire_order_item_seq_id"];    
+    google.protobuf.Timestamp date_acquired = 11 [json_name = "date_acquired"];    
+    google.protobuf.Timestamp date_last_serviced = 12 [json_name = "date_last_serviced"];    
+    google.protobuf.Timestamp date_next_service = 13 [json_name = "date_next_service"];    
+    google.type.Date expected_end_of_life = 14 [json_name = "expected_end_of_life"];    
+    google.type.Date actual_end_of_life = 15 [json_name = "actual_end_of_life"];    
+    routines.FixedPoint production_capacity = 16 [json_name = "production_capacity"];
+    string uom_id = 17 [json_name = "uom_id"]; // Uom    
+    string calendar_id = 18 [json_name = "calendar_id"];    
+    string serial_number = 19 [json_name = "serial_number"];    
+    string located_at_facility_id = 20 [json_name = "located_at_facility_id"];    
+    string located_at_location_seq_id = 21 [json_name = "located_at_location_seq_id"];    
+    routines.Currency salvage_value = 22 [json_name = "salvage_value"];    
+    routines.Currency depreciation = 23 [json_name = "depreciation"];    
+    routines.Currency purchase_cost = 24 [json_name = "purchase_cost"];    
+    string purchase_cost_uom_id = 25 [json_name = "purchase_cost_uom_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 26 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 27 [json_name = "created_tx_stamp"];    
+    string tenant_id = 28 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 65;
+    map<string, google.protobuf.Any> attachments = 66 ;
+}
+
+
+// Fixed Asset Depreciation Method
+message FixedAssetDepMethodData {
+    option (routines.entity_type) = "FixedAssetDepMethod";
+    option (routines.keys).keys = "depreciation_custom_method_id, fixed_asset_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: depreciationCustomMethodId, fixedAssetId
+    // fields
+        
+    string depreciation_custom_method_id = 1 [json_name = "depreciation_custom_method_id"];    
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// Fixed Asset Geo Location with history
+message FixedAssetGeoPointData {
+    option (routines.entity_type) = "FixedAssetGeoPoint";
+    option (routines.keys).keys = "fixed_asset_id, geo_point_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, geoPointId, fromDate
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string geo_point_id = 2 [json_name = "geo_point_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// Fixed Asset Meter
+message FixedAssetMeterData {
+    option (routines.entity_type) = "FixedAssetMeter";
+    option (routines.keys).keys = "fixed_asset_id, product_meter_type_id, reading_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, productMeterTypeId, readingDate
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string product_meter_type_id = 2 [json_name = "product_meter_type_id"]; // ProductMeterType    
+    google.protobuf.Timestamp reading_date = 3 [json_name = "reading_date"];    
+    routines.FixedPoint meter_value = 4 [json_name = "meter_value"];    
+    string reading_reason_enum_id = 5 [json_name = "reading_reason_enum_id"];    
+    string maint_hist_seq_id = 6 [json_name = "maint_hist_seq_id"];    
+    string work_effort_id = 7 [json_name = "work_effort_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+// Fixed Asset Product Representation
+message FixedAssetProductData {
+    option (routines.entity_type) = "FixedAssetProduct";
+    option (routines.keys).keys = "fixed_asset_id, product_id, fixed_asset_product_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, productId, fixedAssetProductTypeId, fromDate
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string product_id = 2 [json_name = "product_id"];
+    string fixed_asset_product_type_id = 3 [json_name = "fixed_asset_product_type_id"]; // FixedAssetProductType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    string comments = 6 [json_name = "comments"];    
+    int64 sequence_num = 7 [json_name = "sequence_num"];    
+    routines.FixedPoint quantity = 8 [json_name = "quantity"];
+    string quantity_uom_id = 9 [json_name = "quantity_uom_id"]; // Uom    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string id = 12 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+// Fixed Asset Registration
+message FixedAssetRegistrationData {
+    option (routines.entity_type) = "FixedAssetRegistration";
+    option (routines.keys).keys = "fixed_asset_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, fromDate
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 3 [json_name = "thru_date"];    
+    google.protobuf.Timestamp registration_date = 4 [json_name = "registration_date"];    
+    string gov_agency_party_id = 5 [json_name = "gov_agency_party_id"];    
+    string registration_number = 6 [json_name = "registration_number"];    
+    string license_number = 7 [json_name = "license_number"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+// Fixed Asset Standard Cost
+message FixedAssetStdCostData {
+    option (routines.entity_type) = "FixedAssetStdCost";
+    option (routines.keys).keys = "fixed_asset_id, fixed_asset_std_cost_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, fixedAssetStdCostTypeId, fromDate
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string fixed_asset_std_cost_type_id = 2 [json_name = "fixed_asset_std_cost_type_id"]; // FixedAssetStdCostType    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string amount_uom_id = 5 [json_name = "amount_uom_id"]; // Uom    
+    routines.Currency amount = 6 [json_name = "amount"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+

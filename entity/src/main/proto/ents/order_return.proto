@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderReturnProto";
+option objc_class_prefix = "OrderReturn";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Return
+message ReturnHeaderFlatData {
+    option (routines.entity_type) = "ReturnHeader";
+    option (routines.keys).keys = "return_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: returnId
+        
+    string return_id = 1 [json_name = "return_id"];
+    string return_header_type_id = 2 [json_name = "return_header_type_id"]; // ReturnHeaderType
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    string created_by = 4 [json_name = "created_by"];    
+    string from_party_id = 5 [json_name = "from_party_id"];    
+    string to_party_id = 6 [json_name = "to_party_id"];    
+    string payment_method_id = 7 [json_name = "payment_method_id"];    
+    string fin_account_id = 8 [json_name = "fin_account_id"];    
+    string billing_account_id = 9 [json_name = "billing_account_id"];    
+    google.protobuf.Timestamp entry_date = 10 [json_name = "entry_date"];    
+    string origin_contact_mech_id = 11 [json_name = "origin_contact_mech_id"];    
+    string destination_facility_id = 12 [json_name = "destination_facility_id"];    
+    routines.Indicator needs_inventory_receive = 13 [json_name = "needs_inventory_receive"];
+    string currency_uom_id = 14 [json_name = "currency_uom_id"]; // Uom    
+    string supplier_rma_id = 15 [json_name = "supplier_rma_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
+    string tenant_id = 18 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 42;
+    map<string, google.protobuf.Any> attachments = 43 ;
+}
+
+
+// Return Item
+message ReturnItemData {
+    option (routines.entity_type) = "ReturnItem";
+    option (routines.keys).keys = "return_id, return_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: returnId, returnItemSeqId
+    // fields
+        
+    string return_id = 1 [json_name = "return_id"];    
+    string return_item_seq_id = 2 [json_name = "return_item_seq_id"];
+    string return_reason_id = 3 [json_name = "return_reason_id"]; // ReturnReason
+    string return_type_id = 4 [json_name = "return_type_id"]; // ReturnType
+    string return_item_type_id = 5 [json_name = "return_item_type_id"]; // ReturnItemType    
+    string product_id = 6 [json_name = "product_id"];    
+    string description = 7 [json_name = "description"];    
+    string order_id = 8 [json_name = "order_id"];    
+    string order_item_seq_id = 9 [json_name = "order_item_seq_id"];
+    string status_id = 10 [json_name = "status_id"]; // StatusItem
+    string expected_item_status = 11 [json_name = "expected_item_status"]; // StatusItem    
+    routines.FixedPoint return_quantity = 12 [json_name = "return_quantity"];    
+    routines.FixedPoint received_quantity = 13 [json_name = "received_quantity"];    
+    routines.Currency return_price = 14 [json_name = "return_price"];    
+    string return_item_response_id = 15 [json_name = "return_item_response_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
+    string id = 18 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 25;
+    map<string, google.protobuf.Any> attachments = 26;
+}
+
+

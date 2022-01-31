@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContentDataProto";
+option objc_class_prefix = "ContentData";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Data Object
+message DataResourceFlatData {
+    option (routines.entity_type) = "DataResource";
+    option (routines.keys).keys = "data_resource_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dataResourceId
+        
+    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string data_resource_type_id = 2 [json_name = "data_resource_type_id"];
+    string data_template_type_id = 3 [json_name = "data_template_type_id"]; // DataTemplateType
+    string data_category_id = 4 [json_name = "data_category_id"]; // DataCategory
+    string data_source_id = 5 [json_name = "data_source_id"]; // DataSource
+    string status_id = 6 [json_name = "status_id"]; // StatusItem    
+    string data_resource_name = 7 [json_name = "data_resource_name"];    
+    string locale_string = 8 [json_name = "locale_string"];
+    string mime_type_id = 9 [json_name = "mime_type_id"]; // MimeType
+    string character_set_id = 10 [json_name = "character_set_id"]; // CharacterSet    
+    string object_info = 11 [json_name = "object_info"];    
+    string survey_id = 12 [json_name = "survey_id"];    
+    string survey_response_id = 13 [json_name = "survey_response_id"];    
+    string related_detail_id = 14 [json_name = "related_detail_id"];    
+    routines.Indicator is_public = 15 [json_name = "is_public"];    
+    google.protobuf.Timestamp created_date = 16 [json_name = "created_date"];    
+    string created_by_user_login = 17 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 18 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];    
+    string tenant_id = 22 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 50;
+    map<string, google.protobuf.Any> attachments = 51 ;
+}
+
+
+// flat-ent: Electronic Text
+message ElectronicTextFlatData {
+    option (routines.entity_type) = "ElectronicText";
+    option (routines.keys).keys = "data_resource_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dataResourceId
+        
+    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string text_data = 2 [json_name = "text_data"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string tenant_id = 5 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9 ;
+}
+
+

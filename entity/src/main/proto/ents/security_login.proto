@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SecurityLoginProto";
+option objc_class_prefix = "SecurityLogin";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: UserLogin
+message UserLoginFlatData {
+    option (routines.entity_type) = "UserLogin";
+    option (routines.keys).keys = "user_login_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: userLoginId
+        
+    string user_login_id = 1 [json_name = "user_login_id"];    
+    string current_password = 2 [json_name = "current_password"];    
+    string password_hint = 3 [json_name = "password_hint"];    
+    routines.Indicator is_system = 4 [json_name = "is_system"];    
+    routines.Indicator enabled = 5 [json_name = "enabled"];    
+    routines.Indicator has_logged_out = 6 [json_name = "has_logged_out"];    
+    routines.Indicator require_password_change = 7 [json_name = "require_password_change"];    
+    string last_currency_uom = 8 [json_name = "last_currency_uom"];    
+    string last_locale = 9 [json_name = "last_locale"];    
+    string last_time_zone = 10 [json_name = "last_time_zone"];    
+    google.protobuf.Timestamp disabled_date_time = 11 [json_name = "disabled_date_time"];    
+    int64 successive_failed_logins = 12 [json_name = "successive_failed_logins"];    
+    string external_auth_id = 13 [json_name = "external_auth_id"];    
+    string user_ldap_dn = 14 [json_name = "user_ldap_dn"];    
+    string disabled_by = 15 [json_name = "disabled_by"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
+    string party_id = 18 [json_name = "party_id"];    
+    string tenant_id = 19 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 98;
+    map<string, google.protobuf.Any> attachments = 99 ;
+}
+
+

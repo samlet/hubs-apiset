@@ -8,6 +8,9 @@ option objc_class_prefix = "FCP";
 package facade;
 
 import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
 import "routines.proto";
 
 service DataStoreService {
@@ -80,5 +83,30 @@ message SeedTypeItem{
   string item_id=1;
   string item_type_id=2 [json_name = "item_type_id"];
   string description=3;
+}
+
+// ------
+
+message CommentData{
+  option (routines.keys).keys = "comment_id";
+  string comment_id=1;
+  string comment_content=2;
+  string comment_type=3;
+  string publisher=4;
+  string parent_comment_id=5;
+
+  google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+  google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
+
+  google.protobuf.Struct extra=20;
+  map<string, google.protobuf.Any> attachments=21;
+}
+
+message AnyList{
+  repeated google.protobuf.Any values=1;
+}
+
+message AnyMap{
+  map<string, google.protobuf.Any> values=1;
 }
 

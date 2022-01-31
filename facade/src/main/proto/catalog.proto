@@ -21,3 +21,4 @@ message CatalogQueryOptions{
 message CategoryIdList{
   repeated string id=1;
 }
+

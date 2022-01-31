@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingBudgetProto";
+option objc_class_prefix = "AccountingBudget";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Budget
+message BudgetFlatData {
+    option (routines.entity_type) = "Budget";
+    option (routines.keys).keys = "budget_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_type_id = 2 [json_name = "budget_type_id"];
+    string custom_time_period_id = 3 [json_name = "custom_time_period_id"]; // CustomTimePeriod    
+    string comments = 4 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string tenant_id = 7 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23 ;
+}
+
+
+// Budget Status
+message BudgetStatusData {
+    option (routines.entity_type) = "BudgetStatus";
+    option (routines.keys).keys = "budget_id, status_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, statusId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];
+    string status_id = 2 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];    
+    string comments = 4 [json_name = "comments"];    
+    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+

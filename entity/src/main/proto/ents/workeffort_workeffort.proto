@@ -1,0 +1,235 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkeffortProto";
+option objc_class_prefix = "Workeffort";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: WorkEffort
+message WorkEffortFlatData {
+    option (routines.entity_type) = "WorkEffort";
+    option (routines.keys).keys = "work_effort_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string work_effort_type_id = 2 [json_name = "work_effort_type_id"];
+    string current_status_id = 3 [json_name = "current_status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_status_update = 4 [json_name = "last_status_update"];
+    string work_effort_purpose_type_id = 5 [json_name = "work_effort_purpose_type_id"]; // WorkEffortPurposeType    
+    string work_effort_parent_id = 6 [json_name = "work_effort_parent_id"];
+    string scope_enum_id = 7 [json_name = "scope_enum_id"]; // Enumeration    
+    int64 priority = 8 [json_name = "priority"];    
+    int64 percent_complete = 9 [json_name = "percent_complete"];    
+    string work_effort_name = 10 [json_name = "work_effort_name"];    
+    string show_as_enum_id = 11 [json_name = "show_as_enum_id"];    
+    routines.Indicator send_notification_email = 12 [json_name = "send_notification_email"];    
+    string description = 13 [json_name = "description"];    
+    string location_desc = 14 [json_name = "location_desc"];    
+    google.protobuf.Timestamp estimated_start_date = 15 [json_name = "estimated_start_date"];    
+    google.protobuf.Timestamp estimated_completion_date = 16 [json_name = "estimated_completion_date"];    
+    google.protobuf.Timestamp actual_start_date = 17 [json_name = "actual_start_date"];    
+    google.protobuf.Timestamp actual_completion_date = 18 [json_name = "actual_completion_date"];    
+    double estimated_milli_seconds = 19 [json_name = "estimated_milli_seconds"];    
+    double estimated_setup_millis = 20 [json_name = "estimated_setup_millis"];    
+    string estimate_calc_method = 21 [json_name = "estimate_calc_method"];    
+    double actual_milli_seconds = 22 [json_name = "actual_milli_seconds"];    
+    double actual_setup_millis = 23 [json_name = "actual_setup_millis"];    
+    double total_milli_seconds_allowed = 24 [json_name = "total_milli_seconds_allowed"];    
+    routines.Currency total_money_allowed = 25 [json_name = "total_money_allowed"];
+    string money_uom_id = 26 [json_name = "money_uom_id"]; // Uom    
+    string special_terms = 27 [json_name = "special_terms"];    
+    int64 time_transparency = 28 [json_name = "time_transparency"];    
+    string universal_id = 29 [json_name = "universal_id"];    
+    string source_reference_id = 30 [json_name = "source_reference_id"];    
+    string fixed_asset_id = 31 [json_name = "fixed_asset_id"];    
+    string facility_id = 32 [json_name = "facility_id"];    
+    string info_url = 33 [json_name = "info_url"];    
+    string recurrence_info_id = 34 [json_name = "recurrence_info_id"];    
+    string temp_expr_id = 35 [json_name = "temp_expr_id"];    
+    string runtime_data_id = 36 [json_name = "runtime_data_id"];    
+    string note_id = 37 [json_name = "note_id"];    
+    string service_loader_name = 38 [json_name = "service_loader_name"];    
+    routines.FixedPoint quantity_to_produce = 39 [json_name = "quantity_to_produce"];    
+    routines.FixedPoint quantity_produced = 40 [json_name = "quantity_produced"];    
+    routines.FixedPoint quantity_rejected = 41 [json_name = "quantity_rejected"];    
+    routines.FixedPoint reserv_persons = 42 [json_name = "reserv_persons"];    
+    routines.FixedPoint reserv_2nd_p_p_perc = 43 [json_name = "reserv_2nd_p_p_perc"];    
+    routines.FixedPoint reserv_nth_p_p_perc = 44 [json_name = "reserv_nth_p_p_perc"];    
+    string accommodation_map_id = 45 [json_name = "accommodation_map_id"];    
+    string accommodation_spot_id = 46 [json_name = "accommodation_spot_id"];    
+    int64 revision_number = 47 [json_name = "revision_number"];    
+    google.protobuf.Timestamp created_date = 48 [json_name = "created_date"];    
+    string created_by_user_login = 49 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 50 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 51 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 52 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 53 [json_name = "created_tx_stamp"];    
+    int64 sequence_num = 54 [json_name = "sequence_num"];    
+    string tenant_id = 55 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 119;
+    map<string, google.protobuf.Any> attachments = 120 ;
+}
+
+
+// Work Effort Association
+message WorkEffortAssocData {
+    option (routines.entity_type) = "WorkEffortAssoc";
+    option (routines.keys).keys = "work_effort_id_from, work_effort_id_to, work_effort_assoc_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortIdFrom, workEffortIdTo, workEffortAssocTypeId, fromDate
+    // fields
+        
+    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];    
+    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];    
+    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];    
+    int64 sequence_num = 4 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+// Work Effort Fixed Asset Assignment
+message WorkEffortFixedAssetAssignData {
+    option (routines.entity_type) = "WorkEffortFixedAssetAssign";
+    option (routines.keys).keys = "work_effort_id, fixed_asset_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, fixedAssetId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    string availability_status_id = 6 [json_name = "availability_status_id"]; // StatusItem    
+    routines.Currency allocated_cost = 7 [json_name = "allocated_cost"];    
+    string comments = 8 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+// Work Effort Good Standard
+message WorkEffortGoodStandardData {
+    option (routines.entity_type) = "WorkEffortGoodStandard";
+    option (routines.keys).keys = "work_effort_id, product_id, work_effort_good_std_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, productId, workEffortGoodStdTypeId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string product_id = 2 [json_name = "product_id"];
+    string work_effort_good_std_type_id = 3 [json_name = "work_effort_good_std_type_id"]; // WorkEffortGoodStandardType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    string status_id = 6 [json_name = "status_id"]; // StatusItem    
+    double estimated_quantity = 7 [json_name = "estimated_quantity"];    
+    routines.Currency estimated_cost = 8 [json_name = "estimated_cost"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+// Work Effort Party Assignment
+message WorkEffortPartyAssignmentData {
+    option (routines.entity_type) = "WorkEffortPartyAssignment";
+    option (routines.keys).keys = "work_effort_id, party_id, role_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, partyId, roleTypeId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    string assigned_by_user_login_id = 6 [json_name = "assigned_by_user_login_id"];
+    string status_id = 7 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp status_date_time = 8 [json_name = "status_date_time"];
+    string expectation_enum_id = 9 [json_name = "expectation_enum_id"]; // Enumeration
+    string delegate_reason_enum_id = 10 [json_name = "delegate_reason_enum_id"]; // Enumeration    
+    string facility_id = 11 [json_name = "facility_id"];    
+    string comments = 12 [json_name = "comments"];    
+    routines.Indicator must_rsvp = 13 [json_name = "must_rsvp"];
+    string availability_status_id = 14 [json_name = "availability_status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];    
+    string id = 17 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 23;
+    map<string, google.protobuf.Any> attachments = 24;
+}
+
+
+// Work Effort Skill Standard
+message WorkEffortSkillStandardData {
+    option (routines.entity_type) = "WorkEffortSkillStandard";
+    option (routines.keys).keys = "work_effort_id, skill_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, skillTypeId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string skill_type_id = 2 [json_name = "skill_type_id"]; // SkillType    
+    double estimated_num_people = 3 [json_name = "estimated_num_people"];    
+    double estimated_duration = 4 [json_name = "estimated_duration"];    
+    routines.Currency estimated_cost = 5 [json_name = "estimated_cost"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+

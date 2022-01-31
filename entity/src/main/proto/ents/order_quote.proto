@@ -1,0 +1,192 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderQuoteProto";
+option objc_class_prefix = "OrderQuote";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Quote
+message QuoteFlatData {
+    option (routines.entity_type) = "Quote";
+    option (routines.keys).keys = "quote_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: quoteId
+        
+    string quote_id = 1 [json_name = "quote_id"];    
+    string quote_type_id = 2 [json_name = "quote_type_id"];    
+    string party_id = 3 [json_name = "party_id"];    
+    google.protobuf.Timestamp issue_date = 4 [json_name = "issue_date"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem
+    string currency_uom_id = 6 [json_name = "currency_uom_id"]; // Uom    
+    string product_store_id = 7 [json_name = "product_store_id"];
+    string sales_channel_enum_id = 8 [json_name = "sales_channel_enum_id"]; // Enumeration    
+    google.protobuf.Timestamp valid_from_date = 9 [json_name = "valid_from_date"];    
+    google.protobuf.Timestamp valid_thru_date = 10 [json_name = "valid_thru_date"];    
+    string quote_name = 11 [json_name = "quote_name"];    
+    string description = 12 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
+    string tenant_id = 15 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 34;
+    map<string, google.protobuf.Any> attachments = 35 ;
+}
+
+
+// flat-ent: Quote Adjustment
+message QuoteAdjustmentFlatData {
+    option (routines.entity_type) = "QuoteAdjustment";
+    option (routines.keys).keys = "quote_adjustment_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: quoteAdjustmentId
+        
+    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id"];
+    string quote_adjustment_type_id = 2 [json_name = "quote_adjustment_type_id"]; // OrderAdjustmentType    
+    string quote_id = 3 [json_name = "quote_id"];    
+    string quote_item_seq_id = 4 [json_name = "quote_item_seq_id"];    
+    string comments = 5 [json_name = "comments"];    
+    string description = 6 [json_name = "description"];    
+    routines.Currency amount = 7 [json_name = "amount"];    
+    string product_promo_id = 8 [json_name = "product_promo_id"];    
+    string product_promo_rule_id = 9 [json_name = "product_promo_rule_id"];    
+    string product_promo_action_seq_id = 10 [json_name = "product_promo_action_seq_id"];    
+    string product_feature_id = 11 [json_name = "product_feature_id"];    
+    string corresponding_product_id = 12 [json_name = "corresponding_product_id"];    
+    string source_reference_id = 13 [json_name = "source_reference_id"];    
+    routines.FixedPoint source_percentage = 14 [json_name = "source_percentage"];    
+    string customer_reference_id = 15 [json_name = "customer_reference_id"];
+    string primary_geo_id = 16 [json_name = "primary_geo_id"]; // Geo
+    string secondary_geo_id = 17 [json_name = "secondary_geo_id"]; // Geo    
+    routines.Currency exempt_amount = 18 [json_name = "exempt_amount"];    
+    string tax_auth_geo_id = 19 [json_name = "tax_auth_geo_id"];    
+    string tax_auth_party_id = 20 [json_name = "tax_auth_party_id"];    
+    string override_gl_account_id = 21 [json_name = "override_gl_account_id"];    
+    routines.Indicator include_in_tax = 22 [json_name = "include_in_tax"];    
+    routines.Indicator include_in_shipping = 23 [json_name = "include_in_shipping"];    
+    google.protobuf.Timestamp created_date = 24 [json_name = "created_date"];    
+    string created_by_user_login = 25 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 26 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 27 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 28 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 29 [json_name = "created_tx_stamp"];    
+    string tenant_id = 30 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 43;
+    map<string, google.protobuf.Any> attachments = 44 ;
+}
+
+
+// Quote Item
+message QuoteItemData {
+    option (routines.entity_type) = "QuoteItem";
+    option (routines.keys).keys = "quote_id, quote_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: quoteId, quoteItemSeqId
+    // fields
+        
+    string quote_id = 1 [json_name = "quote_id"];    
+    string quote_item_seq_id = 2 [json_name = "quote_item_seq_id"];    
+    string product_id = 3 [json_name = "product_id"];    
+    string product_feature_id = 4 [json_name = "product_feature_id"];    
+    string deliverable_type_id = 5 [json_name = "deliverable_type_id"];
+    string skill_type_id = 6 [json_name = "skill_type_id"]; // SkillType
+    string uom_id = 7 [json_name = "uom_id"]; // Uom    
+    string work_effort_id = 8 [json_name = "work_effort_id"];    
+    string cust_request_id = 9 [json_name = "cust_request_id"];    
+    string cust_request_item_seq_id = 10 [json_name = "cust_request_item_seq_id"];    
+    routines.FixedPoint quantity = 11 [json_name = "quantity"];    
+    routines.FixedPoint selected_amount = 12 [json_name = "selected_amount"];    
+    routines.Currency quote_unit_price = 13 [json_name = "quote_unit_price"];    
+    google.protobuf.Timestamp reserv_start = 14 [json_name = "reserv_start"];    
+    routines.FixedPoint reserv_length = 15 [json_name = "reserv_length"];    
+    routines.FixedPoint reserv_persons = 16 [json_name = "reserv_persons"];    
+    string config_id = 17 [json_name = "config_id"];    
+    google.protobuf.Timestamp estimated_delivery_date = 18 [json_name = "estimated_delivery_date"];    
+    string comments = 19 [json_name = "comments"];    
+    routines.Indicator is_promo = 20 [json_name = "is_promo"];    
+    int64 lead_time_days = 21 [json_name = "lead_time_days"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];    
+    string id = 24 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 34;
+    map<string, google.protobuf.Any> attachments = 35;
+}
+
+
+// Quote Role
+message QuoteRoleData {
+    option (routines.entity_type) = "QuoteRole";
+    option (routines.keys).keys = "quote_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: quoteId, partyId, roleTypeId
+    // fields
+        
+    string quote_id = 1 [json_name = "quote_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+// Quote Term
+message QuoteTermData {
+    option (routines.entity_type) = "QuoteTerm";
+    option (routines.keys).keys = "term_type_id, quote_id, quote_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: termTypeId, quoteId, quoteItemSeqId
+    // fields
+        
+    string term_type_id = 1 [json_name = "term_type_id"];    
+    string quote_id = 2 [json_name = "quote_id"];    
+    string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];    
+    int64 term_value = 4 [json_name = "term_value"];    
+    string uom_id = 5 [json_name = "uom_id"];    
+    int64 term_days = 6 [json_name = "term_days"];    
+    string text_value = 7 [json_name = "text_value"];    
+    string description = 8 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+

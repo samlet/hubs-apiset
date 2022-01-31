@@ -1,0 +1,248 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductFacilityProto";
+option objc_class_prefix = "ProductFacility";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Facility
+message FacilityFlatData {
+    option (routines.entity_type) = "Facility";
+    option (routines.keys).keys = "facility_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string facility_type_id = 2 [json_name = "facility_type_id"];    
+    string parent_facility_id = 3 [json_name = "parent_facility_id"];    
+    string owner_party_id = 4 [json_name = "owner_party_id"];
+    string default_inventory_item_type_id = 5 [json_name = "default_inventory_item_type_id"]; // InventoryItemType    
+    string facility_name = 6 [json_name = "facility_name"];
+    string primary_facility_group_id = 7 [json_name = "primary_facility_group_id"]; // FacilityGroup    
+    routines.FixedPoint facility_size = 8 [json_name = "facility_size"];
+    string facility_size_uom_id = 9 [json_name = "facility_size_uom_id"]; // Uom    
+    string product_store_id = 10 [json_name = "product_store_id"];    
+    int64 default_days_to_ship = 11 [json_name = "default_days_to_ship"];    
+    google.protobuf.Timestamp opened_date = 12 [json_name = "opened_date"];    
+    google.protobuf.Timestamp closed_date = 13 [json_name = "closed_date"];    
+    string description = 14 [json_name = "description"];
+    string default_dimension_uom_id = 15 [json_name = "default_dimension_uom_id"]; // Uom
+    string default_weight_uom_id = 16 [json_name = "default_weight_uom_id"]; // Uom    
+    string geo_point_id = 17 [json_name = "geo_point_id"];    
+    int64 facility_level = 18 [json_name = "facility_level"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 19 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 20 [json_name = "created_tx_stamp"];    
+    string tenant_id = 21 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 74;
+    map<string, google.protobuf.Any> attachments = 75 ;
+}
+
+
+// Facility Contact Mechanism
+message FacilityContactMechData {
+    option (routines.entity_type) = "FacilityContactMech";
+    option (routines.keys).keys = "facility_id, contact_mech_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, contactMechId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    string extension = 5 [json_name = "extension"];    
+    string comments = 6 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+// Facility Contact Mechanism Purpose
+message FacilityContactMechPurposeData {
+    option (routines.entity_type) = "FacilityContactMechPurpose";
+    option (routines.keys).keys = "facility_id, contact_mech_id, contact_mech_purpose_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, contactMechId, contactMechPurposeTypeId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"]; // ContactMechPurposeType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+// Facility Location
+message FacilityLocationData {
+    option (routines.entity_type) = "FacilityLocation";
+    option (routines.keys).keys = "facility_id, location_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, locationSeqId
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string location_seq_id = 2 [json_name = "location_seq_id"];
+    string location_type_enum_id = 3 [json_name = "location_type_enum_id"]; // Enumeration    
+    string area_id = 4 [json_name = "area_id"];    
+    string aisle_id = 5 [json_name = "aisle_id"];    
+    string section_id = 6 [json_name = "section_id"];    
+    string level_id = 7 [json_name = "level_id"];    
+    string position_id = 8 [json_name = "position_id"];    
+    string geo_point_id = 9 [json_name = "geo_point_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string id = 12 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
+}
+
+
+// Facility Location Geo Location with history
+message FacilityLocationGeoPointData {
+    option (routines.entity_type) = "FacilityLocationGeoPoint";
+    option (routines.keys).keys = "facility_id, location_seq_id, geo_point_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, locationSeqId, geoPointId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string location_seq_id = 2 [json_name = "location_seq_id"];    
+    string geo_point_id = 3 [json_name = "geo_point_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+// Product Facility
+message ProductFacilityData {
+    option (routines.entity_type) = "ProductFacility";
+    option (routines.keys).keys = "product_id, facility_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, facilityId
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    routines.FixedPoint minimum_stock = 3 [json_name = "minimum_stock"];    
+    routines.FixedPoint reorder_quantity = 4 [json_name = "reorder_quantity"];    
+    int64 days_to_ship = 5 [json_name = "days_to_ship"];
+    string replenish_method_enum_id = 6 [json_name = "replenish_method_enum_id"]; // Enumeration    
+    routines.FixedPoint last_inventory_count = 7 [json_name = "last_inventory_count"];
+    string requirement_method_enum_id = 8 [json_name = "requirement_method_enum_id"]; // Enumeration    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+// Define associations between Product facilities
+message ProductFacilityAssocData {
+    option (routines.entity_type) = "ProductFacilityAssoc";
+    option (routines.keys).keys = "product_id, facility_id, facility_id_to, facility_assoc_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, facilityId, facilityIdTo, facilityAssocTypeId, fromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    string facility_id_to = 3 [json_name = "facility_id_to"];
+    string facility_assoc_type_id = 4 [json_name = "facility_assoc_type_id"]; // FacilityAssocType    
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
+    int64 sequence_num = 7 [json_name = "sequence_num"];    
+    int64 transit_time = 8 [json_name = "transit_time"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+// Product Facility
+message ProductFacilityLocationData {
+    option (routines.entity_type) = "ProductFacilityLocation";
+    option (routines.keys).keys = "product_id, facility_id, location_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, facilityId, locationSeqId
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    string location_seq_id = 3 [json_name = "location_seq_id"];    
+    routines.FixedPoint minimum_stock = 4 [json_name = "minimum_stock"];    
+    routines.FixedPoint move_quantity = 5 [json_name = "move_quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+

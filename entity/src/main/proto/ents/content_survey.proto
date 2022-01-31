@@ -1,0 +1,256 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContentSurveyProto";
+option objc_class_prefix = "ContentSurvey";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Survey
+message SurveyFlatData {
+    option (routines.entity_type) = "Survey";
+    option (routines.keys).keys = "survey_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyId
+        
+    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_name = 2 [json_name = "survey_name"];    
+    string description = 3 [json_name = "description"];    
+    string comments = 4 [json_name = "comments"];    
+    string submit_caption = 5 [json_name = "submit_caption"];    
+    string response_service = 6 [json_name = "response_service"];    
+    routines.Indicator is_anonymous = 7 [json_name = "is_anonymous"];    
+    routines.Indicator allow_multiple = 8 [json_name = "allow_multiple"];    
+    routines.Indicator allow_update = 9 [json_name = "allow_update"];    
+    string acro_form_content_id = 10 [json_name = "acro_form_content_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string tenant_id = 13 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 24;
+    map<string, google.protobuf.Any> attachments = 25 ;
+}
+
+
+// flat-ent: Survey Application Type
+message SurveyApplTypeFlatData {
+    option (routines.entity_type) = "SurveyApplType";
+    option (routines.keys).keys = "survey_appl_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyApplTypeId
+        
+    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string tenant_id = 5 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10 ;
+}
+
+
+// Survey Multi-Response Group
+message SurveyMultiRespData {
+    option (routines.entity_type) = "SurveyMultiResp";
+    option (routines.keys).keys = "survey_id, survey_multi_resp_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyId, surveyMultiRespId
+    // fields
+        
+    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_multi_resp_id = 2 [json_name = "survey_multi_resp_id"];    
+    string multi_resp_title = 3 [json_name = "multi_resp_title"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// Survey Multi-Response Group Column/Category
+message SurveyMultiRespColumnData {
+    option (routines.entity_type) = "SurveyMultiRespColumn";
+    option (routines.keys).keys = "survey_id, survey_multi_resp_id, survey_multi_resp_col_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyId, surveyMultiRespId, surveyMultiRespColId
+    // fields
+        
+    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_multi_resp_id = 2 [json_name = "survey_multi_resp_id"];    
+    string survey_multi_resp_col_id = 3 [json_name = "survey_multi_resp_col_id"];    
+    string column_title = 4 [json_name = "column_title"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+// Survey Page Type
+message SurveyPageData {
+    option (routines.entity_type) = "SurveyPage";
+    option (routines.keys).keys = "survey_id, survey_page_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyId, surveyPageSeqId
+    // fields
+        
+    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_page_seq_id = 2 [json_name = "survey_page_seq_id"];    
+    string page_name = 3 [json_name = "page_name"];    
+    int64 sequence_num = 4 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// flat-ent: Survey Question
+message SurveyQuestionFlatData {
+    option (routines.entity_type) = "SurveyQuestion";
+    option (routines.keys).keys = "survey_question_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyQuestionId
+        
+    string survey_question_id = 1 [json_name = "survey_question_id"];    
+    string survey_question_category_id = 2 [json_name = "survey_question_category_id"];
+    string survey_question_type_id = 3 [json_name = "survey_question_type_id"]; // SurveyQuestionType    
+    string description = 4 [json_name = "description"];    
+    string question = 5 [json_name = "question"];    
+    string hint = 6 [json_name = "hint"];
+    string enum_type_id = 7 [json_name = "enum_type_id"]; // Enumeration
+    string geo_id = 8 [json_name = "geo_id"]; // Geo    
+    string format_string = 9 [json_name = "format_string"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string tenant_id = 12 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 21;
+    map<string, google.protobuf.Any> attachments = 22 ;
+}
+
+
+// Survey Question Application
+message SurveyQuestionApplData {
+    option (routines.entity_type) = "SurveyQuestionAppl";
+    option (routines.keys).keys = "survey_id, survey_question_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyId, surveyQuestionId, fromDate
+    // fields
+        
+    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_question_id = 2 [json_name = "survey_question_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    string survey_page_seq_id = 5 [json_name = "survey_page_seq_id"];    
+    string survey_multi_resp_id = 6 [json_name = "survey_multi_resp_id"];    
+    string survey_multi_resp_col_id = 7 [json_name = "survey_multi_resp_col_id"];    
+    routines.Indicator required_field = 8 [json_name = "required_field"];    
+    int64 sequence_num = 9 [json_name = "sequence_num"];    
+    string external_field_ref = 10 [json_name = "external_field_ref"];    
+    string with_survey_question_id = 11 [json_name = "with_survey_question_id"];    
+    string with_survey_option_seq_id = 12 [json_name = "with_survey_option_seq_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
+    string id = 15 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+// flat-ent: Survey Question Category
+message SurveyQuestionCategoryFlatData {
+    option (routines.entity_type) = "SurveyQuestionCategory";
+    option (routines.keys).keys = "survey_question_category_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyQuestionCategoryId
+        
+    string survey_question_category_id = 1 [json_name = "survey_question_category_id"];    
+    string parent_category_id = 2 [json_name = "parent_category_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string tenant_id = 6 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12 ;
+}
+
+
+// Survey Question Option
+message SurveyQuestionOptionData {
+    option (routines.entity_type) = "SurveyQuestionOption";
+    option (routines.keys).keys = "survey_question_id, survey_option_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: surveyQuestionId, surveyOptionSeqId
+    // fields
+        
+    string survey_question_id = 1 [json_name = "survey_question_id"];    
+    string survey_option_seq_id = 2 [json_name = "survey_option_seq_id"];    
+    string description = 3 [json_name = "description"];    
+    int64 sequence_num = 4 [json_name = "sequence_num"];    
+    routines.Currency amount_base = 5 [json_name = "amount_base"];    
+    string amount_base_uom_id = 6 [json_name = "amount_base_uom_id"];    
+    double weight_factor = 7 [json_name = "weight_factor"];    
+    int64 duration = 8 [json_name = "duration"];    
+    string duration_uom_id = 9 [json_name = "duration_uom_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string id = 12 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+

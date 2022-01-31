@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContentWebsiteProto";
+option objc_class_prefix = "ContentWebsite";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Web Analytics Configuration
+message WebAnalyticsConfigData {
+    option (routines.entity_type) = "WebAnalyticsConfig";
+    option (routines.keys).keys = "web_site_id, web_analytics_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: webSiteId, webAnalyticsTypeId
+    // fields
+        
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string web_analytics_type_id = 2 [json_name = "web_analytics_type_id"]; // WebAnalyticsType    
+    string web_analytics_code = 3 [json_name = "web_analytics_code"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+// Web Site Content Associations
+message WebSiteContentData {
+    option (routines.entity_type) = "WebSiteContent";
+    option (routines.keys).keys = "web_site_id, content_id, web_site_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: webSiteId, contentId, webSiteContentTypeId, fromDate
+    // fields
+        
+    string web_site_id = 1 [json_name = "web_site_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string web_site_content_type_id = 3 [json_name = "web_site_content_type_id"]; // WebSiteContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+

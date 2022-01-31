@@ -96,11 +96,10 @@ enum ProductReviewState{
     
 }
 
-service ProductReviewProcessor{
-    
-    rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
-    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProductReviewProcessor{
+//  rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PurchaseShipmentEvent{
     
@@ -128,11 +127,10 @@ enum PurchaseShipmentState{
     
 }
 
-service PurchaseShipmentProcessor{
-    
-    rpc Receive(routines.StateProposal) returns (routines.Response) {}
-    rpc Ship(routines.StateProposal) returns (routines.Response) {}
-}
+// service PurchaseShipmentProcessor{
+//  rpc Receive(routines.StateProposal) returns (routines.Response) {}
+//  rpc Ship(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ContentEvent{
     
@@ -192,20 +190,19 @@ enum ContentState{
     
 }
 
-service ContentProcessor{
-    
-    rpc RevisedDraftPublished(routines.StateProposal) returns (routines.Response) {}
-    rpc FinalDraftPublished(routines.StateProposal) returns (routines.Response) {}
-    rpc PublishedNotRevised(routines.StateProposal) returns (routines.Response) {}
-    rpc InitialDraftPublished(routines.StateProposal) returns (routines.Response) {}
-    rpc Deactivated(routines.StateProposal) returns (routines.Response) {}
-    rpc ImagePending(routines.StateProposal) returns (routines.Response) {}
-    rpc FinalDraft(routines.StateProposal) returns (routines.Response) {}
-    rpc Available(routines.StateProposal) returns (routines.Response) {}
-    rpc DraftRevised(routines.StateProposal) returns (routines.Response) {}
-    rpc AvailableToDeactivated(routines.StateProposal) returns (routines.Response) {}
-    rpc FirstDraft(routines.StateProposal) returns (routines.Response) {}
-}
+// service ContentProcessor{
+//  rpc RevisedDraftPublished(routines.StateProposal) returns (routines.Response) {}
+//  rpc FinalDraftPublished(routines.StateProposal) returns (routines.Response) {}
+//  rpc PublishedNotRevised(routines.StateProposal) returns (routines.Response) {}
+//  rpc InitialDraftPublished(routines.StateProposal) returns (routines.Response) {}
+//  rpc Deactivated(routines.StateProposal) returns (routines.Response) {}
+//  rpc ImagePending(routines.StateProposal) returns (routines.Response) {}
+//  rpc FinalDraft(routines.StateProposal) returns (routines.Response) {}
+//  rpc Available(routines.StateProposal) returns (routines.Response) {}
+//  rpc DraftRevised(routines.StateProposal) returns (routines.Response) {}
+//  rpc AvailableToDeactivated(routines.StateProposal) returns (routines.Response) {}
+//  rpc FirstDraft(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum KeywordEvent{
     
@@ -231,11 +228,10 @@ enum KeywordState{
     
 }
 
-service KeywordProcessor{
-    
-    rpc ReviewDisapproved(routines.StateProposal) returns (routines.Response) {}
-    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
-}
+// service KeywordProcessor{
+//  rpc ReviewDisapproved(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum SerializedInventoryItemEvent{
     
@@ -331,29 +327,28 @@ enum SerializedInventoryItemState{
     
 }
 
-service SerializedInventoryItemProcessor{
-    
-    rpc Deliver(routines.StateProposal) returns (routines.Response) {}
-    rpc TransferCompletePromised(routines.StateProposal) returns (routines.Response) {}
-    rpc HoldInactive(routines.StateProposal) returns (routines.Response) {}
-    rpc TransferComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkHeldDefective(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
-    rpc OrderArrived(routines.StateProposal) returns (routines.Response) {}
-    rpc BeingTransfered(routines.StateProposal) returns (routines.Response) {}
-    rpc MakeReturnAvailable(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelPromise(routines.StateProposal) returns (routines.Response) {}
-    rpc Promise(routines.StateProposal) returns (routines.Response) {}
-    rpc ReturnStatusPending(routines.StateProposal) returns (routines.Response) {}
-    rpc ReturnInactive(routines.StateProposal) returns (routines.Response) {}
-    rpc Activate(routines.StateProposal) returns (routines.Response) {}
-    rpc Deactivate(routines.StateProposal) returns (routines.Response) {}
-    rpc BeingTransferedPromised(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkAsDefective(routines.StateProposal) returns (routines.Response) {}
-    rpc ReleaseHold(routines.StateProposal) returns (routines.Response) {}
-    rpc Hold(routines.StateProposal) returns (routines.Response) {}
-}
+// service SerializedInventoryItemProcessor{
+//  rpc Deliver(routines.StateProposal) returns (routines.Response) {}
+//  rpc TransferCompletePromised(routines.StateProposal) returns (routines.Response) {}
+//  rpc HoldInactive(routines.StateProposal) returns (routines.Response) {}
+//  rpc TransferComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkHeldDefective(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
+//  rpc OrderArrived(routines.StateProposal) returns (routines.Response) {}
+//  rpc BeingTransfered(routines.StateProposal) returns (routines.Response) {}
+//  rpc MakeReturnAvailable(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelPromise(routines.StateProposal) returns (routines.Response) {}
+//  rpc Promise(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReturnStatusPending(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReturnInactive(routines.StateProposal) returns (routines.Response) {}
+//  rpc Activate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Deactivate(routines.StateProposal) returns (routines.Response) {}
+//  rpc BeingTransferedPromised(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkAsDefective(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReleaseHold(routines.StateProposal) returns (routines.Response) {}
+//  rpc Hold(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum AllocationPlanStatusEvent{
     
@@ -388,13 +383,12 @@ enum AllocationPlanStatusState{
     
 }
 
-service AllocationPlanStatusProcessor{
-    
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Create(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-}
+// service AllocationPlanStatusProcessor{
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Create(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum QuoteStatusEvent{
     
@@ -427,12 +421,11 @@ enum QuoteStatusState{
     
 }
 
-service QuoteStatusProcessor{
-    
-    rpc RejectQuote(routines.StateProposal) returns (routines.Response) {}
-    rpc AcceptQuote(routines.StateProposal) returns (routines.Response) {}
-    rpc OrderQuote(routines.StateProposal) returns (routines.Response) {}
-}
+// service QuoteStatusProcessor{
+//  rpc RejectQuote(routines.StateProposal) returns (routines.Response) {}
+//  rpc AcceptQuote(routines.StateProposal) returns (routines.Response) {}
+//  rpc OrderQuote(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum OrderDeliveryScheduleEvent{
     
@@ -473,13 +466,12 @@ enum OrderDeliveryScheduleState{
     
 }
 
-service OrderDeliveryScheduleProcessor{
-    
-    rpc AcceptDeliveryInformation(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelDelivery(routines.StateProposal) returns (routines.Response) {}
-    rpc ArrangeDelivery(routines.StateProposal) returns (routines.Response) {}
-    rpc ApproveDeliverySchedule(routines.StateProposal) returns (routines.Response) {}
-}
+// service OrderDeliveryScheduleProcessor{
+//  rpc AcceptDeliveryInformation(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelDelivery(routines.StateProposal) returns (routines.Response) {}
+//  rpc ArrangeDelivery(routines.StateProposal) returns (routines.Response) {}
+//  rpc ApproveDeliverySchedule(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProductStatusEvent{
     
@@ -499,10 +491,9 @@ enum ProductStatusState{
     
 }
 
-service ProductStatusProcessor{
-    
-    rpc ProductComplete(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProductStatusProcessor{
+//  rpc ProductComplete(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PartyRelationshipEvent{
     
@@ -522,10 +513,9 @@ enum PartyRelationshipState{
     
 }
 
-service PartyRelationshipProcessor{
-    
-    rpc Expired(routines.StateProposal) returns (routines.Response) {}
-}
+// service PartyRelationshipProcessor{
+//  rpc Expired(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum OrderReturnStatusForSupplierReturnsEvent{
     
@@ -567,15 +557,14 @@ enum OrderReturnStatusForSupplierReturnsState{
     
 }
 
-service OrderReturnStatusForSupplierReturnsProcessor{
-    
-    rpc AcceptedReturnShipped(routines.StateProposal) returns (routines.Response) {}
-    rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc ShippedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
-    rpc ShippedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-}
+// service OrderReturnStatusForSupplierReturnsProcessor{
+//  rpc AcceptedReturnShipped(routines.StateProposal) returns (routines.Response) {}
+//  rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ShippedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ShippedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProductionRunStatusEvent{
     
@@ -629,15 +618,14 @@ enum ProductionRunStatusState{
     
 }
 
-service ProductionRunStatusProcessor{
-    
-    rpc Start(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc Schedule(routines.StateProposal) returns (routines.Response) {}
-    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
-    rpc Close(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProductionRunStatusProcessor{
+//  rpc Start(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Schedule(routines.StateProposal) returns (routines.Response) {}
+//  rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+//  rpc Close(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProjectEvent{
     
@@ -675,12 +663,11 @@ enum ProjectState{
     
 }
 
-service ProjectProcessor{
-    
-    rpc ResumeProject(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc BeginProject(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProjectProcessor{
+//  rpc ResumeProject(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc BeginProject(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum RequirementStatusEvent{
     
@@ -719,12 +706,11 @@ enum RequirementStatusState{
     
 }
 
-service RequirementStatusProcessor{
-    
-    rpc AcceptRequirement(routines.StateProposal) returns (routines.Response) {}
-    rpc RejectRequirement(routines.StateProposal) returns (routines.Response) {}
-    rpc OrderRequirement(routines.StateProposal) returns (routines.Response) {}
-}
+// service RequirementStatusProcessor{
+//  rpc AcceptRequirement(routines.StateProposal) returns (routines.Response) {}
+//  rpc RejectRequirement(routines.StateProposal) returns (routines.Response) {}
+//  rpc OrderRequirement(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ManufacturingTaskAndRoutingStatusEvent{
     
@@ -746,11 +732,10 @@ enum ManufacturingTaskAndRoutingStatusState{
     
 }
 
-service ManufacturingTaskAndRoutingStatusProcessor{
-    
-    rpc Active(routines.StateProposal) returns (routines.Response) {}
-    rpc Inactive(routines.StateProposal) returns (routines.Response) {}
-}
+// service ManufacturingTaskAndRoutingStatusProcessor{
+//  rpc Active(routines.StateProposal) returns (routines.Response) {}
+//  rpc Inactive(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum MarketingCampaignEvent{
     
@@ -790,13 +775,12 @@ enum MarketingCampaignState{
     
 }
 
-service MarketingCampaignProcessor{
-    
-    rpc ApproveMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
-    rpc MarketingCampaignInProgress(routines.StateProposal) returns (routines.Response) {}
-    rpc CompleteMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
-}
+// service MarketingCampaignProcessor{
+//  rpc ApproveMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarketingCampaignInProgress(routines.StateProposal) returns (routines.Response) {}
+//  rpc CompleteMarketingCampaign(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum InvoiceStatusEvent{
     
@@ -873,21 +857,20 @@ enum InvoiceStatusState{
     
 }
 
-service InvoiceStatusProcessor{
-    
-    rpc MarkReady(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkApproved(routines.StateProposal) returns (routines.Response) {}
-    rpc EnableSalesInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Receive(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkReceive(routines.StateProposal) returns (routines.Response) {}
-    rpc Pay(routines.StateProposal) returns (routines.Response) {}
-    rpc WriteOff(routines.StateProposal) returns (routines.Response) {}
-    rpc EnablePurchInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-    rpc Unpay(routines.StateProposal) returns (routines.Response) {}
-    rpc Send(routines.StateProposal) returns (routines.Response) {}
-}
+// service InvoiceStatusProcessor{
+//  rpc MarkReady(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkApproved(routines.StateProposal) returns (routines.Response) {}
+//  rpc EnableSalesInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Receive(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkReceive(routines.StateProposal) returns (routines.Response) {}
+//  rpc Pay(routines.StateProposal) returns (routines.Response) {}
+//  rpc WriteOff(routines.StateProposal) returns (routines.Response) {}
+//  rpc EnablePurchInvoiceUpdate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+//  rpc Unpay(routines.StateProposal) returns (routines.Response) {}
+//  rpc Send(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum TaskEvent{
     
@@ -911,12 +894,11 @@ enum TaskState{
     
 }
 
-service TaskProcessor{
-    
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-}
+// service TaskProcessor{
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum WorkloadEvent{
     
@@ -970,15 +952,14 @@ enum WorkloadState{
     
 }
 
-service WorkloadProcessor{
-    
-    rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelWorkload(routines.StateProposal) returns (routines.Response) {}
-    rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-    rpc WorkloadCompleted(routines.StateProposal) returns (routines.Response) {}
-}
+// service WorkloadProcessor{
+//  rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelWorkload(routines.StateProposal) returns (routines.Response) {}
+//  rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+//  rpc WorkloadCompleted(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProjectAssignmentEvent{
     
@@ -998,10 +979,9 @@ enum ProjectAssignmentState{
     
 }
 
-service ProjectAssignmentProcessor{
-    
-    rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProjectAssignmentProcessor{
+//  rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum SprintStatusEvent{
     
@@ -1027,13 +1007,12 @@ enum SprintStatusState{
     
 }
 
-service SprintStatusProcessor{
-    
-    rpc ProductCompleteWithSprintActive(routines.StateProposal) returns (routines.Response) {}
-    rpc ProductCompleteWithSprintClose(routines.StateProposal) returns (routines.Response) {}
-    rpc SprintComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc ProjectReOpenWithSprintOpen(routines.StateProposal) returns (routines.Response) {}
-}
+// service SprintStatusProcessor{
+//  rpc ProductCompleteWithSprintActive(routines.StateProposal) returns (routines.Response) {}
+//  rpc ProductCompleteWithSprintClose(routines.StateProposal) returns (routines.Response) {}
+//  rpc SprintComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc ProjectReOpenWithSprintOpen(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PicklistItemEvent{
     
@@ -1059,11 +1038,10 @@ enum PicklistItemState{
     
 }
 
-service PicklistItemProcessor{
-    
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-}
+// service PicklistItemProcessor{
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum InventoryTransferEvent{
     
@@ -1109,17 +1087,16 @@ enum InventoryTransferState{
     
 }
 
-service InventoryTransferProcessor{
-    
-    rpc InventoryRequestScheduled(routines.StateProposal) returns (routines.Response) {}
-    rpc ScheduledInventoryInRoute(routines.StateProposal) returns (routines.Response) {}
-    rpc InRouteTransferCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc InventoryRequestInRoute(routines.StateProposal) returns (routines.Response) {}
-    rpc InventoryRequestCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc InventoryRequestCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc ScheduledInventoryCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc ScheduledInventoryCancelled(routines.StateProposal) returns (routines.Response) {}
-}
+// service InventoryTransferProcessor{
+//  rpc InventoryRequestScheduled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ScheduledInventoryInRoute(routines.StateProposal) returns (routines.Response) {}
+//  rpc InRouteTransferCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc InventoryRequestInRoute(routines.StateProposal) returns (routines.Response) {}
+//  rpc InventoryRequestCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc InventoryRequestCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ScheduledInventoryCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ScheduledInventoryCancelled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ScrumTaskEvent{
     
@@ -1168,14 +1145,13 @@ enum ScrumTaskState{
     
 }
 
-service ScrumTaskProcessor{
-    
-    rpc Activated(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskCompleteWithProjectComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskReOpen(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
-}
+// service ScrumTaskProcessor{
+//  rpc Activated(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskCompleteWithProjectComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskReOpen(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ExampleEvent{
     
@@ -1239,15 +1215,14 @@ enum ExampleState{
     
 }
 
-service ExampleProcessor{
-    
-    rpc CancelExample(routines.StateProposal) returns (routines.Response) {}
-    rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-    rpc ExampleCompleted(routines.StateProposal) returns (routines.Response) {}
-}
+// service ExampleProcessor{
+//  rpc CancelExample(routines.StateProposal) returns (routines.Response) {}
+//  rpc ImplementationComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc TestingComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc DefinitionComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+//  rpc ExampleCompleted(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum EventEvent{
     
@@ -1277,15 +1252,14 @@ enum EventState{
     
 }
 
-service EventProcessor{
-    
-    rpc Decline(routines.StateProposal) returns (routines.Response) {}
-    rpc Accept(routines.StateProposal) returns (routines.Response) {}
-    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
-}
+// service EventProcessor{
+//  rpc Decline(routines.StateProposal) returns (routines.Response) {}
+//  rpc Accept(routines.StateProposal) returns (routines.Response) {}
+//  rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum NotApplicableEvent{
     
@@ -1302,10 +1276,9 @@ enum NotApplicableState{
     
 }
 
-service NotApplicableProcessor{
-    
-    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
-}
+// service NotApplicableProcessor{
+//  rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PaymentPreferenceEvent{
     
@@ -1359,14 +1332,13 @@ enum PaymentPreferenceState{
     
 }
 
-service PaymentPreferenceProcessor{
-    
-    rpc PaymentRefunded(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentAuthorized(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentSettled(routines.StateProposal) returns (routines.Response) {}
-}
+// service PaymentPreferenceProcessor{
+//  rpc PaymentRefunded(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentAuthorized(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentSettled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum FixedAssetMaintenanceEvent{
     
@@ -1408,15 +1380,14 @@ enum FixedAssetMaintenanceState{
     
 }
 
-service FixedAssetMaintenanceProcessor{
-    
-    rpc ScheduledMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc CreatedMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc ScheduledMaintenaceInProcess(routines.StateProposal) returns (routines.Response) {}
-    rpc CreatedMaintenanceScheduled(routines.StateProposal) returns (routines.Response) {}
-    rpc CreatedMaintenanceInProcess(routines.StateProposal) returns (routines.Response) {}
-    rpc InProcessMaintenanceCompleted(routines.StateProposal) returns (routines.Response) {}
-}
+// service FixedAssetMaintenanceProcessor{
+//  rpc ScheduledMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc CreatedMaintenaceCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ScheduledMaintenaceInProcess(routines.StateProposal) returns (routines.Response) {}
+//  rpc CreatedMaintenanceScheduled(routines.StateProposal) returns (routines.Response) {}
+//  rpc CreatedMaintenanceInProcess(routines.StateProposal) returns (routines.Response) {}
+//  rpc InProcessMaintenanceCompleted(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ScrumProjectStatusEvent{
     
@@ -1438,11 +1409,10 @@ enum ScrumProjectStatusState{
     
 }
 
-service ScrumProjectStatusProcessor{
-    
-    rpc ReOpenProject(routines.StateProposal) returns (routines.Response) {}
-    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
-}
+// service ScrumProjectStatusProcessor{
+//  rpc ReOpenProject(routines.StateProposal) returns (routines.Response) {}
+//  rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum BudgetEvent{
     
@@ -1480,14 +1450,13 @@ enum BudgetState{
     
 }
 
-service BudgetProcessor{
-    
-    rpc SubmitBudget(routines.StateProposal) returns (routines.Response) {}
-    rpc RejectBudget(routines.StateProposal) returns (routines.Response) {}
-    rpc ReviewBudget(routines.StateProposal) returns (routines.Response) {}
-    rpc AcceptBudget(routines.StateProposal) returns (routines.Response) {}
-    rpc ApprovedBudget(routines.StateProposal) returns (routines.Response) {}
-}
+// service BudgetProcessor{
+//  rpc SubmitBudget(routines.StateProposal) returns (routines.Response) {}
+//  rpc RejectBudget(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReviewBudget(routines.StateProposal) returns (routines.Response) {}
+//  rpc AcceptBudget(routines.StateProposal) returns (routines.Response) {}
+//  rpc ApprovedBudget(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum WorkEffortReviewEvent{
     
@@ -1514,11 +1483,10 @@ enum WorkEffortReviewState{
     
 }
 
-service WorkEffortReviewProcessor{
-    
-    rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
-    rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
-}
+// service WorkEffortReviewProcessor{
+//  rpc ReviewDeleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReviewApproved(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum OrderReturnStatusForCustomerReturnsEvent{
     
@@ -1566,16 +1534,15 @@ enum OrderReturnStatusForCustomerReturnsState{
     
 }
 
-service OrderReturnStatusForCustomerReturnsProcessor{
-    
-    rpc AcceptedReturnReceived(routines.StateProposal) returns (routines.Response) {}
-    rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc ReceivedReturnRequiresManualRefund(routines.StateProposal) returns (routines.Response) {}
-    rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
-    rpc ReceivedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc ReceivedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
-}
+// service OrderReturnStatusForCustomerReturnsProcessor{
+//  rpc AcceptedReturnReceived(routines.StateProposal) returns (routines.Response) {}
+//  rpc RequestedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReceivedReturnRequiresManualRefund(routines.StateProposal) returns (routines.Response) {}
+//  rpc AcceptedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc RequestedReturnAccepted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReceivedReturnCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReceivedReturnCancelled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PicklistEvent{
     
@@ -1618,13 +1585,12 @@ enum PicklistState{
     
 }
 
-service PicklistProcessor{
-    
-    rpc Print(routines.StateProposal) returns (routines.Response) {}
-    rpc Pick(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Assign(routines.StateProposal) returns (routines.Response) {}
-}
+// service PicklistProcessor{
+//  rpc Print(routines.StateProposal) returns (routines.Response) {}
+//  rpc Pick(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Assign(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PaymentStatusEvent{
     
@@ -1678,17 +1644,16 @@ enum PaymentStatusState{
     
 }
 
-service PaymentStatusProcessor{
-    
-    rpc PaymentConfirmedToSent(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentNotPaid(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentConfirmed(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentSend(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentVoided(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
-    rpc PaymentConfirmedToReceived(routines.StateProposal) returns (routines.Response) {}
-}
+// service PaymentStatusProcessor{
+//  rpc PaymentConfirmedToSent(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentNotPaid(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentConfirmed(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentSend(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentVoided(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentReceived(routines.StateProposal) returns (routines.Response) {}
+//  rpc PaymentConfirmedToReceived(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum CommunicationEventRoleEvent{
     
@@ -1715,11 +1680,10 @@ enum CommunicationEventRoleState{
     
 }
 
-service CommunicationEventRoleProcessor{
-    
-    rpc Read(routines.StateProposal) returns (routines.Response) {}
-    rpc Completed(routines.StateProposal) returns (routines.Response) {}
-}
+// service CommunicationEventRoleProcessor{
+//  rpc Read(routines.StateProposal) returns (routines.Response) {}
+//  rpc Completed(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum AllocationPlanItemStatusEvent{
     
@@ -1754,13 +1718,12 @@ enum AllocationPlanItemStatusState{
     
 }
 
-service AllocationPlanItemStatusProcessor{
-    
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Create(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-}
+// service AllocationPlanItemStatusProcessor{
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Create(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum FinancialAccountTransStatusEvent{
     
@@ -1788,12 +1751,11 @@ enum FinancialAccountTransStatusState{
     
 }
 
-service FinancialAccountTransStatusProcessor{
-    
-    rpc SetApprovedToCanceled(routines.StateProposal) returns (routines.Response) {}
-    rpc SetCreatedToApproved(routines.StateProposal) returns (routines.Response) {}
-    rpc SetCreatedToCanceled(routines.StateProposal) returns (routines.Response) {}
-}
+// service FinancialAccountTransStatusProcessor{
+//  rpc SetApprovedToCanceled(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetCreatedToApproved(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetCreatedToCanceled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum FinancialAccountStatusEvent{
     
@@ -1832,14 +1794,13 @@ enum FinancialAccountStatusState{
     
 }
 
-service FinancialAccountStatusProcessor{
-    
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc SetManuallyFrozen(routines.StateProposal) returns (routines.Response) {}
-    rpc ManuallyFreeze(routines.StateProposal) returns (routines.Response) {}
-    rpc SetNegativePendingReplenishment(routines.StateProposal) returns (routines.Response) {}
-    rpc ReActivate(routines.StateProposal) returns (routines.Response) {}
-}
+// service FinancialAccountStatusProcessor{
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetManuallyFrozen(routines.StateProposal) returns (routines.Response) {}
+//  rpc ManuallyFreeze(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetNegativePendingReplenishment(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReActivate(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProjectStatusEvent{
     
@@ -1859,10 +1820,9 @@ enum ProjectStatusState{
     
 }
 
-service ProjectStatusProcessor{
-    
-    rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProjectStatusProcessor{
+//  rpc CloseProject(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum CommunicationEventEvent{
     
@@ -1937,18 +1897,17 @@ enum CommunicationEventState{
     
 }
 
-service CommunicationEventProcessor{
-    
-    rpc Corrected(routines.StateProposal) returns (routines.Response) {}
-    rpc Refer(routines.StateProposal) returns (routines.Response) {}
-    rpc Bounced(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc SetPendingOnlyVisibleToOriginator(routines.StateProposal) returns (routines.Response) {}
-    rpc SetInProgressWaitingToBeSend(routines.StateProposal) returns (routines.Response) {}
-    rpc EnteredVisibleToAllParticipants(routines.StateProposal) returns (routines.Response) {}
-    rpc Resolve(routines.StateProposal) returns (routines.Response) {}
-}
+// service CommunicationEventProcessor{
+//  rpc Corrected(routines.StateProposal) returns (routines.Response) {}
+//  rpc Refer(routines.StateProposal) returns (routines.Response) {}
+//  rpc Bounced(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetPendingOnlyVisibleToOriginator(routines.StateProposal) returns (routines.Response) {}
+//  rpc SetInProgressWaitingToBeSend(routines.StateProposal) returns (routines.Response) {}
+//  rpc EnteredVisibleToAllParticipants(routines.StateProposal) returns (routines.Response) {}
+//  rpc Resolve(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ScrumAssignmentEvent{
     
@@ -1968,10 +1927,9 @@ enum ScrumAssignmentState{
     
 }
 
-service ScrumAssignmentProcessor{
-    
-    rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
-}
+// service ScrumAssignmentProcessor{
+//  rpc AssignmentComplete(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum CalendarEvent{
     
@@ -2029,17 +1987,16 @@ enum CalendarState{
     
 }
 
-service CalendarProcessor{
-    
-    rpc Decline(routines.StateProposal) returns (routines.Response) {}
-    rpc TentativelyPlan(routines.StateProposal) returns (routines.Response) {}
-    rpc Accept(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Delegate(routines.StateProposal) returns (routines.Response) {}
-    rpc Complete(routines.StateProposal) returns (routines.Response) {}
-    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
-    rpc Send(routines.StateProposal) returns (routines.Response) {}
-}
+// service CalendarProcessor{
+//  rpc Decline(routines.StateProposal) returns (routines.Response) {}
+//  rpc TentativelyPlan(routines.StateProposal) returns (routines.Response) {}
+//  rpc Accept(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Delegate(routines.StateProposal) returns (routines.Response) {}
+//  rpc Complete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+//  rpc Send(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ShipmentRouteSegmentCarrierServiceEvent{
     
@@ -2072,12 +2029,11 @@ enum ShipmentRouteSegmentCarrierServiceState{
     
 }
 
-service ShipmentRouteSegmentCarrierServiceProcessor{
-    
-    rpc Accept(routines.StateProposal) returns (routines.Response) {}
-    rpc Confirm(routines.StateProposal) returns (routines.Response) {}
-    rpc Void(routines.StateProposal) returns (routines.Response) {}
-}
+// service ShipmentRouteSegmentCarrierServiceProcessor{
+//  rpc Accept(routines.StateProposal) returns (routines.Response) {}
+//  rpc Confirm(routines.StateProposal) returns (routines.Response) {}
+//  rpc Void(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum GlReconciliationStatusEvent{
     
@@ -2097,10 +2053,9 @@ enum GlReconciliationStatusState{
     
 }
 
-service GlReconciliationStatusProcessor{
-    
-    rpc SetCreatedToReconciled(routines.StateProposal) returns (routines.Response) {}
-}
+// service GlReconciliationStatusProcessor{
+//  rpc SetCreatedToReconciled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PartyEvent{
     
@@ -2126,13 +2081,12 @@ enum PartyState{
     
 }
 
-service PartyProcessor{
-    
-    rpc Assigned(routines.StateProposal) returns (routines.Response) {}
-    rpc ConvertLeadToContact(routines.StateProposal) returns (routines.Response) {}
-    rpc ReEnable(routines.StateProposal) returns (routines.Response) {}
-    rpc Disable(routines.StateProposal) returns (routines.Response) {}
-}
+// service PartyProcessor{
+//  rpc Assigned(routines.StateProposal) returns (routines.Response) {}
+//  rpc ConvertLeadToContact(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReEnable(routines.StateProposal) returns (routines.Response) {}
+//  rpc Disable(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ProjectTaskEvent{
     
@@ -2177,12 +2131,11 @@ enum ProjectTaskState{
     
 }
 
-service ProjectTaskProcessor{
-    
-    rpc Activated(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
-}
+// service ProjectTaskProcessor{
+//  rpc Activated(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc TaskOnHold(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ShipmentEvent{
     
@@ -2237,15 +2190,14 @@ enum ShipmentState{
     
 }
 
-service ShipmentProcessor{
-    
-    rpc Deliver(routines.StateProposal) returns (routines.Response) {}
-    rpc Pick(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancel(routines.StateProposal) returns (routines.Response) {}
-    rpc Schedule(routines.StateProposal) returns (routines.Response) {}
-    rpc Ship(routines.StateProposal) returns (routines.Response) {}
-    rpc Pack(routines.StateProposal) returns (routines.Response) {}
-}
+// service ShipmentProcessor{
+//  rpc Deliver(routines.StateProposal) returns (routines.Response) {}
+//  rpc Pick(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancel(routines.StateProposal) returns (routines.Response) {}
+//  rpc Schedule(routines.StateProposal) returns (routines.Response) {}
+//  rpc Ship(routines.StateProposal) returns (routines.Response) {}
+//  rpc Pack(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum OrderItemEvent{
     
@@ -2285,13 +2237,12 @@ enum OrderItemState{
     
 }
 
-service OrderItemProcessor{
-    
-    rpc CancelItem(routines.StateProposal) returns (routines.Response) {}
-    rpc CompleteItem(routines.StateProposal) returns (routines.Response) {}
-    rpc ApproveItem(routines.StateProposal) returns (routines.Response) {}
-    rpc RejectItem(routines.StateProposal) returns (routines.Response) {}
-}
+// service OrderItemProcessor{
+//  rpc CancelItem(routines.StateProposal) returns (routines.Response) {}
+//  rpc CompleteItem(routines.StateProposal) returns (routines.Response) {}
+//  rpc ApproveItem(routines.StateProposal) returns (routines.Response) {}
+//  rpc RejectItem(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum CustomRequestStatusEvent{
     
@@ -2373,17 +2324,16 @@ enum CustomRequestStatusState{
     
 }
 
-service CustomRequestStatusProcessor{
-    
-    rpc RejectRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc AcceptRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc PendingCustomer(routines.StateProposal) returns (routines.Response) {}
-    rpc CompleteRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc ReOpenRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc SubmitRequest(routines.StateProposal) returns (routines.Response) {}
-    rpc ReviewRequest(routines.StateProposal) returns (routines.Response) {}
-}
+// service CustomRequestStatusProcessor{
+//  rpc RejectRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc AcceptRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc PendingCustomer(routines.StateProposal) returns (routines.Response) {}
+//  rpc CompleteRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReOpenRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubmitRequest(routines.StateProposal) returns (routines.Response) {}
+//  rpc ReviewRequest(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum LeadStatusEvent{
     
@@ -2412,12 +2362,11 @@ enum LeadStatusState{
     
 }
 
-service LeadStatusProcessor{
-    
-    rpc Converted(routines.StateProposal) returns (routines.Response) {}
-    rpc Qualified(routines.StateProposal) returns (routines.Response) {}
-    rpc Disabled(routines.StateProposal) returns (routines.Response) {}
-}
+// service LeadStatusProcessor{
+//  rpc Converted(routines.StateProposal) returns (routines.Response) {}
+//  rpc Qualified(routines.StateProposal) returns (routines.Response) {}
+//  rpc Disabled(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum NonSerializedInventoryItemEvent{
     
@@ -2443,11 +2392,10 @@ enum NonSerializedInventoryItemState{
     
 }
 
-service NonSerializedInventoryItemProcessor{
-    
-    rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
-    rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
-}
+// service NonSerializedInventoryItemProcessor{
+//  rpc MakeReturnHeld(routines.StateProposal) returns (routines.Response) {}
+//  rpc MarkReturnDefective(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum OrderEvent{
     
@@ -2518,18 +2466,17 @@ enum OrderState{
     
 }
 
-service OrderProcessor{
-    
-    rpc SendOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc OrderCancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc ProcessOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc CompleteOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc HoldOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc ApproveOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc OrderCompleted(routines.StateProposal) returns (routines.Response) {}
-    rpc CancelOrder(routines.StateProposal) returns (routines.Response) {}
-    rpc RejectOrder(routines.StateProposal) returns (routines.Response) {}
-}
+// service OrderProcessor{
+//  rpc SendOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc OrderCancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc ProcessOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc CompleteOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc HoldOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc ApproveOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc OrderCompleted(routines.StateProposal) returns (routines.Response) {}
+//  rpc CancelOrder(routines.StateProposal) returns (routines.Response) {}
+//  rpc RejectOrder(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum TimesheetEvent{
     
@@ -2555,11 +2502,10 @@ enum TimesheetState{
     
 }
 
-service TimesheetProcessor{
-    
-    rpc ConfirmComplete(routines.StateProposal) returns (routines.Response) {}
-    rpc Approve(routines.StateProposal) returns (routines.Response) {}
-}
+// service TimesheetProcessor{
+//  rpc ConfirmComplete(routines.StateProposal) returns (routines.Response) {}
+//  rpc Approve(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum PartyInvitationEvent{
     
@@ -2599,13 +2545,12 @@ enum PartyInvitationState{
     
 }
 
-service PartyInvitationProcessor{
-    
-    rpc Declined(routines.StateProposal) returns (routines.Response) {}
-    rpc Cancelled(routines.StateProposal) returns (routines.Response) {}
-    rpc Pending(routines.StateProposal) returns (routines.Response) {}
-    rpc Accepted(routines.StateProposal) returns (routines.Response) {}
-}
+// service PartyInvitationProcessor{
+//  rpc Declined(routines.StateProposal) returns (routines.Response) {}
+//  rpc Cancelled(routines.StateProposal) returns (routines.Response) {}
+//  rpc Pending(routines.StateProposal) returns (routines.Response) {}
+//  rpc Accepted(routines.StateProposal) returns (routines.Response) {}
+// }
 
 enum ContactListPartyEvent{
     
@@ -2670,21 +2615,20 @@ enum ContactListPartyState{
     
 }
 
-service ContactListPartyProcessor{
-    
-    rpc SubscriptionInUseUnsubscribed(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionPendingUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
-    rpc Reject(routines.StateProposal) returns (routines.Response) {}
-    rpc PendingAccept(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionInUseUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
-    rpc Accept(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionAcceptedUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionInvalidUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionAcceptedUnsubscribed(routines.StateProposal) returns (routines.Response) {}
-    rpc SubscriptionInvalidUnsubscribed(routines.StateProposal) returns (routines.Response) {}
-    rpc LockedInUse(routines.StateProposal) returns (routines.Response) {}
-    rpc Invalid(routines.StateProposal) returns (routines.Response) {}
-}
+// service ContactListPartyProcessor{
+//  rpc SubscriptionInUseUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionPendingUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+//  rpc Reject(routines.StateProposal) returns (routines.Response) {}
+//  rpc PendingAccept(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionInUseUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+//  rpc Accept(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionAcceptedUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionInvalidUnsubscriptionPending(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionAcceptedUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+//  rpc SubscriptionInvalidUnsubscribed(routines.StateProposal) returns (routines.Response) {}
+//  rpc LockedInUse(routines.StateProposal) returns (routines.Response) {}
+//  rpc Invalid(routines.StateProposal) returns (routines.Response) {}
+// }
 
 
 // total: 56

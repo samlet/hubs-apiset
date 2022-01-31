@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "EbayConfigProto";
+option objc_class_prefix = "EbayConfig";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: eBay Configuration
+message EbayConfigFlatData {
+    option (routines.entity_type) = "EbayConfig";
+    option (routines.keys).keys = "product_store_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId
+        
+    string product_store_id = 1 [json_name = "product_store_id"];    
+    string dev_id = 2 [json_name = "dev_id"];    
+    string app_id = 3 [json_name = "app_id"];    
+    string cert_id = 4 [json_name = "cert_id"];    
+    string token = 5 [json_name = "token"];    
+    string compatibility_level = 6 [json_name = "compatibility_level"];    
+    string site_id = 7 [json_name = "site_id"];    
+    string xml_gateway_uri = 8 [json_name = "xml_gateway_uri"];    
+    string custom_xml = 9 [json_name = "custom_xml"];    
+    string web_site_id = 10 [json_name = "web_site_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string tenant_id = 13 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18 ;
+}
+
+

@@ -1,0 +1,228 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductProto";
+option objc_class_prefix = "Product";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Product
+message ProductFlatData {
+    option (routines.entity_type) = "Product";
+    option (routines.keys).keys = "product_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string product_type_id = 2 [json_name = "product_type_id"];    
+    string primary_product_category_id = 3 [json_name = "primary_product_category_id"];    
+    string facility_id = 4 [json_name = "facility_id"];    
+    google.protobuf.Timestamp introduction_date = 5 [json_name = "introduction_date"];    
+    google.protobuf.Timestamp release_date = 6 [json_name = "release_date"];    
+    google.protobuf.Timestamp support_discontinuation_date = 7 [json_name = "support_discontinuation_date"];    
+    google.protobuf.Timestamp sales_discontinuation_date = 8 [json_name = "sales_discontinuation_date"];    
+    routines.Indicator sales_disc_when_not_avail = 9 [json_name = "sales_disc_when_not_avail"];    
+    string internal_name = 10 [json_name = "internal_name"];    
+    string brand_name = 11 [json_name = "brand_name"];    
+    string comments = 12 [json_name = "comments"];    
+    string product_name = 13 [json_name = "product_name"];    
+    string description = 14 [json_name = "description"];    
+    string long_description = 15 [json_name = "long_description"];    
+    string price_detail_text = 16 [json_name = "price_detail_text"];    
+    string small_image_url = 17 [json_name = "small_image_url"];    
+    string medium_image_url = 18 [json_name = "medium_image_url"];    
+    string large_image_url = 19 [json_name = "large_image_url"];    
+    string detail_image_url = 20 [json_name = "detail_image_url"];    
+    string original_image_url = 21 [json_name = "original_image_url"];    
+    string detail_screen = 22 [json_name = "detail_screen"];    
+    string inventory_message = 23 [json_name = "inventory_message"];
+    string inventory_item_type_id = 24 [json_name = "inventory_item_type_id"]; // InventoryItemType    
+    routines.Indicator require_inventory = 25 [json_name = "require_inventory"];
+    string quantity_uom_id = 26 [json_name = "quantity_uom_id"]; // Uom    
+    routines.FixedPoint quantity_included = 27 [json_name = "quantity_included"];    
+    int64 pieces_included = 28 [json_name = "pieces_included"];    
+    routines.Indicator require_amount = 29 [json_name = "require_amount"];    
+    routines.Currency fixed_amount = 30 [json_name = "fixed_amount"];
+    string amount_uom_type_id = 31 [json_name = "amount_uom_type_id"]; // UomType
+    string weight_uom_id = 32 [json_name = "weight_uom_id"]; // Uom    
+    routines.FixedPoint shipping_weight = 33 [json_name = "shipping_weight"];    
+    routines.FixedPoint product_weight = 34 [json_name = "product_weight"];
+    string height_uom_id = 35 [json_name = "height_uom_id"]; // Uom    
+    routines.FixedPoint product_height = 36 [json_name = "product_height"];    
+    routines.FixedPoint shipping_height = 37 [json_name = "shipping_height"];
+    string width_uom_id = 38 [json_name = "width_uom_id"]; // Uom    
+    routines.FixedPoint product_width = 39 [json_name = "product_width"];    
+    routines.FixedPoint shipping_width = 40 [json_name = "shipping_width"];
+    string depth_uom_id = 41 [json_name = "depth_uom_id"]; // Uom    
+    routines.FixedPoint product_depth = 42 [json_name = "product_depth"];    
+    routines.FixedPoint shipping_depth = 43 [json_name = "shipping_depth"];
+    string diameter_uom_id = 44 [json_name = "diameter_uom_id"]; // Uom    
+    routines.FixedPoint product_diameter = 45 [json_name = "product_diameter"];    
+    routines.FixedPoint product_rating = 46 [json_name = "product_rating"];
+    string rating_type_enum = 47 [json_name = "rating_type_enum"]; // Enumeration    
+    routines.Indicator returnable = 48 [json_name = "returnable"];    
+    routines.Indicator taxable = 49 [json_name = "taxable"];    
+    routines.Indicator charge_shipping = 50 [json_name = "charge_shipping"];    
+    routines.Indicator auto_create_keywords = 51 [json_name = "auto_create_keywords"];    
+    routines.Indicator include_in_promotions = 52 [json_name = "include_in_promotions"];    
+    routines.Indicator is_virtual = 53 [json_name = "is_virtual"];    
+    routines.Indicator is_variant = 54 [json_name = "is_variant"];
+    string virtual_variant_method_enum = 55 [json_name = "virtual_variant_method_enum"]; // Enumeration
+    string origin_geo_id = 56 [json_name = "origin_geo_id"]; // Geo
+    string requirement_method_enum_id = 57 [json_name = "requirement_method_enum_id"]; // Enumeration    
+    int64 bill_of_material_level = 58 [json_name = "bill_of_material_level"];    
+    routines.FixedPoint reserv_max_persons = 59 [json_name = "reserv_max_persons"];    
+    routines.FixedPoint reserv_2nd_p_p_perc = 60 [json_name = "reserv_2nd_p_p_perc"];    
+    routines.FixedPoint reserv_nth_p_p_perc = 61 [json_name = "reserv_nth_p_p_perc"];    
+    string config_id = 62 [json_name = "config_id"];    
+    google.protobuf.Timestamp created_date = 63 [json_name = "created_date"];    
+    string created_by_user_login = 64 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 65 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 66 [json_name = "last_modified_by_user_login"];    
+    routines.Indicator in_shipping_box = 67 [json_name = "in_shipping_box"];    
+    string default_shipment_box_type_id = 68 [json_name = "default_shipment_box_type_id"];    
+    string lot_id_filled_in = 69 [json_name = "lot_id_filled_in"];    
+    routines.Indicator order_decimal_quantity = 70 [json_name = "order_decimal_quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 71 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 72 [json_name = "created_tx_stamp"];    
+    string tenant_id = 73 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 158;
+    map<string, google.protobuf.Any> attachments = 159 ;
+}
+
+
+// Product Association
+message ProductAssocData {
+    option (routines.entity_type) = "ProductAssoc";
+    option (routines.keys).keys = "product_id, product_id_to, product_assoc_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, productIdTo, productAssocTypeId, fromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string product_id_to = 2 [json_name = "product_id_to"];
+    string product_assoc_type_id = 3 [json_name = "product_assoc_type_id"]; // ProductAssocType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    int64 sequence_num = 6 [json_name = "sequence_num"];    
+    string reason = 7 [json_name = "reason"];    
+    routines.FixedPoint quantity = 8 [json_name = "quantity"];    
+    routines.FixedPoint scrap_factor = 9 [json_name = "scrap_factor"];    
+    string instruction = 10 [json_name = "instruction"];    
+    string routing_work_effort_id = 11 [json_name = "routing_work_effort_id"];    
+    string estimate_calc_method = 12 [json_name = "estimate_calc_method"];    
+    string recurrence_info_id = 13 [json_name = "recurrence_info_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
+    string id = 16 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+// Product Data Object
+message ProductContentData {
+    option (routines.entity_type) = "ProductContent";
+    option (routines.keys).keys = "product_id, content_id, product_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, contentId, productContentTypeId, fromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string product_content_type_id = 3 [json_name = "product_content_type_id"]; // ProductContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp purchase_from_date = 6 [json_name = "purchase_from_date"];    
+    google.protobuf.Timestamp purchase_thru_date = 7 [json_name = "purchase_thru_date"];    
+    int64 use_count_limit = 8 [json_name = "use_count_limit"];    
+    int64 use_time = 9 [json_name = "use_time"];
+    string use_time_uom_id = 10 [json_name = "use_time_uom_id"]; // Uom
+    string use_role_type_id = 11 [json_name = "use_role_type_id"]; // RoleType    
+    int64 sequence_num = 12 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
+    string id = 15 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
+}
+
+
+// Product Keyword
+message ProductKeywordData {
+    option (routines.entity_type) = "ProductKeyword";
+    option (routines.keys).keys = "product_id, keyword, keyword_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, keyword, keywordTypeId
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string keyword = 2 [json_name = "keyword"];
+    string keyword_type_id = 3 [json_name = "keyword_type_id"]; // Enumeration    
+    int64 relevancy_weight = 4 [json_name = "relevancy_weight"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// flat-ent: Product Review
+message ProductReviewFlatData {
+    option (routines.entity_type) = "ProductReview";
+    option (routines.keys).keys = "product_review_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productReviewId
+        
+    string product_review_id = 1 [json_name = "product_review_id"];    
+    string product_store_id = 2 [json_name = "product_store_id"];    
+    string product_id = 3 [json_name = "product_id"];    
+    string user_login_id = 4 [json_name = "user_login_id"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem    
+    routines.Indicator posted_anonymous = 6 [json_name = "posted_anonymous"];    
+    google.protobuf.Timestamp posted_date_time = 7 [json_name = "posted_date_time"];    
+    routines.FixedPoint product_rating = 8 [json_name = "product_rating"];    
+    string product_review = 9 [json_name = "product_review"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string tenant_id = 12 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19 ;
+}
+
+

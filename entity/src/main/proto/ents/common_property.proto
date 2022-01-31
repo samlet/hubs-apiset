@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommonPropertyProto";
+option objc_class_prefix = "CommonProperty";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Defines a System Property
+message SystemPropertyData {
+    option (routines.entity_type) = "SystemProperty";
+    option (routines.keys).keys = "system_resource_id, system_property_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: systemResourceId, systemPropertyId
+    // fields
+        
+    string system_resource_id = 1 [json_name = "system_resource_id"];    
+    string system_property_id = 2 [json_name = "system_property_id"];    
+    string system_property_value = 3 [json_name = "system_property_value"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+

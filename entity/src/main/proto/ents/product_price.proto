@@ -1,0 +1,191 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductPriceProto";
+option objc_class_prefix = "ProductPrice";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Product Feature Price
+message ProductFeaturePriceData {
+    option (routines.entity_type) = "ProductFeaturePrice";
+    option (routines.keys).keys = "product_feature_id, product_price_type_id, currency_uom_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productFeatureId, productPriceTypeId, currencyUomId, fromDate
+    // fields
+        
+    string product_feature_id = 1 [json_name = "product_feature_id"];
+    string product_price_type_id = 2 [json_name = "product_price_type_id"]; // ProductPriceType
+    string currency_uom_id = 3 [json_name = "currency_uom_id"]; // Uom    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    routines.Currency price = 6 [json_name = "price"];    
+    google.protobuf.Timestamp created_date = 7 [json_name = "created_date"];    
+    string created_by_user_login = 8 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 9 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 10 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string id = 13 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+// Product Price
+message ProductPriceData {
+    option (routines.entity_type) = "ProductPrice";
+    option (routines.keys).keys = "product_id, product_price_type_id, product_price_purpose_id, currency_uom_id, product_store_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, productPriceTypeId, productPricePurposeId, currencyUomId, productStoreGroupId, fromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];
+    string product_price_type_id = 2 [json_name = "product_price_type_id"]; // ProductPriceType
+    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"]; // ProductPricePurpose
+    string currency_uom_id = 4 [json_name = "currency_uom_id"]; // Uom
+    string product_store_group_id = 5 [json_name = "product_store_group_id"]; // ProductStoreGroup    
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];    
+    routines.Currency price = 8 [json_name = "price"];
+    string term_uom_id = 9 [json_name = "term_uom_id"]; // Uom    
+    string custom_price_calc_service = 10 [json_name = "custom_price_calc_service"];    
+    routines.Currency price_without_tax = 11 [json_name = "price_without_tax"];    
+    routines.Currency price_with_tax = 12 [json_name = "price_with_tax"];    
+    routines.Currency tax_amount = 13 [json_name = "tax_amount"];    
+    routines.FixedPoint tax_percentage = 14 [json_name = "tax_percentage"];    
+    string tax_auth_party_id = 15 [json_name = "tax_auth_party_id"];
+    string tax_auth_geo_id = 16 [json_name = "tax_auth_geo_id"]; // Geo    
+    routines.Indicator tax_in_price = 17 [json_name = "tax_in_price"];    
+    google.protobuf.Timestamp created_date = 18 [json_name = "created_date"];    
+    string created_by_user_login = 19 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 20 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 21 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];    
+    string id = 24 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 30;
+    map<string, google.protobuf.Any> attachments = 31;
+}
+
+
+// Product Price Action
+message ProductPriceActionData {
+    option (routines.entity_type) = "ProductPriceAction";
+    option (routines.keys).keys = "product_price_rule_id, product_price_action_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPriceRuleId, productPriceActionSeqId
+    // fields
+        
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];    
+    string product_price_action_seq_id = 2 [json_name = "product_price_action_seq_id"];
+    string product_price_action_type_id = 3 [json_name = "product_price_action_type_id"]; // ProductPriceActionType    
+    routines.FixedPoint amount = 4 [json_name = "amount"];    
+    string rate_code = 5 [json_name = "rate_code"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+// Product Price Condition
+message ProductPriceCondData {
+    option (routines.entity_type) = "ProductPriceCond";
+    option (routines.keys).keys = "product_price_rule_id, product_price_cond_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPriceRuleId, productPriceCondSeqId
+    // fields
+        
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];    
+    string product_price_cond_seq_id = 2 [json_name = "product_price_cond_seq_id"];
+    string input_param_enum_id = 3 [json_name = "input_param_enum_id"]; // Enumeration
+    string operator_enum_id = 4 [json_name = "operator_enum_id"]; // Enumeration    
+    string cond_value = 5 [json_name = "cond_value"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// flat-ent: Product Pice Rule
+message ProductPriceRuleFlatData {
+    option (routines.entity_type) = "ProductPriceRule";
+    option (routines.keys).keys = "product_price_rule_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPriceRuleId
+        
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];    
+    string rule_name = 2 [json_name = "rule_name"];    
+    string description = 3 [json_name = "description"];    
+    routines.Indicator is_sale = 4 [json_name = "is_sale"];    
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string tenant_id = 9 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16 ;
+}
+
+
+// flat-ent: Quantity Break
+message QuantityBreakFlatData {
+    option (routines.entity_type) = "QuantityBreak";
+    option (routines.keys).keys = "quantity_break_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: quantityBreakId
+        
+    string quantity_break_id = 1 [json_name = "quantity_break_id"];
+    string quantity_break_type_id = 2 [json_name = "quantity_break_type_id"]; // QuantityBreakType    
+    routines.FixedPoint from_quantity = 3 [json_name = "from_quantity"];    
+    routines.FixedPoint thru_quantity = 4 [json_name = "thru_quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string tenant_id = 7 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14 ;
+}
+
+

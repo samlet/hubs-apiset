@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ShipmentIssuanceProto";
+option objc_class_prefix = "ShipmentIssuance";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Item Issuance
+message ItemIssuanceFlatData {
+    option (routines.entity_type) = "ItemIssuance";
+    option (routines.keys).keys = "item_issuance_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: itemIssuanceId
+        
+    string item_issuance_id = 1 [json_name = "item_issuance_id"];    
+    string order_id = 2 [json_name = "order_id"];    
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
+    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];    
+    string inventory_item_id = 5 [json_name = "inventory_item_id"];    
+    string shipment_id = 6 [json_name = "shipment_id"];    
+    string shipment_item_seq_id = 7 [json_name = "shipment_item_seq_id"];    
+    string fixed_asset_id = 8 [json_name = "fixed_asset_id"];    
+    string maint_hist_seq_id = 9 [json_name = "maint_hist_seq_id"];    
+    google.protobuf.Timestamp issued_date_time = 10 [json_name = "issued_date_time"];    
+    string issued_by_user_login_id = 11 [json_name = "issued_by_user_login_id"];    
+    routines.FixedPoint quantity = 12 [json_name = "quantity"];    
+    routines.FixedPoint cancel_quantity = 13 [json_name = "cancel_quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
+    string tenant_id = 16 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 30;
+    map<string, google.protobuf.Any> attachments = 31 ;
+}
+
+

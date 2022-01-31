@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommonGeoProto";
+option objc_class_prefix = "CommonGeo";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Geographic Location
+message GeoPointFlatData {
+    option (routines.entity_type) = "GeoPoint";
+    option (routines.keys).keys = "geo_point_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: geoPointId
+        
+    string geo_point_id = 1 [json_name = "geo_point_id"];
+    string geo_point_type_enum_id = 2 [json_name = "geo_point_type_enum_id"]; // Enumeration    
+    string description = 3 [json_name = "description"];
+    string data_source_id = 4 [json_name = "data_source_id"]; // DataSource    
+    string latitude = 5 [json_name = "latitude"];    
+    string longitude = 6 [json_name = "longitude"];    
+    routines.FixedPoint elevation = 7 [json_name = "elevation"];
+    string elevation_uom_id = 8 [json_name = "elevation_uom_id"]; // Uom    
+    string information = 9 [json_name = "information"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string tenant_id = 12 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 24;
+    map<string, google.protobuf.Any> attachments = 25 ;
+}
+
+

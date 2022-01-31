@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductSupplierProto";
+option objc_class_prefix = "ProductSupplier";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Supplier Product
+message SupplierProductData {
+    option (routines.entity_type) = "SupplierProduct";
+    option (routines.keys).keys = "product_id, party_id, available_from_date, minimum_order_quantity, currency_uom_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, partyId, currencyUomId, minimumOrderQuantity, availableFromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    google.protobuf.Timestamp available_from_date = 3 [json_name = "available_from_date"];    
+    google.protobuf.Timestamp available_thru_date = 4 [json_name = "available_thru_date"];
+    string supplier_pref_order_id = 5 [json_name = "supplier_pref_order_id"]; // SupplierPrefOrder    
+    string supplier_rating_type_id = 6 [json_name = "supplier_rating_type_id"];    
+    routines.FixedPoint standard_lead_time_days = 7 [json_name = "standard_lead_time_days"];    
+    routines.FixedPoint minimum_order_quantity = 8 [json_name = "minimum_order_quantity"];    
+    routines.FixedPoint order_qty_increments = 9 [json_name = "order_qty_increments"];    
+    routines.FixedPoint units_included = 10 [json_name = "units_included"];
+    string quantity_uom_id = 11 [json_name = "quantity_uom_id"]; // Uom    
+    string agreement_id = 12 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 13 [json_name = "agreement_item_seq_id"];    
+    routines.Currency last_price = 14 [json_name = "last_price"];    
+    routines.Currency shipping_price = 15 [json_name = "shipping_price"];
+    string currency_uom_id = 16 [json_name = "currency_uom_id"]; // Uom    
+    string supplier_product_name = 17 [json_name = "supplier_product_name"];    
+    string supplier_product_id = 18 [json_name = "supplier_product_id"];    
+    routines.Indicator can_drop_ship = 19 [json_name = "can_drop_ship"];    
+    string comments = 20 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];    
+    string id = 23 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
+}
+
+
+// Supplier-specific product feature information
+message SupplierProductFeatureData {
+    option (routines.entity_type) = "SupplierProductFeature";
+    option (routines.keys).keys = "party_id, product_feature_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, productFeatureId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string product_feature_id = 2 [json_name = "product_feature_id"];    
+    string description = 3 [json_name = "description"];
+    string uom_id = 4 [json_name = "uom_id"]; // Uom    
+    string id_code = 5 [json_name = "id_code"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+

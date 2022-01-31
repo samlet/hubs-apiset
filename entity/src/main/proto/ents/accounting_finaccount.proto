@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingFinaccountProto";
+option objc_class_prefix = "AccountingFinaccount";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Financial Account
+message FinAccountFlatData {
+    option (routines.entity_type) = "FinAccount";
+    option (routines.keys).keys = "fin_account_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: finAccountId
+        
+    string fin_account_id = 1 [json_name = "fin_account_id"];    
+    string fin_account_type_id = 2 [json_name = "fin_account_type_id"];    
+    string status_id = 3 [json_name = "status_id"];    
+    string fin_account_name = 4 [json_name = "fin_account_name"];    
+    string fin_account_code = 5 [json_name = "fin_account_code"];    
+    string fin_account_pin = 6 [json_name = "fin_account_pin"];
+    string currency_uom_id = 7 [json_name = "currency_uom_id"]; // Uom    
+    string organization_party_id = 8 [json_name = "organization_party_id"];    
+    string owner_party_id = 9 [json_name = "owner_party_id"];    
+    string post_to_gl_account_id = 10 [json_name = "post_to_gl_account_id"];    
+    google.protobuf.Timestamp from_date = 11 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 12 [json_name = "thru_date"];    
+    routines.Indicator is_refundable = 13 [json_name = "is_refundable"];    
+    string replenish_payment_id = 14 [json_name = "replenish_payment_id"];    
+    routines.Currency replenish_level = 15 [json_name = "replenish_level"];    
+    routines.Currency actual_balance = 16 [json_name = "actual_balance"];    
+    routines.Currency available_balance = 17 [json_name = "available_balance"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];    
+    string tenant_id = 20 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 37;
+    map<string, google.protobuf.Any> attachments = 38 ;
+}
+
+
+// Financial Account Role
+message FinAccountRoleData {
+    option (routines.entity_type) = "FinAccountRole";
+    option (routines.keys).keys = "fin_account_id, party_id, role_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: finAccountId, partyId, roleTypeId, fromDate
+    // fields
+        
+    string fin_account_id = 1 [json_name = "fin_account_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+// Financial Account Status
+message FinAccountStatusData {
+    option (routines.entity_type) = "FinAccountStatus";
+    option (routines.keys).keys = "fin_account_id, status_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: finAccountId, statusId, statusDate
+    // fields
+        
+    string fin_account_id = 1 [json_name = "fin_account_id"];
+    string status_id = 2 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];    
+    google.protobuf.Timestamp status_end_date = 4 [json_name = "status_end_date"];    
+    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+// flat-ent: Financial Account Transaction
+message FinAccountTransFlatData {
+    option (routines.entity_type) = "FinAccountTrans";
+    option (routines.keys).keys = "fin_account_trans_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: finAccountTransId
+        
+    string fin_account_trans_id = 1 [json_name = "fin_account_trans_id"];    
+    string fin_account_trans_type_id = 2 [json_name = "fin_account_trans_type_id"];    
+    string fin_account_id = 3 [json_name = "fin_account_id"];    
+    string party_id = 4 [json_name = "party_id"];
+    string gl_reconciliation_id = 5 [json_name = "gl_reconciliation_id"]; // GlReconciliation    
+    google.protobuf.Timestamp transaction_date = 6 [json_name = "transaction_date"];    
+    google.protobuf.Timestamp entry_date = 7 [json_name = "entry_date"];    
+    routines.Currency amount = 8 [json_name = "amount"];    
+    string payment_id = 9 [json_name = "payment_id"];    
+    string order_id = 10 [json_name = "order_id"];    
+    string order_item_seq_id = 11 [json_name = "order_item_seq_id"];    
+    string performed_by_party_id = 12 [json_name = "performed_by_party_id"];
+    string reason_enum_id = 13 [json_name = "reason_enum_id"]; // Enumeration    
+    string comments = 14 [json_name = "comments"];
+    string status_id = 15 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
+    string tenant_id = 18 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 33;
+    map<string, google.protobuf.Any> attachments = 34 ;
+}
+
+

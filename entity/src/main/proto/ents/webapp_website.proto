@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WebappWebsiteProto";
+option objc_class_prefix = "WebappWebsite";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: WebSite
+message WebSiteFlatData {
+    option (routines.entity_type) = "WebSite";
+    option (routines.keys).keys = "web_site_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: webSiteId
+        
+    string web_site_id = 1 [json_name = "web_site_id"];    
+    string site_name = 2 [json_name = "site_name"];    
+    string http_host = 3 [json_name = "http_host"];    
+    string http_port = 4 [json_name = "http_port"];    
+    string https_host = 5 [json_name = "https_host"];    
+    string https_port = 6 [json_name = "https_port"];    
+    routines.Indicator enable_https = 7 [json_name = "enable_https"];    
+    string webapp_path = 8 [json_name = "webapp_path"];    
+    string standard_content_prefix = 9 [json_name = "standard_content_prefix"];    
+    string secure_content_prefix = 10 [json_name = "secure_content_prefix"];    
+    string cookie_domain = 11 [json_name = "cookie_domain"];
+    string visual_theme_set_id = 12 [json_name = "visual_theme_set_id"]; // VisualThemeSet    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
+    string product_store_id = 15 [json_name = "product_store_id"];    
+    routines.Indicator allow_product_store_change = 16 [json_name = "allow_product_store_change"];    
+    string hosted_path_alias = 17 [json_name = "hosted_path_alias"];    
+    routines.Indicator is_default = 18 [json_name = "is_default"];    
+    routines.Indicator display_maintenance_page = 19 [json_name = "display_maintenance_page"];    
+    string tenant_id = 20 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 33;
+    map<string, google.protobuf.Any> attachments = 34 ;
+}
+
+

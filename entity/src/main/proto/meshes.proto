@@ -11,6 +11,8 @@ package meshes;
 import "routines.proto";
 import "condition.proto";
 
+import "types/status_type.proto";
+
 service Meshes{
   rpc UpdateStatus(StatusProposal) returns (routines.Response) {}
   rpc FindObjects(condition.QueryObjects) returns (stream routines.Envelope) {}
@@ -20,5 +22,9 @@ message StatusProposal{
   routines.Identity identity = 1;
   string status_id = 2;
   routines.Envelope data = 3;
+}
+
+message StatusTypeList{
+  repeated domain.StatusTypeData types=1;
 }
 

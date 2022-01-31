@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SecuritySecuritygroupProto";
+option objc_class_prefix = "SecuritySecuritygroup";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// flat-ent: Security Component - Security Group
+message SecurityGroupFlatData {
+    option (routines.entity_type) = "SecurityGroup";
+    option (routines.keys).keys = "group_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: groupId
+        
+    string group_id = 1 [json_name = "group_id"];    
+    string group_name = 2 [json_name = "group_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string tenant_id = 6 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14 ;
+}
+
+
+// Security Component - Security Group Permission
+message SecurityGroupPermissionData {
+    option (routines.entity_type) = "SecurityGroupPermission";
+    option (routines.keys).keys = "group_id, permission_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: groupId, permissionId, fromDate
+    // fields
+        
+    string group_id = 1 [json_name = "group_id"];    
+    string permission_id = 2 [json_name = "permission_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+// flat-ent: Security Component - Security Permission
+message SecurityPermissionFlatData {
+    option (routines.entity_type) = "SecurityPermission";
+    option (routines.keys).keys = "permission_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: permissionId
+        
+    string permission_id = 1 [json_name = "permission_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string tenant_id = 5 [json_name = "tenant_id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9 ;
+}
+
+
+// Security Component - User Login Security Group
+message UserLoginSecurityGroupData {
+    option (routines.entity_type) = "UserLoginSecurityGroup";
+    option (routines.keys).keys = "user_login_id, group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: userLoginId, groupId, fromDate
+    // fields
+        
+    string user_login_id = 1 [json_name = "user_login_id"];    
+    string group_id = 2 [json_name = "group_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
