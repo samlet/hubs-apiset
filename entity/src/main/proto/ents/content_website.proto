@@ -40,6 +40,11 @@ message WebAnalyticsConfigData {
 }
 
 
+message WebAnalyticsConfigList{
+    repeated WebAnalyticsConfigData values=1;
+}
+
+
 // Web Site Content Associations
 message WebSiteContentData {
     option (routines.entity_type) = "WebSiteContent";
@@ -63,6 +68,11 @@ message WebSiteContentData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WebSiteContentList{
+    repeated WebSiteContentData values=1;
 }
 
 

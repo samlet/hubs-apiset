@@ -44,6 +44,9 @@ message SurveyFlatData {
     map<string, google.protobuf.Any> attachments = 25 ;
 }
 
+message SurveyList{
+    repeated SurveyFlatData values=1;
+}
 
 // flat-ent: Survey Application Type
 message SurveyApplTypeFlatData {
@@ -65,6 +68,9 @@ message SurveyApplTypeFlatData {
     map<string, google.protobuf.Any> attachments = 10 ;
 }
 
+message SurveyApplTypeList{
+    repeated SurveyApplTypeFlatData values=1;
+}
 
 // Survey Multi-Response Group
 message SurveyMultiRespData {
@@ -87,6 +93,11 @@ message SurveyMultiRespData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message SurveyMultiRespList{
+    repeated SurveyMultiRespData values=1;
 }
 
 
@@ -116,6 +127,11 @@ message SurveyMultiRespColumnData {
 }
 
 
+message SurveyMultiRespColumnList{
+    repeated SurveyMultiRespColumnData values=1;
+}
+
+
 // Survey Page Type
 message SurveyPageData {
     option (routines.entity_type) = "SurveyPage";
@@ -138,6 +154,11 @@ message SurveyPageData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message SurveyPageList{
+    repeated SurveyPageData values=1;
 }
 
 
@@ -168,6 +189,9 @@ message SurveyQuestionFlatData {
     map<string, google.protobuf.Any> attachments = 22 ;
 }
 
+message SurveyQuestionList{
+    repeated SurveyQuestionFlatData values=1;
+}
 
 // Survey Question Application
 message SurveyQuestionApplData {
@@ -202,6 +226,11 @@ message SurveyQuestionApplData {
 }
 
 
+message SurveyQuestionApplList{
+    repeated SurveyQuestionApplData values=1;
+}
+
+
 // flat-ent: Survey Question Category
 message SurveyQuestionCategoryFlatData {
     option (routines.entity_type) = "SurveyQuestionCategory";
@@ -223,6 +252,9 @@ message SurveyQuestionCategoryFlatData {
     map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message SurveyQuestionCategoryList{
+    repeated SurveyQuestionCategoryFlatData values=1;
+}
 
 // Survey Question Option
 message SurveyQuestionOptionData {
@@ -251,6 +283,11 @@ message SurveyQuestionOptionData {
     // extra
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message SurveyQuestionOptionList{
+    repeated SurveyQuestionOptionData values=1;
 }
 
 

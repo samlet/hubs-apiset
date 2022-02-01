@@ -86,6 +86,9 @@ message WorkEffortFlatData {
     map<string, google.protobuf.Any> attachments = 120 ;
 }
 
+message WorkEffortList{
+    repeated WorkEffortFlatData values=1;
+}
 
 // Work Effort Association
 message WorkEffortAssocData {
@@ -111,6 +114,11 @@ message WorkEffortAssocData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message WorkEffortAssocList{
+    repeated WorkEffortAssocData values=1;
 }
 
 
@@ -143,6 +151,11 @@ message WorkEffortFixedAssetAssignData {
 }
 
 
+message WorkEffortFixedAssetAssignList{
+    repeated WorkEffortFixedAssetAssignData values=1;
+}
+
+
 // Work Effort Good Standard
 message WorkEffortGoodStandardData {
     option (routines.entity_type) = "WorkEffortGoodStandard";
@@ -169,6 +182,11 @@ message WorkEffortGoodStandardData {
     // extra
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message WorkEffortGoodStandardList{
+    repeated WorkEffortGoodStandardData values=1;
 }
 
 
@@ -207,6 +225,11 @@ message WorkEffortPartyAssignmentData {
 }
 
 
+message WorkEffortPartyAssignmentList{
+    repeated WorkEffortPartyAssignmentData values=1;
+}
+
+
 // Work Effort Skill Standard
 message WorkEffortSkillStandardData {
     option (routines.entity_type) = "WorkEffortSkillStandard";
@@ -230,6 +253,11 @@ message WorkEffortSkillStandardData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message WorkEffortSkillStandardList{
+    repeated WorkEffortSkillStandardData values=1;
 }
 
 

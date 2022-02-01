@@ -1,0 +1,211 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ShipmentPicklistExtraProto";
+option objc_class_prefix = "ShipmentPicklistExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Picklist Status History
+message OldPicklistStatusHistoryData {
+    option (routines.entity_type) = "OldPicklistStatusHistory";
+    option (routines.keys).keys = "picklist_id, change_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistId, changeDate
+    // fields
+        
+    string picklist_id = 1 [json_name = "picklist_id"];    
+    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];    
+    string change_user_login_id = 3 [json_name = "change_user_login_id"];
+    string status_id = 4 [json_name = "status_id"]; // StatusValidChange
+    string status_id_to = 5 [json_name = "status_id_to"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message OldPicklistStatusHistoryList{
+    repeated OldPicklistStatusHistoryData values=1;
+}
+
+
+// Picklist
+message PicklistData {
+    option (routines.entity_type) = "Picklist";
+    option (routines.keys).keys = "picklist_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistId
+    // fields
+        
+    string picklist_id = 1 [json_name = "picklist_id"];    
+    string description = 2 [json_name = "description"];    
+    string facility_id = 3 [json_name = "facility_id"];    
+    string shipment_method_type_id = 4 [json_name = "shipment_method_type_id"];    
+    string status_id = 5 [json_name = "status_id"];    
+    google.protobuf.Timestamp picklist_date = 6 [json_name = "picklist_date"];    
+    google.protobuf.Timestamp created_date = 7 [json_name = "created_date"];    
+    string created_by_user_login = 8 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 9 [json_name = "last_modified_date"];    
+    string last_modified_by_user_login = 10 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message PicklistList{
+    repeated PicklistData values=1;
+}
+
+
+// Picklist
+message PicklistBinData {
+    option (routines.entity_type) = "PicklistBin";
+    option (routines.keys).keys = "picklist_bin_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistBinId
+    // fields
+        
+    string picklist_bin_id = 1 [json_name = "picklist_bin_id"];    
+    string picklist_id = 2 [json_name = "picklist_id"];    
+    int64 bin_location_number = 3 [json_name = "bin_location_number"];    
+    string primary_order_id = 4 [json_name = "primary_order_id"];    
+    string primary_ship_group_seq_id = 5 [json_name = "primary_ship_group_seq_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PicklistBinList{
+    repeated PicklistBinData values=1;
+}
+
+
+// Picklist
+message PicklistItemData {
+    option (routines.entity_type) = "PicklistItem";
+    option (routines.keys).keys = "picklist_bin_id, order_id, order_item_seq_id, ship_group_seq_id, inventory_item_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistBinId, orderId, orderItemSeqId, shipGroupSeqId, inventoryItemId
+    // fields
+        
+    string picklist_bin_id = 1 [json_name = "picklist_bin_id"];    
+    string order_id = 2 [json_name = "order_id"];    
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
+    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];    
+    string inventory_item_id = 5 [json_name = "inventory_item_id"];
+    string item_status_id = 6 [json_name = "item_status_id"]; // StatusItem    
+    routines.FixedPoint quantity = 7 [json_name = "quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message PicklistItemList{
+    repeated PicklistItemData values=1;
+}
+
+
+// Picklist Role
+message PicklistRoleData {
+    option (routines.entity_type) = "PicklistRole";
+    option (routines.keys).keys = "picklist_id, party_id, role_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistId, partyId, roleTypeId, fromDate
+    // fields
+        
+    string picklist_id = 1 [json_name = "picklist_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    string created_by_user_login = 6 [json_name = "created_by_user_login"];    
+    string last_modified_by_user_login = 7 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message PicklistRoleList{
+    repeated PicklistRoleData values=1;
+}
+
+
+// Picklist Status History
+message PicklistStatusData {
+    option (routines.entity_type) = "PicklistStatus";
+    option (routines.keys).keys = "picklist_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: picklistId, statusDate
+    // fields
+        
+    string picklist_id = 1 [json_name = "picklist_id"];    
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];    
+    string change_by_user_login_id = 3 [json_name = "change_by_user_login_id"];
+    string status_id = 4 [json_name = "status_id"]; // StatusItem
+    string status_id_to = 5 [json_name = "status_id_to"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message PicklistStatusList{
+    repeated PicklistStatusData values=1;
+}
+
+

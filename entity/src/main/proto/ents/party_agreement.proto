@@ -46,6 +46,9 @@ message AgreementFlatData {
     map<string, google.protobuf.Any> attachments = 41 ;
 }
 
+message AgreementList{
+    repeated AgreementFlatData values=1;
+}
 
 // Agreement Item
 message AgreementItemData {
@@ -74,6 +77,11 @@ message AgreementItemData {
 }
 
 
+message AgreementItemList{
+    repeated AgreementItemData values=1;
+}
+
+
 // Agreement Product Application
 message AgreementProductApplData {
     option (routines.entity_type) = "AgreementProductAppl";
@@ -96,6 +104,11 @@ message AgreementProductApplData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message AgreementProductApplList{
+    repeated AgreementProductApplData values=1;
 }
 
 
@@ -130,4 +143,7 @@ message AgreementTermFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message AgreementTermList{
+    repeated AgreementTermFlatData values=1;
+}
 

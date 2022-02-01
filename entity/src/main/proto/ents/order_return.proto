@@ -49,6 +49,9 @@ message ReturnHeaderFlatData {
     map<string, google.protobuf.Any> attachments = 43 ;
 }
 
+message ReturnHeaderList{
+    repeated ReturnHeaderFlatData values=1;
+}
 
 // Return Item
 message ReturnItemData {
@@ -83,6 +86,11 @@ message ReturnItemData {
     // extra
     google.protobuf.Struct extra = 25;
     map<string, google.protobuf.Any> attachments = 26;
+}
+
+
+message ReturnItemList{
+    repeated ReturnItemData values=1;
 }
 
 

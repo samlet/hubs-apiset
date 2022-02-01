@@ -1,0 +1,181 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "MarketingCampaignExtraProto";
+option objc_class_prefix = "MarketingCampaignExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Marketing Campaign
+message MarketingCampaignData {
+    option (routines.entity_type) = "MarketingCampaign";
+    option (routines.keys).keys = "marketing_campaign_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: marketingCampaignId
+    // fields
+        
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string parent_campaign_id = 2 [json_name = "parent_campaign_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    string campaign_name = 4 [json_name = "campaign_name"];    
+    string campaign_summary = 5 [json_name = "campaign_summary"];    
+    routines.Currency budgeted_cost = 6 [json_name = "budgeted_cost"];    
+    routines.Currency actual_cost = 7 [json_name = "actual_cost"];    
+    routines.Currency estimated_cost = 8 [json_name = "estimated_cost"];
+    string currency_uom_id = 9 [json_name = "currency_uom_id"]; // Uom    
+    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];    
+    routines.Indicator is_active = 12 [json_name = "is_active"];    
+    string converted_leads = 13 [json_name = "converted_leads"];    
+    double expected_response_percent = 14 [json_name = "expected_response_percent"];    
+    routines.Currency expected_revenue = 15 [json_name = "expected_revenue"];    
+    int64 num_sent = 16 [json_name = "num_sent"];    
+    google.protobuf.Timestamp start_date = 17 [json_name = "start_date"];    
+    string created_by_user_login = 18 [json_name = "created_by_user_login"];    
+    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+message MarketingCampaignList{
+    repeated MarketingCampaignData values=1;
+}
+
+
+// Marketing Campaign Note
+message MarketingCampaignNoteData {
+    option (routines.entity_type) = "MarketingCampaignNote";
+    option (routines.keys).keys = "marketing_campaign_id, note_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: marketingCampaignId, noteId
+    // fields
+        
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string note_id = 2 [json_name = "note_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message MarketingCampaignNoteList{
+    repeated MarketingCampaignNoteData values=1;
+}
+
+
+// Marketing Campaign Price
+message MarketingCampaignPriceData {
+    option (routines.entity_type) = "MarketingCampaignPrice";
+    option (routines.keys).keys = "marketing_campaign_id, product_price_rule_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: marketingCampaignId, productPriceRuleId, fromDate
+    // fields
+        
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string product_price_rule_id = 2 [json_name = "product_price_rule_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message MarketingCampaignPriceList{
+    repeated MarketingCampaignPriceData values=1;
+}
+
+
+// Marketing Campaign Promo
+message MarketingCampaignPromoData {
+    option (routines.entity_type) = "MarketingCampaignPromo";
+    option (routines.keys).keys = "marketing_campaign_id, product_promo_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: marketingCampaignId, productPromoId, fromDate
+    // fields
+        
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string product_promo_id = 2 [json_name = "product_promo_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message MarketingCampaignPromoList{
+    repeated MarketingCampaignPromoData values=1;
+}
+
+
+// Marketing Campaign Role
+message MarketingCampaignRoleData {
+    option (routines.entity_type) = "MarketingCampaignRole";
+    option (routines.keys).keys = "marketing_campaign_id, party_id, role_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: marketingCampaignId, partyId, roleTypeId, fromDate
+    // fields
+        
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message MarketingCampaignRoleList{
+    repeated MarketingCampaignRoleData values=1;
+}
+
+

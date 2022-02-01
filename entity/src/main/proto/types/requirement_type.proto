@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Requirement Type
 message RequirementTypeData {
@@ -28,6 +26,13 @@ message RequirementTypeData {
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message RequirementTypeList{
+    repeated RequirementTypeData values=1;
+}

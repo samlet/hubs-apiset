@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommonNoteExtraProto";
+option objc_class_prefix = "CommonNoteExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// NoteData
+message NoteDataData {
+    option (routines.entity_type) = "NoteData";
+    option (routines.keys).keys = "note_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: noteId
+    // fields
+        
+    string note_id = 1 [json_name = "note_id"];    
+    string note_name = 2 [json_name = "note_name"];    
+    string note_info = 3 [json_name = "note_info"];    
+    google.protobuf.Timestamp note_date_time = 4 [json_name = "note_date_time"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string note_party = 7 [json_name = "note_party"];    
+    string more_info_url = 8 [json_name = "more_info_url"];    
+    string more_info_item_id = 9 [json_name = "more_info_item_id"];    
+    string more_info_item_name = 10 [json_name = "more_info_item_name"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message NoteDataList{
+    repeated NoteDataData values=1;
+}
+
+

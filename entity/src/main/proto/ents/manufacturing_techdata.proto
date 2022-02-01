@@ -37,6 +37,9 @@ message TechDataCalendarFlatData {
     map<string, google.protobuf.Any> attachments = 13 ;
 }
 
+message TechDataCalendarList{
+    repeated TechDataCalendarFlatData values=1;
+}
 
 // Calendar Exception Day
 message TechDataCalendarExcDayData {
@@ -61,6 +64,11 @@ message TechDataCalendarExcDayData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message TechDataCalendarExcDayList{
+    repeated TechDataCalendarExcDayData values=1;
 }
 
 
@@ -98,4 +106,7 @@ message TechDataCalendarWeekFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message TechDataCalendarWeekList{
+    repeated TechDataCalendarWeekFlatData values=1;
+}
 

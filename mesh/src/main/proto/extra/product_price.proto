@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductPriceExtraProto";
+option objc_class_prefix = "ProductPriceExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Product PaymentMethodType
+message ProductPaymentMethodTypeData {
+    option (routines.entity_type) = "ProductPaymentMethodType";
+    option (routines.keys).keys = "product_id, payment_method_type_id, product_price_purpose_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productId, paymentMethodTypeId, productPricePurposeId, fromDate
+    // fields
+        
+    string product_id = 1 [json_name = "product_id"];
+    string payment_method_type_id = 2 [json_name = "payment_method_type_id"]; // PaymentMethodType
+    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"]; // ProductPricePurpose    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    int64 sequence_num = 6 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductPaymentMethodTypeList{
+    repeated ProductPaymentMethodTypeData values=1;
+}
+
+
+// Product Price Automatic Notice History
+message ProductPriceAutoNoticeData {
+    option (routines.entity_type) = "ProductPriceAutoNotice";
+    option (routines.keys).keys = "product_price_notice_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPriceNoticeId
+    // fields
+        
+    string product_price_notice_id = 1 [json_name = "product_price_notice_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    google.protobuf.Timestamp run_date = 3 [json_name = "run_date"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ProductPriceAutoNoticeList{
+    repeated ProductPriceAutoNoticeData values=1;
+}
+
+
+// Product Price Change History
+message ProductPriceChangeData {
+    option (routines.entity_type) = "ProductPriceChange";
+    option (routines.keys).keys = "product_price_change_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPriceChangeId
+    // fields
+        
+    string product_price_change_id = 1 [json_name = "product_price_change_id"];    
+    string product_id = 2 [json_name = "product_id"];    
+    string product_price_type_id = 3 [json_name = "product_price_type_id"];    
+    string product_price_purpose_id = 4 [json_name = "product_price_purpose_id"];    
+    string currency_uom_id = 5 [json_name = "currency_uom_id"];    
+    string product_store_group_id = 6 [json_name = "product_store_group_id"];    
+    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];    
+    routines.Currency price = 9 [json_name = "price"];    
+    routines.Currency old_price = 10 [json_name = "old_price"];    
+    google.protobuf.Timestamp changed_date = 11 [json_name = "changed_date"];    
+    string changed_by_user_login = 12 [json_name = "changed_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message ProductPriceChangeList{
+    repeated ProductPriceChangeData values=1;
+}
+
+
+// Sale Type
+message SaleTypeData {
+    option (routines.entity_type) = "SaleType";
+    option (routines.keys).keys = "sale_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: saleTypeId
+    // fields
+        
+    string sale_type_id = 1 [json_name = "sale_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message SaleTypeList{
+    repeated SaleTypeData values=1;
+}
+
+

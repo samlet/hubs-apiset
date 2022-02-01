@@ -1,15 +1,31 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.bluecc.hubs.stub";
+option java_package = "com.bluecc.hubs.service";
 option java_outer_classname = "SecurityProto";
 option objc_class_prefix = "SCP";
 
 package facade;
 
-//import "google/protobuf/any.proto";
+import "google/protobuf/any.proto";
 import "routines.proto";
+import "ents/security_securitygroup.proto";
 
+// specials
+service SecurityService{
+  rpc CreateToken(LoginKey) returns (routines.Response) {}
+  rpc HasPermission(LoginAndPermission) returns (routines.Response) {}
+  rpc GetPermissions(LoginKey) returns (domain.SecurityPermissionList) {}
+}
+
+message LoginAndPermission{
+  string login_id=1;
+  string permission_id=2;
+}
+
+message LoginKey{
+  string login_id=1;
+}
 
 message PermissionsEvent{
   enum SecurityEventType{

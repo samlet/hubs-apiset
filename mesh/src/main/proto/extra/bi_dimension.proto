@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BiDimensionExtraProto";
+option objc_class_prefix = "BiDimensionExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Country Dimension
+message CountryDimensionData {
+    option (routines.entity_type) = "CountryDimension";
+    option (routines.keys).keys = "dimension_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dimensionId
+    // fields
+        
+    string dimension_id = 1 [json_name = "dimension_id"];    
+    string geo_id = 2 [json_name = "geo_id"];    
+    string geo_name = 3 [json_name = "geo_name"];    
+    string geo_code = 4 [json_name = "geo_code"];    
+    string abbreviation = 5 [json_name = "abbreviation"];    
+    string tel_country_code = 6 [json_name = "tel_country_code"];    
+    string cc_tld = 7 [json_name = "cc_tld"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message CountryDimensionList{
+    repeated CountryDimensionData values=1;
+}
+
+
+// Currency Dimension
+message CurrencyDimensionData {
+    option (routines.entity_type) = "CurrencyDimension";
+    option (routines.keys).keys = "dimension_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dimensionId
+    // fields
+        
+    string dimension_id = 1 [json_name = "dimension_id"];    
+    string currency_id = 2 [json_name = "currency_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message CurrencyDimensionList{
+    repeated CurrencyDimensionData values=1;
+}
+
+
+// Date Dimension
+message DateDimensionData {
+    option (routines.entity_type) = "DateDimension";
+    option (routines.keys).keys = "dimension_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dimensionId
+    // fields
+        
+    string dimension_id = 1 [json_name = "dimension_id"];    
+    google.type.Date date_value = 2 [json_name = "date_value"];    
+    string description = 3 [json_name = "description"];    
+    string day_name = 4 [json_name = "day_name"];    
+    int64 day_of_month = 5 [json_name = "day_of_month"];    
+    int64 day_of_year = 6 [json_name = "day_of_year"];    
+    string month_name = 7 [json_name = "month_name"];    
+    int64 month_of_year = 8 [json_name = "month_of_year"];    
+    int64 year_name = 9 [json_name = "year_name"];    
+    int64 week_of_month = 10 [json_name = "week_of_month"];    
+    int64 week_of_year = 11 [json_name = "week_of_year"];    
+    string year_month_day = 12 [json_name = "year_month_day"];    
+    string year_and_month = 13 [json_name = "year_and_month"];    
+    string weekday_type = 14 [json_name = "weekday_type"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message DateDimensionList{
+    repeated DateDimensionData values=1;
+}
+
+

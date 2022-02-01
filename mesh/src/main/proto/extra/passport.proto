@@ -1,0 +1,178 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PassportExtraProto";
+option objc_class_prefix = "PassportExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Store GitHub access token for user
+message GitHubUserData {
+    option (routines.entity_type) = "GitHubUser";
+    option (routines.keys).keys = "git_hub_user_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: gitHubUserId
+    // fields
+        
+    string git_hub_user_id = 1 [json_name = "git_hub_user_id"];    
+    string product_store_id = 2 [json_name = "product_store_id"];    
+    string env_prefix = 3 [json_name = "env_prefix"];    
+    string token_type = 4 [json_name = "token_type"];    
+    string access_token = 5 [json_name = "access_token"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message GitHubUserList{
+    repeated GitHubUserData values=1;
+}
+
+
+// Store LinkedIn access token for user
+message LinkedInUserData {
+    option (routines.entity_type) = "LinkedInUser";
+    option (routines.keys).keys = "linked_in_user_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: linkedInUserId
+    // fields
+        
+    string linked_in_user_id = 1 [json_name = "linked_in_user_id"];    
+    string product_store_id = 2 [json_name = "product_store_id"];    
+    string env_prefix = 3 [json_name = "env_prefix"];    
+    string access_token = 4 [json_name = "access_token"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message LinkedInUserList{
+    repeated LinkedInUserData values=1;
+}
+
+
+// GitHub OAuth Login Config
+message OAuth2GitHubData {
+    option (routines.entity_type) = "OAuth2GitHub";
+    option (routines.keys).keys = "product_store_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, fromDate
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];    
+    string client_id = 2 [json_name = "client_id"];    
+    string client_secret = 3 [json_name = "client_secret"];    
+    string return_url = 4 [json_name = "return_url"];    
+    string local_redirect_uri = 5 [json_name = "local_redirect_uri"];    
+    string icon_url = 6 [json_name = "icon_url"];    
+    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message OAuth2GitHubList{
+    repeated OAuth2GitHubData values=1;
+}
+
+
+// LinkedIn OAuth Login Config
+message OAuth2LinkedInData {
+    option (routines.entity_type) = "OAuth2LinkedIn";
+    option (routines.keys).keys = "product_store_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, fromDate
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];    
+    string api_key = 2 [json_name = "api_key"];    
+    string secret_key = 3 [json_name = "secret_key"];    
+    string live_return_url = 4 [json_name = "live_return_url"];    
+    string test_return_url = 5 [json_name = "test_return_url"];    
+    string local_redirect_uri = 6 [json_name = "local_redirect_uri"];    
+    string icon_url = 7 [json_name = "icon_url"];    
+    google.protobuf.Timestamp from_date = 8 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string id = 12 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message OAuth2LinkedInList{
+    repeated OAuth2LinkedInData values=1;
+}
+
+
+// Third party logins for a specific product store
+message ThirdPartyLoginData {
+    option (routines.entity_type) = "ThirdPartyLogin";
+    option (routines.keys).keys = "product_store_id, login_meth_type_id, login_provider_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, loginMethTypeId, loginProviderId, fromDate
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string login_meth_type_id = 2 [json_name = "login_meth_type_id"]; // EnumerationType    
+    string login_provider_id = 3 [json_name = "login_provider_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    int64 sequence_num = 6 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ThirdPartyLoginList{
+    repeated ThirdPartyLoginData values=1;
+}
+
+

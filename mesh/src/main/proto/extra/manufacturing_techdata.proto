@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ManufacturingTechdataExtraProto";
+option objc_class_prefix = "ManufacturingTechdataExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Calendar Exception Week
+message TechDataCalendarExcWeekData {
+    option (routines.entity_type) = "TechDataCalendarExcWeek";
+    option (routines.keys).keys = "calendar_id, exception_date_start";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: calendarId, exceptionDateStart
+    // fields
+        
+    string calendar_id = 1 [json_name = "calendar_id"];    
+    google.type.Date exception_date_start = 2 [json_name = "exception_date_start"];    
+    string calendar_week_id = 3 [json_name = "calendar_week_id"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message TechDataCalendarExcWeekList{
+    repeated TechDataCalendarExcWeekData values=1;
+}
+
+

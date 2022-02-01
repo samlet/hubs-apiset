@@ -1,0 +1,326 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingInvoiceExtraProto";
+option objc_class_prefix = "AccountingInvoiceExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Invoice Attribute
+message InvoiceAttributeData {
+    option (routines.entity_type) = "InvoiceAttribute";
+    option (routines.keys).keys = "invoice_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceId, attrName
+    // fields
+        
+    string invoice_id = 1 [json_name = "invoice_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message InvoiceAttributeList{
+    repeated InvoiceAttributeData values=1;
+}
+
+
+// Invoice Contact Mechanism
+message InvoiceContactMechData {
+    option (routines.entity_type) = "InvoiceContactMech";
+    option (routines.keys).keys = "invoice_id, contact_mech_purpose_type_id, contact_mech_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceId, contactMechPurposeTypeId, contactMechId
+    // fields
+        
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"]; // ContactMechPurposeType    
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message InvoiceContactMechList{
+    repeated InvoiceContactMechData values=1;
+}
+
+
+// Invoice Content
+message InvoiceContentData {
+    option (routines.entity_type) = "InvoiceContent";
+    option (routines.keys).keys = "invoice_id, invoice_content_type_id, content_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contentId, invoiceId, invoiceContentTypeId, fromDate
+    // fields
+        
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string invoice_content_type_id = 2 [json_name = "invoice_content_type_id"]; // InvoiceContentType    
+    string content_id = 3 [json_name = "content_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message InvoiceContentList{
+    repeated InvoiceContentData values=1;
+}
+
+
+// Invoice Item Association
+message InvoiceItemAssocData {
+    option (routines.entity_type) = "InvoiceItemAssoc";
+    option (routines.keys).keys = "invoice_id_from, invoice_item_seq_id_from, invoice_id_to, invoice_item_seq_id_to, invoice_item_assoc_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceIdFrom, invoiceItemSeqIdFrom, invoiceIdTo, invoiceItemSeqIdTo, invoiceItemAssocTypeId, fromDate
+    // fields
+        
+    string invoice_id_from = 1 [json_name = "invoice_id_from"];    
+    string invoice_item_seq_id_from = 2 [json_name = "invoice_item_seq_id_from"];    
+    string invoice_id_to = 3 [json_name = "invoice_id_to"];    
+    string invoice_item_seq_id_to = 4 [json_name = "invoice_item_seq_id_to"];
+    string invoice_item_assoc_type_id = 5 [json_name = "invoice_item_assoc_type_id"]; // InvoiceItemAssocType    
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];    
+    string party_id_from = 8 [json_name = "party_id_from"];    
+    string party_id_to = 9 [json_name = "party_id_to"];    
+    routines.FixedPoint quantity = 10 [json_name = "quantity"];    
+    routines.Currency amount = 11 [json_name = "amount"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    string id = 14 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
+}
+
+
+message InvoiceItemAssocList{
+    repeated InvoiceItemAssocData values=1;
+}
+
+
+// Invoice Item Attribute
+message InvoiceItemAttributeData {
+    option (routines.entity_type) = "InvoiceItemAttribute";
+    option (routines.keys).keys = "invoice_id, invoice_item_seq_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceId, invoiceItemSeqId, attrName
+    // fields
+        
+    string invoice_id = 1 [json_name = "invoice_id"];    
+    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];    
+    string attr_name = 3 [json_name = "attr_name"];    
+    string attr_value = 4 [json_name = "attr_value"];    
+    string attr_description = 5 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message InvoiceItemAttributeList{
+    repeated InvoiceItemAttributeData values=1;
+}
+
+
+// Invoice Item Type Attribute
+message InvoiceItemTypeAttrData {
+    option (routines.entity_type) = "InvoiceItemTypeAttr";
+    option (routines.keys).keys = "invoice_item_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceItemTypeId, attrName
+    // fields
+        
+    string invoice_item_type_id = 1 [json_name = "invoice_item_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message InvoiceItemTypeAttrList{
+    repeated InvoiceItemTypeAttrData values=1;
+}
+
+
+// Invoice Note
+message InvoiceNoteData {
+    option (routines.entity_type) = "InvoiceNote";
+    option (routines.keys).keys = "invoice_id, note_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceId, noteId
+    // fields
+        
+    string invoice_id = 1 [json_name = "invoice_id"];    
+    string note_id = 2 [json_name = "note_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message InvoiceNoteList{
+    repeated InvoiceNoteData values=1;
+}
+
+
+// Invoice Term
+message InvoiceTermData {
+    option (routines.entity_type) = "InvoiceTerm";
+    option (routines.keys).keys = "invoice_term_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceTermId
+    // fields
+        
+    string invoice_term_id = 1 [json_name = "invoice_term_id"];
+    string term_type_id = 2 [json_name = "term_type_id"]; // TermType    
+    string invoice_id = 3 [json_name = "invoice_id"];    
+    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];    
+    routines.Currency term_value = 5 [json_name = "term_value"];    
+    int64 term_days = 6 [json_name = "term_days"];    
+    string text_value = 7 [json_name = "text_value"];    
+    string description = 8 [json_name = "description"];    
+    string uom_id = 9 [json_name = "uom_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message InvoiceTermList{
+    repeated InvoiceTermData values=1;
+}
+
+
+// Invoice Term Attribute
+message InvoiceTermAttributeData {
+    option (routines.entity_type) = "InvoiceTermAttribute";
+    option (routines.keys).keys = "invoice_term_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceTermId, attrName
+    // fields
+        
+    string invoice_term_id = 1 [json_name = "invoice_term_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message InvoiceTermAttributeList{
+    repeated InvoiceTermAttributeData values=1;
+}
+
+
+// Invoice Type Attribute
+message InvoiceTypeAttrData {
+    option (routines.entity_type) = "InvoiceTypeAttr";
+    option (routines.keys).keys = "invoice_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: invoiceTypeId, attrName
+    // fields
+        
+    string invoice_type_id = 1 [json_name = "invoice_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message InvoiceTypeAttrList{
+    repeated InvoiceTypeAttrData values=1;
+}
+
+

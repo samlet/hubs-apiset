@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Party Relationship Type
 message PartyRelationshipTypeData {
@@ -31,6 +29,13 @@ message PartyRelationshipTypeData {
     string role_type_id_valid_from = 6 [json_name = "role_type_id_valid_from"]; // RoleType
     string role_type_id_valid_to = 7 [json_name = "role_type_id_valid_to"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message PartyRelationshipTypeList{
+    repeated PartyRelationshipTypeData values=1;
+}

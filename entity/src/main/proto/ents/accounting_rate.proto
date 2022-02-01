@@ -43,6 +43,11 @@ message PartyRateData {
 }
 
 
+message PartyRateList{
+    repeated PartyRateData values=1;
+}
+
+
 // RateAmount
 message RateAmountData {
     option (routines.entity_type) = "RateAmount";
@@ -70,6 +75,11 @@ message RateAmountData {
     // extra
     google.protobuf.Struct extra = 16;
     map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+message RateAmountList{
+    repeated RateAmountData values=1;
 }
 
 

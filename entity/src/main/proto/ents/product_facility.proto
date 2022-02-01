@@ -52,6 +52,9 @@ message FacilityFlatData {
     map<string, google.protobuf.Any> attachments = 75 ;
 }
 
+message FacilityList{
+    repeated FacilityFlatData values=1;
+}
 
 // Facility Contact Mechanism
 message FacilityContactMechData {
@@ -80,6 +83,11 @@ message FacilityContactMechData {
 }
 
 
+message FacilityContactMechList{
+    repeated FacilityContactMechData values=1;
+}
+
+
 // Facility Contact Mechanism Purpose
 message FacilityContactMechPurposeData {
     option (routines.entity_type) = "FacilityContactMechPurpose";
@@ -103,6 +111,11 @@ message FacilityContactMechPurposeData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message FacilityContactMechPurposeList{
+    repeated FacilityContactMechPurposeData values=1;
 }
 
 
@@ -136,6 +149,11 @@ message FacilityLocationData {
 }
 
 
+message FacilityLocationList{
+    repeated FacilityLocationData values=1;
+}
+
+
 // Facility Location Geo Location with history
 message FacilityLocationGeoPointData {
     option (routines.entity_type) = "FacilityLocationGeoPoint";
@@ -159,6 +177,11 @@ message FacilityLocationGeoPointData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FacilityLocationGeoPointList{
+    repeated FacilityLocationGeoPointData values=1;
 }
 
 
@@ -191,6 +214,11 @@ message ProductFacilityData {
 }
 
 
+message ProductFacilityList{
+    repeated ProductFacilityData values=1;
+}
+
+
 // Define associations between Product facilities
 message ProductFacilityAssocData {
     option (routines.entity_type) = "ProductFacilityAssoc";
@@ -220,6 +248,11 @@ message ProductFacilityAssocData {
 }
 
 
+message ProductFacilityAssocList{
+    repeated ProductFacilityAssocData values=1;
+}
+
+
 // Product Facility
 message ProductFacilityLocationData {
     option (routines.entity_type) = "ProductFacilityLocation";
@@ -243,6 +276,11 @@ message ProductFacilityLocationData {
     // extra
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message ProductFacilityLocationList{
+    repeated ProductFacilityLocationData values=1;
 }
 
 

@@ -44,4 +44,7 @@ message EmailTemplateSettingFlatData {
     map<string, google.protobuf.Any> attachments = 17 ;
 }
 
+message EmailTemplateSettingList{
+    repeated EmailTemplateSettingFlatData values=1;
+}
 

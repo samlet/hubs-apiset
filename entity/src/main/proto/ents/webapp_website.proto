@@ -51,4 +51,7 @@ message WebSiteFlatData {
     map<string, google.protobuf.Any> attachments = 34 ;
 }
 
+message WebSiteList{
+    repeated WebSiteFlatData values=1;
+}
 

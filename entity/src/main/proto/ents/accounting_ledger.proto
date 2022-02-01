@@ -62,6 +62,9 @@ message AcctgTransFlatData {
     map<string, google.protobuf.Any> attachments = 55 ;
 }
 
+message AcctgTransList{
+    repeated AcctgTransFlatData values=1;
+}
 
 // Transaction Entry
 message AcctgTransEntryData {
@@ -109,6 +112,11 @@ message AcctgTransEntryData {
 }
 
 
+message AcctgTransEntryList{
+    repeated AcctgTransEntryData values=1;
+}
+
+
 // flat-ent: General Ledger Account
 message GlAccountFlatData {
     option (routines.entity_type) = "GlAccount";
@@ -138,6 +146,9 @@ message GlAccountFlatData {
     map<string, google.protobuf.Any> attachments = 56 ;
 }
 
+message GlAccountList{
+    repeated GlAccountFlatData values=1;
+}
 
 // GL Account Organization
 message GlAccountTypeDefaultData {
@@ -160,6 +171,11 @@ message GlAccountTypeDefaultData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message GlAccountTypeDefaultList{
+    repeated GlAccountTypeDefaultData values=1;
 }
 
 
@@ -201,4 +217,7 @@ message PartyAcctgPreferenceFlatData {
     map<string, google.protobuf.Any> attachments = 39 ;
 }
 
+message PartyAcctgPreferenceList{
+    repeated PartyAcctgPreferenceFlatData values=1;
+}
 

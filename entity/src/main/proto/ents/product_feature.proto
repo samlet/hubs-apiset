@@ -44,6 +44,9 @@ message ProductFeatureFlatData {
     map<string, google.protobuf.Any> attachments = 32 ;
 }
 
+message ProductFeatureList{
+    repeated ProductFeatureFlatData values=1;
+}
 
 // Product Feature Applicability
 message ProductFeatureApplData {
@@ -74,6 +77,11 @@ message ProductFeatureApplData {
 }
 
 
+message ProductFeatureApplList{
+    repeated ProductFeatureApplData values=1;
+}
+
+
 // flat-ent: Product Feature Category
 message ProductFeatureCategoryFlatData {
     option (routines.entity_type) = "ProductFeatureCategory";
@@ -95,6 +103,9 @@ message ProductFeatureCategoryFlatData {
     map<string, google.protobuf.Any> attachments = 13 ;
 }
 
+message ProductFeatureCategoryList{
+    repeated ProductFeatureCategoryFlatData values=1;
+}
 
 // Product Feature Category Application
 message ProductFeatureCategoryApplData {
@@ -121,6 +132,11 @@ message ProductFeatureCategoryApplData {
 }
 
 
+message ProductFeatureCategoryApplList{
+    repeated ProductFeatureCategoryApplData values=1;
+}
+
+
 // Product Feature Interaction
 message ProductFeatureIactnData {
     option (routines.entity_type) = "ProductFeatureIactn";
@@ -143,6 +159,11 @@ message ProductFeatureIactnData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ProductFeatureIactnList{
+    repeated ProductFeatureIactnData values=1;
 }
 
 

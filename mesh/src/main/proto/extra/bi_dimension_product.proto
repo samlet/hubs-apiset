@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BiDimensionProductExtraProto";
+option objc_class_prefix = "BiDimensionProductExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Product Dimension
+message ProductDimensionData {
+    option (routines.entity_type) = "ProductDimension";
+    option (routines.keys).keys = "dimension_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: dimensionId
+    // fields
+        
+    string dimension_id = 1 [json_name = "dimension_id"];    
+    string product_id = 2 [json_name = "product_id"];    
+    string product_type = 3 [json_name = "product_type"];    
+    string brand_name = 4 [json_name = "brand_name"];    
+    string internal_name = 5 [json_name = "internal_name"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ProductDimensionList{
+    repeated ProductDimensionData values=1;
+}
+
+

@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Contact Mechanism Type Purpose
 message ContactMechTypePurposeData {
@@ -27,6 +25,13 @@ message ContactMechTypePurposeData {
     string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"]; // ContactMechPurposeType    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];  
+    string id = 5 [json_name = "id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9 ;
 }
 
+message ContactMechTypePurposeList{
+    repeated ContactMechTypePurposeData values=1;
+}

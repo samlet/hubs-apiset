@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ExampleExtraProto";
+option objc_class_prefix = "ExampleExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Example Entity
+message ExampleData {
+    option (routines.entity_type) = "Example";
+    option (routines.keys).keys = "example_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: exampleId
+    // fields
+        
+    string example_id = 1 [json_name = "example_id"];    
+    string example_type_id = 2 [json_name = "example_type_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    string example_name = 4 [json_name = "example_name"];    
+    string description = 5 [json_name = "description"];    
+    string long_description = 6 [json_name = "long_description"];    
+    string comments = 7 [json_name = "comments"];    
+    int64 example_size = 8 [json_name = "example_size"];    
+    google.protobuf.Timestamp example_date = 9 [json_name = "example_date"];    
+    google.protobuf.Timestamp another_date = 10 [json_name = "another_date"];    
+    string another_text = 11 [json_name = "another_text"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message ExampleList{
+    repeated ExampleData values=1;
+}
+
+
+// Example Item Entity
+message ExampleItemData {
+    option (routines.entity_type) = "ExampleItem";
+    option (routines.keys).keys = "example_id, example_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: exampleId, exampleItemSeqId
+    // fields
+        
+    string example_id = 1 [json_name = "example_id"];    
+    string example_item_seq_id = 2 [json_name = "example_item_seq_id"];    
+    string description = 3 [json_name = "description"];    
+    double amount = 4 [json_name = "amount"];
+    string amount_uom_id = 5 [json_name = "amount_uom_id"]; // Uom    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ExampleItemList{
+    repeated ExampleItemData values=1;
+}
+
+
+// Example Status Entity
+message ExampleStatusData {
+    option (routines.entity_type) = "ExampleStatus";
+    option (routines.keys).keys = "example_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: exampleId, statusDate
+    // fields
+        
+    string example_id = 1 [json_name = "example_id"];    
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];    
+    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];    
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ExampleStatusList{
+    repeated ExampleStatusData values=1;
+}
+
+
+// Example Type Entity
+message ExampleTypeData {
+    option (routines.entity_type) = "ExampleType";
+    option (routines.keys).keys = "example_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: exampleTypeId
+    // fields
+        
+    string example_type_id = 1 [json_name = "example_type_id"];    
+    string parent_type_id = 2 [json_name = "parent_type_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message ExampleTypeList{
+    repeated ExampleTypeData values=1;
+}
+
+

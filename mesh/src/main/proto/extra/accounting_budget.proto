@@ -1,0 +1,379 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingBudgetExtraProto";
+option objc_class_prefix = "AccountingBudgetExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Budget Attribute
+message BudgetAttributeData {
+    option (routines.entity_type) = "BudgetAttribute";
+    option (routines.keys).keys = "budget_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, attrName
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message BudgetAttributeList{
+    repeated BudgetAttributeData values=1;
+}
+
+
+// Budget Item
+message BudgetItemData {
+    option (routines.entity_type) = "BudgetItem";
+    option (routines.keys).keys = "budget_id, budget_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, budgetItemSeqId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];    
+    string budget_item_type_id = 3 [json_name = "budget_item_type_id"];    
+    routines.Currency amount = 4 [json_name = "amount"];    
+    string purpose = 5 [json_name = "purpose"];    
+    string justification = 6 [json_name = "justification"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message BudgetItemList{
+    repeated BudgetItemData values=1;
+}
+
+
+// Budget Item Attribute
+message BudgetItemAttributeData {
+    option (routines.entity_type) = "BudgetItemAttribute";
+    option (routines.keys).keys = "budget_id, budget_item_seq_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, budgetItemSeqId, attrName
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];    
+    string attr_name = 3 [json_name = "attr_name"];    
+    string attr_value = 4 [json_name = "attr_value"];    
+    string attr_description = 5 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message BudgetItemAttributeList{
+    repeated BudgetItemAttributeData values=1;
+}
+
+
+// Budget Item Type Attribute
+message BudgetItemTypeAttrData {
+    option (routines.entity_type) = "BudgetItemTypeAttr";
+    option (routines.keys).keys = "budget_item_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetItemTypeId, attrName
+    // fields
+        
+    string budget_item_type_id = 1 [json_name = "budget_item_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message BudgetItemTypeAttrList{
+    repeated BudgetItemTypeAttrData values=1;
+}
+
+
+// Budget Review
+message BudgetReviewData {
+    option (routines.entity_type) = "BudgetReview";
+    option (routines.keys).keys = "budget_id, budget_review_id, party_id, budget_review_result_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, budgetReviewId, partyId, budgetReviewResultTypeId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_review_id = 2 [json_name = "budget_review_id"];    
+    string party_id = 3 [json_name = "party_id"];
+    string budget_review_result_type_id = 4 [json_name = "budget_review_result_type_id"]; // BudgetReviewResultType    
+    google.protobuf.Timestamp review_date = 5 [json_name = "review_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message BudgetReviewList{
+    repeated BudgetReviewData values=1;
+}
+
+
+// Budget Revision
+message BudgetRevisionData {
+    option (routines.entity_type) = "BudgetRevision";
+    option (routines.keys).keys = "budget_id, revision_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, revisionSeqId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string revision_seq_id = 2 [json_name = "revision_seq_id"];    
+    google.protobuf.Timestamp date_revised = 3 [json_name = "date_revised"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message BudgetRevisionList{
+    repeated BudgetRevisionData values=1;
+}
+
+
+// Budget Revision Impact
+message BudgetRevisionImpactData {
+    option (routines.entity_type) = "BudgetRevisionImpact";
+    option (routines.keys).keys = "budget_id, budget_item_seq_id, revision_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, budgetItemSeqId, revisionSeqId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];    
+    string revision_seq_id = 3 [json_name = "revision_seq_id"];    
+    routines.Currency revised_amount = 4 [json_name = "revised_amount"];    
+    routines.Indicator add_delete_flag = 5 [json_name = "add_delete_flag"];    
+    string revision_reason = 6 [json_name = "revision_reason"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message BudgetRevisionImpactList{
+    repeated BudgetRevisionImpactData values=1;
+}
+
+
+// Budget Role
+message BudgetRoleData {
+    option (routines.entity_type) = "BudgetRole";
+    option (routines.keys).keys = "budget_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, partyId, roleTypeId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    string role_type_id = 3 [json_name = "role_type_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message BudgetRoleList{
+    repeated BudgetRoleData values=1;
+}
+
+
+// Budget Scenario
+message BudgetScenarioData {
+    option (routines.entity_type) = "BudgetScenario";
+    option (routines.keys).keys = "budget_scenario_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetScenarioId
+    // fields
+        
+    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message BudgetScenarioList{
+    repeated BudgetScenarioData values=1;
+}
+
+
+// Budget Scenario Application
+message BudgetScenarioApplicationData {
+    option (routines.entity_type) = "BudgetScenarioApplication";
+    option (routines.keys).keys = "budget_scenario_applic_id, budget_scenario_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetScenarioApplicId, budgetScenarioId
+    // fields
+        
+    string budget_scenario_applic_id = 1 [json_name = "budget_scenario_applic_id"];    
+    string budget_scenario_id = 2 [json_name = "budget_scenario_id"];    
+    string budget_id = 3 [json_name = "budget_id"];    
+    string budget_item_seq_id = 4 [json_name = "budget_item_seq_id"];    
+    routines.Currency amount_change = 5 [json_name = "amount_change"];    
+    routines.FixedPoint percentage_change = 6 [json_name = "percentage_change"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message BudgetScenarioApplicationList{
+    repeated BudgetScenarioApplicationData values=1;
+}
+
+
+// Budget Scenario Rule
+message BudgetScenarioRuleData {
+    option (routines.entity_type) = "BudgetScenarioRule";
+    option (routines.keys).keys = "budget_scenario_id, budget_item_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetScenarioId, budgetItemTypeId
+    // fields
+        
+    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];
+    string budget_item_type_id = 2 [json_name = "budget_item_type_id"]; // BudgetItemType    
+    routines.Currency amount_change = 3 [json_name = "amount_change"];    
+    routines.FixedPoint percentage_change = 4 [json_name = "percentage_change"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message BudgetScenarioRuleList{
+    repeated BudgetScenarioRuleData values=1;
+}
+
+
+// Budget Type Attribute
+message BudgetTypeAttrData {
+    option (routines.entity_type) = "BudgetTypeAttr";
+    option (routines.keys).keys = "budget_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetTypeId, attrName
+    // fields
+        
+    string budget_type_id = 1 [json_name = "budget_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message BudgetTypeAttrList{
+    repeated BudgetTypeAttrData values=1;
+}
+
+

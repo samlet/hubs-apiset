@@ -1,0 +1,236 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommonPortalExtraProto";
+option objc_class_prefix = "CommonPortalExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// PortalPage
+message PortalPageData {
+    option (routines.entity_type) = "PortalPage";
+    option (routines.keys).keys = "portal_page_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPageId
+    // fields
+        
+    string portal_page_id = 1 [json_name = "portal_page_id"];    
+    string portal_page_name = 2 [json_name = "portal_page_name"];    
+    string description = 3 [json_name = "description"];    
+    string owner_user_login_id = 4 [json_name = "owner_user_login_id"];    
+    string original_portal_page_id = 5 [json_name = "original_portal_page_id"];    
+    string parent_portal_page_id = 6 [json_name = "parent_portal_page_id"];    
+    int64 sequence_num = 7 [json_name = "sequence_num"];    
+    string security_group_id = 8 [json_name = "security_group_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string help_content_id = 11 [json_name = "help_content_id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message PortalPageList{
+    repeated PortalPageData values=1;
+}
+
+
+// Defines a Portal Page
+message PortalPageColumnData {
+    option (routines.entity_type) = "PortalPageColumn";
+    option (routines.keys).keys = "portal_page_id, column_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPageId, columnSeqId
+    // fields
+        
+    string portal_page_id = 1 [json_name = "portal_page_id"];    
+    string column_seq_id = 2 [json_name = "column_seq_id"];    
+    int64 column_width_pixels = 3 [json_name = "column_width_pixels"];    
+    int64 column_width_percentage = 4 [json_name = "column_width_percentage"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message PortalPageColumnList{
+    repeated PortalPageColumnData values=1;
+}
+
+
+// Defines Portlets included into Portal Pages
+message PortalPagePortletData {
+    option (routines.entity_type) = "PortalPagePortlet";
+    option (routines.keys).keys = "portal_page_id, portal_portlet_id, portlet_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPageId, portalPortletId, portletSeqId
+    // fields
+        
+    string portal_page_id = 1 [json_name = "portal_page_id"];    
+    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];    
+    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];    
+    string column_seq_id = 4 [json_name = "column_seq_id"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PortalPagePortletList{
+    repeated PortalPagePortletData values=1;
+}
+
+
+// Defines a Portlet to be used in Portals
+message PortalPortletData {
+    option (routines.entity_type) = "PortalPortlet";
+    option (routines.keys).keys = "portal_portlet_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPortletId
+    // fields
+        
+    string portal_portlet_id = 1 [json_name = "portal_portlet_id"];    
+    string portlet_name = 2 [json_name = "portlet_name"];    
+    string screen_name = 3 [json_name = "screen_name"];    
+    string screen_location = 4 [json_name = "screen_location"];    
+    string edit_form_name = 5 [json_name = "edit_form_name"];    
+    string edit_form_location = 6 [json_name = "edit_form_location"];    
+    string description = 7 [json_name = "description"];    
+    string screenshot = 8 [json_name = "screenshot"];    
+    string security_service_name = 9 [json_name = "security_service_name"];    
+    string security_main_action = 10 [json_name = "security_main_action"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message PortalPortletList{
+    repeated PortalPortletData values=1;
+}
+
+
+// Allows to set different attribute values for each instance of the same portlet
+message PortletAttributeData {
+    option (routines.entity_type) = "PortletAttribute";
+    option (routines.keys).keys = "portal_page_id, portal_portlet_id, portlet_seq_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPageId, portalPortletId, portletSeqId, attrName
+    // fields
+        
+    string portal_page_id = 1 [json_name = "portal_page_id"];    
+    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];    
+    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];    
+    string attr_name = 4 [json_name = "attr_name"];    
+    string attr_value = 5 [json_name = "attr_value"];    
+    string attr_description = 6 [json_name = "attr_description"];    
+    string attr_type = 7 [json_name = "attr_type"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PortletAttributeList{
+    repeated PortletAttributeData values=1;
+}
+
+
+// Portlet Category
+message PortletCategoryData {
+    option (routines.entity_type) = "PortletCategory";
+    option (routines.keys).keys = "portlet_category_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portletCategoryId
+    // fields
+        
+    string portlet_category_id = 1 [json_name = "portlet_category_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message PortletCategoryList{
+    repeated PortletCategoryData values=1;
+}
+
+
+// Defines Portlets included into Categories
+message PortletPortletCategoryData {
+    option (routines.entity_type) = "PortletPortletCategory";
+    option (routines.keys).keys = "portal_portlet_id, portlet_category_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: portalPortletId, portletCategoryId
+    // fields
+        
+    string portal_portlet_id = 1 [json_name = "portal_portlet_id"];    
+    string portlet_category_id = 2 [json_name = "portlet_category_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PortletPortletCategoryList{
+    repeated PortletPortletCategoryData values=1;
+}
+
+

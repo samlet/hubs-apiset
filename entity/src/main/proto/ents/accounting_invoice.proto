@@ -50,6 +50,9 @@ message InvoiceFlatData {
     map<string, google.protobuf.Any> attachments = 49 ;
 }
 
+message InvoiceList{
+    repeated InvoiceFlatData values=1;
+}
 
 // flat-ent: Invoice Item
 message InvoiceItemFlatData {
@@ -89,6 +92,9 @@ message InvoiceItemFlatData {
     map<string, google.protobuf.Any> attachments = 52 ;
 }
 
+message InvoiceItemList{
+    repeated InvoiceItemFlatData values=1;
+}
 
 // Invoice Item Type GL Account
 message InvoiceItemTypeGlAccountData {
@@ -111,6 +117,11 @@ message InvoiceItemTypeGlAccountData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message InvoiceItemTypeGlAccountList{
+    repeated InvoiceItemTypeGlAccountData values=1;
 }
 
 
@@ -140,6 +151,11 @@ message InvoiceRoleData {
 }
 
 
+message InvoiceRoleList{
+    repeated InvoiceRoleData values=1;
+}
+
+
 // Invoice Status
 message InvoiceStatusData {
     option (routines.entity_type) = "InvoiceStatus";
@@ -162,6 +178,11 @@ message InvoiceStatusData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message InvoiceStatusList{
+    repeated InvoiceStatusData values=1;
 }
 
 

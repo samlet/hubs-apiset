@@ -46,3 +46,8 @@ message UomConversionDatedData {
 }
 
 
+message UomConversionDatedList{
+    repeated UomConversionDatedData values=1;
+}
+
+

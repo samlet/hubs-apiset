@@ -47,6 +47,11 @@ message ProductConfigData {
 }
 
 
+message ProductConfigList{
+    repeated ProductConfigData values=1;
+}
+
+
 // flat-ent: Product Configuration Question
 message ProductConfigItemFlatData {
     option (routines.entity_type) = "ProductConfigItem";
@@ -71,6 +76,9 @@ message ProductConfigItemFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message ProductConfigItemList{
+    repeated ProductConfigItemFlatData values=1;
+}
 
 // Product Configuration Options
 message ProductConfigOptionData {
@@ -100,6 +108,11 @@ message ProductConfigOptionData {
 }
 
 
+message ProductConfigOptionList{
+    repeated ProductConfigOptionData values=1;
+}
+
+
 // Product Configuration Option to Products
 message ProductConfigProductData {
     option (routines.entity_type) = "ProductConfigProduct";
@@ -123,6 +136,11 @@ message ProductConfigProductData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message ProductConfigProductList{
+    repeated ProductConfigProductData values=1;
 }
 
 

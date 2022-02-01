@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "HumanresRecruitmentExtraProto";
+option objc_class_prefix = "HumanresRecruitmentExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Entity for storing data about Interviews conducted
+message JobInterviewData {
+    option (routines.entity_type) = "JobInterview";
+    option (routines.keys).keys = "job_interview_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: jobInterviewId
+    // fields
+        
+    string job_interview_id = 1 [json_name = "job_interview_id"];    
+    string job_interviewee_party_id = 2 [json_name = "job_interviewee_party_id"];    
+    string job_requisition_id = 3 [json_name = "job_requisition_id"];    
+    string job_interviewer_party_id = 4 [json_name = "job_interviewer_party_id"];
+    string job_interview_type_id = 5 [json_name = "job_interview_type_id"]; // JobInterviewType
+    string grade_secured_enum_id = 6 [json_name = "grade_secured_enum_id"]; // Enumeration    
+    string job_interview_result = 7 [json_name = "job_interview_result"];    
+    google.type.Date job_interview_date = 8 [json_name = "job_interview_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message JobInterviewList{
+    repeated JobInterviewData values=1;
+}
+
+
+// Entity for storing data about recruitment
+message JobRequisitionData {
+    option (routines.entity_type) = "JobRequisition";
+    option (routines.keys).keys = "job_requisition_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: jobRequisitionId
+    // fields
+        
+    string job_requisition_id = 1 [json_name = "job_requisition_id"];    
+    int64 duration_months = 2 [json_name = "duration_months"];    
+    int64 age = 3 [json_name = "age"];    
+    routines.Indicator gender = 4 [json_name = "gender"];    
+    int64 experience_months = 5 [json_name = "experience_months"];    
+    int64 experience_years = 6 [json_name = "experience_years"];    
+    string qualification = 7 [json_name = "qualification"];    
+    string job_location = 8 [json_name = "job_location"];
+    string skill_type_id = 9 [json_name = "skill_type_id"]; // SkillType    
+    int64 no_of_resources = 10 [json_name = "no_of_resources"];
+    string job_posting_type_enum_id = 11 [json_name = "job_posting_type_enum_id"]; // Enumeration    
+    google.type.Date job_requisition_date = 12 [json_name = "job_requisition_date"];
+    string exam_type_enum_id = 13 [json_name = "exam_type_enum_id"]; // Enumeration    
+    google.type.Date required_on_date = 14 [json_name = "required_on_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message JobRequisitionList{
+    repeated JobRequisitionData values=1;
+}
+
+

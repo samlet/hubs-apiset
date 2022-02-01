@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.service";
+option java_outer_classname = "FacadeServiceProto";
+option objc_class_prefix = "FSCP";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "google/protobuf/type.proto";
+
+import "routines.proto";
+import "condition.proto";
+
+// crud operations
+service GenericEntityService {
+  rpc CreateEntity(GenericEntity) returns (routines.Response) {}
+  rpc UpdateEntity(GenericEntity) returns (routines.Response) {}
+  rpc DeleteById(routines.Identity) returns (routines.Response) {}
+
+  rpc FindById(routines.Identity) returns (GenericEntity) {}
+  rpc FindByCondition(condition.QueryObjects) returns (stream GenericEntity) {}
+  rpc FindList(routines.QueryList) returns (stream GenericEntity) {}
+}
+
+// query with graphql
+service GenericQueryService {
+  rpc QueryList(FilterCond) returns (stream GenericEntity) {}
+}
+
+// state-machine and workflow
+service ActivatorService {
+  rpc FireEvent(GenericEventData) returns (routines.Response) {}
+}
+
+message FilterCond{
+  string query_name=1;
+  google.protobuf.Struct cond=2;
+  int32 max_rows=3;
+}
+
+message GenericEventData{
+  string channel=1;
+  string id=2;
+  string state_type=3;
+  string event_name=4;
+  google.protobuf.Any context=5;
+}
+
+message GenericEntity{
+  string type_name=1;
+  google.protobuf.Any data=2;
+}
+

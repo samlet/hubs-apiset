@@ -23,8 +23,3 @@ message StatusProposal{
   string status_id = 2;
   routines.Envelope data = 3;
 }
-
-message StatusTypeList{
-  repeated domain.StatusTypeData types=1;
-}
-

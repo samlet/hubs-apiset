@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderAllocationplanExtraProto";
+option objc_class_prefix = "OrderAllocationplanExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Allocation Plan Header Entity
+message AllocationPlanHeaderData {
+    option (routines.entity_type) = "AllocationPlanHeader";
+    option (routines.keys).keys = "plan_id, product_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: planId, productId
+    // fields
+        
+    string plan_id = 1 [json_name = "plan_id"];    
+    string product_id = 2 [json_name = "product_id"];
+    string plan_type_id = 3 [json_name = "plan_type_id"]; // AllocationPlanType    
+    string plan_name = 4 [json_name = "plan_name"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem    
+    string created_by_user_login = 6 [json_name = "created_by_user_login"];    
+    string last_modified_by_user_login = 7 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message AllocationPlanHeaderList{
+    repeated AllocationPlanHeaderData values=1;
+}
+
+
+// Allocation Plan Item Entity
+message AllocationPlanItemData {
+    option (routines.entity_type) = "AllocationPlanItem";
+    option (routines.keys).keys = "plan_id, plan_item_seq_id, product_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: planId, planItemSeqId, productId
+    // fields
+        
+    string plan_id = 1 [json_name = "plan_id"];    
+    string plan_item_seq_id = 2 [json_name = "plan_item_seq_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem
+    string plan_method_enum_id = 4 [json_name = "plan_method_enum_id"]; // Enumeration    
+    string order_id = 5 [json_name = "order_id"];    
+    string order_item_seq_id = 6 [json_name = "order_item_seq_id"];    
+    string product_id = 7 [json_name = "product_id"];    
+    routines.FixedPoint allocated_quantity = 8 [json_name = "allocated_quantity"];    
+    string priority_seq_id = 9 [json_name = "priority_seq_id"];    
+    string created_by_user_login = 10 [json_name = "created_by_user_login"];    
+    string last_modified_by_user_login = 11 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    string id = 14 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
+}
+
+
+message AllocationPlanItemList{
+    repeated AllocationPlanItemData values=1;
+}
+
+

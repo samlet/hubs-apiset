@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PluginsPosExtraProto";
+option objc_class_prefix = "PluginsPosExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Pos Terminal
+message PosTerminalData {
+    option (routines.entity_type) = "PosTerminal";
+    option (routines.keys).keys = "pos_terminal_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: posTerminalId
+    // fields
+        
+    string pos_terminal_id = 1 [json_name = "pos_terminal_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    string push_entity_sync_id = 3 [json_name = "push_entity_sync_id"];    
+    string terminal_name = 4 [json_name = "terminal_name"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PosTerminalList{
+    repeated PosTerminalData values=1;
+}
+
+
+// Pos Terminal Internal Transaction
+message PosTerminalInternTxData {
+    option (routines.entity_type) = "PosTerminalInternTx";
+    option (routines.keys).keys = "pos_terminal_log_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: posTerminalLogId
+    // fields
+        
+    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id"];    
+    routines.Currency paid_amount = 2 [json_name = "paid_amount"];    
+    string reason_comment = 3 [json_name = "reason_comment"];
+    string reason_enum_id = 4 [json_name = "reason_enum_id"]; // Enumeration    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PosTerminalInternTxList{
+    repeated PosTerminalInternTxData values=1;
+}
+
+
+// Pos Terminal Log
+message PosTerminalLogData {
+    option (routines.entity_type) = "PosTerminalLog";
+    option (routines.keys).keys = "pos_terminal_log_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: posTerminalLogId
+    // fields
+        
+    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id"];    
+    string pos_terminal_id = 2 [json_name = "pos_terminal_id"];    
+    string transaction_id = 3 [json_name = "transaction_id"];    
+    int64 item_count = 4 [json_name = "item_count"];    
+    string order_id = 5 [json_name = "order_id"];    
+    string return_id = 6 [json_name = "return_id"];    
+    string user_login_id = 7 [json_name = "user_login_id"];
+    string status_id = 8 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp log_start_date_time = 9 [json_name = "log_start_date_time"];    
+    google.protobuf.Timestamp log_end_date_time = 10 [json_name = "log_end_date_time"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message PosTerminalLogList{
+    repeated PosTerminalLogData values=1;
+}
+
+
+// Pos Terminal State
+message PosTerminalStateData {
+    option (routines.entity_type) = "PosTerminalState";
+    option (routines.keys).keys = "pos_terminal_id, opened_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: posTerminalId, openedDate
+    // fields
+        
+    string pos_terminal_id = 1 [json_name = "pos_terminal_id"];    
+    google.protobuf.Timestamp opened_date = 2 [json_name = "opened_date"];    
+    google.protobuf.Timestamp closed_date = 3 [json_name = "closed_date"];    
+    string starting_tx_id = 4 [json_name = "starting_tx_id"];    
+    string ending_tx_id = 5 [json_name = "ending_tx_id"];    
+    string opened_by_user_login_id = 6 [json_name = "opened_by_user_login_id"];    
+    string closed_by_user_login_id = 7 [json_name = "closed_by_user_login_id"];    
+    routines.Currency starting_drawer_amount = 8 [json_name = "starting_drawer_amount"];    
+    routines.Currency actual_ending_cash = 9 [json_name = "actual_ending_cash"];    
+    routines.Currency actual_ending_check = 10 [json_name = "actual_ending_check"];    
+    routines.Currency actual_ending_cc = 11 [json_name = "actual_ending_cc"];    
+    routines.Currency actual_ending_gc = 12 [json_name = "actual_ending_gc"];    
+    routines.Currency actual_ending_other = 13 [json_name = "actual_ending_other"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
+    string id = 16 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message PosTerminalStateList{
+    repeated PosTerminalStateData values=1;
+}
+
+

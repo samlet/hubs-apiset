@@ -47,4 +47,7 @@ message ItemIssuanceFlatData {
     map<string, google.protobuf.Any> attachments = 31 ;
 }
 
+message ItemIssuanceList{
+    repeated ItemIssuanceFlatData values=1;
+}
 

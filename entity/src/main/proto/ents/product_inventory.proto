@@ -60,6 +60,9 @@ message InventoryItemFlatData {
     map<string, google.protobuf.Any> attachments = 64 ;
 }
 
+message InventoryItemList{
+    repeated InventoryItemFlatData values=1;
+}
 
 // Inventory Item Detail
 message InventoryItemDetailData {
@@ -101,6 +104,11 @@ message InventoryItemDetailData {
     // extra
     google.protobuf.Struct extra = 31;
     map<string, google.protobuf.Any> attachments = 32;
+}
+
+
+message InventoryItemDetailList{
+    repeated InventoryItemDetailData values=1;
 }
 
 

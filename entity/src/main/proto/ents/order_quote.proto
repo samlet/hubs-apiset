@@ -46,6 +46,9 @@ message QuoteFlatData {
     map<string, google.protobuf.Any> attachments = 35 ;
 }
 
+message QuoteList{
+    repeated QuoteFlatData values=1;
+}
 
 // flat-ent: Quote Adjustment
 message QuoteAdjustmentFlatData {
@@ -92,6 +95,9 @@ message QuoteAdjustmentFlatData {
     map<string, google.protobuf.Any> attachments = 44 ;
 }
 
+message QuoteAdjustmentList{
+    repeated QuoteAdjustmentFlatData values=1;
+}
 
 // Quote Item
 message QuoteItemData {
@@ -135,6 +141,11 @@ message QuoteItemData {
 }
 
 
+message QuoteItemList{
+    repeated QuoteItemData values=1;
+}
+
+
 // Quote Role
 message QuoteRoleData {
     option (routines.entity_type) = "QuoteRole";
@@ -158,6 +169,11 @@ message QuoteRoleData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message QuoteRoleList{
+    repeated QuoteRoleData values=1;
 }
 
 
@@ -187,6 +203,11 @@ message QuoteTermData {
     // extra
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message QuoteTermList{
+    repeated QuoteTermData values=1;
 }
 
 

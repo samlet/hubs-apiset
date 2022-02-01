@@ -47,6 +47,11 @@ message ProductFeaturePriceData {
 }
 
 
+message ProductFeaturePriceList{
+    repeated ProductFeaturePriceData values=1;
+}
+
+
 // Product Price
 message ProductPriceData {
     option (routines.entity_type) = "ProductPrice";
@@ -89,6 +94,11 @@ message ProductPriceData {
 }
 
 
+message ProductPriceList{
+    repeated ProductPriceData values=1;
+}
+
+
 // Product Price Action
 message ProductPriceActionData {
     option (routines.entity_type) = "ProductPriceAction";
@@ -112,6 +122,11 @@ message ProductPriceActionData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductPriceActionList{
+    repeated ProductPriceActionData values=1;
 }
 
 
@@ -141,6 +156,11 @@ message ProductPriceCondData {
 }
 
 
+message ProductPriceCondList{
+    repeated ProductPriceCondData values=1;
+}
+
+
 // flat-ent: Product Pice Rule
 message ProductPriceRuleFlatData {
     option (routines.entity_type) = "ProductPriceRule";
@@ -165,6 +185,9 @@ message ProductPriceRuleFlatData {
     map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message ProductPriceRuleList{
+    repeated ProductPriceRuleFlatData values=1;
+}
 
 // flat-ent: Quantity Break
 message QuantityBreakFlatData {
@@ -188,4 +211,7 @@ message QuantityBreakFlatData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message QuantityBreakList{
+    repeated QuantityBreakFlatData values=1;
+}
 

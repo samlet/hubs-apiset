@@ -46,6 +46,9 @@ message PartyFlatData {
     map<string, google.protobuf.Any> attachments = 205 ;
 }
 
+message PartyList{
+    repeated PartyFlatData values=1;
+}
 
 // Party Geo Location with history
 message PartyGeoPointData {
@@ -69,6 +72,11 @@ message PartyGeoPointData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message PartyGeoPointList{
+    repeated PartyGeoPointData values=1;
 }
 
 
@@ -99,6 +107,9 @@ message PartyGroupFlatData {
     map<string, google.protobuf.Any> attachments = 27 ;
 }
 
+message PartyGroupList{
+    repeated PartyGroupFlatData values=1;
+}
 
 // Party Identification
 message PartyIdentificationData {
@@ -124,6 +135,11 @@ message PartyIdentificationData {
 }
 
 
+message PartyIdentificationList{
+    repeated PartyIdentificationData values=1;
+}
+
+
 // flat-ent: Party Identification Type
 message PartyIdentificationTypeFlatData {
     option (routines.entity_type) = "PartyIdentificationType";
@@ -146,6 +162,9 @@ message PartyIdentificationTypeFlatData {
     map<string, google.protobuf.Any> attachments = 13 ;
 }
 
+message PartyIdentificationTypeList{
+    repeated PartyIdentificationTypeFlatData values=1;
+}
 
 // flat-ent: Party Relationship
 message PartyRelationshipFlatData {
@@ -180,6 +199,9 @@ message PartyRelationshipFlatData {
     map<string, google.protobuf.Any> attachments = 31 ;
 }
 
+message PartyRelationshipList{
+    repeated PartyRelationshipFlatData values=1;
+}
 
 // Party Role
 message PartyRoleData {
@@ -201,6 +223,11 @@ message PartyRoleData {
     // extra
     google.protobuf.Struct extra = 32;
     map<string, google.protobuf.Any> attachments = 33;
+}
+
+
+message PartyRoleList{
+    repeated PartyRoleData values=1;
 }
 
 
@@ -226,6 +253,11 @@ message PartyStatusData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message PartyStatusList{
+    repeated PartyStatusData values=1;
 }
 
 
@@ -279,4 +311,7 @@ message PersonFlatData {
     map<string, google.protobuf.Any> attachments = 52 ;
 }
 
+message PersonList{
+    repeated PersonFlatData values=1;
+}
 

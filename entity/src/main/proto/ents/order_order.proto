@@ -67,6 +67,9 @@ message OrderAdjustmentFlatData {
     map<string, google.protobuf.Any> attachments = 58 ;
 }
 
+message OrderAdjustmentList{
+    repeated OrderAdjustmentFlatData values=1;
+}
 
 // Order Adjustment Billing
 message OrderAdjustmentBillingData {
@@ -93,6 +96,11 @@ message OrderAdjustmentBillingData {
 }
 
 
+message OrderAdjustmentBillingList{
+    repeated OrderAdjustmentBillingData values=1;
+}
+
+
 // Order Contact Mechanism
 message OrderContactMechData {
     option (routines.entity_type) = "OrderContactMech";
@@ -114,6 +122,11 @@ message OrderContactMechData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message OrderContactMechList{
+    repeated OrderContactMechData values=1;
 }
 
 
@@ -165,6 +178,9 @@ message OrderHeaderFlatData {
     map<string, google.protobuf.Any> attachments = 97 ;
 }
 
+message OrderHeaderList{
+    repeated OrderHeaderFlatData values=1;
+}
 
 // flat-ent: Order Item
 message OrderItemFlatData {
@@ -232,6 +248,9 @@ message OrderItemFlatData {
     map<string, google.protobuf.Any> attachments = 103 ;
 }
 
+message OrderItemList{
+    repeated OrderItemFlatData values=1;
+}
 
 // Order Item Billing
 message OrderItemBillingData {
@@ -262,6 +281,11 @@ message OrderItemBillingData {
 }
 
 
+message OrderItemBillingList{
+    repeated OrderItemBillingData values=1;
+}
+
+
 // flat-ent: Order Item Price Info
 message OrderItemPriceInfoFlatData {
     option (routines.entity_type) = "OrderItemPriceInfo";
@@ -288,6 +312,9 @@ message OrderItemPriceInfoFlatData {
     map<string, google.protobuf.Any> attachments = 18 ;
 }
 
+message OrderItemPriceInfoList{
+    repeated OrderItemPriceInfoFlatData values=1;
+}
 
 // Order Item Ship Group
 message OrderItemShipGroupData {
@@ -330,6 +357,11 @@ message OrderItemShipGroupData {
 }
 
 
+message OrderItemShipGroupList{
+    repeated OrderItemShipGroupData values=1;
+}
+
+
 // Order Item Package Association
 message OrderItemShipGroupAssocData {
     option (routines.entity_type) = "OrderItemShipGroupAssoc";
@@ -353,6 +385,11 @@ message OrderItemShipGroupAssocData {
     // extra
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message OrderItemShipGroupAssocList{
+    repeated OrderItemShipGroupAssocData values=1;
 }
 
 
@@ -387,6 +424,11 @@ message OrderItemShipGrpInvResData {
     // extra
     google.protobuf.Struct extra = 24;
     map<string, google.protobuf.Any> attachments = 25;
+}
+
+
+message OrderItemShipGrpInvResList{
+    repeated OrderItemShipGrpInvResData values=1;
 }
 
 
@@ -432,6 +474,9 @@ message OrderPaymentPreferenceFlatData {
     map<string, google.protobuf.Any> attachments = 46 ;
 }
 
+message OrderPaymentPreferenceList{
+    repeated OrderPaymentPreferenceFlatData values=1;
+}
 
 // Order Role
 message OrderRoleData {
@@ -454,6 +499,11 @@ message OrderRoleData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message OrderRoleList{
+    repeated OrderRoleData values=1;
 }
 
 
@@ -483,4 +533,7 @@ message OrderStatusFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message OrderStatusList{
+    repeated OrderStatusFlatData values=1;
+}
 

@@ -1,0 +1,227 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductStoreExtraProto";
+option objc_class_prefix = "ProductStoreExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// ProductStore Group Member
+message ProductStoreGroupMemberData {
+    option (routines.entity_type) = "ProductStoreGroupMember";
+    option (routines.keys).keys = "product_store_id, product_store_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, productStoreGroupId, fromDate
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string product_store_group_id = 2 [json_name = "product_store_group_id"]; // ProductStoreGroup    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ProductStoreGroupMemberList{
+    repeated ProductStoreGroupMemberData values=1;
+}
+
+
+// ProductStore Group Role
+message ProductStoreGroupRoleData {
+    option (routines.entity_type) = "ProductStoreGroupRole";
+    option (routines.keys).keys = "product_store_group_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreGroupId, partyId, roleTypeId
+    // fields
+    
+    string product_store_group_id = 1 [json_name = "product_store_group_id"]; // ProductStoreGroup    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ProductStoreGroupRoleList{
+    repeated ProductStoreGroupRoleData values=1;
+}
+
+
+// ProductStore Group Rollup
+message ProductStoreGroupRollupData {
+    option (routines.entity_type) = "ProductStoreGroupRollup";
+    option (routines.keys).keys = "product_store_group_id, parent_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreGroupId, parentGroupId, fromDate
+    // fields
+        
+    string product_store_group_id = 1 [json_name = "product_store_group_id"];    
+    string parent_group_id = 2 [json_name = "parent_group_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ProductStoreGroupRollupList{
+    repeated ProductStoreGroupRollupData values=1;
+}
+
+
+// ProductStore Group Type
+message ProductStoreGroupTypeData {
+    option (routines.entity_type) = "ProductStoreGroupType";
+    option (routines.keys).keys = "product_store_group_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreGroupTypeId
+    // fields
+    
+    string product_store_group_type_id = 1 [json_name = "product_store_group_type_id"]; // ProductStoreGroup    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message ProductStoreGroupTypeList{
+    repeated ProductStoreGroupTypeData values=1;
+}
+
+
+// Product Store Telecom Settings
+message ProductStoreTelecomSettingData {
+    option (routines.entity_type) = "ProductStoreTelecomSetting";
+    option (routines.keys).keys = "product_store_id, telecom_method_type_id, telecom_msg_type_enum_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, telecomMethodTypeId, telecomMsgTypeEnumId
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string telecom_method_type_id = 2 [json_name = "telecom_method_type_id"]; // TelecomMethodType
+    string telecom_msg_type_enum_id = 3 [json_name = "telecom_msg_type_enum_id"]; // Enumeration    
+    string telecom_custom_method_id = 4 [json_name = "telecom_custom_method_id"];    
+    string telecom_gateway_config_id = 5 [json_name = "telecom_gateway_config_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductStoreTelecomSettingList{
+    repeated ProductStoreTelecomSettingData values=1;
+}
+
+
+// Product Store Vendor Payment
+message ProductStoreVendorPaymentData {
+    option (routines.entity_type) = "ProductStoreVendorPayment";
+    option (routines.keys).keys = "product_store_id, vendor_party_id, payment_method_type_id, credit_card_enum_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, vendorPartyId, paymentMethodTypeId, creditCardEnumId
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];    
+    string vendor_party_id = 2 [json_name = "vendor_party_id"];
+    string payment_method_type_id = 3 [json_name = "payment_method_type_id"]; // PaymentMethodType
+    string credit_card_enum_id = 4 [json_name = "credit_card_enum_id"]; // Enumeration    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ProductStoreVendorPaymentList{
+    repeated ProductStoreVendorPaymentData values=1;
+}
+
+
+// Product Store Vendor Shipment
+message ProductStoreVendorShipmentData {
+    option (routines.entity_type) = "ProductStoreVendorShipment";
+    option (routines.keys).keys = "product_store_id, vendor_party_id, shipment_method_type_id, carrier_party_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productStoreId, vendorPartyId, shipmentMethodTypeId, carrierPartyId
+    // fields
+        
+    string product_store_id = 1 [json_name = "product_store_id"];    
+    string vendor_party_id = 2 [json_name = "vendor_party_id"];    
+    string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];    
+    string carrier_party_id = 4 [json_name = "carrier_party_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message ProductStoreVendorShipmentList{
+    repeated ProductStoreVendorShipmentData values=1;
+}
+
+

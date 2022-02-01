@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkloadExtraProto";
+option objc_class_prefix = "WorkloadExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Workload Entity
+message WorkloadData {
+    option (routines.entity_type) = "Workload";
+    option (routines.keys).keys = "workload_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workloadId
+    // fields
+        
+    string workload_id = 1 [json_name = "workload_id"];    
+    string workload_type_id = 2 [json_name = "workload_type_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    string workload_name = 4 [json_name = "workload_name"];    
+    string description = 5 [json_name = "description"];    
+    string long_description = 6 [json_name = "long_description"];    
+    string comments = 7 [json_name = "comments"];    
+    int64 workload_size = 8 [json_name = "workload_size"];    
+    google.protobuf.Timestamp workload_date = 9 [json_name = "workload_date"];    
+    google.protobuf.Timestamp another_date = 10 [json_name = "another_date"];    
+    string another_text = 11 [json_name = "another_text"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message WorkloadList{
+    repeated WorkloadData values=1;
+}
+
+
+// Workload Item Entity
+message WorkloadItemData {
+    option (routines.entity_type) = "WorkloadItem";
+    option (routines.keys).keys = "workload_id, workload_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workloadId, workloadItemSeqId
+    // fields
+        
+    string workload_id = 1 [json_name = "workload_id"];    
+    string workload_item_seq_id = 2 [json_name = "workload_item_seq_id"];    
+    string description = 3 [json_name = "description"];    
+    double amount = 4 [json_name = "amount"];
+    string amount_uom_id = 5 [json_name = "amount_uom_id"]; // Uom    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message WorkloadItemList{
+    repeated WorkloadItemData values=1;
+}
+
+
+// Workload Status Entity
+message WorkloadStatusData {
+    option (routines.entity_type) = "WorkloadStatus";
+    option (routines.keys).keys = "workload_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workloadId, statusDate
+    // fields
+        
+    string workload_id = 1 [json_name = "workload_id"];    
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];    
+    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];    
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    string status_id = 5 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message WorkloadStatusList{
+    repeated WorkloadStatusData values=1;
+}
+
+
+// Workload Type Entity
+message WorkloadTypeData {
+    option (routines.entity_type) = "WorkloadType";
+    option (routines.keys).keys = "workload_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workloadTypeId
+    // fields
+        
+    string workload_type_id = 1 [json_name = "workload_type_id"];    
+    string parent_type_id = 2 [json_name = "parent_type_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message WorkloadTypeList{
+    repeated WorkloadTypeData values=1;
+}
+
+

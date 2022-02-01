@@ -1,0 +1,620 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartyExtraProto";
+option objc_class_prefix = "PartyExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Address Matching Map
+message AddressMatchMapData {
+    option (routines.entity_type) = "AddressMatchMap";
+    option (routines.keys).keys = "map_key, map_value";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: mapKey, mapValue
+    // fields
+        
+    string map_key = 1 [json_name = "map_key"];    
+    string map_value = 2 [json_name = "map_value"];    
+    int64 sequence_num = 3 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message AddressMatchMapList{
+    repeated AddressMatchMapData values=1;
+}
+
+
+// Affiliate Party
+message AffiliateData {
+    option (routines.entity_type) = "Affiliate";
+    option (routines.keys).keys = "party_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string affiliate_name = 2 [json_name = "affiliate_name"];    
+    string affiliate_description = 3 [json_name = "affiliate_description"];    
+    string year_established = 4 [json_name = "year_established"];    
+    string site_type = 5 [json_name = "site_type"];    
+    string site_page_views = 6 [json_name = "site_page_views"];    
+    string site_visitors = 7 [json_name = "site_visitors"];    
+    google.protobuf.Timestamp date_time_created = 8 [json_name = "date_time_created"];    
+    google.protobuf.Timestamp date_time_approved = 9 [json_name = "date_time_approved"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message AffiliateList{
+    repeated AffiliateData values=1;
+}
+
+
+// Party Attribute
+message PartyAttributeData {
+    option (routines.entity_type) = "PartyAttribute";
+    option (routines.keys).keys = "party_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, attrName
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PartyAttributeList{
+    repeated PartyAttributeData values=1;
+}
+
+
+// Party Carrier Account
+message PartyCarrierAccountData {
+    option (routines.entity_type) = "PartyCarrierAccount";
+    option (routines.keys).keys = "party_id, carrier_party_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, carrierPartyId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string carrier_party_id = 2 [json_name = "carrier_party_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    string account_number = 5 [json_name = "account_number"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PartyCarrierAccountList{
+    repeated PartyCarrierAccountData values=1;
+}
+
+
+// Party Classification
+message PartyClassificationData {
+    option (routines.entity_type) = "PartyClassification";
+    option (routines.keys).keys = "party_id, party_classification_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, partyClassificationGroupId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PartyClassificationList{
+    repeated PartyClassificationData values=1;
+}
+
+
+// Party Classification Group
+message PartyClassificationGroupData {
+    option (routines.entity_type) = "PartyClassificationGroup";
+    option (routines.keys).keys = "party_classification_group_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyClassificationGroupId
+    // fields
+        
+    string party_classification_group_id = 1 [json_name = "party_classification_group_id"];
+    string party_classification_type_id = 2 [json_name = "party_classification_type_id"]; // PartyClassificationType    
+    string parent_group_id = 3 [json_name = "parent_group_id"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PartyClassificationGroupList{
+    repeated PartyClassificationGroupData values=1;
+}
+
+
+// Party Data Object
+message PartyContentData {
+    option (routines.entity_type) = "PartyContent";
+    option (routines.keys).keys = "party_id, content_id, party_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, contentId, partyContentTypeId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string party_content_type_id = 3 [json_name = "party_content_type_id"]; // PartyContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PartyContentList{
+    repeated PartyContentData values=1;
+}
+
+
+// Party Data Source
+message PartyDataSourceData {
+    option (routines.entity_type) = "PartyDataSource";
+    option (routines.keys).keys = "party_id, data_source_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, dataSourceId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];
+    string data_source_id = 2 [json_name = "data_source_id"]; // DataSource    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    string visit_id = 4 [json_name = "visit_id"];    
+    string comments = 5 [json_name = "comments"];    
+    routines.Indicator is_create = 6 [json_name = "is_create"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PartyDataSourceList{
+    repeated PartyDataSourceData values=1;
+}
+
+
+// Party ICS AVS Override
+message PartyIcsAvsOverrideData {
+    option (routines.entity_type) = "PartyIcsAvsOverride";
+    option (routines.keys).keys = "party_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string avs_decline_string = 2 [json_name = "avs_decline_string"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PartyIcsAvsOverrideList{
+    repeated PartyIcsAvsOverrideData values=1;
+}
+
+
+// Party Invitation
+message PartyInvitationData {
+    option (routines.entity_type) = "PartyInvitation";
+    option (routines.keys).keys = "party_invitation_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyInvitationId
+    // fields
+        
+    string party_invitation_id = 1 [json_name = "party_invitation_id"];    
+    string party_id_from = 2 [json_name = "party_id_from"];    
+    string party_id = 3 [json_name = "party_id"];    
+    string to_name = 4 [json_name = "to_name"];    
+    string email_address = 5 [json_name = "email_address"];
+    string status_id = 6 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp last_invite_date = 7 [json_name = "last_invite_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message PartyInvitationList{
+    repeated PartyInvitationData values=1;
+}
+
+
+// Party Invitation Group Assoc
+message PartyInvitationGroupAssocData {
+    option (routines.entity_type) = "PartyInvitationGroupAssoc";
+    option (routines.keys).keys = "party_invitation_id, party_id_to";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyInvitationId, partyIdTo
+    // fields
+        
+    string party_invitation_id = 1 [json_name = "party_invitation_id"];    
+    string party_id_to = 2 [json_name = "party_id_to"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message PartyInvitationGroupAssocList{
+    repeated PartyInvitationGroupAssocData values=1;
+}
+
+
+// Party Invitation Role Assoc
+message PartyInvitationRoleAssocData {
+    option (routines.entity_type) = "PartyInvitationRoleAssoc";
+    option (routines.keys).keys = "party_invitation_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyInvitationId, roleTypeId
+    // fields
+        
+    string party_invitation_id = 1 [json_name = "party_invitation_id"];
+    string role_type_id = 2 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PartyInvitationRoleAssocList{
+    repeated PartyInvitationRoleAssocData values=1;
+}
+
+
+// Party Name History
+message PartyNameHistoryData {
+    option (routines.entity_type) = "PartyNameHistory";
+    option (routines.keys).keys = "party_id, change_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, changeDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];    
+    string group_name = 3 [json_name = "group_name"];    
+    string first_name = 4 [json_name = "first_name"];    
+    string middle_name = 5 [json_name = "middle_name"];    
+    string last_name = 6 [json_name = "last_name"];    
+    string personal_title = 7 [json_name = "personal_title"];    
+    string suffix = 8 [json_name = "suffix"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message PartyNameHistoryList{
+    repeated PartyNameHistoryData values=1;
+}
+
+
+// Party Note
+message PartyNoteData {
+    option (routines.entity_type) = "PartyNote";
+    option (routines.keys).keys = "party_id, note_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, noteId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string note_id = 2 [json_name = "note_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PartyNoteList{
+    repeated PartyNoteData values=1;
+}
+
+
+// Party Profile Defaults
+message PartyProfileDefaultData {
+    option (routines.entity_type) = "PartyProfileDefault";
+    option (routines.keys).keys = "party_id, product_store_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, productStoreId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string product_store_id = 2 [json_name = "product_store_id"];    
+    string default_ship_addr = 3 [json_name = "default_ship_addr"];    
+    string default_bill_addr = 4 [json_name = "default_bill_addr"];    
+    string default_pay_meth = 5 [json_name = "default_pay_meth"];    
+    string default_ship_meth = 6 [json_name = "default_ship_meth"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message PartyProfileDefaultList{
+    repeated PartyProfileDefaultData values=1;
+}
+
+
+// Party Type Attribute
+message PartyTypeAttrData {
+    option (routines.entity_type) = "PartyTypeAttr";
+    option (routines.keys).keys = "party_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyTypeId, attrName
+    // fields
+        
+    string party_type_id = 1 [json_name = "party_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message PartyTypeAttrList{
+    repeated PartyTypeAttrData values=1;
+}
+
+
+// Priority Type
+message PriorityTypeData {
+    option (routines.entity_type) = "PriorityType";
+    option (routines.keys).keys = "priority_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: priorityTypeId
+    // fields
+        
+    string priority_type_id = 1 [json_name = "priority_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PriorityTypeList{
+    repeated PriorityTypeData values=1;
+}
+
+
+// Role Type Attribute
+message RoleTypeAttrData {
+    option (routines.entity_type) = "RoleTypeAttr";
+    option (routines.keys).keys = "role_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: roleTypeId, attrName
+    // fields
+        
+    string role_type_id = 1 [json_name = "role_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message RoleTypeAttrList{
+    repeated RoleTypeAttrData values=1;
+}
+
+
+// Vendor
+message VendorData {
+    option (routines.entity_type) = "Vendor";
+    option (routines.keys).keys = "party_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];    
+    string manifest_company_name = 2 [json_name = "manifest_company_name"];    
+    string manifest_company_title = 3 [json_name = "manifest_company_title"];    
+    string manifest_logo_url = 4 [json_name = "manifest_logo_url"];    
+    string manifest_policies = 5 [json_name = "manifest_policies"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message VendorList{
+    repeated VendorData values=1;
+}
+
+
+// WebSite Role Association
+message WebSiteRoleData {
+    option (routines.entity_type) = "WebSiteRole";
+    option (routines.keys).keys = "party_id, role_type_id, web_site_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, roleTypeId, webSiteId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"]; // RoleType    
+    string web_site_id = 3 [json_name = "web_site_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    int64 sequence_num = 6 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message WebSiteRoleList{
+    repeated WebSiteRoleData values=1;
+}
+
+

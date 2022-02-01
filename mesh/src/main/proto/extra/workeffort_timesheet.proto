@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkeffortTimesheetExtraProto";
+option objc_class_prefix = "WorkeffortTimesheetExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// TimeEntry
+message TimeEntryData {
+    option (routines.entity_type) = "TimeEntry";
+    option (routines.keys).keys = "time_entry_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: timeEntryId
+    // fields
+        
+    string time_entry_id = 1 [json_name = "time_entry_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string rate_type_id = 5 [json_name = "rate_type_id"]; // RateType    
+    string work_effort_id = 6 [json_name = "work_effort_id"];    
+    string timesheet_id = 7 [json_name = "timesheet_id"];    
+    string invoice_id = 8 [json_name = "invoice_id"];    
+    string invoice_item_seq_id = 9 [json_name = "invoice_item_seq_id"];    
+    double hours = 10 [json_name = "hours"];    
+    string comments = 11 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    double plan_hours = 14 [json_name = "plan_hours"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
+}
+
+
+message TimeEntryList{
+    repeated TimeEntryData values=1;
+}
+
+
+// Timesheet
+message TimesheetData {
+    option (routines.entity_type) = "Timesheet";
+    option (routines.keys).keys = "timesheet_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: timesheetId
+    // fields
+        
+    string timesheet_id = 1 [json_name = "timesheet_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    string client_party_id = 3 [json_name = "client_party_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    string status_id = 6 [json_name = "status_id"]; // StatusItem    
+    string approved_by_user_login_id = 7 [json_name = "approved_by_user_login_id"];    
+    string comments = 8 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message TimesheetList{
+    repeated TimesheetData values=1;
+}
+
+
+// Timesheet Role
+message TimesheetRoleData {
+    option (routines.entity_type) = "TimesheetRole";
+    option (routines.keys).keys = "timesheet_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: timesheetId, partyId, roleTypeId
+    // fields
+        
+    string timesheet_id = 1 [json_name = "timesheet_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message TimesheetRoleList{
+    repeated TimesheetRoleData values=1;
+}
+
+

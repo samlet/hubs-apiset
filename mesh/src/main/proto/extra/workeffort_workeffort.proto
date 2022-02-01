@@ -1,0 +1,809 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkeffortExtraProto";
+option objc_class_prefix = "WorkeffortExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// WorkEffort Application Sandbox
+message ApplicationSandboxData {
+    option (routines.entity_type) = "ApplicationSandbox";
+    option (routines.keys).keys = "application_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: applicationId
+    // fields
+        
+    string application_id = 1 [json_name = "application_id"];    
+    string work_effort_id = 2 [json_name = "work_effort_id"];    
+    string party_id = 3 [json_name = "party_id"];    
+    string role_type_id = 4 [json_name = "role_type_id"];    
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
+    string runtime_data_id = 6 [json_name = "runtime_data_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ApplicationSandboxList{
+    repeated ApplicationSandboxData values=1;
+}
+
+
+// Communication Event Work Effort
+message CommunicationEventWorkEffData {
+    option (routines.entity_type) = "CommunicationEventWorkEff";
+    option (routines.keys).keys = "work_effort_id, communication_event_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, communicationEventId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string communication_event_id = 2 [json_name = "communication_event_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message CommunicationEventWorkEffList{
+    repeated CommunicationEventWorkEffData values=1;
+}
+
+
+// Deliverable
+message DeliverableData {
+    option (routines.entity_type) = "Deliverable";
+    option (routines.keys).keys = "deliverable_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: deliverableId
+    // fields
+        
+    string deliverable_id = 1 [json_name = "deliverable_id"];    
+    string deliverable_type_id = 2 [json_name = "deliverable_type_id"];    
+    string deliverable_name = 3 [json_name = "deliverable_name"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message DeliverableList{
+    repeated DeliverableData values=1;
+}
+
+
+// Deliverable Type
+message DeliverableTypeData {
+    option (routines.entity_type) = "DeliverableType";
+    option (routines.keys).keys = "deliverable_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: deliverableTypeId
+    // fields
+        
+    string deliverable_type_id = 1 [json_name = "deliverable_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message DeliverableTypeList{
+    repeated DeliverableTypeData values=1;
+}
+
+
+// Work Effort Association Attribute
+message WorkEffortAssocAttributeData {
+    option (routines.entity_type) = "WorkEffortAssocAttribute";
+    option (routines.keys).keys = "work_effort_id_from, work_effort_id_to, work_effort_assoc_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortIdFrom, workEffortIdTo, workEffortAssocTypeId, attrName
+    // fields
+        
+    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];    
+    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];    
+    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    string attr_name = 5 [json_name = "attr_name"];    
+    string attr_value = 6 [json_name = "attr_value"];    
+    string attr_description = 7 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message WorkEffortAssocAttributeList{
+    repeated WorkEffortAssocAttributeData values=1;
+}
+
+
+// Work Effort Association Type Attribute
+message WorkEffortAssocTypeAttrData {
+    option (routines.entity_type) = "WorkEffortAssocTypeAttr";
+    option (routines.keys).keys = "work_effort_assoc_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortAssocTypeId, attrName
+    // fields
+        
+    string work_effort_assoc_type_id = 1 [json_name = "work_effort_assoc_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message WorkEffortAssocTypeAttrList{
+    repeated WorkEffortAssocTypeAttrData values=1;
+}
+
+
+// Work Effort Attribute
+message WorkEffortAttributeData {
+    option (routines.entity_type) = "WorkEffortAttribute";
+    option (routines.keys).keys = "work_effort_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, attrName
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message WorkEffortAttributeList{
+    repeated WorkEffortAttributeData values=1;
+}
+
+
+// Work Effort Billing
+message WorkEffortBillingData {
+    option (routines.entity_type) = "WorkEffortBilling";
+    option (routines.keys).keys = "work_effort_id, invoice_id, invoice_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, invoiceId, invoiceItemSeqId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string invoice_id = 2 [json_name = "invoice_id"];    
+    string invoice_item_seq_id = 3 [json_name = "invoice_item_seq_id"];    
+    double percentage = 4 [json_name = "percentage"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WorkEffortBillingList{
+    repeated WorkEffortBillingData values=1;
+}
+
+
+// WorkEffort Contact Mechanism
+message WorkEffortContactMechData {
+    option (routines.entity_type) = "WorkEffortContactMech";
+    option (routines.keys).keys = "work_effort_id, contact_mech_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, contactMechId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    string comments = 5 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message WorkEffortContactMechList{
+    repeated WorkEffortContactMechData values=1;
+}
+
+
+// WorkEffort Content
+message WorkEffortContentData {
+    option (routines.entity_type) = "WorkEffortContent";
+    option (routines.keys).keys = "work_effort_id, content_id, work_effort_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, contentId, workEffortContentTypeId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string work_effort_content_type_id = 3 [json_name = "work_effort_content_type_id"]; // WorkEffortContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WorkEffortContentList{
+    repeated WorkEffortContentData values=1;
+}
+
+
+// Work Effort Cost Calculation
+message WorkEffortCostCalcData {
+    option (routines.entity_type) = "WorkEffortCostCalc";
+    option (routines.keys).keys = "work_effort_id, cost_component_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, costComponentTypeId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string cost_component_type_id = 2 [json_name = "cost_component_type_id"]; // CostComponentType
+    string cost_component_calc_id = 3 [json_name = "cost_component_calc_id"]; // CostComponentCalc    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message WorkEffortCostCalcList{
+    repeated WorkEffortCostCalcData values=1;
+}
+
+
+// Work Effort Deliverable Produced
+message WorkEffortDeliverableProdData {
+    option (routines.entity_type) = "WorkEffortDeliverableProd";
+    option (routines.keys).keys = "work_effort_id, deliverable_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, deliverableId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string deliverable_id = 2 [json_name = "deliverable_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message WorkEffortDeliverableProdList{
+    repeated WorkEffortDeliverableProdData values=1;
+}
+
+
+// Work Effort Event Reminder
+message WorkEffortEventReminderData {
+    option (routines.entity_type) = "WorkEffortEventReminder";
+    option (routines.keys).keys = "work_effort_id, sequence_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, sequenceId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string sequence_id = 2 [json_name = "sequence_id"];    
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];    
+    string party_id = 4 [json_name = "party_id"];    
+    google.protobuf.Timestamp reminder_date_time = 5 [json_name = "reminder_date_time"];    
+    int64 repeat_count = 6 [json_name = "repeat_count"];    
+    int64 repeat_interval = 7 [json_name = "repeat_interval"];    
+    int64 current_count = 8 [json_name = "current_count"];    
+    int64 reminder_offset = 9 [json_name = "reminder_offset"];    
+    string locale_id = 10 [json_name = "locale_id"];    
+    string time_zone_id = 11 [json_name = "time_zone_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    string id = 14 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
+}
+
+
+message WorkEffortEventReminderList{
+    repeated WorkEffortEventReminderData values=1;
+}
+
+
+// Work Effort Fixed Asset Standard
+message WorkEffortFixedAssetStdData {
+    option (routines.entity_type) = "WorkEffortFixedAssetStd";
+    option (routines.keys).keys = "work_effort_id, fixed_asset_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, fixedAssetTypeId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"]; // FixedAssetType    
+    double estimated_quantity = 3 [json_name = "estimated_quantity"];    
+    double estimated_duration = 4 [json_name = "estimated_duration"];    
+    routines.Currency estimated_cost = 5 [json_name = "estimated_cost"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message WorkEffortFixedAssetStdList{
+    repeated WorkEffortFixedAssetStdData values=1;
+}
+
+
+// Work Effort iCalendar Data
+message WorkEffortIcalDataData {
+    option (routines.entity_type) = "WorkEffortIcalData";
+    option (routines.keys).keys = "work_effort_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string ical_data = 2 [json_name = "ical_data"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message WorkEffortIcalDataList{
+    repeated WorkEffortIcalDataData values=1;
+}
+
+
+// Work Effort Inventory Assignment
+message WorkEffortInventoryAssignData {
+    option (routines.entity_type) = "WorkEffortInventoryAssign";
+    option (routines.keys).keys = "work_effort_id, inventory_item_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, inventoryItemId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem    
+    double quantity = 4 [json_name = "quantity"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WorkEffortInventoryAssignList{
+    repeated WorkEffortInventoryAssignData values=1;
+}
+
+
+// Work Effort Inventory Produced
+message WorkEffortInventoryProducedData {
+    option (routines.entity_type) = "WorkEffortInventoryProduced";
+    option (routines.keys).keys = "work_effort_id, inventory_item_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, inventoryItemId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string inventory_item_id = 2 [json_name = "inventory_item_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message WorkEffortInventoryProducedList{
+    repeated WorkEffortInventoryProducedData values=1;
+}
+
+
+// WorkEffort Keyword
+message WorkEffortKeywordData {
+    option (routines.entity_type) = "WorkEffortKeyword";
+    option (routines.keys).keys = "work_effort_id, keyword";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, keyword
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string keyword = 2 [json_name = "keyword"];    
+    int64 relevancy_weight = 3 [json_name = "relevancy_weight"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message WorkEffortKeywordList{
+    repeated WorkEffortKeywordData values=1;
+}
+
+
+// Work Effort Note
+message WorkEffortNoteData {
+    option (routines.entity_type) = "WorkEffortNote";
+    option (routines.keys).keys = "work_effort_id, note_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, noteId
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string note_id = 2 [json_name = "note_id"];    
+    routines.Indicator internal_note = 3 [json_name = "internal_note"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message WorkEffortNoteList{
+    repeated WorkEffortNoteData values=1;
+}
+
+
+// WorkEffort Review
+message WorkEffortReviewData {
+    option (routines.entity_type) = "WorkEffortReview";
+    option (routines.keys).keys = "work_effort_id, user_login_id, review_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, userLoginId, reviewDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string user_login_id = 2 [json_name = "user_login_id"];    
+    google.protobuf.Timestamp review_date = 3 [json_name = "review_date"];
+    string status_id = 4 [json_name = "status_id"]; // StatusItem    
+    routines.Indicator posted_anonymous = 5 [json_name = "posted_anonymous"];    
+    double rating = 6 [json_name = "rating"];    
+    string review_text = 7 [json_name = "review_text"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message WorkEffortReviewList{
+    repeated WorkEffortReviewData values=1;
+}
+
+
+// WorkEffort Search Result Constraint
+message WorkEffortSearchConstraintData {
+    option (routines.entity_type) = "WorkEffortSearchConstraint";
+    option (routines.keys).keys = "work_effort_search_result_id, constraint_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortSearchResultId, constraintSeqId
+    // fields
+        
+    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id"];    
+    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];    
+    string constraint_name = 3 [json_name = "constraint_name"];    
+    string info_string = 4 [json_name = "info_string"];    
+    routines.Indicator include_sub_work_efforts = 5 [json_name = "include_sub_work_efforts"];    
+    routines.Indicator is_and = 6 [json_name = "is_and"];    
+    routines.Indicator any_prefix = 7 [json_name = "any_prefix"];    
+    routines.Indicator any_suffix = 8 [json_name = "any_suffix"];    
+    routines.Indicator remove_stems = 9 [json_name = "remove_stems"];    
+    string low_value = 10 [json_name = "low_value"];    
+    string high_value = 11 [json_name = "high_value"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    string id = 14 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message WorkEffortSearchConstraintList{
+    repeated WorkEffortSearchConstraintData values=1;
+}
+
+
+// WorkEffort Search Result
+message WorkEffortSearchResultData {
+    option (routines.entity_type) = "WorkEffortSearchResult";
+    option (routines.keys).keys = "work_effort_search_result_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortSearchResultId
+    // fields
+        
+    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id"];    
+    string visit_id = 2 [json_name = "visit_id"];    
+    string order_by_name = 3 [json_name = "order_by_name"];    
+    routines.Indicator is_ascending = 4 [json_name = "is_ascending"];    
+    int64 num_results = 5 [json_name = "num_results"];    
+    double seconds_total = 6 [json_name = "seconds_total"];    
+    google.protobuf.Timestamp search_date = 7 [json_name = "search_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message WorkEffortSearchResultList{
+    repeated WorkEffortSearchResultData values=1;
+}
+
+
+// Work Effort Status
+message WorkEffortStatusData {
+    option (routines.entity_type) = "WorkEffortStatus";
+    option (routines.keys).keys = "work_effort_id, status_id, status_datetime";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, statusId, statusDatetime
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string status_id = 2 [json_name = "status_id"]; // StatusItem    
+    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];    
+    string set_by_user_login = 4 [json_name = "set_by_user_login"];    
+    string reason = 5 [json_name = "reason"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WorkEffortStatusList{
+    repeated WorkEffortStatusData values=1;
+}
+
+
+// Work Effort Survey Appl
+message WorkEffortSurveyApplData {
+    option (routines.entity_type) = "WorkEffortSurveyAppl";
+    option (routines.keys).keys = "work_effort_id, survey_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortId, surveyId, fromDate
+    // fields
+        
+    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string survey_id = 2 [json_name = "survey_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message WorkEffortSurveyApplList{
+    repeated WorkEffortSurveyApplData values=1;
+}
+
+
+// Work Effort Transition Box
+message WorkEffortTransBoxData {
+    option (routines.entity_type) = "WorkEffortTransBox";
+    option (routines.keys).keys = "process_work_effort_id, to_activity_id, transition_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: processWorkEffortId, toActivityId, transitionId
+    // fields
+        
+    string process_work_effort_id = 1 [json_name = "process_work_effort_id"];    
+    string to_activity_id = 2 [json_name = "to_activity_id"];    
+    string transition_id = 3 [json_name = "transition_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message WorkEffortTransBoxList{
+    repeated WorkEffortTransBoxData values=1;
+}
+
+
+// Work Effort Type Attribute
+message WorkEffortTypeAttrData {
+    option (routines.entity_type) = "WorkEffortTypeAttr";
+    option (routines.keys).keys = "work_effort_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: workEffortTypeId, attrName
+    // fields
+        
+    string work_effort_type_id = 1 [json_name = "work_effort_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message WorkEffortTypeAttrList{
+    repeated WorkEffortTypeAttrData values=1;
+}
+
+

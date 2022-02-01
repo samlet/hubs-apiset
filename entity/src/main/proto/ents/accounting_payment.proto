@@ -42,6 +42,9 @@ message BillingAccountFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message BillingAccountList{
+    repeated BillingAccountFlatData values=1;
+}
 
 // Billing Account Role
 message BillingAccountRoleData {
@@ -66,6 +69,11 @@ message BillingAccountRoleData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message BillingAccountRoleList{
+    repeated BillingAccountRoleData values=1;
 }
 
 
@@ -104,6 +112,9 @@ message CreditCardFlatData {
     map<string, google.protobuf.Any> attachments = 28 ;
 }
 
+message CreditCardList{
+    repeated CreditCardFlatData values=1;
+}
 
 // flat-ent: EFT Account Information
 message EftAccountFlatData {
@@ -132,6 +143,9 @@ message EftAccountFlatData {
     map<string, google.protobuf.Any> attachments = 20 ;
 }
 
+message EftAccountList{
+    repeated EftAccountFlatData values=1;
+}
 
 // flat-ent: Payment
 message PaymentFlatData {
@@ -170,6 +184,9 @@ message PaymentFlatData {
     map<string, google.protobuf.Any> attachments = 53 ;
 }
 
+message PaymentList{
+    repeated PaymentFlatData values=1;
+}
 
 // flat-ent: Payment Application
 message PaymentApplicationFlatData {
@@ -198,6 +215,9 @@ message PaymentApplicationFlatData {
     map<string, google.protobuf.Any> attachments = 22 ;
 }
 
+message PaymentApplicationList{
+    repeated PaymentApplicationFlatData values=1;
+}
 
 // flat-ent: Payment Content Type
 message PaymentContentTypeFlatData {
@@ -221,6 +241,9 @@ message PaymentContentTypeFlatData {
     map<string, google.protobuf.Any> attachments = 13 ;
 }
 
+message PaymentContentTypeList{
+    repeated PaymentContentTypeFlatData values=1;
+}
 
 // flat-ent: Payment Gateway Response
 message PaymentGatewayResponseFlatData {
@@ -262,6 +285,9 @@ message PaymentGatewayResponseFlatData {
     map<string, google.protobuf.Any> attachments = 36 ;
 }
 
+message PaymentGatewayResponseList{
+    repeated PaymentGatewayResponseFlatData values=1;
+}
 
 // Maps PaymentTypes to GlAccountTypes, allowing user to configure payments and gl accounts
 message PaymentGlAccountTypeMapData {
@@ -284,6 +310,11 @@ message PaymentGlAccountTypeMapData {
     // extra
     google.protobuf.Struct extra = 8;
     map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message PaymentGlAccountTypeMapList{
+    repeated PaymentGlAccountTypeMapData values=1;
 }
 
 
@@ -313,6 +344,9 @@ message PaymentMethodFlatData {
     map<string, google.protobuf.Any> attachments = 30 ;
 }
 
+message PaymentMethodList{
+    repeated PaymentMethodFlatData values=1;
+}
 
 // Payment Method Type GL Account
 message PaymentMethodTypeGlAccountData {
@@ -335,6 +369,11 @@ message PaymentMethodTypeGlAccountData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PaymentMethodTypeGlAccountList{
+    repeated PaymentMethodTypeGlAccountData values=1;
 }
 
 

@@ -37,6 +37,9 @@ message SecurityGroupFlatData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message SecurityGroupList{
+    repeated SecurityGroupFlatData values=1;
+}
 
 // Security Component - Security Group Permission
 message SecurityGroupPermissionData {
@@ -63,6 +66,11 @@ message SecurityGroupPermissionData {
 }
 
 
+message SecurityGroupPermissionList{
+    repeated SecurityGroupPermissionData values=1;
+}
+
+
 // flat-ent: Security Component - Security Permission
 message SecurityPermissionFlatData {
     option (routines.entity_type) = "SecurityPermission";
@@ -83,6 +91,9 @@ message SecurityPermissionFlatData {
     map<string, google.protobuf.Any> attachments = 9 ;
 }
 
+message SecurityPermissionList{
+    repeated SecurityPermissionFlatData values=1;
+}
 
 // Security Component - User Login Security Group
 message UserLoginSecurityGroupData {
@@ -106,6 +117,11 @@ message UserLoginSecurityGroupData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message UserLoginSecurityGroupList{
+    repeated UserLoginSecurityGroupData values=1;
 }
 
 

@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Unit Of Measure Conversion Type
 message UomConversionData {
@@ -31,6 +29,13 @@ message UomConversionData {
     string rounding_mode = 6 [json_name = "rounding_mode"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];  
+    string id = 9 [json_name = "id"]; 
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message UomConversionList{
+    repeated UomConversionData values=1;
+}

@@ -51,6 +51,9 @@ message FinAccountFlatData {
     map<string, google.protobuf.Any> attachments = 38 ;
 }
 
+message FinAccountList{
+    repeated FinAccountFlatData values=1;
+}
 
 // Financial Account Role
 message FinAccountRoleData {
@@ -78,6 +81,11 @@ message FinAccountRoleData {
 }
 
 
+message FinAccountRoleList{
+    repeated FinAccountRoleData values=1;
+}
+
+
 // Financial Account Status
 message FinAccountStatusData {
     option (routines.entity_type) = "FinAccountStatus";
@@ -101,6 +109,11 @@ message FinAccountStatusData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FinAccountStatusList{
+    repeated FinAccountStatusData values=1;
 }
 
 
@@ -137,4 +150,7 @@ message FinAccountTransFlatData {
     map<string, google.protobuf.Any> attachments = 34 ;
 }
 
+message FinAccountTransList{
+    repeated FinAccountTransFlatData values=1;
+}
 

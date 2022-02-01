@@ -45,6 +45,9 @@ message ProductCategoryFlatData {
     map<string, google.protobuf.Any> attachments = 41 ;
 }
 
+message ProductCategoryList{
+    repeated ProductCategoryFlatData values=1;
+}
 
 // Product Category Data Object
 message ProductCategoryContentData {
@@ -73,6 +76,11 @@ message ProductCategoryContentData {
     // extra
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ProductCategoryContentList{
+    repeated ProductCategoryContentData values=1;
 }
 
 
@@ -110,6 +118,11 @@ message ProductCategoryLinkData {
 }
 
 
+message ProductCategoryLinkList{
+    repeated ProductCategoryLinkData values=1;
+}
+
+
 // flat-ent: Product Category Member
 message ProductCategoryMemberFlatData {
     option (routines.entity_type) = "ProductCategoryMember";
@@ -136,6 +149,9 @@ message ProductCategoryMemberFlatData {
     map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message ProductCategoryMemberList{
+    repeated ProductCategoryMemberFlatData values=1;
+}
 
 // Product Category Role
 message ProductCategoryRoleData {
@@ -164,6 +180,11 @@ message ProductCategoryRoleData {
 }
 
 
+message ProductCategoryRoleList{
+    repeated ProductCategoryRoleData values=1;
+}
+
+
 // flat-ent: Product Category Rollup
 message ProductCategoryRollupFlatData {
     option (routines.entity_type) = "ProductCategoryRollup";
@@ -188,4 +209,7 @@ message ProductCategoryRollupFlatData {
     map<string, google.protobuf.Any> attachments = 17 ;
 }
 
+message ProductCategoryRollupList{
+    repeated ProductCategoryRollupFlatData values=1;
+}
 

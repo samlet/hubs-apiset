@@ -1,0 +1,471 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartyAgreementExtraProto";
+option objc_class_prefix = "PartyAgreementExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Addendum
+message AddendumData {
+    option (routines.entity_type) = "Addendum";
+    option (routines.keys).keys = "addendum_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: addendumId
+    // fields
+        
+    string addendum_id = 1 [json_name = "addendum_id"];    
+    string agreement_id = 2 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 3 [json_name = "agreement_item_seq_id"];    
+    google.protobuf.Timestamp addendum_creation_date = 4 [json_name = "addendum_creation_date"];    
+    google.protobuf.Timestamp addendum_effective_date = 5 [json_name = "addendum_effective_date"];    
+    string addendum_text = 6 [json_name = "addendum_text"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message AddendumList{
+    repeated AddendumData values=1;
+}
+
+
+// Agreement Attribute
+message AgreementAttributeData {
+    option (routines.entity_type) = "AgreementAttribute";
+    option (routines.keys).keys = "agreement_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, attrName
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message AgreementAttributeList{
+    repeated AgreementAttributeData values=1;
+}
+
+
+// Agreement Content
+message AgreementContentData {
+    option (routines.entity_type) = "AgreementContent";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, agreement_content_type_id, content_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contentId, agreementId, agreementItemSeqId, agreementContentTypeId, fromDate
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string agreement_content_type_id = 3 [json_name = "agreement_content_type_id"]; // AgreementContentType    
+    string content_id = 4 [json_name = "content_id"];    
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message AgreementContentList{
+    repeated AgreementContentData values=1;
+}
+
+
+// Agreement Employment Application
+message AgreementEmploymentApplData {
+    option (routines.entity_type) = "AgreementEmploymentAppl";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, party_id_from, party_id_to, role_type_id_from, role_type_id_to, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, partyIdTo, partyIdFrom, roleTypeIdTo, roleTypeIdFrom, fromDate
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string party_id_from = 3 [json_name = "party_id_from"];    
+    string party_id_to = 4 [json_name = "party_id_to"];    
+    string role_type_id_from = 5 [json_name = "role_type_id_from"];    
+    string role_type_id_to = 6 [json_name = "role_type_id_to"];    
+    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];    
+    google.protobuf.Timestamp agreement_date = 8 [json_name = "agreement_date"];    
+    google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string id = 12 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message AgreementEmploymentApplList{
+    repeated AgreementEmploymentApplData values=1;
+}
+
+
+// Agreement Facility Application
+message AgreementFacilityApplData {
+    option (routines.entity_type) = "AgreementFacilityAppl";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, facility_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, facilityId
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string facility_id = 3 [json_name = "facility_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AgreementFacilityApplList{
+    repeated AgreementFacilityApplData values=1;
+}
+
+
+// Agreement Geographical Applicability
+message AgreementGeographicalApplicData {
+    option (routines.entity_type) = "AgreementGeographicalApplic";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, geo_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, geoId
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string geo_id = 3 [json_name = "geo_id"]; // Geo    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message AgreementGeographicalApplicList{
+    repeated AgreementGeographicalApplicData values=1;
+}
+
+
+// Agreement Item Attribute
+message AgreementItemAttributeData {
+    option (routines.entity_type) = "AgreementItemAttribute";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, attrName
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string attr_name = 3 [json_name = "attr_name"];    
+    string attr_value = 4 [json_name = "attr_value"];    
+    string attr_description = 5 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AgreementItemAttributeList{
+    repeated AgreementItemAttributeData values=1;
+}
+
+
+// Agreement Item Type Attribute
+message AgreementItemTypeAttrData {
+    option (routines.entity_type) = "AgreementItemTypeAttr";
+    option (routines.keys).keys = "agreement_item_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementItemTypeId, attrName
+    // fields
+        
+    string agreement_item_type_id = 1 [json_name = "agreement_item_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message AgreementItemTypeAttrList{
+    repeated AgreementItemTypeAttrData values=1;
+}
+
+
+// Agreement Party Application
+message AgreementPartyApplicData {
+    option (routines.entity_type) = "AgreementPartyApplic";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, party_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, partyId
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string party_id = 3 [json_name = "party_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AgreementPartyApplicList{
+    repeated AgreementPartyApplicData values=1;
+}
+
+
+// Agreement Promo Applicability
+message AgreementPromoApplData {
+    option (routines.entity_type) = "AgreementPromoAppl";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, product_promo_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, productPromoId, fromDate
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string product_promo_id = 3 [json_name = "product_promo_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    int64 sequence_num = 6 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string id = 9 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message AgreementPromoApplList{
+    repeated AgreementPromoApplData values=1;
+}
+
+
+// Agreement Role
+message AgreementRoleData {
+    option (routines.entity_type) = "AgreementRole";
+    option (routines.keys).keys = "agreement_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, partyId, roleTypeId
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AgreementRoleList{
+    repeated AgreementRoleData values=1;
+}
+
+
+// Agreement Term Attribute
+message AgreementTermAttributeData {
+    option (routines.entity_type) = "AgreementTermAttribute";
+    option (routines.keys).keys = "agreement_term_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementTermId, attrName
+    // fields
+        
+    string agreement_term_id = 1 [json_name = "agreement_term_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message AgreementTermAttributeList{
+    repeated AgreementTermAttributeData values=1;
+}
+
+
+// Agreement Type Attribute
+message AgreementTypeAttrData {
+    option (routines.entity_type) = "AgreementTypeAttr";
+    option (routines.keys).keys = "agreement_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementTypeId, attrName
+    // fields
+        
+    string agreement_type_id = 1 [json_name = "agreement_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message AgreementTypeAttrList{
+    repeated AgreementTypeAttrData values=1;
+}
+
+
+// Agreement WorkEffort Application
+message AgreementWorkEffortApplicData {
+    option (routines.entity_type) = "AgreementWorkEffortApplic";
+    option (routines.keys).keys = "agreement_id, agreement_item_seq_id, work_effort_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: agreementId, agreementItemSeqId, workEffortId
+    // fields
+        
+    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];    
+    string work_effort_id = 3 [json_name = "work_effort_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AgreementWorkEffortApplicList{
+    repeated AgreementWorkEffortApplicData values=1;
+}
+
+
+// Term Type Attribute
+message TermTypeAttrData {
+    option (routines.entity_type) = "TermTypeAttr";
+    option (routines.keys).keys = "term_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: termTypeId, attrName
+    // fields
+        
+    string term_type_id = 1 [json_name = "term_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message TermTypeAttrList{
+    repeated TermTypeAttrData values=1;
+}
+
+

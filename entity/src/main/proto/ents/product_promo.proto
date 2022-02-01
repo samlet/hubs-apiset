@@ -49,6 +49,9 @@ message ProductPromoFlatData {
     map<string, google.protobuf.Any> attachments = 38 ;
 }
 
+message ProductPromoList{
+    repeated ProductPromoFlatData values=1;
+}
 
 // Product Promotion Action
 message ProductPromoActionData {
@@ -83,6 +86,11 @@ message ProductPromoActionData {
 }
 
 
+message ProductPromoActionList{
+    repeated ProductPromoActionData values=1;
+}
+
+
 // Product Promotion Category
 message ProductPromoCategoryData {
     option (routines.entity_type) = "ProductPromoCategory";
@@ -109,6 +117,11 @@ message ProductPromoCategoryData {
     // extra
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message ProductPromoCategoryList{
+    repeated ProductPromoCategoryData values=1;
 }
 
 
@@ -142,6 +155,9 @@ message ProductPromoCodeFlatData {
     map<string, google.protobuf.Any> attachments = 27 ;
 }
 
+message ProductPromoCodeList{
+    repeated ProductPromoCodeFlatData values=1;
+}
 
 // Product Promotion Condition
 message ProductPromoCondData {
@@ -172,6 +188,11 @@ message ProductPromoCondData {
 }
 
 
+message ProductPromoCondList{
+    repeated ProductPromoCondData values=1;
+}
+
+
 // Product Promotion Category
 message ProductPromoProductData {
     option (routines.entity_type) = "ProductPromoProduct";
@@ -199,6 +220,11 @@ message ProductPromoProductData {
 }
 
 
+message ProductPromoProductList{
+    repeated ProductPromoProductData values=1;
+}
+
+
 // Product Promotion Rule
 message ProductPromoRuleData {
     option (routines.entity_type) = "ProductPromoRule";
@@ -220,6 +246,11 @@ message ProductPromoRuleData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message ProductPromoRuleList{
+    repeated ProductPromoRuleData values=1;
 }
 
 

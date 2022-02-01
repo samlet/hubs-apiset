@@ -112,6 +112,9 @@ message ProductStoreFlatData {
     map<string, google.protobuf.Any> attachments = 130 ;
 }
 
+message ProductStoreList{
+    repeated ProductStoreFlatData values=1;
+}
 
 // flat-ent: Product Store Catalog Association
 message ProductStoreCatalogFlatData {
@@ -137,6 +140,9 @@ message ProductStoreCatalogFlatData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message ProductStoreCatalogList{
+    repeated ProductStoreCatalogFlatData values=1;
+}
 
 // Product Store Email Settings
 message ProductStoreEmailSettingData {
@@ -168,6 +174,11 @@ message ProductStoreEmailSettingData {
 }
 
 
+message ProductStoreEmailSettingList{
+    repeated ProductStoreEmailSettingData values=1;
+}
+
+
 // flat-ent: Product Store Inventory Facility Applicability
 message ProductStoreFacilityFlatData {
     option (routines.entity_type) = "ProductStoreFacility";
@@ -192,6 +203,9 @@ message ProductStoreFacilityFlatData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message ProductStoreFacilityList{
+    repeated ProductStoreFacilityFlatData values=1;
+}
 
 // Allows financial account, such as gift certificate or calling cards, to be configured at store level
 message ProductStoreFinActSettingData {
@@ -229,6 +243,11 @@ message ProductStoreFinActSettingData {
 }
 
 
+message ProductStoreFinActSettingList{
+    repeated ProductStoreFinActSettingData values=1;
+}
+
+
 // Product Store Inventory Facility Applicability
 message ProductStoreKeywordOvrdData {
     option (routines.entity_type) = "ProductStoreKeywordOvrd";
@@ -253,6 +272,11 @@ message ProductStoreKeywordOvrdData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductStoreKeywordOvrdList{
+    repeated ProductStoreKeywordOvrdData values=1;
 }
 
 
@@ -285,6 +309,11 @@ message ProductStorePaymentSettingData {
 }
 
 
+message ProductStorePaymentSettingList{
+    repeated ProductStorePaymentSettingData values=1;
+}
+
+
 // Product Store Promotion Applicability
 message ProductStorePromoApplData {
     option (routines.entity_type) = "ProductStorePromoAppl";
@@ -312,6 +341,11 @@ message ProductStorePromoApplData {
 }
 
 
+message ProductStorePromoApplList{
+    repeated ProductStorePromoApplData values=1;
+}
+
+
 // Product Store Role Association
 message ProductStoreRoleData {
     option (routines.entity_type) = "ProductStoreRole";
@@ -336,6 +370,11 @@ message ProductStoreRoleData {
     // extra
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ProductStoreRoleList{
+    repeated ProductStoreRoleData values=1;
 }
 
 
@@ -385,6 +424,9 @@ message ProductStoreShipmentMethFlatData {
     map<string, google.protobuf.Any> attachments = 41 ;
 }
 
+message ProductStoreShipmentMethList{
+    repeated ProductStoreShipmentMethFlatData values=1;
+}
 
 // flat-ent: Product Store Survey Application
 message ProductStoreSurveyApplFlatData {
@@ -416,4 +458,7 @@ message ProductStoreSurveyApplFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message ProductStoreSurveyApplList{
+    repeated ProductStoreSurveyApplFlatData values=1;
+}
 

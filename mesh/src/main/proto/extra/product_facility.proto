@@ -1,0 +1,404 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductFacilityExtraProto";
+option objc_class_prefix = "ProductFacilityExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Container
+message ContainerData {
+    option (routines.entity_type) = "Container";
+    option (routines.keys).keys = "container_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: containerId
+    // fields
+        
+    string container_id = 1 [json_name = "container_id"];    
+    string container_type_id = 2 [json_name = "container_type_id"];    
+    string facility_id = 3 [json_name = "facility_id"];    
+    string description = 4 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ContainerList{
+    repeated ContainerData values=1;
+}
+
+
+// Container Geo Location with history
+message ContainerGeoPointData {
+    option (routines.entity_type) = "ContainerGeoPoint";
+    option (routines.keys).keys = "container_id, geo_point_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: containerId, geoPointId, fromDate
+    // fields
+        
+    string container_id = 1 [json_name = "container_id"];    
+    string geo_point_id = 2 [json_name = "geo_point_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ContainerGeoPointList{
+    repeated ContainerGeoPointData values=1;
+}
+
+
+// Container Type
+message ContainerTypeData {
+    option (routines.entity_type) = "ContainerType";
+    option (routines.keys).keys = "container_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: containerTypeId
+    // fields
+        
+    string container_type_id = 1 [json_name = "container_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message ContainerTypeList{
+    repeated ContainerTypeData values=1;
+}
+
+
+// Facility Attribute
+message FacilityAttributeData {
+    option (routines.entity_type) = "FacilityAttribute";
+    option (routines.keys).keys = "facility_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, attrName
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message FacilityAttributeList{
+    repeated FacilityAttributeData values=1;
+}
+
+
+// Facility Calendar
+message FacilityCalendarData {
+    option (routines.entity_type) = "FacilityCalendar";
+    option (routines.keys).keys = "facility_id, calendar_id, facility_calendar_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, calendarId, facilityCalendarTypeId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string calendar_id = 2 [json_name = "calendar_id"];    
+    string facility_calendar_type_id = 3 [json_name = "facility_calendar_type_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FacilityCalendarList{
+    repeated FacilityCalendarData values=1;
+}
+
+
+// Facility Calendar Type
+message FacilityCalendarTypeData {
+    option (routines.entity_type) = "FacilityCalendarType";
+    option (routines.keys).keys = "facility_calendar_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityCalendarTypeId
+    // fields
+        
+    string facility_calendar_type_id = 1 [json_name = "facility_calendar_type_id"];    
+    string parent_type_id = 2 [json_name = "parent_type_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message FacilityCalendarTypeList{
+    repeated FacilityCalendarTypeData values=1;
+}
+
+
+// Facility Role Type
+message FacilityCarrierShipmentData {
+    option (routines.entity_type) = "FacilityCarrierShipment";
+    option (routines.keys).keys = "facility_id, party_id, role_type_id, shipment_method_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, partyId, roleTypeId, shipmentMethodTypeId
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    string role_type_id = 3 [json_name = "role_type_id"];    
+    string shipment_method_type_id = 4 [json_name = "shipment_method_type_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message FacilityCarrierShipmentList{
+    repeated FacilityCarrierShipmentData values=1;
+}
+
+
+// Facility Content
+message FacilityContentData {
+    option (routines.entity_type) = "FacilityContent";
+    option (routines.keys).keys = "facility_id, content_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, contentId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string content_id = 2 [json_name = "content_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message FacilityContentList{
+    repeated FacilityContentData values=1;
+}
+
+
+// Facility Group
+message FacilityGroupMemberData {
+    option (routines.entity_type) = "FacilityGroupMember";
+    option (routines.keys).keys = "facility_id, facility_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, facilityGroupId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];
+    string facility_group_id = 2 [json_name = "facility_group_id"]; // FacilityGroup    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message FacilityGroupMemberList{
+    repeated FacilityGroupMemberData values=1;
+}
+
+
+// Facility Group Role
+message FacilityGroupRoleData {
+    option (routines.entity_type) = "FacilityGroupRole";
+    option (routines.keys).keys = "facility_group_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityGroupId, partyId, roleTypeId
+    // fields
+    
+    string facility_group_id = 1 [json_name = "facility_group_id"]; // FacilityGroup    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message FacilityGroupRoleList{
+    repeated FacilityGroupRoleData values=1;
+}
+
+
+// Facility Group Rollup
+message FacilityGroupRollupData {
+    option (routines.entity_type) = "FacilityGroupRollup";
+    option (routines.keys).keys = "facility_group_id, parent_facility_group_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityGroupId, parentFacilityGroupId, fromDate
+    // fields
+        
+    string facility_group_id = 1 [json_name = "facility_group_id"];    
+    string parent_facility_group_id = 2 [json_name = "parent_facility_group_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message FacilityGroupRollupList{
+    repeated FacilityGroupRollupData values=1;
+}
+
+
+// Facility Party
+message FacilityPartyData {
+    option (routines.entity_type) = "FacilityParty";
+    option (routines.keys).keys = "facility_id, party_id, role_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityId, partyId, roleTypeId, fromDate
+    // fields
+        
+    string facility_id = 1 [json_name = "facility_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message FacilityPartyList{
+    repeated FacilityPartyData values=1;
+}
+
+
+// Facility Type Attribute
+message FacilityTypeAttrData {
+    option (routines.entity_type) = "FacilityTypeAttr";
+    option (routines.keys).keys = "facility_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: facilityTypeId, attrName
+    // fields
+        
+    string facility_type_id = 1 [json_name = "facility_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message FacilityTypeAttrList{
+    repeated FacilityTypeAttrData values=1;
+}
+
+

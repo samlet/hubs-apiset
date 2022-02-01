@@ -45,6 +45,11 @@ message PartyTaxAuthInfoData {
 }
 
 
+message PartyTaxAuthInfoList{
+    repeated PartyTaxAuthInfoData values=1;
+}
+
+
 // Tax Authority
 message TaxAuthorityData {
     option (routines.entity_type) = "TaxAuthority";
@@ -68,6 +73,11 @@ message TaxAuthorityData {
     // extra
     google.protobuf.Struct extra = 19;
     map<string, google.protobuf.Any> attachments = 20;
+}
+
+
+message TaxAuthorityList{
+    repeated TaxAuthorityData values=1;
 }
 
 
@@ -99,6 +109,11 @@ message TaxAuthorityAssocData {
 }
 
 
+message TaxAuthorityAssocList{
+    repeated TaxAuthorityAssocData values=1;
+}
+
+
 // Tax Authority Product Category
 message TaxAuthorityCategoryData {
     option (routines.entity_type) = "TaxAuthorityCategory";
@@ -120,6 +135,11 @@ message TaxAuthorityCategoryData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message TaxAuthorityCategoryList{
+    repeated TaxAuthorityCategoryData values=1;
 }
 
 
@@ -145,6 +165,11 @@ message TaxAuthorityGlAccountData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message TaxAuthorityGlAccountList{
+    repeated TaxAuthorityGlAccountData values=1;
 }
 
 
@@ -182,4 +207,7 @@ message TaxAuthorityRateProductFlatData {
     map<string, google.protobuf.Any> attachments = 29 ;
 }
 
+message TaxAuthorityRateProductList{
+    repeated TaxAuthorityRateProductFlatData values=1;
+}
 

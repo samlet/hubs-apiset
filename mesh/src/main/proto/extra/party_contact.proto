@@ -1,0 +1,224 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartyContactExtraProto";
+option objc_class_prefix = "PartyContactExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Contact Mechanism Attribute
+message ContactMechAttributeData {
+    option (routines.entity_type) = "ContactMechAttribute";
+    option (routines.keys).keys = "contact_mech_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contactMechId, attrName
+    // fields
+        
+    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ContactMechAttributeList{
+    repeated ContactMechAttributeData values=1;
+}
+
+
+// Contact Mechanism Link
+message ContactMechLinkData {
+    option (routines.entity_type) = "ContactMechLink";
+    option (routines.keys).keys = "contact_mech_id_from, contact_mech_id_to";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contactMechIdFrom, contactMechIdTo
+    // fields
+        
+    string contact_mech_id_from = 1 [json_name = "contact_mech_id_from"];    
+    string contact_mech_id_to = 2 [json_name = "contact_mech_id_to"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ContactMechLinkList{
+    repeated ContactMechLinkData values=1;
+}
+
+
+// Contact Mechanism Type Attribute
+message ContactMechTypeAttrData {
+    option (routines.entity_type) = "ContactMechTypeAttr";
+    option (routines.keys).keys = "contact_mech_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contactMechTypeId, attrName
+    // fields
+        
+    string contact_mech_type_id = 1 [json_name = "contact_mech_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ContactMechTypeAttrList{
+    repeated ContactMechTypeAttrData values=1;
+}
+
+
+// Email Address Verification
+message EmailAddressVerificationData {
+    option (routines.entity_type) = "EmailAddressVerification";
+    option (routines.keys).keys = "email_address";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: emailAddress
+    // fields
+        
+    string email_address = 1 [json_name = "email_address"];    
+    string verify_hash = 2 [json_name = "verify_hash"];    
+    google.protobuf.Timestamp expire_date = 3 [json_name = "expire_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message EmailAddressVerificationList{
+    repeated EmailAddressVerificationData values=1;
+}
+
+
+// Ftp server
+message FtpAddressData {
+    option (routines.entity_type) = "FtpAddress";
+    option (routines.keys).keys = "contact_mech_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contactMechId
+    // fields
+        
+    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string hostname = 2 [json_name = "hostname"];    
+    int64 port = 3 [json_name = "port"];    
+    string username = 4 [json_name = "username"];    
+    string ftp_password = 5 [json_name = "ftp_password"];    
+    routines.Indicator binary_transfer = 6 [json_name = "binary_transfer"];    
+    string file_path = 7 [json_name = "file_path"];    
+    routines.Indicator zip_file = 8 [json_name = "zip_file"];    
+    routines.Indicator passive_mode = 9 [json_name = "passive_mode"];    
+    int64 default_timeout = 10 [json_name = "default_timeout"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message FtpAddressList{
+    repeated FtpAddressData values=1;
+}
+
+
+// Postal Address Boundary
+message PostalAddressBoundaryData {
+    option (routines.entity_type) = "PostalAddressBoundary";
+    option (routines.keys).keys = "contact_mech_id, geo_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contactMechId, geoId
+    // fields
+        
+    string contact_mech_id = 1 [json_name = "contact_mech_id"];
+    string geo_id = 2 [json_name = "geo_id"]; // Geo    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PostalAddressBoundaryList{
+    repeated PostalAddressBoundaryData values=1;
+}
+
+
+// Valid Contact Mechanism Role
+message ValidContactMechRoleData {
+    option (routines.entity_type) = "ValidContactMechRole";
+    option (routines.keys).keys = "role_type_id, contact_mech_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: roleTypeId, contactMechTypeId
+    // fields
+    
+    string role_type_id = 1 [json_name = "role_type_id"]; // RoleType
+    string contact_mech_type_id = 2 [json_name = "contact_mech_type_id"]; // ContactMechType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message ValidContactMechRoleList{
+    repeated ValidContactMechRoleData values=1;
+}
+
+

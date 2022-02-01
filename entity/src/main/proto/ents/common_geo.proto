@@ -43,4 +43,7 @@ message GeoPointFlatData {
     map<string, google.protobuf.Any> attachments = 25 ;
 }
 
+message GeoPointList{
+    repeated GeoPointFlatData values=1;
+}
 

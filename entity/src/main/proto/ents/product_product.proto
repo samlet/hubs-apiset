@@ -104,6 +104,9 @@ message ProductFlatData {
     map<string, google.protobuf.Any> attachments = 159 ;
 }
 
+message ProductList{
+    repeated ProductFlatData values=1;
+}
 
 // Product Association
 message ProductAssocData {
@@ -136,6 +139,11 @@ message ProductAssocData {
     // extra
     google.protobuf.Struct extra = 22;
     map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+message ProductAssocList{
+    repeated ProductAssocData values=1;
 }
 
 
@@ -172,6 +180,11 @@ message ProductContentData {
 }
 
 
+message ProductContentList{
+    repeated ProductContentData values=1;
+}
+
+
 // Product Keyword
 message ProductKeywordData {
     option (routines.entity_type) = "ProductKeyword";
@@ -195,6 +208,11 @@ message ProductKeywordData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ProductKeywordList{
+    repeated ProductKeywordData values=1;
 }
 
 
@@ -225,4 +243,7 @@ message ProductReviewFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message ProductReviewList{
+    repeated ProductReviewFlatData values=1;
+}
 

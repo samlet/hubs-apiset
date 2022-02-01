@@ -102,6 +102,7 @@ message ProdCatalogData {
 }
 
 
+
 // The Catalog service definition.
 service ProdCatalogService {
     rpc Create(ProdCatalogData) returns (routines.Response) {}
@@ -236,6 +237,7 @@ message ProductStoreData {
 }
 
 
+
 // The Product Store service definition.
 service ProductStoreService {
     rpc Create(ProductStoreData) returns (routines.Response) {}
@@ -283,6 +285,7 @@ message ProductStoreFacilityData {
 }
 
 
+
 // The Product Store Inventory Facility Applicability service definition.
 service ProductStoreFacilityService {
     rpc Create(ProductStoreFacilityData) returns (routines.Response) {}
@@ -328,6 +331,7 @@ message ProductStoreCatalogData {
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
 }
+
 
 
 // The Product Store Catalog Association service definition.
@@ -391,6 +395,7 @@ message WebSiteData {
 }
 
 
+
 // The WebSite service definition.
 service WebSiteService {
     rpc Create(WebSiteData) returns (routines.Response) {}
@@ -437,6 +442,7 @@ message ProdCatalogCategoryData {
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14;
 }
+
 
 
 // The Catalog Category Association service definition.
@@ -503,6 +509,7 @@ message ProductCategoryData {
 }
 
 
+
 // The Product Category service definition.
 service ProductCategoryService {
     rpc Create(ProductCategoryData) returns (routines.Response) {}
@@ -553,6 +560,7 @@ message ProductCategoryRollupData {
 }
 
 
+
 // The Product Category Rollup service definition.
 service ProductCategoryRollupService {
     rpc Create(ProductCategoryRollupData) returns (routines.Response) {}
@@ -600,6 +608,7 @@ message ProductCategoryMemberData {
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
 }
+
 
 
 // The Product Category Member service definition.
@@ -744,6 +753,7 @@ message ProductData {
 }
 
 
+
 // The Product service definition.
 service ProductService {
     rpc Create(ProductData) returns (routines.Response) {}
@@ -805,6 +815,7 @@ message ProductPromoData {
     google.protobuf.Struct extra = 28;
     map<string, google.protobuf.Any> attachments = 29;
 }
+
 
 
 // The Product Promotion service definition.
@@ -890,6 +901,7 @@ message OrderHeaderData {
     google.protobuf.Struct extra = 50;
     map<string, google.protobuf.Any> attachments = 51;
 }
+
 
 
 // The Order Header service definition.
@@ -993,6 +1005,7 @@ message OrderItemData {
 }
 
 
+
 // The Order Item service definition.
 service OrderItemService {
     rpc Create(OrderItemData) returns (routines.Response) {}
@@ -1056,6 +1069,7 @@ message ShoppingListData {
     google.protobuf.Struct extra = 30;
     map<string, google.protobuf.Any> attachments = 31;
 }
+
 
 
 // The Shopping List service definition.
@@ -1122,6 +1136,7 @@ message PaymentData {
 }
 
 
+
 // The Payment service definition.
 service PaymentService {
     rpc Create(PaymentData) returns (routines.Response) {}
@@ -1184,6 +1199,7 @@ message InvoiceData {
     google.protobuf.Struct extra = 29;
     map<string, google.protobuf.Any> attachments = 30;
 }
+
 
 
 // The Invoice service definition.
@@ -1249,6 +1265,7 @@ message InvoiceItemData {
     google.protobuf.Struct extra = 30;
     map<string, google.protobuf.Any> attachments = 31;
 }
+
 
 
 // The Invoice Item service definition.
@@ -1337,6 +1354,7 @@ message ShipmentData {
 }
 
 
+
 // The Shipment service definition.
 service ShipmentService {
     rpc Create(ShipmentData) returns (routines.Response) {}
@@ -1411,6 +1429,7 @@ message InventoryItemData {
     google.protobuf.Struct extra = 41;
     map<string, google.protobuf.Any> attachments = 42;
 }
+
 
 
 // The Inventory Item service definition.
@@ -1538,6 +1557,7 @@ message PartyData {
 }
 
 
+
 // The Party service definition.
 service PartyService {
     rpc Create(PartyData) returns (routines.Response) {}
@@ -1617,6 +1637,7 @@ message PersonData {
 }
 
 
+
 // The Person service definition.
 service PersonService {
     rpc Create(PersonData) returns (routines.Response) {}
@@ -1671,6 +1692,7 @@ message PartyGroupData {
     google.protobuf.Struct extra = 21;
     map<string, google.protobuf.Any> attachments = 22;
 }
+
 
 
 // The Party Group service definition.
@@ -1768,6 +1790,7 @@ message UserLoginData {
 }
 
 
+
 // The UserLogin service definition.
 service UserLoginService {
     rpc Create(UserLoginData) returns (routines.Response) {}
@@ -1826,6 +1849,7 @@ message PartyRelationshipData {
 }
 
 
+
 // The Party Relationship service definition.
 service PartyRelationshipService {
     rpc Create(PartyRelationshipData) returns (routines.Response) {}
@@ -1877,6 +1901,7 @@ message BillingAccountData {
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19;
 }
+
 
 
 // The Billing Account service definition.
@@ -1941,6 +1966,7 @@ message FinAccountData {
 }
 
 
+
 // The Financial Account service definition.
 service FinAccountService {
     rpc Create(FinAccountData) returns (routines.Response) {}
@@ -1994,6 +2020,7 @@ message QuoteData {
     google.protobuf.Struct extra = 20;
     map<string, google.protobuf.Any> attachments = 21;
 }
+
 
 
 // The Quote service definition.
@@ -2074,6 +2101,7 @@ message FixedAssetData {
 }
 
 
+
 // The Fixed Asset service definition.
 service FixedAssetService {
     rpc Create(FixedAssetData) returns (routines.Response) {}
@@ -2117,6 +2145,7 @@ message SecurityGroupData {
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
 }
+
 
 
 // The Security Component - Security Group service definition.
@@ -2224,6 +2253,7 @@ message WorkEffortData {
 }
 
 
+
 // The WorkEffort service definition.
 service WorkEffortService {
     rpc Create(WorkEffortData) returns (routines.Response) {}
@@ -2281,6 +2311,7 @@ message ReturnHeaderData {
 }
 
 
+
 // The Return service definition.
 service ReturnHeaderService {
     rpc Create(ReturnHeaderData) returns (routines.Response) {}
@@ -2324,6 +2355,7 @@ message PartyIdentificationTypeData {
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
 }
+
 
 
 // The Party Identification Type service definition.
@@ -2404,6 +2436,7 @@ message OrderAdjustmentData {
 }
 
 
+
 // The Order Adjustment service definition.
 service OrderAdjustmentService {
     rpc Create(OrderAdjustmentData) returns (routines.Response) {}
@@ -2457,6 +2490,7 @@ message FinAccountTransData {
     google.protobuf.Struct extra = 20;
     map<string, google.protobuf.Any> attachments = 21;
 }
+
 
 
 // The Financial Account Transaction service definition.
@@ -2513,6 +2547,7 @@ message CustomMethodData {
     google.protobuf.Struct extra = 21;
     map<string, google.protobuf.Any> attachments = 22;
 }
+
 
 
 // The Custom Method service definition.
@@ -2575,6 +2610,7 @@ message PaymentGatewayResponseData {
     google.protobuf.Struct extra = 27;
     map<string, google.protobuf.Any> attachments = 28;
 }
+
 
 
 // The Payment Gateway Response service definition.
@@ -2645,6 +2681,7 @@ message ShipmentCostEstimateData {
 }
 
 
+
 // The Shipment Cost Estimate service definition.
 service ShipmentCostEstimateService {
     rpc Create(ShipmentCostEstimateData) returns (routines.Response) {}
@@ -2693,6 +2730,7 @@ message ShipmentBoxTypeData {
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
 }
+
 
 
 // The Shipment Contact Mechanism Type service definition.
@@ -2749,6 +2787,7 @@ message GeoPointData {
 }
 
 
+
 // The Geographic Location service definition.
 service GeoPointService {
     rpc Create(GeoPointData) returns (routines.Response) {}
@@ -2799,6 +2838,7 @@ message EbayConfigData {
 }
 
 
+
 // The eBay Configuration service definition.
 service EbayConfigService {
     rpc Create(EbayConfigData) returns (routines.Response) {}
@@ -2844,6 +2884,7 @@ message SubscriptionResourceData {
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
 }
+
 
 
 // The Subscription Resource service definition.
@@ -2915,6 +2956,7 @@ message QuoteAdjustmentData {
 }
 
 
+
 // The Quote Adjustment service definition.
 service QuoteAdjustmentService {
     rpc Create(QuoteAdjustmentData) returns (routines.Response) {}
@@ -2984,6 +3026,7 @@ message CommunicationEventData {
 }
 
 
+
 // The Communication Event service definition.
 service CommunicationEventService {
     rpc Create(CommunicationEventData) returns (routines.Response) {}
@@ -3035,6 +3078,7 @@ message RecurrenceInfoData {
 }
 
 
+
 // The Recurrence Info service definition.
 service RecurrenceInfoService {
     rpc Create(RecurrenceInfoData) returns (routines.Response) {}
@@ -3080,6 +3124,7 @@ message ProductFeatureCategoryData {
 }
 
 
+
 // The Product Feature Category service definition.
 service ProductFeatureCategoryService {
     rpc Create(ProductFeatureCategoryData) returns (routines.Response) {}
@@ -3120,6 +3165,7 @@ message SurveyApplTypeData {
     google.protobuf.Struct extra = 7;
     map<string, google.protobuf.Any> attachments = 8;
 }
+
 
 
 // The Survey Application Type service definition.
@@ -3170,6 +3216,7 @@ message ProductPriceRuleData {
 }
 
 
+
 // The Product Pice Rule service definition.
 service ProductPriceRuleService {
     rpc Create(ProductPriceRuleData) returns (routines.Response) {}
@@ -3217,6 +3264,7 @@ message PaymentApplicationData {
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
 }
+
 
 
 // The Payment Application service definition.
@@ -3288,6 +3336,7 @@ message CustRequestData {
 }
 
 
+
 // The CustRequest service definition.
 service CustRequestService {
     rpc Create(CustRequestData) returns (routines.Response) {}
@@ -3349,6 +3398,7 @@ message ShipmentReceiptData {
 }
 
 
+
 // The Shipment Receipt service definition.
 service ShipmentReceiptService {
     rpc Create(ShipmentReceiptData) returns (routines.Response) {}
@@ -3398,6 +3448,7 @@ message ProductStoreSurveyApplData {
     google.protobuf.Struct extra = 16;
     map<string, google.protobuf.Any> attachments = 17;
 }
+
 
 
 // The Product Store Survey Application service definition.
@@ -3470,6 +3521,7 @@ message PostalAddressData {
 }
 
 
+
 // The Postal Address service definition.
 service PostalAddressService {
     rpc Create(PostalAddressData) returns (routines.Response) {}
@@ -3528,6 +3580,7 @@ message RequirementData {
 }
 
 
+
 // The Requirement service definition.
 service RequirementService {
     rpc Create(RequirementData) returns (routines.Response) {}
@@ -3575,6 +3628,7 @@ message EmailTemplateSettingData {
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
 }
+
 
 
 // The Email Template Setting service definition.
@@ -3645,6 +3699,7 @@ message ProductStoreShipmentMethData {
 }
 
 
+
 // The Product Store Carrier Shipment Method service definition.
 service ProductStoreShipmentMethService {
     rpc Create(ProductStoreShipmentMethData) returns (routines.Response) {}
@@ -3698,6 +3753,7 @@ message SurveyData {
     google.protobuf.Struct extra = 20;
     map<string, google.protobuf.Any> attachments = 21;
 }
+
 
 
 // The Survey service definition.
@@ -3770,6 +3826,7 @@ message ContentData {
 }
 
 
+
 // The Content service definition.
 service ContentService {
     rpc Create(ContentData) returns (routines.Response) {}
@@ -3813,6 +3870,7 @@ message EmplPositionTypeData {
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
 }
+
 
 
 // The EmplPosition Type service definition.
@@ -3871,6 +3929,7 @@ message PaymentMethodData {
 }
 
 
+
 // The Payment Method service definition.
 service PaymentMethodService {
     rpc Create(PaymentMethodData) returns (routines.Response) {}
@@ -3920,6 +3979,7 @@ message OrderItemPriceInfoData {
 }
 
 
+
 // The Order Item Price Info service definition.
 service OrderItemPriceInfoService {
     rpc Create(OrderItemPriceInfoData) returns (routines.Response) {}
@@ -3960,6 +4020,7 @@ message ElectronicTextData {
     google.protobuf.Struct extra = 7;
     map<string, google.protobuf.Any> attachments = 8;
 }
+
 
 
 // The Electronic Text service definition.
@@ -4008,6 +4069,7 @@ message ProductConfigItemData {
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14;
 }
+
 
 
 // The Product Configuration Question service definition.
@@ -4061,6 +4123,7 @@ message TelecomNumberData {
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19;
 }
+
 
 
 // The Telecommunications Number service definition.
@@ -4118,6 +4181,7 @@ message ProductFeatureData {
 }
 
 
+
 // The Product Feature service definition.
 service ProductFeatureService {
     rpc Create(ProductFeatureData) returns (routines.Response) {}
@@ -4168,6 +4232,7 @@ message ProductPromoCodeData {
     google.protobuf.Struct extra = 17;
     map<string, google.protobuf.Any> attachments = 18;
 }
+
 
 
 // The Product Promotion service definition.
@@ -4227,6 +4292,7 @@ message ItemIssuanceData {
 }
 
 
+
 // The Item Issuance service definition.
 service ItemIssuanceService {
     rpc Create(ItemIssuanceData) returns (routines.Response) {}
@@ -4271,6 +4337,7 @@ message QuantityBreakData {
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
 }
+
 
 
 // The Quantity Break service definition.
@@ -4338,6 +4405,7 @@ message ContactMechData {
 }
 
 
+
 // The Contact Mechanism service definition.
 service ContactMechService {
     rpc Create(ContactMechData) returns (routines.Response) {}
@@ -4384,6 +4452,7 @@ message ProductReviewData {
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14;
 }
+
 
 
 // The Product Review service definition.
@@ -4456,6 +4525,7 @@ message OrderPaymentPreferenceData {
 }
 
 
+
 // The The Order Payment Preference service definition.
 service OrderPaymentPreferenceService {
     rpc Create(OrderPaymentPreferenceData) returns (routines.Response) {}
@@ -4504,6 +4574,7 @@ message OrderStatusData {
 }
 
 
+
 // The Order Status service definition.
 service OrderStatusService {
     rpc Create(OrderStatusData) returns (routines.Response) {}
@@ -4546,6 +4617,7 @@ message BudgetData {
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
 }
+
 
 
 // The Budget service definition.
@@ -4592,6 +4664,7 @@ message PaymentContentTypeData {
 }
 
 
+
 // The Payment Content Type service definition.
 service PaymentContentTypeService {
     rpc Create(PaymentContentTypeData) returns (routines.Response) {}
@@ -4632,6 +4705,7 @@ message SecurityPermissionData {
     google.protobuf.Struct extra = 7;
     map<string, google.protobuf.Any> attachments = 8;
 }
+
 
 
 // The Security Component - Security Permission service definition.
@@ -4691,6 +4765,7 @@ message RecurrenceRuleData {
 }
 
 
+
 // The Recurrence Rule service definition.
 service RecurrenceRuleService {
     rpc Create(RecurrenceRuleData) returns (routines.Response) {}
@@ -4743,6 +4818,7 @@ message TemporalExpressionData {
 }
 
 
+
 // The Temporal Expression service definition.
 service TemporalExpressionService {
     rpc Create(TemporalExpressionData) returns (routines.Response) {}
@@ -4787,6 +4863,7 @@ message ShipmentMethodTypeData {
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
 }
+
 
 
 // The Shipment Method Type service definition.
@@ -4858,6 +4935,7 @@ message AcctgTransData {
 }
 
 
+
 // The Accounting Transaction service definition.
 service AcctgTransService {
     rpc Create(AcctgTransData) returns (routines.Response) {}
@@ -4922,6 +5000,7 @@ message JobSandboxData {
 }
 
 
+
 // The Job Scheduler Sandbox service definition.
 service JobSandboxService {
     rpc Create(JobSandboxData) returns (routines.Response) {}
@@ -4981,6 +5060,7 @@ message DataResourceData {
     google.protobuf.Struct extra = 26;
     map<string, google.protobuf.Any> attachments = 27;
 }
+
 
 
 // The Data Object service definition.
@@ -5047,6 +5127,7 @@ message GlAccountData {
 }
 
 
+
 // The General Ledger Account service definition.
 service GlAccountService {
     rpc Create(GlAccountData) returns (routines.Response) {}
@@ -5089,6 +5170,7 @@ message TechDataCalendarData {
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
 }
+
 
 
 // The Calendar service definition.
@@ -5136,6 +5218,7 @@ message CustRequestTypeData {
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13;
 }
+
 
 
 // The Customer Request Type service definition.
@@ -5198,6 +5281,7 @@ message CreditCardData {
 }
 
 
+
 // The Credit Card Information service definition.
 service CreditCardService {
     rpc Create(CreditCardData) returns (routines.Response) {}
@@ -5256,6 +5340,7 @@ message AgreementData {
 }
 
 
+
 // The Agreement service definition.
 service AgreementService {
     rpc Create(AgreementData) returns (routines.Response) {}
@@ -5307,6 +5392,7 @@ message AgreementTermData {
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19;
 }
+
 
 
 // The Agreement Term service definition.
@@ -5369,6 +5455,7 @@ message PartyAcctgPreferenceData {
 }
 
 
+
 // The Party (organization) accounting preferences service definition.
 service PartyAcctgPreferenceService {
     rpc Create(PartyAcctgPreferenceData) returns (routines.Response) {}
@@ -5411,6 +5498,7 @@ message SurveyQuestionCategoryData {
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
 }
+
 
 
 // The Survey Question Category service definition.
@@ -5468,6 +5556,7 @@ message TaxAuthorityRateProductData {
     google.protobuf.Struct extra = 22;
     map<string, google.protobuf.Any> attachments = 23;
 }
+
 
 
 // The Tax Authority Rate service definition.
@@ -5549,6 +5638,7 @@ message FacilityData {
 }
 
 
+
 // The Facility service definition.
 service FacilityService {
     rpc Create(FacilityData) returns (routines.Response) {}
@@ -5605,6 +5695,7 @@ message TechDataCalendarWeekData {
 }
 
 
+
 // The Week definition service definition.
 service TechDataCalendarWeekService {
     rpc Create(TechDataCalendarWeekData) returns (routines.Response) {}
@@ -5657,6 +5748,7 @@ message EftAccountData {
 }
 
 
+
 // The EFT Account Information service definition.
 service EftAccountService {
     rpc Create(EftAccountData) returns (routines.Response) {}
@@ -5705,6 +5797,7 @@ message SurveyQuestionData {
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
 }
+
 
 
 // The Survey Question service definition.

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BiFactProductExtraProto";
+option objc_class_prefix = "BiFactProductExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Inventory Item Fact
+message InventoryItemFactData {
+    option (routines.entity_type) = "InventoryItemFact";
+    option (routines.keys).keys = "inventory_item_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: inventoryItemId
+    // fields
+        
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];    
+    string facility_id = 2 [json_name = "facility_id"];    
+    string product_dim_id = 3 [json_name = "product_dim_id"];    
+    string orig_currency_dim_id = 4 [json_name = "orig_currency_dim_id"];    
+    string inventory_date_dim_id = 5 [json_name = "inventory_date_dim_id"];    
+    routines.FixedPoint quantity_on_hand_total = 6 [json_name = "quantity_on_hand_total"];    
+    routines.FixedPoint available_to_promise_total = 7 [json_name = "available_to_promise_total"];    
+    routines.FixedPoint unit_cost = 8 [json_name = "unit_cost"];    
+    routines.FixedPoint soldout_amount = 9 [json_name = "soldout_amount"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message InventoryItemFactList{
+    repeated InventoryItemFactData values=1;
+}
+
+

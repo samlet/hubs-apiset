@@ -38,4 +38,7 @@ message CustomMethodFlatData {
     map<string, google.protobuf.Any> attachments = 27 ;
 }
 
+message CustomMethodList{
+    repeated CustomMethodFlatData values=1;
+}
 

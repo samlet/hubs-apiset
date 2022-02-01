@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Unit Of Measure
 message UomData {
@@ -29,6 +27,13 @@ message UomData {
     int64 numeric_code = 4 [json_name = "numeric_code"];    
     string description = 5 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 99;
+    map<string, google.protobuf.Any> attachments = 100 ;
 }
 
+message UomList{
+    repeated UomData values=1;
+}

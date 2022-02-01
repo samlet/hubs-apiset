@@ -50,4 +50,7 @@ message UserLoginFlatData {
     map<string, google.protobuf.Any> attachments = 99 ;
 }
 
+message UserLoginList{
+    repeated UserLoginFlatData values=1;
+}
 

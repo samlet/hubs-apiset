@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderShoppingcartExtraProto";
+option objc_class_prefix = "OrderShoppingcartExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Order Abandoned Line
+message CartAbandonedLineData {
+    option (routines.entity_type) = "CartAbandonedLine";
+    option (routines.keys).keys = "visit_id, cart_abandoned_line_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: visitId, cartAbandonedLineSeqId
+    // fields
+        
+    string visit_id = 1 [json_name = "visit_id"];    
+    string cart_abandoned_line_seq_id = 2 [json_name = "cart_abandoned_line_seq_id"];    
+    string product_id = 3 [json_name = "product_id"];    
+    string prod_catalog_id = 4 [json_name = "prod_catalog_id"];    
+    routines.FixedPoint quantity = 5 [json_name = "quantity"];    
+    google.protobuf.Timestamp reserv_start = 6 [json_name = "reserv_start"];    
+    routines.FixedPoint reserv_length = 7 [json_name = "reserv_length"];    
+    routines.FixedPoint reserv_persons = 8 [json_name = "reserv_persons"];    
+    routines.Currency unit_price = 9 [json_name = "unit_price"];    
+    routines.FixedPoint reserv_2nd_p_p_perc = 10 [json_name = "reserv_2nd_p_p_perc"];    
+    routines.FixedPoint reserv_nth_p_p_perc = 11 [json_name = "reserv_nth_p_p_perc"];    
+    string config_id = 12 [json_name = "config_id"];    
+    routines.Currency total_with_adjustments = 13 [json_name = "total_with_adjustments"];    
+    routines.Indicator was_reserved = 14 [json_name = "was_reserved"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];    
+    string id = 17 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
+}
+
+
+message CartAbandonedLineList{
+    repeated CartAbandonedLineData values=1;
+}
+
+

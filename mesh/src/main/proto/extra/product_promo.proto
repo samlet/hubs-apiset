@@ -1,0 +1,166 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductPromoExtraProto";
+option objc_class_prefix = "ProductPromoExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Product Promotion Email
+message OldProductPromoCodeEmailData {
+    option (routines.entity_type) = "OldProductPromoCodeEmail";
+    option (routines.keys).keys = "product_promo_code_id, email_address";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPromoCodeId, emailAddress
+    // fields
+        
+    string product_promo_code_id = 1 [json_name = "product_promo_code_id"];    
+    string email_address = 2 [json_name = "email_address"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message OldProductPromoCodeEmailList{
+    repeated OldProductPromoCodeEmailData values=1;
+}
+
+
+// Product Promotion ContactMech
+message ProdPromoCodeContactMechData {
+    option (routines.entity_type) = "ProdPromoCodeContactMech";
+    option (routines.keys).keys = "product_promo_code_id, contact_mech_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPromoCodeId, contactMechId
+    // fields
+        
+    string product_promo_code_id = 1 [json_name = "product_promo_code_id"];    
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ProdPromoCodeContactMechList{
+    repeated ProdPromoCodeContactMechData values=1;
+}
+
+
+// Product Promotion Party
+message ProductPromoCodePartyData {
+    option (routines.entity_type) = "ProductPromoCodeParty";
+    option (routines.keys).keys = "product_promo_code_id, party_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPromoCodeId, partyId
+    // fields
+        
+    string product_promo_code_id = 1 [json_name = "product_promo_code_id"];    
+    string party_id = 2 [json_name = "party_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message ProductPromoCodePartyList{
+    repeated ProductPromoCodePartyData values=1;
+}
+
+
+// Product Promo Content
+message ProductPromoContentData {
+    option (routines.entity_type) = "ProductPromoContent";
+    option (routines.keys).keys = "product_promo_id, content_id, product_promo_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: productPromoId, contentId, productPromoContentTypeId, fromDate
+    // fields
+        
+    string product_promo_id = 1 [json_name = "product_promo_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string product_promo_content_type_id = 3 [json_name = "product_promo_content_type_id"]; // ProductContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductPromoContentList{
+    repeated ProductPromoContentData values=1;
+}
+
+
+// Product Promotion Use
+message ProductPromoUseData {
+    option (routines.entity_type) = "ProductPromoUse";
+    option (routines.keys).keys = "order_id, promo_sequence_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: orderId, promoSequenceId
+    // fields
+        
+    string order_id = 1 [json_name = "order_id"];    
+    string promo_sequence_id = 2 [json_name = "promo_sequence_id"];    
+    string product_promo_id = 3 [json_name = "product_promo_id"];    
+    string product_promo_code_id = 4 [json_name = "product_promo_code_id"];    
+    string party_id = 5 [json_name = "party_id"];    
+    routines.Currency total_discount_amount = 6 [json_name = "total_discount_amount"];    
+    routines.FixedPoint quantity_left_in_actions = 7 [json_name = "quantity_left_in_actions"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ProductPromoUseList{
+    repeated ProductPromoUseData values=1;
+}
+
+

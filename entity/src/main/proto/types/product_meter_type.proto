@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: Product Meter Type
 message ProductMeterTypeData {
@@ -27,6 +25,13 @@ message ProductMeterTypeData {
     string description = 2 [json_name = "description"];
     string default_uom_id = 3 [json_name = "default_uom_id"]; // Uom    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message ProductMeterTypeList{
+    repeated ProductMeterTypeData values=1;
+}

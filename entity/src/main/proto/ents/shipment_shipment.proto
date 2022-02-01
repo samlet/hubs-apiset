@@ -41,6 +41,11 @@ message CarrierShipmentBoxTypeData {
 }
 
 
+message CarrierShipmentBoxTypeList{
+    repeated CarrierShipmentBoxTypeData values=1;
+}
+
+
 // Carrier Shipment Method
 message CarrierShipmentMethodData {
     option (routines.entity_type) = "CarrierShipmentMethod";
@@ -64,6 +69,11 @@ message CarrierShipmentMethodData {
     // extra
     google.protobuf.Struct extra = 16;
     map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+message CarrierShipmentMethodList{
+    repeated CarrierShipmentMethodData values=1;
 }
 
 
@@ -115,6 +125,9 @@ message ShipmentFlatData {
     map<string, google.protobuf.Any> attachments = 76 ;
 }
 
+message ShipmentList{
+    repeated ShipmentFlatData values=1;
+}
 
 // flat-ent: Shipment Contact Mechanism Type
 message ShipmentBoxTypeFlatData {
@@ -142,6 +155,9 @@ message ShipmentBoxTypeFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message ShipmentBoxTypeList{
+    repeated ShipmentBoxTypeFlatData values=1;
+}
 
 // flat-ent: Shipment Cost Estimate
 message ShipmentCostEstimateFlatData {
@@ -189,6 +205,9 @@ message ShipmentCostEstimateFlatData {
     map<string, google.protobuf.Any> attachments = 47 ;
 }
 
+message ShipmentCostEstimateList{
+    repeated ShipmentCostEstimateFlatData values=1;
+}
 
 // Shipment Item
 message ShipmentItemData {
@@ -213,6 +232,11 @@ message ShipmentItemData {
     // extra
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ShipmentItemList{
+    repeated ShipmentItemData values=1;
 }
 
 
@@ -241,6 +265,11 @@ message ShipmentItemBillingData {
 }
 
 
+message ShipmentItemBillingList{
+    repeated ShipmentItemBillingData values=1;
+}
+
+
 // flat-ent: Shipment Method Type
 message ShipmentMethodTypeFlatData {
     option (routines.entity_type) = "ShipmentMethodType";
@@ -262,6 +291,9 @@ message ShipmentMethodTypeFlatData {
     map<string, google.protobuf.Any> attachments = 17 ;
 }
 
+message ShipmentMethodTypeList{
+    repeated ShipmentMethodTypeFlatData values=1;
+}
 
 // Shipment Package
 message ShipmentPackageData {
@@ -295,6 +327,11 @@ message ShipmentPackageData {
 }
 
 
+message ShipmentPackageList{
+    repeated ShipmentPackageData values=1;
+}
+
+
 // Shipment Package Content
 message ShipmentPackageContentData {
     option (routines.entity_type) = "ShipmentPackageContent";
@@ -319,6 +356,11 @@ message ShipmentPackageContentData {
     // extra
     google.protobuf.Struct extra = 14;
     map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message ShipmentPackageContentList{
+    repeated ShipmentPackageContentData values=1;
 }
 
 
@@ -356,6 +398,11 @@ message ShipmentPackageRouteSegData {
     // extra
     google.protobuf.Struct extra = 23;
     map<string, google.protobuf.Any> attachments = 24;
+}
+
+
+message ShipmentPackageRouteSegList{
+    repeated ShipmentPackageRouteSegData values=1;
 }
 
 
@@ -416,6 +463,11 @@ message ShipmentRouteSegmentData {
 }
 
 
+message ShipmentRouteSegmentList{
+    repeated ShipmentRouteSegmentData values=1;
+}
+
+
 // Shipment Status
 message ShipmentStatusData {
     option (routines.entity_type) = "ShipmentStatus";
@@ -438,6 +490,11 @@ message ShipmentStatusData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message ShipmentStatusList{
+    repeated ShipmentStatusData values=1;
 }
 
 
@@ -469,6 +526,11 @@ message ShipmentTimeEstimateData {
     // extra
     google.protobuf.Struct extra = 15;
     map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ShipmentTimeEstimateList{
+    repeated ShipmentTimeEstimateData values=1;
 }
 
 

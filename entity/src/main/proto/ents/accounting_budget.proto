@@ -38,6 +38,9 @@ message BudgetFlatData {
     map<string, google.protobuf.Any> attachments = 23 ;
 }
 
+message BudgetList{
+    repeated BudgetFlatData values=1;
+}
 
 // Budget Status
 message BudgetStatusData {
@@ -62,6 +65,11 @@ message BudgetStatusData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message BudgetStatusList{
+    repeated BudgetStatusData values=1;
 }
 
 

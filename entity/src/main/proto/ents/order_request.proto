@@ -61,6 +61,9 @@ message CustRequestFlatData {
     map<string, google.protobuf.Any> attachments = 57 ;
 }
 
+message CustRequestList{
+    repeated CustRequestFlatData values=1;
+}
 
 // Customer Request Item
 message CustRequestItemData {
@@ -100,6 +103,11 @@ message CustRequestItemData {
 }
 
 
+message CustRequestItemList{
+    repeated CustRequestItemData values=1;
+}
+
+
 // flat-ent: Customer Request Type
 message CustRequestTypeFlatData {
     option (routines.entity_type) = "CustRequestType";
@@ -123,4 +131,7 @@ message CustRequestTypeFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message CustRequestTypeList{
+    repeated CustRequestTypeFlatData values=1;
+}
 

@@ -59,6 +59,9 @@ message FixedAssetFlatData {
     map<string, google.protobuf.Any> attachments = 66 ;
 }
 
+message FixedAssetList{
+    repeated FixedAssetFlatData values=1;
+}
 
 // Fixed Asset Depreciation Method
 message FixedAssetDepMethodData {
@@ -82,6 +85,11 @@ message FixedAssetDepMethodData {
     // extra
     google.protobuf.Struct extra = 10;
     map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message FixedAssetDepMethodList{
+    repeated FixedAssetDepMethodData values=1;
 }
 
 
@@ -110,6 +118,11 @@ message FixedAssetGeoPointData {
 }
 
 
+message FixedAssetGeoPointList{
+    repeated FixedAssetGeoPointData values=1;
+}
+
+
 // Fixed Asset Meter
 message FixedAssetMeterData {
     option (routines.entity_type) = "FixedAssetMeter";
@@ -135,6 +148,11 @@ message FixedAssetMeterData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FixedAssetMeterList{
+    repeated FixedAssetMeterData values=1;
 }
 
 
@@ -168,6 +186,11 @@ message FixedAssetProductData {
 }
 
 
+message FixedAssetProductList{
+    repeated FixedAssetProductData values=1;
+}
+
+
 // Fixed Asset Registration
 message FixedAssetRegistrationData {
     option (routines.entity_type) = "FixedAssetRegistration";
@@ -196,6 +219,11 @@ message FixedAssetRegistrationData {
 }
 
 
+message FixedAssetRegistrationList{
+    repeated FixedAssetRegistrationData values=1;
+}
+
+
 // Fixed Asset Standard Cost
 message FixedAssetStdCostData {
     option (routines.entity_type) = "FixedAssetStdCost";
@@ -220,6 +248,11 @@ message FixedAssetStdCostData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FixedAssetStdCostList{
+    repeated FixedAssetStdCostData values=1;
 }
 
 

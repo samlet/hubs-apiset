@@ -41,3 +41,8 @@ message SystemPropertyData {
 }
 
 
+message SystemPropertyList{
+    repeated SystemPropertyData values=1;
+}
+
+

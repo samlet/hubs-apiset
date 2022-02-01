@@ -61,6 +61,9 @@ message CommunicationEventFlatData {
     map<string, google.protobuf.Any> attachments = 58 ;
 }
 
+message CommunicationEventList{
+    repeated CommunicationEventFlatData values=1;
+}
 
 // Communication Event Role Entity showing all participants of the communication event.
 message CommunicationEventRoleData {
@@ -85,6 +88,11 @@ message CommunicationEventRoleData {
     // extra
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message CommunicationEventRoleList{
+    repeated CommunicationEventRoleData values=1;
 }
 
 

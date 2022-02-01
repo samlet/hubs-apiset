@@ -38,4 +38,7 @@ message EmplPositionTypeFlatData {
     map<string, google.protobuf.Any> attachments = 17 ;
 }
 
+message EmplPositionTypeList{
+    repeated EmplPositionTypeFlatData values=1;
+}
 

@@ -56,6 +56,11 @@ message ProductSubscriptionResourceData {
 }
 
 
+message ProductSubscriptionResourceList{
+    repeated ProductSubscriptionResourceData values=1;
+}
+
+
 // flat-ent: Subscription Resource
 message SubscriptionResourceFlatData {
     option (routines.entity_type) = "SubscriptionResource";
@@ -80,4 +85,7 @@ message SubscriptionResourceFlatData {
     map<string, google.protobuf.Any> attachments = 18 ;
 }
 
+message SubscriptionResourceList{
+    repeated SubscriptionResourceFlatData values=1;
+}
 

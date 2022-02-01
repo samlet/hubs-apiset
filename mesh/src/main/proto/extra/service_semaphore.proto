@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ServiceSemaphoreExtraProto";
+option objc_class_prefix = "ServiceSemaphoreExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Semaphore Lock
+message ServiceSemaphoreData {
+    option (routines.entity_type) = "ServiceSemaphore";
+    option (routines.keys).keys = "service_name";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: serviceName
+    // fields
+        
+    string service_name = 1 [json_name = "service_name"];    
+    string locked_by_instance_id = 2 [json_name = "locked_by_instance_id"];    
+    string lock_thread = 3 [json_name = "lock_thread"];    
+    google.protobuf.Timestamp lock_time = 4 [json_name = "lock_time"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message ServiceSemaphoreList{
+    repeated ServiceSemaphoreData values=1;
+}
+
+

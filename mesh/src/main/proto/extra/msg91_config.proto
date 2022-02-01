@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "Msg91ConfigExtraProto";
+option objc_class_prefix = "Msg91ConfigExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Msg91 Gateway Configuration Settings
+message Msg91GatewayConfigData {
+    option (routines.entity_type) = "Msg91GatewayConfig";
+    option (routines.keys).keys = "telecom_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: telecomGatewayConfigId
+    // fields
+        
+    string telecom_gateway_config_id = 1 [json_name = "telecom_gateway_config_id"];    
+    string api_url = 2 [json_name = "api_url"];    
+    string country = 3 [json_name = "country"];    
+    string route = 4 [json_name = "route"];    
+    string authkey = 5 [json_name = "authkey"];    
+    string sender = 6 [json_name = "sender"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message Msg91GatewayConfigList{
+    repeated Msg91GatewayConfigData values=1;
+}
+
+

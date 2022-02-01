@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.bluecc.hubs.stub";
+option java_package = "com.bluecc.hubs.service";
 option java_outer_classname = "FacadeTypesProto";
 option objc_class_prefix = "FCP";
 
@@ -14,19 +14,9 @@ import "types/status_type.proto";
 import "types/status_item.proto";
 
 service EntityTypesService {
-    rpc QueryStatusType(QueryType) returns (StatusTypeList) {}
-    rpc QueryStatusItem(QueryType) returns (StatusItemList) {}
+    rpc QueryStatusType(QueryType) returns (domain.StatusTypeList) {}
+    rpc QueryStatusItem(QueryType) returns (domain.StatusItemList) {}
 }
-
-
-message StatusTypeList{
-  repeated domain.StatusTypeData data=1;
-}
-
-message StatusItemList{
-  repeated domain.StatusItemData data=1;
-}
-
 
 message QueryType{
   string version=1;

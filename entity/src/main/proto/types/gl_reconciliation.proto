@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: General Ledger Reconciliation
 message GlReconciliationData {
@@ -37,6 +35,13 @@ message GlReconciliationData {
     routines.Currency opening_balance = 12 [json_name = "opening_balance"];    
     google.protobuf.Timestamp reconciled_date = 13 [json_name = "reconciled_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 21;
+    map<string, google.protobuf.Any> attachments = 22 ;
 }
 
+message GlReconciliationList{
+    repeated GlReconciliationData values=1;
+}

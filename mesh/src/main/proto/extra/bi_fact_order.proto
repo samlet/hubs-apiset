@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BiFactOrderExtraProto";
+option objc_class_prefix = "BiFactOrderExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Sales Order Item Fact
+message SalesOrderItemFactData {
+    option (routines.entity_type) = "SalesOrderItemFact";
+    option (routines.keys).keys = "order_id, order_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: orderId, orderItemSeqId
+    // fields
+        
+    string order_id = 1 [json_name = "order_id"];    
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];    
+    string order_date_dim_id = 3 [json_name = "order_date_dim_id"];    
+    string product_dim_id = 4 [json_name = "product_dim_id"];    
+    string orig_currency_dim_id = 5 [json_name = "orig_currency_dim_id"];    
+    string bill_to_customer_dim_id = 6 [json_name = "bill_to_customer_dim_id"];    
+    string product_category_id = 7 [json_name = "product_category_id"];    
+    string product_store_id = 8 [json_name = "product_store_id"];    
+    string sales_channel_enum_id = 9 [json_name = "sales_channel_enum_id"];    
+    string status_id = 10 [json_name = "status_id"];    
+    string brand = 11 [json_name = "brand"];    
+    string pod = 12 [json_name = "pod"];    
+    string account = 13 [json_name = "account"];    
+    routines.FixedPoint quantity = 14 [json_name = "quantity"];    
+    routines.Currency ext_gross_amount = 15 [json_name = "ext_gross_amount"];    
+    routines.Currency ext_gross_cost = 16 [json_name = "ext_gross_cost"];    
+    routines.Currency ext_discount_amount = 17 [json_name = "ext_discount_amount"];    
+    routines.Currency ext_net_amount = 18 [json_name = "ext_net_amount"];    
+    routines.Currency ext_shipping_amount = 19 [json_name = "ext_shipping_amount"];    
+    routines.Currency ext_tax_amount = 20 [json_name = "ext_tax_amount"];    
+    routines.Currency g_s = 21 [json_name = "g_s"];    
+    routines.Currency g_m_s = 22 [json_name = "g_m_s"];    
+    routines.Currency g_m_p = 23 [json_name = "g_m_p"];    
+    routines.Currency g_s_s = 24 [json_name = "g_s_s"];    
+    routines.Currency g_s_c = 25 [json_name = "g_s_c"];    
+    routines.Currency g_s_p = 26 [json_name = "g_s_p"];    
+    routines.Currency g_p = 27 [json_name = "g_p"];    
+    routines.FixedPoint count_order = 28 [json_name = "count_order"];    
+    string product_promo_code = 29 [json_name = "product_promo_code"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 30 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 31 [json_name = "created_tx_stamp"];    
+    string id = 32 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 33;
+    map<string, google.protobuf.Any> attachments = 34;
+}
+
+
+message SalesOrderItemFactList{
+    repeated SalesOrderItemFactData values=1;
+}
+
+

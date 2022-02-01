@@ -59,6 +59,9 @@ message JobSandboxFlatData {
     map<string, google.protobuf.Any> attachments = 38 ;
 }
 
+message JobSandboxList{
+    repeated JobSandboxFlatData values=1;
+}
 
 // flat-ent: Recurrence Info
 message RecurrenceInfoFlatData {
@@ -85,6 +88,9 @@ message RecurrenceInfoFlatData {
     map<string, google.protobuf.Any> attachments = 20 ;
 }
 
+message RecurrenceInfoList{
+    repeated RecurrenceInfoFlatData values=1;
+}
 
 // flat-ent: Recurrence Rule
 message RecurrenceRuleFlatData {
@@ -120,6 +126,9 @@ message RecurrenceRuleFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message RecurrenceRuleList{
+    repeated RecurrenceRuleFlatData values=1;
+}
 
 // flat-ent: Temporal Expression
 message TemporalExpressionFlatData {
@@ -148,6 +157,9 @@ message TemporalExpressionFlatData {
     map<string, google.protobuf.Any> attachments = 19 ;
 }
 
+message TemporalExpressionList{
+    repeated TemporalExpressionFlatData values=1;
+}
 
 // Temporal Expression Association
 message TemporalExpressionAssocData {
@@ -170,6 +182,11 @@ message TemporalExpressionAssocData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message TemporalExpressionAssocList{
+    repeated TemporalExpressionAssocData values=1;
 }
 
 

@@ -1,0 +1,176 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductConfigExtraProto";
+option objc_class_prefix = "ProductConfigExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Config Option Product Options
+message ConfigOptionProductOptionData {
+    option (routines.entity_type) = "ConfigOptionProductOption";
+    option (routines.keys).keys = "config_id, config_item_id, sequence_num, config_option_id, product_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: configId, configItemId, configOptionId, sequenceNum, productId
+    // fields
+        
+    string config_id = 1 [json_name = "config_id"];    
+    string config_item_id = 2 [json_name = "config_item_id"];    
+    int64 sequence_num = 3 [json_name = "sequence_num"];    
+    string config_option_id = 4 [json_name = "config_option_id"];    
+    string product_id = 5 [json_name = "product_id"];    
+    string product_option_id = 6 [json_name = "product_option_id"];    
+    string description = 7 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message ConfigOptionProductOptionList{
+    repeated ConfigOptionProductOptionData values=1;
+}
+
+
+// Product Configuration Question Data Object
+message ProdConfItemContentData {
+    option (routines.entity_type) = "ProdConfItemContent";
+    option (routines.keys).keys = "config_item_id, content_id, conf_item_content_type_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: configItemId, contentId, confItemContentTypeId, fromDate
+    // fields
+        
+    string config_item_id = 1 [json_name = "config_item_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string conf_item_content_type_id = 3 [json_name = "conf_item_content_type_id"]; // ProdConfItemContentType    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProdConfItemContentList{
+    repeated ProdConfItemContentData values=1;
+}
+
+
+// Existing Product Configurations
+message ProductConfigConfigData {
+    option (routines.entity_type) = "ProductConfigConfig";
+    option (routines.keys).keys = "config_id, config_item_id, sequence_num, config_option_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: configId, configItemId, configOptionId, sequenceNum
+    // fields
+        
+    string config_id = 1 [json_name = "config_id"];    
+    string config_item_id = 2 [json_name = "config_item_id"];    
+    int64 sequence_num = 3 [json_name = "sequence_num"];    
+    string config_option_id = 4 [json_name = "config_option_id"];    
+    string description = 5 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message ProductConfigConfigList{
+    repeated ProductConfigConfigData values=1;
+}
+
+
+// Product Configuration Options
+message ProductConfigOptionIactnData {
+    option (routines.entity_type) = "ProductConfigOptionIactn";
+    option (routines.keys).keys = "config_item_id, config_option_id, config_item_id_to, config_option_id_to, sequence_num";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: configItemId, configOptionId, configItemIdTo, configOptionIdTo, sequenceNum
+    // fields
+        
+    string config_item_id = 1 [json_name = "config_item_id"];    
+    string config_option_id = 2 [json_name = "config_option_id"];    
+    string config_item_id_to = 3 [json_name = "config_item_id_to"];    
+    string config_option_id_to = 4 [json_name = "config_option_id_to"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    string config_iactn_type_id = 6 [json_name = "config_iactn_type_id"];    
+    string description = 7 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message ProductConfigOptionIactnList{
+    repeated ProductConfigOptionIactnData values=1;
+}
+
+
+// Product Configurations Stats
+message ProductConfigStatsData {
+    option (routines.entity_type) = "ProductConfigStats";
+    option (routines.keys).keys = "config_id, product_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: configId, productId
+    // fields
+        
+    string config_id = 1 [json_name = "config_id"];    
+    string product_id = 2 [json_name = "product_id"];    
+    int64 num_of_confs = 3 [json_name = "num_of_confs"];    
+    string config_type_id = 4 [json_name = "config_type_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message ProductConfigStatsList{
+    repeated ProductConfigStatsData values=1;
+}
+
+

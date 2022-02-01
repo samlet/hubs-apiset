@@ -1,0 +1,937 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingPaymentExtraProto";
+option objc_class_prefix = "AccountingPaymentExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Billing Account Term
+message BillingAccountTermData {
+    option (routines.entity_type) = "BillingAccountTerm";
+    option (routines.keys).keys = "billing_account_term_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: billingAccountTermId
+    // fields
+        
+    string billing_account_term_id = 1 [json_name = "billing_account_term_id"];    
+    string billing_account_id = 2 [json_name = "billing_account_id"];
+    string term_type_id = 3 [json_name = "term_type_id"]; // TermType    
+    routines.Currency term_value = 4 [json_name = "term_value"];    
+    int64 term_days = 5 [json_name = "term_days"];
+    string uom_id = 6 [json_name = "uom_id"]; // Uom    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message BillingAccountTermList{
+    repeated BillingAccountTermData values=1;
+}
+
+
+// Billing Account Term Attribute
+message BillingAccountTermAttrData {
+    option (routines.entity_type) = "BillingAccountTermAttr";
+    option (routines.keys).keys = "billing_account_term_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: billingAccountTermId, attrName
+    // fields
+        
+    string billing_account_term_id = 1 [json_name = "billing_account_term_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message BillingAccountTermAttrList{
+    repeated BillingAccountTermAttrData values=1;
+}
+
+
+// Check Information
+message CheckAccountData {
+    option (routines.entity_type) = "CheckAccount";
+    option (routines.keys).keys = "payment_method_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentMethodId
+    // fields
+        
+    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string bank_name = 2 [json_name = "bank_name"];    
+    string routing_number = 3 [json_name = "routing_number"];    
+    string account_type = 4 [json_name = "account_type"];    
+    string account_number = 5 [json_name = "account_number"];    
+    string name_on_account = 6 [json_name = "name_on_account"];    
+    string company_name_on_account = 7 [json_name = "company_name_on_account"];    
+    string contact_mech_id = 8 [json_name = "contact_mech_id"];    
+    string branch_code = 9 [json_name = "branch_code"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message CheckAccountList{
+    repeated CheckAccountData values=1;
+}
+
+
+// Deduction
+message DeductionData {
+    option (routines.entity_type) = "Deduction";
+    option (routines.keys).keys = "deduction_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: deductionId
+    // fields
+        
+    string deduction_id = 1 [json_name = "deduction_id"];
+    string deduction_type_id = 2 [json_name = "deduction_type_id"]; // DeductionType    
+    string payment_id = 3 [json_name = "payment_id"];    
+    routines.Currency amount = 4 [json_name = "amount"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message DeductionList{
+    repeated DeductionData values=1;
+}
+
+
+// Gift Card Information
+message GiftCardData {
+    option (routines.entity_type) = "GiftCard";
+    option (routines.keys).keys = "payment_method_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentMethodId
+    // fields
+        
+    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string card_number = 2 [json_name = "card_number"];    
+    string pin_number = 3 [json_name = "pin_number"];    
+    string expire_date = 4 [json_name = "expire_date"];    
+    string contact_mech_id = 5 [json_name = "contact_mech_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message GiftCardList{
+    repeated GiftCardData values=1;
+}
+
+
+// Gift Card Fulfillment History
+message GiftCardFulfillmentData {
+    option (routines.entity_type) = "GiftCardFulfillment";
+    option (routines.keys).keys = "fulfillment_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fulfillmentId
+    // fields
+        
+    string fulfillment_id = 1 [json_name = "fulfillment_id"];
+    string type_enum_id = 2 [json_name = "type_enum_id"]; // Enumeration    
+    string merchant_id = 3 [json_name = "merchant_id"];    
+    string party_id = 4 [json_name = "party_id"];    
+    string order_id = 5 [json_name = "order_id"];    
+    string order_item_seq_id = 6 [json_name = "order_item_seq_id"];    
+    string survey_response_id = 7 [json_name = "survey_response_id"];    
+    string card_number = 8 [json_name = "card_number"];    
+    string pin_number = 9 [json_name = "pin_number"];    
+    routines.Currency amount = 10 [json_name = "amount"];    
+    string response_code = 11 [json_name = "response_code"];    
+    string reference_num = 12 [json_name = "reference_num"];    
+    string auth_code = 13 [json_name = "auth_code"];    
+    google.protobuf.Timestamp fulfillment_date = 14 [json_name = "fulfillment_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
+}
+
+
+message GiftCardFulfillmentList{
+    repeated GiftCardFulfillmentData values=1;
+}
+
+
+// PayPalPaymentMethod
+message PayPalPaymentMethodData {
+    option (routines.entity_type) = "PayPalPaymentMethod";
+    option (routines.keys).keys = "payment_method_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentMethodId
+    // fields
+        
+    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payer_id = 2 [json_name = "payer_id"];    
+    string express_checkout_token = 3 [json_name = "express_checkout_token"];    
+    string payer_status = 4 [json_name = "payer_status"];    
+    routines.Indicator avs_addr = 5 [json_name = "avs_addr"];    
+    routines.Indicator avs_zip = 6 [json_name = "avs_zip"];    
+    string correlation_id = 7 [json_name = "correlation_id"];    
+    string contact_mech_id = 8 [json_name = "contact_mech_id"];    
+    string transaction_id = 9 [json_name = "transaction_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message PayPalPaymentMethodList{
+    repeated PayPalPaymentMethodData values=1;
+}
+
+
+// Payment Attribute
+message PaymentAttributeData {
+    option (routines.entity_type) = "PaymentAttribute";
+    option (routines.keys).keys = "payment_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentId, attrName
+    // fields
+        
+    string payment_id = 1 [json_name = "payment_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PaymentAttributeList{
+    repeated PaymentAttributeData values=1;
+}
+
+
+// Payment Budget Allocation
+message PaymentBudgetAllocationData {
+    option (routines.entity_type) = "PaymentBudgetAllocation";
+    option (routines.keys).keys = "budget_id, budget_item_seq_id, payment_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: budgetId, budgetItemSeqId, paymentId
+    // fields
+        
+    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];    
+    string payment_id = 3 [json_name = "payment_id"];    
+    routines.Currency amount = 4 [json_name = "amount"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message PaymentBudgetAllocationList{
+    repeated PaymentBudgetAllocationData values=1;
+}
+
+
+// Payment Content
+message PaymentContentData {
+    option (routines.entity_type) = "PaymentContent";
+    option (routines.keys).keys = "payment_id, payment_content_type_id, content_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: contentId, paymentId, paymentContentTypeId, fromDate
+    // fields
+        
+    string payment_id = 1 [json_name = "payment_id"];    
+    string payment_content_type_id = 2 [json_name = "payment_content_type_id"];    
+    string content_id = 3 [json_name = "content_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
+}
+
+
+message PaymentContentList{
+    repeated PaymentContentData values=1;
+}
+
+
+// Authorize Dot Net Payment Gateway Configuration
+message PaymentGatewayAuthorizeNetData {
+    option (routines.entity_type) = "PaymentGatewayAuthorizeNet";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string transaction_url = 2 [json_name = "transaction_url"];    
+    string certificate_alias = 3 [json_name = "certificate_alias"];    
+    string api_version = 4 [json_name = "api_version"];    
+    string delimited_data = 5 [json_name = "delimited_data"];    
+    string delimiter_char = 6 [json_name = "delimiter_char"];    
+    string cp_version = 7 [json_name = "cp_version"];    
+    string cp_market_type = 8 [json_name = "cp_market_type"];    
+    string cp_device_type = 9 [json_name = "cp_device_type"];    
+    string method = 10 [json_name = "method"];    
+    string email_customer = 11 [json_name = "email_customer"];    
+    string email_merchant = 12 [json_name = "email_merchant"];    
+    string test_mode = 13 [json_name = "test_mode"];    
+    string relay_response = 14 [json_name = "relay_response"];    
+    string tran_key = 15 [json_name = "tran_key"];    
+    string user_id = 16 [json_name = "user_id"];    
+    string pwd = 17 [json_name = "pwd"];    
+    string trans_description = 18 [json_name = "trans_description"];    
+    int64 duplicate_window = 19 [json_name = "duplicate_window"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+message PaymentGatewayAuthorizeNetList{
+    repeated PaymentGatewayAuthorizeNetData values=1;
+}
+
+
+// Clear Commerce Payment Gateway Config
+message PaymentGatewayClearCommerceData {
+    option (routines.entity_type) = "PaymentGatewayClearCommerce";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string source_id = 2 [json_name = "source_id"];    
+    string group_id = 3 [json_name = "group_id"];    
+    string client_id = 4 [json_name = "client_id"];    
+    string username = 5 [json_name = "username"];    
+    string pwd = 6 [json_name = "pwd"];    
+    string user_alias = 7 [json_name = "user_alias"];    
+    string effective_alias = 8 [json_name = "effective_alias"];    
+    routines.Indicator process_mode = 9 [json_name = "process_mode"];    
+    string server_u_r_l = 10 [json_name = "server_u_r_l"];    
+    routines.Indicator enable_c_v_m = 11 [json_name = "enable_c_v_m"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message PaymentGatewayClearCommerceList{
+    repeated PaymentGatewayClearCommerceData values=1;
+}
+
+
+// Payment Gateway Config
+message PaymentGatewayConfigData {
+    option (routines.entity_type) = "PaymentGatewayConfig";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];
+    string payment_gateway_config_type_id = 2 [json_name = "payment_gateway_config_type_id"]; // PaymentGatewayConfigType    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PaymentGatewayConfigList{
+    repeated PaymentGatewayConfigData values=1;
+}
+
+
+// CyberSource Payment Gateway Configuration
+message PaymentGatewayCyberSourceData {
+    option (routines.entity_type) = "PaymentGatewayCyberSource";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string merchant_id = 2 [json_name = "merchant_id"];    
+    string api_version = 3 [json_name = "api_version"];    
+    string production = 4 [json_name = "production"];    
+    string keys_dir = 5 [json_name = "keys_dir"];    
+    string keys_file = 6 [json_name = "keys_file"];    
+    string log_enabled = 7 [json_name = "log_enabled"];    
+    string log_dir = 8 [json_name = "log_dir"];    
+    string log_file = 9 [json_name = "log_file"];    
+    int64 log_size = 10 [json_name = "log_size"];    
+    string merchant_descr = 11 [json_name = "merchant_descr"];    
+    string merchant_contact = 12 [json_name = "merchant_contact"];    
+    string auto_bill = 13 [json_name = "auto_bill"];    
+    routines.Indicator enable_dav = 14 [json_name = "enable_dav"];    
+    routines.Indicator fraud_score = 15 [json_name = "fraud_score"];    
+    string ignore_avs = 16 [json_name = "ignore_avs"];    
+    routines.Indicator disable_bill_avs = 17 [json_name = "disable_bill_avs"];    
+    string avs_decline_codes = 18 [json_name = "avs_decline_codes"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 19 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 20 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 21;
+    map<string, google.protobuf.Any> attachments = 22;
+}
+
+
+message PaymentGatewayCyberSourceList{
+    repeated PaymentGatewayCyberSourceData values=1;
+}
+
+
+// eWay Payment Gateway Configuration
+message PaymentGatewayEwayData {
+    option (routines.entity_type) = "PaymentGatewayEway";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string customer_id = 2 [json_name = "customer_id"];    
+    string refund_pwd = 3 [json_name = "refund_pwd"];    
+    string test_mode = 4 [json_name = "test_mode"];    
+    string enable_cvn = 5 [json_name = "enable_cvn"];    
+    string enable_beagle = 6 [json_name = "enable_beagle"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PaymentGatewayEwayList{
+    repeated PaymentGatewayEwayData values=1;
+}
+
+
+// First Data Payment Gateway Config
+message PaymentGatewayFirstDataData {
+    option (routines.entity_type) = "PaymentGatewayFirstData";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string app_name = 2 [json_name = "app_name"];    
+    string api_key = 3 [json_name = "api_key"];    
+    string api_secret = 4 [json_name = "api_secret"];    
+    string transaction_url = 5 [json_name = "transaction_url"];    
+    routines.Indicator enable_data_vault = 6 [json_name = "enable_data_vault"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PaymentGatewayFirstDataList{
+    repeated PaymentGatewayFirstDataData values=1;
+}
+
+
+// Orbital Payment Gateway Config
+message PaymentGatewayOrbitalData {
+    option (routines.entity_type) = "PaymentGatewayOrbital";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string username = 2 [json_name = "username"];    
+    string connection_password = 3 [json_name = "connection_password"];    
+    string merchant_id = 4 [json_name = "merchant_id"];    
+    string engine_class = 5 [json_name = "engine_class"];    
+    string host_name = 6 [json_name = "host_name"];    
+    int64 port = 7 [json_name = "port"];    
+    string host_name_failover = 8 [json_name = "host_name_failover"];    
+    int64 port_failover = 9 [json_name = "port_failover"];    
+    int64 connection_timeout_seconds = 10 [json_name = "connection_timeout_seconds"];    
+    int64 read_timeout_seconds = 11 [json_name = "read_timeout_seconds"];    
+    string authorization_u_r_i = 12 [json_name = "authorization_u_r_i"];    
+    string sdk_version = 13 [json_name = "sdk_version"];    
+    string ssl_socket_factory = 14 [json_name = "ssl_socket_factory"];    
+    string response_type = 15 [json_name = "response_type"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
+}
+
+
+message PaymentGatewayOrbitalList{
+    repeated PaymentGatewayOrbitalData values=1;
+}
+
+
+// PayPal Payment Gateway Config
+message PaymentGatewayPayPalData {
+    option (routines.entity_type) = "PaymentGatewayPayPal";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string business_email = 2 [json_name = "business_email"];    
+    string api_user_name = 3 [json_name = "api_user_name"];    
+    string api_password = 4 [json_name = "api_password"];    
+    string api_signature = 5 [json_name = "api_signature"];    
+    string api_environment = 6 [json_name = "api_environment"];    
+    string notify_url = 7 [json_name = "notify_url"];    
+    string return_url = 8 [json_name = "return_url"];    
+    string cancel_return_url = 9 [json_name = "cancel_return_url"];    
+    string image_url = 10 [json_name = "image_url"];    
+    string confirm_template = 11 [json_name = "confirm_template"];    
+    string redirect_url = 12 [json_name = "redirect_url"];    
+    string confirm_url = 13 [json_name = "confirm_url"];    
+    string shipping_callback_url = 14 [json_name = "shipping_callback_url"];    
+    routines.Indicator require_confirmed_shipping = 15 [json_name = "require_confirmed_shipping"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
+}
+
+
+message PaymentGatewayPayPalList{
+    repeated PaymentGatewayPayPalData values=1;
+}
+
+
+// Payflow Pro Payment Gateway Config
+message PaymentGatewayPayflowProData {
+    option (routines.entity_type) = "PaymentGatewayPayflowPro";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string certs_path = 2 [json_name = "certs_path"];    
+    string host_address = 3 [json_name = "host_address"];    
+    int64 host_port = 4 [json_name = "host_port"];    
+    int64 timeout = 5 [json_name = "timeout"];    
+    string proxy_address = 6 [json_name = "proxy_address"];    
+    int64 proxy_port = 7 [json_name = "proxy_port"];    
+    string proxy_logon = 8 [json_name = "proxy_logon"];    
+    string proxy_password = 9 [json_name = "proxy_password"];    
+    string vendor = 10 [json_name = "vendor"];    
+    string user_id = 11 [json_name = "user_id"];    
+    string pwd = 12 [json_name = "pwd"];    
+    string partner = 13 [json_name = "partner"];    
+    routines.Indicator check_avs = 14 [json_name = "check_avs"];    
+    routines.Indicator check_cvv2 = 15 [json_name = "check_cvv2"];    
+    routines.Indicator pre_auth = 16 [json_name = "pre_auth"];    
+    string enable_transmit = 17 [json_name = "enable_transmit"];    
+    string log_file_name = 18 [json_name = "log_file_name"];    
+    int64 logging_level = 19 [json_name = "logging_level"];    
+    int64 max_log_file_size = 20 [json_name = "max_log_file_size"];    
+    routines.Indicator stack_trace_on = 21 [json_name = "stack_trace_on"];    
+    string redirect_url = 22 [json_name = "redirect_url"];    
+    string return_url = 23 [json_name = "return_url"];    
+    string cancel_return_url = 24 [json_name = "cancel_return_url"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 25 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 26 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
+}
+
+
+message PaymentGatewayPayflowProList{
+    repeated PaymentGatewayPayflowProData values=1;
+}
+
+
+// Payment Gateway Response Message
+message PaymentGatewayRespMsgData {
+    option (routines.entity_type) = "PaymentGatewayRespMsg";
+    option (routines.keys).keys = "payment_gateway_resp_msg_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayRespMsgId
+    // fields
+        
+    string payment_gateway_resp_msg_id = 1 [json_name = "payment_gateway_resp_msg_id"];    
+    string payment_gateway_response_id = 2 [json_name = "payment_gateway_response_id"];    
+    string pgr_message = 3 [json_name = "pgr_message"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message PaymentGatewayRespMsgList{
+    repeated PaymentGatewayRespMsgData values=1;
+}
+
+
+// SagePay Payment Gateway Configuration
+message PaymentGatewaySagePayData {
+    option (routines.entity_type) = "PaymentGatewaySagePay";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string vendor = 2 [json_name = "vendor"];    
+    string production_host = 3 [json_name = "production_host"];    
+    string testing_host = 4 [json_name = "testing_host"];    
+    string sage_pay_mode = 5 [json_name = "sage_pay_mode"];    
+    string protocol_version = 6 [json_name = "protocol_version"];    
+    string authentication_trans_type = 7 [json_name = "authentication_trans_type"];    
+    string authentication_url = 8 [json_name = "authentication_url"];    
+    string authorise_trans_type = 9 [json_name = "authorise_trans_type"];    
+    string authorise_url = 10 [json_name = "authorise_url"];    
+    string release_trans_type = 11 [json_name = "release_trans_type"];    
+    string release_url = 12 [json_name = "release_url"];    
+    string void_url = 13 [json_name = "void_url"];    
+    string refund_url = 14 [json_name = "refund_url"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
+}
+
+
+message PaymentGatewaySagePayList{
+    repeated PaymentGatewaySagePayData values=1;
+}
+
+
+// SecurePay Payment Gateway Config
+message PaymentGatewaySecurePayData {
+    option (routines.entity_type) = "PaymentGatewaySecurePay";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string merchant_id = 2 [json_name = "merchant_id"];    
+    string pwd = 3 [json_name = "pwd"];    
+    string server_u_r_l = 4 [json_name = "server_u_r_l"];    
+    int64 process_timeout = 5 [json_name = "process_timeout"];    
+    routines.Indicator enable_amount_round = 6 [json_name = "enable_amount_round"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message PaymentGatewaySecurePayList{
+    repeated PaymentGatewaySecurePayData values=1;
+}
+
+
+// RBS WorldPay Payment Gateway Config
+message PaymentGatewayWorldPayData {
+    option (routines.entity_type) = "PaymentGatewayWorldPay";
+    option (routines.keys).keys = "payment_gateway_config_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGatewayConfigId
+    // fields
+        
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string redirect_url = 2 [json_name = "redirect_url"];    
+    string inst_id = 3 [json_name = "inst_id"];    
+    routines.Indicator auth_mode = 4 [json_name = "auth_mode"];    
+    routines.Indicator fix_contact = 5 [json_name = "fix_contact"];    
+    routines.Indicator hide_contact = 6 [json_name = "hide_contact"];    
+    routines.Indicator hide_currency = 7 [json_name = "hide_currency"];    
+    string lang_id = 8 [json_name = "lang_id"];    
+    routines.Indicator no_language_menu = 9 [json_name = "no_language_menu"];    
+    routines.Indicator with_delivery = 10 [json_name = "with_delivery"];    
+    int64 test_mode = 11 [json_name = "test_mode"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
+}
+
+
+message PaymentGatewayWorldPayList{
+    repeated PaymentGatewayWorldPayData values=1;
+}
+
+
+// Payment Group
+message PaymentGroupData {
+    option (routines.entity_type) = "PaymentGroup";
+    option (routines.keys).keys = "payment_group_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGroupId
+    // fields
+        
+    string payment_group_id = 1 [json_name = "payment_group_id"];
+    string payment_group_type_id = 2 [json_name = "payment_group_type_id"]; // PaymentGroupType    
+    string payment_group_name = 3 [json_name = "payment_group_name"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PaymentGroupList{
+    repeated PaymentGroupData values=1;
+}
+
+
+// Payment Group Member
+message PaymentGroupMemberData {
+    option (routines.entity_type) = "PaymentGroupMember";
+    option (routines.keys).keys = "payment_group_id, payment_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentGroupId, paymentId, fromDate
+    // fields
+        
+    string payment_group_id = 1 [json_name = "payment_group_id"];    
+    string payment_id = 2 [json_name = "payment_id"];    
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
+    int64 sequence_num = 5 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message PaymentGroupMemberList{
+    repeated PaymentGroupMemberData values=1;
+}
+
+
+// Payment Type Attribute
+message PaymentTypeAttrData {
+    option (routines.entity_type) = "PaymentTypeAttr";
+    option (routines.keys).keys = "payment_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: paymentTypeId, attrName
+    // fields
+        
+    string payment_type_id = 1 [json_name = "payment_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message PaymentTypeAttrList{
+    repeated PaymentTypeAttrData values=1;
+}
+
+
+// Value Link Key Store
+message ValueLinkKeyData {
+    option (routines.entity_type) = "ValueLinkKey";
+    option (routines.keys).keys = "merchant_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: merchantId
+    // fields
+        
+    string merchant_id = 1 [json_name = "merchant_id"];    
+    string public_key = 2 [json_name = "public_key"];    
+    string private_key = 3 [json_name = "private_key"];    
+    string exchange_key = 4 [json_name = "exchange_key"];    
+    string working_key = 5 [json_name = "working_key"];    
+    int64 working_key_index = 6 [json_name = "working_key_index"];    
+    string last_working_key = 7 [json_name = "last_working_key"];    
+    google.protobuf.Timestamp created_date = 8 [json_name = "created_date"];    
+    string created_by_terminal = 9 [json_name = "created_by_terminal"];    
+    string created_by_user_login = 10 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_modified_date = 11 [json_name = "last_modified_date"];    
+    string last_modified_by_terminal = 12 [json_name = "last_modified_by_terminal"];    
+    string last_modified_by_user_login = 13 [json_name = "last_modified_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+message ValueLinkKeyList{
+    repeated ValueLinkKeyData values=1;
+}
+
+

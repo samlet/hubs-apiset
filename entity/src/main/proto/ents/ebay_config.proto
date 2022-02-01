@@ -44,4 +44,7 @@ message EbayConfigFlatData {
     map<string, google.protobuf.Any> attachments = 18 ;
 }
 
+message EbayConfigList{
+    repeated EbayConfigFlatData values=1;
+}
 

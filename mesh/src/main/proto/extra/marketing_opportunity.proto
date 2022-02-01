@@ -1,0 +1,382 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "MarketingOpportunityExtraProto";
+option objc_class_prefix = "MarketingOpportunityExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Stores sales forecast data for sales opportunities.
+message SalesForecastData {
+    option (routines.entity_type) = "SalesForecast";
+    option (routines.keys).keys = "sales_forecast_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesForecastId
+    // fields
+        
+    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];    
+    string parent_sales_forecast_id = 2 [json_name = "parent_sales_forecast_id"];    
+    string organization_party_id = 3 [json_name = "organization_party_id"];    
+    string internal_party_id = 4 [json_name = "internal_party_id"];
+    string custom_time_period_id = 5 [json_name = "custom_time_period_id"]; // CustomTimePeriod
+    string currency_uom_id = 6 [json_name = "currency_uom_id"]; // Uom    
+    routines.Currency quota_amount = 7 [json_name = "quota_amount"];    
+    routines.Currency forecast_amount = 8 [json_name = "forecast_amount"];    
+    routines.Currency best_case_amount = 9 [json_name = "best_case_amount"];    
+    routines.Currency closed_amount = 10 [json_name = "closed_amount"];    
+    routines.FixedPoint percent_of_quota_forecast = 11 [json_name = "percent_of_quota_forecast"];    
+    routines.FixedPoint percent_of_quota_closed = 12 [json_name = "percent_of_quota_closed"];    
+    routines.Currency pipeline_amount = 13 [json_name = "pipeline_amount"];    
+    string created_by_user_login_id = 14 [json_name = "created_by_user_login_id"];    
+    string modified_by_user_login_id = 15 [json_name = "modified_by_user_login_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+message SalesForecastList{
+    repeated SalesForecastData values=1;
+}
+
+
+// Stores Details of Resourses of Sales Forecast for simulation of MRP
+message SalesForecastDetailData {
+    option (routines.entity_type) = "SalesForecastDetail";
+    option (routines.keys).keys = "sales_forecast_id, sales_forecast_detail_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesForecastId, salesForecastDetailId
+    // fields
+        
+    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];    
+    string sales_forecast_detail_id = 2 [json_name = "sales_forecast_detail_id"];    
+    routines.Currency amount = 3 [json_name = "amount"];
+    string quantity_uom_id = 4 [json_name = "quantity_uom_id"]; // Uom    
+    routines.FixedPoint quantity = 5 [json_name = "quantity"];    
+    string product_id = 6 [json_name = "product_id"];    
+    string product_category_id = 7 [json_name = "product_category_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string id = 10 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message SalesForecastDetailList{
+    repeated SalesForecastDetailData values=1;
+}
+
+
+// Keeps a record of changes to a sales forecast.
+message SalesForecastHistoryData {
+    option (routines.entity_type) = "SalesForecastHistory";
+    option (routines.keys).keys = "sales_forecast_history_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesForecastHistoryId
+    // fields
+        
+    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id"];    
+    string sales_forecast_id = 2 [json_name = "sales_forecast_id"];    
+    string parent_sales_forecast_id = 3 [json_name = "parent_sales_forecast_id"];    
+    string organization_party_id = 4 [json_name = "organization_party_id"];    
+    string internal_party_id = 5 [json_name = "internal_party_id"];
+    string custom_time_period_id = 6 [json_name = "custom_time_period_id"]; // CustomTimePeriod
+    string currency_uom_id = 7 [json_name = "currency_uom_id"]; // Uom    
+    routines.Currency quota_amount = 8 [json_name = "quota_amount"];    
+    routines.Currency forecast_amount = 9 [json_name = "forecast_amount"];    
+    routines.Currency best_case_amount = 10 [json_name = "best_case_amount"];    
+    routines.Currency closed_amount = 11 [json_name = "closed_amount"];    
+    routines.FixedPoint percent_of_quota_forecast = 12 [json_name = "percent_of_quota_forecast"];    
+    routines.FixedPoint percent_of_quota_closed = 13 [json_name = "percent_of_quota_closed"];    
+    string change_note = 14 [json_name = "change_note"];    
+    string modified_by_user_login_id = 15 [json_name = "modified_by_user_login_id"];    
+    google.protobuf.Timestamp modified_timestamp = 16 [json_name = "modified_timestamp"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
+}
+
+
+message SalesForecastHistoryList{
+    repeated SalesForecastHistoryData values=1;
+}
+
+
+// Main entity of information about sales opportunities
+message SalesOpportunityData {
+    option (routines.entity_type) = "SalesOpportunity";
+    option (routines.keys).keys = "sales_opportunity_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string opportunity_name = 2 [json_name = "opportunity_name"];    
+    string description = 3 [json_name = "description"];    
+    string next_step = 4 [json_name = "next_step"];    
+    google.protobuf.Timestamp next_step_date = 5 [json_name = "next_step_date"];    
+    routines.Currency estimated_amount = 6 [json_name = "estimated_amount"];    
+    routines.FixedPoint estimated_probability = 7 [json_name = "estimated_probability"];
+    string currency_uom_id = 8 [json_name = "currency_uom_id"]; // Uom    
+    string marketing_campaign_id = 9 [json_name = "marketing_campaign_id"];
+    string data_source_id = 10 [json_name = "data_source_id"]; // DataSource    
+    google.protobuf.Timestamp estimated_close_date = 11 [json_name = "estimated_close_date"];    
+    string opportunity_stage_id = 12 [json_name = "opportunity_stage_id"];
+    string type_enum_id = 13 [json_name = "type_enum_id"]; // Enumeration    
+    string created_by_user_login = 14 [json_name = "created_by_user_login"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
+}
+
+
+message SalesOpportunityList{
+    repeated SalesOpportunityData values=1;
+}
+
+
+// Sales opportunity competitors record
+message SalesOpportunityCompetitorData {
+    option (routines.entity_type) = "SalesOpportunityCompetitor";
+    option (routines.keys).keys = "sales_opportunity_id, competitor_party_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId, competitorPartyId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string competitor_party_id = 2 [json_name = "competitor_party_id"];    
+    string position_enum_id = 3 [json_name = "position_enum_id"];    
+    string strengths = 4 [json_name = "strengths"];    
+    string weaknesses = 5 [json_name = "weaknesses"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string id = 8 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message SalesOpportunityCompetitorList{
+    repeated SalesOpportunityCompetitorData values=1;
+}
+
+
+// Tracks a history of sales opportunity information
+message SalesOpportunityHistoryData {
+    option (routines.entity_type) = "SalesOpportunityHistory";
+    option (routines.keys).keys = "sales_opportunity_history_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityHistoryId
+    // fields
+        
+    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id"];    
+    string sales_opportunity_id = 2 [json_name = "sales_opportunity_id"];    
+    string description = 3 [json_name = "description"];    
+    string next_step = 4 [json_name = "next_step"];    
+    routines.Currency estimated_amount = 5 [json_name = "estimated_amount"];    
+    routines.FixedPoint estimated_probability = 6 [json_name = "estimated_probability"];
+    string currency_uom_id = 7 [json_name = "currency_uom_id"]; // Uom    
+    google.protobuf.Timestamp estimated_close_date = 8 [json_name = "estimated_close_date"];    
+    string opportunity_stage_id = 9 [json_name = "opportunity_stage_id"];    
+    string change_note = 10 [json_name = "change_note"];    
+    string modified_by_user_login = 11 [json_name = "modified_by_user_login"];    
+    google.protobuf.Timestamp modified_timestamp = 12 [json_name = "modified_timestamp"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+message SalesOpportunityHistoryList{
+    repeated SalesOpportunityHistoryData values=1;
+}
+
+
+// Relates sales opportunities to their quotes.
+message SalesOpportunityQuoteData {
+    option (routines.entity_type) = "SalesOpportunityQuote";
+    option (routines.keys).keys = "sales_opportunity_id, quote_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId, quoteId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string quote_id = 2 [json_name = "quote_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message SalesOpportunityQuoteList{
+    repeated SalesOpportunityQuoteData values=1;
+}
+
+
+// Describes roles of different parties involved in a sales opportunity
+message SalesOpportunityRoleData {
+    option (routines.entity_type) = "SalesOpportunityRole";
+    option (routines.keys).keys = "sales_opportunity_id, party_id, role_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId, partyId, roleTypeId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message SalesOpportunityRoleList{
+    repeated SalesOpportunityRoleData values=1;
+}
+
+
+// Describes stages of a sales opportunity with associated probability factors.
+message SalesOpportunityStageData {
+    option (routines.entity_type) = "SalesOpportunityStage";
+    option (routines.keys).keys = "opportunity_stage_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: opportunityStageId
+    // fields
+        
+    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id"];    
+    string description = 2 [json_name = "description"];    
+    routines.FixedPoint default_probability = 3 [json_name = "default_probability"];    
+    int64 sequence_num = 4 [json_name = "sequence_num"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message SalesOpportunityStageList{
+    repeated SalesOpportunityStageData values=1;
+}
+
+
+// Sales opportunity traking code
+message SalesOpportunityTrckCodeData {
+    option (routines.entity_type) = "SalesOpportunityTrckCode";
+    option (routines.keys).keys = "sales_opportunity_id, tracking_code_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId, trackingCodeId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string tracking_code_id = 2 [json_name = "tracking_code_id"];    
+    google.protobuf.Timestamp received_date = 3 [json_name = "received_date"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message SalesOpportunityTrckCodeList{
+    repeated SalesOpportunityTrckCodeData values=1;
+}
+
+
+// Relates sales opportunities to their work efforts.
+message SalesOpportunityWorkEffortData {
+    option (routines.entity_type) = "SalesOpportunityWorkEffort";
+    option (routines.keys).keys = "sales_opportunity_id, work_effort_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: salesOpportunityId, workEffortId
+    // fields
+        
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string work_effort_id = 2 [json_name = "work_effort_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string id = 5 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
+}
+
+
+message SalesOpportunityWorkEffortList{
+    repeated SalesOpportunityWorkEffortData values=1;
+}
+
+

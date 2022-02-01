@@ -37,6 +37,9 @@ message ContactMechFlatData {
     map<string, google.protobuf.Any> attachments = 52 ;
 }
 
+message ContactMechList{
+    repeated ContactMechFlatData values=1;
+}
 
 // Party Contact Mechanism
 message PartyContactMechData {
@@ -70,6 +73,11 @@ message PartyContactMechData {
 }
 
 
+message PartyContactMechList{
+    repeated PartyContactMechData values=1;
+}
+
+
 // Party Contact Mechanism Purpose
 message PartyContactMechPurposeData {
     option (routines.entity_type) = "PartyContactMechPurpose";
@@ -93,6 +101,11 @@ message PartyContactMechPurposeData {
     // extra
     google.protobuf.Struct extra = 16;
     map<string, google.protobuf.Any> attachments = 17;
+}
+
+
+message PartyContactMechPurposeList{
+    repeated PartyContactMechPurposeData values=1;
 }
 
 
@@ -132,6 +145,9 @@ message PostalAddressFlatData {
     map<string, google.protobuf.Any> attachments = 48 ;
 }
 
+message PostalAddressList{
+    repeated PostalAddressFlatData values=1;
+}
 
 // flat-ent: Telecommunications Number
 message TelecomNumberFlatData {
@@ -156,4 +172,7 @@ message TelecomNumberFlatData {
     map<string, google.protobuf.Any> attachments = 21 ;
 }
 
+message TelecomNumberList{
+    repeated TelecomNumberFlatData values=1;
+}
 

@@ -8,11 +8,9 @@ option objc_class_prefix = "ETP";
 package domain;
 
 import "google/protobuf/timestamp.proto";
-// import "date.proto";
-// import "timeofday.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
 import "routines.proto";
-// import "condition.proto";
-
 
 // flat-ent: DHL Shipment Gateway Configuration
 message ShipmentGatewayDhlData {
@@ -35,6 +33,13 @@ message ShipmentGatewayDhlData {
     string label_image_format = 10 [json_name = "label_image_format"];    
     string rate_estimate_template = 11 [json_name = "rate_estimate_template"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];  
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"]; 
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message ShipmentGatewayDhlList{
+    repeated ShipmentGatewayDhlData values=1;
+}

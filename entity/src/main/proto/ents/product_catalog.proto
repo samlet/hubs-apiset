@@ -43,6 +43,9 @@ message ProdCatalogFlatData {
     map<string, google.protobuf.Any> attachments = 20 ;
 }
 
+message ProdCatalogList{
+    repeated ProdCatalogFlatData values=1;
+}
 
 // flat-ent: Catalog Category Association
 message ProdCatalogCategoryFlatData {
@@ -69,4 +72,7 @@ message ProdCatalogCategoryFlatData {
     map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message ProdCatalogCategoryList{
+    repeated ProdCatalogCategoryFlatData values=1;
+}
 

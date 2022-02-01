@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CatalinaSessionExtraProto";
+option objc_class_prefix = "CatalinaSessionExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Catalina Session Store
+message CatalinaSessionData {
+    option (routines.entity_type) = "CatalinaSession";
+    option (routines.keys).keys = "session_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: sessionId
+    // fields
+        
+    string session_id = 1 [json_name = "session_id"];    
+    int64 session_size = 2 [json_name = "session_size"];    
+    bytes session_info = 3 [json_name = "session_info"];    
+    routines.Indicator is_valid = 4 [json_name = "is_valid"];    
+    int64 max_idle = 5 [json_name = "max_idle"];    
+    int64 last_accessed = 6 [json_name = "last_accessed"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message CatalinaSessionList{
+    repeated CatalinaSessionData values=1;
+}
+
+

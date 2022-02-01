@@ -1,0 +1,338 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WebappVisitExtraProto";
+option objc_class_prefix = "WebappVisitExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Browser Type
+message BrowserTypeData {
+    option (routines.entity_type) = "BrowserType";
+    option (routines.keys).keys = "browser_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: browserTypeId
+    // fields
+        
+    string browser_type_id = 1 [json_name = "browser_type_id"];    
+    string browser_name = 2 [json_name = "browser_name"];    
+    string browser_version = 3 [json_name = "browser_version"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message BrowserTypeList{
+    repeated BrowserTypeData values=1;
+}
+
+
+// Platform Type
+message PlatformTypeData {
+    option (routines.entity_type) = "PlatformType";
+    option (routines.keys).keys = "platform_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: platformTypeId
+    // fields
+        
+    string platform_type_id = 1 [json_name = "platform_type_id"];    
+    string platform_name = 2 [json_name = "platform_name"];    
+    string platform_version = 3 [json_name = "platform_version"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message PlatformTypeList{
+    repeated PlatformTypeData values=1;
+}
+
+
+// Protocol Type
+message ProtocolTypeData {
+    option (routines.entity_type) = "ProtocolType";
+    option (routines.keys).keys = "protocol_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: protocolTypeId
+    // fields
+        
+    string protocol_type_id = 1 [json_name = "protocol_type_id"];    
+    string protocol_name = 2 [json_name = "protocol_name"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message ProtocolTypeList{
+    repeated ProtocolTypeData values=1;
+}
+
+
+// ServerHit
+message ServerHitData {
+    option (routines.entity_type) = "ServerHit";
+    option (routines.keys).keys = "visit_id, content_id, hit_start_date_time, hit_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: visitId, contentId, hitStartDateTime, hitTypeId
+    // fields
+        
+    string visit_id = 1 [json_name = "visit_id"];    
+    string content_id = 2 [json_name = "content_id"];    
+    google.protobuf.Timestamp hit_start_date_time = 3 [json_name = "hit_start_date_time"];
+    string hit_type_id = 4 [json_name = "hit_type_id"]; // ServerHitType    
+    int64 num_of_bytes = 5 [json_name = "num_of_bytes"];    
+    int64 running_time_millis = 6 [json_name = "running_time_millis"];    
+    string user_login_id = 7 [json_name = "user_login_id"];    
+    string status_id = 8 [json_name = "status_id"];    
+    string request_url = 9 [json_name = "request_url"];    
+    string referrer_url = 10 [json_name = "referrer_url"];    
+    string server_ip_address = 11 [json_name = "server_ip_address"];    
+    string server_host_name = 12 [json_name = "server_host_name"];    
+    string internal_content_id = 13 [json_name = "internal_content_id"];    
+    string party_id = 14 [json_name = "party_id"];    
+    string id_by_ip_contact_mech_id = 15 [json_name = "id_by_ip_contact_mech_id"];    
+    string ref_by_web_contact_mech_id = 16 [json_name = "ref_by_web_contact_mech_id"];    
+    string id = 17 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
+}
+
+
+message ServerHitList{
+    repeated ServerHitData values=1;
+}
+
+
+// ServerHitBin
+message ServerHitBinData {
+    option (routines.entity_type) = "ServerHitBin";
+    option (routines.keys).keys = "server_hit_bin_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: serverHitBinId
+    // fields
+        
+    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id"];    
+    string content_id = 2 [json_name = "content_id"];
+    string hit_type_id = 3 [json_name = "hit_type_id"]; // ServerHitType    
+    string server_ip_address = 4 [json_name = "server_ip_address"];    
+    string server_host_name = 5 [json_name = "server_host_name"];    
+    google.protobuf.Timestamp bin_start_date_time = 6 [json_name = "bin_start_date_time"];    
+    google.protobuf.Timestamp bin_end_date_time = 7 [json_name = "bin_end_date_time"];    
+    int64 number_hits = 8 [json_name = "number_hits"];    
+    int64 total_time_millis = 9 [json_name = "total_time_millis"];    
+    int64 min_time_millis = 10 [json_name = "min_time_millis"];    
+    int64 max_time_millis = 11 [json_name = "max_time_millis"];    
+    string internal_content_id = 12 [json_name = "internal_content_id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message ServerHitBinList{
+    repeated ServerHitBinData values=1;
+}
+
+
+// User Agent
+message UserAgentData {
+    option (routines.entity_type) = "UserAgent";
+    option (routines.keys).keys = "user_agent_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: userAgentId
+    // fields
+        
+    string user_agent_id = 1 [json_name = "user_agent_id"];    
+    string browser_type_id = 2 [json_name = "browser_type_id"];    
+    string platform_type_id = 3 [json_name = "platform_type_id"];    
+    string protocol_type_id = 4 [json_name = "protocol_type_id"];    
+    string user_agent_type_id = 5 [json_name = "user_agent_type_id"];    
+    string user_agent_method_type_id = 6 [json_name = "user_agent_method_type_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message UserAgentList{
+    repeated UserAgentData values=1;
+}
+
+
+// User Agent Method Type
+message UserAgentMethodTypeData {
+    option (routines.entity_type) = "UserAgentMethodType";
+    option (routines.keys).keys = "user_agent_method_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: userAgentMethodTypeId
+    // fields
+        
+    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message UserAgentMethodTypeList{
+    repeated UserAgentMethodTypeData values=1;
+}
+
+
+// User Agent Type
+message UserAgentTypeData {
+    option (routines.entity_type) = "UserAgentType";
+    option (routines.keys).keys = "user_agent_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: userAgentTypeId
+    // fields
+        
+    string user_agent_type_id = 1 [json_name = "user_agent_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message UserAgentTypeList{
+    repeated UserAgentTypeData values=1;
+}
+
+
+// Visit
+message VisitData {
+    option (routines.entity_type) = "Visit";
+    option (routines.keys).keys = "visit_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: visitId
+    // fields
+        
+    string visit_id = 1 [json_name = "visit_id"];    
+    string visitor_id = 2 [json_name = "visitor_id"];    
+    string user_login_id = 3 [json_name = "user_login_id"];    
+    routines.Indicator user_created = 4 [json_name = "user_created"];    
+    string session_id = 5 [json_name = "session_id"];    
+    string server_ip_address = 6 [json_name = "server_ip_address"];    
+    string server_host_name = 7 [json_name = "server_host_name"];    
+    string webapp_name = 8 [json_name = "webapp_name"];    
+    string initial_locale = 9 [json_name = "initial_locale"];    
+    string initial_request = 10 [json_name = "initial_request"];    
+    string initial_referrer = 11 [json_name = "initial_referrer"];    
+    string initial_user_agent = 12 [json_name = "initial_user_agent"];    
+    string user_agent_id = 13 [json_name = "user_agent_id"];    
+    string client_ip_address = 14 [json_name = "client_ip_address"];    
+    string client_host_name = 15 [json_name = "client_host_name"];    
+    string client_user = 16 [json_name = "client_user"];    
+    string client_ip_isp_name = 17 [json_name = "client_ip_isp_name"];    
+    string client_ip_postal_code = 18 [json_name = "client_ip_postal_code"];    
+    string cookie = 19 [json_name = "cookie"];    
+    google.protobuf.Timestamp from_date = 20 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 21 [json_name = "thru_date"];    
+    string client_ip_state_prov_geo_id = 22 [json_name = "client_ip_state_prov_geo_id"];    
+    string client_ip_country_geo_id = 23 [json_name = "client_ip_country_geo_id"];    
+    string contact_mech_id = 24 [json_name = "contact_mech_id"];    
+    string party_id = 25 [json_name = "party_id"];    
+    string role_type_id = 26 [json_name = "role_type_id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
+}
+
+
+message VisitList{
+    repeated VisitData values=1;
+}
+
+
+// Visitor
+message VisitorData {
+    option (routines.entity_type) = "Visitor";
+    option (routines.keys).keys = "visitor_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: visitorId
+    // fields
+        
+    string visitor_id = 1 [json_name = "visitor_id"];    
+    string user_login_id = 2 [json_name = "user_login_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string party_id = 5 [json_name = "party_id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message VisitorList{
+    repeated VisitorData values=1;
+}
+
+

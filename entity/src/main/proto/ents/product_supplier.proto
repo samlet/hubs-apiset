@@ -57,6 +57,11 @@ message SupplierProductData {
 }
 
 
+message SupplierProductList{
+    repeated SupplierProductData values=1;
+}
+
+
 // Supplier-specific product feature information
 message SupplierProductFeatureData {
     option (routines.entity_type) = "SupplierProductFeature";
@@ -80,6 +85,11 @@ message SupplierProductFeatureData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message SupplierProductFeatureList{
+    repeated SupplierProductFeatureData values=1;
 }
 
 

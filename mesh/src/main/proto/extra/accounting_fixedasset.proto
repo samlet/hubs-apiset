@@ -1,0 +1,325 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AccountingFixedassetExtraProto";
+option objc_class_prefix = "AccountingFixedassetExtra";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+
+// Accommodation Class
+message AccommodationClassData {
+    option (routines.entity_type) = "AccommodationClass";
+    option (routines.keys).keys = "accommodation_class_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: accommodationClassId
+    // fields
+        
+    string accommodation_class_id = 1 [json_name = "accommodation_class_id"];    
+    string parent_class_id = 2 [json_name = "parent_class_id"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
+}
+
+
+message AccommodationClassList{
+    repeated AccommodationClassData values=1;
+}
+
+
+// Accommodation Map
+message AccommodationMapData {
+    option (routines.entity_type) = "AccommodationMap";
+    option (routines.keys).keys = "accommodation_map_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: accommodationMapId
+    // fields
+        
+    string accommodation_map_id = 1 [json_name = "accommodation_map_id"];    
+    string accommodation_class_id = 2 [json_name = "accommodation_class_id"];    
+    string fixed_asset_id = 3 [json_name = "fixed_asset_id"];    
+    string accommodation_map_type_id = 4 [json_name = "accommodation_map_type_id"];    
+    int64 number_of_spaces = 5 [json_name = "number_of_spaces"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
+}
+
+
+message AccommodationMapList{
+    repeated AccommodationMapData values=1;
+}
+
+
+// Accommodation Map Type
+message AccommodationMapTypeData {
+    option (routines.entity_type) = "AccommodationMapType";
+    option (routines.keys).keys = "accommodation_map_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: accommodationMapTypeId
+    // fields
+        
+    string accommodation_map_type_id = 1 [json_name = "accommodation_map_type_id"];    
+    string description = 2 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
+}
+
+
+message AccommodationMapTypeList{
+    repeated AccommodationMapTypeData values=1;
+}
+
+
+// Fixed Asset Attribute
+message FixedAssetAttributeData {
+    option (routines.entity_type) = "FixedAssetAttribute";
+    option (routines.keys).keys = "fixed_asset_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, attrName
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string attr_value = 3 [json_name = "attr_value"];    
+    string attr_description = 4 [json_name = "attr_description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message FixedAssetAttributeList{
+    repeated FixedAssetAttributeData values=1;
+}
+
+
+// Fixed Asset Identification
+message FixedAssetIdentData {
+    option (routines.entity_type) = "FixedAssetIdent";
+    option (routines.keys).keys = "fixed_asset_id, fixed_asset_ident_type_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, fixedAssetIdentTypeId
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string fixed_asset_ident_type_id = 2 [json_name = "fixed_asset_ident_type_id"]; // FixedAssetIdentType    
+    string id_value = 3 [json_name = "id_value"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message FixedAssetIdentList{
+    repeated FixedAssetIdentData values=1;
+}
+
+
+// Fixed Asset Maintenance
+message FixedAssetMaintData {
+    option (routines.entity_type) = "FixedAssetMaint";
+    option (routines.keys).keys = "fixed_asset_id, maint_hist_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, maintHistSeqId
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string maint_hist_seq_id = 2 [json_name = "maint_hist_seq_id"];
+    string status_id = 3 [json_name = "status_id"]; // StatusItem
+    string product_maint_type_id = 4 [json_name = "product_maint_type_id"]; // ProductMaintType    
+    string product_maint_seq_id = 5 [json_name = "product_maint_seq_id"];    
+    string schedule_work_effort_id = 6 [json_name = "schedule_work_effort_id"];    
+    routines.FixedPoint interval_quantity = 7 [json_name = "interval_quantity"];
+    string interval_uom_id = 8 [json_name = "interval_uom_id"]; // Uom
+    string interval_meter_type_id = 9 [json_name = "interval_meter_type_id"]; // ProductMeterType    
+    string purchase_order_id = 10 [json_name = "purchase_order_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string id = 13 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
+}
+
+
+message FixedAssetMaintList{
+    repeated FixedAssetMaintData values=1;
+}
+
+
+// Fixed Asset Maintance And Order
+message FixedAssetMaintOrderData {
+    option (routines.entity_type) = "FixedAssetMaintOrder";
+    option (routines.keys).keys = "fixed_asset_id, maint_hist_seq_id, order_id, order_item_seq_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetId, maintHistSeqId, orderId, orderItemSeqId
+    // fields
+        
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string maint_hist_seq_id = 2 [json_name = "maint_hist_seq_id"];    
+    string order_id = 3 [json_name = "order_id"];    
+    string order_item_seq_id = 4 [json_name = "order_item_seq_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string id = 7 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
+}
+
+
+message FixedAssetMaintOrderList{
+    repeated FixedAssetMaintOrderData values=1;
+}
+
+
+// Fixed Asset Type Attribute
+message FixedAssetTypeAttrData {
+    option (routines.entity_type) = "FixedAssetTypeAttr";
+    option (routines.keys).keys = "fixed_asset_type_id, attr_name";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetTypeId, attrName
+    // fields
+        
+    string fixed_asset_type_id = 1 [json_name = "fixed_asset_type_id"];    
+    string attr_name = 2 [json_name = "attr_name"];    
+    string description = 3 [json_name = "description"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string id = 6 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
+}
+
+
+message FixedAssetTypeAttrList{
+    repeated FixedAssetTypeAttrData values=1;
+}
+
+
+// Gl Account Mapping For Fixed Asset Or Fixed Asset Types
+message FixedAssetTypeGlAccountData {
+    option (routines.entity_type) = "FixedAssetTypeGlAccount";
+    option (routines.keys).keys = "fixed_asset_type_id, fixed_asset_id, organization_party_id";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: fixedAssetTypeId, fixedAssetId, organizationPartyId
+    // fields
+    
+    string fixed_asset_type_id = 1 [json_name = "fixed_asset_type_id"]; // FixedAssetType    
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];    
+    string organization_party_id = 3 [json_name = "organization_party_id"];    
+    string asset_gl_account_id = 4 [json_name = "asset_gl_account_id"];    
+    string acc_dep_gl_account_id = 5 [json_name = "acc_dep_gl_account_id"];    
+    string dep_gl_account_id = 6 [json_name = "dep_gl_account_id"];    
+    string profit_gl_account_id = 7 [json_name = "profit_gl_account_id"];    
+    string loss_gl_account_id = 8 [json_name = "loss_gl_account_id"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
+}
+
+
+message FixedAssetTypeGlAccountList{
+    repeated FixedAssetTypeGlAccountData values=1;
+}
+
+
+// Party Fixed Asset Assignment
+message PartyFixedAssetAssignmentData {
+    option (routines.entity_type) = "PartyFixedAssetAssignment";
+    option (routines.keys).keys = "party_id, role_type_id, fixed_asset_id, from_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: partyId, roleTypeId, fixedAssetId, fromDate
+    // fields
+        
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"]; // RoleType    
+    string fixed_asset_id = 3 [json_name = "fixed_asset_id"];    
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
+    google.protobuf.Timestamp allocated_date = 6 [json_name = "allocated_date"];
+    string status_id = 7 [json_name = "status_id"]; // StatusItem    
+    string comments = 8 [json_name = "comments"];    
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string id = 11 [json_name = "id"];
+        
+
+    // extra
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
+}
+
+
+message PartyFixedAssetAssignmentList{
+    repeated PartyFixedAssetAssignmentData values=1;
+}
+
+
