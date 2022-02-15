@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.bluecc.hubs.stub";
+option java_package = "com.bluecc.hubs.service";
 option java_outer_classname = "CatalogProto";
 option objc_class_prefix = "CTP";
 
@@ -9,16 +9,13 @@ package facade;
 
 import "google/protobuf/any.proto";
 import "routines.proto";
+import "ents/product_product.proto";
 
 service CatalogService {
-  rpc getCategoryIdList(CatalogQueryOptions) returns (CategoryIdList) {}
+  rpc GetProductsInCatalog(CatalogKey) returns (domain.ProductList) {}
 }
 
-message CatalogQueryOptions{
-  string by_store=1;
-}
-
-message CategoryIdList{
-  repeated string id=1;
+message CatalogKey{
+  string catalog_id=1;
 }
 

@@ -37,22 +37,43 @@ service ActivatorService {
   rpc FireEvent(GenericEventData) returns (routines.Response) {}
 }
 
+service GenericDispatcher {
+  rpc Execute(ServiceComposer) returns (routines.Response) {}
+  rpc ExecuteWithResponse(ServiceComposer) returns (stream GenericEntity) {}
+}
+
+message ServiceContext{
+  string uri = 1;
+  google.protobuf.Any data = 2;
+}
+
+message ServiceComposer{
+  enum InvocationType{
+    Sequence = 0;
+    Parallel = 1;
+    Workflow = 2;
+  }
+
+  repeated ServiceContext invocations = 1;
+  InvocationType invocation_type=2;
+}
+
 message FilterCond{
-  string query_name=1;
-  google.protobuf.Struct cond=2;
-  int32 max_rows=3;
+  string query_name = 1;
+  google.protobuf.Struct cond = 2;
+  int32 max_rows = 3;
 }
 
 message GenericEventData{
-  string channel=1;
-  string id=2;
-  string state_type=3;
-  string event_name=4;
-  google.protobuf.Any context=5;
+  string channel = 1;
+  string id = 2;
+  string state_type = 3;
+  string event_name = 4;
+  google.protobuf.Any context = 5;
 }
 
 message GenericEntity{
-  string type_name=1;
-  google.protobuf.Any data=2;
+  string type_name = 1;
+  google.protobuf.Any data = 2;
 }
 

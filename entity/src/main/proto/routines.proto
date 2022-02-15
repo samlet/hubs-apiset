@@ -107,6 +107,7 @@ message Response{
   Result result = 1;
   string message = 2;
   google.protobuf.Value result_data=3;
+  repeated string error_list=4;
 }
 
 message PipeResponse{
