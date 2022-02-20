@@ -38,8 +38,35 @@ service ActivatorService {
 }
 
 service GenericDispatcher {
+  rpc Dispatch(RequestData) returns (routines.Response) {}
+  rpc DispatchStream(RequestData) returns (stream GenericEntity) {}
+  rpc Post(stream RequestData) returns (routines.Response) {}
+  rpc Exchange(stream RequestData) returns (stream GenericEntity) {}
+
   rpc Execute(ServiceComposer) returns (routines.Response) {}
   rpc ExecuteWithResponse(ServiceComposer) returns (stream GenericEntity) {}
+}
+
+message RequestData{
+  string invoke=1;
+  google.protobuf.Struct options=2;
+  google.protobuf.Any data=3;
+}
+
+message InvocationData{
+  enum InvocationType{
+    CREATE=0;
+    UPDATE=1;
+    APPEND=2;
+    REMOVE=3;
+  }
+
+  InvocationType invocation_type=1;
+  google.protobuf.Struct options=2;
+  // 主实体为#main, 否则为关联名称
+  string target=3;
+  google.protobuf.Any data=4;
+  string seq_id=5;
 }
 
 message ServiceContext{

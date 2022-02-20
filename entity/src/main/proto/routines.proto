@@ -106,8 +106,15 @@ message Response{
 
   Result result = 1;
   string message = 2;
-  google.protobuf.Value result_data=3;
-  repeated string error_list=4;
+  repeated string error_list=3;
+
+  // 结果类型可以是操作成功与否, 这只需要获取result枚举就可以了,
+  // 或者是标量或标量list/map, 获取result_data;
+  // 或者是message类型, 比如实体类型, 就需要获取result_object,
+  // 如果是实体类型, 则result_type的形式是"entity:Person"这样的构成
+  string result_type=4;
+  google.protobuf.Value result_data=5;
+  google.protobuf.Any result_object=6;
 }
 
 message PipeResponse{
@@ -203,6 +210,10 @@ message Currency{
 }
 
 message FixedPoint{
+  // 表述的是整数+小数, 其中小数位用scaling_position表示,
+  // 在转换成BigDecimal后, 会合并小数位, 比如8899(小数位为2)会转换为88.99
+  // 用整数是为了易于计算.
   int64 value = 1;
+//  string value = 1;
   int32 scaling_position = 2 [json_name = "scaling_position"];
 }
