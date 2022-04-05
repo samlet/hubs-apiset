@@ -19,6 +19,11 @@ extend google.protobuf.MessageOptions {
   optional bool has_table = 51237;
 }
 
+extend google.protobuf.FieldOptions{
+  optional string field_type=61234;
+  optional string relation=61235;  // in yaml format
+}
+
 message EntityKey{
   string keys = 1;
   bool combine = 2;

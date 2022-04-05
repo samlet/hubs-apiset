@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderOpProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+import "ents/order_order.proto";
+import "types/order_type.proto";
+
+// Mutations for main entity
+message CreateOrderParams{
+  BundleHandle handle = 1;
+  domain.OrderHeaderFlatData order = 2;
+  string comment = 3;
+}
+
+message UpdateOrderParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderHeaderFlatData order = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItem
+message AddOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderType
+
+message ModifyOrderTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderTypeData data = 3;
+  string comment = 4;
+}
+
+service OrderOperations {
+  rpc CreateOrder(CreateOrderParams) returns (stream routines.Response) {}
+  rpc UpdateOrder(UpdateOrderParams) returns (stream routines.Response) {}
+
+  rpc AddOrderItem(AddOrderItemParams) returns (stream routines.Response) {}
+  rpc UpdateOrderItem(UpdateOrderItemParams) returns (stream routines.Response) {}
+  rpc RemoveOrderItem(RemoveOrderItemParams) returns (stream routines.Response) {}
+
+  rpc ModifyOrderType(ModifyOrderTypeParams) returns (stream routines.Response) {}
+}
+
