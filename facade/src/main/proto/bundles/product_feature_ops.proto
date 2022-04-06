@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductFeatureOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_feature.proto";
+import "types/product_feature_type.proto";
+
+service ProductFeatureOperations {
+  rpc CreateProductFeature(CreateProductFeatureParams) returns (routines.Response) {}
+  rpc UpdateProductFeature(UpdateProductFeatureParams) returns (routines.Response) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyProductFeatureType(ModifyProductFeatureTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateProductFeatureParams{
+  BundleHandle handle = 1;
+  domain.ProductFeatureFlatData productFeature = 2;
+  string comment = 3;
+}
+
+message UpdateProductFeatureParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductFeatureFlatData productFeature = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ProductFeatureType
+
+message ModifyProductFeatureTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductFeatureTypeData data = 3;
+  string comment = 4;
+}
+

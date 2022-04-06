@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "StoreGroupOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "types/product_store_group.proto";
+import "extra/product_store.proto";
+
+service StoreGroupOperations {
+  rpc CreateStoreGroup(CreateStoreGroupParams) returns (routines.Response) {}
+  rpc UpdateStoreGroup(UpdateStoreGroupParams) returns (routines.Response) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyProductStoreGroupType(ModifyProductStoreGroupTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateStoreGroupParams{
+  BundleHandle handle = 1;
+  domain.ProductStoreGroupData productStoreGroup = 2;
+  string comment = 3;
+}
+
+message UpdateStoreGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupData productStoreGroup = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ProductStoreGroupType
+
+message ModifyProductStoreGroupTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupTypeData data = 3;
+  string comment = 4;
+}
+

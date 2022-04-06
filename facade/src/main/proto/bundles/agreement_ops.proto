@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AgreementOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/party_agreement.proto";
+
+service AgreementOperations {
+  rpc CreateAgreement(CreateAgreementParams) returns (routines.Response) {}
+  rpc UpdateAgreement(UpdateAgreementParams) returns (routines.Response) {}
+
+  
+  rpc AddAgreementItem(AddAgreementItemParams) returns (routines.Response) {}
+  rpc UpdateAgreementItem(UpdateAgreementItemParams) returns (routines.Response) {}
+  rpc RemoveAgreementItem(RemoveAgreementItemParams) returns (routines.Response) {}
+  
+  rpc AddAgreementProductAppl(AddAgreementProductApplParams) returns (routines.Response) {}
+  rpc UpdateAgreementProductAppl(UpdateAgreementProductApplParams) returns (routines.Response) {}
+  rpc RemoveAgreementProductAppl(RemoveAgreementProductApplParams) returns (routines.Response) {}
+  
+  rpc AddAgreementTerm(AddAgreementTermParams) returns (routines.Response) {}
+  rpc UpdateAgreementTerm(UpdateAgreementTermParams) returns (routines.Response) {}
+  rpc RemoveAgreementTerm(RemoveAgreementTermParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateAgreementParams{
+  BundleHandle handle = 1;
+  domain.AgreementFlatData agreement = 2;
+  string comment = 3;
+}
+
+message UpdateAgreementParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementFlatData agreement = 3;
+  string comment = 4;
+}
+
+
+// Mutations for AgreementItem
+
+message AddAgreementItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateAgreementItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveAgreementItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for AgreementProductAppl
+
+message AddAgreementProductApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementProductApplData data = 3;
+  string comment = 4;
+}
+
+message UpdateAgreementProductApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementProductApplData data = 3;
+  string comment = 4;
+}
+
+message RemoveAgreementProductApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for AgreementTerm
+
+message AddAgreementTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementTermFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateAgreementTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementTermFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveAgreementTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

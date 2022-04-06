@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ExampleOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/example_example.proto";
+
+service ExampleOperations {
+  rpc CreateExample(CreateExampleParams) returns (routines.Response) {}
+  rpc UpdateExample(UpdateExampleParams) returns (routines.Response) {}
+
+  
+  rpc AddExampleItem(AddExampleItemParams) returns (routines.Response) {}
+  rpc UpdateExampleItem(UpdateExampleItemParams) returns (routines.Response) {}
+  rpc RemoveExampleItem(RemoveExampleItemParams) returns (routines.Response) {}
+  
+  rpc AddExampleStatus(AddExampleStatusParams) returns (routines.Response) {}
+  rpc UpdateExampleStatus(UpdateExampleStatusParams) returns (routines.Response) {}
+  rpc RemoveExampleStatus(RemoveExampleStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyExampleType(ModifyExampleTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateExampleParams{
+  BundleHandle handle = 1;
+  domain.ExampleData example = 2;
+  string comment = 3;
+}
+
+message UpdateExampleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleData example = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ExampleItem
+
+message AddExampleItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateExampleItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveExampleItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ExampleStatus
+
+message AddExampleStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateExampleStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveExampleStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ExampleType
+
+message ModifyExampleTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleTypeData data = 3;
+  string comment = 4;
+}
+

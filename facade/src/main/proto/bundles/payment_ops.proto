@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PaymentOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/accounting_ledger.proto";
+import "ents/accounting_payment.proto";
+import "types/payment_type.proto";
+
+service PaymentOperations {
+  rpc CreatePayment(CreatePaymentParams) returns (routines.Response) {}
+  rpc UpdatePayment(UpdatePaymentParams) returns (routines.Response) {}
+
+  
+  rpc AddPaymentApplication(AddPaymentApplicationParams) returns (routines.Response) {}
+  rpc UpdatePaymentApplication(UpdatePaymentApplicationParams) returns (routines.Response) {}
+  rpc RemovePaymentApplication(RemovePaymentApplicationParams) returns (routines.Response) {}
+  
+  rpc AddAcctgTrans(AddAcctgTransParams) returns (routines.Response) {}
+  rpc UpdateAcctgTrans(UpdateAcctgTransParams) returns (routines.Response) {}
+  rpc RemoveAcctgTrans(RemoveAcctgTransParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyPaymentType(ModifyPaymentTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreatePaymentParams{
+  BundleHandle handle = 1;
+  domain.PaymentFlatData payment = 2;
+  string comment = 3;
+}
+
+message UpdatePaymentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PaymentFlatData payment = 3;
+  string comment = 4;
+}
+
+
+// Mutations for PaymentApplication
+
+message AddPaymentApplicationParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PaymentApplicationFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdatePaymentApplicationParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PaymentApplicationFlatData data = 3;
+  string comment = 4;
+}
+
+message RemovePaymentApplicationParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for PaymentType
+
+message ModifyPaymentTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PaymentTypeData data = 3;
+  string comment = 4;
+}
+

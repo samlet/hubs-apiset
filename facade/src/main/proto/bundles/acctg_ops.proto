@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "AcctgOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/accounting_ledger.proto";
+
+service AcctgOperations {
+  rpc CreateAcctg(CreateAcctgParams) returns (routines.Response) {}
+  rpc UpdateAcctg(UpdateAcctgParams) returns (routines.Response) {}
+
+  
+  rpc AddAcctgTransEntry(AddAcctgTransEntryParams) returns (routines.Response) {}
+  rpc UpdateAcctgTransEntry(UpdateAcctgTransEntryParams) returns (routines.Response) {}
+  rpc RemoveAcctgTransEntry(RemoveAcctgTransEntryParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateAcctgParams{
+  BundleHandle handle = 1;
+  domain.AcctgTransFlatData acctgTrans = 2;
+  string comment = 3;
+}
+
+message UpdateAcctgParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AcctgTransFlatData acctgTrans = 3;
+  string comment = 4;
+}
+
+
+// Mutations for AcctgTransEntry
+
+message AddAcctgTransEntryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AcctgTransEntryData data = 3;
+  string comment = 4;
+}
+
+message UpdateAcctgTransEntryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AcctgTransEntryData data = 3;
+  string comment = 4;
+}
+
+message RemoveAcctgTransEntryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

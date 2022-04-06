@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartyOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/party_party.proto";
+
+service PartyOperations {
+  rpc CreateParty(CreatePartyParams) returns (routines.Response) {}
+  rpc UpdateParty(UpdatePartyParams) returns (routines.Response) {}
+
+  
+  rpc AddPartyRole(AddPartyRoleParams) returns (routines.Response) {}
+  rpc UpdatePartyRole(UpdatePartyRoleParams) returns (routines.Response) {}
+  rpc RemovePartyRole(RemovePartyRoleParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreatePartyParams{
+  BundleHandle handle = 1;
+  domain.PartyFlatData party = 2;
+  string comment = 3;
+}
+
+message UpdatePartyParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyFlatData party = 3;
+  string comment = 4;
+}
+
+
+// Mutations for PartyRole
+
+message AddPartyRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyRoleData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyRoleData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

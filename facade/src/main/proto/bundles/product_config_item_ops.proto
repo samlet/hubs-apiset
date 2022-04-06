@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductConfigItemOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_config.proto";
+
+service ProductConfigItemOperations {
+  rpc CreateProductConfigItem(CreateProductConfigItemParams) returns (routines.Response) {}
+  rpc UpdateProductConfigItem(UpdateProductConfigItemParams) returns (routines.Response) {}
+
+  
+  rpc AddConfigItemProductConfigOption(AddConfigItemProductConfigOptionParams) returns (routines.Response) {}
+  rpc UpdateConfigItemProductConfigOption(UpdateConfigItemProductConfigOptionParams) returns (routines.Response) {}
+  rpc RemoveConfigItemProductConfigOption(RemoveConfigItemProductConfigOptionParams) returns (routines.Response) {}
+  
+  rpc AddConfigItemProductConfigProduct(AddConfigItemProductConfigProductParams) returns (routines.Response) {}
+  rpc UpdateConfigItemProductConfigProduct(UpdateConfigItemProductConfigProductParams) returns (routines.Response) {}
+  rpc RemoveConfigItemProductConfigProduct(RemoveConfigItemProductConfigProductParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateProductConfigItemParams{
+  BundleHandle handle = 1;
+  domain.ProductConfigItemFlatData productConfigItem = 2;
+  string comment = 3;
+}
+
+message UpdateProductConfigItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigItemFlatData productConfigItem = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ConfigItemProductConfigOption
+
+message AddConfigItemProductConfigOptionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigOptionData data = 3;
+  string comment = 4;
+}
+
+message UpdateConfigItemProductConfigOptionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigOptionData data = 3;
+  string comment = 4;
+}
+
+message RemoveConfigItemProductConfigOptionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ConfigItemProductConfigProduct
+
+message AddConfigItemProductConfigProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigProductData data = 3;
+  string comment = 4;
+}
+
+message UpdateConfigItemProductConfigProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigProductData data = 3;
+  string comment = 4;
+}
+
+message RemoveConfigItemProductConfigProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

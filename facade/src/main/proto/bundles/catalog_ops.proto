@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CatalogOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_catalog.proto";
+
+service CatalogOperations {
+  rpc CreateCatalog(CreateCatalogParams) returns (routines.Response) {}
+  rpc UpdateCatalog(UpdateCatalogParams) returns (routines.Response) {}
+
+  
+  rpc AddProdCatalogCategory(AddProdCatalogCategoryParams) returns (routines.Response) {}
+  rpc UpdateProdCatalogCategory(UpdateProdCatalogCategoryParams) returns (routines.Response) {}
+  rpc RemoveProdCatalogCategory(RemoveProdCatalogCategoryParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateCatalogParams{
+  BundleHandle handle = 1;
+  domain.ProdCatalogFlatData prodCatalog = 2;
+  string comment = 3;
+}
+
+message UpdateCatalogParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProdCatalogFlatData prodCatalog = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ProdCatalogCategory
+
+message AddProdCatalogCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProdCatalogCategoryFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateProdCatalogCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProdCatalogCategoryFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveProdCatalogCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

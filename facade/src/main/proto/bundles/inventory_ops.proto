@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "InventoryOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_inventory.proto";
+import "extra/product_inventory.proto";
+import "types/inventory_item_type.proto";
+
+service InventoryOperations {
+  rpc CreateInventory(CreateInventoryParams) returns (routines.Response) {}
+  rpc UpdateInventory(UpdateInventoryParams) returns (routines.Response) {}
+
+  
+  rpc AddInventoryItemDetail(AddInventoryItemDetailParams) returns (routines.Response) {}
+  rpc UpdateInventoryItemDetail(UpdateInventoryItemDetailParams) returns (routines.Response) {}
+  rpc RemoveInventoryItemDetail(RemoveInventoryItemDetailParams) returns (routines.Response) {}
+  
+  rpc AddInventoryItemStatus(AddInventoryItemStatusParams) returns (routines.Response) {}
+  rpc UpdateInventoryItemStatus(UpdateInventoryItemStatusParams) returns (routines.Response) {}
+  rpc RemoveInventoryItemStatus(RemoveInventoryItemStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyInventoryItemType(ModifyInventoryItemTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateInventoryParams{
+  BundleHandle handle = 1;
+  domain.InventoryItemFlatData inventoryItem = 2;
+  string comment = 3;
+}
+
+message UpdateInventoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemFlatData inventoryItem = 3;
+  string comment = 4;
+}
+
+
+// Mutations for InventoryItemDetail
+
+message AddInventoryItemDetailParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemDetailData data = 3;
+  string comment = 4;
+}
+
+message UpdateInventoryItemDetailParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemDetailData data = 3;
+  string comment = 4;
+}
+
+message RemoveInventoryItemDetailParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for InventoryItemStatus
+
+message AddInventoryItemStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateInventoryItemStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveInventoryItemStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for InventoryItemType
+
+message ModifyInventoryItemTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryItemTypeData data = 3;
+  string comment = 4;
+}
+

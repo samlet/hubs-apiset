@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "InvoiceOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/accounting_invoice.proto";
+import "ents/accounting_ledger.proto";
+import "ents/order_order.proto";
+import "types/invoice_type.proto";
+
+service InvoiceOperations {
+  rpc CreateInvoice(CreateInvoiceParams) returns (routines.Response) {}
+  rpc UpdateInvoice(UpdateInvoiceParams) returns (routines.Response) {}
+
+  
+  rpc AddInvoiceItem(AddInvoiceItemParams) returns (routines.Response) {}
+  rpc UpdateInvoiceItem(UpdateInvoiceItemParams) returns (routines.Response) {}
+  rpc RemoveInvoiceItem(RemoveInvoiceItemParams) returns (routines.Response) {}
+  
+  rpc AddOrderItemBilling(AddOrderItemBillingParams) returns (routines.Response) {}
+  rpc UpdateOrderItemBilling(UpdateOrderItemBillingParams) returns (routines.Response) {}
+  rpc RemoveOrderItemBilling(RemoveOrderItemBillingParams) returns (routines.Response) {}
+  
+  rpc AddOrderAdjustmentBilling(AddOrderAdjustmentBillingParams) returns (routines.Response) {}
+  rpc UpdateOrderAdjustmentBilling(UpdateOrderAdjustmentBillingParams) returns (routines.Response) {}
+  rpc RemoveOrderAdjustmentBilling(RemoveOrderAdjustmentBillingParams) returns (routines.Response) {}
+  
+  rpc AddAcctgTrans(AddAcctgTransParams) returns (routines.Response) {}
+  rpc UpdateAcctgTrans(UpdateAcctgTransParams) returns (routines.Response) {}
+  rpc RemoveAcctgTrans(RemoveAcctgTransParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyInvoiceType(ModifyInvoiceTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateInvoiceParams{
+  BundleHandle handle = 1;
+  domain.InvoiceFlatData invoice = 2;
+  string comment = 3;
+}
+
+message UpdateInvoiceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InvoiceFlatData invoice = 3;
+  string comment = 4;
+}
+
+
+// Mutations for InvoiceItem
+
+message AddInvoiceItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InvoiceItemFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateInvoiceItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InvoiceItemFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveInvoiceItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItemBilling
+
+message AddOrderItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemBillingData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemBillingData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderAdjustmentBilling
+
+message AddOrderAdjustmentBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentBillingData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderAdjustmentBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentBillingData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderAdjustmentBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for InvoiceType
+
+message ModifyInvoiceTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InvoiceTypeData data = 3;
+  string comment = 4;
+}
+

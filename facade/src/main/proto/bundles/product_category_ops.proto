@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductCategoryOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_category.proto";
+
+service ProductCategoryOperations {
+  rpc CreateProductCategory(CreateProductCategoryParams) returns (routines.Response) {}
+  rpc UpdateProductCategory(UpdateProductCategoryParams) returns (routines.Response) {}
+
+  
+  rpc AddCurrentProductCategoryRollup(AddCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  rpc UpdateCurrentProductCategoryRollup(UpdateCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  rpc RemoveCurrentProductCategoryRollup(RemoveCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  
+  rpc AddProductCategoryMember(AddProductCategoryMemberParams) returns (routines.Response) {}
+  rpc UpdateProductCategoryMember(UpdateProductCategoryMemberParams) returns (routines.Response) {}
+  rpc RemoveProductCategoryMember(RemoveProductCategoryMemberParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateProductCategoryParams{
+  BundleHandle handle = 1;
+  domain.ProductCategoryFlatData productCategory = 2;
+  string comment = 3;
+}
+
+message UpdateProductCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryFlatData productCategory = 3;
+  string comment = 4;
+}
+
+
+// Mutations for CurrentProductCategoryRollup
+
+message AddCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryRollupFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryRollupFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductCategoryMember
+
+message AddProductCategoryMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryMemberFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductCategoryMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryMemberFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductCategoryMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

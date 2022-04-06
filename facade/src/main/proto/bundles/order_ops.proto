@@ -1,0 +1,301 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/order_order.proto";
+import "types/order_type.proto";
+
+service OrderOperations {
+  rpc CreateOrder(CreateOrderParams) returns (routines.Response) {}
+  rpc UpdateOrder(UpdateOrderParams) returns (routines.Response) {}
+
+  
+  rpc AddOrderItem(AddOrderItemParams) returns (routines.Response) {}
+  rpc UpdateOrderItem(UpdateOrderItemParams) returns (routines.Response) {}
+  rpc RemoveOrderItem(RemoveOrderItemParams) returns (routines.Response) {}
+  
+  rpc AddOrderItemShipGroupAssoc(AddOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  rpc UpdateOrderItemShipGroupAssoc(UpdateOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  rpc RemoveOrderItemShipGroupAssoc(RemoveOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  
+  rpc AddOrderItemPriceInfo(AddOrderItemPriceInfoParams) returns (routines.Response) {}
+  rpc UpdateOrderItemPriceInfo(UpdateOrderItemPriceInfoParams) returns (routines.Response) {}
+  rpc RemoveOrderItemPriceInfo(RemoveOrderItemPriceInfoParams) returns (routines.Response) {}
+  
+  rpc AddOrderAdjustment(AddOrderAdjustmentParams) returns (routines.Response) {}
+  rpc UpdateOrderAdjustment(UpdateOrderAdjustmentParams) returns (routines.Response) {}
+  rpc RemoveOrderAdjustment(RemoveOrderAdjustmentParams) returns (routines.Response) {}
+  
+  rpc AddOrderItemShipGroup(AddOrderItemShipGroupParams) returns (routines.Response) {}
+  rpc UpdateOrderItemShipGroup(UpdateOrderItemShipGroupParams) returns (routines.Response) {}
+  rpc RemoveOrderItemShipGroup(RemoveOrderItemShipGroupParams) returns (routines.Response) {}
+  
+  rpc AddOrderContactMech(AddOrderContactMechParams) returns (routines.Response) {}
+  rpc UpdateOrderContactMech(UpdateOrderContactMechParams) returns (routines.Response) {}
+  rpc RemoveOrderContactMech(RemoveOrderContactMechParams) returns (routines.Response) {}
+  
+  rpc AddOrderPaymentPreference(AddOrderPaymentPreferenceParams) returns (routines.Response) {}
+  rpc UpdateOrderPaymentPreference(UpdateOrderPaymentPreferenceParams) returns (routines.Response) {}
+  rpc RemoveOrderPaymentPreference(RemoveOrderPaymentPreferenceParams) returns (routines.Response) {}
+  
+  rpc AddOrderRole(AddOrderRoleParams) returns (routines.Response) {}
+  rpc UpdateOrderRole(UpdateOrderRoleParams) returns (routines.Response) {}
+  rpc RemoveOrderRole(RemoveOrderRoleParams) returns (routines.Response) {}
+  
+  rpc AddOrderStatus(AddOrderStatusParams) returns (routines.Response) {}
+  rpc UpdateOrderStatus(UpdateOrderStatusParams) returns (routines.Response) {}
+  rpc RemoveOrderStatus(RemoveOrderStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyOrderType(ModifyOrderTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateOrderParams{
+  BundleHandle handle = 1;
+  domain.OrderHeaderFlatData orderHeader = 2;
+  string comment = 3;
+}
+
+message UpdateOrderParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderHeaderFlatData orderHeader = 3;
+  string comment = 4;
+}
+
+
+// Mutations for OrderItem
+
+message AddOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItemShipGroupAssoc
+
+message AddOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItemPriceInfo
+
+message AddOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemPriceInfoFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemPriceInfoFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderAdjustment
+
+message AddOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItemShipGroup
+
+message AddOrderItemShipGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemShipGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemShipGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderContactMech
+
+message AddOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderContactMechData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderContactMechData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderPaymentPreference
+
+message AddOrderPaymentPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderPaymentPreferenceFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderPaymentPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderPaymentPreferenceFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderPaymentPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderRole
+
+message AddOrderRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderRoleData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderRoleData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderStatus
+
+message AddOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderStatusFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderStatusFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderType
+
+message ModifyOrderTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderTypeData data = 3;
+  string comment = 4;
+}
+

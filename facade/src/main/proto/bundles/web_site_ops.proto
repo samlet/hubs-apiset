@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WebSiteOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/webapp_website.proto";
+
+service WebSiteOperations {
+  rpc CreateWebSite(CreateWebSiteParams) returns (routines.Response) {}
+  rpc UpdateWebSite(UpdateWebSiteParams) returns (routines.Response) {}
+
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateWebSiteParams{
+  BundleHandle handle = 1;
+  domain.WebSiteFlatData webSite = 2;
+  string comment = 3;
+}
+
+message UpdateWebSiteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WebSiteFlatData webSite = 3;
+  string comment = 4;
+}
+
+

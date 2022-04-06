@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "WorkEffortOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/workeffort_workeffort.proto";
+
+service WorkEffortOperations {
+  rpc CreateWorkEffort(CreateWorkEffortParams) returns (routines.Response) {}
+  rpc UpdateWorkEffort(UpdateWorkEffortParams) returns (routines.Response) {}
+
+  
+  rpc AddFromWorkEffortAssoc(AddFromWorkEffortAssocParams) returns (routines.Response) {}
+  rpc UpdateFromWorkEffortAssoc(UpdateFromWorkEffortAssocParams) returns (routines.Response) {}
+  rpc RemoveFromWorkEffortAssoc(RemoveFromWorkEffortAssocParams) returns (routines.Response) {}
+  
+  rpc AddToWorkEffortAssoc(AddToWorkEffortAssocParams) returns (routines.Response) {}
+  rpc UpdateToWorkEffortAssoc(UpdateToWorkEffortAssocParams) returns (routines.Response) {}
+  rpc RemoveToWorkEffortAssoc(RemoveToWorkEffortAssocParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+}
+
+
+// Mutations for main entity
+
+message CreateWorkEffortParams{
+  BundleHandle handle = 1;
+  domain.WorkEffortFlatData workEffort = 2;
+  string comment = 3;
+}
+
+message UpdateWorkEffortParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortFlatData workEffort = 3;
+  string comment = 4;
+}
+
+
+// Mutations for FromWorkEffortAssoc
+
+message AddFromWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateFromWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveFromWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ToWorkEffortAssoc
+
+message AddToWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateToWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveToWorkEffortAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
