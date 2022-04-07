@@ -154,6 +154,15 @@ message BundleQueryMap{
   google.protobuf.Struct condition_values=2;
 }
 
+message RegionData{
+  string region_id=1;
+  AnyMap data_map=2;
+}
+
+message RegionDataList{
+  repeated RegionData data_list=1;
+}
+
 // Mutations for AcctgTrans
 
 message AddAcctgTransParams{
