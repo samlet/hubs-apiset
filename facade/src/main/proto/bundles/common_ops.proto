@@ -15,5 +15,6 @@ import "facade_common.proto";
 
 service CommonOperations {
   rpc GetCollectionName(BundleHandle) returns (routines.Response) {}
+  rpc Select(BundleHandle) returns (routines.Response) {}
 }
 
