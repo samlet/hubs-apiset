@@ -62,6 +62,13 @@ service ProductOperations {
   
   rpc GetFeaturesByAppls(BundleHandle) returns (routines.Response) {}
   rpc GetFeatures(BundleHandle) returns (routines.Response) {}
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductList) {}
 }
 
 

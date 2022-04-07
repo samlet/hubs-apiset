@@ -30,6 +30,13 @@ service StoreOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductStoreList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductStoreList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductStoreFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductStoreList) {}
 }
 
 

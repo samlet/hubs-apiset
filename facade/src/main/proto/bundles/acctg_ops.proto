@@ -30,6 +30,13 @@ service AcctgOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.AcctgTransList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.AcctgTransList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.AcctgTransFlatData) {}
+  rpc Select(BundleHandle) returns (domain.AcctgTransList) {}
 }
 
 

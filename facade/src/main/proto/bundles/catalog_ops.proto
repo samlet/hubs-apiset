@@ -30,6 +30,13 @@ service CatalogOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProdCatalogList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProdCatalogList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProdCatalogFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProdCatalogList) {}
 }
 
 

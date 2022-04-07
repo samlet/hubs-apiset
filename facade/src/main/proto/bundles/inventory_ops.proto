@@ -37,6 +37,13 @@ service InventoryOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.InventoryItemList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.InventoryItemList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.InventoryItemFlatData) {}
+  rpc Select(BundleHandle) returns (domain.InventoryItemList) {}
 }
 
 

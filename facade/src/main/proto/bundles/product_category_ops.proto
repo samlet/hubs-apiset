@@ -34,6 +34,13 @@ service ProductCategoryOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductCategoryList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductCategoryList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductCategoryFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductCategoryList) {}
 }
 
 

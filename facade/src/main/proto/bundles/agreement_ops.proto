@@ -38,6 +38,13 @@ service AgreementOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.AgreementList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.AgreementList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.AgreementFlatData) {}
+  rpc Select(BundleHandle) returns (domain.AgreementList) {}
 }
 
 

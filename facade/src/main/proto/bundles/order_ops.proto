@@ -64,6 +64,13 @@ service OrderOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.OrderHeaderList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.OrderHeaderList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.OrderHeaderFlatData) {}
+  rpc Select(BundleHandle) returns (domain.OrderHeaderList) {}
 }
 
 

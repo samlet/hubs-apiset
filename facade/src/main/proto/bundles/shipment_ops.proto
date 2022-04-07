@@ -56,6 +56,13 @@ service ShipmentOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ShipmentList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ShipmentList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ShipmentFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ShipmentList) {}
 }
 
 

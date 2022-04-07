@@ -149,6 +149,10 @@ message BundleHandle{
   google.protobuf.Any data=3;
 }
 
+message BundleQueryMap{
+  BundleHandle handle = 1;
+  google.protobuf.Struct condition_values=2;
+}
 
 // Mutations for AcctgTrans
 

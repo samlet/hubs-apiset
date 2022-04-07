@@ -35,6 +35,13 @@ service ExampleOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ExampleList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ExampleList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ExampleData) {}
+  rpc Select(BundleHandle) returns (domain.ExampleList) {}
 }
 
 

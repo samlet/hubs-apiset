@@ -28,6 +28,13 @@ service ProductFeatureOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductFeatureList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductFeatureList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductFeatureFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductFeatureList) {}
 }
 
 

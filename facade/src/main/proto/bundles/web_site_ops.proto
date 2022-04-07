@@ -26,6 +26,13 @@ service WebSiteOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.WebSiteList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.WebSiteList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.WebSiteFlatData) {}
+  rpc Select(BundleHandle) returns (domain.WebSiteList) {}
 }
 
 

@@ -34,6 +34,13 @@ service WorkEffortOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.WorkEffortList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.WorkEffortList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.WorkEffortFlatData) {}
+  rpc Select(BundleHandle) returns (domain.WorkEffortList) {}
 }
 
 

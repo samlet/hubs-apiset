@@ -46,6 +46,13 @@ service InvoiceOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.InvoiceList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.InvoiceList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.InvoiceFlatData) {}
+  rpc Select(BundleHandle) returns (domain.InvoiceList) {}
 }
 
 

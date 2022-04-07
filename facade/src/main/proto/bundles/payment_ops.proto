@@ -37,6 +37,13 @@ service PaymentOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.PaymentList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.PaymentList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.PaymentFlatData) {}
+  rpc Select(BundleHandle) returns (domain.PaymentList) {}
 }
 
 

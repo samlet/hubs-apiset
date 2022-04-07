@@ -34,6 +34,13 @@ service ProductConfigItemOperations {
 
   // -- extensions --
   
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductConfigItemList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductConfigItemList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductConfigItemFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductConfigItemList) {}
 }
 
 
