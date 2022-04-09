@@ -12,6 +12,7 @@
         <module>mesh</module>
         <module>entity</module>
         <module>facade</module>
+        <module>proto</module>
     </modules>
 
     <properties>

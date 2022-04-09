@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "StorageTypesProto";
+
+package proto;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+message KVSnapshot{
+  map<string, bytes> values=1;
+  google.protobuf.Timestamp ts=2;
+}
+
+message KVEntry{
+  string key=1;
+  bytes value=2;
+}
+
+message DistrQuery{
+  string cmd=1;
+  bytes data=2;
+}
+
+message BlobData{
+  bytes content=1;
+  string content_type=2;
+}

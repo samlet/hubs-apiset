@@ -163,6 +163,25 @@ message RegionDataList{
   repeated RegionData data_list=1;
 }
 
+message StringEntry{
+  string key=1;
+  string value=2;
+  // 非标量类型(即message)都转换成了base64格式,
+  // 此处的value_type值为field_type, 比如date-time
+  string value_type=3;
+}
+
+message ProtoKey{
+  string entity=1;
+  repeated StringEntry entries=2;
+  string global_key=3;  // 复合主键值连结而成
+}
+
+message ProtoKeys{
+  // key is slug format
+  map<string, ProtoKey> values=1;
+}
+
 // Mutations for AcctgTrans
 
 message AddAcctgTransParams{
