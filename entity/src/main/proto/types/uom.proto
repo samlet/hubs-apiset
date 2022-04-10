@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Unit Of Measure
 message UomData {
     option (routines.entity_type) = "Uom";
@@ -21,7 +21,7 @@ message UomData {
     option (routines.has_table) = false;
     // keys: uomId
         
-    string uom_id = 1 [json_name = "uom_id"];
+    string uom_id = 1 [json_name = "uom_id", (google.api.graphql.relay_options).id = true];
     string uom_type_id = 2 [json_name = "uom_type_id"]; // UomType    
     string abbreviation = 3 [json_name = "abbreviation"];    
     int64 numeric_code = 4 [json_name = "numeric_code"];    
@@ -36,4 +36,10 @@ message UomData {
 
 message UomList{
     repeated UomData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUoms` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

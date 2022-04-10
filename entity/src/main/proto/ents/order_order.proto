@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Order Adjustment
 message OrderAdjustmentFlatData {
@@ -25,7 +26,7 @@ message OrderAdjustmentFlatData {
     option (routines.has_table) = true;
     // keys: orderAdjustmentId
         
-    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];    
+    string order_adjustment_id = 1 [json_name = "order_adjustment_id", (google.api.graphql.relay_options).id = true];    
     string order_adjustment_type_id = 2 [json_name = "order_adjustment_type_id"];    
     string order_id = 3 [json_name = "order_id"];    
     string order_item_seq_id = 4 [json_name = "order_item_seq_id"];    
@@ -69,6 +70,12 @@ message OrderAdjustmentFlatData {
 
 message OrderAdjustmentList{
     repeated OrderAdjustmentFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderAdjustments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Order Adjustment Billing
@@ -87,7 +94,7 @@ message OrderAdjustmentBillingData {
     routines.Currency amount = 4 [json_name = "amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -98,6 +105,12 @@ message OrderAdjustmentBillingData {
 
 message OrderAdjustmentBillingList{
     repeated OrderAdjustmentBillingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderAdjustmentBillings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -116,7 +129,7 @@ message OrderContactMechData {
     string contact_mech_id = 3 [json_name = "contact_mech_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -127,6 +140,12 @@ message OrderContactMechData {
 
 message OrderContactMechList{
     repeated OrderContactMechData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderContactMeches` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -139,7 +158,7 @@ message OrderHeaderFlatData {
     option (routines.has_table) = true;
     // keys: orderId
         
-    string order_id = 1 [json_name = "order_id"];    
+    string order_id = 1 [json_name = "order_id", (google.api.graphql.relay_options).id = true];    
     string order_type_id = 2 [json_name = "order_type_id"];    
     string order_name = 3 [json_name = "order_name"];    
     string external_id = 4 [json_name = "external_id"];
@@ -180,6 +199,12 @@ message OrderHeaderFlatData {
 
 message OrderHeaderList{
     repeated OrderHeaderFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderHeaders` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Order Item
@@ -240,7 +265,7 @@ message OrderItemFlatData {
     string change_by_user_login_id = 47 [json_name = "change_by_user_login_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 48 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 49 [json_name = "created_tx_stamp"];    
-    string id = 50 [json_name = "id"];    
+    string id = 50 [json_name = "id", (google.api.graphql.relay_options).id = true];    
     string tenant_id = 51 [json_name = "tenant_id"]; 
 
     // extra
@@ -250,6 +275,12 @@ message OrderItemFlatData {
 
 message OrderItemList{
     repeated OrderItemFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Order Item Billing
@@ -272,7 +303,7 @@ message OrderItemBillingData {
     routines.Currency amount = 8 [json_name = "amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -283,6 +314,12 @@ message OrderItemBillingData {
 
 message OrderItemBillingList{
     repeated OrderItemBillingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItemBillings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -295,7 +332,7 @@ message OrderItemPriceInfoFlatData {
     option (routines.has_table) = true;
     // keys: orderItemPriceInfoId
         
-    string order_item_price_info_id = 1 [json_name = "order_item_price_info_id"];    
+    string order_item_price_info_id = 1 [json_name = "order_item_price_info_id", (google.api.graphql.relay_options).id = true];    
     string order_id = 2 [json_name = "order_id"];    
     string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
     string product_price_rule_id = 4 [json_name = "product_price_rule_id"];    
@@ -314,6 +351,12 @@ message OrderItemPriceInfoFlatData {
 
 message OrderItemPriceInfoList{
     repeated OrderItemPriceInfoFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItemPriceInfos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Order Item Ship Group
@@ -348,7 +391,7 @@ message OrderItemShipGroupData {
     google.protobuf.Timestamp estimated_delivery_date = 20 [json_name = "estimated_delivery_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];    
-    string id = 23 [json_name = "id"];
+    string id = 23 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -359,6 +402,12 @@ message OrderItemShipGroupData {
 
 message OrderItemShipGroupList{
     repeated OrderItemShipGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItemShipGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -379,7 +428,7 @@ message OrderItemShipGroupAssocData {
     routines.FixedPoint cancel_quantity = 5 [json_name = "cancel_quantity"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -390,6 +439,12 @@ message OrderItemShipGroupAssocData {
 
 message OrderItemShipGroupAssocList{
     repeated OrderItemShipGroupAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItemShipGroupAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -418,7 +473,7 @@ message OrderItemShipGrpInvResData {
     int64 sequence_id = 13 [json_name = "sequence_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
-    string id = 16 [json_name = "id"];
+    string id = 16 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -429,6 +484,12 @@ message OrderItemShipGrpInvResData {
 
 message OrderItemShipGrpInvResList{
     repeated OrderItemShipGrpInvResData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderItemShipGrpInvRes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -441,7 +502,7 @@ message OrderPaymentPreferenceFlatData {
     option (routines.has_table) = true;
     // keys: orderPaymentPreferenceId
         
-    string order_payment_preference_id = 1 [json_name = "order_payment_preference_id"];    
+    string order_payment_preference_id = 1 [json_name = "order_payment_preference_id", (google.api.graphql.relay_options).id = true];    
     string order_id = 2 [json_name = "order_id"];    
     string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
     string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];
@@ -476,6 +537,12 @@ message OrderPaymentPreferenceFlatData {
 
 message OrderPaymentPreferenceList{
     repeated OrderPaymentPreferenceFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderPaymentPreferences` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Order Role
@@ -493,7 +560,7 @@ message OrderRoleData {
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -504,6 +571,12 @@ message OrderRoleData {
 
 message OrderRoleList{
     repeated OrderRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -516,7 +589,7 @@ message OrderStatusFlatData {
     option (routines.has_table) = true;
     // keys: orderStatusId
         
-    string order_status_id = 1 [json_name = "order_status_id"];
+    string order_status_id = 1 [json_name = "order_status_id", (google.api.graphql.relay_options).id = true];
     string status_id = 2 [json_name = "status_id"]; // StatusItem    
     string order_id = 3 [json_name = "order_id"];    
     string order_item_seq_id = 4 [json_name = "order_item_seq_id"];    
@@ -535,5 +608,11 @@ message OrderStatusFlatData {
 
 message OrderStatusList{
     repeated OrderStatusFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOrderStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

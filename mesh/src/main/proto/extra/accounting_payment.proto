@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Billing Account Term
 message BillingAccountTermData {
@@ -26,7 +27,7 @@ message BillingAccountTermData {
     // keys: billingAccountTermId
     // fields
         
-    string billing_account_term_id = 1 [json_name = "billing_account_term_id"];    
+    string billing_account_term_id = 1 [json_name = "billing_account_term_id", (google.api.graphql.relay_options).id = true];    
     string billing_account_id = 2 [json_name = "billing_account_id"];
     string term_type_id = 3 [json_name = "term_type_id"]; // TermType    
     routines.Currency term_value = 4 [json_name = "term_value"];    
@@ -44,6 +45,12 @@ message BillingAccountTermData {
 
 message BillingAccountTermList{
     repeated BillingAccountTermData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBillingAccountTerms` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -62,7 +69,7 @@ message BillingAccountTermAttrData {
     string attr_value = 3 [json_name = "attr_value"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -73,6 +80,12 @@ message BillingAccountTermAttrData {
 
 message BillingAccountTermAttrList{
     repeated BillingAccountTermAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBillingAccountTermAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +99,7 @@ message CheckAccountData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string bank_name = 2 [json_name = "bank_name"];    
     string routing_number = 3 [json_name = "routing_number"];    
     string account_type = 4 [json_name = "account_type"];    
@@ -107,6 +120,12 @@ message CheckAccountData {
 
 message CheckAccountList{
     repeated CheckAccountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCheckAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -120,7 +139,7 @@ message DeductionData {
     // keys: deductionId
     // fields
         
-    string deduction_id = 1 [json_name = "deduction_id"];
+    string deduction_id = 1 [json_name = "deduction_id", (google.api.graphql.relay_options).id = true];
     string deduction_type_id = 2 [json_name = "deduction_type_id"]; // DeductionType    
     string payment_id = 3 [json_name = "payment_id"];    
     routines.Currency amount = 4 [json_name = "amount"];    
@@ -136,6 +155,12 @@ message DeductionData {
 
 message DeductionList{
     repeated DeductionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDeductions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -149,7 +174,7 @@ message GiftCardData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string card_number = 2 [json_name = "card_number"];    
     string pin_number = 3 [json_name = "pin_number"];    
     string expire_date = 4 [json_name = "expire_date"];    
@@ -166,6 +191,12 @@ message GiftCardData {
 
 message GiftCardList{
     repeated GiftCardData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGiftCards` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -179,7 +210,7 @@ message GiftCardFulfillmentData {
     // keys: fulfillmentId
     // fields
         
-    string fulfillment_id = 1 [json_name = "fulfillment_id"];
+    string fulfillment_id = 1 [json_name = "fulfillment_id", (google.api.graphql.relay_options).id = true];
     string type_enum_id = 2 [json_name = "type_enum_id"]; // Enumeration    
     string merchant_id = 3 [json_name = "merchant_id"];    
     string party_id = 4 [json_name = "party_id"];    
@@ -205,6 +236,12 @@ message GiftCardFulfillmentData {
 
 message GiftCardFulfillmentList{
     repeated GiftCardFulfillmentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGiftCardFulfillments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -218,7 +255,7 @@ message PayPalPaymentMethodData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string payer_id = 2 [json_name = "payer_id"];    
     string express_checkout_token = 3 [json_name = "express_checkout_token"];    
     string payer_status = 4 [json_name = "payer_status"];    
@@ -239,6 +276,12 @@ message PayPalPaymentMethodData {
 
 message PayPalPaymentMethodList{
     repeated PayPalPaymentMethodData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPayPalPaymentMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -258,7 +301,7 @@ message PaymentAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -269,6 +312,12 @@ message PaymentAttributeData {
 
 message PaymentAttributeList{
     repeated PaymentAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -288,7 +337,7 @@ message PaymentBudgetAllocationData {
     routines.Currency amount = 4 [json_name = "amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -299,6 +348,12 @@ message PaymentBudgetAllocationData {
 
 message PaymentBudgetAllocationList{
     repeated PaymentBudgetAllocationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentBudgetAllocations` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -319,7 +374,7 @@ message PaymentContentData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -330,6 +385,12 @@ message PaymentContentData {
 
 message PaymentContentList{
     repeated PaymentContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -343,7 +404,7 @@ message PaymentGatewayAuthorizeNetData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string transaction_url = 2 [json_name = "transaction_url"];    
     string certificate_alias = 3 [json_name = "certificate_alias"];    
     string api_version = 4 [json_name = "api_version"];    
@@ -374,6 +435,12 @@ message PaymentGatewayAuthorizeNetData {
 
 message PaymentGatewayAuthorizeNetList{
     repeated PaymentGatewayAuthorizeNetData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayAuthorizeNets` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -387,7 +454,7 @@ message PaymentGatewayClearCommerceData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string source_id = 2 [json_name = "source_id"];    
     string group_id = 3 [json_name = "group_id"];    
     string client_id = 4 [json_name = "client_id"];    
@@ -410,6 +477,12 @@ message PaymentGatewayClearCommerceData {
 
 message PaymentGatewayClearCommerceList{
     repeated PaymentGatewayClearCommerceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayClearCommerces` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -423,7 +496,7 @@ message PaymentGatewayConfigData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
     string payment_gateway_config_type_id = 2 [json_name = "payment_gateway_config_type_id"]; // PaymentGatewayConfigType    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -438,6 +511,12 @@ message PaymentGatewayConfigData {
 
 message PaymentGatewayConfigList{
     repeated PaymentGatewayConfigData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayConfigs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -451,7 +530,7 @@ message PaymentGatewayCyberSourceData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string merchant_id = 2 [json_name = "merchant_id"];    
     string api_version = 3 [json_name = "api_version"];    
     string production = 4 [json_name = "production"];    
@@ -481,6 +560,12 @@ message PaymentGatewayCyberSourceData {
 
 message PaymentGatewayCyberSourceList{
     repeated PaymentGatewayCyberSourceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayCyberSources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -494,7 +579,7 @@ message PaymentGatewayEwayData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string customer_id = 2 [json_name = "customer_id"];    
     string refund_pwd = 3 [json_name = "refund_pwd"];    
     string test_mode = 4 [json_name = "test_mode"];    
@@ -512,6 +597,12 @@ message PaymentGatewayEwayData {
 
 message PaymentGatewayEwayList{
     repeated PaymentGatewayEwayData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayEways` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -525,7 +616,7 @@ message PaymentGatewayFirstDataData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string app_name = 2 [json_name = "app_name"];    
     string api_key = 3 [json_name = "api_key"];    
     string api_secret = 4 [json_name = "api_secret"];    
@@ -543,6 +634,12 @@ message PaymentGatewayFirstDataData {
 
 message PaymentGatewayFirstDataList{
     repeated PaymentGatewayFirstDataData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayFirstData` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -556,7 +653,7 @@ message PaymentGatewayOrbitalData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string username = 2 [json_name = "username"];    
     string connection_password = 3 [json_name = "connection_password"];    
     string merchant_id = 4 [json_name = "merchant_id"];    
@@ -583,6 +680,12 @@ message PaymentGatewayOrbitalData {
 
 message PaymentGatewayOrbitalList{
     repeated PaymentGatewayOrbitalData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayOrbitals` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -596,7 +699,7 @@ message PaymentGatewayPayPalData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string business_email = 2 [json_name = "business_email"];    
     string api_user_name = 3 [json_name = "api_user_name"];    
     string api_password = 4 [json_name = "api_password"];    
@@ -623,6 +726,12 @@ message PaymentGatewayPayPalData {
 
 message PaymentGatewayPayPalList{
     repeated PaymentGatewayPayPalData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayPayPals` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -636,7 +745,7 @@ message PaymentGatewayPayflowProData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string certs_path = 2 [json_name = "certs_path"];    
     string host_address = 3 [json_name = "host_address"];    
     int64 host_port = 4 [json_name = "host_port"];    
@@ -672,6 +781,12 @@ message PaymentGatewayPayflowProData {
 
 message PaymentGatewayPayflowProList{
     repeated PaymentGatewayPayflowProData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayPayflowPros` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -685,7 +800,7 @@ message PaymentGatewayRespMsgData {
     // keys: paymentGatewayRespMsgId
     // fields
         
-    string payment_gateway_resp_msg_id = 1 [json_name = "payment_gateway_resp_msg_id"];    
+    string payment_gateway_resp_msg_id = 1 [json_name = "payment_gateway_resp_msg_id", (google.api.graphql.relay_options).id = true];    
     string payment_gateway_response_id = 2 [json_name = "payment_gateway_response_id"];    
     string pgr_message = 3 [json_name = "pgr_message"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -700,6 +815,12 @@ message PaymentGatewayRespMsgData {
 
 message PaymentGatewayRespMsgList{
     repeated PaymentGatewayRespMsgData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayRespMsgs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -713,7 +834,7 @@ message PaymentGatewaySagePayData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string vendor = 2 [json_name = "vendor"];    
     string production_host = 3 [json_name = "production_host"];    
     string testing_host = 4 [json_name = "testing_host"];    
@@ -739,6 +860,12 @@ message PaymentGatewaySagePayData {
 
 message PaymentGatewaySagePayList{
     repeated PaymentGatewaySagePayData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewaySagePays` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -752,7 +879,7 @@ message PaymentGatewaySecurePayData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string merchant_id = 2 [json_name = "merchant_id"];    
     string pwd = 3 [json_name = "pwd"];    
     string server_u_r_l = 4 [json_name = "server_u_r_l"];    
@@ -770,6 +897,12 @@ message PaymentGatewaySecurePayData {
 
 message PaymentGatewaySecurePayList{
     repeated PaymentGatewaySecurePayData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewaySecurePays` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -783,7 +916,7 @@ message PaymentGatewayWorldPayData {
     // keys: paymentGatewayConfigId
     // fields
         
-    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id"];    
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string redirect_url = 2 [json_name = "redirect_url"];    
     string inst_id = 3 [json_name = "inst_id"];    
     routines.Indicator auth_mode = 4 [json_name = "auth_mode"];    
@@ -806,6 +939,12 @@ message PaymentGatewayWorldPayData {
 
 message PaymentGatewayWorldPayList{
     repeated PaymentGatewayWorldPayData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayWorldPays` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -819,7 +958,7 @@ message PaymentGroupData {
     // keys: paymentGroupId
     // fields
         
-    string payment_group_id = 1 [json_name = "payment_group_id"];
+    string payment_group_id = 1 [json_name = "payment_group_id", (google.api.graphql.relay_options).id = true];
     string payment_group_type_id = 2 [json_name = "payment_group_type_id"]; // PaymentGroupType    
     string payment_group_name = 3 [json_name = "payment_group_name"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -834,6 +973,12 @@ message PaymentGroupData {
 
 message PaymentGroupList{
     repeated PaymentGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -854,7 +999,7 @@ message PaymentGroupMemberData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -865,6 +1010,12 @@ message PaymentGroupMemberData {
 
 message PaymentGroupMemberList{
     repeated PaymentGroupMemberData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGroupMembers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -883,7 +1034,7 @@ message PaymentTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -894,6 +1045,12 @@ message PaymentTypeAttrData {
 
 message PaymentTypeAttrList{
     repeated PaymentTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -907,7 +1064,7 @@ message ValueLinkKeyData {
     // keys: merchantId
     // fields
         
-    string merchant_id = 1 [json_name = "merchant_id"];    
+    string merchant_id = 1 [json_name = "merchant_id", (google.api.graphql.relay_options).id = true];    
     string public_key = 2 [json_name = "public_key"];    
     string private_key = 3 [json_name = "private_key"];    
     string exchange_key = 4 [json_name = "exchange_key"];    
@@ -932,6 +1089,12 @@ message ValueLinkKeyData {
 
 message ValueLinkKeyList{
     repeated ValueLinkKeyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListValueLinkKeys` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

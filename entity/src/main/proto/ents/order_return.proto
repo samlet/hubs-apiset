@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Return
 message ReturnHeaderFlatData {
@@ -25,7 +26,7 @@ message ReturnHeaderFlatData {
     option (routines.has_table) = true;
     // keys: returnId
         
-    string return_id = 1 [json_name = "return_id"];
+    string return_id = 1 [json_name = "return_id", (google.api.graphql.relay_options).id = true];
     string return_header_type_id = 2 [json_name = "return_header_type_id"]; // ReturnHeaderType
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     string created_by = 4 [json_name = "created_by"];    
@@ -51,6 +52,12 @@ message ReturnHeaderFlatData {
 
 message ReturnHeaderList{
     repeated ReturnHeaderFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListReturnHeaders` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Return Item
@@ -80,7 +87,7 @@ message ReturnItemData {
     string return_item_response_id = 15 [json_name = "return_item_response_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
-    string id = 18 [json_name = "id"];
+    string id = 18 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -91,6 +98,12 @@ message ReturnItemData {
 
 message ReturnItemList{
     repeated ReturnItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListReturnItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

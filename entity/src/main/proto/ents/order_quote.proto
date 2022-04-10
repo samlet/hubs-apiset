@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Quote
 message QuoteFlatData {
@@ -25,7 +26,7 @@ message QuoteFlatData {
     option (routines.has_table) = true;
     // keys: quoteId
         
-    string quote_id = 1 [json_name = "quote_id"];    
+    string quote_id = 1 [json_name = "quote_id", (google.api.graphql.relay_options).id = true];    
     string quote_type_id = 2 [json_name = "quote_type_id"];    
     string party_id = 3 [json_name = "party_id"];    
     google.protobuf.Timestamp issue_date = 4 [json_name = "issue_date"];
@@ -48,6 +49,12 @@ message QuoteFlatData {
 
 message QuoteList{
     repeated QuoteFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Quote Adjustment
@@ -59,7 +66,7 @@ message QuoteAdjustmentFlatData {
     option (routines.has_table) = true;
     // keys: quoteAdjustmentId
         
-    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id"];
+    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id", (google.api.graphql.relay_options).id = true];
     string quote_adjustment_type_id = 2 [json_name = "quote_adjustment_type_id"]; // OrderAdjustmentType    
     string quote_id = 3 [json_name = "quote_id"];    
     string quote_item_seq_id = 4 [json_name = "quote_item_seq_id"];    
@@ -97,6 +104,12 @@ message QuoteAdjustmentFlatData {
 
 message QuoteAdjustmentList{
     repeated QuoteAdjustmentFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuoteAdjustments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Quote Item
@@ -132,7 +145,7 @@ message QuoteItemData {
     int64 lead_time_days = 21 [json_name = "lead_time_days"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];    
-    string id = 24 [json_name = "id"];
+    string id = 24 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -143,6 +156,12 @@ message QuoteItemData {
 
 message QuoteItemList{
     repeated QuoteItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuoteItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -163,7 +182,7 @@ message QuoteRoleData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -174,6 +193,12 @@ message QuoteRoleData {
 
 message QuoteRoleList{
     repeated QuoteRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuoteRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -197,7 +222,7 @@ message QuoteTermData {
     string description = 8 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -208,6 +233,12 @@ message QuoteTermData {
 
 message QuoteTermList{
     repeated QuoteTermData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuoteTerms` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

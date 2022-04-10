@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Valid issuer data for authentication of x.509 certificates
 message X509IssuerProvisionData {
@@ -26,7 +27,7 @@ message X509IssuerProvisionData {
     // keys: certProvisionId
     // fields
         
-    string cert_provision_id = 1 [json_name = "cert_provision_id"];    
+    string cert_provision_id = 1 [json_name = "cert_provision_id", (google.api.graphql.relay_options).id = true];    
     string common_name = 2 [json_name = "common_name"];    
     string organizational_unit = 3 [json_name = "organizational_unit"];    
     string organization_name = 4 [json_name = "organization_name"];    
@@ -46,6 +47,12 @@ message X509IssuerProvisionData {
 
 message X509IssuerProvisionList{
     repeated X509IssuerProvisionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListX509IssuerProvisions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

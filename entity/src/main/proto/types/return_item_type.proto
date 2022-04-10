@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Return Item Type
 message ReturnItemTypeData {
     option (routines.entity_type) = "ReturnItemType";
@@ -21,7 +21,7 @@ message ReturnItemTypeData {
     option (routines.has_table) = false;
     // keys: returnItemTypeId
         
-    string return_item_type_id = 1 [json_name = "return_item_type_id"];
+    string return_item_type_id = 1 [json_name = "return_item_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // ReturnItemType    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -34,4 +34,10 @@ message ReturnItemTypeData {
 
 message ReturnItemTypeList{
     repeated ReturnItemTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListReturnItemTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

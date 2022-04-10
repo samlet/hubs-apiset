@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/product_store.proto";
 
 service StoreOperations {
-  rpc CreateStore(CreateStoreParams) returns (routines.Response) {}
-  rpc UpdateStore(UpdateStoreParams) returns (routines.Response) {}
+  rpc CreateStore(CreateStoreParams) returns (domain.ProductStoreFlatData) {}
+  rpc UpdateStore(UpdateStoreParams) returns (domain.ProductStoreFlatData) {}
+  rpc GetStore(BundleGetRequest) returns (domain.ProductStoreFlatData) {}
 
   
   rpc AddProductStoreCatalog(AddProductStoreCatalogParams) returns (routines.Response) {}
@@ -37,6 +38,10 @@ service StoreOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductStoreList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductStoreFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductStoreList) {}
+
+  rpc ListProductStores(BundleListRequest) returns (domain.ProductStoreList) {}
+  rpc StreamProductStores(BundleListRequest) returns (stream domain.ProductStoreList) {}
+  rpc RemoveProductStore(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

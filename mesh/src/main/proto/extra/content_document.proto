@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Document
 message DocumentData {
@@ -26,7 +27,7 @@ message DocumentData {
     // keys: documentId
     // fields
         
-    string document_id = 1 [json_name = "document_id"];    
+    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];    
     string document_type_id = 2 [json_name = "document_type_id"];    
     google.protobuf.Timestamp date_created = 3 [json_name = "date_created"];    
     string comments = 4 [json_name = "comments"];    
@@ -45,6 +46,12 @@ message DocumentData {
 
 message DocumentList{
     repeated DocumentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDocuments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -64,7 +71,7 @@ message DocumentAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -75,6 +82,12 @@ message DocumentAttributeData {
 
 message DocumentAttributeList{
     repeated DocumentAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDocumentAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -93,7 +106,7 @@ message DocumentTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -104,6 +117,12 @@ message DocumentTypeAttrData {
 
 message DocumentTypeAttrList{
     repeated DocumentTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDocumentTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/product_feature.proto";
 
 service ProductFeatureCategoryOperations {
-  rpc CreateProductFeatureCategory(CreateProductFeatureCategoryParams) returns (routines.Response) {}
-  rpc UpdateProductFeatureCategory(UpdateProductFeatureCategoryParams) returns (routines.Response) {}
+  rpc CreateProductFeatureCategory(CreateProductFeatureCategoryParams) returns (domain.ProductFeatureCategoryFlatData) {}
+  rpc UpdateProductFeatureCategory(UpdateProductFeatureCategoryParams) returns (domain.ProductFeatureCategoryFlatData) {}
+  rpc GetProductFeatureCategory(BundleGetRequest) returns (domain.ProductFeatureCategoryFlatData) {}
 
   
 
@@ -33,6 +34,10 @@ service ProductFeatureCategoryOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductFeatureCategoryList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductFeatureCategoryFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductFeatureCategoryList) {}
+
+  rpc ListProductFeatureCategories(BundleListRequest) returns (domain.ProductFeatureCategoryList) {}
+  rpc StreamProductFeatureCategories(BundleListRequest) returns (stream domain.ProductFeatureCategoryList) {}
+  rpc RemoveProductFeatureCategory(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

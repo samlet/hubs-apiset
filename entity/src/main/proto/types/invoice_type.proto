@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Invoice Type
 message InvoiceTypeData {
     option (routines.entity_type) = "InvoiceType";
@@ -21,7 +21,7 @@ message InvoiceTypeData {
     option (routines.has_table) = false;
     // keys: invoiceTypeId
         
-    string invoice_type_id = 1 [json_name = "invoice_type_id"];
+    string invoice_type_id = 1 [json_name = "invoice_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // InvoiceType    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -35,4 +35,10 @@ message InvoiceTypeData {
 
 message InvoiceTypeList{
     repeated InvoiceTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

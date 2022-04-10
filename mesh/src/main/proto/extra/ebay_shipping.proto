@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Ebay Shipping Method Config
 message EbayShippingMethodData {
@@ -36,7 +37,7 @@ message EbayShippingMethodData {
     string shipment_method_type_id = 8 [json_name = "shipment_method_type_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -47,6 +48,12 @@ message EbayShippingMethodData {
 
 message EbayShippingMethodList{
     repeated EbayShippingMethodData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEbayShippingMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

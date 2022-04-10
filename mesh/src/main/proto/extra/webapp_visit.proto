@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Browser Type
 message BrowserTypeData {
@@ -26,7 +27,7 @@ message BrowserTypeData {
     // keys: browserTypeId
     // fields
         
-    string browser_type_id = 1 [json_name = "browser_type_id"];    
+    string browser_type_id = 1 [json_name = "browser_type_id", (google.api.graphql.relay_options).id = true];    
     string browser_name = 2 [json_name = "browser_name"];    
     string browser_version = 3 [json_name = "browser_version"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -41,6 +42,12 @@ message BrowserTypeData {
 
 message BrowserTypeList{
     repeated BrowserTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBrowserTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -54,7 +61,7 @@ message PlatformTypeData {
     // keys: platformTypeId
     // fields
         
-    string platform_type_id = 1 [json_name = "platform_type_id"];    
+    string platform_type_id = 1 [json_name = "platform_type_id", (google.api.graphql.relay_options).id = true];    
     string platform_name = 2 [json_name = "platform_name"];    
     string platform_version = 3 [json_name = "platform_version"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -69,6 +76,12 @@ message PlatformTypeData {
 
 message PlatformTypeList{
     repeated PlatformTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPlatformTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -82,7 +95,7 @@ message ProtocolTypeData {
     // keys: protocolTypeId
     // fields
         
-    string protocol_type_id = 1 [json_name = "protocol_type_id"];    
+    string protocol_type_id = 1 [json_name = "protocol_type_id", (google.api.graphql.relay_options).id = true];    
     string protocol_name = 2 [json_name = "protocol_name"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -96,6 +109,12 @@ message ProtocolTypeData {
 
 message ProtocolTypeList{
     repeated ProtocolTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProtocolTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -125,7 +144,7 @@ message ServerHitData {
     string party_id = 14 [json_name = "party_id"];    
     string id_by_ip_contact_mech_id = 15 [json_name = "id_by_ip_contact_mech_id"];    
     string ref_by_web_contact_mech_id = 16 [json_name = "ref_by_web_contact_mech_id"];    
-    string id = 17 [json_name = "id"];
+    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -136,6 +155,12 @@ message ServerHitData {
 
 message ServerHitList{
     repeated ServerHitData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListServerHits` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -149,7 +174,7 @@ message ServerHitBinData {
     // keys: serverHitBinId
     // fields
         
-    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id"];    
+    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id", (google.api.graphql.relay_options).id = true];    
     string content_id = 2 [json_name = "content_id"];
     string hit_type_id = 3 [json_name = "hit_type_id"]; // ServerHitType    
     string server_ip_address = 4 [json_name = "server_ip_address"];    
@@ -171,6 +196,12 @@ message ServerHitBinData {
 
 message ServerHitBinList{
     repeated ServerHitBinData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListServerHitBins` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -184,7 +215,7 @@ message UserAgentData {
     // keys: userAgentId
     // fields
         
-    string user_agent_id = 1 [json_name = "user_agent_id"];    
+    string user_agent_id = 1 [json_name = "user_agent_id", (google.api.graphql.relay_options).id = true];    
     string browser_type_id = 2 [json_name = "browser_type_id"];    
     string platform_type_id = 3 [json_name = "platform_type_id"];    
     string protocol_type_id = 4 [json_name = "protocol_type_id"];    
@@ -202,6 +233,12 @@ message UserAgentData {
 
 message UserAgentList{
     repeated UserAgentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUserAgents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -215,7 +252,7 @@ message UserAgentMethodTypeData {
     // keys: userAgentMethodTypeId
     // fields
         
-    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id"];    
+    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -229,6 +266,12 @@ message UserAgentMethodTypeData {
 
 message UserAgentMethodTypeList{
     repeated UserAgentMethodTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUserAgentMethodTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -242,7 +285,7 @@ message UserAgentTypeData {
     // keys: userAgentTypeId
     // fields
         
-    string user_agent_type_id = 1 [json_name = "user_agent_type_id"];    
+    string user_agent_type_id = 1 [json_name = "user_agent_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -256,6 +299,12 @@ message UserAgentTypeData {
 
 message UserAgentTypeList{
     repeated UserAgentTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUserAgentTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -269,7 +318,7 @@ message VisitData {
     // keys: visitId
     // fields
         
-    string visit_id = 1 [json_name = "visit_id"];    
+    string visit_id = 1 [json_name = "visit_id", (google.api.graphql.relay_options).id = true];    
     string visitor_id = 2 [json_name = "visitor_id"];    
     string user_login_id = 3 [json_name = "user_login_id"];    
     routines.Indicator user_created = 4 [json_name = "user_created"];    
@@ -305,6 +354,12 @@ message VisitData {
 
 message VisitList{
     repeated VisitData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListVisits` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -318,7 +373,7 @@ message VisitorData {
     // keys: visitorId
     // fields
         
-    string visitor_id = 1 [json_name = "visitor_id"];    
+    string visitor_id = 1 [json_name = "visitor_id", (google.api.graphql.relay_options).id = true];    
     string user_login_id = 2 [json_name = "user_login_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
@@ -333,6 +388,12 @@ message VisitorData {
 
 message VisitorList{
     repeated VisitorData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListVisitors` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

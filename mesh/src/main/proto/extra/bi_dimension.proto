@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Country Dimension
 message CountryDimensionData {
@@ -26,7 +27,7 @@ message CountryDimensionData {
     // keys: dimensionId
     // fields
         
-    string dimension_id = 1 [json_name = "dimension_id"];    
+    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];    
     string geo_id = 2 [json_name = "geo_id"];    
     string geo_name = 3 [json_name = "geo_name"];    
     string geo_code = 4 [json_name = "geo_code"];    
@@ -45,6 +46,12 @@ message CountryDimensionData {
 
 message CountryDimensionList{
     repeated CountryDimensionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCountryDimensions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -58,7 +65,7 @@ message CurrencyDimensionData {
     // keys: dimensionId
     // fields
         
-    string dimension_id = 1 [json_name = "dimension_id"];    
+    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];    
     string currency_id = 2 [json_name = "currency_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -73,6 +80,12 @@ message CurrencyDimensionData {
 
 message CurrencyDimensionList{
     repeated CurrencyDimensionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCurrencyDimensions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +99,7 @@ message DateDimensionData {
     // keys: dimensionId
     // fields
         
-    string dimension_id = 1 [json_name = "dimension_id"];    
+    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];    
     google.type.Date date_value = 2 [json_name = "date_value"];    
     string description = 3 [json_name = "description"];    
     string day_name = 4 [json_name = "day_name"];    
@@ -112,6 +125,12 @@ message DateDimensionData {
 
 message DateDimensionList{
     repeated DateDimensionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDateDimensions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

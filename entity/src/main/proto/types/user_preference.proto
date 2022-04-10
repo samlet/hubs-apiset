@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Application preferences for a given userLogin.
 message UserPreferenceData {
     option (routines.entity_type) = "UserPreference";
@@ -28,7 +28,7 @@ message UserPreferenceData {
     string user_pref_data_type = 5 [json_name = "user_pref_data_type"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"]; 
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true]; 
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -37,4 +37,10 @@ message UserPreferenceData {
 
 message UserPreferenceList{
     repeated UserPreferenceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUserPreferences` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

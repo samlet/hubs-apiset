@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: CustomTimePeriod
 message CustomTimePeriodData {
     option (routines.entity_type) = "CustomTimePeriod";
@@ -21,7 +21,7 @@ message CustomTimePeriodData {
     option (routines.has_table) = false;
     // keys: customTimePeriodId
         
-    string custom_time_period_id = 1 [json_name = "custom_time_period_id"];
+    string custom_time_period_id = 1 [json_name = "custom_time_period_id", (google.api.graphql.relay_options).id = true];
     string parent_period_id = 2 [json_name = "parent_period_id"]; // CustomTimePeriod
     string period_type_id = 3 [json_name = "period_type_id"]; // PeriodType    
     int64 period_num = 4 [json_name = "period_num"];    
@@ -40,4 +40,10 @@ message CustomTimePeriodData {
 
 message CustomTimePeriodList{
     repeated CustomTimePeriodData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustomTimePeriods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

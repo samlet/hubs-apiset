@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Shopping List Item
 message ShoppingListItemSurveyData {
@@ -31,7 +32,7 @@ message ShoppingListItemSurveyData {
     string survey_response_id = 3 [json_name = "survey_response_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -42,6 +43,12 @@ message ShoppingListItemSurveyData {
 
 message ShoppingListItemSurveyList{
     repeated ShoppingListItemSurveyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShoppingListItemSurveys` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -59,7 +66,7 @@ message ShoppingListWorkEffortData {
     string work_effort_id = 2 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -70,6 +77,12 @@ message ShoppingListWorkEffortData {
 
 message ShoppingListWorkEffortList{
     repeated ShoppingListWorkEffortData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShoppingListWorkEfforts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Entity for testing the field data types
 message TestFieldTypeData {
@@ -26,7 +27,7 @@ message TestFieldTypeData {
     // keys: testFieldTypeId
     // fields
         
-    string test_field_type_id = 1 [json_name = "test_field_type_id"];    
+    string test_field_type_id = 1 [json_name = "test_field_type_id", (google.api.graphql.relay_options).id = true];    
     bytes blob_field = 2 [json_name = "blob_field"];    
     bytes byte_array_field = 3 [json_name = "byte_array_field"];    
     bytes object_field = 4 [json_name = "object_field"];    
@@ -49,6 +50,12 @@ message TestFieldTypeData {
 
 message TestFieldTypeList{
     repeated TestFieldTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestFieldTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -62,7 +69,7 @@ message TestingData {
     // keys: testingId
     // fields
         
-    string testing_id = 1 [json_name = "testing_id"];    
+    string testing_id = 1 [json_name = "testing_id", (google.api.graphql.relay_options).id = true];    
     string testing_type_id = 2 [json_name = "testing_type_id"];    
     string testing_name = 3 [json_name = "testing_name"];    
     string description = 4 [json_name = "description"];    
@@ -81,6 +88,12 @@ message TestingData {
 
 message TestingList{
     repeated TestingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -94,7 +107,7 @@ message TestingCryptoData {
     // keys: testingCryptoId
     // fields
         
-    string testing_crypto_id = 1 [json_name = "testing_crypto_id"];    
+    string testing_crypto_id = 1 [json_name = "testing_crypto_id", (google.api.graphql.relay_options).id = true];    
     string testing_crypto_type_id = 2 [json_name = "testing_crypto_type_id"];    
     string unencrypted_value = 3 [json_name = "unencrypted_value"];    
     string encrypted_value = 4 [json_name = "encrypted_value"];    
@@ -111,6 +124,12 @@ message TestingCryptoData {
 
 message TestingCryptoList{
     repeated TestingCryptoData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingCryptos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -129,7 +148,7 @@ message TestingItemData {
     string testing_history = 3 [json_name = "testing_history"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -140,6 +159,12 @@ message TestingItemData {
 
 message TestingItemList{
     repeated TestingItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -153,7 +178,7 @@ message TestingNodeData {
     // keys: testingNodeId
     // fields
         
-    string testing_node_id = 1 [json_name = "testing_node_id"];    
+    string testing_node_id = 1 [json_name = "testing_node_id", (google.api.graphql.relay_options).id = true];    
     string primary_parent_node_id = 2 [json_name = "primary_parent_node_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -168,6 +193,12 @@ message TestingNodeData {
 
 message TestingNodeList{
     repeated TestingNodeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingNodes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -189,7 +220,7 @@ message TestingNodeMemberData {
     google.protobuf.Timestamp extend_thru_date = 6 [json_name = "extend_thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -200,6 +231,12 @@ message TestingNodeMemberData {
 
 message TestingNodeMemberList{
     repeated TestingNodeMemberData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingNodeMembers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -213,7 +250,7 @@ message TestingRemoveAllData {
     // keys: testingRemoveAllId
     // fields
         
-    string testing_remove_all_id = 1 [json_name = "testing_remove_all_id"];    
+    string testing_remove_all_id = 1 [json_name = "testing_remove_all_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -227,6 +264,12 @@ message TestingRemoveAllData {
 
 message TestingRemoveAllList{
     repeated TestingRemoveAllData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingRemoveAlls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -240,7 +283,7 @@ message TestingStatusData {
     // keys: testingStatusId
     // fields
         
-    string testing_status_id = 1 [json_name = "testing_status_id"];    
+    string testing_status_id = 1 [json_name = "testing_status_id", (google.api.graphql.relay_options).id = true];    
     string testing_id = 2 [json_name = "testing_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp status_date = 4 [json_name = "status_date"];    
@@ -257,6 +300,12 @@ message TestingStatusData {
 
 message TestingStatusList{
     repeated TestingStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -270,7 +319,7 @@ message TestingSubtypeData {
     // keys: testingTypeId
     // fields
         
-    string testing_type_id = 1 [json_name = "testing_type_id"];    
+    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];    
     string subtype_description = 2 [json_name = "subtype_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -284,6 +333,12 @@ message TestingSubtypeData {
 
 message TestingSubtypeList{
     repeated TestingSubtypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingSubtypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -297,7 +352,7 @@ message TestingTypeData {
     // keys: testingTypeId
     // fields
         
-    string testing_type_id = 1 [json_name = "testing_type_id"];    
+    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -311,6 +366,12 @@ message TestingTypeData {
 
 message TestingTypeList{
     repeated TestingTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTestingTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

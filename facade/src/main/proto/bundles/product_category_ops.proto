@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/product_category.proto";
 
 service ProductCategoryOperations {
-  rpc CreateProductCategory(CreateProductCategoryParams) returns (routines.Response) {}
-  rpc UpdateProductCategory(UpdateProductCategoryParams) returns (routines.Response) {}
+  rpc CreateProductCategory(CreateProductCategoryParams) returns (domain.ProductCategoryFlatData) {}
+  rpc UpdateProductCategory(UpdateProductCategoryParams) returns (domain.ProductCategoryFlatData) {}
+  rpc GetProductCategory(BundleGetRequest) returns (domain.ProductCategoryFlatData) {}
 
   
   rpc AddCurrentProductCategoryRollup(AddCurrentProductCategoryRollupParams) returns (routines.Response) {}
@@ -41,6 +42,10 @@ service ProductCategoryOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductCategoryList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductCategoryFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductCategoryList) {}
+
+  rpc ListProductCategories(BundleListRequest) returns (domain.ProductCategoryList) {}
+  rpc StreamProductCategories(BundleListRequest) returns (stream domain.ProductCategoryList) {}
+  rpc RemoveProductCategory(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

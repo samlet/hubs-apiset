@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Inventory Item Attribute
 message InventoryItemAttributeData {
@@ -32,7 +33,7 @@ message InventoryItemAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message InventoryItemAttributeData {
 
 message InventoryItemAttributeList{
     repeated InventoryItemAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message InventoryItemLabelData {
     // keys: inventoryItemLabelId
     // fields
         
-    string inventory_item_label_id = 1 [json_name = "inventory_item_label_id"];    
+    string inventory_item_label_id = 1 [json_name = "inventory_item_label_id", (google.api.graphql.relay_options).id = true];    
     string inventory_item_label_type_id = 2 [json_name = "inventory_item_label_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -71,6 +78,12 @@ message InventoryItemLabelData {
 
 message InventoryItemLabelList{
     repeated InventoryItemLabelData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemLabels` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -90,7 +103,7 @@ message InventoryItemLabelApplData {
     int64 sequence_num = 4 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -101,6 +114,12 @@ message InventoryItemLabelApplData {
 
 message InventoryItemLabelApplList{
     repeated InventoryItemLabelApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemLabelAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -114,7 +133,7 @@ message InventoryItemLabelTypeData {
     // keys: inventoryItemLabelTypeId
     // fields
         
-    string inventory_item_label_type_id = 1 [json_name = "inventory_item_label_type_id"];    
+    string inventory_item_label_type_id = 1 [json_name = "inventory_item_label_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -130,6 +149,12 @@ message InventoryItemLabelTypeData {
 
 message InventoryItemLabelTypeList{
     repeated InventoryItemLabelTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemLabelTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -152,7 +177,7 @@ message InventoryItemStatusData {
     string product_id = 7 [json_name = "product_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -163,6 +188,12 @@ message InventoryItemStatusData {
 
 message InventoryItemStatusList{
     repeated InventoryItemStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -183,7 +214,7 @@ message InventoryItemTempResData {
     google.protobuf.Timestamp reserved_date = 5 [json_name = "reserved_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -194,6 +225,12 @@ message InventoryItemTempResData {
 
 message InventoryItemTempResList{
     repeated InventoryItemTempResData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemTempRes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -212,7 +249,7 @@ message InventoryItemTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -223,6 +260,12 @@ message InventoryItemTypeAttrData {
 
 message InventoryItemTypeAttrList{
     repeated InventoryItemTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -244,7 +287,7 @@ message InventoryItemVarianceData {
     string comments = 6 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -255,6 +298,12 @@ message InventoryItemVarianceData {
 
 message InventoryItemVarianceList{
     repeated InventoryItemVarianceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemVariances` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -268,7 +317,7 @@ message InventoryTransferData {
     // keys: inventoryTransferId
     // fields
         
-    string inventory_transfer_id = 1 [json_name = "inventory_transfer_id"];
+    string inventory_transfer_id = 1 [json_name = "inventory_transfer_id", (google.api.graphql.relay_options).id = true];
     string status_id = 2 [json_name = "status_id"]; // StatusItem    
     string inventory_item_id = 3 [json_name = "inventory_item_id"];    
     string facility_id = 4 [json_name = "facility_id"];    
@@ -293,6 +342,12 @@ message InventoryTransferData {
 
 message InventoryTransferList{
     repeated InventoryTransferData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryTransfers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -306,7 +361,7 @@ message LotData {
     // keys: lotId
     // fields
         
-    string lot_id = 1 [json_name = "lot_id"];    
+    string lot_id = 1 [json_name = "lot_id", (google.api.graphql.relay_options).id = true];    
     google.protobuf.Timestamp creation_date = 2 [json_name = "creation_date"];    
     routines.FixedPoint quantity = 3 [json_name = "quantity"];    
     google.protobuf.Timestamp expiration_date = 4 [json_name = "expiration_date"];    
@@ -322,6 +377,12 @@ message LotData {
 
 message LotList{
     repeated LotData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListLots` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -335,7 +396,7 @@ message PhysicalInventoryData {
     // keys: physicalInventoryId
     // fields
         
-    string physical_inventory_id = 1 [json_name = "physical_inventory_id"];    
+    string physical_inventory_id = 1 [json_name = "physical_inventory_id", (google.api.graphql.relay_options).id = true];    
     google.protobuf.Timestamp physical_inventory_date = 2 [json_name = "physical_inventory_date"];    
     string party_id = 3 [json_name = "party_id"];    
     string general_comments = 4 [json_name = "general_comments"];    
@@ -351,6 +412,12 @@ message PhysicalInventoryData {
 
 message PhysicalInventoryList{
     repeated PhysicalInventoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPhysicalInventories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

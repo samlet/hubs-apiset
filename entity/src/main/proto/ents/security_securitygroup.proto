@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Security Component - Security Group
 message SecurityGroupFlatData {
@@ -25,7 +26,7 @@ message SecurityGroupFlatData {
     option (routines.has_table) = true;
     // keys: groupId
         
-    string group_id = 1 [json_name = "group_id"];    
+    string group_id = 1 [json_name = "group_id", (google.api.graphql.relay_options).id = true];    
     string group_name = 2 [json_name = "group_name"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -39,6 +40,12 @@ message SecurityGroupFlatData {
 
 message SecurityGroupList{
     repeated SecurityGroupFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSecurityGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Security Component - Security Group Permission
@@ -57,7 +64,7 @@ message SecurityGroupPermissionData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -68,6 +75,12 @@ message SecurityGroupPermissionData {
 
 message SecurityGroupPermissionList{
     repeated SecurityGroupPermissionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSecurityGroupPermissions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -80,7 +93,7 @@ message SecurityPermissionFlatData {
     option (routines.has_table) = true;
     // keys: permissionId
         
-    string permission_id = 1 [json_name = "permission_id"];    
+    string permission_id = 1 [json_name = "permission_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
@@ -93,6 +106,12 @@ message SecurityPermissionFlatData {
 
 message SecurityPermissionList{
     repeated SecurityPermissionFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSecurityPermissions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Security Component - User Login Security Group
@@ -111,7 +130,7 @@ message UserLoginSecurityGroupData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -122,6 +141,12 @@ message UserLoginSecurityGroupData {
 
 message UserLoginSecurityGroupList{
     repeated UserLoginSecurityGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListUserLoginSecurityGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

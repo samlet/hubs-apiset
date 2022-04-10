@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Party Rate
 message PartyRateData {
@@ -34,7 +35,7 @@ message PartyRateData {
     google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -45,6 +46,12 @@ message PartyRateData {
 
 message PartyRateList{
     repeated PartyRateData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyRates` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -69,7 +76,7 @@ message RateAmountData {
     routines.Currency rate_amount = 9 [json_name = "rate_amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -80,6 +87,12 @@ message RateAmountData {
 
 message RateAmountList{
     repeated RateAmountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListRateAmounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

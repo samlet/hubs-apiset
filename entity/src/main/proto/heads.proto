@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 import "ents/accounting_invoice.proto";
 import "ents/product_feature.proto";
@@ -77,7 +78,7 @@ message ProdCatalogData {
     // keys: prodCatalogId
     // fields
         
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];    
+    string prod_catalog_id = 1 [json_name = "prod_catalog_id", (google.api.graphql.relay_options).id = true];    
     string catalog_name = 2 [json_name = "catalog_name"];    
     routines.Indicator use_quick_add = 3 [json_name = "use_quick_add"];    
     string style_sheet = 4 [json_name = "style_sheet"];    
@@ -128,7 +129,7 @@ message ProductStoreData {
     // keys: productStoreId
     // fields
         
-    string product_store_id = 1 [json_name = "product_store_id"];
+    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
     string primary_store_group_id = 2 [json_name = "primary_store_group_id"]; // ProductStoreGroup    
     string store_name = 3 [json_name = "store_name"];    
     string company_name = 4 [json_name = "company_name"];    
@@ -270,7 +271,7 @@ message ProductStoreFacilityData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     ProductStoreData product_store = 9 [json_name = "product_store"]; // ref(ProductStore): productStoreId
@@ -318,7 +319,7 @@ message ProductStoreCatalogData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     ProductStoreData product_store = 9 [json_name = "product_store"]; // ref(ProductStore): productStoreId
@@ -359,7 +360,7 @@ message WebSiteData {
     // keys: webSiteId
     // fields
         
-    string web_site_id = 1 [json_name = "web_site_id"];    
+    string web_site_id = 1 [json_name = "web_site_id", (google.api.graphql.relay_options).id = true];    
     string site_name = 2 [json_name = "site_name"];    
     string http_host = 3 [json_name = "http_host"];    
     string http_port = 4 [json_name = "http_port"];    
@@ -429,7 +430,7 @@ message ProdCatalogCategoryData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     ProdCatalogData prod_catalog = 10 [json_name = "prod_catalog"]; // ref(ProdCatalog): prodCatalogId
@@ -470,7 +471,7 @@ message ProductCategoryData {
     // keys: productCategoryId
     // fields
         
-    string product_category_id = 1 [json_name = "product_category_id"];    
+    string product_category_id = 1 [json_name = "product_category_id", (google.api.graphql.relay_options).id = true];    
     string product_category_type_id = 2 [json_name = "product_category_type_id"];    
     string category_name = 3 [json_name = "category_name"];    
     string description = 4 [json_name = "description"];    
@@ -542,7 +543,7 @@ message ProductCategoryRollupData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     ProductCategoryData current_product_category = 9 [json_name = "current_product_category"]; // ref(CurrentProductCategory): productCategoryId
@@ -595,7 +596,7 @@ message ProductCategoryMemberData {
     routines.FixedPoint quantity = 7 [json_name = "quantity"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     ProductData product = 11 [json_name = "product"]; // ref(Product): productId
@@ -636,7 +637,7 @@ message ProductData {
     // keys: productId
     // fields
         
-    string product_id = 1 [json_name = "product_id"];    
+    string product_id = 1 [json_name = "product_id", (google.api.graphql.relay_options).id = true];    
     string product_type_id = 2 [json_name = "product_type_id"];    
     google.protobuf.Timestamp introduction_date = 3 [json_name = "introduction_date"];    
     google.protobuf.Timestamp release_date = 4 [json_name = "release_date"];    
@@ -779,7 +780,7 @@ message ProductPromoData {
     // keys: productPromoId
     // fields
         
-    string product_promo_id = 1 [json_name = "product_promo_id"];    
+    string product_promo_id = 1 [json_name = "product_promo_id", (google.api.graphql.relay_options).id = true];    
     string promo_name = 2 [json_name = "promo_name"];    
     string promo_text = 3 [json_name = "promo_text"];    
     routines.Indicator user_entered = 4 [json_name = "user_entered"];    
@@ -843,7 +844,7 @@ message OrderHeaderData {
     // keys: orderId
     // fields
         
-    string order_id = 1 [json_name = "order_id"];    
+    string order_id = 1 [json_name = "order_id", (google.api.graphql.relay_options).id = true];    
     string order_type_id = 2 [json_name = "order_type_id"];    
     string order_name = 3 [json_name = "order_name"];    
     string external_id = 4 [json_name = "external_id"];
@@ -971,7 +972,7 @@ message OrderItemData {
     string sales_opportunity_id = 40 [json_name = "sales_opportunity_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 41 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 42 [json_name = "created_tx_stamp"];    
-    string id = 43 [json_name = "id"];
+    string id = 43 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     OrderHeaderData order_header = 44 [json_name = "order_header"]; // ref(OrderHeader): orderId
@@ -1031,7 +1032,7 @@ message ShoppingListData {
     // keys: shoppingListId
     // fields
         
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];
+    string shopping_list_id = 1 [json_name = "shopping_list_id", (google.api.graphql.relay_options).id = true];
     string shopping_list_type_id = 2 [json_name = "shopping_list_type_id"]; // ShoppingListType    
     string visitor_id = 3 [json_name = "visitor_id"];    
     string list_name = 4 [json_name = "list_name"];    
@@ -1097,7 +1098,7 @@ message PaymentData {
     // keys: paymentId
     // fields
         
-    string payment_id = 1 [json_name = "payment_id"];    
+    string payment_id = 1 [json_name = "payment_id", (google.api.graphql.relay_options).id = true];    
     string payment_type_id = 2 [json_name = "payment_type_id"];
     string payment_method_type_id = 3 [json_name = "payment_method_type_id"]; // PaymentMethodType
     string role_type_id_to = 4 [json_name = "role_type_id_to"]; // RoleType
@@ -1162,7 +1163,7 @@ message InvoiceData {
     // keys: invoiceId
     // fields
         
-    string invoice_id = 1 [json_name = "invoice_id"];    
+    string invoice_id = 1 [json_name = "invoice_id", (google.api.graphql.relay_options).id = true];    
     string invoice_type_id = 2 [json_name = "invoice_type_id"];
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType
     string status_id = 4 [json_name = "status_id"]; // StatusItem    
@@ -1240,7 +1241,7 @@ message InvoiceItemData {
     string sales_opportunity_id = 11 [json_name = "sales_opportunity_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string id = 14 [json_name = "id"];
+    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     InvoiceData invoice = 15 [json_name = "invoice"]; // ref(Invoice): invoiceId
@@ -1293,7 +1294,7 @@ message ShipmentData {
     // keys: shipmentId
     // fields
         
-    string shipment_id = 1 [json_name = "shipment_id"];    
+    string shipment_id = 1 [json_name = "shipment_id", (google.api.graphql.relay_options).id = true];    
     string shipment_type_id = 2 [json_name = "shipment_type_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     string primary_ship_group_seq_id = 4 [json_name = "primary_ship_group_seq_id"];    
@@ -1380,7 +1381,7 @@ message InventoryItemData {
     // keys: inventoryItemId
     // fields
         
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];    
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];    
     string inventory_item_type_id = 2 [json_name = "inventory_item_type_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp datetime_received = 4 [json_name = "datetime_received"];    
@@ -1457,7 +1458,7 @@ message PartyData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string party_type_id = 2 [json_name = "party_type_id"];    
     string external_id = 3 [json_name = "external_id"];
     string preferred_currency_uom_id = 4 [json_name = "preferred_currency_uom_id"]; // Uom    
@@ -1583,7 +1584,7 @@ message PersonData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string salutation = 2 [json_name = "salutation"];    
     string first_name = 3 [json_name = "first_name"];    
     string middle_name = 4 [json_name = "middle_name"];    
@@ -1663,7 +1664,7 @@ message PartyGroupData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string group_name = 2 [json_name = "group_name"];    
     string group_name_local = 3 [json_name = "group_name_local"];    
     string office_site_name = 4 [json_name = "office_site_name"];    
@@ -1720,7 +1721,7 @@ message UserLoginData {
     // keys: userLoginId
     // fields
         
-    string user_login_id = 1 [json_name = "user_login_id"];    
+    string user_login_id = 1 [json_name = "user_login_id", (google.api.graphql.relay_options).id = true];    
     string current_password = 2 [json_name = "current_password"];    
     string password_hint = 3 [json_name = "password_hint"];    
     routines.Indicator is_system = 4 [json_name = "is_system"];    
@@ -1831,7 +1832,7 @@ message PartyRelationshipData {
     string comments = 13 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
-    string id = 16 [json_name = "id"];
+    string id = 16 [json_name = "id", (google.api.graphql.relay_options).id = true];
     
     // relations
     PartyData from_party = 17 [json_name = "from_party"]; // ref(FromParty): partyIdFrom
@@ -1875,7 +1876,7 @@ message BillingAccountData {
     // keys: billingAccountId
     // fields
         
-    string billing_account_id = 1 [json_name = "billing_account_id"];    
+    string billing_account_id = 1 [json_name = "billing_account_id", (google.api.graphql.relay_options).id = true];    
     routines.Currency account_limit = 2 [json_name = "account_limit"];
     string account_currency_uom_id = 3 [json_name = "account_currency_uom_id"]; // Uom    
     google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
@@ -1929,7 +1930,7 @@ message FinAccountData {
     // keys: finAccountId
     // fields
         
-    string fin_account_id = 1 [json_name = "fin_account_id"];    
+    string fin_account_id = 1 [json_name = "fin_account_id", (google.api.graphql.relay_options).id = true];    
     string fin_account_type_id = 2 [json_name = "fin_account_type_id"];    
     string status_id = 3 [json_name = "status_id"];    
     string fin_account_name = 4 [json_name = "fin_account_name"];    
@@ -1992,7 +1993,7 @@ message QuoteData {
     // keys: quoteId
     // fields
         
-    string quote_id = 1 [json_name = "quote_id"];    
+    string quote_id = 1 [json_name = "quote_id", (google.api.graphql.relay_options).id = true];    
     string quote_type_id = 2 [json_name = "quote_type_id"];    
     google.protobuf.Timestamp issue_date = 3 [json_name = "issue_date"];
     string status_id = 4 [json_name = "status_id"]; // StatusItem
@@ -2048,7 +2049,7 @@ message FixedAssetData {
     // keys: fixedAssetId
     // fields
         
-    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id", (google.api.graphql.relay_options).id = true];    
     string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];
     string class_enum_id = 3 [json_name = "class_enum_id"]; // Enumeration
     string role_type_id = 4 [json_name = "role_type_id"]; // RoleType    
@@ -2127,7 +2128,7 @@ message SecurityGroupData {
     // keys: groupId
     // fields
         
-    string group_id = 1 [json_name = "group_id"];    
+    string group_id = 1 [json_name = "group_id", (google.api.graphql.relay_options).id = true];    
     string group_name = 2 [json_name = "group_name"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -2173,7 +2174,7 @@ message WorkEffortData {
     // keys: workEffortId
     // fields
         
-    string work_effort_id = 1 [json_name = "work_effort_id"];    
+    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];    
     string work_effort_type_id = 2 [json_name = "work_effort_type_id"];
     string current_status_id = 3 [json_name = "current_status_id"]; // StatusItem    
     google.protobuf.Timestamp last_status_update = 4 [json_name = "last_status_update"];
@@ -2279,7 +2280,7 @@ message ReturnHeaderData {
     // keys: returnId
     // fields
         
-    string return_id = 1 [json_name = "return_id"];
+    string return_id = 1 [json_name = "return_id", (google.api.graphql.relay_options).id = true];
     string return_header_type_id = 2 [json_name = "return_header_type_id"]; // ReturnHeaderType
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp entry_date = 4 [json_name = "entry_date"];    
@@ -2337,7 +2338,7 @@ message PartyIdentificationTypeData {
     // keys: partyIdentificationTypeId
     // fields
         
-    string party_identification_type_id = 1 [json_name = "party_identification_type_id"];    
+    string party_identification_type_id = 1 [json_name = "party_identification_type_id", (google.api.graphql.relay_options).id = true];    
     routines.Indicator has_table = 2 [json_name = "has_table"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -2383,7 +2384,7 @@ message OrderAdjustmentData {
     // keys: orderAdjustmentId
     // fields
         
-    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];    
+    string order_adjustment_id = 1 [json_name = "order_adjustment_id", (google.api.graphql.relay_options).id = true];    
     string order_adjustment_type_id = 2 [json_name = "order_adjustment_type_id"];    
     string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
     string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];    
@@ -2462,7 +2463,7 @@ message FinAccountTransData {
     // keys: finAccountTransId
     // fields
         
-    string fin_account_trans_id = 1 [json_name = "fin_account_trans_id"];    
+    string fin_account_trans_id = 1 [json_name = "fin_account_trans_id", (google.api.graphql.relay_options).id = true];    
     string fin_account_trans_type_id = 2 [json_name = "fin_account_trans_type_id"];
     string gl_reconciliation_id = 3 [json_name = "gl_reconciliation_id"]; // GlReconciliation    
     google.protobuf.Timestamp transaction_date = 4 [json_name = "transaction_date"];    
@@ -2518,7 +2519,7 @@ message CustomMethodData {
     // keys: customMethodId
     // fields
         
-    string custom_method_id = 1 [json_name = "custom_method_id"];
+    string custom_method_id = 1 [json_name = "custom_method_id", (google.api.graphql.relay_options).id = true];
     string custom_method_type_id = 2 [json_name = "custom_method_type_id"]; // CustomMethodType    
     string custom_method_name = 3 [json_name = "custom_method_name"];    
     string description = 4 [json_name = "description"];    
@@ -2575,7 +2576,7 @@ message PaymentGatewayResponseData {
     // keys: paymentGatewayResponseId
     // fields
         
-    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id"];
+    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id", (google.api.graphql.relay_options).id = true];
     string payment_service_type_enum_id = 2 [json_name = "payment_service_type_enum_id"]; // Enumeration
     string payment_method_type_id = 3 [json_name = "payment_method_type_id"]; // PaymentMethodType
     string trans_code_enum_id = 4 [json_name = "trans_code_enum_id"]; // Enumeration    
@@ -2638,7 +2639,7 @@ message ShipmentCostEstimateData {
     // keys: shipmentCostEstimateId
     // fields
         
-    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id"];    
+    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id", (google.api.graphql.relay_options).id = true];    
     string carrier_party_id = 2 [json_name = "carrier_party_id"];    
     string carrier_role_type_id = 3 [json_name = "carrier_role_type_id"];    
     string product_store_id = 4 [json_name = "product_store_id"];
@@ -2707,7 +2708,7 @@ message ShipmentBoxTypeData {
     // keys: shipmentBoxTypeId
     // fields
         
-    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id"];    
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];
     string dimension_uom_id = 3 [json_name = "dimension_uom_id"]; // Uom    
     routines.FixedPoint box_length = 4 [json_name = "box_length"];    
@@ -2758,7 +2759,7 @@ message GeoPointData {
     // keys: geoPointId
     // fields
         
-    string geo_point_id = 1 [json_name = "geo_point_id"];
+    string geo_point_id = 1 [json_name = "geo_point_id", (google.api.graphql.relay_options).id = true];
     string geo_point_type_enum_id = 2 [json_name = "geo_point_type_enum_id"]; // Enumeration    
     string description = 3 [json_name = "description"];
     string data_source_id = 4 [json_name = "data_source_id"]; // DataSource    
@@ -2813,7 +2814,7 @@ message EbayConfigData {
     // keys: productStoreId
     // fields
         
-    string product_store_id = 1 [json_name = "product_store_id"];    
+    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];    
     string dev_id = 2 [json_name = "dev_id"];    
     string app_id = 3 [json_name = "app_id"];    
     string cert_id = 4 [json_name = "cert_id"];    
@@ -2864,7 +2865,7 @@ message SubscriptionResourceData {
     // keys: subscriptionResourceId
     // fields
         
-    string subscription_resource_id = 1 [json_name = "subscription_resource_id"];    
+    string subscription_resource_id = 1 [json_name = "subscription_resource_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     string service_name_on_expiry = 3 [json_name = "service_name_on_expiry"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -2912,7 +2913,7 @@ message QuoteAdjustmentData {
     // keys: quoteAdjustmentId
     // fields
         
-    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id"];
+    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id", (google.api.graphql.relay_options).id = true];
     string quote_adjustment_type_id = 2 [json_name = "quote_adjustment_type_id"]; // OrderAdjustmentType    
     string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];    
     string comments = 4 [json_name = "comments"];    
@@ -2982,7 +2983,7 @@ message CommunicationEventData {
     // keys: communicationEventId
     // fields
         
-    string communication_event_id = 1 [json_name = "communication_event_id"];
+    string communication_event_id = 1 [json_name = "communication_event_id", (google.api.graphql.relay_options).id = true];
     string communication_event_type_id = 2 [json_name = "communication_event_type_id"]; // CommunicationEventType    
     string orig_comm_event_id = 3 [json_name = "orig_comm_event_id"];    
     string parent_comm_event_id = 4 [json_name = "parent_comm_event_id"];
@@ -3052,7 +3053,7 @@ message RecurrenceInfoData {
     // keys: recurrenceInfoId
     // fields
         
-    string recurrence_info_id = 1 [json_name = "recurrence_info_id"];    
+    string recurrence_info_id = 1 [json_name = "recurrence_info_id", (google.api.graphql.relay_options).id = true];    
     google.protobuf.Timestamp start_date_time = 2 [json_name = "start_date_time"];    
     string exception_date_times = 3 [json_name = "exception_date_times"];    
     string recurrence_date_times = 4 [json_name = "recurrence_date_times"];    
@@ -3104,7 +3105,7 @@ message ProductFeatureCategoryData {
     // keys: productFeatureCategoryId
     // fields
         
-    string product_feature_category_id = 1 [json_name = "product_feature_category_id"];    
+    string product_feature_category_id = 1 [json_name = "product_feature_category_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -3150,7 +3151,7 @@ message SurveyApplTypeData {
     // keys: surveyApplTypeId
     // fields
         
-    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id"];    
+    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -3193,7 +3194,7 @@ message ProductPriceRuleData {
     // keys: productPriceRuleId
     // fields
         
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];    
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id", (google.api.graphql.relay_options).id = true];    
     string rule_name = 2 [json_name = "rule_name"];    
     string description = 3 [json_name = "description"];    
     routines.Indicator is_sale = 4 [json_name = "is_sale"];    
@@ -3242,7 +3243,7 @@ message PaymentApplicationData {
     // keys: paymentApplicationId
     // fields
         
-    string payment_application_id = 1 [json_name = "payment_application_id"];    
+    string payment_application_id = 1 [json_name = "payment_application_id", (google.api.graphql.relay_options).id = true];    
     string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
     string tax_auth_geo_id = 3 [json_name = "tax_auth_geo_id"]; // Geo    
     routines.Currency amount_applied = 4 [json_name = "amount_applied"];    
@@ -3292,7 +3293,7 @@ message CustRequestData {
     // keys: custRequestId
     // fields
         
-    string cust_request_id = 1 [json_name = "cust_request_id"];    
+    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];    
     string cust_request_category_id = 2 [json_name = "cust_request_category_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     int64 priority = 4 [json_name = "priority"];    
@@ -3362,7 +3363,7 @@ message ShipmentReceiptData {
     // keys: receiptId
     // fields
         
-    string receipt_id = 1 [json_name = "receipt_id"];    
+    string receipt_id = 1 [json_name = "receipt_id", (google.api.graphql.relay_options).id = true];    
     string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];    
     string shipment_package_seq_id = 3 [json_name = "shipment_package_seq_id"];    
     string order_item_seq_id = 4 [json_name = "order_item_seq_id"];    
@@ -3424,7 +3425,7 @@ message ProductStoreSurveyApplData {
     // keys: productStoreSurveyId
     // fields
         
-    string product_store_survey_id = 1 [json_name = "product_store_survey_id"];    
+    string product_store_survey_id = 1 [json_name = "product_store_survey_id", (google.api.graphql.relay_options).id = true];    
     string group_name = 2 [json_name = "group_name"];    
     google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
@@ -3476,7 +3477,7 @@ message PostalAddressData {
     // keys: contactMechId
     // fields
         
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];    
     string to_name = 2 [json_name = "to_name"];    
     string attn_name = 3 [json_name = "attn_name"];    
     string address1 = 4 [json_name = "address1"];    
@@ -3547,7 +3548,7 @@ message RequirementData {
     // keys: requirementId
     // fields
         
-    string requirement_id = 1 [json_name = "requirement_id"];    
+    string requirement_id = 1 [json_name = "requirement_id", (google.api.graphql.relay_options).id = true];    
     string requirement_type_id = 2 [json_name = "requirement_type_id"];    
     string deliverable_id = 3 [json_name = "deliverable_id"];
     string status_id = 4 [json_name = "status_id"]; // StatusItem    
@@ -3606,7 +3607,7 @@ message EmailTemplateSettingData {
     // keys: emailTemplateSettingId
     // fields
         
-    string email_template_setting_id = 1 [json_name = "email_template_setting_id"];
+    string email_template_setting_id = 1 [json_name = "email_template_setting_id", (google.api.graphql.relay_options).id = true];
     string email_type = 2 [json_name = "email_type"]; // Enumeration    
     string description = 3 [json_name = "description"];    
     string body_screen_location = 4 [json_name = "body_screen_location"];    
@@ -3656,7 +3657,7 @@ message ProductStoreShipmentMethData {
     // keys: productStoreShipMethId
     // fields
         
-    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id"];    
+    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string party_id = 3 [json_name = "party_id"];    
     string role_type_id = 4 [json_name = "role_type_id"];    
@@ -3725,7 +3726,7 @@ message SurveyData {
     // keys: surveyId
     // fields
         
-    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_id = 1 [json_name = "survey_id", (google.api.graphql.relay_options).id = true];    
     string survey_name = 2 [json_name = "survey_name"];    
     string description = 3 [json_name = "description"];    
     string comments = 4 [json_name = "comments"];    
@@ -3781,7 +3782,7 @@ message ContentData {
     // keys: contentId
     // fields
         
-    string content_id = 1 [json_name = "content_id"];    
+    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];    
     string content_type_id = 2 [json_name = "content_type_id"];
     string data_source_id = 3 [json_name = "data_source_id"]; // DataSource
     string status_id = 4 [json_name = "status_id"]; // StatusItem
@@ -3852,7 +3853,7 @@ message EmplPositionTypeData {
     // keys: emplPositionTypeId
     // fields
         
-    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];    
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id", (google.api.graphql.relay_options).id = true];    
     routines.Indicator has_table = 2 [json_name = "has_table"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -3898,7 +3899,7 @@ message PaymentMethodData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
     string payment_method_type_id = 2 [json_name = "payment_method_type_id"]; // PaymentMethodType    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
@@ -3955,7 +3956,7 @@ message OrderItemPriceInfoData {
     // keys: orderItemPriceInfoId
     // fields
         
-    string order_item_price_info_id = 1 [json_name = "order_item_price_info_id"];    
+    string order_item_price_info_id = 1 [json_name = "order_item_price_info_id", (google.api.graphql.relay_options).id = true];    
     string order_item_seq_id = 2 [json_name = "order_item_seq_id"];    
     string product_price_action_seq_id = 3 [json_name = "product_price_action_seq_id"];    
     routines.Currency modify_amount = 4 [json_name = "modify_amount"];    
@@ -4005,7 +4006,7 @@ message ElectronicTextData {
     // keys: dataResourceId
     // fields
         
-    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];    
     string text_data = 2 [json_name = "text_data"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -4048,7 +4049,7 @@ message ProductConfigItemData {
     // keys: configItemId
     // fields
         
-    string config_item_id = 1 [json_name = "config_item_id"];    
+    string config_item_id = 1 [json_name = "config_item_id", (google.api.graphql.relay_options).id = true];    
     string config_item_type_id = 2 [json_name = "config_item_type_id"];    
     string config_item_name = 3 [json_name = "config_item_name"];    
     string description = 4 [json_name = "description"];    
@@ -4097,7 +4098,7 @@ message TelecomNumberData {
     // keys: contactMechId
     // fields
         
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];    
     string country_code = 2 [json_name = "country_code"];    
     string area_code = 3 [json_name = "area_code"];    
     string contact_number = 4 [json_name = "contact_number"];    
@@ -4151,7 +4152,7 @@ message ProductFeatureData {
     // keys: productFeatureId
     // fields
         
-    string product_feature_id = 1 [json_name = "product_feature_id"];
+    string product_feature_id = 1 [json_name = "product_feature_id", (google.api.graphql.relay_options).id = true];
     string product_feature_type_id = 2 [json_name = "product_feature_type_id"]; // ProductFeatureType    
     string description = 3 [json_name = "description"];
     string uom_id = 4 [json_name = "uom_id"]; // Uom    
@@ -4207,7 +4208,7 @@ message ProductPromoCodeData {
     // keys: productPromoCodeId
     // fields
         
-    string product_promo_code_id = 1 [json_name = "product_promo_code_id"];    
+    string product_promo_code_id = 1 [json_name = "product_promo_code_id", (google.api.graphql.relay_options).id = true];    
     routines.Indicator user_entered = 2 [json_name = "user_entered"];    
     routines.Indicator require_email_or_party = 3 [json_name = "require_email_or_party"];    
     int64 use_limit_per_code = 4 [json_name = "use_limit_per_code"];    
@@ -4260,7 +4261,7 @@ message ItemIssuanceData {
     // keys: itemIssuanceId
     // fields
         
-    string item_issuance_id = 1 [json_name = "item_issuance_id"];    
+    string item_issuance_id = 1 [json_name = "item_issuance_id", (google.api.graphql.relay_options).id = true];    
     string order_item_seq_id = 2 [json_name = "order_item_seq_id"];    
     string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];    
     string shipment_item_seq_id = 4 [json_name = "shipment_item_seq_id"];    
@@ -4318,7 +4319,7 @@ message QuantityBreakData {
     // keys: quantityBreakId
     // fields
         
-    string quantity_break_id = 1 [json_name = "quantity_break_id"];
+    string quantity_break_id = 1 [json_name = "quantity_break_id", (google.api.graphql.relay_options).id = true];
     string quantity_break_type_id = 2 [json_name = "quantity_break_type_id"]; // QuantityBreakType    
     routines.FixedPoint from_quantity = 3 [json_name = "from_quantity"];    
     routines.FixedPoint thru_quantity = 4 [json_name = "thru_quantity"];    
@@ -4365,7 +4366,7 @@ message ContactMechData {
     // keys: contactMechId
     // fields
         
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];    
     string contact_mech_type_id = 2 [json_name = "contact_mech_type_id"];    
     string info_string = 3 [json_name = "info_string"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -4431,7 +4432,7 @@ message ProductReviewData {
     // keys: productReviewId
     // fields
         
-    string product_review_id = 1 [json_name = "product_review_id"];
+    string product_review_id = 1 [json_name = "product_review_id", (google.api.graphql.relay_options).id = true];
     string status_id = 2 [json_name = "status_id"]; // StatusItem    
     routines.Indicator posted_anonymous = 3 [json_name = "posted_anonymous"];    
     google.protobuf.Timestamp posted_date_time = 4 [json_name = "posted_date_time"];    
@@ -4480,7 +4481,7 @@ message OrderPaymentPreferenceData {
     // keys: orderPaymentPreferenceId
     // fields
         
-    string order_payment_preference_id = 1 [json_name = "order_payment_preference_id"];    
+    string order_payment_preference_id = 1 [json_name = "order_payment_preference_id", (google.api.graphql.relay_options).id = true];    
     string order_item_seq_id = 2 [json_name = "order_item_seq_id"];    
     string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
     string product_price_purpose_id = 4 [json_name = "product_price_purpose_id"]; // ProductPricePurpose
@@ -4551,7 +4552,7 @@ message OrderStatusData {
     // keys: orderStatusId
     // fields
         
-    string order_status_id = 1 [json_name = "order_status_id"];
+    string order_status_id = 1 [json_name = "order_status_id", (google.api.graphql.relay_options).id = true];
     string status_id = 2 [json_name = "status_id"]; // StatusItem    
     string order_item_seq_id = 3 [json_name = "order_item_seq_id"];    
     google.protobuf.Timestamp status_datetime = 4 [json_name = "status_datetime"];    
@@ -4600,7 +4601,7 @@ message BudgetData {
     // keys: budgetId
     // fields
         
-    string budget_id = 1 [json_name = "budget_id"];    
+    string budget_id = 1 [json_name = "budget_id", (google.api.graphql.relay_options).id = true];    
     string budget_type_id = 2 [json_name = "budget_type_id"];
     string custom_time_period_id = 3 [json_name = "custom_time_period_id"]; // CustomTimePeriod    
     string comments = 4 [json_name = "comments"];    
@@ -4645,7 +4646,7 @@ message PaymentContentTypeData {
     // keys: paymentContentTypeId
     // fields
         
-    string payment_content_type_id = 1 [json_name = "payment_content_type_id"];    
+    string payment_content_type_id = 1 [json_name = "payment_content_type_id", (google.api.graphql.relay_options).id = true];    
     routines.Indicator has_table = 2 [json_name = "has_table"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -4690,7 +4691,7 @@ message SecurityPermissionData {
     // keys: permissionId
     // fields
         
-    string permission_id = 1 [json_name = "permission_id"];    
+    string permission_id = 1 [json_name = "permission_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -4733,7 +4734,7 @@ message RecurrenceRuleData {
     // keys: recurrenceRuleId
     // fields
         
-    string recurrence_rule_id = 1 [json_name = "recurrence_rule_id"];    
+    string recurrence_rule_id = 1 [json_name = "recurrence_rule_id", (google.api.graphql.relay_options).id = true];    
     string frequency = 2 [json_name = "frequency"];    
     google.protobuf.Timestamp until_date_time = 3 [json_name = "until_date_time"];    
     int64 count_number = 4 [json_name = "count_number"];    
@@ -4791,7 +4792,7 @@ message TemporalExpressionData {
     // keys: tempExprId
     // fields
         
-    string temp_expr_id = 1 [json_name = "temp_expr_id"];    
+    string temp_expr_id = 1 [json_name = "temp_expr_id", (google.api.graphql.relay_options).id = true];    
     string temp_expr_type_id = 2 [json_name = "temp_expr_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp date1 = 4 [json_name = "date1"];    
@@ -4844,7 +4845,7 @@ message ShipmentMethodTypeData {
     // keys: shipmentMethodTypeId
     // fields
         
-    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];    
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     int64 sequence_num = 3 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -4891,7 +4892,7 @@ message AcctgTransData {
     // keys: acctgTransId
     // fields
         
-    string acctg_trans_id = 1 [json_name = "acctg_trans_id"];    
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id", (google.api.graphql.relay_options).id = true];    
     string acctg_trans_type_id = 2 [json_name = "acctg_trans_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp transaction_date = 4 [json_name = "transaction_date"];    
@@ -4961,7 +4962,7 @@ message JobSandboxData {
     // keys: jobId
     // fields
         
-    string job_id = 1 [json_name = "job_id"];    
+    string job_id = 1 [json_name = "job_id", (google.api.graphql.relay_options).id = true];    
     string job_name = 2 [json_name = "job_name"];    
     google.protobuf.Timestamp run_time = 3 [json_name = "run_time"];    
     int64 priority = 4 [json_name = "priority"];    
@@ -5026,7 +5027,7 @@ message DataResourceData {
     // keys: dataResourceId
     // fields
         
-    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];    
     string data_resource_type_id = 2 [json_name = "data_resource_type_id"];
     string data_template_type_id = 3 [json_name = "data_template_type_id"]; // DataTemplateType
     string data_category_id = 4 [json_name = "data_category_id"]; // DataCategory
@@ -5088,7 +5089,7 @@ message GlAccountData {
     // keys: glAccountId
     // fields
         
-    string gl_account_id = 1 [json_name = "gl_account_id"];
+    string gl_account_id = 1 [json_name = "gl_account_id", (google.api.graphql.relay_options).id = true];
     string gl_account_type_id = 2 [json_name = "gl_account_type_id"]; // GlAccountType
     string gl_account_class_id = 3 [json_name = "gl_account_class_id"]; // GlAccountClass
     string gl_resource_type_id = 4 [json_name = "gl_resource_type_id"]; // GlResourceType
@@ -5153,7 +5154,7 @@ message TechDataCalendarData {
     // keys: calendarId
     // fields
         
-    string calendar_id = 1 [json_name = "calendar_id"];    
+    string calendar_id = 1 [json_name = "calendar_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -5198,7 +5199,7 @@ message CustRequestTypeData {
     // keys: custRequestTypeId
     // fields
         
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id"];    
+    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];    
     routines.Indicator has_table = 2 [json_name = "has_table"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -5246,7 +5247,7 @@ message CreditCardData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string card_type = 2 [json_name = "card_type"];    
     string card_number = 3 [json_name = "card_number"];    
     string valid_from_date = 4 [json_name = "valid_from_date"];    
@@ -5307,7 +5308,7 @@ message AgreementData {
     // keys: agreementId
     // fields
         
-    string agreement_id = 1 [json_name = "agreement_id"];    
+    string agreement_id = 1 [json_name = "agreement_id", (google.api.graphql.relay_options).id = true];    
     string role_type_id_from = 2 [json_name = "role_type_id_from"];
     string role_type_id_to = 3 [json_name = "role_type_id_to"]; // RoleType    
     string agreement_type_id = 4 [json_name = "agreement_type_id"];    
@@ -5366,7 +5367,7 @@ message AgreementTermData {
     // keys: agreementTermId
     // fields
         
-    string agreement_term_id = 1 [json_name = "agreement_term_id"];
+    string agreement_term_id = 1 [json_name = "agreement_term_id", (google.api.graphql.relay_options).id = true];
     string term_type_id = 2 [json_name = "term_type_id"]; // TermType    
     string agreement_item_seq_id = 3 [json_name = "agreement_item_seq_id"];
     string invoice_item_type_id = 4 [json_name = "invoice_item_type_id"]; // InvoiceItemType    
@@ -5420,7 +5421,7 @@ message PartyAcctgPreferenceData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     int64 fiscal_year_start_month = 2 [json_name = "fiscal_year_start_month"];    
     int64 fiscal_year_start_day = 3 [json_name = "fiscal_year_start_day"];
     string tax_form_id = 4 [json_name = "tax_form_id"]; // Enumeration
@@ -5481,7 +5482,7 @@ message SurveyQuestionCategoryData {
     // keys: surveyQuestionCategoryId
     // fields
         
-    string survey_question_category_id = 1 [json_name = "survey_question_category_id"];    
+    string survey_question_category_id = 1 [json_name = "survey_question_category_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -5526,7 +5527,7 @@ message TaxAuthorityRateProductData {
     // keys: taxAuthorityRateSeqId
     // fields
         
-    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id"];    
+    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id", (google.api.graphql.relay_options).id = true];    
     string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
     string tax_authority_rate_type_id = 3 [json_name = "tax_authority_rate_type_id"]; // TaxAuthorityRateType    
     string title_transfer_enum_id = 4 [json_name = "title_transfer_enum_id"];    
@@ -5584,7 +5585,7 @@ message FacilityData {
     // keys: facilityId
     // fields
         
-    string facility_id = 1 [json_name = "facility_id"];    
+    string facility_id = 1 [json_name = "facility_id", (google.api.graphql.relay_options).id = true];    
     string facility_type_id = 2 [json_name = "facility_type_id"];
     string default_inventory_item_type_id = 3 [json_name = "default_inventory_item_type_id"]; // InventoryItemType    
     string facility_name = 4 [json_name = "facility_name"];
@@ -5664,7 +5665,7 @@ message TechDataCalendarWeekData {
     // keys: calendarWeekId
     // fields
         
-    string calendar_week_id = 1 [json_name = "calendar_week_id"];    
+    string calendar_week_id = 1 [json_name = "calendar_week_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.type.TimeOfDay monday_start_time = 3 [json_name = "monday_start_time"];    
     double monday_capacity = 4 [json_name = "monday_capacity"];    
@@ -5721,7 +5722,7 @@ message EftAccountData {
     // keys: paymentMethodId
     // fields
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string bank_name = 2 [json_name = "bank_name"];    
     string routing_number = 3 [json_name = "routing_number"];    
     string account_type = 4 [json_name = "account_type"];    
@@ -5774,7 +5775,7 @@ message SurveyQuestionData {
     // keys: surveyQuestionId
     // fields
         
-    string survey_question_id = 1 [json_name = "survey_question_id"];
+    string survey_question_id = 1 [json_name = "survey_question_id", (google.api.graphql.relay_options).id = true];
     string survey_question_type_id = 2 [json_name = "survey_question_type_id"]; // SurveyQuestionType    
     string description = 3 [json_name = "description"];    
     string question = 4 [json_name = "question"];    

@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Product Type
 message ProductTypeData {
     option (routines.entity_type) = "ProductType";
@@ -21,7 +21,7 @@ message ProductTypeData {
     option (routines.has_table) = false;
     // keys: productTypeId
         
-    string product_type_id = 1 [json_name = "product_type_id"];
+    string product_type_id = 1 [json_name = "product_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // ProductType    
     routines.Indicator is_physical = 3 [json_name = "is_physical"];    
     routines.Indicator is_digital = 4 [json_name = "is_digital"];    
@@ -37,4 +37,10 @@ message ProductTypeData {
 
 message ProductTypeList{
     repeated ProductTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

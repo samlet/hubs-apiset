@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Geographic Boundary
 message GeoData {
     option (routines.entity_type) = "Geo";
@@ -21,7 +21,7 @@ message GeoData {
     option (routines.has_table) = false;
     // keys: geoId
         
-    string geo_id = 1 [json_name = "geo_id"];
+    string geo_id = 1 [json_name = "geo_id", (google.api.graphql.relay_options).id = true];
     string geo_type_id = 2 [json_name = "geo_type_id"]; // GeoType    
     string geo_name = 3 [json_name = "geo_name"];    
     string geo_code = 4 [json_name = "geo_code"];    
@@ -38,4 +38,10 @@ message GeoData {
 
 message GeoList{
     repeated GeoData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGeos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

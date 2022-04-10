@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: USPS Shipment Gateway Configuration
 message ShipmentGatewayUspsData {
     option (routines.entity_type) = "ShipmentGatewayUsps";
@@ -21,7 +21,7 @@ message ShipmentGatewayUspsData {
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
     
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id"]; // ShipmentGatewayConfig    
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true]; // ShipmentGatewayConfig    
     string connect_url = 2 [json_name = "connect_url"];    
     string connect_url_labels = 3 [json_name = "connect_url_labels"];    
     int64 connect_timeout = 4 [json_name = "connect_timeout"];    
@@ -39,4 +39,10 @@ message ShipmentGatewayUspsData {
 
 message ShipmentGatewayUspsList{
     repeated ShipmentGatewayUspsData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentGatewayUsps` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

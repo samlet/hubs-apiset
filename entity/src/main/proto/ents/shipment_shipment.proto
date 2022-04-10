@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Carrier Shipment Method
 message CarrierShipmentBoxTypeData {
@@ -32,7 +33,7 @@ message CarrierShipmentBoxTypeData {
     string oversize_code = 4 [json_name = "oversize_code"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message CarrierShipmentBoxTypeData {
 
 message CarrierShipmentBoxTypeList{
     repeated CarrierShipmentBoxTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCarrierShipmentBoxTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -63,7 +70,7 @@ message CarrierShipmentMethodData {
     string carrier_service_code = 5 [json_name = "carrier_service_code"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -74,6 +81,12 @@ message CarrierShipmentMethodData {
 
 message CarrierShipmentMethodList{
     repeated CarrierShipmentMethodData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCarrierShipmentMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +99,7 @@ message ShipmentFlatData {
     option (routines.has_table) = true;
     // keys: shipmentId
         
-    string shipment_id = 1 [json_name = "shipment_id"];    
+    string shipment_id = 1 [json_name = "shipment_id", (google.api.graphql.relay_options).id = true];    
     string shipment_type_id = 2 [json_name = "shipment_type_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     string primary_order_id = 4 [json_name = "primary_order_id"];    
@@ -127,6 +140,12 @@ message ShipmentFlatData {
 
 message ShipmentList{
     repeated ShipmentFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Shipment Contact Mechanism Type
@@ -138,7 +157,7 @@ message ShipmentBoxTypeFlatData {
     option (routines.has_table) = true;
     // keys: shipmentBoxTypeId
         
-    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id"];    
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];
     string dimension_uom_id = 3 [json_name = "dimension_uom_id"]; // Uom    
     routines.FixedPoint box_length = 4 [json_name = "box_length"];    
@@ -157,6 +176,12 @@ message ShipmentBoxTypeFlatData {
 
 message ShipmentBoxTypeList{
     repeated ShipmentBoxTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentBoxTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Shipment Cost Estimate
@@ -168,7 +193,7 @@ message ShipmentCostEstimateFlatData {
     option (routines.has_table) = true;
     // keys: shipmentCostEstimateId
         
-    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id"];    
+    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id", (google.api.graphql.relay_options).id = true];    
     string shipment_method_type_id = 2 [json_name = "shipment_method_type_id"];    
     string carrier_party_id = 3 [json_name = "carrier_party_id"];    
     string carrier_role_type_id = 4 [json_name = "carrier_role_type_id"];    
@@ -207,6 +232,12 @@ message ShipmentCostEstimateFlatData {
 
 message ShipmentCostEstimateList{
     repeated ShipmentCostEstimateFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentCostEstimates` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Shipment Item
@@ -226,7 +257,7 @@ message ShipmentItemData {
     string shipment_content_description = 5 [json_name = "shipment_content_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -237,6 +268,12 @@ message ShipmentItemData {
 
 message ShipmentItemList{
     repeated ShipmentItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -256,7 +293,7 @@ message ShipmentItemBillingData {
     string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -267,6 +304,12 @@ message ShipmentItemBillingData {
 
 message ShipmentItemBillingList{
     repeated ShipmentItemBillingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentItemBillings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -279,7 +322,7 @@ message ShipmentMethodTypeFlatData {
     option (routines.has_table) = true;
     // keys: shipmentMethodTypeId
         
-    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];    
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     int64 sequence_num = 3 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -293,6 +336,12 @@ message ShipmentMethodTypeFlatData {
 
 message ShipmentMethodTypeList{
     repeated ShipmentMethodTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentMethodTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Shipment Package
@@ -318,7 +367,7 @@ message ShipmentPackageData {
     routines.Currency insured_value = 11 [json_name = "insured_value"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string id = 14 [json_name = "id"];
+    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -329,6 +378,12 @@ message ShipmentPackageData {
 
 message ShipmentPackageList{
     repeated ShipmentPackageData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentPackages` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -350,7 +405,7 @@ message ShipmentPackageContentData {
     routines.FixedPoint sub_product_quantity = 6 [json_name = "sub_product_quantity"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -361,6 +416,12 @@ message ShipmentPackageContentData {
 
 message ShipmentPackageContentList{
     repeated ShipmentPackageContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentPackageContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -392,7 +453,7 @@ message ShipmentPackageRouteSegData {
     string currency_uom_id = 16 [json_name = "currency_uom_id"]; // Uom    
     google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];    
-    string id = 19 [json_name = "id"];
+    string id = 19 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -403,6 +464,12 @@ message ShipmentPackageRouteSegData {
 
 message ShipmentPackageRouteSegList{
     repeated ShipmentPackageRouteSegData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentPackageRouteSegs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -454,7 +521,7 @@ message ShipmentRouteSegmentData {
     bytes ups_high_value_report = 36 [json_name = "ups_high_value_report"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 37 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 38 [json_name = "created_tx_stamp"];    
-    string id = 39 [json_name = "id"];
+    string id = 39 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -465,6 +532,12 @@ message ShipmentRouteSegmentData {
 
 message ShipmentRouteSegmentList{
     repeated ShipmentRouteSegmentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentRouteSegments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -484,7 +557,7 @@ message ShipmentStatusData {
     string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -495,6 +568,12 @@ message ShipmentStatusData {
 
 message ShipmentStatusList{
     repeated ShipmentStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -520,7 +599,7 @@ message ShipmentTimeEstimateData {
     int64 sequence_number = 10 [json_name = "sequence_number"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
-    string id = 13 [json_name = "id"];
+    string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -531,6 +610,12 @@ message ShipmentTimeEstimateData {
 
 message ShipmentTimeEstimateList{
     repeated ShipmentTimeEstimateData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentTimeEstimates` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

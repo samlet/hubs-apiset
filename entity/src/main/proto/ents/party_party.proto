@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Party
 message PartyFlatData {
@@ -25,7 +26,7 @@ message PartyFlatData {
     option (routines.has_table) = true;
     // keys: partyId
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string party_type_id = 2 [json_name = "party_type_id"];    
     string external_id = 3 [json_name = "external_id"];
     string preferred_currency_uom_id = 4 [json_name = "preferred_currency_uom_id"]; // Uom    
@@ -48,6 +49,12 @@ message PartyFlatData {
 
 message PartyList{
     repeated PartyFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Party Geo Location with history
@@ -66,7 +73,7 @@ message PartyGeoPointData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -77,6 +84,12 @@ message PartyGeoPointData {
 
 message PartyGeoPointList{
     repeated PartyGeoPointData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyGeoPoints` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -89,7 +102,7 @@ message PartyGroupFlatData {
     option (routines.has_table) = true;
     // keys: partyId
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string group_name = 2 [json_name = "group_name"];    
     string group_name_local = 3 [json_name = "group_name_local"];    
     string office_site_name = 4 [json_name = "office_site_name"];    
@@ -109,6 +122,12 @@ message PartyGroupFlatData {
 
 message PartyGroupList{
     repeated PartyGroupFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Party Identification
@@ -126,7 +145,7 @@ message PartyIdentificationData {
     string id_value = 3 [json_name = "id_value"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -137,6 +156,12 @@ message PartyIdentificationData {
 
 message PartyIdentificationList{
     repeated PartyIdentificationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyIdentifications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -149,7 +174,7 @@ message PartyIdentificationTypeFlatData {
     option (routines.has_table) = true;
     // keys: partyIdentificationTypeId
         
-    string party_identification_type_id = 1 [json_name = "party_identification_type_id"];    
+    string party_identification_type_id = 1 [json_name = "party_identification_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -164,6 +189,12 @@ message PartyIdentificationTypeFlatData {
 
 message PartyIdentificationTypeList{
     repeated PartyIdentificationTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyIdentificationTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Party Relationship
@@ -191,7 +222,7 @@ message PartyRelationshipFlatData {
     string comments = 14 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];    
-    string id = 17 [json_name = "id"];    
+    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];    
     string tenant_id = 18 [json_name = "tenant_id"]; 
 
     // extra
@@ -201,6 +232,12 @@ message PartyRelationshipFlatData {
 
 message PartyRelationshipList{
     repeated PartyRelationshipFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyRelationships` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Party Role
@@ -217,7 +254,7 @@ message PartyRoleData {
     string role_type_id = 2 [json_name = "role_type_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -228,6 +265,12 @@ message PartyRoleData {
 
 message PartyRoleList{
     repeated PartyRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -247,7 +290,7 @@ message PartyStatusData {
     string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -258,6 +301,12 @@ message PartyStatusData {
 
 message PartyStatusList{
     repeated PartyStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -270,7 +319,7 @@ message PersonFlatData {
     option (routines.has_table) = true;
     // keys: partyId
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string salutation = 2 [json_name = "salutation"];    
     string first_name = 3 [json_name = "first_name"];    
     string middle_name = 4 [json_name = "middle_name"];    
@@ -313,5 +362,11 @@ message PersonFlatData {
 
 message PersonList{
     repeated PersonFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPeople` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Product Feature
 message ProductFeatureFlatData {
@@ -25,7 +26,7 @@ message ProductFeatureFlatData {
     option (routines.has_table) = true;
     // keys: productFeatureId
         
-    string product_feature_id = 1 [json_name = "product_feature_id"];
+    string product_feature_id = 1 [json_name = "product_feature_id", (google.api.graphql.relay_options).id = true];
     string product_feature_type_id = 2 [json_name = "product_feature_type_id"]; // ProductFeatureType    
     string product_feature_category_id = 3 [json_name = "product_feature_category_id"];    
     string description = 4 [json_name = "description"];
@@ -46,6 +47,12 @@ message ProductFeatureFlatData {
 
 message ProductFeatureList{
     repeated ProductFeatureFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeatures` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Product Feature Applicability
@@ -68,7 +75,7 @@ message ProductFeatureApplData {
     routines.Currency recurring_amount = 8 [json_name = "recurring_amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -79,6 +86,12 @@ message ProductFeatureApplData {
 
 message ProductFeatureApplList{
     repeated ProductFeatureApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeatureAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -91,7 +104,7 @@ message ProductFeatureCategoryFlatData {
     option (routines.has_table) = true;
     // keys: productFeatureCategoryId
         
-    string product_feature_category_id = 1 [json_name = "product_feature_category_id"];    
+    string product_feature_category_id = 1 [json_name = "product_feature_category_id", (google.api.graphql.relay_options).id = true];    
     string parent_category_id = 2 [json_name = "parent_category_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -105,6 +118,12 @@ message ProductFeatureCategoryFlatData {
 
 message ProductFeatureCategoryList{
     repeated ProductFeatureCategoryFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeatureCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Product Feature Category Application
@@ -123,7 +142,7 @@ message ProductFeatureCategoryApplData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -134,6 +153,12 @@ message ProductFeatureCategoryApplData {
 
 message ProductFeatureCategoryApplList{
     repeated ProductFeatureCategoryApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeatureCategoryAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -153,7 +178,7 @@ message ProductFeatureIactnData {
     string product_id = 4 [json_name = "product_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -164,6 +189,12 @@ message ProductFeatureIactnData {
 
 message ProductFeatureIactnList{
     repeated ProductFeatureIactnData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeatureIactns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

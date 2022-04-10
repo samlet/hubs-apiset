@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Catalina Session Store
 message CatalinaSessionData {
@@ -26,7 +27,7 @@ message CatalinaSessionData {
     // keys: sessionId
     // fields
         
-    string session_id = 1 [json_name = "session_id"];    
+    string session_id = 1 [json_name = "session_id", (google.api.graphql.relay_options).id = true];    
     int64 session_size = 2 [json_name = "session_size"];    
     bytes session_info = 3 [json_name = "session_info"];    
     routines.Indicator is_valid = 4 [json_name = "is_valid"];    
@@ -44,6 +45,12 @@ message CatalinaSessionData {
 
 message CatalinaSessionList{
     repeated CatalinaSessionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCatalinaSessions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

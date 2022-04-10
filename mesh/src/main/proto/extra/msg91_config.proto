@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Msg91 Gateway Configuration Settings
 message Msg91GatewayConfigData {
@@ -26,7 +27,7 @@ message Msg91GatewayConfigData {
     // keys: telecomGatewayConfigId
     // fields
         
-    string telecom_gateway_config_id = 1 [json_name = "telecom_gateway_config_id"];    
+    string telecom_gateway_config_id = 1 [json_name = "telecom_gateway_config_id", (google.api.graphql.relay_options).id = true];    
     string api_url = 2 [json_name = "api_url"];    
     string country = 3 [json_name = "country"];    
     string route = 4 [json_name = "route"];    
@@ -44,6 +45,12 @@ message Msg91GatewayConfigData {
 
 message Msg91GatewayConfigList{
     repeated Msg91GatewayConfigData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMsg91GatewayConfigs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

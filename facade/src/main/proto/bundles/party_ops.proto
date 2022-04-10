@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/party_party.proto";
 
 service PartyOperations {
-  rpc CreateParty(CreatePartyParams) returns (routines.Response) {}
-  rpc UpdateParty(UpdatePartyParams) returns (routines.Response) {}
+  rpc CreateParty(CreatePartyParams) returns (domain.PartyFlatData) {}
+  rpc UpdateParty(UpdatePartyParams) returns (domain.PartyFlatData) {}
+  rpc GetParty(BundleGetRequest) returns (domain.PartyFlatData) {}
 
   
   rpc AddPartyRole(AddPartyRoleParams) returns (routines.Response) {}
@@ -37,6 +38,10 @@ service PartyOperations {
   rpc QueryList(BundleQueryMap) returns (domain.PartyList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.PartyFlatData) {}
   rpc Select(BundleHandle) returns (domain.PartyList) {}
+
+  rpc ListParties(BundleListRequest) returns (domain.PartyList) {}
+  rpc StreamParties(BundleListRequest) returns (stream domain.PartyList) {}
+  rpc RemoveParty(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

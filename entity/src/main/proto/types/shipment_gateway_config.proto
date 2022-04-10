@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Shipment Gateway Config
 message ShipmentGatewayConfigData {
     option (routines.entity_type) = "ShipmentGatewayConfig";
@@ -21,7 +21,7 @@ message ShipmentGatewayConfigData {
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
         
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id"];
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
     string shipment_gateway_conf_type_id = 2 [json_name = "shipment_gateway_conf_type_id"]; // ShipmentGatewayConfigType    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -34,4 +34,10 @@ message ShipmentGatewayConfigData {
 
 message ShipmentGatewayConfigList{
     repeated ShipmentGatewayConfigData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentGatewayConfigs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

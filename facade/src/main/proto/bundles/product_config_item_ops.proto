@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/product_config.proto";
 
 service ProductConfigItemOperations {
-  rpc CreateProductConfigItem(CreateProductConfigItemParams) returns (routines.Response) {}
-  rpc UpdateProductConfigItem(UpdateProductConfigItemParams) returns (routines.Response) {}
+  rpc CreateProductConfigItem(CreateProductConfigItemParams) returns (domain.ProductConfigItemFlatData) {}
+  rpc UpdateProductConfigItem(UpdateProductConfigItemParams) returns (domain.ProductConfigItemFlatData) {}
+  rpc GetProductConfigItem(BundleGetRequest) returns (domain.ProductConfigItemFlatData) {}
 
   
   rpc AddConfigItemProductConfigOption(AddConfigItemProductConfigOptionParams) returns (routines.Response) {}
@@ -41,6 +42,10 @@ service ProductConfigItemOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductConfigItemList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductConfigItemFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductConfigItemList) {}
+
+  rpc ListProductConfigItems(BundleListRequest) returns (domain.ProductConfigItemList) {}
+  rpc StreamProductConfigItems(BundleListRequest) returns (stream domain.ProductConfigItemList) {}
+  rpc RemoveProductConfigItem(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

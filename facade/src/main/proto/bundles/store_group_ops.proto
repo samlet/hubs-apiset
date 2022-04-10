@@ -18,8 +18,9 @@ import "types/product_store_group.proto";
 import "extra/product_store.proto";
 
 service StoreGroupOperations {
-  rpc CreateStoreGroup(CreateStoreGroupParams) returns (routines.Response) {}
-  rpc UpdateStoreGroup(UpdateStoreGroupParams) returns (routines.Response) {}
+  rpc CreateStoreGroup(CreateStoreGroupParams) returns (domain.ProductStoreGroupData) {}
+  rpc UpdateStoreGroup(UpdateStoreGroupParams) returns (domain.ProductStoreGroupData) {}
+  rpc GetStoreGroup(BundleGetRequest) returns (domain.ProductStoreGroupData) {}
 
   
 
@@ -35,6 +36,10 @@ service StoreGroupOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductStoreGroupList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductStoreGroupData) {}
   rpc Select(BundleHandle) returns (domain.ProductStoreGroupList) {}
+
+  rpc ListProductStoreGroups(BundleListRequest) returns (domain.ProductStoreGroupList) {}
+  rpc StreamProductStoreGroups(BundleListRequest) returns (stream domain.ProductStoreGroupList) {}
+  rpc RemoveProductStoreGroup(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

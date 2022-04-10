@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Component
 message ComponentData {
@@ -26,7 +27,7 @@ message ComponentData {
     // keys: componentName
     // fields
         
-    string component_name = 1 [json_name = "component_name"];    
+    string component_name = 1 [json_name = "component_name", (google.api.graphql.relay_options).id = true];    
     string root_location = 2 [json_name = "root_location"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -40,6 +41,12 @@ message ComponentData {
 
 message ComponentList{
     repeated ComponentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListComponents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -58,7 +65,7 @@ message TenantComponentData {
     int64 sequence_num = 3 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -69,6 +76,12 @@ message TenantComponentData {
 
 message TenantComponentList{
     repeated TenantComponentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTenantComponents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -82,7 +95,7 @@ message TenantKeyEncryptingKeyData {
     // keys: tenantId
     // fields
         
-    string tenant_id = 1 [json_name = "tenant_id"];    
+    string tenant_id = 1 [json_name = "tenant_id", (google.api.graphql.relay_options).id = true];    
     string kek_text = 2 [json_name = "kek_text"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -96,6 +109,12 @@ message TenantKeyEncryptingKeyData {
 
 message TenantKeyEncryptingKeyList{
     repeated TenantKeyEncryptingKeyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTenantKeyEncryptingKeys` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Addendum
 message AddendumData {
@@ -26,7 +27,7 @@ message AddendumData {
     // keys: addendumId
     // fields
         
-    string addendum_id = 1 [json_name = "addendum_id"];    
+    string addendum_id = 1 [json_name = "addendum_id", (google.api.graphql.relay_options).id = true];    
     string agreement_id = 2 [json_name = "agreement_id"];    
     string agreement_item_seq_id = 3 [json_name = "agreement_item_seq_id"];    
     google.protobuf.Timestamp addendum_creation_date = 4 [json_name = "addendum_creation_date"];    
@@ -44,6 +45,12 @@ message AddendumData {
 
 message AddendumList{
     repeated AddendumData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAddendums` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -63,7 +70,7 @@ message AgreementAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -74,6 +81,12 @@ message AgreementAttributeData {
 
 message AgreementAttributeList{
     repeated AgreementAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -95,7 +108,7 @@ message AgreementContentData {
     google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -106,6 +119,12 @@ message AgreementContentData {
 
 message AgreementContentList{
     repeated AgreementContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -130,7 +149,7 @@ message AgreementEmploymentApplData {
     google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -141,6 +160,12 @@ message AgreementEmploymentApplData {
 
 message AgreementEmploymentApplList{
     repeated AgreementEmploymentApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementEmploymentAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -159,7 +184,7 @@ message AgreementFacilityApplData {
     string facility_id = 3 [json_name = "facility_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -170,6 +195,12 @@ message AgreementFacilityApplData {
 
 message AgreementFacilityApplList{
     repeated AgreementFacilityApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementFacilityAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -188,7 +219,7 @@ message AgreementGeographicalApplicData {
     string geo_id = 3 [json_name = "geo_id"]; // Geo    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -199,6 +230,12 @@ message AgreementGeographicalApplicData {
 
 message AgreementGeographicalApplicList{
     repeated AgreementGeographicalApplicData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementGeographicalApplics` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -219,7 +256,7 @@ message AgreementItemAttributeData {
     string attr_description = 5 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -230,6 +267,12 @@ message AgreementItemAttributeData {
 
 message AgreementItemAttributeList{
     repeated AgreementItemAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementItemAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -248,7 +291,7 @@ message AgreementItemTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -259,6 +302,12 @@ message AgreementItemTypeAttrData {
 
 message AgreementItemTypeAttrList{
     repeated AgreementItemTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementItemTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -277,7 +326,7 @@ message AgreementPartyApplicData {
     string party_id = 3 [json_name = "party_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -288,6 +337,12 @@ message AgreementPartyApplicData {
 
 message AgreementPartyApplicList{
     repeated AgreementPartyApplicData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementPartyApplics` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -309,7 +364,7 @@ message AgreementPromoApplData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -320,6 +375,12 @@ message AgreementPromoApplData {
 
 message AgreementPromoApplList{
     repeated AgreementPromoApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementPromoAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -338,7 +399,7 @@ message AgreementRoleData {
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -349,6 +410,12 @@ message AgreementRoleData {
 
 message AgreementRoleList{
     repeated AgreementRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -368,7 +435,7 @@ message AgreementTermAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -379,6 +446,12 @@ message AgreementTermAttributeData {
 
 message AgreementTermAttributeList{
     repeated AgreementTermAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementTermAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -397,7 +470,7 @@ message AgreementTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -408,6 +481,12 @@ message AgreementTypeAttrData {
 
 message AgreementTypeAttrList{
     repeated AgreementTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -426,7 +505,7 @@ message AgreementWorkEffortApplicData {
     string work_effort_id = 3 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -437,6 +516,12 @@ message AgreementWorkEffortApplicData {
 
 message AgreementWorkEffortApplicList{
     repeated AgreementWorkEffortApplicData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAgreementWorkEffortApplics` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -455,7 +540,7 @@ message TermTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -466,6 +551,12 @@ message TermTypeAttrData {
 
 message TermTypeAttrList{
     repeated TermTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTermTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

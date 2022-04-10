@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Inventory Item
 message InventoryItemFlatData {
@@ -25,7 +26,7 @@ message InventoryItemFlatData {
     option (routines.has_table) = true;
     // keys: inventoryItemId
         
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];    
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];    
     string inventory_item_type_id = 2 [json_name = "inventory_item_type_id"];    
     string product_id = 3 [json_name = "product_id"];    
     string party_id = 4 [json_name = "party_id"];    
@@ -62,6 +63,12 @@ message InventoryItemFlatData {
 
 message InventoryItemList{
     repeated InventoryItemFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Inventory Item Detail
@@ -98,7 +105,7 @@ message InventoryItemDetailData {
     string description = 22 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 23 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 24 [json_name = "created_tx_stamp"];    
-    string id = 25 [json_name = "id"];
+    string id = 25 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -109,6 +116,12 @@ message InventoryItemDetailData {
 
 message InventoryItemDetailList{
     repeated InventoryItemDetailData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemDetails` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

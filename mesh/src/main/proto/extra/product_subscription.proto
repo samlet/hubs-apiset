@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Subscription
 message SubscriptionData {
@@ -26,7 +27,7 @@ message SubscriptionData {
     // keys: subscriptionId
     // fields
         
-    string subscription_id = 1 [json_name = "subscription_id"];    
+    string subscription_id = 1 [json_name = "subscription_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     string subscription_resource_id = 3 [json_name = "subscription_resource_id"];    
     string communication_event_id = 4 [json_name = "communication_event_id"];    
@@ -73,6 +74,12 @@ message SubscriptionData {
 
 message SubscriptionList{
     repeated SubscriptionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +93,7 @@ message SubscriptionActivityData {
     // keys: subscriptionActivityId
     // fields
         
-    string subscription_activity_id = 1 [json_name = "subscription_activity_id"];    
+    string subscription_activity_id = 1 [json_name = "subscription_activity_id", (google.api.graphql.relay_options).id = true];    
     string comments = 2 [json_name = "comments"];    
     google.protobuf.Timestamp date_sent = 3 [json_name = "date_sent"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -101,6 +108,12 @@ message SubscriptionActivityData {
 
 message SubscriptionActivityList{
     repeated SubscriptionActivityData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionActivities` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -120,7 +133,7 @@ message SubscriptionAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -131,6 +144,12 @@ message SubscriptionAttributeData {
 
 message SubscriptionAttributeList{
     repeated SubscriptionAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -148,7 +167,7 @@ message SubscriptionCommEventData {
     string communication_event_id = 2 [json_name = "communication_event_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -159,6 +178,12 @@ message SubscriptionCommEventData {
 
 message SubscriptionCommEventList{
     repeated SubscriptionCommEventData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionCommEvents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -176,7 +201,7 @@ message SubscriptionFulfillmentPieceData {
     string subscription_id = 2 [json_name = "subscription_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -187,6 +212,12 @@ message SubscriptionFulfillmentPieceData {
 
 message SubscriptionFulfillmentPieceList{
     repeated SubscriptionFulfillmentPieceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionFulfillmentPieces` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -205,7 +236,7 @@ message SubscriptionTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -216,6 +247,12 @@ message SubscriptionTypeAttrData {
 
 message SubscriptionTypeAttrList{
     repeated SubscriptionTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

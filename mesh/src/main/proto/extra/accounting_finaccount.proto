@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Financial Account Attribute
 message FinAccountAttributeData {
@@ -32,7 +33,7 @@ message FinAccountAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message FinAccountAttributeData {
 
 message FinAccountAttributeList{
     repeated FinAccountAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFinAccountAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message FinAccountAuthData {
     // keys: finAccountAuthId
     // fields
         
-    string fin_account_auth_id = 1 [json_name = "fin_account_auth_id"];    
+    string fin_account_auth_id = 1 [json_name = "fin_account_auth_id", (google.api.graphql.relay_options).id = true];    
     string fin_account_id = 2 [json_name = "fin_account_id"];    
     routines.Currency amount = 3 [json_name = "amount"];    
     string currency_uom_id = 4 [json_name = "currency_uom_id"];    
@@ -75,6 +82,12 @@ message FinAccountAuthData {
 
 message FinAccountAuthList{
     repeated FinAccountAuthData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFinAccountAuths` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -94,7 +107,7 @@ message FinAccountTransAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -105,6 +118,12 @@ message FinAccountTransAttributeData {
 
 message FinAccountTransAttributeList{
     repeated FinAccountTransAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFinAccountTransAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -123,7 +142,7 @@ message FinAccountTransTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -134,6 +153,12 @@ message FinAccountTransTypeAttrData {
 
 message FinAccountTransTypeAttrList{
     repeated FinAccountTransTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFinAccountTransTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -153,7 +178,7 @@ message FinAccountTypeAttrData {
     string description = 4 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -164,6 +189,12 @@ message FinAccountTypeAttrData {
 
 message FinAccountTypeAttrList{
     repeated FinAccountTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFinAccountTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

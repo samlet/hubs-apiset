@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Product Category Content Type
 message ProductCategoryContentTypeData {
     option (routines.entity_type) = "ProductCategoryContentType";
@@ -21,7 +21,7 @@ message ProductCategoryContentTypeData {
     option (routines.has_table) = false;
     // keys: prodCatContentTypeId
         
-    string prod_cat_content_type_id = 1 [json_name = "prod_cat_content_type_id"];
+    string prod_cat_content_type_id = 1 [json_name = "prod_cat_content_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // ProductCategoryContentType    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -35,4 +35,10 @@ message ProductCategoryContentTypeData {
 
 message ProductCategoryContentTypeList{
     repeated ProductCategoryContentTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductCategoryContentTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

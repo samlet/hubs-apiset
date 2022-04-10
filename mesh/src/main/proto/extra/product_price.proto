@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product PaymentMethodType
 message ProductPaymentMethodTypeData {
@@ -34,7 +35,7 @@ message ProductPaymentMethodTypeData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -45,6 +46,12 @@ message ProductPaymentMethodTypeData {
 
 message ProductPaymentMethodTypeList{
     repeated ProductPaymentMethodTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPaymentMethodTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -58,7 +65,7 @@ message ProductPriceAutoNoticeData {
     // keys: productPriceNoticeId
     // fields
         
-    string product_price_notice_id = 1 [json_name = "product_price_notice_id"];    
+    string product_price_notice_id = 1 [json_name = "product_price_notice_id", (google.api.graphql.relay_options).id = true];    
     string facility_id = 2 [json_name = "facility_id"];    
     google.protobuf.Timestamp run_date = 3 [json_name = "run_date"];    
     google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
@@ -75,6 +82,12 @@ message ProductPriceAutoNoticeData {
 
 message ProductPriceAutoNoticeList{
     repeated ProductPriceAutoNoticeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPriceAutoNotices` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -88,7 +101,7 @@ message ProductPriceChangeData {
     // keys: productPriceChangeId
     // fields
         
-    string product_price_change_id = 1 [json_name = "product_price_change_id"];    
+    string product_price_change_id = 1 [json_name = "product_price_change_id", (google.api.graphql.relay_options).id = true];    
     string product_id = 2 [json_name = "product_id"];    
     string product_price_type_id = 3 [json_name = "product_price_type_id"];    
     string product_price_purpose_id = 4 [json_name = "product_price_purpose_id"];    
@@ -112,6 +125,12 @@ message ProductPriceChangeData {
 
 message ProductPriceChangeList{
     repeated ProductPriceChangeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPriceChanges` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -125,7 +144,7 @@ message SaleTypeData {
     // keys: saleTypeId
     // fields
         
-    string sale_type_id = 1 [json_name = "sale_type_id"];    
+    string sale_type_id = 1 [json_name = "sale_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -139,6 +158,12 @@ message SaleTypeData {
 
 message SaleTypeList{
     repeated SaleTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSaleTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

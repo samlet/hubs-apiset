@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product Configuration Templates
 message ProductConfigData {
@@ -38,7 +39,7 @@ message ProductConfigData {
     routines.Indicator is_mandatory = 10 [json_name = "is_mandatory"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
-    string id = 13 [json_name = "id"];
+    string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -49,6 +50,12 @@ message ProductConfigData {
 
 message ProductConfigList{
     repeated ProductConfigData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductConfigs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -61,7 +68,7 @@ message ProductConfigItemFlatData {
     option (routines.has_table) = true;
     // keys: configItemId
         
-    string config_item_id = 1 [json_name = "config_item_id"];    
+    string config_item_id = 1 [json_name = "config_item_id", (google.api.graphql.relay_options).id = true];    
     string config_item_type_id = 2 [json_name = "config_item_type_id"];    
     string config_item_name = 3 [json_name = "config_item_name"];    
     string description = 4 [json_name = "description"];    
@@ -78,6 +85,12 @@ message ProductConfigItemFlatData {
 
 message ProductConfigItemList{
     repeated ProductConfigItemFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductConfigItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Product Configuration Options
@@ -99,7 +112,7 @@ message ProductConfigOptionData {
     int64 sequence_num = 7 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -110,6 +123,12 @@ message ProductConfigOptionData {
 
 message ProductConfigOptionList{
     repeated ProductConfigOptionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductConfigOptions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -130,7 +149,7 @@ message ProductConfigProductData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -141,6 +160,12 @@ message ProductConfigProductData {
 
 message ProductConfigProductList{
     repeated ProductConfigProductData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductConfigProducts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

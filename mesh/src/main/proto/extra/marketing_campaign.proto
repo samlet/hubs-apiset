@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Marketing Campaign
 message MarketingCampaignData {
@@ -26,7 +27,7 @@ message MarketingCampaignData {
     // keys: marketingCampaignId
     // fields
         
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id", (google.api.graphql.relay_options).id = true];    
     string parent_campaign_id = 2 [json_name = "parent_campaign_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     string campaign_name = 4 [json_name = "campaign_name"];    
@@ -57,6 +58,12 @@ message MarketingCampaignData {
 
 message MarketingCampaignList{
     repeated MarketingCampaignData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketingCampaigns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -74,7 +81,7 @@ message MarketingCampaignNoteData {
     string note_id = 2 [json_name = "note_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -85,6 +92,12 @@ message MarketingCampaignNoteData {
 
 message MarketingCampaignNoteList{
     repeated MarketingCampaignNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketingCampaignNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -104,7 +117,7 @@ message MarketingCampaignPriceData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -115,6 +128,12 @@ message MarketingCampaignPriceData {
 
 message MarketingCampaignPriceList{
     repeated MarketingCampaignPriceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketingCampaignPrices` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -134,7 +153,7 @@ message MarketingCampaignPromoData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -145,6 +164,12 @@ message MarketingCampaignPromoData {
 
 message MarketingCampaignPromoList{
     repeated MarketingCampaignPromoData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketingCampaignPromos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -165,7 +190,7 @@ message MarketingCampaignRoleData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -176,6 +201,12 @@ message MarketingCampaignRoleData {
 
 message MarketingCampaignRoleList{
     repeated MarketingCampaignRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketingCampaignRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

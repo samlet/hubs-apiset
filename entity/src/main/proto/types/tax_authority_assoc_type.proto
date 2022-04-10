@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Tax Authority Assoc Type
 message TaxAuthorityAssocTypeData {
     option (routines.entity_type) = "TaxAuthorityAssocType";
@@ -21,7 +21,7 @@ message TaxAuthorityAssocTypeData {
     option (routines.has_table) = false;
     // keys: taxAuthorityAssocTypeId
         
-    string tax_authority_assoc_type_id = 1 [json_name = "tax_authority_assoc_type_id"];    
+    string tax_authority_assoc_type_id = 1 [json_name = "tax_authority_assoc_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"]; 
@@ -33,4 +33,10 @@ message TaxAuthorityAssocTypeData {
 
 message TaxAuthorityAssocTypeList{
     repeated TaxAuthorityAssocTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorityAssocTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

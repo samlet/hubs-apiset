@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Requirement
 message RequirementFlatData {
@@ -25,7 +26,7 @@ message RequirementFlatData {
     option (routines.has_table) = true;
     // keys: requirementId
         
-    string requirement_id = 1 [json_name = "requirement_id"];    
+    string requirement_id = 1 [json_name = "requirement_id", (google.api.graphql.relay_options).id = true];    
     string requirement_type_id = 2 [json_name = "requirement_type_id"];    
     string facility_id = 3 [json_name = "facility_id"];    
     string deliverable_id = 4 [json_name = "deliverable_id"];    
@@ -55,5 +56,11 @@ message RequirementFlatData {
 
 message RequirementList{
     repeated RequirementFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListRequirements` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

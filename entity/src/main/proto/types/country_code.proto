@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: ISO Country Code
 message CountryCodeData {
     option (routines.entity_type) = "CountryCode";
@@ -21,7 +21,7 @@ message CountryCodeData {
     option (routines.has_table) = false;
     // keys: countryCode
     
-    string country_code = 1 [json_name = "country_code"]; // CountryTeleCode    
+    string country_code = 1 [json_name = "country_code", (google.api.graphql.relay_options).id = true]; // CountryTeleCode    
     string country_abbr = 2 [json_name = "country_abbr"];    
     string country_number = 3 [json_name = "country_number"];    
     string country_name = 4 [json_name = "country_name"];    
@@ -35,4 +35,10 @@ message CountryCodeData {
 
 message CountryCodeList{
     repeated CountryCodeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCountryCodes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

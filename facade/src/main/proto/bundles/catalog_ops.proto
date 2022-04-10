@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/product_catalog.proto";
 
 service CatalogOperations {
-  rpc CreateCatalog(CreateCatalogParams) returns (routines.Response) {}
-  rpc UpdateCatalog(UpdateCatalogParams) returns (routines.Response) {}
+  rpc CreateCatalog(CreateCatalogParams) returns (domain.ProdCatalogFlatData) {}
+  rpc UpdateCatalog(UpdateCatalogParams) returns (domain.ProdCatalogFlatData) {}
+  rpc GetCatalog(BundleGetRequest) returns (domain.ProdCatalogFlatData) {}
 
   
   rpc AddProdCatalogCategory(AddProdCatalogCategoryParams) returns (routines.Response) {}
@@ -37,6 +38,10 @@ service CatalogOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProdCatalogList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProdCatalogFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProdCatalogList) {}
+
+  rpc ListProdCatalogs(BundleListRequest) returns (domain.ProdCatalogList) {}
+  rpc StreamProdCatalogs(BundleListRequest) returns (stream domain.ProdCatalogList) {}
+  rpc RemoveProdCatalog(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

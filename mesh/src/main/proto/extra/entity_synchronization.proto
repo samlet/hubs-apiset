@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Entity Synchronization
 message EntitySyncData {
@@ -26,7 +27,7 @@ message EntitySyncData {
     // keys: entitySyncId
     // fields
         
-    string entity_sync_id = 1 [json_name = "entity_sync_id"];    
+    string entity_sync_id = 1 [json_name = "entity_sync_id", (google.api.graphql.relay_options).id = true];    
     string run_status_id = 2 [json_name = "run_status_id"];    
     google.protobuf.Timestamp last_successful_synch_time = 3 [json_name = "last_successful_synch_time"];    
     google.protobuf.Timestamp last_history_start_date = 4 [json_name = "last_history_start_date"];    
@@ -52,6 +53,12 @@ message EntitySyncData {
 
 message EntitySyncList{
     repeated EntitySyncData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntitySyncs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -93,7 +100,7 @@ message EntitySyncHistoryData {
     int64 per_split_max_items = 26 [json_name = "per_split_max_items"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 27 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 28 [json_name = "created_tx_stamp"];    
-    string id = 29 [json_name = "id"];
+    string id = 29 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -104,6 +111,12 @@ message EntitySyncHistoryData {
 
 message EntitySyncHistoryList{
     repeated EntitySyncHistoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntitySyncHistories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -122,7 +135,7 @@ message EntitySyncIncludeData {
     string appl_enum_id = 3 [json_name = "appl_enum_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -133,6 +146,12 @@ message EntitySyncIncludeData {
 
 message EntitySyncIncludeList{
     repeated EntitySyncIncludeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntitySyncIncludes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -150,7 +169,7 @@ message EntitySyncIncludeGroupData {
     string entity_group_id = 2 [json_name = "entity_group_id"]; // EntityGroup    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -161,6 +180,12 @@ message EntitySyncIncludeGroupData {
 
 message EntitySyncIncludeGroupList{
     repeated EntitySyncIncludeGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntitySyncIncludeGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -174,7 +199,7 @@ message EntitySyncRemoveData {
     // keys: entitySyncRemoveId
     // fields
         
-    string entity_sync_remove_id = 1 [json_name = "entity_sync_remove_id"];    
+    string entity_sync_remove_id = 1 [json_name = "entity_sync_remove_id", (google.api.graphql.relay_options).id = true];    
     string primary_key_removed = 2 [json_name = "primary_key_removed"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -188,6 +213,12 @@ message EntitySyncRemoveData {
 
 message EntitySyncRemoveList{
     repeated EntitySyncRemoveData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntitySyncRemoves` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

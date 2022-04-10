@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/party_agreement.proto";
 
 service AgreementOperations {
-  rpc CreateAgreement(CreateAgreementParams) returns (routines.Response) {}
-  rpc UpdateAgreement(UpdateAgreementParams) returns (routines.Response) {}
+  rpc CreateAgreement(CreateAgreementParams) returns (domain.AgreementFlatData) {}
+  rpc UpdateAgreement(UpdateAgreementParams) returns (domain.AgreementFlatData) {}
+  rpc GetAgreement(BundleGetRequest) returns (domain.AgreementFlatData) {}
 
   
   rpc AddAgreementItem(AddAgreementItemParams) returns (routines.Response) {}
@@ -45,6 +46,10 @@ service AgreementOperations {
   rpc QueryList(BundleQueryMap) returns (domain.AgreementList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.AgreementFlatData) {}
   rpc Select(BundleHandle) returns (domain.AgreementList) {}
+
+  rpc ListAgreements(BundleListRequest) returns (domain.AgreementList) {}
+  rpc StreamAgreements(BundleListRequest) returns (stream domain.AgreementList) {}
+  rpc RemoveAgreement(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

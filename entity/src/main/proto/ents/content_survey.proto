@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Survey
 message SurveyFlatData {
@@ -25,7 +26,7 @@ message SurveyFlatData {
     option (routines.has_table) = true;
     // keys: surveyId
         
-    string survey_id = 1 [json_name = "survey_id"];    
+    string survey_id = 1 [json_name = "survey_id", (google.api.graphql.relay_options).id = true];    
     string survey_name = 2 [json_name = "survey_name"];    
     string description = 3 [json_name = "description"];    
     string comments = 4 [json_name = "comments"];    
@@ -46,6 +47,12 @@ message SurveyFlatData {
 
 message SurveyList{
     repeated SurveyFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveys` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Survey Application Type
@@ -57,7 +64,7 @@ message SurveyApplTypeFlatData {
     option (routines.has_table) = true;
     // keys: surveyApplTypeId
         
-    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id"];    
+    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
@@ -70,6 +77,12 @@ message SurveyApplTypeFlatData {
 
 message SurveyApplTypeList{
     repeated SurveyApplTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyApplTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Survey Multi-Response Group
@@ -87,7 +100,7 @@ message SurveyMultiRespData {
     string multi_resp_title = 3 [json_name = "multi_resp_title"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -98,6 +111,12 @@ message SurveyMultiRespData {
 
 message SurveyMultiRespList{
     repeated SurveyMultiRespData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyMultiResps` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -118,7 +137,7 @@ message SurveyMultiRespColumnData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -129,6 +148,12 @@ message SurveyMultiRespColumnData {
 
 message SurveyMultiRespColumnList{
     repeated SurveyMultiRespColumnData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyMultiRespColumns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -148,7 +173,7 @@ message SurveyPageData {
     int64 sequence_num = 4 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -159,6 +184,12 @@ message SurveyPageData {
 
 message SurveyPageList{
     repeated SurveyPageData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyPages` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -171,7 +202,7 @@ message SurveyQuestionFlatData {
     option (routines.has_table) = true;
     // keys: surveyQuestionId
         
-    string survey_question_id = 1 [json_name = "survey_question_id"];    
+    string survey_question_id = 1 [json_name = "survey_question_id", (google.api.graphql.relay_options).id = true];    
     string survey_question_category_id = 2 [json_name = "survey_question_category_id"];
     string survey_question_type_id = 3 [json_name = "survey_question_type_id"]; // SurveyQuestionType    
     string description = 4 [json_name = "description"];    
@@ -191,6 +222,12 @@ message SurveyQuestionFlatData {
 
 message SurveyQuestionList{
     repeated SurveyQuestionFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyQuestions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Survey Question Application
@@ -217,7 +254,7 @@ message SurveyQuestionApplData {
     string with_survey_option_seq_id = 12 [json_name = "with_survey_option_seq_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
-    string id = 15 [json_name = "id"];
+    string id = 15 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -228,6 +265,12 @@ message SurveyQuestionApplData {
 
 message SurveyQuestionApplList{
     repeated SurveyQuestionApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyQuestionAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -240,7 +283,7 @@ message SurveyQuestionCategoryFlatData {
     option (routines.has_table) = true;
     // keys: surveyQuestionCategoryId
         
-    string survey_question_category_id = 1 [json_name = "survey_question_category_id"];    
+    string survey_question_category_id = 1 [json_name = "survey_question_category_id", (google.api.graphql.relay_options).id = true];    
     string parent_category_id = 2 [json_name = "parent_category_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -254,6 +297,12 @@ message SurveyQuestionCategoryFlatData {
 
 message SurveyQuestionCategoryList{
     repeated SurveyQuestionCategoryFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyQuestionCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Survey Question Option
@@ -277,7 +326,7 @@ message SurveyQuestionOptionData {
     string duration_uom_id = 9 [json_name = "duration_uom_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -288,6 +337,12 @@ message SurveyQuestionOptionData {
 
 message SurveyQuestionOptionList{
     repeated SurveyQuestionOptionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSurveyQuestionOptions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

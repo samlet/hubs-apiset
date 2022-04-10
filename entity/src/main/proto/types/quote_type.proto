@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Quote Type
 message QuoteTypeData {
     option (routines.entity_type) = "QuoteType";
@@ -21,7 +21,7 @@ message QuoteTypeData {
     option (routines.has_table) = false;
     // keys: quoteTypeId
         
-    string quote_type_id = 1 [json_name = "quote_type_id"];
+    string quote_type_id = 1 [json_name = "quote_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // QuoteType    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -35,4 +35,10 @@ message QuoteTypeData {
 
 message QuoteTypeList{
     repeated QuoteTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuoteTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Container
 message ContainerData {
@@ -26,7 +27,7 @@ message ContainerData {
     // keys: containerId
     // fields
         
-    string container_id = 1 [json_name = "container_id"];    
+    string container_id = 1 [json_name = "container_id", (google.api.graphql.relay_options).id = true];    
     string container_type_id = 2 [json_name = "container_type_id"];    
     string facility_id = 3 [json_name = "facility_id"];    
     string description = 4 [json_name = "description"];    
@@ -42,6 +43,12 @@ message ContainerData {
 
 message ContainerList{
     repeated ContainerData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContainers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -61,7 +68,7 @@ message ContainerGeoPointData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -72,6 +79,12 @@ message ContainerGeoPointData {
 
 message ContainerGeoPointList{
     repeated ContainerGeoPointData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContainerGeoPoints` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -85,7 +98,7 @@ message ContainerTypeData {
     // keys: containerTypeId
     // fields
         
-    string container_type_id = 1 [json_name = "container_type_id"];    
+    string container_type_id = 1 [json_name = "container_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -99,6 +112,12 @@ message ContainerTypeData {
 
 message ContainerTypeList{
     repeated ContainerTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContainerTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -118,7 +137,7 @@ message FacilityAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -129,6 +148,12 @@ message FacilityAttributeData {
 
 message FacilityAttributeList{
     repeated FacilityAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -149,7 +174,7 @@ message FacilityCalendarData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -160,6 +185,12 @@ message FacilityCalendarData {
 
 message FacilityCalendarList{
     repeated FacilityCalendarData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityCalendars` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -173,7 +204,7 @@ message FacilityCalendarTypeData {
     // keys: facilityCalendarTypeId
     // fields
         
-    string facility_calendar_type_id = 1 [json_name = "facility_calendar_type_id"];    
+    string facility_calendar_type_id = 1 [json_name = "facility_calendar_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -188,6 +219,12 @@ message FacilityCalendarTypeData {
 
 message FacilityCalendarTypeList{
     repeated FacilityCalendarTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityCalendarTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -207,7 +244,7 @@ message FacilityCarrierShipmentData {
     string shipment_method_type_id = 4 [json_name = "shipment_method_type_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -218,6 +255,12 @@ message FacilityCarrierShipmentData {
 
 message FacilityCarrierShipmentList{
     repeated FacilityCarrierShipmentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityCarrierShipments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -237,7 +280,7 @@ message FacilityContentData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -248,6 +291,12 @@ message FacilityContentData {
 
 message FacilityContentList{
     repeated FacilityContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -268,7 +317,7 @@ message FacilityGroupMemberData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -279,6 +328,12 @@ message FacilityGroupMemberData {
 
 message FacilityGroupMemberList{
     repeated FacilityGroupMemberData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityGroupMembers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -297,7 +352,7 @@ message FacilityGroupRoleData {
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -308,6 +363,12 @@ message FacilityGroupRoleData {
 
 message FacilityGroupRoleList{
     repeated FacilityGroupRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityGroupRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -328,7 +389,7 @@ message FacilityGroupRollupData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -339,6 +400,12 @@ message FacilityGroupRollupData {
 
 message FacilityGroupRollupList{
     repeated FacilityGroupRollupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityGroupRollups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -359,7 +426,7 @@ message FacilityPartyData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -370,6 +437,12 @@ message FacilityPartyData {
 
 message FacilityPartyList{
     repeated FacilityPartyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -388,7 +461,7 @@ message FacilityTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -399,6 +472,12 @@ message FacilityTypeAttrData {
 
 message FacilityTypeAttrList{
     repeated FacilityTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFacilityTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

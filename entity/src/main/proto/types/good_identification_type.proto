@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Good Identification Type
 message GoodIdentificationTypeData {
     option (routines.entity_type) = "GoodIdentificationType";
@@ -21,7 +21,7 @@ message GoodIdentificationTypeData {
     option (routines.has_table) = false;
     // keys: goodIdentificationTypeId
         
-    string good_identification_type_id = 1 [json_name = "good_identification_type_id"];
+    string good_identification_type_id = 1 [json_name = "good_identification_type_id", (google.api.graphql.relay_options).id = true];
     string parent_type_id = 2 [json_name = "parent_type_id"]; // GoodIdentificationType    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -35,4 +35,10 @@ message GoodIdentificationTypeData {
 
 message GoodIdentificationTypeList{
     repeated GoodIdentificationTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGoodIdentificationTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

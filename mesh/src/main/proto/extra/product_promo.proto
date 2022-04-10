@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product Promotion Email
 message OldProductPromoCodeEmailData {
@@ -30,7 +31,7 @@ message OldProductPromoCodeEmailData {
     string email_address = 2 [json_name = "email_address"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -41,6 +42,12 @@ message OldProductPromoCodeEmailData {
 
 message OldProductPromoCodeEmailList{
     repeated OldProductPromoCodeEmailData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOldProductPromoCodeEmails` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -58,7 +65,7 @@ message ProdPromoCodeContactMechData {
     string contact_mech_id = 2 [json_name = "contact_mech_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -69,6 +76,12 @@ message ProdPromoCodeContactMechData {
 
 message ProdPromoCodeContactMechList{
     repeated ProdPromoCodeContactMechData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProdPromoCodeContactMeches` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +99,7 @@ message ProductPromoCodePartyData {
     string party_id = 2 [json_name = "party_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -97,6 +110,12 @@ message ProductPromoCodePartyData {
 
 message ProductPromoCodePartyList{
     repeated ProductPromoCodePartyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPromoCodeParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -117,7 +136,7 @@ message ProductPromoContentData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -128,6 +147,12 @@ message ProductPromoContentData {
 
 message ProductPromoContentList{
     repeated ProductPromoContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPromoContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -150,7 +175,7 @@ message ProductPromoUseData {
     routines.FixedPoint quantity_left_in_actions = 7 [json_name = "quantity_left_in_actions"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -161,6 +186,12 @@ message ProductPromoUseData {
 
 message ProductPromoUseList{
     repeated ProductPromoUseData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPromice` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

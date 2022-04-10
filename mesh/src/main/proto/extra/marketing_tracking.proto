@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Tracking Code
 message TrackingCodeData {
@@ -26,7 +27,7 @@ message TrackingCodeData {
     // keys: trackingCodeId
     // fields
         
-    string tracking_code_id = 1 [json_name = "tracking_code_id"];
+    string tracking_code_id = 1 [json_name = "tracking_code_id", (google.api.graphql.relay_options).id = true];
     string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"]; // TrackingCodeType    
     string marketing_campaign_id = 3 [json_name = "marketing_campaign_id"];    
     string redirect_url = 4 [json_name = "redirect_url"];    
@@ -57,6 +58,12 @@ message TrackingCodeData {
 
 message TrackingCodeList{
     repeated TrackingCodeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTrackingCodes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -79,7 +86,7 @@ message TrackingCodeOrderData {
     google.protobuf.Timestamp affiliate_referred_time_stamp = 7 [json_name = "affiliate_referred_time_stamp"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -90,6 +97,12 @@ message TrackingCodeOrderData {
 
 message TrackingCodeOrderList{
     repeated TrackingCodeOrderData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTrackingCodeOrders` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -114,7 +127,7 @@ message TrackingCodeOrderReturnData {
     google.protobuf.Timestamp affiliate_referred_time_stamp = 9 [json_name = "affiliate_referred_time_stamp"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -125,6 +138,12 @@ message TrackingCodeOrderReturnData {
 
 message TrackingCodeOrderReturnList{
     repeated TrackingCodeOrderReturnData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTrackingCodeOrderReturns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -144,7 +163,7 @@ message TrackingCodeVisitData {
     string source_enum_id = 4 [json_name = "source_enum_id"]; // Enumeration    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -155,6 +174,12 @@ message TrackingCodeVisitData {
 
 message TrackingCodeVisitList{
     repeated TrackingCodeVisitData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTrackingCodeVisits` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

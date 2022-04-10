@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Address Matching Map
 message AddressMatchMapData {
@@ -31,7 +32,7 @@ message AddressMatchMapData {
     int64 sequence_num = 3 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -42,6 +43,12 @@ message AddressMatchMapData {
 
 message AddressMatchMapList{
     repeated AddressMatchMapData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAddressMatchMaps` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -55,7 +62,7 @@ message AffiliateData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string affiliate_name = 2 [json_name = "affiliate_name"];    
     string affiliate_description = 3 [json_name = "affiliate_description"];    
     string year_established = 4 [json_name = "year_established"];    
@@ -76,6 +83,12 @@ message AffiliateData {
 
 message AffiliateList{
     repeated AffiliateData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAffiliates` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -95,7 +108,7 @@ message PartyAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -106,6 +119,12 @@ message PartyAttributeData {
 
 message PartyAttributeList{
     repeated PartyAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -126,7 +145,7 @@ message PartyCarrierAccountData {
     string account_number = 5 [json_name = "account_number"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -137,6 +156,12 @@ message PartyCarrierAccountData {
 
 message PartyCarrierAccountList{
     repeated PartyCarrierAccountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyCarrierAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -156,7 +181,7 @@ message PartyClassificationData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -167,6 +192,12 @@ message PartyClassificationData {
 
 message PartyClassificationList{
     repeated PartyClassificationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyClassifications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -180,7 +211,7 @@ message PartyClassificationGroupData {
     // keys: partyClassificationGroupId
     // fields
         
-    string party_classification_group_id = 1 [json_name = "party_classification_group_id"];
+    string party_classification_group_id = 1 [json_name = "party_classification_group_id", (google.api.graphql.relay_options).id = true];
     string party_classification_type_id = 2 [json_name = "party_classification_type_id"]; // PartyClassificationType    
     string parent_group_id = 3 [json_name = "parent_group_id"];    
     string description = 4 [json_name = "description"];    
@@ -196,6 +227,12 @@ message PartyClassificationGroupData {
 
 message PartyClassificationGroupList{
     repeated PartyClassificationGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyClassificationGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -216,7 +253,7 @@ message PartyContentData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -227,6 +264,12 @@ message PartyContentData {
 
 message PartyContentList{
     repeated PartyContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -248,7 +291,7 @@ message PartyDataSourceData {
     routines.Indicator is_create = 6 [json_name = "is_create"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -259,6 +302,12 @@ message PartyDataSourceData {
 
 message PartyDataSourceList{
     repeated PartyDataSourceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyDataSources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -272,7 +321,7 @@ message PartyIcsAvsOverrideData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string avs_decline_string = 2 [json_name = "avs_decline_string"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -286,6 +335,12 @@ message PartyIcsAvsOverrideData {
 
 message PartyIcsAvsOverrideList{
     repeated PartyIcsAvsOverrideData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyIcsAvsOverrides` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -299,7 +354,7 @@ message PartyInvitationData {
     // keys: partyInvitationId
     // fields
         
-    string party_invitation_id = 1 [json_name = "party_invitation_id"];    
+    string party_invitation_id = 1 [json_name = "party_invitation_id", (google.api.graphql.relay_options).id = true];    
     string party_id_from = 2 [json_name = "party_id_from"];    
     string party_id = 3 [json_name = "party_id"];    
     string to_name = 4 [json_name = "to_name"];    
@@ -318,6 +373,12 @@ message PartyInvitationData {
 
 message PartyInvitationList{
     repeated PartyInvitationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyInvitations` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -335,7 +396,7 @@ message PartyInvitationGroupAssocData {
     string party_id_to = 2 [json_name = "party_id_to"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -346,6 +407,12 @@ message PartyInvitationGroupAssocData {
 
 message PartyInvitationGroupAssocList{
     repeated PartyInvitationGroupAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyInvitationGroupAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -363,7 +430,7 @@ message PartyInvitationRoleAssocData {
     string role_type_id = 2 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -374,6 +441,12 @@ message PartyInvitationRoleAssocData {
 
 message PartyInvitationRoleAssocList{
     repeated PartyInvitationRoleAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyInvitationRoleAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -397,7 +470,7 @@ message PartyNameHistoryData {
     string suffix = 8 [json_name = "suffix"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -408,6 +481,12 @@ message PartyNameHistoryData {
 
 message PartyNameHistoryList{
     repeated PartyNameHistoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyNameHistories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -425,7 +504,7 @@ message PartyNoteData {
     string note_id = 2 [json_name = "note_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -436,6 +515,12 @@ message PartyNoteData {
 
 message PartyNoteList{
     repeated PartyNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -457,7 +542,7 @@ message PartyProfileDefaultData {
     string default_ship_meth = 6 [json_name = "default_ship_meth"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -468,6 +553,12 @@ message PartyProfileDefaultData {
 
 message PartyProfileDefaultList{
     repeated PartyProfileDefaultData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyProfileDefaults` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -486,7 +577,7 @@ message PartyTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -497,6 +588,12 @@ message PartyTypeAttrData {
 
 message PartyTypeAttrList{
     repeated PartyTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -510,7 +607,7 @@ message PriorityTypeData {
     // keys: priorityTypeId
     // fields
         
-    string priority_type_id = 1 [json_name = "priority_type_id"];    
+    string priority_type_id = 1 [json_name = "priority_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -524,6 +621,12 @@ message PriorityTypeData {
 
 message PriorityTypeList{
     repeated PriorityTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPriorityTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -542,7 +645,7 @@ message RoleTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -553,6 +656,12 @@ message RoleTypeAttrData {
 
 message RoleTypeAttrList{
     repeated RoleTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListRoleTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -566,7 +675,7 @@ message VendorData {
     // keys: partyId
     // fields
         
-    string party_id = 1 [json_name = "party_id"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
     string manifest_company_name = 2 [json_name = "manifest_company_name"];    
     string manifest_company_title = 3 [json_name = "manifest_company_title"];    
     string manifest_logo_url = 4 [json_name = "manifest_logo_url"];    
@@ -583,6 +692,12 @@ message VendorData {
 
 message VendorList{
     repeated VendorData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListVendors` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -604,7 +719,7 @@ message WebSiteRoleData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -615,6 +730,12 @@ message WebSiteRoleData {
 
 message WebSiteRoleList{
     repeated WebSiteRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListWebSiteRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

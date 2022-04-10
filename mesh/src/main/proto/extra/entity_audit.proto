@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Entity Audit Log
 message EntityAuditLogData {
@@ -26,7 +27,7 @@ message EntityAuditLogData {
     // keys: auditHistorySeqId
     // fields
         
-    string audit_history_seq_id = 1 [json_name = "audit_history_seq_id"];    
+    string audit_history_seq_id = 1 [json_name = "audit_history_seq_id", (google.api.graphql.relay_options).id = true];    
     string changed_entity_name = 2 [json_name = "changed_entity_name"];    
     string changed_field_name = 3 [json_name = "changed_field_name"];    
     string pk_combined_value_text = 4 [json_name = "pk_combined_value_text"];    
@@ -47,6 +48,12 @@ message EntityAuditLogData {
 
 message EntityAuditLogList{
     repeated EntityAuditLogData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEntityAuditLogs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

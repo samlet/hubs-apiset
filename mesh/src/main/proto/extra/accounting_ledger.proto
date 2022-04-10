@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Accounting Transaction Attribute
 message AcctgTransAttributeData {
@@ -32,7 +33,7 @@ message AcctgTransAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message AcctgTransAttributeData {
 
 message AcctgTransAttributeList{
     repeated AcctgTransAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAcctgTransAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -61,7 +68,7 @@ message AcctgTransTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -72,6 +79,12 @@ message AcctgTransTypeAttrData {
 
 message AcctgTransTypeAttrList{
     repeated AcctgTransTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAcctgTransTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -90,7 +103,7 @@ message GlAccountGroupMemberData {
     string gl_account_group_id = 3 [json_name = "gl_account_group_id"]; // GlAccountGroup    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -101,6 +114,12 @@ message GlAccountGroupMemberData {
 
 message GlAccountGroupMemberList{
     repeated GlAccountGroupMemberData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGlAccountGroupMembers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -123,7 +142,7 @@ message GlAccountHistoryData {
     routines.Currency ending_balance = 7 [json_name = "ending_balance"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -134,6 +153,12 @@ message GlAccountHistoryData {
 
 message GlAccountHistoryList{
     repeated GlAccountHistoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGlAccountHistories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -154,7 +179,7 @@ message GlAccountRoleData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -165,6 +190,12 @@ message GlAccountRoleData {
 
 message GlAccountRoleList{
     repeated GlAccountRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGlAccountRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -185,7 +216,7 @@ message GlBudgetXrefData {
     routines.FixedPoint allocation_percentage = 5 [json_name = "allocation_percentage"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -196,6 +227,12 @@ message GlBudgetXrefData {
 
 message GlBudgetXrefList{
     repeated GlBudgetXrefData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGlBudgetXrefs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -215,7 +252,7 @@ message GlReconciliationEntryData {
     routines.Currency reconciled_amount = 4 [json_name = "reconciled_amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -226,6 +263,12 @@ message GlReconciliationEntryData {
 
 message GlReconciliationEntryList{
     repeated GlReconciliationEntryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGlReconciliationEntries` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -246,7 +289,7 @@ message PartyGlAccountData {
     string gl_account_id = 5 [json_name = "gl_account_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -257,6 +300,12 @@ message PartyGlAccountData {
 
 message PartyGlAccountList{
     repeated PartyGlAccountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyGlAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -270,7 +319,7 @@ message PartyPrefDocTypeTplData {
     // keys: partyPrefDocTypeTplId
     // fields
         
-    string party_pref_doc_type_tpl_id = 1 [json_name = "party_pref_doc_type_tpl_id"];    
+    string party_pref_doc_type_tpl_id = 1 [json_name = "party_pref_doc_type_tpl_id", (google.api.graphql.relay_options).id = true];    
     string party_id = 2 [json_name = "party_id"];    
     google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
@@ -290,6 +339,12 @@ message PartyPrefDocTypeTplData {
 
 message PartyPrefDocTypeTplList{
     repeated PartyPrefDocTypeTplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyPrefDocTypeTpls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -312,7 +367,7 @@ message ProductAverageCostData {
     routines.FixedPoint average_cost = 7 [json_name = "average_cost"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -323,6 +378,12 @@ message ProductAverageCostData {
 
 message ProductAverageCostList{
     repeated ProductAverageCostData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductAverageCosts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

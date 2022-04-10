@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Status
 message StatusItemData {
     option (routines.entity_type) = "StatusItem";
@@ -21,7 +21,7 @@ message StatusItemData {
     option (routines.has_table) = false;
     // keys: statusId
         
-    string status_id = 1 [json_name = "status_id"];
+    string status_id = 1 [json_name = "status_id", (google.api.graphql.relay_options).id = true];
     string status_type_id = 2 [json_name = "status_type_id"]; // StatusType    
     string status_code = 3 [json_name = "status_code"];    
     string sequence_id = 4 [json_name = "sequence_id"];    
@@ -36,4 +36,10 @@ message StatusItemData {
 
 message StatusItemList{
     repeated StatusItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListStatusItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

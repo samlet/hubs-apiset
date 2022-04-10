@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Communication Event
 message CommunicationEventFlatData {
@@ -25,7 +26,7 @@ message CommunicationEventFlatData {
     option (routines.has_table) = true;
     // keys: communicationEventId
         
-    string communication_event_id = 1 [json_name = "communication_event_id"];
+    string communication_event_id = 1 [json_name = "communication_event_id", (google.api.graphql.relay_options).id = true];
     string communication_event_type_id = 2 [json_name = "communication_event_type_id"]; // CommunicationEventType    
     string orig_comm_event_id = 3 [json_name = "orig_comm_event_id"];    
     string parent_comm_event_id = 4 [json_name = "parent_comm_event_id"];
@@ -63,6 +64,12 @@ message CommunicationEventFlatData {
 
 message CommunicationEventList{
     repeated CommunicationEventFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCommunicationEvents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Communication Event Role Entity showing all participants of the communication event.
@@ -82,7 +89,7 @@ message CommunicationEventRoleData {
     string status_id = 5 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -93,6 +100,12 @@ message CommunicationEventRoleData {
 
 message CommunicationEventRoleList{
     repeated CommunicationEventRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCommunicationEventRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

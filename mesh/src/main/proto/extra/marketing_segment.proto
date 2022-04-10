@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Segment Group
 message SegmentGroupData {
@@ -26,7 +27,7 @@ message SegmentGroupData {
     // keys: segmentGroupId
     // fields
         
-    string segment_group_id = 1 [json_name = "segment_group_id"];
+    string segment_group_id = 1 [json_name = "segment_group_id", (google.api.graphql.relay_options).id = true];
     string segment_group_type_id = 2 [json_name = "segment_group_type_id"]; // SegmentGroupType    
     string description = 3 [json_name = "description"];    
     string product_store_id = 4 [json_name = "product_store_id"];    
@@ -42,6 +43,12 @@ message SegmentGroupData {
 
 message SegmentGroupList{
     repeated SegmentGroupData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSegmentGroups` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -59,7 +66,7 @@ message SegmentGroupClassificationData {
     string party_classification_group_id = 2 [json_name = "party_classification_group_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -70,6 +77,12 @@ message SegmentGroupClassificationData {
 
 message SegmentGroupClassificationList{
     repeated SegmentGroupClassificationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSegmentGroupClassifications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -87,7 +100,7 @@ message SegmentGroupGeoData {
     string geo_id = 2 [json_name = "geo_id"]; // Geo    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -98,6 +111,12 @@ message SegmentGroupGeoData {
 
 message SegmentGroupGeoList{
     repeated SegmentGroupGeoData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSegmentGroupGeos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -116,7 +135,7 @@ message SegmentGroupRoleData {
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -127,6 +146,12 @@ message SegmentGroupRoleData {
 
 message SegmentGroupRoleList{
     repeated SegmentGroupRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSegmentGroupRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

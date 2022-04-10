@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Product Store
 message ProductStoreFlatData {
@@ -25,7 +26,7 @@ message ProductStoreFlatData {
     option (routines.has_table) = true;
     // keys: productStoreId
         
-    string product_store_id = 1 [json_name = "product_store_id"];
+    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
     string primary_store_group_id = 2 [json_name = "primary_store_group_id"]; // ProductStoreGroup    
     string store_name = 3 [json_name = "store_name"];    
     string company_name = 4 [json_name = "company_name"];    
@@ -114,6 +115,12 @@ message ProductStoreFlatData {
 
 message ProductStoreList{
     repeated ProductStoreFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStores` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Product Store Catalog Association
@@ -132,7 +139,7 @@ message ProductStoreCatalogFlatData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];    
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];    
     string tenant_id = 9 [json_name = "tenant_id"]; 
 
     // extra
@@ -142,6 +149,12 @@ message ProductStoreCatalogFlatData {
 
 message ProductStoreCatalogList{
     repeated ProductStoreCatalogFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreCatalogs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Product Store Email Settings
@@ -165,7 +178,7 @@ message ProductStoreEmailSettingData {
     string content_type = 9 [json_name = "content_type"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -176,6 +189,12 @@ message ProductStoreEmailSettingData {
 
 message ProductStoreEmailSettingList{
     repeated ProductStoreEmailSettingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreEmailSettings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -195,7 +214,7 @@ message ProductStoreFacilityFlatData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];    
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];    
     string tenant_id = 9 [json_name = "tenant_id"]; 
 
     // extra
@@ -205,6 +224,12 @@ message ProductStoreFacilityFlatData {
 
 message ProductStoreFacilityList{
     repeated ProductStoreFacilityFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreFacilities` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Allows financial account, such as gift certificate or calling cards, to be configured at store level
@@ -234,7 +259,7 @@ message ProductStoreFinActSettingData {
     string replenish_method_enum_id = 15 [json_name = "replenish_method_enum_id"]; // Enumeration    
     google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];    
-    string id = 18 [json_name = "id"];
+    string id = 18 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -245,6 +270,12 @@ message ProductStoreFinActSettingData {
 
 message ProductStoreFinActSettingList{
     repeated ProductStoreFinActSettingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreFinActSettings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -266,7 +297,7 @@ message ProductStoreKeywordOvrdData {
     string target_type_enum_id = 6 [json_name = "target_type_enum_id"]; // Enumeration    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -277,6 +308,12 @@ message ProductStoreKeywordOvrdData {
 
 message ProductStoreKeywordOvrdList{
     repeated ProductStoreKeywordOvrdData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreKeywordOvrds` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -300,7 +337,7 @@ message ProductStorePaymentSettingData {
     routines.Indicator apply_to_all_products = 8 [json_name = "apply_to_all_products"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -311,6 +348,12 @@ message ProductStorePaymentSettingData {
 
 message ProductStorePaymentSettingList{
     repeated ProductStorePaymentSettingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStorePaymentSettings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -332,7 +375,7 @@ message ProductStorePromoApplData {
     routines.Indicator manual_only = 6 [json_name = "manual_only"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -343,6 +386,12 @@ message ProductStorePromoApplData {
 
 message ProductStorePromoApplList{
     repeated ProductStorePromoApplData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStorePromoAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -364,7 +413,7 @@ message ProductStoreRoleData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -375,6 +424,12 @@ message ProductStoreRoleData {
 
 message ProductStoreRoleList{
     repeated ProductStoreRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -387,7 +442,7 @@ message ProductStoreShipmentMethFlatData {
     option (routines.has_table) = true;
     // keys: productStoreShipMethId
         
-    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id"];    
+    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];    
     string party_id = 4 [json_name = "party_id"];    
@@ -426,6 +481,12 @@ message ProductStoreShipmentMethFlatData {
 
 message ProductStoreShipmentMethList{
     repeated ProductStoreShipmentMethFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreShipmentMeths` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Product Store Survey Application
@@ -437,7 +498,7 @@ message ProductStoreSurveyApplFlatData {
     option (routines.has_table) = true;
     // keys: productStoreSurveyId
         
-    string product_store_survey_id = 1 [json_name = "product_store_survey_id"];    
+    string product_store_survey_id = 1 [json_name = "product_store_survey_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string survey_appl_type_id = 3 [json_name = "survey_appl_type_id"];    
     string group_name = 4 [json_name = "group_name"];    
@@ -460,5 +521,11 @@ message ProductStoreSurveyApplFlatData {
 
 message ProductStoreSurveyApplList{
     repeated ProductStoreSurveyApplFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductStoreSurveyAppls` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

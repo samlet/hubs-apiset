@@ -22,8 +22,9 @@ import "ents/product_product.proto";
 import "types/product_type.proto";
 
 service ProductOperations {
-  rpc CreateProduct(CreateProductParams) returns (routines.Response) {}
-  rpc UpdateProduct(UpdateProductParams) returns (routines.Response) {}
+  rpc CreateProduct(CreateProductParams) returns (domain.ProductFlatData) {}
+  rpc UpdateProduct(UpdateProductParams) returns (domain.ProductFlatData) {}
+  rpc GetProduct(BundleGetRequest) returns (domain.ProductFlatData) {}
 
   
   rpc AddProductPrice(AddProductPriceParams) returns (routines.Response) {}
@@ -69,6 +70,10 @@ service ProductOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductList) {}
+
+  rpc ListProducts(BundleListRequest) returns (domain.ProductList) {}
+  rpc StreamProducts(BundleListRequest) returns (stream domain.ProductList) {}
+  rpc RemoveProduct(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Fixed Asset
 message FixedAssetFlatData {
@@ -25,7 +26,7 @@ message FixedAssetFlatData {
     option (routines.has_table) = true;
     // keys: fixedAssetId
         
-    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];    
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id", (google.api.graphql.relay_options).id = true];    
     string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];    
     string parent_fixed_asset_id = 3 [json_name = "parent_fixed_asset_id"];    
     string instance_of_product_id = 4 [json_name = "instance_of_product_id"];
@@ -61,6 +62,12 @@ message FixedAssetFlatData {
 
 message FixedAssetList{
     repeated FixedAssetFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssets` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Fixed Asset Depreciation Method
@@ -79,7 +86,7 @@ message FixedAssetDepMethodData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -90,6 +97,12 @@ message FixedAssetDepMethodData {
 
 message FixedAssetDepMethodList{
     repeated FixedAssetDepMethodData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetDepMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -109,7 +122,7 @@ message FixedAssetGeoPointData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -120,6 +133,12 @@ message FixedAssetGeoPointData {
 
 message FixedAssetGeoPointList{
     repeated FixedAssetGeoPointData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetGeoPoints` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -142,7 +161,7 @@ message FixedAssetMeterData {
     string work_effort_id = 7 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -153,6 +172,12 @@ message FixedAssetMeterData {
 
 message FixedAssetMeterList{
     repeated FixedAssetMeterData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetMeters` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -177,7 +202,7 @@ message FixedAssetProductData {
     string quantity_uom_id = 9 [json_name = "quantity_uom_id"]; // Uom    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -188,6 +213,12 @@ message FixedAssetProductData {
 
 message FixedAssetProductList{
     repeated FixedAssetProductData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetProducts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -210,7 +241,7 @@ message FixedAssetRegistrationData {
     string license_number = 7 [json_name = "license_number"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -221,6 +252,12 @@ message FixedAssetRegistrationData {
 
 message FixedAssetRegistrationList{
     repeated FixedAssetRegistrationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetRegistrations` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -242,7 +279,7 @@ message FixedAssetStdCostData {
     routines.Currency amount = 6 [json_name = "amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -253,6 +290,12 @@ message FixedAssetStdCostData {
 
 message FixedAssetStdCostList{
     repeated FixedAssetStdCostData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFixedAssetStdCosts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

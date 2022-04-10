@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Custom Method
 message CustomMethodFlatData {
@@ -25,7 +26,7 @@ message CustomMethodFlatData {
     option (routines.has_table) = true;
     // keys: customMethodId
         
-    string custom_method_id = 1 [json_name = "custom_method_id"];
+    string custom_method_id = 1 [json_name = "custom_method_id", (google.api.graphql.relay_options).id = true];
     string custom_method_type_id = 2 [json_name = "custom_method_type_id"]; // CustomMethodType    
     string custom_method_name = 3 [json_name = "custom_method_name"];    
     string description = 4 [json_name = "description"];    
@@ -40,5 +41,11 @@ message CustomMethodFlatData {
 
 message CustomMethodList{
     repeated CustomMethodFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustomMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

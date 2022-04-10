@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Product Maintenance Type
 message ProductMaintTypeData {
     option (routines.entity_type) = "ProductMaintType";
@@ -21,7 +21,7 @@ message ProductMaintTypeData {
     option (routines.has_table) = false;
     // keys: productMaintTypeId
         
-    string product_maint_type_id = 1 [json_name = "product_maint_type_id"];    
+    string product_maint_type_id = 1 [json_name = "product_maint_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];
     string parent_type_id = 3 [json_name = "parent_type_id"]; // ProductMaintType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -34,4 +34,10 @@ message ProductMaintTypeData {
 
 message ProductMaintTypeList{
     repeated ProductMaintTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductMaintTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

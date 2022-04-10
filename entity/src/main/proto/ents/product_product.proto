@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Product
 message ProductFlatData {
@@ -25,7 +26,7 @@ message ProductFlatData {
     option (routines.has_table) = true;
     // keys: productId
         
-    string product_id = 1 [json_name = "product_id"];    
+    string product_id = 1 [json_name = "product_id", (google.api.graphql.relay_options).id = true];    
     string product_type_id = 2 [json_name = "product_type_id"];    
     string primary_product_category_id = 3 [json_name = "primary_product_category_id"];    
     string facility_id = 4 [json_name = "facility_id"];    
@@ -106,6 +107,12 @@ message ProductFlatData {
 
 message ProductList{
     repeated ProductFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProducts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Product Association
@@ -133,7 +140,7 @@ message ProductAssocData {
     string recurrence_info_id = 13 [json_name = "recurrence_info_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
-    string id = 16 [json_name = "id"];
+    string id = 16 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -144,6 +151,12 @@ message ProductAssocData {
 
 message ProductAssocList{
     repeated ProductAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -171,7 +184,7 @@ message ProductContentData {
     int64 sequence_num = 12 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];    
-    string id = 15 [json_name = "id"];
+    string id = 15 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -182,6 +195,12 @@ message ProductContentData {
 
 message ProductContentList{
     repeated ProductContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -202,7 +221,7 @@ message ProductKeywordData {
     string status_id = 5 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -213,6 +232,12 @@ message ProductKeywordData {
 
 message ProductKeywordList{
     repeated ProductKeywordData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductKeywords` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -225,7 +250,7 @@ message ProductReviewFlatData {
     option (routines.has_table) = true;
     // keys: productReviewId
         
-    string product_review_id = 1 [json_name = "product_review_id"];    
+    string product_review_id = 1 [json_name = "product_review_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string product_id = 3 [json_name = "product_id"];    
     string user_login_id = 4 [json_name = "user_login_id"];
@@ -245,5 +270,11 @@ message ProductReviewFlatData {
 
 message ProductReviewList{
     repeated ProductReviewFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductReviews` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

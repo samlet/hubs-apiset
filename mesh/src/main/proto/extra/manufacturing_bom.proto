@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product To Part Rule
 message ProductManufacturingRuleData {
@@ -26,7 +27,7 @@ message ProductManufacturingRuleData {
     // keys: ruleId
     // fields
         
-    string rule_id = 1 [json_name = "rule_id"];    
+    string rule_id = 1 [json_name = "rule_id", (google.api.graphql.relay_options).id = true];    
     string product_id = 2 [json_name = "product_id"];    
     string product_id_for = 3 [json_name = "product_id_for"];    
     string product_id_in = 4 [json_name = "product_id_in"];    
@@ -50,6 +51,12 @@ message ProductManufacturingRuleData {
 
 message ProductManufacturingRuleList{
     repeated ProductManufacturingRuleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductManufacturingRules` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

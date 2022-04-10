@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Market Interest
 message MarketInterestData {
@@ -32,7 +33,7 @@ message MarketInterestData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message MarketInterestData {
 
 message MarketInterestList{
     repeated MarketInterestData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListMarketInterests` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message ReorderGuidelineData {
     // keys: reorderGuidelineId
     // fields
         
-    string reorder_guideline_id = 1 [json_name = "reorder_guideline_id"];    
+    string reorder_guideline_id = 1 [json_name = "reorder_guideline_id", (google.api.graphql.relay_options).id = true];    
     string product_id = 2 [json_name = "product_id"];    
     string party_id = 3 [json_name = "party_id"];    
     string role_type_id = 4 [json_name = "role_type_id"];    
@@ -78,6 +85,12 @@ message ReorderGuidelineData {
 
 message ReorderGuidelineList{
     repeated ReorderGuidelineData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListReorderGuidelines` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -91,7 +104,7 @@ message SupplierRatingTypeData {
     // keys: supplierRatingTypeId
     // fields
         
-    string supplier_rating_type_id = 1 [json_name = "supplier_rating_type_id"];    
+    string supplier_rating_type_id = 1 [json_name = "supplier_rating_type_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -105,6 +118,12 @@ message SupplierRatingTypeData {
 
 message SupplierRatingTypeList{
     repeated SupplierRatingTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSupplierRatingTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

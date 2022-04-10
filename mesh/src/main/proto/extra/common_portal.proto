@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // PortalPage
 message PortalPageData {
@@ -26,7 +27,7 @@ message PortalPageData {
     // keys: portalPageId
     // fields
         
-    string portal_page_id = 1 [json_name = "portal_page_id"];    
+    string portal_page_id = 1 [json_name = "portal_page_id", (google.api.graphql.relay_options).id = true];    
     string portal_page_name = 2 [json_name = "portal_page_name"];    
     string description = 3 [json_name = "description"];    
     string owner_user_login_id = 4 [json_name = "owner_user_login_id"];    
@@ -47,6 +48,12 @@ message PortalPageData {
 
 message PortalPageList{
     repeated PortalPageData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortalPages` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -66,7 +73,7 @@ message PortalPageColumnData {
     int64 column_width_percentage = 4 [json_name = "column_width_percentage"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -77,6 +84,12 @@ message PortalPageColumnData {
 
 message PortalPageColumnList{
     repeated PortalPageColumnData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortalPageColumns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -97,7 +110,7 @@ message PortalPagePortletData {
     int64 sequence_num = 5 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -108,6 +121,12 @@ message PortalPagePortletData {
 
 message PortalPagePortletList{
     repeated PortalPagePortletData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortalPagePortlets` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -121,7 +140,7 @@ message PortalPortletData {
     // keys: portalPortletId
     // fields
         
-    string portal_portlet_id = 1 [json_name = "portal_portlet_id"];    
+    string portal_portlet_id = 1 [json_name = "portal_portlet_id", (google.api.graphql.relay_options).id = true];    
     string portlet_name = 2 [json_name = "portlet_name"];    
     string screen_name = 3 [json_name = "screen_name"];    
     string screen_location = 4 [json_name = "screen_location"];    
@@ -143,6 +162,12 @@ message PortalPortletData {
 
 message PortalPortletList{
     repeated PortalPortletData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortalPortlets` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -165,7 +190,7 @@ message PortletAttributeData {
     string attr_type = 7 [json_name = "attr_type"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -176,6 +201,12 @@ message PortletAttributeData {
 
 message PortletAttributeList{
     repeated PortletAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortletAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -189,7 +220,7 @@ message PortletCategoryData {
     // keys: portletCategoryId
     // fields
         
-    string portlet_category_id = 1 [json_name = "portlet_category_id"];    
+    string portlet_category_id = 1 [json_name = "portlet_category_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -203,6 +234,12 @@ message PortletCategoryData {
 
 message PortletCategoryList{
     repeated PortletCategoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortletCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -220,7 +257,7 @@ message PortletPortletCategoryData {
     string portlet_category_id = 2 [json_name = "portlet_category_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -231,6 +268,12 @@ message PortletPortletCategoryData {
 
 message PortletPortletCategoryList{
     repeated PortletPortletCategoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPortletPortletCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

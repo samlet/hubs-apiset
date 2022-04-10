@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product Subscription Resource
 message ProductSubscriptionResourceData {
@@ -47,7 +48,7 @@ message ProductSubscriptionResourceData {
     string grace_period_on_expiry_uom_id = 19 [json_name = "grace_period_on_expiry_uom_id"]; // Uom    
     google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];    
-    string id = 22 [json_name = "id"];
+    string id = 22 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -58,6 +59,12 @@ message ProductSubscriptionResourceData {
 
 message ProductSubscriptionResourceList{
     repeated ProductSubscriptionResourceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductSubscriptionResources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -70,7 +77,7 @@ message SubscriptionResourceFlatData {
     option (routines.has_table) = true;
     // keys: subscriptionResourceId
         
-    string subscription_resource_id = 1 [json_name = "subscription_resource_id"];    
+    string subscription_resource_id = 1 [json_name = "subscription_resource_id", (google.api.graphql.relay_options).id = true];    
     string parent_resource_id = 2 [json_name = "parent_resource_id"];    
     string description = 3 [json_name = "description"];    
     string content_id = 4 [json_name = "content_id"];    
@@ -87,5 +94,11 @@ message SubscriptionResourceFlatData {
 
 message SubscriptionResourceList{
     repeated SubscriptionResourceFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSubscriptionResources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

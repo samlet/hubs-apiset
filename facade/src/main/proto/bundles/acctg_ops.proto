@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/accounting_ledger.proto";
 
 service AcctgOperations {
-  rpc CreateAcctg(CreateAcctgParams) returns (routines.Response) {}
-  rpc UpdateAcctg(UpdateAcctgParams) returns (routines.Response) {}
+  rpc CreateAcctg(CreateAcctgParams) returns (domain.AcctgTransFlatData) {}
+  rpc UpdateAcctg(UpdateAcctgParams) returns (domain.AcctgTransFlatData) {}
+  rpc GetAcctg(BundleGetRequest) returns (domain.AcctgTransFlatData) {}
 
   
   rpc AddAcctgTransEntry(AddAcctgTransEntryParams) returns (routines.Response) {}
@@ -37,6 +38,10 @@ service AcctgOperations {
   rpc QueryList(BundleQueryMap) returns (domain.AcctgTransList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.AcctgTransFlatData) {}
   rpc Select(BundleHandle) returns (domain.AcctgTransList) {}
+
+  rpc ListAcctgTrans(BundleListRequest) returns (domain.AcctgTransList) {}
+  rpc StreamAcctgTrans(BundleListRequest) returns (stream domain.AcctgTransList) {}
+  rpc RemoveAcctgTrans(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

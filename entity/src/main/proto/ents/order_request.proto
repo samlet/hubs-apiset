@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: CustRequest
 message CustRequestFlatData {
@@ -25,7 +26,7 @@ message CustRequestFlatData {
     option (routines.has_table) = true;
     // keys: custRequestId
         
-    string cust_request_id = 1 [json_name = "cust_request_id"];    
+    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];    
     string cust_request_type_id = 2 [json_name = "cust_request_type_id"];    
     string cust_request_category_id = 3 [json_name = "cust_request_category_id"];
     string status_id = 4 [json_name = "status_id"]; // StatusItem    
@@ -63,6 +64,12 @@ message CustRequestFlatData {
 
 message CustRequestList{
     repeated CustRequestFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequests` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Customer Request Item
@@ -94,7 +101,7 @@ message CustRequestItemData {
     string story = 17 [json_name = "story"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];    
-    string id = 20 [json_name = "id"];
+    string id = 20 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -105,6 +112,12 @@ message CustRequestItemData {
 
 message CustRequestItemList{
     repeated CustRequestItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -117,7 +130,7 @@ message CustRequestTypeFlatData {
     option (routines.has_table) = true;
     // keys: custRequestTypeId
         
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id"];    
+    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -133,5 +146,11 @@ message CustRequestTypeFlatData {
 
 message CustRequestTypeList{
     repeated CustRequestTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

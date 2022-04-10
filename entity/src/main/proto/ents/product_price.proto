@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Product Feature Price
 message ProductFeaturePriceData {
@@ -38,7 +39,7 @@ message ProductFeaturePriceData {
     string last_modified_by_user_login = 10 [json_name = "last_modified_by_user_login"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
-    string id = 13 [json_name = "id"];
+    string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -49,6 +50,12 @@ message ProductFeaturePriceData {
 
 message ProductFeaturePriceList{
     repeated ProductFeaturePriceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductFeaturePrices` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -85,7 +92,7 @@ message ProductPriceData {
     string last_modified_by_user_login = 21 [json_name = "last_modified_by_user_login"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];    
-    string id = 24 [json_name = "id"];
+    string id = 24 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -96,6 +103,12 @@ message ProductPriceData {
 
 message ProductPriceList{
     repeated ProductPriceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPrices` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -116,7 +129,7 @@ message ProductPriceActionData {
     string rate_code = 5 [json_name = "rate_code"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -127,6 +140,12 @@ message ProductPriceActionData {
 
 message ProductPriceActionList{
     repeated ProductPriceActionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPriceActions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -147,7 +166,7 @@ message ProductPriceCondData {
     string cond_value = 5 [json_name = "cond_value"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -158,6 +177,12 @@ message ProductPriceCondData {
 
 message ProductPriceCondList{
     repeated ProductPriceCondData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPriceConds` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -170,7 +195,7 @@ message ProductPriceRuleFlatData {
     option (routines.has_table) = true;
     // keys: productPriceRuleId
         
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];    
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id", (google.api.graphql.relay_options).id = true];    
     string rule_name = 2 [json_name = "rule_name"];    
     string description = 3 [json_name = "description"];    
     routines.Indicator is_sale = 4 [json_name = "is_sale"];    
@@ -187,6 +212,12 @@ message ProductPriceRuleFlatData {
 
 message ProductPriceRuleList{
     repeated ProductPriceRuleFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProductPriceRules` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Quantity Break
@@ -198,7 +229,7 @@ message QuantityBreakFlatData {
     option (routines.has_table) = true;
     // keys: quantityBreakId
         
-    string quantity_break_id = 1 [json_name = "quantity_break_id"];
+    string quantity_break_id = 1 [json_name = "quantity_break_id", (google.api.graphql.relay_options).id = true];
     string quantity_break_type_id = 2 [json_name = "quantity_break_type_id"]; // QuantityBreakType    
     routines.FixedPoint from_quantity = 3 [json_name = "from_quantity"];    
     routines.FixedPoint thru_quantity = 4 [json_name = "thru_quantity"];    
@@ -213,5 +244,11 @@ message QuantityBreakFlatData {
 
 message QuantityBreakList{
     repeated QuantityBreakFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListQuantityBreaks` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

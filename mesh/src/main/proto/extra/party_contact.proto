@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Contact Mechanism Attribute
 message ContactMechAttributeData {
@@ -32,7 +33,7 @@ message ContactMechAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message ContactMechAttributeData {
 
 message ContactMechAttributeList{
     repeated ContactMechAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactMechAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -60,7 +67,7 @@ message ContactMechLinkData {
     string contact_mech_id_to = 2 [json_name = "contact_mech_id_to"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -71,6 +78,12 @@ message ContactMechLinkData {
 
 message ContactMechLinkList{
     repeated ContactMechLinkData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactMechLinks` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -89,7 +102,7 @@ message ContactMechTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -100,6 +113,12 @@ message ContactMechTypeAttrData {
 
 message ContactMechTypeAttrList{
     repeated ContactMechTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactMechTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -113,7 +132,7 @@ message EmailAddressVerificationData {
     // keys: emailAddress
     // fields
         
-    string email_address = 1 [json_name = "email_address"];    
+    string email_address = 1 [json_name = "email_address", (google.api.graphql.relay_options).id = true];    
     string verify_hash = 2 [json_name = "verify_hash"];    
     google.protobuf.Timestamp expire_date = 3 [json_name = "expire_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -128,6 +147,12 @@ message EmailAddressVerificationData {
 
 message EmailAddressVerificationList{
     repeated EmailAddressVerificationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEmailAddressVerifications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -141,7 +166,7 @@ message FtpAddressData {
     // keys: contactMechId
     // fields
         
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];    
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];    
     string hostname = 2 [json_name = "hostname"];    
     int64 port = 3 [json_name = "port"];    
     string username = 4 [json_name = "username"];    
@@ -163,6 +188,12 @@ message FtpAddressData {
 
 message FtpAddressList{
     repeated FtpAddressData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListFtpAddresses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -180,7 +211,7 @@ message PostalAddressBoundaryData {
     string geo_id = 2 [json_name = "geo_id"]; // Geo    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -191,6 +222,12 @@ message PostalAddressBoundaryData {
 
 message PostalAddressBoundaryList{
     repeated PostalAddressBoundaryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPostalAddressBoundaries` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -208,7 +245,7 @@ message ValidContactMechRoleData {
     string contact_mech_type_id = 2 [json_name = "contact_mech_type_id"]; // ContactMechType    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -219,6 +256,12 @@ message ValidContactMechRoleData {
 
 message ValidContactMechRoleList{
     repeated ValidContactMechRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListValidContactMechRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -20,8 +20,9 @@ import "ents/order_order.proto";
 import "types/invoice_type.proto";
 
 service InvoiceOperations {
-  rpc CreateInvoice(CreateInvoiceParams) returns (routines.Response) {}
-  rpc UpdateInvoice(UpdateInvoiceParams) returns (routines.Response) {}
+  rpc CreateInvoice(CreateInvoiceParams) returns (domain.InvoiceFlatData) {}
+  rpc UpdateInvoice(UpdateInvoiceParams) returns (domain.InvoiceFlatData) {}
+  rpc GetInvoice(BundleGetRequest) returns (domain.InvoiceFlatData) {}
 
   
   rpc AddInvoiceItem(AddInvoiceItemParams) returns (routines.Response) {}
@@ -53,6 +54,10 @@ service InvoiceOperations {
   rpc QueryList(BundleQueryMap) returns (domain.InvoiceList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.InvoiceFlatData) {}
   rpc Select(BundleHandle) returns (domain.InvoiceList) {}
+
+  rpc ListInvoices(BundleListRequest) returns (domain.InvoiceList) {}
+  rpc StreamInvoices(BundleListRequest) returns (stream domain.InvoiceList) {}
+  rpc RemoveInvoice(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

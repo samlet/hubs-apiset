@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Defines a set of Visual Themes
 message VisualThemeSetData {
     option (routines.entity_type) = "VisualThemeSet";
@@ -21,7 +21,7 @@ message VisualThemeSetData {
     option (routines.has_table) = false;
     // keys: visualThemeSetId
         
-    string visual_theme_set_id = 1 [json_name = "visual_theme_set_id"];    
+    string visual_theme_set_id = 1 [json_name = "visual_theme_set_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"]; 
@@ -33,4 +33,10 @@ message VisualThemeSetData {
 
 message VisualThemeSetList{
     repeated VisualThemeSetData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListVisualThemeSets` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

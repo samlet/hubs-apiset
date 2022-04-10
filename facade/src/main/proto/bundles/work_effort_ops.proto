@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/workeffort_workeffort.proto";
 
 service WorkEffortOperations {
-  rpc CreateWorkEffort(CreateWorkEffortParams) returns (routines.Response) {}
-  rpc UpdateWorkEffort(UpdateWorkEffortParams) returns (routines.Response) {}
+  rpc CreateWorkEffort(CreateWorkEffortParams) returns (domain.WorkEffortFlatData) {}
+  rpc UpdateWorkEffort(UpdateWorkEffortParams) returns (domain.WorkEffortFlatData) {}
+  rpc GetWorkEffort(BundleGetRequest) returns (domain.WorkEffortFlatData) {}
 
   
   rpc AddFromWorkEffortAssoc(AddFromWorkEffortAssocParams) returns (routines.Response) {}
@@ -41,6 +42,10 @@ service WorkEffortOperations {
   rpc QueryList(BundleQueryMap) returns (domain.WorkEffortList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.WorkEffortFlatData) {}
   rpc Select(BundleHandle) returns (domain.WorkEffortList) {}
+
+  rpc ListWorkEfforts(BundleListRequest) returns (domain.WorkEffortList) {}
+  rpc StreamWorkEfforts(BundleListRequest) returns (stream domain.WorkEffortList) {}
+  rpc RemoveWorkEffort(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

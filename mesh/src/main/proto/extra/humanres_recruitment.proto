@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Entity for storing data about Interviews conducted
 message JobInterviewData {
@@ -26,7 +27,7 @@ message JobInterviewData {
     // keys: jobInterviewId
     // fields
         
-    string job_interview_id = 1 [json_name = "job_interview_id"];    
+    string job_interview_id = 1 [json_name = "job_interview_id", (google.api.graphql.relay_options).id = true];    
     string job_interviewee_party_id = 2 [json_name = "job_interviewee_party_id"];    
     string job_requisition_id = 3 [json_name = "job_requisition_id"];    
     string job_interviewer_party_id = 4 [json_name = "job_interviewer_party_id"];
@@ -46,6 +47,12 @@ message JobInterviewData {
 
 message JobInterviewList{
     repeated JobInterviewData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListJobInterviews` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -59,7 +66,7 @@ message JobRequisitionData {
     // keys: jobRequisitionId
     // fields
         
-    string job_requisition_id = 1 [json_name = "job_requisition_id"];    
+    string job_requisition_id = 1 [json_name = "job_requisition_id", (google.api.graphql.relay_options).id = true];    
     int64 duration_months = 2 [json_name = "duration_months"];    
     int64 age = 3 [json_name = "age"];    
     routines.Indicator gender = 4 [json_name = "gender"];    
@@ -85,6 +92,12 @@ message JobRequisitionData {
 
 message JobRequisitionList{
     repeated JobRequisitionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListJobRequisitions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

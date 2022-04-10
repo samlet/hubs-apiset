@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Shipment Receipt
 message ShipmentReceiptFlatData {
@@ -25,7 +26,7 @@ message ShipmentReceiptFlatData {
     option (routines.has_table) = true;
     // keys: receiptId
         
-    string receipt_id = 1 [json_name = "receipt_id"];    
+    string receipt_id = 1 [json_name = "receipt_id", (google.api.graphql.relay_options).id = true];    
     string inventory_item_id = 2 [json_name = "inventory_item_id"];    
     string product_id = 3 [json_name = "product_id"];    
     string shipment_id = 4 [json_name = "shipment_id"];    
@@ -52,5 +53,11 @@ message ShipmentReceiptFlatData {
 
 message ShipmentReceiptList{
     repeated ShipmentReceiptFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListShipmentReceipts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

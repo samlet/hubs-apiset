@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Example Entity
 message ExampleData {
@@ -26,7 +27,7 @@ message ExampleData {
     // keys: exampleId
     // fields
         
-    string example_id = 1 [json_name = "example_id"];    
+    string example_id = 1 [json_name = "example_id", (google.api.graphql.relay_options).id = true];    
     string example_type_id = 2 [json_name = "example_type_id"];
     string status_id = 3 [json_name = "status_id"]; // StatusItem    
     string example_name = 4 [json_name = "example_name"];    
@@ -49,6 +50,12 @@ message ExampleData {
 
 message ExampleList{
     repeated ExampleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListExamples` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -69,7 +76,7 @@ message ExampleItemData {
     string amount_uom_id = 5 [json_name = "amount_uom_id"]; // Uom    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -80,6 +87,12 @@ message ExampleItemData {
 
 message ExampleItemList{
     repeated ExampleItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListExampleItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -100,7 +113,7 @@ message ExampleStatusData {
     string status_id = 5 [json_name = "status_id"]; // StatusItem    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -111,6 +124,12 @@ message ExampleStatusData {
 
 message ExampleStatusList{
     repeated ExampleStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListExampleStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -124,7 +143,7 @@ message ExampleTypeData {
     // keys: exampleTypeId
     // fields
         
-    string example_type_id = 1 [json_name = "example_type_id"];    
+    string example_type_id = 1 [json_name = "example_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -139,6 +158,12 @@ message ExampleTypeData {
 
 message ExampleTypeList{
     repeated ExampleTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListExampleTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

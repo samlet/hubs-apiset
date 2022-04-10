@@ -19,8 +19,9 @@ import "extra/product_inventory.proto";
 import "types/inventory_item_type.proto";
 
 service InventoryOperations {
-  rpc CreateInventory(CreateInventoryParams) returns (routines.Response) {}
-  rpc UpdateInventory(UpdateInventoryParams) returns (routines.Response) {}
+  rpc CreateInventory(CreateInventoryParams) returns (domain.InventoryItemFlatData) {}
+  rpc UpdateInventory(UpdateInventoryParams) returns (domain.InventoryItemFlatData) {}
+  rpc GetInventory(BundleGetRequest) returns (domain.InventoryItemFlatData) {}
 
   
   rpc AddInventoryItemDetail(AddInventoryItemDetailParams) returns (routines.Response) {}
@@ -44,6 +45,10 @@ service InventoryOperations {
   rpc QueryList(BundleQueryMap) returns (domain.InventoryItemList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.InventoryItemFlatData) {}
   rpc Select(BundleHandle) returns (domain.InventoryItemList) {}
+
+  rpc ListInventoryItems(BundleListRequest) returns (domain.InventoryItemList) {}
+  rpc StreamInventoryItems(BundleListRequest) returns (stream domain.InventoryItemList) {}
+  rpc RemoveInventoryItem(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

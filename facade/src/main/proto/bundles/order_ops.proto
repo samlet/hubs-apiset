@@ -18,8 +18,9 @@ import "ents/order_order.proto";
 import "types/order_type.proto";
 
 service OrderOperations {
-  rpc CreateOrder(CreateOrderParams) returns (routines.Response) {}
-  rpc UpdateOrder(UpdateOrderParams) returns (routines.Response) {}
+  rpc CreateOrder(CreateOrderParams) returns (domain.OrderHeaderFlatData) {}
+  rpc UpdateOrder(UpdateOrderParams) returns (domain.OrderHeaderFlatData) {}
+  rpc GetOrder(BundleGetRequest) returns (domain.OrderHeaderFlatData) {}
 
   
   rpc AddOrderItem(AddOrderItemParams) returns (routines.Response) {}
@@ -71,6 +72,10 @@ service OrderOperations {
   rpc QueryList(BundleQueryMap) returns (domain.OrderHeaderList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.OrderHeaderFlatData) {}
   rpc Select(BundleHandle) returns (domain.OrderHeaderList) {}
+
+  rpc ListOrderHeaders(BundleListRequest) returns (domain.OrderHeaderList) {}
+  rpc StreamOrderHeaders(BundleListRequest) returns (stream domain.OrderHeaderList) {}
+  rpc RemoveOrderHeader(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Calendar Exception Week
 message TechDataCalendarExcWeekData {
@@ -32,7 +33,7 @@ message TechDataCalendarExcWeekData {
     string description = 4 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message TechDataCalendarExcWeekData {
 
 message TechDataCalendarExcWeekList{
     repeated TechDataCalendarExcWeekData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTechDataCalendarExcWeeks` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

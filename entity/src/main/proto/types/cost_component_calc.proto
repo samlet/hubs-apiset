@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: Cost Component Calculation
 message CostComponentCalcData {
     option (routines.entity_type) = "CostComponentCalc";
@@ -21,7 +21,7 @@ message CostComponentCalcData {
     option (routines.has_table) = false;
     // keys: costComponentCalcId
         
-    string cost_component_calc_id = 1 [json_name = "cost_component_calc_id"];    
+    string cost_component_calc_id = 1 [json_name = "cost_component_calc_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];
     string cost_gl_account_type_id = 3 [json_name = "cost_gl_account_type_id"]; // GlAccountType
     string offsetting_gl_account_type_id = 4 [json_name = "offsetting_gl_account_type_id"]; // GlAccountType    
@@ -40,4 +40,10 @@ message CostComponentCalcData {
 
 message CostComponentCalcList{
     repeated CostComponentCalcData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCostComponentCalcs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

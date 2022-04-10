@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Data Object
 message DataResourceFlatData {
@@ -25,7 +26,7 @@ message DataResourceFlatData {
     option (routines.has_table) = true;
     // keys: dataResourceId
         
-    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];    
     string data_resource_type_id = 2 [json_name = "data_resource_type_id"];
     string data_template_type_id = 3 [json_name = "data_template_type_id"]; // DataTemplateType
     string data_category_id = 4 [json_name = "data_category_id"]; // DataCategory
@@ -55,6 +56,12 @@ message DataResourceFlatData {
 
 message DataResourceList{
     repeated DataResourceFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListDataResources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Electronic Text
@@ -66,7 +73,7 @@ message ElectronicTextFlatData {
     option (routines.has_table) = true;
     // keys: dataResourceId
         
-    string data_resource_id = 1 [json_name = "data_resource_id"];    
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];    
     string text_data = 2 [json_name = "text_data"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
@@ -79,5 +86,11 @@ message ElectronicTextFlatData {
 
 message ElectronicTextList{
     repeated ElectronicTextFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListElectronicTexts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

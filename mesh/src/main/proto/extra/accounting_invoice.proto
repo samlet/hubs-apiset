@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Invoice Attribute
 message InvoiceAttributeData {
@@ -32,7 +33,7 @@ message InvoiceAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message InvoiceAttributeData {
 
 message InvoiceAttributeList{
     repeated InvoiceAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -61,7 +68,7 @@ message InvoiceContactMechData {
     string contact_mech_id = 3 [json_name = "contact_mech_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -72,6 +79,12 @@ message InvoiceContactMechData {
 
 message InvoiceContactMechList{
     repeated InvoiceContactMechData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceContactMeches` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -92,7 +105,7 @@ message InvoiceContentData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -103,6 +116,12 @@ message InvoiceContentData {
 
 message InvoiceContentList{
     repeated InvoiceContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -129,7 +148,7 @@ message InvoiceItemAssocData {
     routines.Currency amount = 11 [json_name = "amount"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string id = 14 [json_name = "id"];
+    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -140,6 +159,12 @@ message InvoiceItemAssocData {
 
 message InvoiceItemAssocList{
     repeated InvoiceItemAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceItemAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -160,7 +185,7 @@ message InvoiceItemAttributeData {
     string attr_description = 5 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -171,6 +196,12 @@ message InvoiceItemAttributeData {
 
 message InvoiceItemAttributeList{
     repeated InvoiceItemAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceItemAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -189,7 +220,7 @@ message InvoiceItemTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -200,6 +231,12 @@ message InvoiceItemTypeAttrData {
 
 message InvoiceItemTypeAttrList{
     repeated InvoiceItemTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceItemTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -217,7 +254,7 @@ message InvoiceNoteData {
     string note_id = 2 [json_name = "note_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -228,6 +265,12 @@ message InvoiceNoteData {
 
 message InvoiceNoteList{
     repeated InvoiceNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -241,7 +284,7 @@ message InvoiceTermData {
     // keys: invoiceTermId
     // fields
         
-    string invoice_term_id = 1 [json_name = "invoice_term_id"];
+    string invoice_term_id = 1 [json_name = "invoice_term_id", (google.api.graphql.relay_options).id = true];
     string term_type_id = 2 [json_name = "term_type_id"]; // TermType    
     string invoice_id = 3 [json_name = "invoice_id"];    
     string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];    
@@ -262,6 +305,12 @@ message InvoiceTermData {
 
 message InvoiceTermList{
     repeated InvoiceTermData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceTerms` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -281,7 +330,7 @@ message InvoiceTermAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -292,6 +341,12 @@ message InvoiceTermAttributeData {
 
 message InvoiceTermAttributeList{
     repeated InvoiceTermAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceTermAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -310,7 +365,7 @@ message InvoiceTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -321,6 +376,12 @@ message InvoiceTypeAttrData {
 
 message InvoiceTypeAttrList{
     repeated InvoiceTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInvoiceTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

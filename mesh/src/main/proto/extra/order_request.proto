@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Customer Request Attribute
 message CustRequestAttributeData {
@@ -32,7 +33,7 @@ message CustRequestAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message CustRequestAttributeData {
 
 message CustRequestAttributeList{
     repeated CustRequestAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message CustRequestCategoryData {
     // keys: custRequestCategoryId
     // fields
         
-    string cust_request_category_id = 1 [json_name = "cust_request_category_id"];    
+    string cust_request_category_id = 1 [json_name = "cust_request_category_id", (google.api.graphql.relay_options).id = true];    
     string cust_request_type_id = 2 [json_name = "cust_request_type_id"];    
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
@@ -71,6 +78,12 @@ message CustRequestCategoryData {
 
 message CustRequestCategoryList{
     repeated CustRequestCategoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -88,7 +101,7 @@ message CustRequestCommEventData {
     string communication_event_id = 2 [json_name = "communication_event_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -99,6 +112,12 @@ message CustRequestCommEventData {
 
 message CustRequestCommEventList{
     repeated CustRequestCommEventData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestCommEvents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -118,7 +137,7 @@ message CustRequestContentData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -129,6 +148,12 @@ message CustRequestContentData {
 
 message CustRequestContentList{
     repeated CustRequestContentData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestContents` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -147,7 +172,7 @@ message CustRequestItemNoteData {
     string note_id = 3 [json_name = "note_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -158,6 +183,12 @@ message CustRequestItemNoteData {
 
 message CustRequestItemNoteList{
     repeated CustRequestItemNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestItemNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -176,7 +207,7 @@ message CustRequestItemWorkEffortData {
     string work_effort_id = 3 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -187,6 +218,12 @@ message CustRequestItemWorkEffortData {
 
 message CustRequestItemWorkEffortList{
     repeated CustRequestItemWorkEffortData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestItemWorkEfforts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -204,7 +241,7 @@ message CustRequestNoteData {
     string note_id = 2 [json_name = "note_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -215,6 +252,12 @@ message CustRequestNoteData {
 
 message CustRequestNoteList{
     repeated CustRequestNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -235,7 +278,7 @@ message CustRequestPartyData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -246,6 +289,12 @@ message CustRequestPartyData {
 
 message CustRequestPartyList{
     repeated CustRequestPartyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -259,7 +308,7 @@ message CustRequestStatusData {
     // keys: custRequestStatusId
     // fields
         
-    string cust_request_status_id = 1 [json_name = "cust_request_status_id"];
+    string cust_request_status_id = 1 [json_name = "cust_request_status_id", (google.api.graphql.relay_options).id = true];
     string status_id = 2 [json_name = "status_id"]; // StatusItem    
     string cust_request_id = 3 [json_name = "cust_request_id"];    
     string cust_request_item_seq_id = 4 [json_name = "cust_request_item_seq_id"];    
@@ -277,6 +326,12 @@ message CustRequestStatusData {
 
 message CustRequestStatusList{
     repeated CustRequestStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -295,7 +350,7 @@ message CustRequestTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -306,6 +361,12 @@ message CustRequestTypeAttrData {
 
 message CustRequestTypeAttrList{
     repeated CustRequestTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -323,7 +384,7 @@ message CustRequestWorkEffortData {
     string work_effort_id = 2 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -334,6 +395,12 @@ message CustRequestWorkEffortData {
 
 message CustRequestWorkEffortList{
     repeated CustRequestWorkEffortData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCustRequestWorkEfforts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -354,7 +421,7 @@ message RespondingPartyData {
     google.protobuf.Timestamp date_sent = 5 [json_name = "date_sent"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -365,6 +432,12 @@ message RespondingPartyData {
 
 message RespondingPartyList{
     repeated RespondingPartyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListRespondingParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

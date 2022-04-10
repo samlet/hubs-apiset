@@ -19,8 +19,9 @@ import "ents/shipment_shipment.proto";
 import "ents/shipment_issuance.proto";
 
 service ShipmentOperations {
-  rpc CreateShipment(CreateShipmentParams) returns (routines.Response) {}
-  rpc UpdateShipment(UpdateShipmentParams) returns (routines.Response) {}
+  rpc CreateShipment(CreateShipmentParams) returns (domain.ShipmentFlatData) {}
+  rpc UpdateShipment(UpdateShipmentParams) returns (domain.ShipmentFlatData) {}
+  rpc GetShipment(BundleGetRequest) returns (domain.ShipmentFlatData) {}
 
   
   rpc AddShipmentItem(AddShipmentItemParams) returns (routines.Response) {}
@@ -63,6 +64,10 @@ service ShipmentOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ShipmentList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ShipmentFlatData) {}
   rpc Select(BundleHandle) returns (domain.ShipmentList) {}
+
+  rpc ListShipments(BundleListRequest) returns (domain.ShipmentList) {}
+  rpc StreamShipments(BundleListRequest) returns (stream domain.ShipmentList) {}
+  rpc RemoveShipment(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

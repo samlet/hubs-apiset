@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Store GitHub access token for user
 message GitHubUserData {
@@ -26,7 +27,7 @@ message GitHubUserData {
     // keys: gitHubUserId
     // fields
         
-    string git_hub_user_id = 1 [json_name = "git_hub_user_id"];    
+    string git_hub_user_id = 1 [json_name = "git_hub_user_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string env_prefix = 3 [json_name = "env_prefix"];    
     string token_type = 4 [json_name = "token_type"];    
@@ -43,6 +44,12 @@ message GitHubUserData {
 
 message GitHubUserList{
     repeated GitHubUserData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListGitHubUsers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message LinkedInUserData {
     // keys: linkedInUserId
     // fields
         
-    string linked_in_user_id = 1 [json_name = "linked_in_user_id"];    
+    string linked_in_user_id = 1 [json_name = "linked_in_user_id", (google.api.graphql.relay_options).id = true];    
     string product_store_id = 2 [json_name = "product_store_id"];    
     string env_prefix = 3 [json_name = "env_prefix"];    
     string access_token = 4 [json_name = "access_token"];    
@@ -72,6 +79,12 @@ message LinkedInUserData {
 
 message LinkedInUserList{
     repeated LinkedInUserData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListLinkedInUsers` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -95,7 +108,7 @@ message OAuth2GitHubData {
     google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -106,6 +119,12 @@ message OAuth2GitHubData {
 
 message OAuth2GitHubList{
     repeated OAuth2GitHubData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOAuth2GitHubs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -130,7 +149,7 @@ message OAuth2LinkedInData {
     google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -141,6 +160,12 @@ message OAuth2LinkedInData {
 
 message OAuth2LinkedInList{
     repeated OAuth2LinkedInData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListOAuth2LinkedIns` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -162,7 +187,7 @@ message ThirdPartyLoginData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -173,6 +198,12 @@ message ThirdPartyLoginData {
 
 message ThirdPartyLoginList{
     repeated ThirdPartyLoginData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListThirdPartyLogins` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

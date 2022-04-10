@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "extra/example_example.proto";
 
 service ExampleOperations {
-  rpc CreateExample(CreateExampleParams) returns (routines.Response) {}
-  rpc UpdateExample(UpdateExampleParams) returns (routines.Response) {}
+  rpc CreateExample(CreateExampleParams) returns (domain.ExampleData) {}
+  rpc UpdateExample(UpdateExampleParams) returns (domain.ExampleData) {}
+  rpc GetExample(BundleGetRequest) returns (domain.ExampleData) {}
 
   
   rpc AddExampleItem(AddExampleItemParams) returns (routines.Response) {}
@@ -42,6 +43,10 @@ service ExampleOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ExampleList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ExampleData) {}
   rpc Select(BundleHandle) returns (domain.ExampleList) {}
+
+  rpc ListExamples(BundleListRequest) returns (domain.ExampleList) {}
+  rpc StreamExamples(BundleListRequest) returns (stream domain.ExampleList) {}
+  rpc RemoveExample(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

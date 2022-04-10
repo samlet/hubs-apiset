@@ -17,8 +17,9 @@ import "facade_common.proto";
 import "ents/webapp_website.proto";
 
 service WebSiteOperations {
-  rpc CreateWebSite(CreateWebSiteParams) returns (routines.Response) {}
-  rpc UpdateWebSite(UpdateWebSiteParams) returns (routines.Response) {}
+  rpc CreateWebSite(CreateWebSiteParams) returns (domain.WebSiteFlatData) {}
+  rpc UpdateWebSite(UpdateWebSiteParams) returns (domain.WebSiteFlatData) {}
+  rpc GetWebSite(BundleGetRequest) returns (domain.WebSiteFlatData) {}
 
   
 
@@ -33,6 +34,10 @@ service WebSiteOperations {
   rpc QueryList(BundleQueryMap) returns (domain.WebSiteList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.WebSiteFlatData) {}
   rpc Select(BundleHandle) returns (domain.WebSiteList) {}
+
+  rpc ListWebSites(BundleListRequest) returns (domain.WebSiteList) {}
+  rpc StreamWebSites(BundleListRequest) returns (stream domain.WebSiteList) {}
+  rpc RemoveWebSite(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Order Abandoned Line
 message CartAbandonedLineData {
@@ -42,7 +43,7 @@ message CartAbandonedLineData {
     routines.Indicator was_reserved = 14 [json_name = "was_reserved"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];    
-    string id = 17 [json_name = "id"];
+    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -53,6 +54,12 @@ message CartAbandonedLineData {
 
 message CartAbandonedLineList{
     repeated CartAbandonedLineData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCartAbandonedLines` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

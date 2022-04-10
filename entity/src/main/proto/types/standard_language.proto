@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "routines.proto";
-
+import "relay.proto";
 // flat-ent: StandardLanguage
 message StandardLanguageData {
     option (routines.entity_type) = "StandardLanguage";
@@ -21,7 +21,7 @@ message StandardLanguageData {
     option (routines.has_table) = false;
     // keys: standardLanguageId
         
-    string standard_language_id = 1 [json_name = "standard_language_id"];    
+    string standard_language_id = 1 [json_name = "standard_language_id", (google.api.graphql.relay_options).id = true];    
     string lang_code3t = 2 [json_name = "lang_code3t"];    
     string lang_code3b = 3 [json_name = "lang_code3b"];    
     string lang_code2 = 4 [json_name = "lang_code2"];    
@@ -38,4 +38,10 @@ message StandardLanguageData {
 
 message StandardLanguageList{
     repeated StandardLanguageData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListStandardLanguages` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Contact List
 message ContactListData {
@@ -26,7 +27,7 @@ message ContactListData {
     // keys: contactListId
     // fields
         
-    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string contact_list_id = 1 [json_name = "contact_list_id", (google.api.graphql.relay_options).id = true];
     string contact_list_type_id = 2 [json_name = "contact_list_type_id"]; // ContactListType
     string contact_mech_type_id = 3 [json_name = "contact_mech_type_id"]; // ContactMechType    
     string marketing_campaign_id = 4 [json_name = "marketing_campaign_id"];    
@@ -55,6 +56,12 @@ message ContactListData {
 
 message ContactListList{
     repeated ContactListData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactLists` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -77,7 +84,7 @@ message ContactListCommStatusData {
     string change_by_user_login_id = 7 [json_name = "change_by_user_login_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -88,6 +95,12 @@ message ContactListCommStatusData {
 
 message ContactListCommStatusList{
     repeated ContactListCommStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactListCommStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -109,7 +122,7 @@ message ContactListPartyData {
     string preferred_contact_mech_id = 6 [json_name = "preferred_contact_mech_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -120,6 +133,12 @@ message ContactListPartyData {
 
 message ContactListPartyList{
     repeated ContactListPartyData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactListParties` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -142,7 +161,7 @@ message ContactListPartyStatusData {
     string opt_in_verify_code = 7 [json_name = "opt_in_verify_code"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -153,6 +172,12 @@ message ContactListPartyStatusData {
 
 message ContactListPartyStatusList{
     repeated ContactListPartyStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContactListPartyStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -172,7 +197,7 @@ message WebSiteContactListData {
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -183,6 +208,12 @@ message WebSiteContactListData {
 
 message WebSiteContactListList{
     repeated WebSiteContactListData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListWebSiteContactLists` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

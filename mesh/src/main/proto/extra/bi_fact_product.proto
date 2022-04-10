@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Inventory Item Fact
 message InventoryItemFactData {
@@ -26,7 +27,7 @@ message InventoryItemFactData {
     // keys: inventoryItemId
     // fields
         
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];    
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];    
     string facility_id = 2 [json_name = "facility_id"];    
     string product_dim_id = 3 [json_name = "product_dim_id"];    
     string orig_currency_dim_id = 4 [json_name = "orig_currency_dim_id"];    
@@ -47,6 +48,12 @@ message InventoryItemFactData {
 
 message InventoryItemFactList{
     repeated InventoryItemFactData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListInventoryItemFacts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

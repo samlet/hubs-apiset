@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Billing Account
 message BillingAccountFlatData {
@@ -25,7 +26,7 @@ message BillingAccountFlatData {
     option (routines.has_table) = true;
     // keys: billingAccountId
         
-    string billing_account_id = 1 [json_name = "billing_account_id"];    
+    string billing_account_id = 1 [json_name = "billing_account_id", (google.api.graphql.relay_options).id = true];    
     routines.Currency account_limit = 2 [json_name = "account_limit"];
     string account_currency_uom_id = 3 [json_name = "account_currency_uom_id"]; // Uom    
     string contact_mech_id = 4 [json_name = "contact_mech_id"];    
@@ -44,6 +45,12 @@ message BillingAccountFlatData {
 
 message BillingAccountList{
     repeated BillingAccountFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBillingAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Billing Account Role
@@ -63,7 +70,7 @@ message BillingAccountRoleData {
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -74,6 +81,12 @@ message BillingAccountRoleData {
 
 message BillingAccountRoleList{
     repeated BillingAccountRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBillingAccountRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -86,7 +99,7 @@ message CreditCardFlatData {
     option (routines.has_table) = true;
     // keys: paymentMethodId
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string card_type = 2 [json_name = "card_type"];    
     string card_number = 3 [json_name = "card_number"];    
     string valid_from_date = 4 [json_name = "valid_from_date"];    
@@ -114,6 +127,12 @@ message CreditCardFlatData {
 
 message CreditCardList{
     repeated CreditCardFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCreditCards` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: EFT Account Information
@@ -125,7 +144,7 @@ message EftAccountFlatData {
     option (routines.has_table) = true;
     // keys: paymentMethodId
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];    
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];    
     string bank_name = 2 [json_name = "bank_name"];    
     string routing_number = 3 [json_name = "routing_number"];    
     string account_type = 4 [json_name = "account_type"];    
@@ -145,6 +164,12 @@ message EftAccountFlatData {
 
 message EftAccountList{
     repeated EftAccountFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListEftAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Payment
@@ -156,7 +181,7 @@ message PaymentFlatData {
     option (routines.has_table) = true;
     // keys: paymentId
         
-    string payment_id = 1 [json_name = "payment_id"];    
+    string payment_id = 1 [json_name = "payment_id", (google.api.graphql.relay_options).id = true];    
     string payment_type_id = 2 [json_name = "payment_type_id"];
     string payment_method_type_id = 3 [json_name = "payment_method_type_id"]; // PaymentMethodType    
     string payment_method_id = 4 [json_name = "payment_method_id"];    
@@ -186,6 +211,12 @@ message PaymentFlatData {
 
 message PaymentList{
     repeated PaymentFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPayments` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Payment Application
@@ -197,7 +228,7 @@ message PaymentApplicationFlatData {
     option (routines.has_table) = true;
     // keys: paymentApplicationId
         
-    string payment_application_id = 1 [json_name = "payment_application_id"];    
+    string payment_application_id = 1 [json_name = "payment_application_id", (google.api.graphql.relay_options).id = true];    
     string payment_id = 2 [json_name = "payment_id"];    
     string invoice_id = 3 [json_name = "invoice_id"];    
     string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];    
@@ -217,6 +248,12 @@ message PaymentApplicationFlatData {
 
 message PaymentApplicationList{
     repeated PaymentApplicationFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentApplications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Payment Content Type
@@ -228,7 +265,7 @@ message PaymentContentTypeFlatData {
     option (routines.has_table) = true;
     // keys: paymentContentTypeId
         
-    string payment_content_type_id = 1 [json_name = "payment_content_type_id"];    
+    string payment_content_type_id = 1 [json_name = "payment_content_type_id", (google.api.graphql.relay_options).id = true];    
     string parent_type_id = 2 [json_name = "parent_type_id"];    
     routines.Indicator has_table = 3 [json_name = "has_table"];    
     string description = 4 [json_name = "description"];    
@@ -243,6 +280,12 @@ message PaymentContentTypeFlatData {
 
 message PaymentContentTypeList{
     repeated PaymentContentTypeFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentContentTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Payment Gateway Response
@@ -254,7 +297,7 @@ message PaymentGatewayResponseFlatData {
     option (routines.has_table) = true;
     // keys: paymentGatewayResponseId
         
-    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id"];
+    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id", (google.api.graphql.relay_options).id = true];
     string payment_service_type_enum_id = 2 [json_name = "payment_service_type_enum_id"]; // Enumeration    
     string order_payment_preference_id = 3 [json_name = "order_payment_preference_id"];
     string payment_method_type_id = 4 [json_name = "payment_method_type_id"]; // PaymentMethodType    
@@ -287,6 +330,12 @@ message PaymentGatewayResponseFlatData {
 
 message PaymentGatewayResponseList{
     repeated PaymentGatewayResponseFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGatewayResponses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Maps PaymentTypes to GlAccountTypes, allowing user to configure payments and gl accounts
@@ -304,7 +353,7 @@ message PaymentGlAccountTypeMapData {
     string gl_account_type_id = 3 [json_name = "gl_account_type_id"]; // GlAccountType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -315,6 +364,12 @@ message PaymentGlAccountTypeMapData {
 
 message PaymentGlAccountTypeMapList{
     repeated PaymentGlAccountTypeMapData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentGlAccountTypeMaps` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -327,7 +382,7 @@ message PaymentMethodFlatData {
     option (routines.has_table) = true;
     // keys: paymentMethodId
         
-    string payment_method_id = 1 [json_name = "payment_method_id"];
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
     string payment_method_type_id = 2 [json_name = "payment_method_type_id"]; // PaymentMethodType    
     string party_id = 3 [json_name = "party_id"];    
     string gl_account_id = 4 [json_name = "gl_account_id"];    
@@ -346,6 +401,12 @@ message PaymentMethodFlatData {
 
 message PaymentMethodList{
     repeated PaymentMethodFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentMethods` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // Payment Method Type GL Account
@@ -363,7 +424,7 @@ message PaymentMethodTypeGlAccountData {
     string gl_account_id = 3 [json_name = "gl_account_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -374,6 +435,12 @@ message PaymentMethodTypeGlAccountData {
 
 message PaymentMethodTypeGlAccountList{
     repeated PaymentMethodTypeGlAccountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPaymentMethodTypeGlAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

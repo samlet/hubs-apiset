@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: WebSite
 message WebSiteFlatData {
@@ -25,7 +26,7 @@ message WebSiteFlatData {
     option (routines.has_table) = true;
     // keys: webSiteId
         
-    string web_site_id = 1 [json_name = "web_site_id"];    
+    string web_site_id = 1 [json_name = "web_site_id", (google.api.graphql.relay_options).id = true];    
     string site_name = 2 [json_name = "site_name"];    
     string http_host = 3 [json_name = "http_host"];    
     string http_port = 4 [json_name = "http_port"];    
@@ -53,5 +54,11 @@ message WebSiteFlatData {
 
 message WebSiteList{
     repeated WebSiteFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListWebSites` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

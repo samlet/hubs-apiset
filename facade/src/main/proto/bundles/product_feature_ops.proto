@@ -18,8 +18,9 @@ import "ents/product_feature.proto";
 import "types/product_feature_type.proto";
 
 service ProductFeatureOperations {
-  rpc CreateProductFeature(CreateProductFeatureParams) returns (routines.Response) {}
-  rpc UpdateProductFeature(UpdateProductFeatureParams) returns (routines.Response) {}
+  rpc CreateProductFeature(CreateProductFeatureParams) returns (domain.ProductFeatureFlatData) {}
+  rpc UpdateProductFeature(UpdateProductFeatureParams) returns (domain.ProductFeatureFlatData) {}
+  rpc GetProductFeature(BundleGetRequest) returns (domain.ProductFeatureFlatData) {}
 
   
 
@@ -35,6 +36,10 @@ service ProductFeatureOperations {
   rpc QueryList(BundleQueryMap) returns (domain.ProductFeatureList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.ProductFeatureFlatData) {}
   rpc Select(BundleHandle) returns (domain.ProductFeatureList) {}
+
+  rpc ListProductFeatures(BundleListRequest) returns (domain.ProductFeatureList) {}
+  rpc StreamProductFeatures(BundleListRequest) returns (stream domain.ProductFeatureList) {}
+  rpc RemoveProductFeature(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

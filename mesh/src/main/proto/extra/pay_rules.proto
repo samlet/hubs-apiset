@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Bluecc Rule Entity
 message CcRuleData {
@@ -26,7 +27,7 @@ message CcRuleData {
     // keys: ruleId
     // fields
         
-    string rule_id = 1 [json_name = "rule_id"];    
+    string rule_id = 1 [json_name = "rule_id", (google.api.graphql.relay_options).id = true];    
     string name = 2 [json_name = "name"];    
     string description = 3 [json_name = "description"];    
     int32 priority = 4 [json_name = "priority"];    
@@ -43,6 +44,12 @@ message CcRuleData {
 
 message CcRuleList{
     repeated CcRuleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCcRules` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -56,7 +63,7 @@ message CcRuleActionData {
     // keys: ruleActionId
     // fields
         
-    string rule_action_id = 1 [json_name = "rule_action_id"];    
+    string rule_action_id = 1 [json_name = "rule_action_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     string action = 3 [json_name = "action"];    
     string rule_id = 4 [json_name = "rule_id"];    
@@ -72,6 +79,12 @@ message CcRuleActionData {
 
 message CcRuleActionList{
     repeated CcRuleActionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListCcRuleActions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

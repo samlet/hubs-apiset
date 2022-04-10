@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Content Approval
 message ContentApprovalData {
@@ -26,7 +27,7 @@ message ContentApprovalData {
     // keys: contentApprovalId
     // fields
         
-    string content_approval_id = 1 [json_name = "content_approval_id"];    
+    string content_approval_id = 1 [json_name = "content_approval_id", (google.api.graphql.relay_options).id = true];    
     string content_id = 2 [json_name = "content_id"];    
     string content_revision_seq_id = 3 [json_name = "content_revision_seq_id"];    
     string party_id = 4 [json_name = "party_id"];
@@ -47,6 +48,12 @@ message ContentApprovalData {
 
 message ContentApprovalList{
     repeated ContentApprovalData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentApprovals` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -65,7 +72,7 @@ message ContentKeywordData {
     int64 relevancy_weight = 3 [json_name = "relevancy_weight"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -76,6 +83,12 @@ message ContentKeywordData {
 
 message ContentKeywordList{
     repeated ContentKeywordData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentKeywords` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -95,7 +108,7 @@ message ContentMetaDataData {
     string data_source_id = 4 [json_name = "data_source_id"]; // DataSource    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -106,6 +119,12 @@ message ContentMetaDataData {
 
 message ContentMetaDataList{
     repeated ContentMetaDataData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentMetaData` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -124,7 +143,7 @@ message ContentPurposeData {
     int64 sequence_num = 3 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -135,6 +154,12 @@ message ContentPurposeData {
 
 message ContentPurposeList{
     repeated ContentPurposeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentPurposes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -154,7 +179,7 @@ message ContentRevisionData {
     string comments = 4 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -165,6 +190,12 @@ message ContentRevisionData {
 
 message ContentRevisionList{
     repeated ContentRevisionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentRevisions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -185,7 +216,7 @@ message ContentRevisionItemData {
     string new_data_resource_id = 5 [json_name = "new_data_resource_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -196,6 +227,12 @@ message ContentRevisionItemData {
 
 message ContentRevisionItemList{
     repeated ContentRevisionItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentRevisionItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -222,7 +259,7 @@ message ContentSearchConstraintData {
     string high_value = 11 [json_name = "high_value"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string id = 14 [json_name = "id"];
+    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -233,6 +270,12 @@ message ContentSearchConstraintData {
 
 message ContentSearchConstraintList{
     repeated ContentSearchConstraintData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentSearchConstraints` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -246,7 +289,7 @@ message ContentSearchResultData {
     // keys: contentSearchResultId
     // fields
         
-    string content_search_result_id = 1 [json_name = "content_search_result_id"];    
+    string content_search_result_id = 1 [json_name = "content_search_result_id", (google.api.graphql.relay_options).id = true];    
     string visit_id = 2 [json_name = "visit_id"];    
     string order_by_name = 3 [json_name = "order_by_name"];    
     routines.Indicator is_ascending = 4 [json_name = "is_ascending"];    
@@ -265,6 +308,12 @@ message ContentSearchResultData {
 
 message ContentSearchResultList{
     repeated ContentSearchResultData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentSearchResults` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -283,7 +332,7 @@ message ContentTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -294,6 +343,12 @@ message ContentTypeAttrData {
 
 message ContentTypeAttrList{
     repeated ContentTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListContentTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

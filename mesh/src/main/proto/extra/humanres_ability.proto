@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Party Qualification
 message PartyQualData {
@@ -36,7 +37,7 @@ message PartyQualData {
     google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -47,6 +48,12 @@ message PartyQualData {
 
 message PartyQualList{
     repeated PartyQualData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyQuals` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -60,7 +67,7 @@ message PartyResumeData {
     // keys: resumeId
     // fields
         
-    string resume_id = 1 [json_name = "resume_id"];    
+    string resume_id = 1 [json_name = "resume_id", (google.api.graphql.relay_options).id = true];    
     string party_id = 2 [json_name = "party_id"];    
     string content_id = 3 [json_name = "content_id"];    
     google.protobuf.Timestamp resume_date = 4 [json_name = "resume_date"];    
@@ -77,6 +84,12 @@ message PartyResumeData {
 
 message PartyResumeList{
     repeated PartyResumeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyResumes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -98,7 +111,7 @@ message PartySkillData {
     google.protobuf.Timestamp started_using_date = 6 [json_name = "started_using_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -109,6 +122,12 @@ message PartySkillData {
 
 message PartySkillList{
     repeated PartySkillData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartySkills` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -134,7 +153,7 @@ message PerfReviewData {
     string comments = 10 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
-    string id = 13 [json_name = "id"];
+    string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -145,6 +164,12 @@ message PerfReviewData {
 
 message PerfReviewList{
     repeated PerfReviewData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPerfReviews` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -167,7 +192,7 @@ message PerfReviewItemData {
     string comments = 7 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -178,6 +203,12 @@ message PerfReviewItemData {
 
 message PerfReviewItemList{
     repeated PerfReviewItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPerfReviewItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -199,7 +230,7 @@ message PerformanceNoteData {
     string comments = 6 [json_name = "comments"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -210,6 +241,12 @@ message PerformanceNoteData {
 
 message PerformanceNoteList{
     repeated PerformanceNoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPerformanceNotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -234,7 +271,7 @@ message PersonTrainingData {
     string reason = 9 [json_name = "reason"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string id = 12 [json_name = "id"];
+    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -245,6 +282,12 @@ message PersonTrainingData {
 
 message PersonTrainingList{
     repeated PersonTrainingData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPersonTrainings` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

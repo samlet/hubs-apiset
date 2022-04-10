@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Stores sales forecast data for sales opportunities.
 message SalesForecastData {
@@ -26,7 +27,7 @@ message SalesForecastData {
     // keys: salesForecastId
     // fields
         
-    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];    
+    string sales_forecast_id = 1 [json_name = "sales_forecast_id", (google.api.graphql.relay_options).id = true];    
     string parent_sales_forecast_id = 2 [json_name = "parent_sales_forecast_id"];    
     string organization_party_id = 3 [json_name = "organization_party_id"];    
     string internal_party_id = 4 [json_name = "internal_party_id"];
@@ -53,6 +54,12 @@ message SalesForecastData {
 
 message SalesForecastList{
     repeated SalesForecastData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesForecasts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -75,7 +82,7 @@ message SalesForecastDetailData {
     string product_category_id = 7 [json_name = "product_category_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -86,6 +93,12 @@ message SalesForecastDetailData {
 
 message SalesForecastDetailList{
     repeated SalesForecastDetailData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesForecastDetails` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -99,7 +112,7 @@ message SalesForecastHistoryData {
     // keys: salesForecastHistoryId
     // fields
         
-    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id"];    
+    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id", (google.api.graphql.relay_options).id = true];    
     string sales_forecast_id = 2 [json_name = "sales_forecast_id"];    
     string parent_sales_forecast_id = 3 [json_name = "parent_sales_forecast_id"];    
     string organization_party_id = 4 [json_name = "organization_party_id"];    
@@ -127,6 +140,12 @@ message SalesForecastHistoryData {
 
 message SalesForecastHistoryList{
     repeated SalesForecastHistoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesForecastHistories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -140,7 +159,7 @@ message SalesOpportunityData {
     // keys: salesOpportunityId
     // fields
         
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];    
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id", (google.api.graphql.relay_options).id = true];    
     string opportunity_name = 2 [json_name = "opportunity_name"];    
     string description = 3 [json_name = "description"];    
     string next_step = 4 [json_name = "next_step"];    
@@ -166,6 +185,12 @@ message SalesOpportunityData {
 
 message SalesOpportunityList{
     repeated SalesOpportunityData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunities` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -186,7 +211,7 @@ message SalesOpportunityCompetitorData {
     string weaknesses = 5 [json_name = "weaknesses"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -197,6 +222,12 @@ message SalesOpportunityCompetitorData {
 
 message SalesOpportunityCompetitorList{
     repeated SalesOpportunityCompetitorData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityCompetitors` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -210,7 +241,7 @@ message SalesOpportunityHistoryData {
     // keys: salesOpportunityHistoryId
     // fields
         
-    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id"];    
+    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id", (google.api.graphql.relay_options).id = true];    
     string sales_opportunity_id = 2 [json_name = "sales_opportunity_id"];    
     string description = 3 [json_name = "description"];    
     string next_step = 4 [json_name = "next_step"];    
@@ -234,6 +265,12 @@ message SalesOpportunityHistoryData {
 
 message SalesOpportunityHistoryList{
     repeated SalesOpportunityHistoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityHistories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -251,7 +288,7 @@ message SalesOpportunityQuoteData {
     string quote_id = 2 [json_name = "quote_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -262,6 +299,12 @@ message SalesOpportunityQuoteData {
 
 message SalesOpportunityQuoteList{
     repeated SalesOpportunityQuoteData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityQuotes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -280,7 +323,7 @@ message SalesOpportunityRoleData {
     string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -291,6 +334,12 @@ message SalesOpportunityRoleData {
 
 message SalesOpportunityRoleList{
     repeated SalesOpportunityRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -304,7 +353,7 @@ message SalesOpportunityStageData {
     // keys: opportunityStageId
     // fields
         
-    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id"];    
+    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     routines.FixedPoint default_probability = 3 [json_name = "default_probability"];    
     int64 sequence_num = 4 [json_name = "sequence_num"];    
@@ -320,6 +369,12 @@ message SalesOpportunityStageData {
 
 message SalesOpportunityStageList{
     repeated SalesOpportunityStageData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityStages` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -338,7 +393,7 @@ message SalesOpportunityTrckCodeData {
     google.protobuf.Timestamp received_date = 3 [json_name = "received_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -349,6 +404,12 @@ message SalesOpportunityTrckCodeData {
 
 message SalesOpportunityTrckCodeList{
     repeated SalesOpportunityTrckCodeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityTrckCodes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -366,7 +427,7 @@ message SalesOpportunityWorkEffortData {
     string work_effort_id = 2 [json_name = "work_effort_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
-    string id = 5 [json_name = "id"];
+    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -377,6 +438,12 @@ message SalesOpportunityWorkEffortData {
 
 message SalesOpportunityWorkEffortList{
     repeated SalesOpportunityWorkEffortData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListSalesOpportunityWorkEfforts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Allocation Plan Header Entity
 message AllocationPlanHeaderData {
@@ -35,7 +36,7 @@ message AllocationPlanHeaderData {
     string last_modified_by_user_login = 7 [json_name = "last_modified_by_user_login"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -46,6 +47,12 @@ message AllocationPlanHeaderData {
 
 message AllocationPlanHeaderList{
     repeated AllocationPlanHeaderData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAllocationPlanHeaders` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -72,7 +79,7 @@ message AllocationPlanItemData {
     string last_modified_by_user_login = 11 [json_name = "last_modified_by_user_login"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string id = 14 [json_name = "id"];
+    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -83,6 +90,12 @@ message AllocationPlanItemData {
 
 message AllocationPlanItemList{
     repeated AllocationPlanItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAllocationPlanItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

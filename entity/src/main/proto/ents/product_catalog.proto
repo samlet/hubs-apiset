@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // flat-ent: Catalog
 message ProdCatalogFlatData {
@@ -25,7 +26,7 @@ message ProdCatalogFlatData {
     option (routines.has_table) = true;
     // keys: prodCatalogId
         
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];    
+    string prod_catalog_id = 1 [json_name = "prod_catalog_id", (google.api.graphql.relay_options).id = true];    
     string catalog_name = 2 [json_name = "catalog_name"];    
     routines.Indicator use_quick_add = 3 [json_name = "use_quick_add"];    
     string style_sheet = 4 [json_name = "style_sheet"];    
@@ -45,6 +46,12 @@ message ProdCatalogFlatData {
 
 message ProdCatalogList{
     repeated ProdCatalogFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProdCatalogs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 // flat-ent: Catalog Category Association
@@ -64,7 +71,7 @@ message ProdCatalogCategoryFlatData {
     int64 sequence_num = 6 [json_name = "sequence_num"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];    
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];    
     string tenant_id = 10 [json_name = "tenant_id"]; 
 
     // extra
@@ -74,5 +81,11 @@ message ProdCatalogCategoryFlatData {
 
 message ProdCatalogCategoryList{
     repeated ProdCatalogCategoryFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListProdCatalogCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 

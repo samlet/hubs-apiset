@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Budget Attribute
 message BudgetAttributeData {
@@ -32,7 +33,7 @@ message BudgetAttributeData {
     string attr_description = 4 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -43,6 +44,12 @@ message BudgetAttributeData {
 
 message BudgetAttributeList{
     repeated BudgetAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -64,7 +71,7 @@ message BudgetItemData {
     string justification = 6 [json_name = "justification"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -75,6 +82,12 @@ message BudgetItemData {
 
 message BudgetItemList{
     repeated BudgetItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -95,7 +108,7 @@ message BudgetItemAttributeData {
     string attr_description = 5 [json_name = "attr_description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -106,6 +119,12 @@ message BudgetItemAttributeData {
 
 message BudgetItemAttributeList{
     repeated BudgetItemAttributeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetItemAttributes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -124,7 +143,7 @@ message BudgetItemTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -135,6 +154,12 @@ message BudgetItemTypeAttrData {
 
 message BudgetItemTypeAttrList{
     repeated BudgetItemTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetItemTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -155,7 +180,7 @@ message BudgetReviewData {
     google.protobuf.Timestamp review_date = 5 [json_name = "review_date"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -166,6 +191,12 @@ message BudgetReviewData {
 
 message BudgetReviewList{
     repeated BudgetReviewData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetReviews` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -184,7 +215,7 @@ message BudgetRevisionData {
     google.protobuf.Timestamp date_revised = 3 [json_name = "date_revised"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -195,6 +226,12 @@ message BudgetRevisionData {
 
 message BudgetRevisionList{
     repeated BudgetRevisionData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetRevisions` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -216,7 +253,7 @@ message BudgetRevisionImpactData {
     string revision_reason = 6 [json_name = "revision_reason"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -227,6 +264,12 @@ message BudgetRevisionImpactData {
 
 message BudgetRevisionImpactList{
     repeated BudgetRevisionImpactData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetRevisionImpacts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -245,7 +288,7 @@ message BudgetRoleData {
     string role_type_id = 3 [json_name = "role_type_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -256,6 +299,12 @@ message BudgetRoleData {
 
 message BudgetRoleList{
     repeated BudgetRoleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetRoles` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -269,7 +318,7 @@ message BudgetScenarioData {
     // keys: budgetScenarioId
     // fields
         
-    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];    
+    string budget_scenario_id = 1 [json_name = "budget_scenario_id", (google.api.graphql.relay_options).id = true];    
     string description = 2 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
@@ -283,6 +332,12 @@ message BudgetScenarioData {
 
 message BudgetScenarioList{
     repeated BudgetScenarioData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetScenarios` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -304,7 +359,7 @@ message BudgetScenarioApplicationData {
     routines.FixedPoint percentage_change = 6 [json_name = "percentage_change"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -315,6 +370,12 @@ message BudgetScenarioApplicationData {
 
 message BudgetScenarioApplicationList{
     repeated BudgetScenarioApplicationData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetScenarioApplications` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -334,7 +395,7 @@ message BudgetScenarioRuleData {
     routines.FixedPoint percentage_change = 4 [json_name = "percentage_change"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -345,6 +406,12 @@ message BudgetScenarioRuleData {
 
 message BudgetScenarioRuleList{
     repeated BudgetScenarioRuleData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetScenarioRules` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -363,7 +430,7 @@ message BudgetTypeAttrData {
     string description = 3 [json_name = "description"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -374,6 +441,12 @@ message BudgetTypeAttrData {
 
 message BudgetTypeAttrList{
     repeated BudgetTypeAttrData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBudgetTypeAttrs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Accommodation Spot
 message AccommodationSpotData {
@@ -26,7 +27,7 @@ message AccommodationSpotData {
     // keys: accommodationSpotId
     // fields
         
-    string accommodation_spot_id = 1 [json_name = "accommodation_spot_id"];    
+    string accommodation_spot_id = 1 [json_name = "accommodation_spot_id", (google.api.graphql.relay_options).id = true];    
     string accommodation_class_id = 2 [json_name = "accommodation_class_id"];    
     string fixed_asset_id = 3 [json_name = "fixed_asset_id"];    
     int64 number_of_spaces = 4 [json_name = "number_of_spaces"];    
@@ -43,6 +44,12 @@ message AccommodationSpotData {
 
 message AccommodationSpotList{
     repeated AccommodationSpotData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListAccommodationSpots` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

@@ -154,6 +154,34 @@ message BundleQueryMap{
   google.protobuf.Struct condition_values=2;
 }
 
+message BundleListRequest{
+  BundleHandle handle = 1;
+  // The ids of the data-list to retrieve.
+  repeated string ids = 2;
+
+  // Requested page size. Server may return fewer data-list than requested.
+  // If unspecified, server will pick an appropriate default.
+  int32 page_size = 3;
+
+  // A token identifying a page of results the server should return.
+  // Typically, this is the value of
+  // [*List.next_page_token][google.example.library.v1.*List.next_page_token].
+  // returned from the previous call to `List*` method.
+  string page_token = 4;
+}
+
+message BundleDeleteRequest{
+  BundleHandle handle = 1;
+  // The id of the data to delete.
+  string id = 2;
+}
+
+message BundleGetRequest{
+  BundleHandle handle = 1;
+  // The id of the data to get.
+  string id = 2;
+}
+
 message RegionData{
   string region_id=1;
   AnyMap data_map=2;

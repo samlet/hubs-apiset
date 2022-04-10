@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Tenant
 message TenantData {
@@ -26,7 +27,7 @@ message TenantData {
     // keys: tenantId
     // fields
         
-    string tenant_id = 1 [json_name = "tenant_id"];    
+    string tenant_id = 1 [json_name = "tenant_id", (google.api.graphql.relay_options).id = true];    
     string tenant_name = 2 [json_name = "tenant_name"];    
     string initial_path = 3 [json_name = "initial_path"];    
     routines.Indicator disabled = 4 [json_name = "disabled"];    
@@ -42,6 +43,12 @@ message TenantData {
 
 message TenantList{
     repeated TenantData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTenants` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -62,7 +69,7 @@ message TenantDataSourceData {
     string jdbc_password = 5 [json_name = "jdbc_password"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -73,6 +80,12 @@ message TenantDataSourceData {
 
 message TenantDataSourceList{
     repeated TenantDataSourceData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTenantDataSources` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -87,7 +100,7 @@ message TenantDomainNameData {
     // fields
         
     string tenant_id = 1 [json_name = "tenant_id"];    
-    string domain_name = 2 [json_name = "domain_name"];    
+    string domain_name = 2 [json_name = "domain_name", (google.api.graphql.relay_options).id = true];    
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
         
@@ -100,6 +113,12 @@ message TenantDomainNameData {
 
 message TenantDomainNameList{
     repeated TenantDomainNameData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTenantDomainNames` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 

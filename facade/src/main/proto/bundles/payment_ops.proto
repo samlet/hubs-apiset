@@ -19,8 +19,9 @@ import "ents/accounting_payment.proto";
 import "types/payment_type.proto";
 
 service PaymentOperations {
-  rpc CreatePayment(CreatePaymentParams) returns (routines.Response) {}
-  rpc UpdatePayment(UpdatePaymentParams) returns (routines.Response) {}
+  rpc CreatePayment(CreatePaymentParams) returns (domain.PaymentFlatData) {}
+  rpc UpdatePayment(UpdatePaymentParams) returns (domain.PaymentFlatData) {}
+  rpc GetPayment(BundleGetRequest) returns (domain.PaymentFlatData) {}
 
   
   rpc AddPaymentApplication(AddPaymentApplicationParams) returns (routines.Response) {}
@@ -44,6 +45,10 @@ service PaymentOperations {
   rpc QueryList(BundleQueryMap) returns (domain.PaymentList) {}
   rpc QueryOne(BundleQueryMap) returns (domain.PaymentFlatData) {}
   rpc Select(BundleHandle) returns (domain.PaymentList) {}
+
+  rpc ListPayments(BundleListRequest) returns (domain.PaymentList) {}
+  rpc StreamPayments(BundleListRequest) returns (stream domain.PaymentList) {}
+  rpc RemovePayment(BundleDeleteRequest) returns (routines.Response) {}
 }
 
 

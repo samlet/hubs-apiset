@@ -15,6 +15,7 @@ import "date.proto";
 import "timeofday.proto";
 import "routines.proto";
 import "condition.proto";
+import "relay.proto";
 
 // Party Tax Information
 message PartyTaxAuthInfoData {
@@ -36,7 +37,7 @@ message PartyTaxAuthInfoData {
     routines.Indicator is_nexus = 8 [json_name = "is_nexus"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string id = 11 [json_name = "id"];
+    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -47,6 +48,12 @@ message PartyTaxAuthInfoData {
 
 message PartyTaxAuthInfoList{
     repeated PartyTaxAuthInfoData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListPartyTaxAuthInfos` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -67,7 +74,7 @@ message TaxAuthorityData {
     routines.Indicator include_tax_in_price = 5 [json_name = "include_tax_in_price"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -78,6 +85,12 @@ message TaxAuthorityData {
 
 message TaxAuthorityList{
     repeated TaxAuthorityData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorities` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -100,7 +113,7 @@ message TaxAuthorityAssocData {
     string tax_authority_assoc_type_id = 7 [json_name = "tax_authority_assoc_type_id"]; // TaxAuthorityAssocType    
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -111,6 +124,12 @@ message TaxAuthorityAssocData {
 
 message TaxAuthorityAssocList{
     repeated TaxAuthorityAssocData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorityAssocs` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -129,7 +148,7 @@ message TaxAuthorityCategoryData {
     string product_category_id = 3 [json_name = "product_category_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string id = 6 [json_name = "id"];
+    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -140,6 +159,12 @@ message TaxAuthorityCategoryData {
 
 message TaxAuthorityCategoryList{
     repeated TaxAuthorityCategoryData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorityCategories` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -159,7 +184,7 @@ message TaxAuthorityGlAccountData {
     string gl_account_id = 4 [json_name = "gl_account_id"];    
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
         
 
     // extra
@@ -170,6 +195,12 @@ message TaxAuthorityGlAccountData {
 
 message TaxAuthorityGlAccountList{
     repeated TaxAuthorityGlAccountData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorityGlAccounts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
 
@@ -182,7 +213,7 @@ message TaxAuthorityRateProductFlatData {
     option (routines.has_table) = true;
     // keys: taxAuthorityRateSeqId
         
-    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id"];    
+    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id", (google.api.graphql.relay_options).id = true];    
     string tax_auth_geo_id = 2 [json_name = "tax_auth_geo_id"];    
     string tax_auth_party_id = 3 [json_name = "tax_auth_party_id"];
     string tax_authority_rate_type_id = 4 [json_name = "tax_authority_rate_type_id"]; // TaxAuthorityRateType    
@@ -209,5 +240,11 @@ message TaxAuthorityRateProductFlatData {
 
 message TaxAuthorityRateProductList{
     repeated TaxAuthorityRateProductFlatData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTaxAuthorityRateProducts` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
 }
 
