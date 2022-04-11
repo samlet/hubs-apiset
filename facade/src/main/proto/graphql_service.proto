@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+import "ents/product_product.proto";
+import "ents/product_store.proto";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.ql";
+option java_outer_classname = "HubsGraphQlProto";
+
+message GraphQlRequest {
+  string query = 1;
+  google.protobuf.Struct variables = 2;
+  string operationName = 3;
+}
+
+message GraphQlResponse {
+  QueryType data = 1;
+  // TODO: path can be a number or string
+  google.protobuf.ListValue path = 2;
+}
+
+service GraphQlService {
+  rpc Execute (GraphQlRequest) returns (stream GraphQlResponse) {
+  }
+}
+
+// GraphQL Data
+// All fields that can be returned by a query, mutation, stream or defer
+message QueryType {
+  oneof data {
+    domain.ProductList products = 1;
+    domain.ProductStoreList product_store_list=2;
+  }
+}
