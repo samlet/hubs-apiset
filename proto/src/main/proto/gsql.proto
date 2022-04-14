@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "GsqlProto";
+
+package proto;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+
+message QueryMeta{
+  string source = 1;
+  repeated string columns = 2;
+  string where_clause = 3;
+  map<string, string> alias_map = 4;
+}
+
+message SqlResult{
+  QueryMeta meta = 1;
+  google.protobuf.Any data = 2;
+  string region_id = 3;
+}
+
+message SqlStatement{
+  string sql = 1;
+  google.protobuf.Struct args = 2;
+  string region_id = 3;
+}
+
+message QlRequest {
+  string query = 1;
+  map<string, google.protobuf.Any> variables = 2;
+  string region_id = 3;
+}
+
+message QlResponse{
+  enum Result{
+    OK = 0;
+    ERR = 1;
+    NONE = 2;
+  }
+
+  Result result = 1;
+  string message = 2;
+  repeated string error_list = 3;
+  google.protobuf.Struct data = 4;
+  google.protobuf.Any result_object=5;
+}
+
