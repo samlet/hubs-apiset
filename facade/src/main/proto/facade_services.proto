@@ -69,6 +69,12 @@ message InvocationData{
   string seq_id=5;
 }
 
+message InvocationDataList{
+  repeated InvocationData invocations=1;
+  string bundle_name=2;
+  string region_id=3;
+}
+
 message ServiceContext{
   string uri = 1;
   google.protobuf.Any data = 2;

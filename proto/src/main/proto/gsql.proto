@@ -28,12 +28,14 @@ message SqlStatement{
   string sql = 1;
   google.protobuf.Struct args = 2;
   string region_id = 3;
+  string token = 4;
 }
 
 message QlRequest {
   string query = 1;
   map<string, google.protobuf.Any> variables = 2;
   string region_id = 3;
+  string token = 4;
 }
 
 message QlResponse{
@@ -41,11 +43,13 @@ message QlResponse{
     OK = 0;
     ERR = 1;
     NONE = 2;
+    INVALID_PROTO = 3;  // non-gql-error
+    SERVICE_FAIL = 4;
   }
 
   Result result = 1;
   string message = 2;
   repeated google.api.graphql.GraphqlError errors = 3;
-  string json_data=4;
+  string json_data = 4;
 }
 

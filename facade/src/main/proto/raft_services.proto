@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.service";
+option java_outer_classname = "RaftServiceProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "routines.proto";
+import "gsql.proto";
+import "facade_services.proto";
+
+message RaftInfoRequest{
+  string request=1;
+  string bundle_name=2;
+  string region_id=3;
+}
+
+message RaftRequest{
+  oneof request {
+    proto.QlRequest gql=1;
+    proto.SqlStatement sql=2;
+    InvocationDataList invocations=3;
+    RaftInfoRequest info=4;
+  }
+  string token=11;
+}
+
+message RaftResponse{
+  google.protobuf.Any response=1;
+  string machine_id=2;
+}
+
