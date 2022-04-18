@@ -44,6 +44,7 @@ service WorkEffortOperations {
   rpc Select(BundleHandle) returns (domain.WorkEffortList) {}
 
   rpc ListWorkEfforts(BundleListRequest) returns (domain.WorkEffortList) {}
+  rpc LoadWorkEfforts(BundleIdsRequest) returns (domain.WorkEffortList) {}
   rpc StreamWorkEfforts(BundleListRequest) returns (stream domain.WorkEffortList) {}
   rpc RemoveWorkEffort(BundleDeleteRequest) returns (routines.Response) {}
 }

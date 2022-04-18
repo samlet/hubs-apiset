@@ -36,6 +36,7 @@ service ProductFeatureCategoryOperations {
   rpc Select(BundleHandle) returns (domain.ProductFeatureCategoryList) {}
 
   rpc ListProductFeatureCategories(BundleListRequest) returns (domain.ProductFeatureCategoryList) {}
+  rpc LoadProductFeatureCategories(BundleIdsRequest) returns (domain.ProductFeatureCategoryList) {}
   rpc StreamProductFeatureCategories(BundleListRequest) returns (stream domain.ProductFeatureCategoryList) {}
   rpc RemoveProductFeatureCategory(BundleDeleteRequest) returns (routines.Response) {}
 }

@@ -72,6 +72,7 @@ service ProductOperations {
   rpc Select(BundleHandle) returns (domain.ProductList) {}
 
   rpc ListProducts(BundleListRequest) returns (domain.ProductList) {}
+  rpc LoadProducts(BundleIdsRequest) returns (domain.ProductList) {}
   rpc StreamProducts(BundleListRequest) returns (stream domain.ProductList) {}
   rpc RemoveProduct(BundleDeleteRequest) returns (routines.Response) {}
 }

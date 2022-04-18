@@ -44,6 +44,7 @@ service ProductCategoryOperations {
   rpc Select(BundleHandle) returns (domain.ProductCategoryList) {}
 
   rpc ListProductCategories(BundleListRequest) returns (domain.ProductCategoryList) {}
+  rpc LoadProductCategories(BundleIdsRequest) returns (domain.ProductCategoryList) {}
   rpc StreamProductCategories(BundleListRequest) returns (stream domain.ProductCategoryList) {}
   rpc RemoveProductCategory(BundleDeleteRequest) returns (routines.Response) {}
 }

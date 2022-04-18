@@ -66,6 +66,7 @@ service ShipmentOperations {
   rpc Select(BundleHandle) returns (domain.ShipmentList) {}
 
   rpc ListShipments(BundleListRequest) returns (domain.ShipmentList) {}
+  rpc LoadShipments(BundleIdsRequest) returns (domain.ShipmentList) {}
   rpc StreamShipments(BundleListRequest) returns (stream domain.ShipmentList) {}
   rpc RemoveShipment(BundleDeleteRequest) returns (routines.Response) {}
 }

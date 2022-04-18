@@ -47,6 +47,7 @@ service PaymentOperations {
   rpc Select(BundleHandle) returns (domain.PaymentList) {}
 
   rpc ListPayments(BundleListRequest) returns (domain.PaymentList) {}
+  rpc LoadPayments(BundleIdsRequest) returns (domain.PaymentList) {}
   rpc StreamPayments(BundleListRequest) returns (stream domain.PaymentList) {}
   rpc RemovePayment(BundleDeleteRequest) returns (routines.Response) {}
 }

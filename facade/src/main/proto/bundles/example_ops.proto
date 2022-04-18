@@ -45,6 +45,7 @@ service ExampleOperations {
   rpc Select(BundleHandle) returns (domain.ExampleList) {}
 
   rpc ListExamples(BundleListRequest) returns (domain.ExampleList) {}
+  rpc LoadExamples(BundleIdsRequest) returns (domain.ExampleList) {}
   rpc StreamExamples(BundleListRequest) returns (stream domain.ExampleList) {}
   rpc RemoveExample(BundleDeleteRequest) returns (routines.Response) {}
 }

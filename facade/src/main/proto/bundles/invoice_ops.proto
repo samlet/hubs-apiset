@@ -56,6 +56,7 @@ service InvoiceOperations {
   rpc Select(BundleHandle) returns (domain.InvoiceList) {}
 
   rpc ListInvoices(BundleListRequest) returns (domain.InvoiceList) {}
+  rpc LoadInvoices(BundleIdsRequest) returns (domain.InvoiceList) {}
   rpc StreamInvoices(BundleListRequest) returns (stream domain.InvoiceList) {}
   rpc RemoveInvoice(BundleDeleteRequest) returns (routines.Response) {}
 }

@@ -48,6 +48,7 @@ service AgreementOperations {
   rpc Select(BundleHandle) returns (domain.AgreementList) {}
 
   rpc ListAgreements(BundleListRequest) returns (domain.AgreementList) {}
+  rpc LoadAgreements(BundleIdsRequest) returns (domain.AgreementList) {}
   rpc StreamAgreements(BundleListRequest) returns (stream domain.AgreementList) {}
   rpc RemoveAgreement(BundleDeleteRequest) returns (routines.Response) {}
 }

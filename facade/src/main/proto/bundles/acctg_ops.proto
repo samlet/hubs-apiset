@@ -40,6 +40,7 @@ service AcctgOperations {
   rpc Select(BundleHandle) returns (domain.AcctgTransList) {}
 
   rpc ListAcctgTrans(BundleListRequest) returns (domain.AcctgTransList) {}
+  rpc LoadAcctgTrans(BundleIdsRequest) returns (domain.AcctgTransList) {}
   rpc StreamAcctgTrans(BundleListRequest) returns (stream domain.AcctgTransList) {}
   rpc RemoveAcctgTrans(BundleDeleteRequest) returns (routines.Response) {}
 }

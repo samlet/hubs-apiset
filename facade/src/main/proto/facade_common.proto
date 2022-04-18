@@ -22,142 +22,142 @@ service DataStoreService {
 }
 
 message TypeProfile{
-  string profile=1;
+  string profile = 1;
 }
 
 message QueryProfile{
-  string delegator_name=1 [json_name = "delegator_name"];
-  int32 page=2;
+  string delegator_name = 1 [json_name = "delegator_name"];
+  int32 page = 2;
 }
 
 message FacadePackage{
-  string name=1;
-  repeated string element=2;
+  string name = 1;
+  repeated string element = 2;
 }
 
 message FacadeEvent{
-  map<string, google.protobuf.Any> params=1;
+  map<string, google.protobuf.Any> params = 1;
 }
 
 message ModelField{
-  string name=1;
-  string type=2;
-  bool pk=3;
-  bool not_null=4;
+  string name = 1;
+  string type = 2;
+  bool pk = 3;
+  bool not_null = 4;
 }
 
 message ModelRelation{
-  string name=1;
-  string type=2;
-  string rel_entity_name=3;
-  string title=4;
-  map<string,string> keymaps=5;
+  string name = 1;
+  string type = 2;
+  string rel_entity_name = 3;
+  string title = 4;
+  map<string, string> keymaps = 5;
 }
 
 message ModelEntity{
-  string name=1;
-  string title=2;
-  bool combine=3;
-  string description=4;
-  map<string, ModelField> fields=5;
-  map<string, ModelRelation> relations=6;
+  string name = 1;
+  string title = 2;
+  bool combine = 3;
+  string description = 4;
+  map<string, ModelField> fields = 5;
+  map<string, ModelRelation> relations = 6;
 }
 
 message EntityBucket{
-  string entity_type=1;
-  repeated EntityValue values=2;
+  string entity_type = 1;
+  repeated EntityValue values = 2;
 }
 
 message EntityValue{
-  map<string, EntityBucket> buckets=1;
-  map<string, string> values=2;
-  string entity_type=3 [json_name = "entity_type"];
+  map<string, EntityBucket> buckets = 1;
+  map<string, string> values = 2;
+  string entity_type = 3 [json_name = "entity_type"];
 }
 
 message SeedType{
-  string type_id=1;
-  string description=2;
-  string parent_type_id=3 [json_name = "parent_type_id"];
-  map<string, SeedTypeItem> items=4;
+  string type_id = 1;
+  string description = 2;
+  string parent_type_id = 3 [json_name = "parent_type_id"];
+  map<string, SeedTypeItem> items = 4;
 }
 
 message SeedTypeItem{
-  string item_id=1;
-  string item_type_id=2 [json_name = "item_type_id"];
-  string description=3;
+  string item_id = 1;
+  string item_type_id = 2 [json_name = "item_type_id"];
+  string description = 3;
 }
 
 // ------
 
 message CommentData{
   option (routines.keys).keys = "comment_id";
-  string comment_id=1;
-  string comment_content=2;
-  string comment_type=3;
-  string publisher=4;
-  string parent_comment_id=5;
+  string comment_id = 1;
+  string comment_content = 2;
+  string comment_type = 3;
+  string publisher = 4;
+  string parent_comment_id = 5;
 
   google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
   google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
 
-  google.protobuf.Struct extra=20;
-  map<string, google.protobuf.Any> attachments=21;
+  google.protobuf.Struct extra = 20;
+  map<string, google.protobuf.Any> attachments = 21;
 }
 
 message AnyList{
-  repeated google.protobuf.Any values=1;
+  repeated google.protobuf.Any values = 1;
 }
 
 message AnyMap{
-  map<string, google.protobuf.Any> values=1;
+  map<string, google.protobuf.Any> values = 1;
 }
 
 message DataUri{
   enum LinkStatus{
-    NORMAL=0;
-    BROKEN=1;
-    ARCHIVE=2;
+    NORMAL = 0;
+    BROKEN = 1;
+    ARCHIVE = 2;
   }
-  string region=1;
-  string bundle=2;  // bundle id
-  string component=3; // relations or components(with prefix @)
-  string target_field=4;
-  string target_value=5;
-  LinkStatus status=6;
+  string region = 1;
+  string bundle = 2;  // bundle id
+  string component = 3; // relations or components(with prefix @)
+  string target_field = 4;
+  string target_value = 5;
+  LinkStatus status = 6;
 }
 
 message DataRefs{
-  string name=1;
-  repeated DataUri uri=2;
-  google.protobuf.Timestamp check_ts=3;
+  string name = 1;
+  repeated DataUri uri = 2;
+  google.protobuf.Timestamp check_ts = 3;
 }
 
 message LinkState{
-  string id=1;
-  string anchor=2;
-  google.protobuf.Timestamp ts=3;
+  string id = 1;
+  string anchor = 2;
+  google.protobuf.Timestamp ts = 3;
 }
 
 message LinkStateList{
-  repeated LinkState states=1;
+  repeated LinkState states = 1;
 }
 
 // ------- for bundle
 message BundleHandle{
-  string bundle_name=1;
-  string region_id=2;
-  google.protobuf.Any data=3;
+  string bundle_name = 1;
+  string region_id = 2;
+  google.protobuf.Any data = 3;
 }
 
 message BundleQueryMap{
   BundleHandle handle = 1;
-  google.protobuf.Struct condition_values=2;
+  google.protobuf.Struct condition_values = 2;
 }
 
 message BundleListRequest{
   BundleHandle handle = 1;
   // The ids of the data-list to retrieve.
-  repeated string ids = 2;
+  //  repeated string ids = 2;
 
   // Requested page size. Server may return fewer data-list than requested.
   // If unspecified, server will pick an appropriate default.
@@ -168,6 +168,12 @@ message BundleListRequest{
   // [*List.next_page_token][google.example.library.v1.*List.next_page_token].
   // returned from the previous call to `List*` method.
   string page_token = 4;
+}
+
+message BundleIdsRequest{
+  BundleHandle handle = 1;
+  // The ids of the data-list to retrieve.
+  repeated string ids = 2;
 }
 
 message BundleDeleteRequest{
@@ -183,31 +189,31 @@ message BundleGetRequest{
 }
 
 message RegionData{
-  string region_id=1;
-  AnyMap data_map=2;
+  string region_id = 1;
+  AnyMap data_map = 2;
 }
 
 message RegionDataList{
-  repeated RegionData data_list=1;
+  repeated RegionData data_list = 1;
 }
 
 message StringEntry{
-  string key=1;
-  string value=2;
+  string key = 1;
+  string value = 2;
   // 非标量类型(即message)都转换成了base64格式,
   // 此处的value_type值为field_type, 比如date-time
-  string value_type=3;
+  string value_type = 3;
 }
 
 message ProtoKey{
-  string entity=1;
-  repeated StringEntry entries=2;
-  string global_key=3;  // 复合主键值连结而成
+  string entity = 1;
+  repeated StringEntry entries = 2;
+  string global_key = 3;  // 复合主键值连结而成
 }
 
 message ProtoKeys{
   // key is slug format
-  map<string, ProtoKey> values=1;
+  map<string, ProtoKey> values = 1;
 }
 
 // Mutations for AcctgTrans

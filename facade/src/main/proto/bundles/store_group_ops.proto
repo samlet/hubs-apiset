@@ -38,6 +38,7 @@ service StoreGroupOperations {
   rpc Select(BundleHandle) returns (domain.ProductStoreGroupList) {}
 
   rpc ListProductStoreGroups(BundleListRequest) returns (domain.ProductStoreGroupList) {}
+  rpc LoadProductStoreGroups(BundleIdsRequest) returns (domain.ProductStoreGroupList) {}
   rpc StreamProductStoreGroups(BundleListRequest) returns (stream domain.ProductStoreGroupList) {}
   rpc RemoveProductStoreGroup(BundleDeleteRequest) returns (routines.Response) {}
 }

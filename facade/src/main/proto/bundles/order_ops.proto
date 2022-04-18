@@ -74,6 +74,7 @@ service OrderOperations {
   rpc Select(BundleHandle) returns (domain.OrderHeaderList) {}
 
   rpc ListOrderHeaders(BundleListRequest) returns (domain.OrderHeaderList) {}
+  rpc LoadOrderHeaders(BundleIdsRequest) returns (domain.OrderHeaderList) {}
   rpc StreamOrderHeaders(BundleListRequest) returns (stream domain.OrderHeaderList) {}
   rpc RemoveOrderHeader(BundleDeleteRequest) returns (routines.Response) {}
 }

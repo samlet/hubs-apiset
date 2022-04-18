@@ -36,6 +36,7 @@ service WebSiteOperations {
   rpc Select(BundleHandle) returns (domain.WebSiteList) {}
 
   rpc ListWebSites(BundleListRequest) returns (domain.WebSiteList) {}
+  rpc LoadWebSites(BundleIdsRequest) returns (domain.WebSiteList) {}
   rpc StreamWebSites(BundleListRequest) returns (stream domain.WebSiteList) {}
   rpc RemoveWebSite(BundleDeleteRequest) returns (routines.Response) {}
 }

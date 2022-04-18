@@ -38,6 +38,7 @@ service ProductFeatureOperations {
   rpc Select(BundleHandle) returns (domain.ProductFeatureList) {}
 
   rpc ListProductFeatures(BundleListRequest) returns (domain.ProductFeatureList) {}
+  rpc LoadProductFeatures(BundleIdsRequest) returns (domain.ProductFeatureList) {}
   rpc StreamProductFeatures(BundleListRequest) returns (stream domain.ProductFeatureList) {}
   rpc RemoveProductFeature(BundleDeleteRequest) returns (routines.Response) {}
 }

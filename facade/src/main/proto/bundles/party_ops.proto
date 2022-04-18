@@ -40,6 +40,7 @@ service PartyOperations {
   rpc Select(BundleHandle) returns (domain.PartyList) {}
 
   rpc ListParties(BundleListRequest) returns (domain.PartyList) {}
+  rpc LoadParties(BundleIdsRequest) returns (domain.PartyList) {}
   rpc StreamParties(BundleListRequest) returns (stream domain.PartyList) {}
   rpc RemoveParty(BundleDeleteRequest) returns (routines.Response) {}
 }

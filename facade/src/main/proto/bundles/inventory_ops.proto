@@ -47,6 +47,7 @@ service InventoryOperations {
   rpc Select(BundleHandle) returns (domain.InventoryItemList) {}
 
   rpc ListInventoryItems(BundleListRequest) returns (domain.InventoryItemList) {}
+  rpc LoadInventoryItems(BundleIdsRequest) returns (domain.InventoryItemList) {}
   rpc StreamInventoryItems(BundleListRequest) returns (stream domain.InventoryItemList) {}
   rpc RemoveInventoryItem(BundleDeleteRequest) returns (routines.Response) {}
 }

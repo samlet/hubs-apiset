@@ -44,6 +44,7 @@ service ProductConfigItemOperations {
   rpc Select(BundleHandle) returns (domain.ProductConfigItemList) {}
 
   rpc ListProductConfigItems(BundleListRequest) returns (domain.ProductConfigItemList) {}
+  rpc LoadProductConfigItems(BundleIdsRequest) returns (domain.ProductConfigItemList) {}
   rpc StreamProductConfigItems(BundleListRequest) returns (stream domain.ProductConfigItemList) {}
   rpc RemoveProductConfigItem(BundleDeleteRequest) returns (routines.Response) {}
 }

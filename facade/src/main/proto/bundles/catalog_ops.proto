@@ -40,6 +40,7 @@ service CatalogOperations {
   rpc Select(BundleHandle) returns (domain.ProdCatalogList) {}
 
   rpc ListProdCatalogs(BundleListRequest) returns (domain.ProdCatalogList) {}
+  rpc LoadProdCatalogs(BundleIdsRequest) returns (domain.ProdCatalogList) {}
   rpc StreamProdCatalogs(BundleListRequest) returns (stream domain.ProdCatalogList) {}
   rpc RemoveProdCatalog(BundleDeleteRequest) returns (routines.Response) {}
 }

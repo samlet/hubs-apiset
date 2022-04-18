@@ -40,6 +40,7 @@ service StoreOperations {
   rpc Select(BundleHandle) returns (domain.ProductStoreList) {}
 
   rpc ListProductStores(BundleListRequest) returns (domain.ProductStoreList) {}
+  rpc LoadProductStores(BundleIdsRequest) returns (domain.ProductStoreList) {}
   rpc StreamProductStores(BundleListRequest) returns (stream domain.ProductStoreList) {}
   rpc RemoveProductStore(BundleDeleteRequest) returns (routines.Response) {}
 }
