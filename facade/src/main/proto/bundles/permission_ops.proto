@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PermissionOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/security_securitygroup.proto";
+
+service PermissionOperations {
+  rpc CreatePermission(CreatePermissionParams) returns (domain.SecurityPermissionFlatData) {}
+  rpc UpdatePermission(UpdatePermissionParams) returns (domain.SecurityPermissionFlatData) {}
+  rpc GetPermission(BundleGetRequest) returns (domain.SecurityPermissionFlatData) {}
+
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.SecurityPermissionList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.SecurityPermissionList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.SecurityPermissionFlatData) {}
+  rpc Select(BundleHandle) returns (domain.SecurityPermissionList) {}
+
+  rpc ListSecurityPermissions(BundleListRequest) returns (domain.SecurityPermissionList) {}
+  rpc LoadSecurityPermissions(BundleIdsRequest) returns (domain.SecurityPermissionList) {}
+  rpc StreamSecurityPermissions(BundleListRequest) returns (stream domain.SecurityPermissionList) {}
+  rpc RemoveSecurityPermission(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreatePermissionParams{
+  BundleHandle handle = 1;
+  domain.SecurityPermissionFlatData securityPermission = 2;
+  string comment = 3;
+}
+
+message UpdatePermissionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SecurityPermissionFlatData securityPermission = 3;
+  string comment = 4;
+}
+
+

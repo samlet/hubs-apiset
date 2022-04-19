@@ -14,6 +14,8 @@ import "routines.proto";
 import "facade_common.proto";
 
 
+import "types/party_type.proto";
+import "extra/party_party.proto";
 import "ents/party_party.proto";
 
 service PartyOperations {
@@ -26,8 +28,19 @@ service PartyOperations {
   rpc UpdatePartyRole(UpdatePartyRoleParams) returns (routines.Response) {}
   rpc RemovePartyRole(RemovePartyRoleParams) returns (routines.Response) {}
   
+  rpc AddPartyNote(AddPartyNoteParams) returns (routines.Response) {}
+  rpc UpdatePartyNote(UpdatePartyNoteParams) returns (routines.Response) {}
+  rpc RemovePartyNote(RemovePartyNoteParams) returns (routines.Response) {}
+  
+  rpc AddPartyStatus(AddPartyStatusParams) returns (routines.Response) {}
+  rpc UpdatePartyStatus(UpdatePartyStatusParams) returns (routines.Response) {}
+  rpc RemovePartyStatus(RemovePartyStatusParams) returns (routines.Response) {}
+  
 
   // -- relations: one --
+  rpc ModifyPerson(ModifyPersonParams) returns (routines.Response) {}
+  rpc ModifyPartyGroup(ModifyPartyGroupParams) returns (routines.Response) {}
+  rpc ModifyPartyType(ModifyPartyTypeParams) returns (routines.Response) {}
 
   // -- extensions --
   
@@ -82,6 +95,79 @@ message RemovePartyRoleParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyNote
+
+message AddPartyNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyNoteData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyNoteData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyStatus
+
+message AddPartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyStatusData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for Person
+
+message ModifyPersonParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PersonFlatData data = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyGroup
+
+message ModifyPartyGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyGroupFlatData data = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyType
+
+message ModifyPartyTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyTypeData data = 3;
   string comment = 4;
 }
 

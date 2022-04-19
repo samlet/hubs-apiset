@@ -47,6 +47,12 @@ service GenericDispatcher {
   rpc ExecuteWithResponse(ServiceComposer) returns (stream GenericEntity) {}
 }
 
+
+service DeltaService {
+  rpc ReceiveDelta(InvocationDataList) returns (routines.Response) {}
+}
+
+
 message RequestData{
   string invoke=1;
   google.protobuf.Struct options=2;

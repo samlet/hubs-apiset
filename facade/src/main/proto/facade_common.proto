@@ -39,11 +39,15 @@ message FacadeEvent{
   map<string, google.protobuf.Any> params = 1;
 }
 
+// ------------------------------------------
+
 message ModelField{
   string name = 1;
   string type = 2;
   bool pk = 3;
   bool not_null = 4;
+
+  bool internal=5;
 }
 
 message ModelRelation{
@@ -52,6 +56,8 @@ message ModelRelation{
   string rel_entity_name = 3;
   string title = 4;
   map<string, string> keymaps = 5;
+
+  bool auto_relation=6;
 }
 
 message ModelEntity{
@@ -61,7 +67,12 @@ message ModelEntity{
   string description = 4;
   map<string, ModelField> fields = 5;
   map<string, ModelRelation> relations = 6;
+
+  // --
+  string pkg=7;
 }
+
+// -----------
 
 message EntityBucket{
   string entity_type = 1;

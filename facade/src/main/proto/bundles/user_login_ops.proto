@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "UserLoginOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/security_login.proto";
+import "ents/security_securitygroup.proto";
+import "types/user_preference.proto";
+import "ents/security_login.proto";
+
+service UserLoginOperations {
+  rpc CreateUserLogin(CreateUserLoginParams) returns (domain.UserLoginFlatData) {}
+  rpc UpdateUserLogin(UpdateUserLoginParams) returns (domain.UserLoginFlatData) {}
+  rpc GetUserLogin(BundleGetRequest) returns (domain.UserLoginFlatData) {}
+
+  
+  rpc AddUserPreference(AddUserPreferenceParams) returns (routines.Response) {}
+  rpc UpdateUserPreference(UpdateUserPreferenceParams) returns (routines.Response) {}
+  rpc RemoveUserPreference(RemoveUserPreferenceParams) returns (routines.Response) {}
+  
+  rpc AddUserLoginSecurityGroup(AddUserLoginSecurityGroupParams) returns (routines.Response) {}
+  rpc UpdateUserLoginSecurityGroup(UpdateUserLoginSecurityGroupParams) returns (routines.Response) {}
+  rpc RemoveUserLoginSecurityGroup(RemoveUserLoginSecurityGroupParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyUserLoginSession(ModifyUserLoginSessionParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.UserLoginList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.UserLoginList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.UserLoginFlatData) {}
+  rpc Select(BundleHandle) returns (domain.UserLoginList) {}
+
+  rpc ListUserLogins(BundleListRequest) returns (domain.UserLoginList) {}
+  rpc LoadUserLogins(BundleIdsRequest) returns (domain.UserLoginList) {}
+  rpc StreamUserLogins(BundleListRequest) returns (stream domain.UserLoginList) {}
+  rpc RemoveUserLogin(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateUserLoginParams{
+  BundleHandle handle = 1;
+  domain.UserLoginFlatData userLogin = 2;
+  string comment = 3;
+}
+
+message UpdateUserLoginParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginFlatData userLogin = 3;
+  string comment = 4;
+}
+
+
+// Mutations for UserPreference
+
+message AddUserPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserPreferenceData data = 3;
+  string comment = 4;
+}
+
+message UpdateUserPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserPreferenceData data = 3;
+  string comment = 4;
+}
+
+message RemoveUserPreferenceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for UserLoginSecurityGroup
+
+message AddUserLoginSecurityGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginSecurityGroupData data = 3;
+  string comment = 4;
+}
+
+message UpdateUserLoginSecurityGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginSecurityGroupData data = 3;
+  string comment = 4;
+}
+
+message RemoveUserLoginSecurityGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for UserLoginSession
+
+message ModifyUserLoginSessionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginSessionData data = 3;
+  string comment = 4;
+}
+

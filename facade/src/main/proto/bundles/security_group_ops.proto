@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SecurityGroupOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/security_securitygroup.proto";
+
+service SecurityGroupOperations {
+  rpc CreateSecurityGroup(CreateSecurityGroupParams) returns (domain.SecurityGroupFlatData) {}
+  rpc UpdateSecurityGroup(UpdateSecurityGroupParams) returns (domain.SecurityGroupFlatData) {}
+  rpc GetSecurityGroup(BundleGetRequest) returns (domain.SecurityGroupFlatData) {}
+
+  
+  rpc AddSecurityGroupPermission(AddSecurityGroupPermissionParams) returns (routines.Response) {}
+  rpc UpdateSecurityGroupPermission(UpdateSecurityGroupPermissionParams) returns (routines.Response) {}
+  rpc RemoveSecurityGroupPermission(RemoveSecurityGroupPermissionParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.SecurityGroupList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.SecurityGroupList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.SecurityGroupFlatData) {}
+  rpc Select(BundleHandle) returns (domain.SecurityGroupList) {}
+
+  rpc ListSecurityGroups(BundleListRequest) returns (domain.SecurityGroupList) {}
+  rpc LoadSecurityGroups(BundleIdsRequest) returns (domain.SecurityGroupList) {}
+  rpc StreamSecurityGroups(BundleListRequest) returns (stream domain.SecurityGroupList) {}
+  rpc RemoveSecurityGroup(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateSecurityGroupParams{
+  BundleHandle handle = 1;
+  domain.SecurityGroupFlatData securityGroup = 2;
+  string comment = 3;
+}
+
+message UpdateSecurityGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SecurityGroupFlatData securityGroup = 3;
+  string comment = 4;
+}
+
+
+// Mutations for SecurityGroupPermission
+
+message AddSecurityGroupPermissionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SecurityGroupPermissionData data = 3;
+  string comment = 4;
+}
+
+message UpdateSecurityGroupPermissionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SecurityGroupPermissionData data = 3;
+  string comment = 4;
+}
+
+message RemoveSecurityGroupPermissionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
