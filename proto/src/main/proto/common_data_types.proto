@@ -6,7 +6,18 @@ option java_outer_classname = "CommonDataTypesProto";
 
 package proto;
 
+import "google/protobuf/struct.proto";
+
 message StringMap{
-  map<string, string> values=1;
+  map<string, string> values = 1;
+}
+
+message FieldCats{
+  google.protobuf.Struct series = 1;    // date-time, value type is string_value or number_value
+  google.protobuf.Struct measure = 2;   // decimal, number type, value is string_value or number_value
+  map<string, string> identity = 3;  // string-id
+  map<string, string> describe = 4;  // string-val
+  map<string, bytes> storage = 5;
+  string entity=6;
 }
 
