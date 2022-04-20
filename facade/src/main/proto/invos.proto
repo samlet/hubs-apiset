@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.service";
+option java_outer_classname = "InvosProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+message InvocationData{
+  enum InvocationType{
+    CREATE=0;
+    UPDATE=1;
+    APPEND=2;
+    REMOVE=3;
+  }
+
+  InvocationType invocation_type=1;
+  google.protobuf.Struct options=2;
+  // 主实体为#main, 否则为关联名称
+  string target=3;
+  google.protobuf.Any data=4;
+  string seq_id=5;
+}
+
+message InvocationDataList{
+  repeated InvocationData invocations=1;
+  string bundle_name=2;
+  string region_id=3;
+
+  // for raft applied index
+  int64 term=4;
+  int64 index=5;
+}
+

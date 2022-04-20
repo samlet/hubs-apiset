@@ -9,7 +9,7 @@ package facade;
 import "google/protobuf/any.proto";
 import "routines.proto";
 import "gsql.proto";
-import "facade_services.proto";
+import "invos.proto";
 
 message RaftInfoRequest{
   string request=1;
@@ -34,5 +34,11 @@ message RaftResponse{
 
 service QlRaftService {
   rpc ProcessRaftRequest(RaftRequest) returns (RaftResponse) {}
+  //     Response processInfoRequest(RaftInfoRequest info);
+  rpc InfoRequest(RaftInfoRequest) returns (routines.Response) {}
+  //    Response executeSql(SqlStatement statement);
+  rpc ExecuteSql(proto.SqlStatement) returns (routines.Response) {}
+  //    QlResponse executeQl(QlRequest qlRequest);
+  rpc ExecuteQl(proto.QlRequest) returns (proto.QlResponse) {}
 }
 
