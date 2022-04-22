@@ -20,14 +20,14 @@ message GlAccountClassData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: glAccountClassId
-        
     string gl_account_class_id = 1 [json_name = "gl_account_class_id", (google.api.graphql.relay_options).id = true];
-    string parent_class_id = 2 [json_name = "parent_class_id"]; // GlAccountClass    
-    string description = 3 [json_name = "description"];    
-    routines.Indicator is_asset_class = 4 [json_name = "is_asset_class"];    
-    int64 sequence_num = 5 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"]; 
+    string parent_class_id = 2 [json_name = "parent_class_id"];
+    string description = 3 [json_name = "description"];
+    routines.Indicator is_asset_class = 4 [json_name = "is_asset_class"];
+    int64 sequence_num = 5 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+     
 
     // extra
     google.protobuf.Struct extra = 11;

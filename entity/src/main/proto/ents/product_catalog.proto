@@ -25,19 +25,19 @@ message ProdCatalogFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: prodCatalogId
-        
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id", (google.api.graphql.relay_options).id = true];    
-    string catalog_name = 2 [json_name = "catalog_name"];    
-    routines.Indicator use_quick_add = 3 [json_name = "use_quick_add"];    
-    string style_sheet = 4 [json_name = "style_sheet"];    
-    string header_logo = 5 [json_name = "header_logo"];    
-    string content_path_prefix = 6 [json_name = "content_path_prefix"];    
-    string template_path_prefix = 7 [json_name = "template_path_prefix"];    
-    routines.Indicator view_allow_perm_reqd = 8 [json_name = "view_allow_perm_reqd"];    
-    routines.Indicator purchase_allow_perm_reqd = 9 [json_name = "purchase_allow_perm_reqd"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
-    string tenant_id = 12 [json_name = "tenant_id"]; 
+    string prod_catalog_id = 1 [json_name = "prod_catalog_id", (google.api.graphql.relay_options).id = true];
+    string catalog_name = 2 [json_name = "catalog_name"];
+    routines.Indicator use_quick_add = 3 [json_name = "use_quick_add"];
+    string style_sheet = 4 [json_name = "style_sheet"];
+    string header_logo = 5 [json_name = "header_logo"];
+    string content_path_prefix = 6 [json_name = "content_path_prefix"];
+    string template_path_prefix = 7 [json_name = "template_path_prefix"];
+    routines.Indicator view_allow_perm_reqd = 8 [json_name = "view_allow_perm_reqd"];
+    routines.Indicator purchase_allow_perm_reqd = 9 [json_name = "purchase_allow_perm_reqd"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+    string tenant_id = 12 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -62,17 +62,17 @@ message ProdCatalogCategoryFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: prodCatalogId, productCategoryId, prodCatalogCategoryTypeId, fromDate
-        
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];    
+    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];
     string product_category_id = 2 [json_name = "product_category_id"];
-    string prod_catalog_category_type_id = 3 [json_name = "prod_catalog_category_type_id"]; // ProdCatalogCategoryType    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];    
-    string tenant_id = 10 [json_name = "tenant_id"]; 
+    string prod_catalog_category_type_id = 3 [json_name = "prod_catalog_category_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 10 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 15;

@@ -26,33 +26,33 @@ message TrackingCodeData {
     option (routines.has_table) = true;
     // keys: trackingCodeId
     // fields
-        
     string tracking_code_id = 1 [json_name = "tracking_code_id", (google.api.graphql.relay_options).id = true];
-    string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"]; // TrackingCodeType    
-    string marketing_campaign_id = 3 [json_name = "marketing_campaign_id"];    
-    string redirect_url = 4 [json_name = "redirect_url"];    
-    string override_logo = 5 [json_name = "override_logo"];    
-    string override_css = 6 [json_name = "override_css"];    
-    string prod_catalog_id = 7 [json_name = "prod_catalog_id"];    
-    string comments = 8 [json_name = "comments"];    
-    string description = 9 [json_name = "description"];    
-    int64 trackable_lifetime = 10 [json_name = "trackable_lifetime"];    
-    int64 billable_lifetime = 11 [json_name = "billable_lifetime"];    
-    google.protobuf.Timestamp from_date = 12 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 13 [json_name = "thru_date"];    
-    string group_id = 14 [json_name = "group_id"];    
-    string subgroup_id = 15 [json_name = "subgroup_id"];    
-    google.protobuf.Timestamp created_date = 16 [json_name = "created_date"];    
-    string created_by_user_login = 17 [json_name = "created_by_user_login"];    
-    google.protobuf.Timestamp last_modified_date = 18 [json_name = "last_modified_date"];    
-    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
+    string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"];
+    string marketing_campaign_id = 3 [json_name = "marketing_campaign_id"];
+    string redirect_url = 4 [json_name = "redirect_url"];
+    string override_logo = 5 [json_name = "override_logo"];
+    string override_css = 6 [json_name = "override_css"];
+    string prod_catalog_id = 7 [json_name = "prod_catalog_id"];
+    string comments = 8 [json_name = "comments"];
+    string description = 9 [json_name = "description"];
+    int64 trackable_lifetime = 10 [json_name = "trackable_lifetime"];
+    int64 billable_lifetime = 11 [json_name = "billable_lifetime"];
+    google.protobuf.Timestamp from_date = 12 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 13 [json_name = "thru_date"];
+    string group_id = 14 [json_name = "group_id"];
+    string subgroup_id = 15 [json_name = "subgroup_id"];
+    google.protobuf.Timestamp created_date = 16 [json_name = "created_date"];
+    string created_by_user_login = 17 [json_name = "created_by_user_login"];
+    google.protobuf.Timestamp last_modified_date = 18 [json_name = "last_modified_date"];
+    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 22;
-    map<string, google.protobuf.Any> attachments = 23;
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
 }
 
 
@@ -76,22 +76,22 @@ message TrackingCodeOrderData {
     option (routines.has_table) = true;
     // keys: orderId, trackingCodeTypeId
     // fields
-        
     string order_id = 1 [json_name = "order_id"];
-    string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"]; // TrackingCodeType    
-    string tracking_code_id = 3 [json_name = "tracking_code_id"];    
-    routines.Indicator is_billable = 4 [json_name = "is_billable"];    
-    string site_id = 5 [json_name = "site_id"];    
-    routines.Indicator has_exported = 6 [json_name = "has_exported"];    
-    google.protobuf.Timestamp affiliate_referred_time_stamp = 7 [json_name = "affiliate_referred_time_stamp"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"];
+    string tracking_code_id = 3 [json_name = "tracking_code_id"];
+    routines.Indicator is_billable = 4 [json_name = "is_billable"];
+    string site_id = 5 [json_name = "site_id"];
+    routines.Indicator has_exported = 6 [json_name = "has_exported"];
+    google.protobuf.Timestamp affiliate_referred_time_stamp = 7 [json_name = "affiliate_referred_time_stamp"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
     string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 12;
-    map<string, google.protobuf.Any> attachments = 13;
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
 }
 
 
@@ -115,24 +115,24 @@ message TrackingCodeOrderReturnData {
     option (routines.has_table) = true;
     // keys: returnId, orderId, trackingCodeTypeId
     // fields
-        
-    string return_id = 1 [json_name = "return_id"];    
-    string order_id = 2 [json_name = "order_id"];    
+    string return_id = 1 [json_name = "return_id"];
+    string order_id = 2 [json_name = "order_id"];
     string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string tracking_code_type_id = 4 [json_name = "tracking_code_type_id"]; // TrackingCodeType    
-    string tracking_code_id = 5 [json_name = "tracking_code_id"];    
-    routines.Indicator is_billable = 6 [json_name = "is_billable"];    
-    string site_id = 7 [json_name = "site_id"];    
-    routines.Indicator has_exported = 8 [json_name = "has_exported"];    
-    google.protobuf.Timestamp affiliate_referred_time_stamp = 9 [json_name = "affiliate_referred_time_stamp"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string tracking_code_type_id = 4 [json_name = "tracking_code_type_id"];
+    string tracking_code_id = 5 [json_name = "tracking_code_id"];
+    routines.Indicator is_billable = 6 [json_name = "is_billable"];
+    string site_id = 7 [json_name = "site_id"];
+    routines.Indicator has_exported = 8 [json_name = "has_exported"];
+    google.protobuf.Timestamp affiliate_referred_time_stamp = 9 [json_name = "affiliate_referred_time_stamp"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
     string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
 }
 
 
@@ -156,19 +156,19 @@ message TrackingCodeVisitData {
     option (routines.has_table) = true;
     // keys: trackingCodeId, visitId, fromDate
     // fields
-        
-    string tracking_code_id = 1 [json_name = "tracking_code_id"];    
-    string visit_id = 2 [json_name = "visit_id"];    
+    string tracking_code_id = 1 [json_name = "tracking_code_id"];
+    string visit_id = 2 [json_name = "visit_id"];
     google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    string source_enum_id = 4 [json_name = "source_enum_id"]; // Enumeration    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string source_enum_id = 4 [json_name = "source_enum_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 

@@ -26,17 +26,17 @@ message ExampleFeatureData {
     option (routines.has_table) = true;
     // keys: exampleFeatureId
     // fields
-        
     string example_feature_id = 1 [json_name = "example_feature_id", (google.api.graphql.relay_options).id = true];
-    string feature_source_enum_id = 2 [json_name = "feature_source_enum_id"]; // Enumeration    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    string feature_source_enum_id = 2 [json_name = "feature_source_enum_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -60,21 +60,21 @@ message ExampleFeatureApplData {
     option (routines.has_table) = true;
     // keys: exampleId, exampleFeatureId, fromDate
     // fields
-        
-    string example_id = 1 [json_name = "example_id"];    
-    string example_feature_id = 2 [json_name = "example_feature_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string example_feature_appl_type_id = 5 [json_name = "example_feature_appl_type_id"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string example_id = 1 [json_name = "example_id"];
+    string example_feature_id = 2 [json_name = "example_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string example_feature_appl_type_id = 5 [json_name = "example_feature_appl_type_id"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 
@@ -98,17 +98,17 @@ message ExampleFeatureApplTypeData {
     option (routines.has_table) = true;
     // keys: exampleFeatureApplTypeId
     // fields
-        
-    string example_feature_appl_type_id = 1 [json_name = "example_feature_appl_type_id", (google.api.graphql.relay_options).id = true];    
-    string parent_type_id = 2 [json_name = "parent_type_id"];    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    string example_feature_appl_type_id = 1 [json_name = "example_feature_appl_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 

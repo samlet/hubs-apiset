@@ -26,23 +26,23 @@ message PortalPageData {
     option (routines.has_table) = true;
     // keys: portalPageId
     // fields
-        
-    string portal_page_id = 1 [json_name = "portal_page_id", (google.api.graphql.relay_options).id = true];    
-    string portal_page_name = 2 [json_name = "portal_page_name"];    
-    string description = 3 [json_name = "description"];    
-    string owner_user_login_id = 4 [json_name = "owner_user_login_id"];    
-    string original_portal_page_id = 5 [json_name = "original_portal_page_id"];    
-    string parent_portal_page_id = 6 [json_name = "parent_portal_page_id"];    
-    int64 sequence_num = 7 [json_name = "sequence_num"];    
-    string security_group_id = 8 [json_name = "security_group_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string portal_page_id = 1 [json_name = "portal_page_id", (google.api.graphql.relay_options).id = true];
+    string portal_page_name = 2 [json_name = "portal_page_name"];
+    string description = 3 [json_name = "description"];
+    string owner_user_login_id = 4 [json_name = "owner_user_login_id"];
+    string original_portal_page_id = 5 [json_name = "original_portal_page_id"];
+    string parent_portal_page_id = 6 [json_name = "parent_portal_page_id"];
+    int64 sequence_num = 7 [json_name = "sequence_num"];
+    string security_group_id = 8 [json_name = "security_group_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
     string help_content_id = 11 [json_name = "help_content_id"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 14;
-    map<string, google.protobuf.Any> attachments = 15;
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
 }
 
 
@@ -66,19 +66,19 @@ message PortalPageColumnData {
     option (routines.has_table) = true;
     // keys: portalPageId, columnSeqId
     // fields
-        
-    string portal_page_id = 1 [json_name = "portal_page_id"];    
-    string column_seq_id = 2 [json_name = "column_seq_id"];    
-    int64 column_width_pixels = 3 [json_name = "column_width_pixels"];    
-    int64 column_width_percentage = 4 [json_name = "column_width_percentage"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string portal_page_id = 1 [json_name = "portal_page_id"];
+    string column_seq_id = 2 [json_name = "column_seq_id"];
+    int64 column_width_pixels = 3 [json_name = "column_width_pixels"];
+    int64 column_width_percentage = 4 [json_name = "column_width_percentage"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -102,20 +102,20 @@ message PortalPagePortletData {
     option (routines.has_table) = true;
     // keys: portalPageId, portalPortletId, portletSeqId
     // fields
-        
-    string portal_page_id = 1 [json_name = "portal_page_id"];    
-    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];    
-    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];    
-    string column_seq_id = 4 [json_name = "column_seq_id"];    
-    int64 sequence_num = 5 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string portal_page_id = 1 [json_name = "portal_page_id"];
+    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];
+    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];
+    string column_seq_id = 4 [json_name = "column_seq_id"];
+    int64 sequence_num = 5 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
@@ -139,24 +139,24 @@ message PortalPortletData {
     option (routines.has_table) = true;
     // keys: portalPortletId
     // fields
-        
-    string portal_portlet_id = 1 [json_name = "portal_portlet_id", (google.api.graphql.relay_options).id = true];    
-    string portlet_name = 2 [json_name = "portlet_name"];    
-    string screen_name = 3 [json_name = "screen_name"];    
-    string screen_location = 4 [json_name = "screen_location"];    
-    string edit_form_name = 5 [json_name = "edit_form_name"];    
-    string edit_form_location = 6 [json_name = "edit_form_location"];    
-    string description = 7 [json_name = "description"];    
-    string screenshot = 8 [json_name = "screenshot"];    
-    string security_service_name = 9 [json_name = "security_service_name"];    
-    string security_main_action = 10 [json_name = "security_main_action"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    string portal_portlet_id = 1 [json_name = "portal_portlet_id", (google.api.graphql.relay_options).id = true];
+    string portlet_name = 2 [json_name = "portlet_name"];
+    string screen_name = 3 [json_name = "screen_name"];
+    string screen_location = 4 [json_name = "screen_location"];
+    string edit_form_name = 5 [json_name = "edit_form_name"];
+    string edit_form_location = 6 [json_name = "edit_form_location"];
+    string description = 7 [json_name = "description"];
+    string screenshot = 8 [json_name = "screenshot"];
+    string security_service_name = 9 [json_name = "security_service_name"];
+    string security_main_action = 10 [json_name = "security_main_action"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -180,22 +180,22 @@ message PortletAttributeData {
     option (routines.has_table) = true;
     // keys: portalPageId, portalPortletId, portletSeqId, attrName
     // fields
-        
-    string portal_page_id = 1 [json_name = "portal_page_id"];    
-    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];    
-    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];    
-    string attr_name = 4 [json_name = "attr_name"];    
-    string attr_value = 5 [json_name = "attr_value"];    
-    string attr_description = 6 [json_name = "attr_description"];    
-    string attr_type = 7 [json_name = "attr_type"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string portal_page_id = 1 [json_name = "portal_page_id"];
+    string portal_portlet_id = 2 [json_name = "portal_portlet_id"];
+    string portlet_seq_id = 3 [json_name = "portlet_seq_id"];
+    string attr_name = 4 [json_name = "attr_name"];
+    string attr_value = 5 [json_name = "attr_value"];
+    string attr_description = 6 [json_name = "attr_description"];
+    string attr_type = 7 [json_name = "attr_type"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
     string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
@@ -219,16 +219,16 @@ message PortletCategoryData {
     option (routines.has_table) = true;
     // keys: portletCategoryId
     // fields
-        
-    string portlet_category_id = 1 [json_name = "portlet_category_id", (google.api.graphql.relay_options).id = true];    
-    string description = 2 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
+    string portlet_category_id = 1 [json_name = "portlet_category_id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 5;
-    map<string, google.protobuf.Any> attachments = 6;
+    google.protobuf.Struct extra = 6;
+    map<string, google.protobuf.Any> attachments = 7;
 }
 
 
@@ -252,17 +252,17 @@ message PortletPortletCategoryData {
     option (routines.has_table) = true;
     // keys: portalPortletId, portletCategoryId
     // fields
-        
-    string portal_portlet_id = 1 [json_name = "portal_portlet_id"];    
-    string portlet_category_id = 2 [json_name = "portlet_category_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string portal_portlet_id = 1 [json_name = "portal_portlet_id"];
+    string portlet_category_id = 2 [json_name = "portlet_category_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 

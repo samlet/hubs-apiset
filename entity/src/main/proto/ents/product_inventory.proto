@@ -25,36 +25,36 @@ message InventoryItemFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: inventoryItemId
-        
-    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];    
-    string inventory_item_type_id = 2 [json_name = "inventory_item_type_id"];    
-    string product_id = 3 [json_name = "product_id"];    
-    string party_id = 4 [json_name = "party_id"];    
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_type_id = 2 [json_name = "inventory_item_type_id"];
+    string product_id = 3 [json_name = "product_id"];
+    string party_id = 4 [json_name = "party_id"];
     string owner_party_id = 5 [json_name = "owner_party_id"];
-    string status_id = 6 [json_name = "status_id"]; // StatusItem    
-    google.protobuf.Timestamp datetime_received = 7 [json_name = "datetime_received"];    
-    google.protobuf.Timestamp datetime_manufactured = 8 [json_name = "datetime_manufactured"];    
-    google.protobuf.Timestamp expire_date = 9 [json_name = "expire_date"];    
-    string facility_id = 10 [json_name = "facility_id"];    
-    string container_id = 11 [json_name = "container_id"];    
+    string status_id = 6 [json_name = "status_id"];
+    google.protobuf.Timestamp datetime_received = 7 [json_name = "datetime_received"];
+    google.protobuf.Timestamp datetime_manufactured = 8 [json_name = "datetime_manufactured"];
+    google.protobuf.Timestamp expire_date = 9 [json_name = "expire_date"];
+    string facility_id = 10 [json_name = "facility_id"];
+    string container_id = 11 [json_name = "container_id"];
     string lot_id = 12 [json_name = "lot_id"];
-    string uom_id = 13 [json_name = "uom_id"]; // Uom    
-    string bin_number = 14 [json_name = "bin_number"];    
-    string location_seq_id = 15 [json_name = "location_seq_id"];    
-    string comments = 16 [json_name = "comments"];    
-    routines.FixedPoint quantity_on_hand_total = 17 [json_name = "quantity_on_hand_total"];    
-    routines.FixedPoint available_to_promise_total = 18 [json_name = "available_to_promise_total"];    
-    routines.FixedPoint accounting_quantity_total = 19 [json_name = "accounting_quantity_total"];    
-    string serial_number = 20 [json_name = "serial_number"];    
-    string soft_identifier = 21 [json_name = "soft_identifier"];    
-    string activation_number = 22 [json_name = "activation_number"];    
-    google.protobuf.Timestamp activation_valid_thru = 23 [json_name = "activation_valid_thru"];    
+    string uom_id = 13 [json_name = "uom_id"];
+    string bin_number = 14 [json_name = "bin_number"];
+    string location_seq_id = 15 [json_name = "location_seq_id"];
+    string comments = 16 [json_name = "comments"];
+    routines.FixedPoint quantity_on_hand_total = 17 [json_name = "quantity_on_hand_total"];
+    routines.FixedPoint available_to_promise_total = 18 [json_name = "available_to_promise_total"];
+    routines.FixedPoint accounting_quantity_total = 19 [json_name = "accounting_quantity_total"];
+    string serial_number = 20 [json_name = "serial_number"];
+    string soft_identifier = 21 [json_name = "soft_identifier"];
+    string activation_number = 22 [json_name = "activation_number"];
+    google.protobuf.Timestamp activation_valid_thru = 23 [json_name = "activation_valid_thru"];
     routines.FixedPoint unit_cost = 24 [json_name = "unit_cost"];
-    string currency_uom_id = 25 [json_name = "currency_uom_id"]; // Uom    
-    string fixed_asset_id = 26 [json_name = "fixed_asset_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 27 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 28 [json_name = "created_tx_stamp"];    
-    string tenant_id = 29 [json_name = "tenant_id"]; 
+    string currency_uom_id = 25 [json_name = "currency_uom_id"];
+    string fixed_asset_id = 26 [json_name = "fixed_asset_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 27 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 28 [json_name = "created_tx_stamp"];
+    string tenant_id = 29 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 63;
@@ -80,37 +80,37 @@ message InventoryItemDetailData {
     option (routines.has_table) = true;
     // keys: inventoryItemId, inventoryItemDetailSeqId
     // fields
-        
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];    
-    string inventory_item_detail_seq_id = 2 [json_name = "inventory_item_detail_seq_id"];    
-    google.protobuf.Timestamp effective_date = 3 [json_name = "effective_date"];    
-    routines.FixedPoint quantity_on_hand_diff = 4 [json_name = "quantity_on_hand_diff"];    
-    routines.FixedPoint available_to_promise_diff = 5 [json_name = "available_to_promise_diff"];    
-    routines.FixedPoint accounting_quantity_diff = 6 [json_name = "accounting_quantity_diff"];    
-    routines.FixedPoint unit_cost = 7 [json_name = "unit_cost"];    
-    string order_id = 8 [json_name = "order_id"];    
-    string order_item_seq_id = 9 [json_name = "order_item_seq_id"];    
-    string ship_group_seq_id = 10 [json_name = "ship_group_seq_id"];    
-    string shipment_id = 11 [json_name = "shipment_id"];    
-    string shipment_item_seq_id = 12 [json_name = "shipment_item_seq_id"];    
-    string return_id = 13 [json_name = "return_id"];    
-    string return_item_seq_id = 14 [json_name = "return_item_seq_id"];    
-    string work_effort_id = 15 [json_name = "work_effort_id"];    
-    string fixed_asset_id = 16 [json_name = "fixed_asset_id"];    
-    string maint_hist_seq_id = 17 [json_name = "maint_hist_seq_id"];    
-    string item_issuance_id = 18 [json_name = "item_issuance_id"];    
-    string receipt_id = 19 [json_name = "receipt_id"];    
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string inventory_item_detail_seq_id = 2 [json_name = "inventory_item_detail_seq_id"];
+    google.protobuf.Timestamp effective_date = 3 [json_name = "effective_date"];
+    routines.FixedPoint quantity_on_hand_diff = 4 [json_name = "quantity_on_hand_diff"];
+    routines.FixedPoint available_to_promise_diff = 5 [json_name = "available_to_promise_diff"];
+    routines.FixedPoint accounting_quantity_diff = 6 [json_name = "accounting_quantity_diff"];
+    routines.FixedPoint unit_cost = 7 [json_name = "unit_cost"];
+    string order_id = 8 [json_name = "order_id"];
+    string order_item_seq_id = 9 [json_name = "order_item_seq_id"];
+    string ship_group_seq_id = 10 [json_name = "ship_group_seq_id"];
+    string shipment_id = 11 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 12 [json_name = "shipment_item_seq_id"];
+    string return_id = 13 [json_name = "return_id"];
+    string return_item_seq_id = 14 [json_name = "return_item_seq_id"];
+    string work_effort_id = 15 [json_name = "work_effort_id"];
+    string fixed_asset_id = 16 [json_name = "fixed_asset_id"];
+    string maint_hist_seq_id = 17 [json_name = "maint_hist_seq_id"];
+    string item_issuance_id = 18 [json_name = "item_issuance_id"];
+    string receipt_id = 19 [json_name = "receipt_id"];
     string physical_inventory_id = 20 [json_name = "physical_inventory_id"];
-    string reason_enum_id = 21 [json_name = "reason_enum_id"]; // Enumeration    
-    string description = 22 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 23 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 24 [json_name = "created_tx_stamp"];    
+    string reason_enum_id = 21 [json_name = "reason_enum_id"];
+    string description = 22 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 23 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 24 [json_name = "created_tx_stamp"];
     string id = 25 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 31;
-    map<string, google.protobuf.Any> attachments = 32;
+    google.protobuf.Struct extra = 37;
+    map<string, google.protobuf.Any> attachments = 38;
 }
 
 

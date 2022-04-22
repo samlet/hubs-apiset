@@ -25,13 +25,13 @@ message TechDataCalendarFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: calendarId
-        
-    string calendar_id = 1 [json_name = "calendar_id", (google.api.graphql.relay_options).id = true];    
-    string description = 2 [json_name = "description"];    
-    string calendar_week_id = 3 [json_name = "calendar_week_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string tenant_id = 6 [json_name = "tenant_id"]; 
+    string calendar_id = 1 [json_name = "calendar_id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [json_name = "description"];
+    string calendar_week_id = 3 [json_name = "calendar_week_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    string tenant_id = 6 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -57,15 +57,15 @@ message TechDataCalendarExcDayData {
     option (routines.has_table) = true;
     // keys: calendarId, exceptionDateStartTime
     // fields
-        
-    string calendar_id = 1 [json_name = "calendar_id"];    
-    google.protobuf.Timestamp exception_date_start_time = 2 [json_name = "exception_date_start_time"];    
-    routines.FixedPoint exception_capacity = 3 [json_name = "exception_capacity"];    
-    routines.FixedPoint used_capacity = 4 [json_name = "used_capacity"];    
-    string description = 5 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string calendar_id = 1 [json_name = "calendar_id"];
+    google.protobuf.Timestamp exception_date_start_time = 2 [json_name = "exception_date_start_time"];
+    routines.FixedPoint exception_capacity = 3 [json_name = "exception_capacity"];
+    routines.FixedPoint used_capacity = 4 [json_name = "used_capacity"];
+    string description = 5 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -93,26 +93,26 @@ message TechDataCalendarWeekFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: calendarWeekId
-        
-    string calendar_week_id = 1 [json_name = "calendar_week_id", (google.api.graphql.relay_options).id = true];    
-    string description = 2 [json_name = "description"];    
-    google.type.TimeOfDay monday_start_time = 3 [json_name = "monday_start_time"];    
-    double monday_capacity = 4 [json_name = "monday_capacity"];    
-    google.type.TimeOfDay tuesday_start_time = 5 [json_name = "tuesday_start_time"];    
-    double tuesday_capacity = 6 [json_name = "tuesday_capacity"];    
-    google.type.TimeOfDay wednesday_start_time = 7 [json_name = "wednesday_start_time"];    
-    double wednesday_capacity = 8 [json_name = "wednesday_capacity"];    
-    google.type.TimeOfDay thursday_start_time = 9 [json_name = "thursday_start_time"];    
-    double thursday_capacity = 10 [json_name = "thursday_capacity"];    
-    google.type.TimeOfDay friday_start_time = 11 [json_name = "friday_start_time"];    
-    double friday_capacity = 12 [json_name = "friday_capacity"];    
-    google.type.TimeOfDay saturday_start_time = 13 [json_name = "saturday_start_time"];    
-    double saturday_capacity = 14 [json_name = "saturday_capacity"];    
-    google.type.TimeOfDay sunday_start_time = 15 [json_name = "sunday_start_time"];    
-    double sunday_capacity = 16 [json_name = "sunday_capacity"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];    
-    string tenant_id = 19 [json_name = "tenant_id"]; 
+    string calendar_week_id = 1 [json_name = "calendar_week_id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [json_name = "description"];
+    google.type.TimeOfDay monday_start_time = 3 [json_name = "monday_start_time"];
+    double monday_capacity = 4 [json_name = "monday_capacity"];
+    google.type.TimeOfDay tuesday_start_time = 5 [json_name = "tuesday_start_time"];
+    double tuesday_capacity = 6 [json_name = "tuesday_capacity"];
+    google.type.TimeOfDay wednesday_start_time = 7 [json_name = "wednesday_start_time"];
+    double wednesday_capacity = 8 [json_name = "wednesday_capacity"];
+    google.type.TimeOfDay thursday_start_time = 9 [json_name = "thursday_start_time"];
+    double thursday_capacity = 10 [json_name = "thursday_capacity"];
+    google.type.TimeOfDay friday_start_time = 11 [json_name = "friday_start_time"];
+    double friday_capacity = 12 [json_name = "friday_capacity"];
+    google.type.TimeOfDay saturday_start_time = 13 [json_name = "saturday_start_time"];
+    double saturday_capacity = 14 [json_name = "saturday_capacity"];
+    google.type.TimeOfDay sunday_start_time = 15 [json_name = "sunday_start_time"];
+    double sunday_capacity = 16 [json_name = "sunday_capacity"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
+    string tenant_id = 19 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 23;

@@ -25,20 +25,20 @@ message EmailTemplateSettingFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: emailTemplateSettingId
-        
     string email_template_setting_id = 1 [json_name = "email_template_setting_id", (google.api.graphql.relay_options).id = true];
-    string email_type = 2 [json_name = "email_type"]; // Enumeration    
-    string description = 3 [json_name = "description"];    
-    string body_screen_location = 4 [json_name = "body_screen_location"];    
-    string xslfo_attach_screen_location = 5 [json_name = "xslfo_attach_screen_location"];    
-    string from_address = 6 [json_name = "from_address"];    
-    string cc_address = 7 [json_name = "cc_address"];    
-    string bcc_address = 8 [json_name = "bcc_address"];    
-    string subject = 9 [json_name = "subject"];    
-    string content_type = 10 [json_name = "content_type"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
-    string tenant_id = 13 [json_name = "tenant_id"]; 
+    string email_type = 2 [json_name = "email_type"];
+    string description = 3 [json_name = "description"];
+    string body_screen_location = 4 [json_name = "body_screen_location"];
+    string xslfo_attach_screen_location = 5 [json_name = "xslfo_attach_screen_location"];
+    string from_address = 6 [json_name = "from_address"];
+    string cc_address = 7 [json_name = "cc_address"];
+    string bcc_address = 8 [json_name = "bcc_address"];
+    string subject = 9 [json_name = "subject"];
+    string content_type = 10 [json_name = "content_type"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+    string tenant_id = 13 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 16;

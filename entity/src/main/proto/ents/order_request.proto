@@ -25,37 +25,37 @@ message CustRequestFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: custRequestId
-        
-    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];    
-    string cust_request_type_id = 2 [json_name = "cust_request_type_id"];    
+    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];
+    string cust_request_type_id = 2 [json_name = "cust_request_type_id"];
     string cust_request_category_id = 3 [json_name = "cust_request_category_id"];
-    string status_id = 4 [json_name = "status_id"]; // StatusItem    
-    string from_party_id = 5 [json_name = "from_party_id"];    
-    int64 priority = 6 [json_name = "priority"];    
-    google.protobuf.Timestamp cust_request_date = 7 [json_name = "cust_request_date"];    
-    google.protobuf.Timestamp response_required_date = 8 [json_name = "response_required_date"];    
-    string cust_request_name = 9 [json_name = "cust_request_name"];    
+    string status_id = 4 [json_name = "status_id"];
+    string from_party_id = 5 [json_name = "from_party_id"];
+    int64 priority = 6 [json_name = "priority"];
+    google.protobuf.Timestamp cust_request_date = 7 [json_name = "cust_request_date"];
+    google.protobuf.Timestamp response_required_date = 8 [json_name = "response_required_date"];
+    string cust_request_name = 9 [json_name = "cust_request_name"];
     string description = 10 [json_name = "description"];
-    string maximum_amount_uom_id = 11 [json_name = "maximum_amount_uom_id"]; // Uom    
+    string maximum_amount_uom_id = 11 [json_name = "maximum_amount_uom_id"];
     string product_store_id = 12 [json_name = "product_store_id"];
-    string sales_channel_enum_id = 13 [json_name = "sales_channel_enum_id"]; // Enumeration    
+    string sales_channel_enum_id = 13 [json_name = "sales_channel_enum_id"];
     string fulfill_contact_mech_id = 14 [json_name = "fulfill_contact_mech_id"];
-    string currency_uom_id = 15 [json_name = "currency_uom_id"]; // Uom    
-    google.protobuf.Timestamp open_date_time = 16 [json_name = "open_date_time"];    
-    google.protobuf.Timestamp closed_date_time = 17 [json_name = "closed_date_time"];    
-    string internal_comment = 18 [json_name = "internal_comment"];    
-    string reason = 19 [json_name = "reason"];    
-    google.protobuf.Timestamp created_date = 20 [json_name = "created_date"];    
-    string created_by_user_login = 21 [json_name = "created_by_user_login"];    
-    google.protobuf.Timestamp last_modified_date = 22 [json_name = "last_modified_date"];    
-    string last_modified_by_user_login = 23 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 24 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 25 [json_name = "created_tx_stamp"];    
-    double cust_estimated_milli_seconds = 26 [json_name = "cust_estimated_milli_seconds"];    
-    int64 cust_sequence_num = 27 [json_name = "cust_sequence_num"];    
-    string parent_cust_request_id = 28 [json_name = "parent_cust_request_id"];    
-    routines.Indicator billed = 29 [json_name = "billed"];    
-    string tenant_id = 30 [json_name = "tenant_id"]; 
+    string currency_uom_id = 15 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp open_date_time = 16 [json_name = "open_date_time"];
+    google.protobuf.Timestamp closed_date_time = 17 [json_name = "closed_date_time"];
+    string internal_comment = 18 [json_name = "internal_comment"];
+    string reason = 19 [json_name = "reason"];
+    google.protobuf.Timestamp created_date = 20 [json_name = "created_date"];
+    string created_by_user_login = 21 [json_name = "created_by_user_login"];
+    google.protobuf.Timestamp last_modified_date = 22 [json_name = "last_modified_date"];
+    string last_modified_by_user_login = 23 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 24 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 25 [json_name = "created_tx_stamp"];
+    double cust_estimated_milli_seconds = 26 [json_name = "cust_estimated_milli_seconds"];
+    int64 cust_sequence_num = 27 [json_name = "cust_sequence_num"];
+    string parent_cust_request_id = 28 [json_name = "parent_cust_request_id"];
+    routines.Indicator billed = 29 [json_name = "billed"];
+    string tenant_id = 30 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 56;
@@ -81,32 +81,32 @@ message CustRequestItemData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId
     // fields
-        
-    string cust_request_id = 1 [json_name = "cust_request_id"];    
+    string cust_request_id = 1 [json_name = "cust_request_id"];
     string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string cust_request_resolution_id = 3 [json_name = "cust_request_resolution_id"]; // CustRequestResolution
-    string status_id = 4 [json_name = "status_id"]; // StatusItem    
-    int64 priority = 5 [json_name = "priority"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp required_by_date = 7 [json_name = "required_by_date"];    
-    string product_id = 8 [json_name = "product_id"];    
-    routines.FixedPoint quantity = 9 [json_name = "quantity"];    
-    routines.FixedPoint selected_amount = 10 [json_name = "selected_amount"];    
-    routines.Currency maximum_amount = 11 [json_name = "maximum_amount"];    
-    google.protobuf.Timestamp reserv_start = 12 [json_name = "reserv_start"];    
-    routines.FixedPoint reserv_length = 13 [json_name = "reserv_length"];    
-    routines.FixedPoint reserv_persons = 14 [json_name = "reserv_persons"];    
-    string config_id = 15 [json_name = "config_id"];    
-    string description = 16 [json_name = "description"];    
-    string story = 17 [json_name = "story"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];    
+    string cust_request_resolution_id = 3 [json_name = "cust_request_resolution_id"];
+    string status_id = 4 [json_name = "status_id"];
+    int64 priority = 5 [json_name = "priority"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    google.protobuf.Timestamp required_by_date = 7 [json_name = "required_by_date"];
+    string product_id = 8 [json_name = "product_id"];
+    routines.FixedPoint quantity = 9 [json_name = "quantity"];
+    routines.FixedPoint selected_amount = 10 [json_name = "selected_amount"];
+    routines.Currency maximum_amount = 11 [json_name = "maximum_amount"];
+    google.protobuf.Timestamp reserv_start = 12 [json_name = "reserv_start"];
+    routines.FixedPoint reserv_length = 13 [json_name = "reserv_length"];
+    routines.FixedPoint reserv_persons = 14 [json_name = "reserv_persons"];
+    string config_id = 15 [json_name = "config_id"];
+    string description = 16 [json_name = "description"];
+    string story = 17 [json_name = "story"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];
     string id = 20 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 24;
-    map<string, google.protobuf.Any> attachments = 25;
+    google.protobuf.Struct extra = 30;
+    map<string, google.protobuf.Any> attachments = 31;
 }
 
 
@@ -129,15 +129,15 @@ message CustRequestTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: custRequestTypeId
-        
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];    
-    string parent_type_id = 2 [json_name = "parent_type_id"];    
-    routines.Indicator has_table = 3 [json_name = "has_table"];    
-    string description = 4 [json_name = "description"];    
-    string party_id = 5 [json_name = "party_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string tenant_id = 8 [json_name = "tenant_id"]; 
+    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    routines.Indicator has_table = 3 [json_name = "has_table"];
+    string description = 4 [json_name = "description"];
+    string party_id = 5 [json_name = "party_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string tenant_id = 8 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 18;

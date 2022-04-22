@@ -26,31 +26,31 @@ message ContactListData {
     option (routines.has_table) = true;
     // keys: contactListId
     // fields
-        
     string contact_list_id = 1 [json_name = "contact_list_id", (google.api.graphql.relay_options).id = true];
-    string contact_list_type_id = 2 [json_name = "contact_list_type_id"]; // ContactListType
-    string contact_mech_type_id = 3 [json_name = "contact_mech_type_id"]; // ContactMechType    
-    string marketing_campaign_id = 4 [json_name = "marketing_campaign_id"];    
-    string contact_list_name = 5 [json_name = "contact_list_name"];    
-    string description = 6 [json_name = "description"];    
-    string comments = 7 [json_name = "comments"];    
-    routines.Indicator is_public = 8 [json_name = "is_public"];    
-    routines.Indicator single_use = 9 [json_name = "single_use"];    
-    string owner_party_id = 10 [json_name = "owner_party_id"];    
-    string verify_email_from = 11 [json_name = "verify_email_from"];    
-    string verify_email_screen = 12 [json_name = "verify_email_screen"];    
-    string verify_email_subject = 13 [json_name = "verify_email_subject"];    
-    string verify_email_web_site_id = 14 [json_name = "verify_email_web_site_id"];    
-    string opt_out_screen = 15 [json_name = "opt_out_screen"];    
-    string created_by_user_login = 16 [json_name = "created_by_user_login"];    
-    string last_modified_by_user_login = 17 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];    
+    string contact_list_type_id = 2 [json_name = "contact_list_type_id"];
+    string contact_mech_type_id = 3 [json_name = "contact_mech_type_id"];
+    string marketing_campaign_id = 4 [json_name = "marketing_campaign_id"];
+    string contact_list_name = 5 [json_name = "contact_list_name"];
+    string description = 6 [json_name = "description"];
+    string comments = 7 [json_name = "comments"];
+    routines.Indicator is_public = 8 [json_name = "is_public"];
+    routines.Indicator single_use = 9 [json_name = "single_use"];
+    string owner_party_id = 10 [json_name = "owner_party_id"];
+    string verify_email_from = 11 [json_name = "verify_email_from"];
+    string verify_email_screen = 12 [json_name = "verify_email_screen"];
+    string verify_email_subject = 13 [json_name = "verify_email_subject"];
+    string verify_email_web_site_id = 14 [json_name = "verify_email_web_site_id"];
+    string opt_out_screen = 15 [json_name = "opt_out_screen"];
+    string created_by_user_login = 16 [json_name = "created_by_user_login"];
+    string last_modified_by_user_login = 17 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 24;
-    map<string, google.protobuf.Any> attachments = 25;
+    google.protobuf.Struct extra = 30;
+    map<string, google.protobuf.Any> attachments = 31;
 }
 
 
@@ -74,22 +74,22 @@ message ContactListCommStatusData {
     option (routines.has_table) = true;
     // keys: contactListId, communicationEventId, contactMechId
     // fields
-        
-    string contact_list_id = 1 [json_name = "contact_list_id"];    
-    string communication_event_id = 2 [json_name = "communication_event_id"];    
-    string contact_mech_id = 3 [json_name = "contact_mech_id"];    
-    string party_id = 4 [json_name = "party_id"];    
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];
+    string party_id = 4 [json_name = "party_id"];
     string message_id = 5 [json_name = "message_id"];
-    string status_id = 6 [json_name = "status_id"]; // StatusItem    
-    string change_by_user_login_id = 7 [json_name = "change_by_user_login_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string status_id = 6 [json_name = "status_id"];
+    string change_by_user_login_id = 7 [json_name = "change_by_user_login_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
     string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
 }
 
 
@@ -113,21 +113,21 @@ message ContactListPartyData {
     option (routines.has_table) = true;
     // keys: contactListId, partyId, fromDate
     // fields
-        
-    string contact_list_id = 1 [json_name = "contact_list_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
     google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string status_id = 5 [json_name = "status_id"]; // StatusItem    
-    string preferred_contact_mech_id = 6 [json_name = "preferred_contact_mech_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string status_id = 5 [json_name = "status_id"];
+    string preferred_contact_mech_id = 6 [json_name = "preferred_contact_mech_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 12;
-    map<string, google.protobuf.Any> attachments = 13;
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
 }
 
 
@@ -151,22 +151,22 @@ message ContactListPartyStatusData {
     option (routines.has_table) = true;
     // keys: contactListId, partyId, fromDate, statusDate
     // fields
-        
-    string contact_list_id = 1 [json_name = "contact_list_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp status_date = 4 [json_name = "status_date"];    
-    string status_id = 5 [json_name = "status_id"];    
-    string set_by_user_login_id = 6 [json_name = "set_by_user_login_id"];    
-    string opt_in_verify_code = 7 [json_name = "opt_in_verify_code"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp status_date = 4 [json_name = "status_date"];
+    string status_id = 5 [json_name = "status_id"];
+    string set_by_user_login_id = 6 [json_name = "set_by_user_login_id"];
+    string opt_in_verify_code = 7 [json_name = "opt_in_verify_code"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
     string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
@@ -190,19 +190,19 @@ message WebSiteContactListData {
     option (routines.has_table) = true;
     // keys: webSiteId, contactListId, fromDate
     // fields
-        
-    string web_site_id = 1 [json_name = "web_site_id"];    
-    string contact_list_id = 2 [json_name = "contact_list_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string contact_list_id = 2 [json_name = "contact_list_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 

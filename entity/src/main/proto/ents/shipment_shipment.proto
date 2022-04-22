@@ -26,14 +26,14 @@ message CarrierShipmentBoxTypeData {
     option (routines.has_table) = true;
     // keys: shipmentBoxTypeId, partyId
     // fields
-        
-    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    string packaging_type_code = 3 [json_name = "packaging_type_code"];    
-    string oversize_code = 4 [json_name = "oversize_code"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string packaging_type_code = 3 [json_name = "packaging_type_code"];
+    string oversize_code = 4 [json_name = "oversize_code"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -62,20 +62,20 @@ message CarrierShipmentMethodData {
     option (routines.has_table) = true;
     // keys: shipmentMethodTypeId, partyId, roleTypeId
     // fields
-        
-    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    string role_type_id = 3 [json_name = "role_type_id"];    
-    int64 sequence_number = 4 [json_name = "sequence_number"];    
-    string carrier_service_code = 5 [json_name = "carrier_service_code"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    int64 sequence_number = 4 [json_name = "sequence_number"];
+    string carrier_service_code = 5 [json_name = "carrier_service_code"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 16;
-    map<string, google.protobuf.Any> attachments = 17;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
 }
 
 
@@ -98,40 +98,40 @@ message ShipmentFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: shipmentId
-        
-    string shipment_id = 1 [json_name = "shipment_id", (google.api.graphql.relay_options).id = true];    
+    string shipment_id = 1 [json_name = "shipment_id", (google.api.graphql.relay_options).id = true];
     string shipment_type_id = 2 [json_name = "shipment_type_id"];
-    string status_id = 3 [json_name = "status_id"]; // StatusItem    
-    string primary_order_id = 4 [json_name = "primary_order_id"];    
-    string primary_return_id = 5 [json_name = "primary_return_id"];    
-    string primary_ship_group_seq_id = 6 [json_name = "primary_ship_group_seq_id"];    
-    string picklist_bin_id = 7 [json_name = "picklist_bin_id"];    
-    google.protobuf.Timestamp estimated_ready_date = 8 [json_name = "estimated_ready_date"];    
-    google.protobuf.Timestamp estimated_ship_date = 9 [json_name = "estimated_ship_date"];    
-    string estimated_ship_work_eff_id = 10 [json_name = "estimated_ship_work_eff_id"];    
-    google.protobuf.Timestamp estimated_arrival_date = 11 [json_name = "estimated_arrival_date"];    
-    string estimated_arrival_work_eff_id = 12 [json_name = "estimated_arrival_work_eff_id"];    
-    google.protobuf.Timestamp latest_cancel_date = 13 [json_name = "latest_cancel_date"];    
+    string status_id = 3 [json_name = "status_id"];
+    string primary_order_id = 4 [json_name = "primary_order_id"];
+    string primary_return_id = 5 [json_name = "primary_return_id"];
+    string primary_ship_group_seq_id = 6 [json_name = "primary_ship_group_seq_id"];
+    string picklist_bin_id = 7 [json_name = "picklist_bin_id"];
+    google.protobuf.Timestamp estimated_ready_date = 8 [json_name = "estimated_ready_date"];
+    google.protobuf.Timestamp estimated_ship_date = 9 [json_name = "estimated_ship_date"];
+    string estimated_ship_work_eff_id = 10 [json_name = "estimated_ship_work_eff_id"];
+    google.protobuf.Timestamp estimated_arrival_date = 11 [json_name = "estimated_arrival_date"];
+    string estimated_arrival_work_eff_id = 12 [json_name = "estimated_arrival_work_eff_id"];
+    google.protobuf.Timestamp latest_cancel_date = 13 [json_name = "latest_cancel_date"];
     routines.Currency estimated_ship_cost = 14 [json_name = "estimated_ship_cost"];
-    string currency_uom_id = 15 [json_name = "currency_uom_id"]; // Uom    
-    string handling_instructions = 16 [json_name = "handling_instructions"];    
-    string origin_facility_id = 17 [json_name = "origin_facility_id"];    
-    string destination_facility_id = 18 [json_name = "destination_facility_id"];    
-    string origin_contact_mech_id = 19 [json_name = "origin_contact_mech_id"];    
-    string origin_telecom_number_id = 20 [json_name = "origin_telecom_number_id"];    
-    string destination_contact_mech_id = 21 [json_name = "destination_contact_mech_id"];    
-    string destination_telecom_number_id = 22 [json_name = "destination_telecom_number_id"];    
-    string party_id_to = 23 [json_name = "party_id_to"];    
-    string party_id_from = 24 [json_name = "party_id_from"];    
-    routines.Currency additional_shipping_charge = 25 [json_name = "additional_shipping_charge"];    
-    string addtl_shipping_charge_desc = 26 [json_name = "addtl_shipping_charge_desc"];    
-    google.protobuf.Timestamp created_date = 27 [json_name = "created_date"];    
-    string created_by_user_login = 28 [json_name = "created_by_user_login"];    
-    google.protobuf.Timestamp last_modified_date = 29 [json_name = "last_modified_date"];    
-    string last_modified_by_user_login = 30 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 31 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 32 [json_name = "created_tx_stamp"];    
-    string tenant_id = 33 [json_name = "tenant_id"]; 
+    string currency_uom_id = 15 [json_name = "currency_uom_id"];
+    string handling_instructions = 16 [json_name = "handling_instructions"];
+    string origin_facility_id = 17 [json_name = "origin_facility_id"];
+    string destination_facility_id = 18 [json_name = "destination_facility_id"];
+    string origin_contact_mech_id = 19 [json_name = "origin_contact_mech_id"];
+    string origin_telecom_number_id = 20 [json_name = "origin_telecom_number_id"];
+    string destination_contact_mech_id = 21 [json_name = "destination_contact_mech_id"];
+    string destination_telecom_number_id = 22 [json_name = "destination_telecom_number_id"];
+    string party_id_to = 23 [json_name = "party_id_to"];
+    string party_id_from = 24 [json_name = "party_id_from"];
+    routines.Currency additional_shipping_charge = 25 [json_name = "additional_shipping_charge"];
+    string addtl_shipping_charge_desc = 26 [json_name = "addtl_shipping_charge_desc"];
+    google.protobuf.Timestamp created_date = 27 [json_name = "created_date"];
+    string created_by_user_login = 28 [json_name = "created_by_user_login"];
+    google.protobuf.Timestamp last_modified_date = 29 [json_name = "last_modified_date"];
+    string last_modified_by_user_login = 30 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 31 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 32 [json_name = "created_tx_stamp"];
+    string tenant_id = 33 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 75;
@@ -156,18 +156,18 @@ message ShipmentBoxTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: shipmentBoxTypeId
-        
-    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id", (google.api.graphql.relay_options).id = true];    
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id", (google.api.graphql.relay_options).id = true];
     string description = 2 [json_name = "description"];
-    string dimension_uom_id = 3 [json_name = "dimension_uom_id"]; // Uom    
-    routines.FixedPoint box_length = 4 [json_name = "box_length"];    
-    routines.FixedPoint box_width = 5 [json_name = "box_width"];    
+    string dimension_uom_id = 3 [json_name = "dimension_uom_id"];
+    routines.FixedPoint box_length = 4 [json_name = "box_length"];
+    routines.FixedPoint box_width = 5 [json_name = "box_width"];
     routines.FixedPoint box_height = 6 [json_name = "box_height"];
-    string weight_uom_id = 7 [json_name = "weight_uom_id"]; // Uom    
-    routines.FixedPoint box_weight = 8 [json_name = "box_weight"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
-    string tenant_id = 11 [json_name = "tenant_id"]; 
+    string weight_uom_id = 7 [json_name = "weight_uom_id"];
+    routines.FixedPoint box_weight = 8 [json_name = "box_weight"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
+    string tenant_id = 11 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -192,38 +192,38 @@ message ShipmentCostEstimateFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: shipmentCostEstimateId
-        
-    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id", (google.api.graphql.relay_options).id = true];    
-    string shipment_method_type_id = 2 [json_name = "shipment_method_type_id"];    
-    string carrier_party_id = 3 [json_name = "carrier_party_id"];    
-    string carrier_role_type_id = 4 [json_name = "carrier_role_type_id"];    
-    string product_store_ship_meth_id = 5 [json_name = "product_store_ship_meth_id"];    
-    string product_store_id = 6 [json_name = "product_store_id"];    
+    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id", (google.api.graphql.relay_options).id = true];
+    string shipment_method_type_id = 2 [json_name = "shipment_method_type_id"];
+    string carrier_party_id = 3 [json_name = "carrier_party_id"];
+    string carrier_role_type_id = 4 [json_name = "carrier_role_type_id"];
+    string product_store_ship_meth_id = 5 [json_name = "product_store_ship_meth_id"];
+    string product_store_id = 6 [json_name = "product_store_id"];
     string party_id = 7 [json_name = "party_id"];
-    string role_type_id = 8 [json_name = "role_type_id"]; // RoleType
-    string geo_id_to = 9 [json_name = "geo_id_to"]; // Geo
-    string geo_id_from = 10 [json_name = "geo_id_from"]; // Geo    
+    string role_type_id = 8 [json_name = "role_type_id"];
+    string geo_id_to = 9 [json_name = "geo_id_to"];
+    string geo_id_from = 10 [json_name = "geo_id_from"];
     string weight_break_id = 11 [json_name = "weight_break_id"];
-    string weight_uom_id = 12 [json_name = "weight_uom_id"]; // Uom    
-    routines.Currency weight_unit_price = 13 [json_name = "weight_unit_price"];    
+    string weight_uom_id = 12 [json_name = "weight_uom_id"];
+    routines.Currency weight_unit_price = 13 [json_name = "weight_unit_price"];
     string quantity_break_id = 14 [json_name = "quantity_break_id"];
-    string quantity_uom_id = 15 [json_name = "quantity_uom_id"]; // Uom    
-    routines.Currency quantity_unit_price = 16 [json_name = "quantity_unit_price"];    
+    string quantity_uom_id = 15 [json_name = "quantity_uom_id"];
+    routines.Currency quantity_unit_price = 16 [json_name = "quantity_unit_price"];
     string price_break_id = 17 [json_name = "price_break_id"];
-    string price_uom_id = 18 [json_name = "price_uom_id"]; // Uom    
-    routines.Currency price_unit_price = 19 [json_name = "price_unit_price"];    
-    routines.Currency order_flat_price = 20 [json_name = "order_flat_price"];    
-    routines.FixedPoint order_price_percent = 21 [json_name = "order_price_percent"];    
-    routines.Currency order_item_flat_price = 22 [json_name = "order_item_flat_price"];    
-    routines.FixedPoint shipping_price_percent = 23 [json_name = "shipping_price_percent"];    
-    string product_feature_group_id = 24 [json_name = "product_feature_group_id"];    
-    routines.FixedPoint oversize_unit = 25 [json_name = "oversize_unit"];    
-    routines.Currency oversize_price = 26 [json_name = "oversize_price"];    
-    routines.FixedPoint feature_percent = 27 [json_name = "feature_percent"];    
-    routines.Currency feature_price = 28 [json_name = "feature_price"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 29 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 30 [json_name = "created_tx_stamp"];    
-    string tenant_id = 31 [json_name = "tenant_id"]; 
+    string price_uom_id = 18 [json_name = "price_uom_id"];
+    routines.Currency price_unit_price = 19 [json_name = "price_unit_price"];
+    routines.Currency order_flat_price = 20 [json_name = "order_flat_price"];
+    routines.FixedPoint order_price_percent = 21 [json_name = "order_price_percent"];
+    routines.Currency order_item_flat_price = 22 [json_name = "order_item_flat_price"];
+    routines.FixedPoint shipping_price_percent = 23 [json_name = "shipping_price_percent"];
+    string product_feature_group_id = 24 [json_name = "product_feature_group_id"];
+    routines.FixedPoint oversize_unit = 25 [json_name = "oversize_unit"];
+    routines.Currency oversize_price = 26 [json_name = "oversize_price"];
+    routines.FixedPoint feature_percent = 27 [json_name = "feature_percent"];
+    routines.Currency feature_price = 28 [json_name = "feature_price"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 29 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 30 [json_name = "created_tx_stamp"];
+    string tenant_id = 31 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 46;
@@ -249,20 +249,20 @@ message ShipmentItemData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentItemSeqId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];    
-    string product_id = 3 [json_name = "product_id"];    
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];    
-    string shipment_content_description = 5 [json_name = "shipment_content_description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
+    string product_id = 3 [json_name = "product_id"];
+    routines.FixedPoint quantity = 4 [json_name = "quantity"];
+    string shipment_content_description = 5 [json_name = "shipment_content_description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
 }
 
 
@@ -286,14 +286,14 @@ message ShipmentItemBillingData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentItemSeqId, invoiceId, invoiceItemSeqId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];    
-    string invoice_id = 3 [json_name = "invoice_id"];    
-    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
+    string invoice_id = 3 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -321,13 +321,13 @@ message ShipmentMethodTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: shipmentMethodTypeId
-        
-    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id", (google.api.graphql.relay_options).id = true];    
-    string description = 2 [json_name = "description"];    
-    int64 sequence_num = 3 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
-    string tenant_id = 6 [json_name = "tenant_id"]; 
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [json_name = "description"];
+    int64 sequence_num = 3 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    string tenant_id = 6 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -353,26 +353,26 @@ message ShipmentPackageData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentPackageSeqId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];    
-    string shipment_box_type_id = 3 [json_name = "shipment_box_type_id"];    
-    google.protobuf.Timestamp date_created = 4 [json_name = "date_created"];    
-    routines.FixedPoint box_length = 5 [json_name = "box_length"];    
-    routines.FixedPoint box_height = 6 [json_name = "box_height"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+    string shipment_box_type_id = 3 [json_name = "shipment_box_type_id"];
+    google.protobuf.Timestamp date_created = 4 [json_name = "date_created"];
+    routines.FixedPoint box_length = 5 [json_name = "box_length"];
+    routines.FixedPoint box_height = 6 [json_name = "box_height"];
     routines.FixedPoint box_width = 7 [json_name = "box_width"];
-    string dimension_uom_id = 8 [json_name = "dimension_uom_id"]; // Uom    
+    string dimension_uom_id = 8 [json_name = "dimension_uom_id"];
     routines.FixedPoint weight = 9 [json_name = "weight"];
-    string weight_uom_id = 10 [json_name = "weight_uom_id"]; // Uom    
-    routines.Currency insured_value = 11 [json_name = "insured_value"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
+    string weight_uom_id = 10 [json_name = "weight_uom_id"];
+    routines.Currency insured_value = 11 [json_name = "insured_value"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
     string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 21;
-    map<string, google.protobuf.Any> attachments = 22;
+    google.protobuf.Struct extra = 24;
+    map<string, google.protobuf.Any> attachments = 25;
 }
 
 
@@ -396,16 +396,16 @@ message ShipmentPackageContentData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentPackageSeqId, shipmentItemSeqId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];    
-    string shipment_item_seq_id = 3 [json_name = "shipment_item_seq_id"];    
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];    
-    string sub_product_id = 5 [json_name = "sub_product_id"];    
-    routines.FixedPoint sub_product_quantity = 6 [json_name = "sub_product_quantity"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+    string shipment_item_seq_id = 3 [json_name = "shipment_item_seq_id"];
+    routines.FixedPoint quantity = 4 [json_name = "quantity"];
+    string sub_product_id = 5 [json_name = "sub_product_id"];
+    routines.FixedPoint sub_product_quantity = 6 [json_name = "sub_product_quantity"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -434,31 +434,31 @@ message ShipmentPackageRouteSegData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentPackageSeqId, shipmentRouteSegmentId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];    
-    string shipment_route_segment_id = 3 [json_name = "shipment_route_segment_id"];    
-    string tracking_code = 4 [json_name = "tracking_code"];    
-    string box_number = 5 [json_name = "box_number"];    
-    bytes label_image = 6 [json_name = "label_image"];    
-    bytes label_intl_sign_image = 7 [json_name = "label_intl_sign_image"];    
-    string label_html = 8 [json_name = "label_html"];    
-    routines.Indicator label_printed = 9 [json_name = "label_printed"];    
-    bytes international_invoice = 10 [json_name = "international_invoice"];    
-    routines.Currency package_transport_cost = 11 [json_name = "package_transport_cost"];    
-    routines.Currency package_service_cost = 12 [json_name = "package_service_cost"];    
-    routines.Currency package_other_cost = 13 [json_name = "package_other_cost"];    
-    routines.Currency cod_amount = 14 [json_name = "cod_amount"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+    string shipment_route_segment_id = 3 [json_name = "shipment_route_segment_id"];
+    string tracking_code = 4 [json_name = "tracking_code"];
+    string box_number = 5 [json_name = "box_number"];
+    bytes label_image = 6 [json_name = "label_image"];
+    bytes label_intl_sign_image = 7 [json_name = "label_intl_sign_image"];
+    string label_html = 8 [json_name = "label_html"];
+    routines.Indicator label_printed = 9 [json_name = "label_printed"];
+    bytes international_invoice = 10 [json_name = "international_invoice"];
+    routines.Currency package_transport_cost = 11 [json_name = "package_transport_cost"];
+    routines.Currency package_service_cost = 12 [json_name = "package_service_cost"];
+    routines.Currency package_other_cost = 13 [json_name = "package_other_cost"];
+    routines.Currency cod_amount = 14 [json_name = "cod_amount"];
     routines.Currency insured_amount = 15 [json_name = "insured_amount"];
-    string currency_uom_id = 16 [json_name = "currency_uom_id"]; // Uom    
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];    
+    string currency_uom_id = 16 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
     string id = 19 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 23;
-    map<string, google.protobuf.Any> attachments = 24;
+    google.protobuf.Struct extra = 24;
+    map<string, google.protobuf.Any> attachments = 25;
 }
 
 
@@ -482,51 +482,51 @@ message ShipmentRouteSegmentData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentRouteSegmentId
     // fields
-        
-    string shipment_id = 1 [json_name = "shipment_id"];    
-    string shipment_route_segment_id = 2 [json_name = "shipment_route_segment_id"];    
-    string delivery_id = 3 [json_name = "delivery_id"];    
-    string origin_facility_id = 4 [json_name = "origin_facility_id"];    
-    string dest_facility_id = 5 [json_name = "dest_facility_id"];    
-    string origin_contact_mech_id = 6 [json_name = "origin_contact_mech_id"];    
-    string origin_telecom_number_id = 7 [json_name = "origin_telecom_number_id"];    
-    string dest_contact_mech_id = 8 [json_name = "dest_contact_mech_id"];    
-    string dest_telecom_number_id = 9 [json_name = "dest_telecom_number_id"];    
-    string carrier_party_id = 10 [json_name = "carrier_party_id"];    
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_route_segment_id = 2 [json_name = "shipment_route_segment_id"];
+    string delivery_id = 3 [json_name = "delivery_id"];
+    string origin_facility_id = 4 [json_name = "origin_facility_id"];
+    string dest_facility_id = 5 [json_name = "dest_facility_id"];
+    string origin_contact_mech_id = 6 [json_name = "origin_contact_mech_id"];
+    string origin_telecom_number_id = 7 [json_name = "origin_telecom_number_id"];
+    string dest_contact_mech_id = 8 [json_name = "dest_contact_mech_id"];
+    string dest_telecom_number_id = 9 [json_name = "dest_telecom_number_id"];
+    string carrier_party_id = 10 [json_name = "carrier_party_id"];
     string shipment_method_type_id = 11 [json_name = "shipment_method_type_id"];
-    string carrier_service_status_id = 12 [json_name = "carrier_service_status_id"]; // StatusItem    
-    string carrier_delivery_zone = 13 [json_name = "carrier_delivery_zone"];    
-    string carrier_restriction_codes = 14 [json_name = "carrier_restriction_codes"];    
-    string carrier_restriction_desc = 15 [json_name = "carrier_restriction_desc"];    
+    string carrier_service_status_id = 12 [json_name = "carrier_service_status_id"];
+    string carrier_delivery_zone = 13 [json_name = "carrier_delivery_zone"];
+    string carrier_restriction_codes = 14 [json_name = "carrier_restriction_codes"];
+    string carrier_restriction_desc = 15 [json_name = "carrier_restriction_desc"];
     routines.FixedPoint billing_weight = 16 [json_name = "billing_weight"];
-    string billing_weight_uom_id = 17 [json_name = "billing_weight_uom_id"]; // Uom    
-    routines.Currency actual_transport_cost = 18 [json_name = "actual_transport_cost"];    
-    routines.Currency actual_service_cost = 19 [json_name = "actual_service_cost"];    
-    routines.Currency actual_other_cost = 20 [json_name = "actual_other_cost"];    
+    string billing_weight_uom_id = 17 [json_name = "billing_weight_uom_id"];
+    routines.Currency actual_transport_cost = 18 [json_name = "actual_transport_cost"];
+    routines.Currency actual_service_cost = 19 [json_name = "actual_service_cost"];
+    routines.Currency actual_other_cost = 20 [json_name = "actual_other_cost"];
     routines.Currency actual_cost = 21 [json_name = "actual_cost"];
-    string currency_uom_id = 22 [json_name = "currency_uom_id"]; // Uom    
-    google.protobuf.Timestamp actual_start_date = 23 [json_name = "actual_start_date"];    
-    google.protobuf.Timestamp actual_arrival_date = 24 [json_name = "actual_arrival_date"];    
-    google.protobuf.Timestamp estimated_start_date = 25 [json_name = "estimated_start_date"];    
-    google.protobuf.Timestamp estimated_arrival_date = 26 [json_name = "estimated_arrival_date"];    
-    string tracking_id_number = 27 [json_name = "tracking_id_number"];    
-    string tracking_digest = 28 [json_name = "tracking_digest"];    
-    string updated_by_user_login_id = 29 [json_name = "updated_by_user_login_id"];    
-    google.protobuf.Timestamp last_updated_date = 30 [json_name = "last_updated_date"];    
-    string home_delivery_type = 31 [json_name = "home_delivery_type"];    
-    google.protobuf.Timestamp home_delivery_date = 32 [json_name = "home_delivery_date"];    
-    string third_party_account_number = 33 [json_name = "third_party_account_number"];    
-    string third_party_postal_code = 34 [json_name = "third_party_postal_code"];    
-    string third_party_country_geo_code = 35 [json_name = "third_party_country_geo_code"];    
-    bytes ups_high_value_report = 36 [json_name = "ups_high_value_report"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 37 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 38 [json_name = "created_tx_stamp"];    
+    string currency_uom_id = 22 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp actual_start_date = 23 [json_name = "actual_start_date"];
+    google.protobuf.Timestamp actual_arrival_date = 24 [json_name = "actual_arrival_date"];
+    google.protobuf.Timestamp estimated_start_date = 25 [json_name = "estimated_start_date"];
+    google.protobuf.Timestamp estimated_arrival_date = 26 [json_name = "estimated_arrival_date"];
+    string tracking_id_number = 27 [json_name = "tracking_id_number"];
+    string tracking_digest = 28 [json_name = "tracking_digest"];
+    string updated_by_user_login_id = 29 [json_name = "updated_by_user_login_id"];
+    google.protobuf.Timestamp last_updated_date = 30 [json_name = "last_updated_date"];
+    string home_delivery_type = 31 [json_name = "home_delivery_type"];
+    google.protobuf.Timestamp home_delivery_date = 32 [json_name = "home_delivery_date"];
+    string third_party_account_number = 33 [json_name = "third_party_account_number"];
+    string third_party_postal_code = 34 [json_name = "third_party_postal_code"];
+    string third_party_country_geo_code = 35 [json_name = "third_party_country_geo_code"];
+    bytes ups_high_value_report = 36 [json_name = "ups_high_value_report"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 37 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 38 [json_name = "created_tx_stamp"];
     string id = 39 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 54;
-    map<string, google.protobuf.Any> attachments = 55;
+    google.protobuf.Struct extra = 58;
+    map<string, google.protobuf.Any> attachments = 59;
 }
 
 
@@ -550,19 +550,19 @@ message ShipmentStatusData {
     option (routines.has_table) = true;
     // keys: statusId, shipmentId
     // fields
-    
-    string status_id = 1 [json_name = "status_id"]; // StatusItem    
-    string shipment_id = 2 [json_name = "shipment_id"];    
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];    
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string status_id = 1 [json_name = "status_id"];
+    string shipment_id = 2 [json_name = "shipment_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -586,25 +586,25 @@ message ShipmentTimeEstimateData {
     option (routines.has_table) = true;
     // keys: shipmentMethodTypeId, partyId, roleTypeId, geoIdTo, geoIdFrom, fromDate
     // fields
-        
-    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];    
-    string party_id = 2 [json_name = "party_id"];    
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];
+    string party_id = 2 [json_name = "party_id"];
     string role_type_id = 3 [json_name = "role_type_id"];
-    string geo_id_to = 4 [json_name = "geo_id_to"]; // Geo
-    string geo_id_from = 5 [json_name = "geo_id_from"]; // Geo    
-    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];    
+    string geo_id_to = 4 [json_name = "geo_id_to"];
+    string geo_id_from = 5 [json_name = "geo_id_from"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];
     routines.FixedPoint lead_time = 8 [json_name = "lead_time"];
-    string lead_time_uom_id = 9 [json_name = "lead_time_uom_id"]; // Uom    
-    int64 sequence_number = 10 [json_name = "sequence_number"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string lead_time_uom_id = 9 [json_name = "lead_time_uom_id"];
+    int64 sequence_number = 10 [json_name = "sequence_number"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
     string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
 }
 
 

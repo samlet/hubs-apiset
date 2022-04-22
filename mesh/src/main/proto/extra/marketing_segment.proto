@@ -26,18 +26,18 @@ message SegmentGroupData {
     option (routines.has_table) = true;
     // keys: segmentGroupId
     // fields
-        
     string segment_group_id = 1 [json_name = "segment_group_id", (google.api.graphql.relay_options).id = true];
-    string segment_group_type_id = 2 [json_name = "segment_group_type_id"]; // SegmentGroupType    
-    string description = 3 [json_name = "description"];    
-    string product_store_id = 4 [json_name = "product_store_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    string segment_group_type_id = 2 [json_name = "segment_group_type_id"];
+    string description = 3 [json_name = "description"];
+    string product_store_id = 4 [json_name = "product_store_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
@@ -61,17 +61,17 @@ message SegmentGroupClassificationData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, partyClassificationGroupId
     // fields
-        
-    string segment_group_id = 1 [json_name = "segment_group_id"];    
-    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string segment_group_id = 1 [json_name = "segment_group_id"];
+    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -95,17 +95,17 @@ message SegmentGroupGeoData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, geoId
     // fields
-        
     string segment_group_id = 1 [json_name = "segment_group_id"];
-    string geo_id = 2 [json_name = "geo_id"]; // Geo    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string geo_id = 2 [json_name = "geo_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -129,18 +129,18 @@ message SegmentGroupRoleData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, partyId, roleTypeId
     // fields
-        
-    string segment_group_id = 1 [json_name = "segment_group_id"];    
+    string segment_group_id = 1 [json_name = "segment_group_id"];
     string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 

@@ -25,14 +25,14 @@ message EmplPositionTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: emplPositionTypeId
-        
-    string empl_position_type_id = 1 [json_name = "empl_position_type_id", (google.api.graphql.relay_options).id = true];    
-    string parent_type_id = 2 [json_name = "parent_type_id"];    
-    routines.Indicator has_table = 3 [json_name = "has_table"];    
-    string description = 4 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string tenant_id = 7 [json_name = "tenant_id"]; 
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    routines.Indicator has_table = 3 [json_name = "has_table"];
+    string description = 4 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    string tenant_id = 7 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 16;

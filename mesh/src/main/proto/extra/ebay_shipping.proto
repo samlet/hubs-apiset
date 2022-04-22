@@ -26,23 +26,23 @@ message EbayShippingMethodData {
     option (routines.has_table) = true;
     // keys: shipmentMethodName, productStoreId
     // fields
-        
-    string shipment_method_name = 1 [json_name = "shipment_method_name"];    
-    string product_store_id = 2 [json_name = "product_store_id"];    
-    routines.Currency amount = 3 [json_name = "amount"];    
-    routines.Currency additional_amount = 4 [json_name = "additional_amount"];    
+    string shipment_method_name = 1 [json_name = "shipment_method_name"];
+    string product_store_id = 2 [json_name = "product_store_id"];
+    routines.Currency amount = 3 [json_name = "amount"];
+    routines.Currency additional_amount = 4 [json_name = "additional_amount"];
     routines.FixedPoint additional_percent = 5 [json_name = "additional_percent"];
-    string method_type_enum_id = 6 [json_name = "method_type_enum_id"]; // Enumeration    
-    string carrier_party_id = 7 [json_name = "carrier_party_id"];    
-    string shipment_method_type_id = 8 [json_name = "shipment_method_type_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string method_type_enum_id = 6 [json_name = "method_type_enum_id"];
+    string carrier_party_id = 7 [json_name = "carrier_party_id"];
+    string shipment_method_type_id = 8 [json_name = "shipment_method_type_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
     string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 

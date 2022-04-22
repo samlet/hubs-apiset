@@ -26,33 +26,33 @@ message MarketingCampaignData {
     option (routines.has_table) = true;
     // keys: marketingCampaignId
     // fields
-        
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id", (google.api.graphql.relay_options).id = true];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id", (google.api.graphql.relay_options).id = true];
     string parent_campaign_id = 2 [json_name = "parent_campaign_id"];
-    string status_id = 3 [json_name = "status_id"]; // StatusItem    
-    string campaign_name = 4 [json_name = "campaign_name"];    
-    string campaign_summary = 5 [json_name = "campaign_summary"];    
-    routines.Currency budgeted_cost = 6 [json_name = "budgeted_cost"];    
-    routines.Currency actual_cost = 7 [json_name = "actual_cost"];    
+    string status_id = 3 [json_name = "status_id"];
+    string campaign_name = 4 [json_name = "campaign_name"];
+    string campaign_summary = 5 [json_name = "campaign_summary"];
+    routines.Currency budgeted_cost = 6 [json_name = "budgeted_cost"];
+    routines.Currency actual_cost = 7 [json_name = "actual_cost"];
     routines.Currency estimated_cost = 8 [json_name = "estimated_cost"];
-    string currency_uom_id = 9 [json_name = "currency_uom_id"]; // Uom    
-    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];    
-    routines.Indicator is_active = 12 [json_name = "is_active"];    
-    string converted_leads = 13 [json_name = "converted_leads"];    
-    double expected_response_percent = 14 [json_name = "expected_response_percent"];    
-    routines.Currency expected_revenue = 15 [json_name = "expected_revenue"];    
-    int64 num_sent = 16 [json_name = "num_sent"];    
-    google.protobuf.Timestamp start_date = 17 [json_name = "start_date"];    
-    string created_by_user_login = 18 [json_name = "created_by_user_login"];    
-    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];    
+    string currency_uom_id = 9 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];
+    routines.Indicator is_active = 12 [json_name = "is_active"];
+    string converted_leads = 13 [json_name = "converted_leads"];
+    double expected_response_percent = 14 [json_name = "expected_response_percent"];
+    routines.Currency expected_revenue = 15 [json_name = "expected_revenue"];
+    int64 num_sent = 16 [json_name = "num_sent"];
+    google.protobuf.Timestamp start_date = 17 [json_name = "start_date"];
+    string created_by_user_login = 18 [json_name = "created_by_user_login"];
+    string last_modified_by_user_login = 19 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 22;
-    map<string, google.protobuf.Any> attachments = 23;
+    google.protobuf.Struct extra = 33;
+    map<string, google.protobuf.Any> attachments = 34;
 }
 
 
@@ -76,17 +76,17 @@ message MarketingCampaignNoteData {
     option (routines.has_table) = true;
     // keys: marketingCampaignId, noteId
     // fields
-        
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
-    string note_id = 2 [json_name = "note_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];
+    string note_id = 2 [json_name = "note_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -110,19 +110,19 @@ message MarketingCampaignPriceData {
     option (routines.has_table) = true;
     // keys: marketingCampaignId, productPriceRuleId, fromDate
     // fields
-        
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
-    string product_price_rule_id = 2 [json_name = "product_price_rule_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];
+    string product_price_rule_id = 2 [json_name = "product_price_rule_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -146,19 +146,19 @@ message MarketingCampaignPromoData {
     option (routines.has_table) = true;
     // keys: marketingCampaignId, productPromoId, fromDate
     // fields
-        
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
-    string product_promo_id = 2 [json_name = "product_promo_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];
+    string product_promo_id = 2 [json_name = "product_promo_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -182,20 +182,20 @@ message MarketingCampaignRoleData {
     option (routines.has_table) = true;
     // keys: marketingCampaignId, partyId, roleTypeId, fromDate
     // fields
-        
-    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];    
+    string marketing_campaign_id = 1 [json_name = "marketing_campaign_id"];
     string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 

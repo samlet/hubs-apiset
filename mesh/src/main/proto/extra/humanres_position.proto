@@ -26,28 +26,28 @@ message EmplPositionData {
     option (routines.has_table) = true;
     // keys: emplPositionId
     // fields
-        
     string empl_position_id = 1 [json_name = "empl_position_id", (google.api.graphql.relay_options).id = true];
-    string status_id = 2 [json_name = "status_id"]; // StatusItem    
-    string party_id = 3 [json_name = "party_id"];    
-    string budget_id = 4 [json_name = "budget_id"];    
-    string budget_item_seq_id = 5 [json_name = "budget_item_seq_id"];    
-    string empl_position_type_id = 6 [json_name = "empl_position_type_id"];    
-    google.protobuf.Timestamp estimated_from_date = 7 [json_name = "estimated_from_date"];    
-    google.protobuf.Timestamp estimated_thru_date = 8 [json_name = "estimated_thru_date"];    
-    routines.Indicator salary_flag = 9 [json_name = "salary_flag"];    
-    routines.Indicator exempt_flag = 10 [json_name = "exempt_flag"];    
-    routines.Indicator fulltime_flag = 11 [json_name = "fulltime_flag"];    
-    routines.Indicator temporary_flag = 12 [json_name = "temporary_flag"];    
-    google.protobuf.Timestamp actual_from_date = 13 [json_name = "actual_from_date"];    
-    google.protobuf.Timestamp actual_thru_date = 14 [json_name = "actual_thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
+    string status_id = 2 [json_name = "status_id"];
+    string party_id = 3 [json_name = "party_id"];
+    string budget_id = 4 [json_name = "budget_id"];
+    string budget_item_seq_id = 5 [json_name = "budget_item_seq_id"];
+    string empl_position_type_id = 6 [json_name = "empl_position_type_id"];
+    google.protobuf.Timestamp estimated_from_date = 7 [json_name = "estimated_from_date"];
+    google.protobuf.Timestamp estimated_thru_date = 8 [json_name = "estimated_thru_date"];
+    routines.Indicator salary_flag = 9 [json_name = "salary_flag"];
+    routines.Indicator exempt_flag = 10 [json_name = "exempt_flag"];
+    routines.Indicator fulltime_flag = 11 [json_name = "fulltime_flag"];
+    routines.Indicator temporary_flag = 12 [json_name = "temporary_flag"];
+    google.protobuf.Timestamp actual_from_date = 13 [json_name = "actual_from_date"];
+    google.protobuf.Timestamp actual_thru_date = 14 [json_name = "actual_thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 19;
-    map<string, google.protobuf.Any> attachments = 20;
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
 }
 
 
@@ -71,18 +71,18 @@ message EmplPositionClassTypeData {
     option (routines.has_table) = true;
     // keys: emplPositionClassTypeId
     // fields
-        
-    string empl_position_class_type_id = 1 [json_name = "empl_position_class_type_id", (google.api.graphql.relay_options).id = true];    
-    string parent_type_id = 2 [json_name = "parent_type_id"];    
-    routines.Indicator has_table = 3 [json_name = "has_table"];    
-    string description = 4 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    string empl_position_class_type_id = 1 [json_name = "empl_position_class_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    routines.Indicator has_table = 3 [json_name = "has_table"];
+    string description = 4 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -106,20 +106,20 @@ message EmplPositionFulfillmentData {
     option (routines.has_table) = true;
     // keys: emplPositionId, partyId, fromDate
     // fields
-        
-    string empl_position_id = 1 [json_name = "empl_position_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string empl_position_id = 1 [json_name = "empl_position_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -143,21 +143,21 @@ message EmplPositionReportingStructData {
     option (routines.has_table) = true;
     // keys: emplPositionIdReportingTo, emplPositionIdManagedBy, fromDate
     // fields
-        
-    string empl_position_id_reporting_to = 1 [json_name = "empl_position_id_reporting_to"];    
-    string empl_position_id_managed_by = 2 [json_name = "empl_position_id_managed_by"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    routines.Indicator primary_flag = 6 [json_name = "primary_flag"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string empl_position_id_reporting_to = 1 [json_name = "empl_position_id_reporting_to"];
+    string empl_position_id_managed_by = 2 [json_name = "empl_position_id_managed_by"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    routines.Indicator primary_flag = 6 [json_name = "primary_flag"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
@@ -181,20 +181,20 @@ message EmplPositionResponsibilityData {
     option (routines.has_table) = true;
     // keys: emplPositionId, responsibilityTypeId, fromDate
     // fields
-        
     string empl_position_id = 1 [json_name = "empl_position_id"];
-    string responsibility_type_id = 2 [json_name = "responsibility_type_id"]; // ResponsibilityType    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string responsibility_type_id = 2 [json_name = "responsibility_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -218,20 +218,20 @@ message EmplPositionTypeClassData {
     option (routines.has_table) = true;
     // keys: emplPositionTypeId, emplPositionClassTypeId, fromDate
     // fields
-        
-    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];    
-    string empl_position_class_type_id = 2 [json_name = "empl_position_class_type_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    double standard_hours_per_week = 5 [json_name = "standard_hours_per_week"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
+    string empl_position_class_type_id = 2 [json_name = "empl_position_class_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    double standard_hours_per_week = 5 [json_name = "standard_hours_per_week"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -255,21 +255,21 @@ message EmplPositionTypeRateData {
     option (routines.has_table) = true;
     // keys: emplPositionTypeId, rateTypeId, fromDate
     // fields
-        
     string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
-    string rate_type_id = 2 [json_name = "rate_type_id"]; // RateType    
-    string pay_grade_id = 3 [json_name = "pay_grade_id"];    
-    string salary_step_seq_id = 4 [json_name = "salary_step_seq_id"];    
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string rate_type_id = 2 [json_name = "rate_type_id"];
+    string pay_grade_id = 3 [json_name = "pay_grade_id"];
+    string salary_step_seq_id = 4 [json_name = "salary_step_seq_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 
@@ -293,20 +293,20 @@ message ValidResponsibilityData {
     option (routines.has_table) = true;
     // keys: emplPositionTypeId, responsibilityTypeId, fromDate
     // fields
-        
     string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
-    string responsibility_type_id = 2 [json_name = "responsibility_type_id"]; // ResponsibilityType    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string responsibility_type_id = 2 [json_name = "responsibility_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 

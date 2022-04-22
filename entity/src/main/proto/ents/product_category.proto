@@ -25,21 +25,21 @@ message ProductCategoryFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productCategoryId
-        
-    string product_category_id = 1 [json_name = "product_category_id", (google.api.graphql.relay_options).id = true];    
-    string product_category_type_id = 2 [json_name = "product_category_type_id"];    
-    string primary_parent_category_id = 3 [json_name = "primary_parent_category_id"];    
-    string category_name = 4 [json_name = "category_name"];    
-    string description = 5 [json_name = "description"];    
-    string long_description = 6 [json_name = "long_description"];    
-    string category_image_url = 7 [json_name = "category_image_url"];    
-    string link_one_image_url = 8 [json_name = "link_one_image_url"];    
-    string link_two_image_url = 9 [json_name = "link_two_image_url"];    
-    string detail_screen = 10 [json_name = "detail_screen"];    
-    routines.Indicator show_in_select = 11 [json_name = "show_in_select"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string tenant_id = 14 [json_name = "tenant_id"]; 
+    string product_category_id = 1 [json_name = "product_category_id", (google.api.graphql.relay_options).id = true];
+    string product_category_type_id = 2 [json_name = "product_category_type_id"];
+    string primary_parent_category_id = 3 [json_name = "primary_parent_category_id"];
+    string category_name = 4 [json_name = "category_name"];
+    string description = 5 [json_name = "description"];
+    string long_description = 6 [json_name = "long_description"];
+    string category_image_url = 7 [json_name = "category_image_url"];
+    string link_one_image_url = 8 [json_name = "link_one_image_url"];
+    string link_two_image_url = 9 [json_name = "link_two_image_url"];
+    string detail_screen = 10 [json_name = "detail_screen"];
+    routines.Indicator show_in_select = 11 [json_name = "show_in_select"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+    string tenant_id = 14 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 40;
@@ -65,24 +65,24 @@ message ProductCategoryContentData {
     option (routines.has_table) = true;
     // keys: productCategoryId, contentId, prodCatContentTypeId, fromDate
     // fields
-        
-    string product_category_id = 1 [json_name = "product_category_id"];    
+    string product_category_id = 1 [json_name = "product_category_id"];
     string content_id = 2 [json_name = "content_id"];
-    string prod_cat_content_type_id = 3 [json_name = "prod_cat_content_type_id"]; // ProductCategoryContentType    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    google.protobuf.Timestamp purchase_from_date = 6 [json_name = "purchase_from_date"];    
-    google.protobuf.Timestamp purchase_thru_date = 7 [json_name = "purchase_thru_date"];    
-    int64 use_count_limit = 8 [json_name = "use_count_limit"];    
-    routines.FixedPoint use_days_limit = 9 [json_name = "use_days_limit"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string prod_cat_content_type_id = 3 [json_name = "prod_cat_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    google.protobuf.Timestamp purchase_from_date = 6 [json_name = "purchase_from_date"];
+    google.protobuf.Timestamp purchase_thru_date = 7 [json_name = "purchase_thru_date"];
+    int64 use_count_limit = 8 [json_name = "use_count_limit"];
+    routines.FixedPoint use_days_limit = 9 [json_name = "use_days_limit"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
     string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -106,28 +106,28 @@ message ProductCategoryLinkData {
     option (routines.has_table) = true;
     // keys: productCategoryId, linkSeqId, fromDate
     // fields
-        
-    string product_category_id = 1 [json_name = "product_category_id"];    
-    string link_seq_id = 2 [json_name = "link_seq_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    string title_text = 7 [json_name = "title_text"];    
-    string detail_text = 8 [json_name = "detail_text"];    
-    string image_url = 9 [json_name = "image_url"];    
+    string product_category_id = 1 [json_name = "product_category_id"];
+    string link_seq_id = 2 [json_name = "link_seq_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    string title_text = 7 [json_name = "title_text"];
+    string detail_text = 8 [json_name = "detail_text"];
+    string image_url = 9 [json_name = "image_url"];
     string image_two_url = 10 [json_name = "image_two_url"];
-    string link_type_enum_id = 11 [json_name = "link_type_enum_id"]; // Enumeration    
-    string link_info = 12 [json_name = "link_info"];    
-    string detail_sub_screen = 13 [json_name = "detail_sub_screen"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];    
+    string link_type_enum_id = 11 [json_name = "link_type_enum_id"];
+    string link_info = 12 [json_name = "link_info"];
+    string detail_sub_screen = 13 [json_name = "detail_sub_screen"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
     string id = 16 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 18;
-    map<string, google.protobuf.Any> attachments = 19;
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
 }
 
 
@@ -150,18 +150,18 @@ message ProductCategoryMemberFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productCategoryId, productId, fromDate
-        
-    string product_category_id = 1 [json_name = "product_category_id"];    
-    string product_id = 2 [json_name = "product_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string comments = 5 [json_name = "comments"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    routines.FixedPoint quantity = 7 [json_name = "quantity"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];    
-    string tenant_id = 11 [json_name = "tenant_id"]; 
+    string product_category_id = 1 [json_name = "product_category_id"];
+    string product_id = 2 [json_name = "product_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string comments = 5 [json_name = "comments"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    routines.FixedPoint quantity = 7 [json_name = "quantity"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 11 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -187,21 +187,21 @@ message ProductCategoryRoleData {
     option (routines.has_table) = true;
     // keys: productCategoryId, partyId, roleTypeId, fromDate
     // fields
-        
-    string product_category_id = 1 [json_name = "product_category_id"];    
+    string product_category_id = 1 [json_name = "product_category_id"];
     string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    string comments = 6 [json_name = "comments"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    string comments = 6 [json_name = "comments"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
 }
 
 
@@ -224,16 +224,16 @@ message ProductCategoryRollupFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productCategoryId, parentProductCategoryId, fromDate
-        
-    string product_category_id = 1 [json_name = "product_category_id"];    
-    string parent_product_category_id = 2 [json_name = "parent_product_category_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    int64 sequence_num = 5 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];    
-    string tenant_id = 9 [json_name = "tenant_id"]; 
+    string product_category_id = 1 [json_name = "product_category_id"];
+    string parent_product_category_id = 2 [json_name = "parent_product_category_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    int64 sequence_num = 5 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 16;

@@ -26,19 +26,19 @@ message CustomScreenData {
     option (routines.has_table) = true;
     // keys: customScreenId
     // fields
-        
     string custom_screen_id = 1 [json_name = "custom_screen_id", (google.api.graphql.relay_options).id = true];
-    string custom_screen_type_id = 2 [json_name = "custom_screen_type_id"]; // CustomScreenType    
-    string custom_screen_name = 3 [json_name = "custom_screen_name"];    
-    string custom_screen_location = 4 [json_name = "custom_screen_location"];    
-    string description = 5 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    string custom_screen_type_id = 2 [json_name = "custom_screen_type_id"];
+    string custom_screen_name = 3 [json_name = "custom_screen_name"];
+    string custom_screen_location = 4 [json_name = "custom_screen_location"];
+    string description = 5 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 

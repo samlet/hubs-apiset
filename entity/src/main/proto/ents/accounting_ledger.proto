@@ -25,38 +25,38 @@ message AcctgTransFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: acctgTransId
-        
-    string acctg_trans_id = 1 [json_name = "acctg_trans_id", (google.api.graphql.relay_options).id = true];    
-    string acctg_trans_type_id = 2 [json_name = "acctg_trans_type_id"];    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp transaction_date = 4 [json_name = "transaction_date"];    
-    routines.Indicator is_posted = 5 [json_name = "is_posted"];    
-    google.protobuf.Timestamp posted_date = 6 [json_name = "posted_date"];    
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id", (google.api.graphql.relay_options).id = true];
+    string acctg_trans_type_id = 2 [json_name = "acctg_trans_type_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp transaction_date = 4 [json_name = "transaction_date"];
+    routines.Indicator is_posted = 5 [json_name = "is_posted"];
+    google.protobuf.Timestamp posted_date = 6 [json_name = "posted_date"];
     google.protobuf.Timestamp scheduled_posting_date = 7 [json_name = "scheduled_posting_date"];
-    string gl_journal_id = 8 [json_name = "gl_journal_id"]; // GlJournal
-    string gl_fiscal_type_id = 9 [json_name = "gl_fiscal_type_id"]; // GlFiscalType    
-    string voucher_ref = 10 [json_name = "voucher_ref"];    
+    string gl_journal_id = 8 [json_name = "gl_journal_id"];
+    string gl_fiscal_type_id = 9 [json_name = "gl_fiscal_type_id"];
+    string voucher_ref = 10 [json_name = "voucher_ref"];
     google.protobuf.Timestamp voucher_date = 11 [json_name = "voucher_date"];
-    string group_status_id = 12 [json_name = "group_status_id"]; // StatusItem    
-    string fixed_asset_id = 13 [json_name = "fixed_asset_id"];    
-    string inventory_item_id = 14 [json_name = "inventory_item_id"];    
-    string physical_inventory_id = 15 [json_name = "physical_inventory_id"];    
+    string group_status_id = 12 [json_name = "group_status_id"];
+    string fixed_asset_id = 13 [json_name = "fixed_asset_id"];
+    string inventory_item_id = 14 [json_name = "inventory_item_id"];
+    string physical_inventory_id = 15 [json_name = "physical_inventory_id"];
     string party_id = 16 [json_name = "party_id"];
-    string role_type_id = 17 [json_name = "role_type_id"]; // RoleType    
-    string invoice_id = 18 [json_name = "invoice_id"];    
-    string payment_id = 19 [json_name = "payment_id"];    
-    string fin_account_trans_id = 20 [json_name = "fin_account_trans_id"];    
-    string shipment_id = 21 [json_name = "shipment_id"];    
-    string receipt_id = 22 [json_name = "receipt_id"];    
-    string work_effort_id = 23 [json_name = "work_effort_id"];    
-    string their_acctg_trans_id = 24 [json_name = "their_acctg_trans_id"];    
-    google.protobuf.Timestamp created_date = 25 [json_name = "created_date"];    
-    string created_by_user_login = 26 [json_name = "created_by_user_login"];    
-    google.protobuf.Timestamp last_modified_date = 27 [json_name = "last_modified_date"];    
-    string last_modified_by_user_login = 28 [json_name = "last_modified_by_user_login"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 29 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 30 [json_name = "created_tx_stamp"];    
-    string tenant_id = 31 [json_name = "tenant_id"]; 
+    string role_type_id = 17 [json_name = "role_type_id"];
+    string invoice_id = 18 [json_name = "invoice_id"];
+    string payment_id = 19 [json_name = "payment_id"];
+    string fin_account_trans_id = 20 [json_name = "fin_account_trans_id"];
+    string shipment_id = 21 [json_name = "shipment_id"];
+    string receipt_id = 22 [json_name = "receipt_id"];
+    string work_effort_id = 23 [json_name = "work_effort_id"];
+    string their_acctg_trans_id = 24 [json_name = "their_acctg_trans_id"];
+    google.protobuf.Timestamp created_date = 25 [json_name = "created_date"];
+    string created_by_user_login = 26 [json_name = "created_by_user_login"];
+    google.protobuf.Timestamp last_modified_date = 27 [json_name = "last_modified_date"];
+    string last_modified_by_user_login = 28 [json_name = "last_modified_by_user_login"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 29 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 30 [json_name = "created_tx_stamp"];
+    string tenant_id = 31 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 54;
@@ -82,40 +82,40 @@ message AcctgTransEntryData {
     option (routines.has_table) = true;
     // keys: acctgTransId, acctgTransEntrySeqId
     // fields
-        
-    string acctg_trans_id = 1 [json_name = "acctg_trans_id"];    
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id"];
     string acctg_trans_entry_seq_id = 2 [json_name = "acctg_trans_entry_seq_id"];
-    string acctg_trans_entry_type_id = 3 [json_name = "acctg_trans_entry_type_id"]; // AcctgTransEntryType    
-    string description = 4 [json_name = "description"];    
-    string voucher_ref = 5 [json_name = "voucher_ref"];    
+    string acctg_trans_entry_type_id = 3 [json_name = "acctg_trans_entry_type_id"];
+    string description = 4 [json_name = "description"];
+    string voucher_ref = 5 [json_name = "voucher_ref"];
     string party_id = 6 [json_name = "party_id"];
-    string role_type_id = 7 [json_name = "role_type_id"]; // RoleType    
-    string their_party_id = 8 [json_name = "their_party_id"];    
-    string product_id = 9 [json_name = "product_id"];    
-    string their_product_id = 10 [json_name = "their_product_id"];    
+    string role_type_id = 7 [json_name = "role_type_id"];
+    string their_party_id = 8 [json_name = "their_party_id"];
+    string product_id = 9 [json_name = "product_id"];
+    string their_product_id = 10 [json_name = "their_product_id"];
     string inventory_item_id = 11 [json_name = "inventory_item_id"];
-    string gl_account_type_id = 12 [json_name = "gl_account_type_id"]; // GlAccountType    
-    string gl_account_id = 13 [json_name = "gl_account_id"];    
-    string organization_party_id = 14 [json_name = "organization_party_id"];    
+    string gl_account_type_id = 12 [json_name = "gl_account_type_id"];
+    string gl_account_id = 13 [json_name = "gl_account_id"];
+    string organization_party_id = 14 [json_name = "organization_party_id"];
     routines.Currency amount = 15 [json_name = "amount"];
-    string currency_uom_id = 16 [json_name = "currency_uom_id"]; // Uom    
+    string currency_uom_id = 16 [json_name = "currency_uom_id"];
     routines.Currency orig_amount = 17 [json_name = "orig_amount"];
-    string orig_currency_uom_id = 18 [json_name = "orig_currency_uom_id"]; // Uom    
-    routines.Indicator debit_credit_flag = 19 [json_name = "debit_credit_flag"];    
-    google.type.Date due_date = 20 [json_name = "due_date"];    
-    string group_id = 21 [json_name = "group_id"];    
+    string orig_currency_uom_id = 18 [json_name = "orig_currency_uom_id"];
+    routines.Indicator debit_credit_flag = 19 [json_name = "debit_credit_flag"];
+    google.type.Date due_date = 20 [json_name = "due_date"];
+    string group_id = 21 [json_name = "group_id"];
     string tax_id = 22 [json_name = "tax_id"];
-    string reconcile_status_id = 23 [json_name = "reconcile_status_id"]; // StatusItem
-    string settlement_term_id = 24 [json_name = "settlement_term_id"]; // SettlementTerm    
-    routines.Indicator is_summary = 25 [json_name = "is_summary"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 26 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 27 [json_name = "created_tx_stamp"];    
+    string reconcile_status_id = 23 [json_name = "reconcile_status_id"];
+    string settlement_term_id = 24 [json_name = "settlement_term_id"];
+    routines.Indicator is_summary = 25 [json_name = "is_summary"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 26 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 27 [json_name = "created_tx_stamp"];
     string id = 28 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 34;
-    map<string, google.protobuf.Any> attachments = 35;
+    google.protobuf.Struct extra = 43;
+    map<string, google.protobuf.Any> attachments = 44;
 }
 
 
@@ -138,21 +138,21 @@ message GlAccountFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: glAccountId
-        
     string gl_account_id = 1 [json_name = "gl_account_id", (google.api.graphql.relay_options).id = true];
-    string gl_account_type_id = 2 [json_name = "gl_account_type_id"]; // GlAccountType
-    string gl_account_class_id = 3 [json_name = "gl_account_class_id"]; // GlAccountClass
-    string gl_resource_type_id = 4 [json_name = "gl_resource_type_id"]; // GlResourceType
-    string gl_xbrl_class_id = 5 [json_name = "gl_xbrl_class_id"]; // GlXbrlClass    
-    string parent_gl_account_id = 6 [json_name = "parent_gl_account_id"];    
-    string account_code = 7 [json_name = "account_code"];    
-    string account_name = 8 [json_name = "account_name"];    
-    string description = 9 [json_name = "description"];    
-    string product_id = 10 [json_name = "product_id"];    
-    string external_id = 11 [json_name = "external_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];    
-    string tenant_id = 14 [json_name = "tenant_id"]; 
+    string gl_account_type_id = 2 [json_name = "gl_account_type_id"];
+    string gl_account_class_id = 3 [json_name = "gl_account_class_id"];
+    string gl_resource_type_id = 4 [json_name = "gl_resource_type_id"];
+    string gl_xbrl_class_id = 5 [json_name = "gl_xbrl_class_id"];
+    string parent_gl_account_id = 6 [json_name = "parent_gl_account_id"];
+    string account_code = 7 [json_name = "account_code"];
+    string account_name = 8 [json_name = "account_name"];
+    string description = 9 [json_name = "description"];
+    string product_id = 10 [json_name = "product_id"];
+    string external_id = 11 [json_name = "external_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+    string tenant_id = 14 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 55;
@@ -178,18 +178,18 @@ message GlAccountTypeDefaultData {
     option (routines.has_table) = true;
     // keys: glAccountTypeId, organizationPartyId
     // fields
-    
-    string gl_account_type_id = 1 [json_name = "gl_account_type_id"]; // GlAccountType    
-    string organization_party_id = 2 [json_name = "organization_party_id"];    
-    string gl_account_id = 3 [json_name = "gl_account_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string gl_account_type_id = 1 [json_name = "gl_account_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string gl_account_id = 3 [json_name = "gl_account_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -212,30 +212,30 @@ message PartyAcctgPreferenceFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: partyId
-        
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];    
-    int64 fiscal_year_start_month = 2 [json_name = "fiscal_year_start_month"];    
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+    int64 fiscal_year_start_month = 2 [json_name = "fiscal_year_start_month"];
     int64 fiscal_year_start_day = 3 [json_name = "fiscal_year_start_day"];
-    string tax_form_id = 4 [json_name = "tax_form_id"]; // Enumeration
-    string cogs_method_id = 5 [json_name = "cogs_method_id"]; // Enumeration
-    string base_currency_uom_id = 6 [json_name = "base_currency_uom_id"]; // Uom    
-    string invoice_seq_cust_meth_id = 7 [json_name = "invoice_seq_cust_meth_id"];    
-    string invoice_id_prefix = 8 [json_name = "invoice_id_prefix"];    
-    int64 last_invoice_number = 9 [json_name = "last_invoice_number"];    
-    google.protobuf.Timestamp last_invoice_restart_date = 10 [json_name = "last_invoice_restart_date"];    
-    routines.Indicator use_invoice_id_for_returns = 11 [json_name = "use_invoice_id_for_returns"];    
-    string quote_seq_cust_meth_id = 12 [json_name = "quote_seq_cust_meth_id"];    
-    string quote_id_prefix = 13 [json_name = "quote_id_prefix"];    
-    int64 last_quote_number = 14 [json_name = "last_quote_number"];    
-    string order_seq_cust_meth_id = 15 [json_name = "order_seq_cust_meth_id"];    
-    string order_id_prefix = 16 [json_name = "order_id_prefix"];    
-    int64 last_order_number = 17 [json_name = "last_order_number"];    
+    string tax_form_id = 4 [json_name = "tax_form_id"];
+    string cogs_method_id = 5 [json_name = "cogs_method_id"];
+    string base_currency_uom_id = 6 [json_name = "base_currency_uom_id"];
+    string invoice_seq_cust_meth_id = 7 [json_name = "invoice_seq_cust_meth_id"];
+    string invoice_id_prefix = 8 [json_name = "invoice_id_prefix"];
+    int64 last_invoice_number = 9 [json_name = "last_invoice_number"];
+    google.protobuf.Timestamp last_invoice_restart_date = 10 [json_name = "last_invoice_restart_date"];
+    routines.Indicator use_invoice_id_for_returns = 11 [json_name = "use_invoice_id_for_returns"];
+    string quote_seq_cust_meth_id = 12 [json_name = "quote_seq_cust_meth_id"];
+    string quote_id_prefix = 13 [json_name = "quote_id_prefix"];
+    int64 last_quote_number = 14 [json_name = "last_quote_number"];
+    string order_seq_cust_meth_id = 15 [json_name = "order_seq_cust_meth_id"];
+    string order_id_prefix = 16 [json_name = "order_id_prefix"];
+    int64 last_order_number = 17 [json_name = "last_order_number"];
     string refund_payment_method_id = 18 [json_name = "refund_payment_method_id"];
-    string error_gl_journal_id = 19 [json_name = "error_gl_journal_id"]; // GlJournal    
-    routines.Indicator enable_accounting = 20 [json_name = "enable_accounting"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];    
-    string tenant_id = 23 [json_name = "tenant_id"]; 
+    string error_gl_journal_id = 19 [json_name = "error_gl_journal_id"];
+    routines.Indicator enable_accounting = 20 [json_name = "enable_accounting"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];
+    string tenant_id = 23 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 38;

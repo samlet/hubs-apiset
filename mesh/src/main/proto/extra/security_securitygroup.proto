@@ -26,15 +26,15 @@ message ProtectedViewData {
     option (routines.has_table) = true;
     // keys: groupId, viewNameId
     // fields
-        
-    string group_id = 1 [json_name = "group_id"];    
-    string view_name_id = 2 [json_name = "view_name_id"];    
-    int64 max_hits = 3 [json_name = "max_hits"];    
-    int64 max_hits_duration = 4 [json_name = "max_hits_duration"];    
-    int64 tarpit_duration = 5 [json_name = "tarpit_duration"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string group_id = 1 [json_name = "group_id"];
+    string view_name_id = 2 [json_name = "view_name_id"];
+    int64 max_hits = 3 [json_name = "max_hits"];
+    int64 max_hits_duration = 4 [json_name = "max_hits_duration"];
+    int64 tarpit_duration = 5 [json_name = "tarpit_duration"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -63,13 +63,13 @@ message TarpittedLoginViewData {
     option (routines.has_table) = true;
     // keys: viewNameId, userLoginId
     // fields
-        
-    string view_name_id = 1 [json_name = "view_name_id"];    
-    string user_login_id = 2 [json_name = "user_login_id"];    
-    int64 tarpit_release_date_time = 3 [json_name = "tarpit_release_date_time"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string view_name_id = 1 [json_name = "view_name_id"];
+    string user_login_id = 2 [json_name = "user_login_id"];
+    int64 tarpit_release_date_time = 3 [json_name = "tarpit_release_date_time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra

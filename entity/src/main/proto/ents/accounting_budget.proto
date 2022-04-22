@@ -25,14 +25,14 @@ message BudgetFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: budgetId
-        
-    string budget_id = 1 [json_name = "budget_id", (google.api.graphql.relay_options).id = true];    
+    string budget_id = 1 [json_name = "budget_id", (google.api.graphql.relay_options).id = true];
     string budget_type_id = 2 [json_name = "budget_type_id"];
-    string custom_time_period_id = 3 [json_name = "custom_time_period_id"]; // CustomTimePeriod    
-    string comments = 4 [json_name = "comments"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string tenant_id = 7 [json_name = "tenant_id"]; 
+    string custom_time_period_id = 3 [json_name = "custom_time_period_id"];
+    string comments = 4 [json_name = "comments"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    string tenant_id = 7 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 22;
@@ -58,20 +58,20 @@ message BudgetStatusData {
     option (routines.has_table) = true;
     // keys: budgetId, statusId
     // fields
-        
     string budget_id = 1 [json_name = "budget_id"];
-    string status_id = 2 [json_name = "status_id"]; // StatusItem    
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];    
-    string comments = 4 [json_name = "comments"];    
-    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string status_id = 2 [json_name = "status_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+    string comments = 4 [json_name = "comments"];
+    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 

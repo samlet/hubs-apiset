@@ -25,37 +25,37 @@ message CommunicationEventFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: communicationEventId
-        
     string communication_event_id = 1 [json_name = "communication_event_id", (google.api.graphql.relay_options).id = true];
-    string communication_event_type_id = 2 [json_name = "communication_event_type_id"]; // CommunicationEventType    
-    string orig_comm_event_id = 3 [json_name = "orig_comm_event_id"];    
+    string communication_event_type_id = 2 [json_name = "communication_event_type_id"];
+    string orig_comm_event_id = 3 [json_name = "orig_comm_event_id"];
     string parent_comm_event_id = 4 [json_name = "parent_comm_event_id"];
-    string status_id = 5 [json_name = "status_id"]; // StatusItem
-    string contact_mech_type_id = 6 [json_name = "contact_mech_type_id"]; // ContactMechType    
-    string contact_mech_id_from = 7 [json_name = "contact_mech_id_from"];    
+    string status_id = 5 [json_name = "status_id"];
+    string contact_mech_type_id = 6 [json_name = "contact_mech_type_id"];
+    string contact_mech_id_from = 7 [json_name = "contact_mech_id_from"];
     string contact_mech_id_to = 8 [json_name = "contact_mech_id_to"];
-    string role_type_id_from = 9 [json_name = "role_type_id_from"]; // RoleType
-    string role_type_id_to = 10 [json_name = "role_type_id_to"]; // RoleType    
-    string party_id_from = 11 [json_name = "party_id_from"];    
-    string party_id_to = 12 [json_name = "party_id_to"];    
-    google.protobuf.Timestamp entry_date = 13 [json_name = "entry_date"];    
-    google.protobuf.Timestamp datetime_started = 14 [json_name = "datetime_started"];    
-    google.protobuf.Timestamp datetime_ended = 15 [json_name = "datetime_ended"];    
+    string role_type_id_from = 9 [json_name = "role_type_id_from"];
+    string role_type_id_to = 10 [json_name = "role_type_id_to"];
+    string party_id_from = 11 [json_name = "party_id_from"];
+    string party_id_to = 12 [json_name = "party_id_to"];
+    google.protobuf.Timestamp entry_date = 13 [json_name = "entry_date"];
+    google.protobuf.Timestamp datetime_started = 14 [json_name = "datetime_started"];
+    google.protobuf.Timestamp datetime_ended = 15 [json_name = "datetime_ended"];
     string subject = 16 [json_name = "subject"];
-    string content_mime_type_id = 17 [json_name = "content_mime_type_id"]; // MimeType    
-    string content = 18 [json_name = "content"];    
+    string content_mime_type_id = 17 [json_name = "content_mime_type_id"];
+    string content = 18 [json_name = "content"];
     string note = 19 [json_name = "note"];
-    string reason_enum_id = 20 [json_name = "reason_enum_id"]; // Enumeration    
-    string contact_list_id = 21 [json_name = "contact_list_id"];    
-    string header_string = 22 [json_name = "header_string"];    
-    string from_text = 23 [json_name = "from_text"];    
-    string to_text = 24 [json_name = "to_text"];    
-    string cc_string = 25 [json_name = "cc_string"];    
-    string bcc_string = 26 [json_name = "bcc_string"];    
-    string message_id = 27 [json_name = "message_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 28 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 29 [json_name = "created_tx_stamp"];    
-    string tenant_id = 30 [json_name = "tenant_id"]; 
+    string reason_enum_id = 20 [json_name = "reason_enum_id"];
+    string contact_list_id = 21 [json_name = "contact_list_id"];
+    string header_string = 22 [json_name = "header_string"];
+    string from_text = 23 [json_name = "from_text"];
+    string to_text = 24 [json_name = "to_text"];
+    string cc_string = 25 [json_name = "cc_string"];
+    string bcc_string = 26 [json_name = "bcc_string"];
+    string message_id = 27 [json_name = "message_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 28 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 29 [json_name = "created_tx_stamp"];
+    string tenant_id = 30 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 57;
@@ -81,20 +81,20 @@ message CommunicationEventRoleData {
     option (routines.has_table) = true;
     // keys: communicationEventId, partyId, roleTypeId
     // fields
-        
-    string communication_event_id = 1 [json_name = "communication_event_id"];    
+    string communication_event_id = 1 [json_name = "communication_event_id"];
     string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"]; // RoleType    
+    string role_type_id = 3 [json_name = "role_type_id"];
     string contact_mech_id = 4 [json_name = "contact_mech_id"];
-    string status_id = 5 [json_name = "status_id"]; // StatusItem    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string status_id = 5 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
 }
 
 

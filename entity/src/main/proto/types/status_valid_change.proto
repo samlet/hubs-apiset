@@ -20,14 +20,14 @@ message StatusValidChangeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: statusId, statusIdTo
-        
     string status_id = 1 [json_name = "status_id"];
-    string status_id_to = 2 [json_name = "status_id_to"]; // StatusItem    
-    string condition_expression = 3 [json_name = "condition_expression"];    
-    string transition_name = 4 [json_name = "transition_name"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true]; 
+    string status_id_to = 2 [json_name = "status_id_to"];
+    string condition_expression = 3 [json_name = "condition_expression"];
+    string transition_name = 4 [json_name = "transition_name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+     
 
     // extra
     google.protobuf.Struct extra = 11;

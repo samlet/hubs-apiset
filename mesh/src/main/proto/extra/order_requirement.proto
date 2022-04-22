@@ -26,14 +26,14 @@ message DesiredFeatureData {
     option (routines.has_table) = true;
     // keys: desiredFeatureId, requirementId
     // fields
-        
-    string desired_feature_id = 1 [json_name = "desired_feature_id"];    
-    string requirement_id = 2 [json_name = "requirement_id"];    
-    string product_feature_id = 3 [json_name = "product_feature_id"];    
-    routines.Indicator optional_ind = 4 [json_name = "optional_ind"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string desired_feature_id = 1 [json_name = "desired_feature_id"];
+    string requirement_id = 2 [json_name = "requirement_id"];
+    string product_feature_id = 3 [json_name = "product_feature_id"];
+    routines.Indicator optional_ind = 4 [json_name = "optional_ind"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -62,14 +62,14 @@ message OrderRequirementCommitmentData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, requirementId
     // fields
-        
-    string order_id = 1 [json_name = "order_id"];    
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];    
-    string requirement_id = 3 [json_name = "requirement_id"];    
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+    routines.FixedPoint quantity = 4 [json_name = "quantity"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -98,19 +98,19 @@ message RequirementAttributeData {
     option (routines.has_table) = true;
     // keys: requirementId, attrName
     // fields
-        
-    string requirement_id = 1 [json_name = "requirement_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string attr_value = 3 [json_name = "attr_value"];    
-    string attr_description = 4 [json_name = "attr_description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string attr_value = 3 [json_name = "attr_value"];
+    string attr_description = 4 [json_name = "attr_description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -134,19 +134,19 @@ message RequirementBudgetAllocationData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetItemSeqId, requirementId
     // fields
-        
-    string budget_id = 1 [json_name = "budget_id"];    
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];    
-    string requirement_id = 3 [json_name = "requirement_id"];    
-    routines.Currency amount = 4 [json_name = "amount"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+    routines.Currency amount = 4 [json_name = "amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -170,13 +170,13 @@ message RequirementCustRequestData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId, requirementId
     // fields
-        
-    string cust_request_id = 1 [json_name = "cust_request_id"];    
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];    
-    string requirement_id = 3 [json_name = "requirement_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string cust_request_id = 1 [json_name = "cust_request_id"];
+    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -205,15 +205,15 @@ message RequirementRoleData {
     option (routines.has_table) = true;
     // keys: requirementId, partyId, roleTypeId, fromDate
     // fields
-        
-    string requirement_id = 1 [json_name = "requirement_id"];    
-    string party_id = 2 [json_name = "party_id"];    
-    string role_type_id = 3 [json_name = "role_type_id"];    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -242,19 +242,19 @@ message RequirementStatusData {
     option (routines.has_table) = true;
     // keys: requirementId, statusId
     // fields
-        
     string requirement_id = 1 [json_name = "requirement_id"];
-    string status_id = 2 [json_name = "status_id"]; // StatusItem    
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];    
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string status_id = 2 [json_name = "status_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 
@@ -278,18 +278,18 @@ message RequirementTypeAttrData {
     option (routines.has_table) = true;
     // keys: requirementTypeId, attrName
     // fields
-        
-    string requirement_type_id = 1 [json_name = "requirement_type_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string requirement_type_id = 1 [json_name = "requirement_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -313,18 +313,18 @@ message WorkRequirementFulfillmentData {
     option (routines.has_table) = true;
     // keys: requirementId, workEffortId
     // fields
-        
-    string requirement_id = 1 [json_name = "requirement_id"];    
+    string requirement_id = 1 [json_name = "requirement_id"];
     string work_effort_id = 2 [json_name = "work_effort_id"];
-    string work_req_fulf_type_id = 3 [json_name = "work_req_fulf_type_id"]; // WorkReqFulfType    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string work_req_fulf_type_id = 3 [json_name = "work_req_fulf_type_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 

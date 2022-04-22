@@ -26,49 +26,49 @@ message SubscriptionData {
     option (routines.has_table) = true;
     // keys: subscriptionId
     // fields
-        
-    string subscription_id = 1 [json_name = "subscription_id", (google.api.graphql.relay_options).id = true];    
-    string description = 2 [json_name = "description"];    
-    string subscription_resource_id = 3 [json_name = "subscription_resource_id"];    
-    string communication_event_id = 4 [json_name = "communication_event_id"];    
-    string contact_mech_id = 5 [json_name = "contact_mech_id"];    
+    string subscription_id = 1 [json_name = "subscription_id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [json_name = "description"];
+    string subscription_resource_id = 3 [json_name = "subscription_resource_id"];
+    string communication_event_id = 4 [json_name = "communication_event_id"];
+    string contact_mech_id = 5 [json_name = "contact_mech_id"];
     string originated_from_party_id = 6 [json_name = "originated_from_party_id"];
-    string originated_from_role_type_id = 7 [json_name = "originated_from_role_type_id"]; // RoleType    
+    string originated_from_role_type_id = 7 [json_name = "originated_from_role_type_id"];
     string party_id = 8 [json_name = "party_id"];
-    string role_type_id = 9 [json_name = "role_type_id"]; // RoleType    
-    string party_need_id = 10 [json_name = "party_need_id"];    
-    string need_type_id = 11 [json_name = "need_type_id"];    
-    string order_id = 12 [json_name = "order_id"];    
-    string order_item_seq_id = 13 [json_name = "order_item_seq_id"];    
-    string product_id = 14 [json_name = "product_id"];    
-    string product_category_id = 15 [json_name = "product_category_id"];    
-    string inventory_item_id = 16 [json_name = "inventory_item_id"];    
-    string subscription_type_id = 17 [json_name = "subscription_type_id"];    
-    string external_subscription_id = 18 [json_name = "external_subscription_id"];    
-    google.protobuf.Timestamp from_date = 19 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 20 [json_name = "thru_date"];    
-    google.protobuf.Timestamp purchase_from_date = 21 [json_name = "purchase_from_date"];    
-    google.protobuf.Timestamp purchase_thru_date = 22 [json_name = "purchase_thru_date"];    
+    string role_type_id = 9 [json_name = "role_type_id"];
+    string party_need_id = 10 [json_name = "party_need_id"];
+    string need_type_id = 11 [json_name = "need_type_id"];
+    string order_id = 12 [json_name = "order_id"];
+    string order_item_seq_id = 13 [json_name = "order_item_seq_id"];
+    string product_id = 14 [json_name = "product_id"];
+    string product_category_id = 15 [json_name = "product_category_id"];
+    string inventory_item_id = 16 [json_name = "inventory_item_id"];
+    string subscription_type_id = 17 [json_name = "subscription_type_id"];
+    string external_subscription_id = 18 [json_name = "external_subscription_id"];
+    google.protobuf.Timestamp from_date = 19 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 20 [json_name = "thru_date"];
+    google.protobuf.Timestamp purchase_from_date = 21 [json_name = "purchase_from_date"];
+    google.protobuf.Timestamp purchase_thru_date = 22 [json_name = "purchase_thru_date"];
     int64 max_life_time = 23 [json_name = "max_life_time"];
-    string max_life_time_uom_id = 24 [json_name = "max_life_time_uom_id"]; // Uom    
+    string max_life_time_uom_id = 24 [json_name = "max_life_time_uom_id"];
     int64 available_time = 25 [json_name = "available_time"];
-    string available_time_uom_id = 26 [json_name = "available_time_uom_id"]; // Uom    
-    int64 use_count_limit = 27 [json_name = "use_count_limit"];    
+    string available_time_uom_id = 26 [json_name = "available_time_uom_id"];
+    int64 use_count_limit = 27 [json_name = "use_count_limit"];
     int64 use_time = 28 [json_name = "use_time"];
-    string use_time_uom_id = 29 [json_name = "use_time_uom_id"]; // Uom    
-    routines.Indicator automatic_extend = 30 [json_name = "automatic_extend"];    
+    string use_time_uom_id = 29 [json_name = "use_time_uom_id"];
+    routines.Indicator automatic_extend = 30 [json_name = "automatic_extend"];
     int64 cancl_autm_ext_time = 31 [json_name = "cancl_autm_ext_time"];
-    string cancl_autm_ext_time_uom_id = 32 [json_name = "cancl_autm_ext_time_uom_id"]; // Uom    
+    string cancl_autm_ext_time_uom_id = 32 [json_name = "cancl_autm_ext_time_uom_id"];
     int64 grace_period_on_expiry = 33 [json_name = "grace_period_on_expiry"];
-    string grace_period_on_expiry_uom_id = 34 [json_name = "grace_period_on_expiry_uom_id"]; // Uom    
-    google.protobuf.Timestamp expiration_completed_date = 35 [json_name = "expiration_completed_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 36 [json_name = "last_updated_tx_stamp"];    
+    string grace_period_on_expiry_uom_id = 34 [json_name = "grace_period_on_expiry_uom_id"];
+    google.protobuf.Timestamp expiration_completed_date = 35 [json_name = "expiration_completed_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 36 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 37 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 49;
-    map<string, google.protobuf.Any> attachments = 50;
+    google.protobuf.Struct extra = 63;
+    map<string, google.protobuf.Any> attachments = 64;
 }
 
 
@@ -92,17 +92,17 @@ message SubscriptionActivityData {
     option (routines.has_table) = true;
     // keys: subscriptionActivityId
     // fields
-        
-    string subscription_activity_id = 1 [json_name = "subscription_activity_id", (google.api.graphql.relay_options).id = true];    
-    string comments = 2 [json_name = "comments"];    
-    google.protobuf.Timestamp date_sent = 3 [json_name = "date_sent"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
+    string subscription_activity_id = 1 [json_name = "subscription_activity_id", (google.api.graphql.relay_options).id = true];
+    string comments = 2 [json_name = "comments"];
+    google.protobuf.Timestamp date_sent = 3 [json_name = "date_sent"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
 }
 
 
@@ -126,19 +126,19 @@ message SubscriptionAttributeData {
     option (routines.has_table) = true;
     // keys: subscriptionId, attrName
     // fields
-        
-    string subscription_id = 1 [json_name = "subscription_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string attr_value = 3 [json_name = "attr_value"];    
-    string attr_description = 4 [json_name = "attr_description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string subscription_id = 1 [json_name = "subscription_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string attr_value = 3 [json_name = "attr_value"];
+    string attr_description = 4 [json_name = "attr_description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -162,17 +162,17 @@ message SubscriptionCommEventData {
     option (routines.has_table) = true;
     // keys: subscriptionId, communicationEventId
     // fields
-        
-    string subscription_id = 1 [json_name = "subscription_id"];    
-    string communication_event_id = 2 [json_name = "communication_event_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string subscription_id = 1 [json_name = "subscription_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -196,17 +196,17 @@ message SubscriptionFulfillmentPieceData {
     option (routines.has_table) = true;
     // keys: subscriptionActivityId, subscriptionId
     // fields
-        
-    string subscription_activity_id = 1 [json_name = "subscription_activity_id"];    
-    string subscription_id = 2 [json_name = "subscription_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string subscription_activity_id = 1 [json_name = "subscription_activity_id"];
+    string subscription_id = 2 [json_name = "subscription_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -230,18 +230,18 @@ message SubscriptionTypeAttrData {
     option (routines.has_table) = true;
     // keys: subscriptionTypeId, attrName
     // fields
-        
-    string subscription_type_id = 1 [json_name = "subscription_type_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string subscription_type_id = 1 [json_name = "subscription_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 

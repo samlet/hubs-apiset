@@ -26,17 +26,17 @@ message WebSitePathAliasData {
     option (routines.has_table) = true;
     // keys: webSiteId, pathAlias, fromDate
     // fields
-        
-    string web_site_id = 1 [json_name = "web_site_id"];    
-    string path_alias = 2 [json_name = "path_alias"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    string alias_to = 5 [json_name = "alias_to"];    
-    string content_id = 6 [json_name = "content_id"];    
-    string map_key = 7 [json_name = "map_key"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];    
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string path_alias = 2 [json_name = "path_alias"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    string alias_to = 5 [json_name = "alias_to"];
+    string content_id = 6 [json_name = "content_id"];
+    string map_key = 7 [json_name = "map_key"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
     string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -65,19 +65,19 @@ message WebSitePublishPointData {
     option (routines.has_table) = true;
     // keys: contentId
     // fields
-        
-    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];    
-    string template_title = 2 [json_name = "template_title"];    
-    string style_sheet_file = 3 [json_name = "style_sheet_file"];    
-    string logo = 4 [json_name = "logo"];    
-    string medallion_logo = 5 [json_name = "medallion_logo"];    
-    string line_logo = 6 [json_name = "line_logo"];    
-    string left_bar_id = 7 [json_name = "left_bar_id"];    
-    string right_bar_id = 8 [json_name = "right_bar_id"];    
-    string content_dept = 9 [json_name = "content_dept"];    
-    string about_content_id = 10 [json_name = "about_content_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
+    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];
+    string template_title = 2 [json_name = "template_title"];
+    string style_sheet_file = 3 [json_name = "style_sheet_file"];
+    string logo = 4 [json_name = "logo"];
+    string medallion_logo = 5 [json_name = "medallion_logo"];
+    string line_logo = 6 [json_name = "line_logo"];
+    string left_bar_id = 7 [json_name = "left_bar_id"];
+    string right_bar_id = 8 [json_name = "right_bar_id"];
+    string content_dept = 9 [json_name = "content_dept"];
+    string about_content_id = 10 [json_name = "about_content_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
+    
         
 
     // extra

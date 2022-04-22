@@ -25,30 +25,30 @@ message ShoppingListFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: shoppingListId
-        
     string shopping_list_id = 1 [json_name = "shopping_list_id", (google.api.graphql.relay_options).id = true];
-    string shopping_list_type_id = 2 [json_name = "shopping_list_type_id"]; // ShoppingListType    
-    string parent_shopping_list_id = 3 [json_name = "parent_shopping_list_id"];    
-    string product_store_id = 4 [json_name = "product_store_id"];    
-    string visitor_id = 5 [json_name = "visitor_id"];    
-    string party_id = 6 [json_name = "party_id"];    
-    string list_name = 7 [json_name = "list_name"];    
-    string description = 8 [json_name = "description"];    
-    routines.Indicator is_public = 9 [json_name = "is_public"];    
-    routines.Indicator is_active = 10 [json_name = "is_active"];    
-    string currency_uom = 11 [json_name = "currency_uom"];    
-    string shipment_method_type_id = 12 [json_name = "shipment_method_type_id"];    
-    string carrier_party_id = 13 [json_name = "carrier_party_id"];    
-    string carrier_role_type_id = 14 [json_name = "carrier_role_type_id"];    
-    string contact_mech_id = 15 [json_name = "contact_mech_id"];    
-    string payment_method_id = 16 [json_name = "payment_method_id"];    
-    string recurrence_info_id = 17 [json_name = "recurrence_info_id"];    
-    google.protobuf.Timestamp last_ordered_date = 18 [json_name = "last_ordered_date"];    
-    google.protobuf.Timestamp last_admin_modified = 19 [json_name = "last_admin_modified"];    
-    string product_promo_code_id = 20 [json_name = "product_promo_code_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];    
-    string tenant_id = 23 [json_name = "tenant_id"]; 
+    string shopping_list_type_id = 2 [json_name = "shopping_list_type_id"];
+    string parent_shopping_list_id = 3 [json_name = "parent_shopping_list_id"];
+    string product_store_id = 4 [json_name = "product_store_id"];
+    string visitor_id = 5 [json_name = "visitor_id"];
+    string party_id = 6 [json_name = "party_id"];
+    string list_name = 7 [json_name = "list_name"];
+    string description = 8 [json_name = "description"];
+    routines.Indicator is_public = 9 [json_name = "is_public"];
+    routines.Indicator is_active = 10 [json_name = "is_active"];
+    string currency_uom = 11 [json_name = "currency_uom"];
+    string shipment_method_type_id = 12 [json_name = "shipment_method_type_id"];
+    string carrier_party_id = 13 [json_name = "carrier_party_id"];
+    string carrier_role_type_id = 14 [json_name = "carrier_role_type_id"];
+    string contact_mech_id = 15 [json_name = "contact_mech_id"];
+    string payment_method_id = 16 [json_name = "payment_method_id"];
+    string recurrence_info_id = 17 [json_name = "recurrence_info_id"];
+    google.protobuf.Timestamp last_ordered_date = 18 [json_name = "last_ordered_date"];
+    google.protobuf.Timestamp last_admin_modified = 19 [json_name = "last_admin_modified"];
+    string product_promo_code_id = 20 [json_name = "product_promo_code_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 21 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 22 [json_name = "created_tx_stamp"];
+    string tenant_id = 23 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 42;
@@ -74,25 +74,25 @@ message ShoppingListItemData {
     option (routines.has_table) = true;
     // keys: shoppingListId, shoppingListItemSeqId
     // fields
-        
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];    
-    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];    
-    string product_id = 3 [json_name = "product_id"];    
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];    
-    routines.Currency modified_price = 5 [json_name = "modified_price"];    
-    google.protobuf.Timestamp reserv_start = 6 [json_name = "reserv_start"];    
-    routines.FixedPoint reserv_length = 7 [json_name = "reserv_length"];    
-    routines.FixedPoint reserv_persons = 8 [json_name = "reserv_persons"];    
-    routines.FixedPoint quantity_purchased = 9 [json_name = "quantity_purchased"];    
-    string config_id = 10 [json_name = "config_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];    
+    string shopping_list_id = 1 [json_name = "shopping_list_id"];
+    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];
+    string product_id = 3 [json_name = "product_id"];
+    routines.FixedPoint quantity = 4 [json_name = "quantity"];
+    routines.Currency modified_price = 5 [json_name = "modified_price"];
+    google.protobuf.Timestamp reserv_start = 6 [json_name = "reserv_start"];
+    routines.FixedPoint reserv_length = 7 [json_name = "reserv_length"];
+    routines.FixedPoint reserv_persons = 8 [json_name = "reserv_persons"];
+    routines.FixedPoint quantity_purchased = 9 [json_name = "quantity_purchased"];
+    string config_id = 10 [json_name = "config_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
     string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 17;
-    map<string, google.protobuf.Any> attachments = 18;
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
 }
 
 

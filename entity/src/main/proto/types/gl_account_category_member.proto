@@ -20,15 +20,15 @@ message GlAccountCategoryMemberData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: glAccountId, glAccountCategoryId, fromDate
-        
     string gl_account_id = 1 [json_name = "gl_account_id"];
-    string gl_account_category_id = 2 [json_name = "gl_account_category_id"]; // GlAccountCategory    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    routines.FixedPoint amount_percentage = 5 [json_name = "amount_percentage"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true]; 
+    string gl_account_category_id = 2 [json_name = "gl_account_category_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    routines.FixedPoint amount_percentage = 5 [json_name = "amount_percentage"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+     
 
     // extra
     google.protobuf.Struct extra = 11;

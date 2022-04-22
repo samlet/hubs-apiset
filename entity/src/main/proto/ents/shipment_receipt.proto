@@ -25,26 +25,26 @@ message ShipmentReceiptFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: receiptId
-        
-    string receipt_id = 1 [json_name = "receipt_id", (google.api.graphql.relay_options).id = true];    
-    string inventory_item_id = 2 [json_name = "inventory_item_id"];    
-    string product_id = 3 [json_name = "product_id"];    
-    string shipment_id = 4 [json_name = "shipment_id"];    
-    string shipment_item_seq_id = 5 [json_name = "shipment_item_seq_id"];    
-    string shipment_package_seq_id = 6 [json_name = "shipment_package_seq_id"];    
-    string order_id = 7 [json_name = "order_id"];    
-    string order_item_seq_id = 8 [json_name = "order_item_seq_id"];    
-    string return_id = 9 [json_name = "return_id"];    
+    string receipt_id = 1 [json_name = "receipt_id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+    string product_id = 3 [json_name = "product_id"];
+    string shipment_id = 4 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 5 [json_name = "shipment_item_seq_id"];
+    string shipment_package_seq_id = 6 [json_name = "shipment_package_seq_id"];
+    string order_id = 7 [json_name = "order_id"];
+    string order_item_seq_id = 8 [json_name = "order_item_seq_id"];
+    string return_id = 9 [json_name = "return_id"];
     string return_item_seq_id = 10 [json_name = "return_item_seq_id"];
-    string rejection_id = 11 [json_name = "rejection_id"]; // RejectionReason    
-    string received_by_user_login_id = 12 [json_name = "received_by_user_login_id"];    
-    google.protobuf.Timestamp datetime_received = 13 [json_name = "datetime_received"];    
-    string item_description = 14 [json_name = "item_description"];    
-    routines.FixedPoint quantity_accepted = 15 [json_name = "quantity_accepted"];    
-    routines.FixedPoint quantity_rejected = 16 [json_name = "quantity_rejected"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];    
-    string tenant_id = 19 [json_name = "tenant_id"]; 
+    string rejection_id = 11 [json_name = "rejection_id"];
+    string received_by_user_login_id = 12 [json_name = "received_by_user_login_id"];
+    google.protobuf.Timestamp datetime_received = 13 [json_name = "datetime_received"];
+    string item_description = 14 [json_name = "item_description"];
+    routines.FixedPoint quantity_accepted = 15 [json_name = "quantity_accepted"];
+    routines.FixedPoint quantity_rejected = 16 [json_name = "quantity_rejected"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
+    string tenant_id = 19 [json_name = "tenant_id"];
+     
 
     // extra
     google.protobuf.Struct extra = 36;

@@ -20,14 +20,14 @@ message FacilityGroupData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: facilityGroupId
-        
     string facility_group_id = 1 [json_name = "facility_group_id", (google.api.graphql.relay_options).id = true];
-    string facility_group_type_id = 2 [json_name = "facility_group_type_id"]; // FacilityGroupType
-    string primary_parent_group_id = 3 [json_name = "primary_parent_group_id"]; // FacilityGroup    
-    string facility_group_name = 4 [json_name = "facility_group_name"];    
-    string description = 5 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"]; 
+    string facility_group_type_id = 2 [json_name = "facility_group_type_id"];
+    string primary_parent_group_id = 3 [json_name = "primary_parent_group_id"];
+    string facility_group_name = 4 [json_name = "facility_group_name"];
+    string description = 5 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+     
 
     // extra
     google.protobuf.Struct extra = 15;

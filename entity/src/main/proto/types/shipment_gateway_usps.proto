@@ -20,17 +20,17 @@ message ShipmentGatewayUspsData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
-    
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true]; // ShipmentGatewayConfig    
-    string connect_url = 2 [json_name = "connect_url"];    
-    string connect_url_labels = 3 [json_name = "connect_url_labels"];    
-    int64 connect_timeout = 4 [json_name = "connect_timeout"];    
-    string access_user_id = 5 [json_name = "access_user_id"];    
-    string access_password = 6 [json_name = "access_password"];    
-    int64 max_estimate_weight = 7 [json_name = "max_estimate_weight"];    
-    string test = 8 [json_name = "test"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"]; 
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+    string connect_url = 2 [json_name = "connect_url"];
+    string connect_url_labels = 3 [json_name = "connect_url_labels"];
+    int64 connect_timeout = 4 [json_name = "connect_timeout"];
+    string access_user_id = 5 [json_name = "access_user_id"];
+    string access_password = 6 [json_name = "access_password"];
+    int64 max_estimate_weight = 7 [json_name = "max_estimate_weight"];
+    string test = 8 [json_name = "test"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
+     
 
     // extra
     google.protobuf.Struct extra = 12;

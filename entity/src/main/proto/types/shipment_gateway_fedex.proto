@@ -20,23 +20,23 @@ message ShipmentGatewayFedexData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
-    
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true]; // ShipmentGatewayConfig    
-    string connect_url = 2 [json_name = "connect_url"];    
-    string connect_soap_url = 3 [json_name = "connect_soap_url"];    
-    int64 connect_timeout = 4 [json_name = "connect_timeout"];    
-    string access_account_nbr = 5 [json_name = "access_account_nbr"];    
-    string access_meter_number = 6 [json_name = "access_meter_number"];    
-    string access_user_key = 7 [json_name = "access_user_key"];    
-    string access_user_pwd = 8 [json_name = "access_user_pwd"];    
-    string label_image_type = 9 [json_name = "label_image_type"];    
-    string default_dropoff_type = 10 [json_name = "default_dropoff_type"];    
-    string default_packaging_type = 11 [json_name = "default_packaging_type"];    
-    string template_shipment = 12 [json_name = "template_shipment"];    
-    string template_subscription = 13 [json_name = "template_subscription"];    
-    string rate_estimate_template = 14 [json_name = "rate_estimate_template"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"]; 
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+    string connect_url = 2 [json_name = "connect_url"];
+    string connect_soap_url = 3 [json_name = "connect_soap_url"];
+    int64 connect_timeout = 4 [json_name = "connect_timeout"];
+    string access_account_nbr = 5 [json_name = "access_account_nbr"];
+    string access_meter_number = 6 [json_name = "access_meter_number"];
+    string access_user_key = 7 [json_name = "access_user_key"];
+    string access_user_pwd = 8 [json_name = "access_user_pwd"];
+    string label_image_type = 9 [json_name = "label_image_type"];
+    string default_dropoff_type = 10 [json_name = "default_dropoff_type"];
+    string default_packaging_type = 11 [json_name = "default_packaging_type"];
+    string template_shipment = 12 [json_name = "template_shipment"];
+    string template_subscription = 13 [json_name = "template_subscription"];
+    string rate_estimate_template = 14 [json_name = "rate_estimate_template"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
+     
 
     // extra
     google.protobuf.Struct extra = 18;

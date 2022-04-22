@@ -26,24 +26,24 @@ message ExcelImportHistoryData {
     option (routines.has_table) = true;
     // keys: userLoginId, sequenceNum
     // fields
-        
-    string user_login_id = 1 [json_name = "user_login_id"];    
-    int64 sequence_num = 2 [json_name = "sequence_num"];    
-    string file_name = 3 [json_name = "file_name"];    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
+    string user_login_id = 1 [json_name = "user_login_id"];
+    int64 sequence_num = 2 [json_name = "sequence_num"];
+    string file_name = 3 [json_name = "file_name"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
     google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string thru_reason_id = 6 [json_name = "thru_reason_id"]; // Enumeration
-    string status_id = 7 [json_name = "status_id"]; // Enumeration    
-    string thread_name = 8 [json_name = "thread_name"];    
-    string log_file_name = 9 [json_name = "log_file_name"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string thru_reason_id = 6 [json_name = "thru_reason_id"];
+    string status_id = 7 [json_name = "status_id"];
+    string thread_name = 8 [json_name = "thread_name"];
+    string log_file_name = 9 [json_name = "log_file_name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
     string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 14;
-    map<string, google.protobuf.Any> attachments = 15;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -67,15 +67,15 @@ message ProdCatalogInvFacilityData {
     option (routines.has_table) = true;
     // keys: prodCatalogId, facilityId, fromDate
     // fields
-        
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];    
-    string facility_id = 2 [json_name = "facility_id"];    
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];    
-    int64 sequence_num = 5 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];    
+    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];
+    string facility_id = 2 [json_name = "facility_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
+    int64 sequence_num = 5 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -104,21 +104,21 @@ message ProdCatalogRoleData {
     option (routines.has_table) = true;
     // keys: partyId, roleTypeId, prodCatalogId, fromDate
     // fields
-        
     string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"]; // RoleType    
-    string prod_catalog_id = 3 [json_name = "prod_catalog_id"];    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string role_type_id = 2 [json_name = "role_type_id"];
+    string prod_catalog_id = 3 [json_name = "prod_catalog_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 

@@ -26,15 +26,15 @@ message TrainingRequestData {
     option (routines.has_table) = true;
     // keys: trainingRequestId
     // fields
-        
-    string training_request_id = 1 [json_name = "training_request_id", (google.api.graphql.relay_options).id = true];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 2 [json_name = "last_updated_tx_stamp"];    
+    string training_request_id = 1 [json_name = "training_request_id", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp last_updated_tx_stamp = 2 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 3 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 4;
-    map<string, google.protobuf.Any> attachments = 5;
+    google.protobuf.Struct extra = 5;
+    map<string, google.protobuf.Any> attachments = 6;
 }
 
 

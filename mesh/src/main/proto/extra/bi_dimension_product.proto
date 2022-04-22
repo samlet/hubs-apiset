@@ -26,19 +26,19 @@ message ProductDimensionData {
     option (routines.has_table) = true;
     // keys: dimensionId
     // fields
-        
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];    
-    string product_id = 2 [json_name = "product_id"];    
-    string product_type = 3 [json_name = "product_type"];    
-    string brand_name = 4 [json_name = "brand_name"];    
-    string internal_name = 5 [json_name = "internal_name"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+    string product_id = 2 [json_name = "product_id"];
+    string product_type = 3 [json_name = "product_type"];
+    string brand_name = 4 [json_name = "brand_name"];
+    string internal_name = 5 [json_name = "internal_name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 11;
+    map<string, google.protobuf.Any> attachments = 12;
 }
 
 

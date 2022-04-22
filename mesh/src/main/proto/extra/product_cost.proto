@@ -26,27 +26,27 @@ message CostComponentData {
     option (routines.has_table) = true;
     // keys: costComponentId
     // fields
-        
-    string cost_component_id = 1 [json_name = "cost_component_id", (google.api.graphql.relay_options).id = true];    
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];    
-    string product_id = 3 [json_name = "product_id"];    
-    string product_feature_id = 4 [json_name = "product_feature_id"];    
+    string cost_component_id = 1 [json_name = "cost_component_id", (google.api.graphql.relay_options).id = true];
+    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
+    string product_id = 3 [json_name = "product_id"];
+    string product_feature_id = 4 [json_name = "product_feature_id"];
     string party_id = 5 [json_name = "party_id"];
-    string geo_id = 6 [json_name = "geo_id"]; // Geo    
-    string work_effort_id = 7 [json_name = "work_effort_id"];    
+    string geo_id = 6 [json_name = "geo_id"];
+    string work_effort_id = 7 [json_name = "work_effort_id"];
     string fixed_asset_id = 8 [json_name = "fixed_asset_id"];
-    string cost_component_calc_id = 9 [json_name = "cost_component_calc_id"]; // CostComponentCalc    
-    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];    
+    string cost_component_calc_id = 9 [json_name = "cost_component_calc_id"];
+    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];
     routines.FixedPoint cost = 12 [json_name = "cost"];
-    string cost_uom_id = 13 [json_name = "cost_uom_id"]; // Uom    
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];    
+    string cost_uom_id = 13 [json_name = "cost_uom_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 21;
-    map<string, google.protobuf.Any> attachments = 22;
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28;
 }
 
 
@@ -70,19 +70,19 @@ message CostComponentAttributeData {
     option (routines.has_table) = true;
     // keys: costComponentId, attrName
     // fields
-        
-    string cost_component_id = 1 [json_name = "cost_component_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string attr_value = 3 [json_name = "attr_value"];    
-    string attr_description = 4 [json_name = "attr_description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];    
+    string cost_component_id = 1 [json_name = "cost_component_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string attr_value = 3 [json_name = "attr_value"];
+    string attr_description = 4 [json_name = "attr_description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -106,18 +106,18 @@ message CostComponentTypeAttrData {
     option (routines.has_table) = true;
     // keys: costComponentTypeId, attrName
     // fields
-        
-    string cost_component_type_id = 1 [json_name = "cost_component_type_id"];    
-    string attr_name = 2 [json_name = "attr_name"];    
-    string description = 3 [json_name = "description"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string cost_component_type_id = 1 [json_name = "cost_component_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -141,21 +141,21 @@ message ProductCostComponentCalcData {
     option (routines.has_table) = true;
     // keys: productId, costComponentTypeId, fromDate
     // fields
-        
     string product_id = 1 [json_name = "product_id"];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"]; // CostComponentType
-    string cost_component_calc_id = 3 [json_name = "cost_component_calc_id"]; // CostComponentCalc    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    int64 sequence_num = 5 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
+    string cost_component_calc_id = 3 [json_name = "cost_component_calc_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    int64 sequence_num = 5 [json_name = "sequence_num"];
+    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 

@@ -20,30 +20,30 @@ message ShipmentGatewayUpsData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
-    
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true]; // ShipmentGatewayConfig    
-    string connect_url = 2 [json_name = "connect_url"];    
-    int64 connect_timeout = 3 [json_name = "connect_timeout"];    
-    string shipper_number = 4 [json_name = "shipper_number"];    
-    string bill_shipper_account_number = 5 [json_name = "bill_shipper_account_number"];    
-    string access_license_number = 6 [json_name = "access_license_number"];    
-    string access_user_id = 7 [json_name = "access_user_id"];    
-    string access_password = 8 [json_name = "access_password"];    
-    string save_cert_info = 9 [json_name = "save_cert_info"];    
-    string save_cert_path = 10 [json_name = "save_cert_path"];    
-    string shipper_pickup_type = 11 [json_name = "shipper_pickup_type"];    
-    string customer_classification = 12 [json_name = "customer_classification"];    
-    routines.FixedPoint max_estimate_weight = 13 [json_name = "max_estimate_weight"];    
-    routines.FixedPoint min_estimate_weight = 14 [json_name = "min_estimate_weight"];    
-    string cod_allow_cod = 15 [json_name = "cod_allow_cod"];    
-    routines.FixedPoint cod_surcharge_amount = 16 [json_name = "cod_surcharge_amount"];    
-    string cod_surcharge_currency_uom_id = 17 [json_name = "cod_surcharge_currency_uom_id"];    
-    string cod_surcharge_apply_to_package = 18 [json_name = "cod_surcharge_apply_to_package"];    
-    string cod_funds_code = 19 [json_name = "cod_funds_code"];    
-    string default_return_label_memo = 20 [json_name = "default_return_label_memo"];    
-    string default_return_label_subject = 21 [json_name = "default_return_label_subject"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"]; 
+    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+    string connect_url = 2 [json_name = "connect_url"];
+    int64 connect_timeout = 3 [json_name = "connect_timeout"];
+    string shipper_number = 4 [json_name = "shipper_number"];
+    string bill_shipper_account_number = 5 [json_name = "bill_shipper_account_number"];
+    string access_license_number = 6 [json_name = "access_license_number"];
+    string access_user_id = 7 [json_name = "access_user_id"];
+    string access_password = 8 [json_name = "access_password"];
+    string save_cert_info = 9 [json_name = "save_cert_info"];
+    string save_cert_path = 10 [json_name = "save_cert_path"];
+    string shipper_pickup_type = 11 [json_name = "shipper_pickup_type"];
+    string customer_classification = 12 [json_name = "customer_classification"];
+    routines.FixedPoint max_estimate_weight = 13 [json_name = "max_estimate_weight"];
+    routines.FixedPoint min_estimate_weight = 14 [json_name = "min_estimate_weight"];
+    string cod_allow_cod = 15 [json_name = "cod_allow_cod"];
+    routines.FixedPoint cod_surcharge_amount = 16 [json_name = "cod_surcharge_amount"];
+    string cod_surcharge_currency_uom_id = 17 [json_name = "cod_surcharge_currency_uom_id"];
+    string cod_surcharge_apply_to_package = 18 [json_name = "cod_surcharge_apply_to_package"];
+    string cod_funds_code = 19 [json_name = "cod_funds_code"];
+    string default_return_label_memo = 20 [json_name = "default_return_label_memo"];
+    string default_return_label_subject = 21 [json_name = "default_return_label_subject"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];
+     
 
     // extra
     google.protobuf.Struct extra = 25;

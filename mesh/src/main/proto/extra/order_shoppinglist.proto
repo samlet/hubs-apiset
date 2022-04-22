@@ -26,18 +26,18 @@ message ShoppingListItemSurveyData {
     option (routines.has_table) = true;
     // keys: shoppingListId, shoppingListItemSeqId, surveyResponseId
     // fields
-        
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];    
-    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];    
-    string survey_response_id = 3 [json_name = "survey_response_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];    
+    string shopping_list_id = 1 [json_name = "shopping_list_id"];
+    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];
+    string survey_response_id = 3 [json_name = "survey_response_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
     string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 9;
-    map<string, google.protobuf.Any> attachments = 10;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -61,12 +61,12 @@ message ShoppingListWorkEffortData {
     option (routines.has_table) = true;
     // keys: shoppingListId, workEffortId
     // fields
-        
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];    
-    string work_effort_id = 2 [json_name = "work_effort_id"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];    
+    string shopping_list_id = 1 [json_name = "shopping_list_id"];
+    string work_effort_id = 2 [json_name = "work_effort_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
     string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra

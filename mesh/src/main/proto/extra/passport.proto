@@ -26,14 +26,14 @@ message GitHubUserData {
     option (routines.has_table) = true;
     // keys: gitHubUserId
     // fields
-        
-    string git_hub_user_id = 1 [json_name = "git_hub_user_id", (google.api.graphql.relay_options).id = true];    
-    string product_store_id = 2 [json_name = "product_store_id"];    
-    string env_prefix = 3 [json_name = "env_prefix"];    
-    string token_type = 4 [json_name = "token_type"];    
-    string access_token = 5 [json_name = "access_token"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];    
+    string git_hub_user_id = 1 [json_name = "git_hub_user_id", (google.api.graphql.relay_options).id = true];
+    string product_store_id = 2 [json_name = "product_store_id"];
+    string env_prefix = 3 [json_name = "env_prefix"];
+    string token_type = 4 [json_name = "token_type"];
+    string access_token = 5 [json_name = "access_token"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
@@ -62,13 +62,13 @@ message LinkedInUserData {
     option (routines.has_table) = true;
     // keys: linkedInUserId
     // fields
-        
-    string linked_in_user_id = 1 [json_name = "linked_in_user_id", (google.api.graphql.relay_options).id = true];    
-    string product_store_id = 2 [json_name = "product_store_id"];    
-    string env_prefix = 3 [json_name = "env_prefix"];    
-    string access_token = 4 [json_name = "access_token"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];    
+    string linked_in_user_id = 1 [json_name = "linked_in_user_id", (google.api.graphql.relay_options).id = true];
+    string product_store_id = 2 [json_name = "product_store_id"];
+    string env_prefix = 3 [json_name = "env_prefix"];
+    string access_token = 4 [json_name = "access_token"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
     google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    
         
 
     // extra
@@ -97,18 +97,18 @@ message OAuth2GitHubData {
     option (routines.has_table) = true;
     // keys: productStoreId, fromDate
     // fields
-        
-    string product_store_id = 1 [json_name = "product_store_id"];    
-    string client_id = 2 [json_name = "client_id"];    
-    string client_secret = 3 [json_name = "client_secret"];    
-    string return_url = 4 [json_name = "return_url"];    
-    string local_redirect_uri = 5 [json_name = "local_redirect_uri"];    
-    string icon_url = 6 [json_name = "icon_url"];    
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];    
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string client_id = 2 [json_name = "client_id"];
+    string client_secret = 3 [json_name = "client_secret"];
+    string return_url = 4 [json_name = "return_url"];
+    string local_redirect_uri = 5 [json_name = "local_redirect_uri"];
+    string icon_url = 6 [json_name = "icon_url"];
+    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
     string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -137,19 +137,19 @@ message OAuth2LinkedInData {
     option (routines.has_table) = true;
     // keys: productStoreId, fromDate
     // fields
-        
-    string product_store_id = 1 [json_name = "product_store_id"];    
-    string api_key = 2 [json_name = "api_key"];    
-    string secret_key = 3 [json_name = "secret_key"];    
-    string live_return_url = 4 [json_name = "live_return_url"];    
-    string test_return_url = 5 [json_name = "test_return_url"];    
-    string local_redirect_uri = 6 [json_name = "local_redirect_uri"];    
-    string icon_url = 7 [json_name = "icon_url"];    
-    google.protobuf.Timestamp from_date = 8 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];    
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string api_key = 2 [json_name = "api_key"];
+    string secret_key = 3 [json_name = "secret_key"];
+    string live_return_url = 4 [json_name = "live_return_url"];
+    string test_return_url = 5 [json_name = "test_return_url"];
+    string local_redirect_uri = 6 [json_name = "local_redirect_uri"];
+    string icon_url = 7 [json_name = "icon_url"];
+    google.protobuf.Timestamp from_date = 8 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
     string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
@@ -178,21 +178,21 @@ message ThirdPartyLoginData {
     option (routines.has_table) = true;
     // keys: productStoreId, loginMethTypeId, loginProviderId, fromDate
     // fields
-        
     string product_store_id = 1 [json_name = "product_store_id"];
-    string login_meth_type_id = 2 [json_name = "login_meth_type_id"]; // EnumerationType    
-    string login_provider_id = 3 [json_name = "login_provider_id"];    
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];    
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];    
-    int64 sequence_num = 6 [json_name = "sequence_num"];    
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];    
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];    
+    string login_meth_type_id = 2 [json_name = "login_meth_type_id"];
+    string login_provider_id = 3 [json_name = "login_provider_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    int64 sequence_num = 6 [json_name = "sequence_num"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
     string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
         
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
