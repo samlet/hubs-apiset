@@ -1,0 +1,337 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.realm";
+option java_outer_classname = "MiniShopProto";
+
+package realm;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "routines.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message SpuInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message ActivityRuleData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderDetailActivityBuilderData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderRefundInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message UserInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message SkuInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderDetailCouponBuilderData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message PaymentInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderStatusLogData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message CartInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message FavorInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message RefundPaymentData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message CouponUseData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message ActivitySkuData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message CouponRangeData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message CouponInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderDetailData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderDetailActivityData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message CommentInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message ActivityInfoData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message BaseProvinceData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+message OrderDetailCouponData {
+    int64 id = 1;
+    string out_trade_no = 2;
+    int64 order_id = 3;
+    int64 user_id = 4;
+    string trade_no = 5;
+    routines.FixedPoint total_amount = 6;
+    string subject = 7;
+    string payment_type = 8;
+    google.protobuf.Timestamp create_time = 9;
+    google.protobuf.Timestamp callback_time = 10;
+    string callback_content = 11;
+}
+
+
