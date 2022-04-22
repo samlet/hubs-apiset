@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "ModsProto";
+
+package facade;
+
+//import "facade_common.proto";
+
+message ModelEntityPkg{
+  repeated string entities=1;
+}
+
+message ProtoCatalog{
+  repeated ModelEntityPkg pkgs=1;
+}
+

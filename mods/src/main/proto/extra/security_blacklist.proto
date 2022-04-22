@@ -1,0 +1,235 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "SecurityBlacklistExtendProto";
+option objc_class_prefix = "SecurityBlacklistExtend";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+import "relay.proto";
+
+// Blacklist
+message BlacklistData {
+    option (routines.entity_type) = "Blacklist";
+    option (routines.keys).keys = "blacklist_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistId
+    // fields
+    string blacklist_id = 1 [json_name = "blacklist_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_type_id = 2 [json_name = "blacklist_type_id"];
+    string status_id = 3 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message BlacklistList{
+    repeated BlacklistData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklists` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+
+// Blacklist Type Entity
+message BlacklistTypeData {
+    option (routines.entity_type) = "BlacklistType";
+    option (routines.keys).keys = "blacklist_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistTypeId
+    // fields
+    string blacklist_type_id = 1 [json_name = "blacklist_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message BlacklistTypeList{
+    repeated BlacklistTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklistTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+
+// Blacklist Status Entity
+message BlacklistStatusData {
+    option (routines.entity_type) = "BlacklistStatus";
+    option (routines.keys).keys = "blacklist_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistId, statusDate
+    // fields
+    string blacklist_id = 1 [json_name = "blacklist_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    string status_id = 5 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message BlacklistStatusList{
+    repeated BlacklistStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklistStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+
+// Blacklist item
+message BlacklistItemData {
+    option (routines.entity_type) = "BlacklistItem";
+    option (routines.keys).keys = "blacklist_item_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistItemId
+    // fields
+    string blacklist_item_id = 1 [json_name = "blacklist_item_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_id = 2 [json_name = "blacklist_id"];
+    string login_id = 3 [json_name = "login_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
+    string reason = 6 [json_name = "reason"];
+    string block_by = 7 [json_name = "block_by"];
+    string blacklist_item_type_id = 8 [json_name = "blacklist_item_type_id"];
+    string status_id = 9 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 21;
+    map<string, google.protobuf.Any> attachments = 22;
+}
+
+
+message BlacklistItemList{
+    repeated BlacklistItemData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklistItems` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+
+// Blacklist Item Type Entity
+message BlacklistItemTypeData {
+    option (routines.entity_type) = "BlacklistItemType";
+    option (routines.keys).keys = "blacklist_item_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistItemTypeId
+    // fields
+    string blacklist_item_type_id = 1 [json_name = "blacklist_item_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message BlacklistItemTypeList{
+    repeated BlacklistItemTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklistItemTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+
+// Blacklist Item Status Entity
+message BlacklistItemStatusData {
+    option (routines.entity_type) = "BlacklistItemStatus";
+    option (routines.keys).keys = "blacklist_item_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: blacklistItemId, statusDate
+    // fields
+    string blacklist_item_id = 1 [json_name = "blacklist_item_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    string status_id = 5 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message BlacklistItemStatusList{
+    repeated BlacklistItemStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListBlacklistItemStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+}
+
+

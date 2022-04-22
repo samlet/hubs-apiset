@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BlacklistOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/security_blacklist.proto";
+
+service BlacklistOperations {
+  rpc CreateBlacklist(CreateBlacklistParams) returns (domain.BlacklistData) {}
+  rpc UpdateBlacklist(UpdateBlacklistParams) returns (domain.BlacklistData) {}
+  rpc GetBlacklist(BundleGetRequest) returns (domain.BlacklistData) {}
+
+  
+  rpc AddBlacklistItem(AddBlacklistItemParams) returns (routines.Response) {}
+  rpc UpdateBlacklistItem(UpdateBlacklistItemParams) returns (routines.Response) {}
+  rpc RemoveBlacklistItem(RemoveBlacklistItemParams) returns (routines.Response) {}
+  
+  rpc AddBlacklistStatus(AddBlacklistStatusParams) returns (routines.Response) {}
+  rpc UpdateBlacklistStatus(UpdateBlacklistStatusParams) returns (routines.Response) {}
+  rpc RemoveBlacklistStatus(RemoveBlacklistStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyBlacklistType(ModifyBlacklistTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.BlacklistList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.BlacklistList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.BlacklistData) {}
+  rpc Select(BundleHandle) returns (domain.BlacklistList) {}
+
+  rpc ListBlacklists(BundleListRequest) returns (domain.BlacklistList) {}
+  rpc LoadBlacklists(BundleIdsRequest) returns (domain.BlacklistList) {}
+  rpc StreamBlacklists(BundleListRequest) returns (stream domain.BlacklistList) {}
+  rpc RemoveBlacklist(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateBlacklistParams{
+  BundleHandle handle = 1;
+  domain.BlacklistData blacklist = 2;
+  string comment = 3;
+}
+
+message UpdateBlacklistParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistData blacklist = 3;
+  string comment = 4;
+}
+
+
+// Mutations for BlacklistItem
+
+message AddBlacklistItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateBlacklistItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveBlacklistItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for BlacklistStatus
+
+message AddBlacklistStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateBlacklistStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveBlacklistStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for BlacklistType
+
+message ModifyBlacklistTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BlacklistTypeData data = 3;
+  string comment = 4;
+}
+

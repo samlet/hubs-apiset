@@ -9,19 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>facade</artifactId>
+    <artifactId>mods</artifactId>
 
-<!--    <properties>-->
-<!--        <maven.compiler.source>8</maven.compiler.source>-->
-<!--        <maven.compiler.target>8</maven.compiler.target>-->
-<!--    </properties>-->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>com.bluecc</groupId>-->
-        <!--            <artifactId>fund</artifactId>-->
-        <!--            <version>1.0-SNAPSHOT</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>com.bluecc</groupId>
             <artifactId>entity</artifactId>
@@ -36,32 +31,19 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.bluecc</groupId>
-            <artifactId>mesh</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.bluecc</groupId>
-            <artifactId>mods</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/io.grpc/grpc-protobuf -->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-netty-shaded</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>io.grpc</groupId>-->
+        <!--            <artifactId>grpc-netty-shaded</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.grpc</groupId>-->
+        <!--            <artifactId>grpc-stub</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>com.google.protobuf</groupId>
