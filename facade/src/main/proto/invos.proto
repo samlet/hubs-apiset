@@ -18,10 +18,13 @@ message InvocationData{
   }
 
   InvocationType invocation_type=1;
+  // 可选的key有: bundleId(required), comment, id(即itemId, 只在item操作时使用)
+  // 用于cdc时, 可以携带其它自定义数据项
   google.protobuf.Struct options=2;
   // 主实体为#main, 否则为关联名称
   string target=3;
   google.protobuf.Any data=4;
+  // slug-uuid, 包含有时间戳, 通过Slug.of(var).getDateTime()获取时间戳
   string seq_id=5;
 }
 
