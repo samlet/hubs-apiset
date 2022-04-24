@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderQuoteProto";
-option objc_class_prefix = "OrderQuote";
 
 package domain;
 
@@ -45,6 +44,10 @@ message QuoteFlatData {
     // extra
     google.protobuf.Struct extra = 34;
     map<string, google.protobuf.Any> attachments = 35 ;
+}
+
+message QuoteKey{
+    string quote_id = 1 [json_name = "quote_id", (google.api.graphql.relay_options).id = true];
 }
 
 message QuoteList{
@@ -102,6 +105,10 @@ message QuoteAdjustmentFlatData {
     map<string, google.protobuf.Any> attachments = 44 ;
 }
 
+message QuoteAdjustmentKey{
+    string quote_adjustment_id = 1 [json_name = "quote_adjustment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message QuoteAdjustmentList{
     repeated QuoteAdjustmentFlatData values=1;
     // A token to retrieve next page of results.
@@ -154,6 +161,11 @@ message QuoteItemData {
 }
 
 
+message QuoteItemKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string quote_item_seq_id = 2 [json_name = "quote_item_seq_id"];
+}
+
 message QuoteItemList{
     repeated QuoteItemData values=1;
     // A token to retrieve next page of results.
@@ -190,6 +202,12 @@ message QuoteRoleData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message QuoteRoleKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message QuoteRoleList{
     repeated QuoteRoleData values=1;
@@ -230,6 +248,12 @@ message QuoteTermData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message QuoteTermKey{
+    string term_type_id = 1 [json_name = "term_type_id"];
+    string quote_id = 2 [json_name = "quote_id"];
+    string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];
+}
 
 message QuoteTermList{
     repeated QuoteTermData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "Msg91ConfigExtraProto";
-option objc_class_prefix = "Msg91ConfigExtra";
 
 package domain;
 
@@ -42,6 +41,10 @@ message Msg91GatewayConfigData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message Msg91GatewayConfigKey{
+    string telecom_gateway_config_id = 1 [json_name = "telecom_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message Msg91GatewayConfigList{
     repeated Msg91GatewayConfigData values=1;

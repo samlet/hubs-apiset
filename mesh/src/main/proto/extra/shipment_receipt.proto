@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ShipmentReceiptExtraProto";
-option objc_class_prefix = "ShipmentReceiptExtra";
 
 package domain;
 
@@ -40,6 +39,12 @@ message ShipmentReceiptRoleData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ShipmentReceiptRoleKey{
+    string receipt_id = 1 [json_name = "receipt_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message ShipmentReceiptRoleList{
     repeated ShipmentReceiptRoleData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "EntityTestExtraProto";
-option objc_class_prefix = "EntityTestExtra";
 
 package domain;
 
@@ -48,6 +47,10 @@ message TestFieldTypeData {
 }
 
 
+message TestFieldTypeKey{
+    string test_field_type_id = 1 [json_name = "test_field_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TestFieldTypeList{
     repeated TestFieldTypeData values=1;
     // A token to retrieve next page of results.
@@ -86,6 +89,10 @@ message TestingData {
 }
 
 
+message TestingKey{
+    string testing_id = 1 [json_name = "testing_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TestingList{
     repeated TestingData values=1;
     // A token to retrieve next page of results.
@@ -122,6 +129,10 @@ message TestingCryptoData {
 }
 
 
+message TestingCryptoKey{
+    string testing_crypto_id = 1 [json_name = "testing_crypto_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TestingCryptoList{
     repeated TestingCryptoData values=1;
     // A token to retrieve next page of results.
@@ -157,6 +168,11 @@ message TestingItemData {
 }
 
 
+message TestingItemKey{
+    string testing_id = 1 [json_name = "testing_id"];
+    string testing_seq_id = 2 [json_name = "testing_seq_id"];
+}
+
 message TestingItemList{
     repeated TestingItemData values=1;
     // A token to retrieve next page of results.
@@ -190,6 +206,10 @@ message TestingNodeData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message TestingNodeKey{
+    string testing_node_id = 1 [json_name = "testing_node_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TestingNodeList{
     repeated TestingNodeData values=1;
@@ -229,6 +249,12 @@ message TestingNodeMemberData {
 }
 
 
+message TestingNodeMemberKey{
+    string testing_node_id = 1 [json_name = "testing_node_id"];
+    string testing_id = 2 [json_name = "testing_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message TestingNodeMemberList{
     repeated TestingNodeMemberData values=1;
     // A token to retrieve next page of results.
@@ -261,6 +287,10 @@ message TestingRemoveAllData {
     map<string, google.protobuf.Any> attachments = 6;
 }
 
+
+message TestingRemoveAllKey{
+    string testing_remove_all_id = 1 [json_name = "testing_remove_all_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TestingRemoveAllList{
     repeated TestingRemoveAllData values=1;
@@ -298,6 +328,10 @@ message TestingStatusData {
 }
 
 
+message TestingStatusKey{
+    string testing_status_id = 1 [json_name = "testing_status_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TestingStatusList{
     repeated TestingStatusData values=1;
     // A token to retrieve next page of results.
@@ -331,6 +365,10 @@ message TestingSubtypeData {
 }
 
 
+message TestingSubtypeKey{
+    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TestingSubtypeList{
     repeated TestingSubtypeData values=1;
     // A token to retrieve next page of results.
@@ -363,6 +401,10 @@ message TestingTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message TestingTypeKey{
+    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TestingTypeList{
     repeated TestingTypeData values=1;

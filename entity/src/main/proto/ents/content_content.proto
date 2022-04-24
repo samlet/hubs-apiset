@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentProto";
-option objc_class_prefix = "Content";
 
 package domain;
 
@@ -58,6 +57,10 @@ message ContentFlatData {
     map<string, google.protobuf.Any> attachments = 77 ;
 }
 
+message ContentKey{
+    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ContentList{
     repeated ContentFlatData values=1;
     // A token to retrieve next page of results.
@@ -104,6 +107,13 @@ message ContentAssocData {
 }
 
 
+message ContentAssocKey{
+    string content_id = 1 [json_name = "content_id"];
+    string content_id_to = 2 [json_name = "content_id_to"];
+    string content_assoc_type_id = 3 [json_name = "content_assoc_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message ContentAssocList{
     repeated ContentAssocData values=1;
     // A token to retrieve next page of results.
@@ -139,6 +149,11 @@ message ContentAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ContentAttributeKey{
+    string content_id = 1 [json_name = "content_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message ContentAttributeList{
     repeated ContentAttributeData values=1;
@@ -176,6 +191,13 @@ message ContentRoleData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ContentRoleKey{
+    string content_id = 1 [json_name = "content_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ContentRoleList{
     repeated ContentRoleData values=1;

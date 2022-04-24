@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WorkeffortProto";
-option objc_class_prefix = "Workeffort";
 
 package domain;
 
@@ -87,6 +86,10 @@ message WorkEffortFlatData {
     map<string, google.protobuf.Any> attachments = 120 ;
 }
 
+message WorkEffortKey{
+    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
+}
+
 message WorkEffortList{
     repeated WorkEffortFlatData values=1;
     // A token to retrieve next page of results.
@@ -123,6 +126,13 @@ message WorkEffortAssocData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message WorkEffortAssocKey{
+    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
+    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
+    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message WorkEffortAssocList{
     repeated WorkEffortAssocData values=1;
@@ -164,6 +174,12 @@ message WorkEffortFixedAssetAssignData {
 }
 
 
+message WorkEffortFixedAssetAssignKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message WorkEffortFixedAssetAssignList{
     repeated WorkEffortFixedAssetAssignData values=1;
     // A token to retrieve next page of results.
@@ -203,6 +219,13 @@ message WorkEffortGoodStandardData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message WorkEffortGoodStandardKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string product_id = 2 [json_name = "product_id"];
+    string work_effort_good_std_type_id = 3 [json_name = "work_effort_good_std_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message WorkEffortGoodStandardList{
     repeated WorkEffortGoodStandardData values=1;
@@ -250,6 +273,13 @@ message WorkEffortPartyAssignmentData {
 }
 
 
+message WorkEffortPartyAssignmentKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message WorkEffortPartyAssignmentList{
     repeated WorkEffortPartyAssignmentData values=1;
     // A token to retrieve next page of results.
@@ -286,6 +316,11 @@ message WorkEffortSkillStandardData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message WorkEffortSkillStandardKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string skill_type_id = 2 [json_name = "skill_type_id"];
+}
 
 message WorkEffortSkillStandardList{
     repeated WorkEffortSkillStandardData values=1;

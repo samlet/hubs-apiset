@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingTaxProto";
-option objc_class_prefix = "AccountingTax";
 
 package domain;
 
@@ -46,6 +45,13 @@ message PartyTaxAuthInfoData {
 }
 
 
+message PartyTaxAuthInfoKey{
+    string party_id = 1 [json_name = "party_id"];
+    string tax_auth_geo_id = 2 [json_name = "tax_auth_geo_id"];
+    string tax_auth_party_id = 3 [json_name = "tax_auth_party_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message PartyTaxAuthInfoList{
     repeated PartyTaxAuthInfoData values=1;
     // A token to retrieve next page of results.
@@ -82,6 +88,11 @@ message TaxAuthorityData {
     map<string, google.protobuf.Any> attachments = 22;
 }
 
+
+message TaxAuthorityKey{
+    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
+    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
+}
 
 message TaxAuthorityList{
     repeated TaxAuthorityData values=1;
@@ -122,6 +133,14 @@ message TaxAuthorityAssocData {
 }
 
 
+message TaxAuthorityAssocKey{
+    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
+    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
+    string to_tax_auth_geo_id = 3 [json_name = "to_tax_auth_geo_id"];
+    string to_tax_auth_party_id = 4 [json_name = "to_tax_auth_party_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
+
 message TaxAuthorityAssocList{
     repeated TaxAuthorityAssocData values=1;
     // A token to retrieve next page of results.
@@ -156,6 +175,12 @@ message TaxAuthorityCategoryData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message TaxAuthorityCategoryKey{
+    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
+    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
+    string product_category_id = 3 [json_name = "product_category_id"];
+}
 
 message TaxAuthorityCategoryList{
     repeated TaxAuthorityCategoryData values=1;
@@ -192,6 +217,12 @@ message TaxAuthorityGlAccountData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message TaxAuthorityGlAccountKey{
+    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
+    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
+    string organization_party_id = 3 [json_name = "organization_party_id"];
+}
 
 message TaxAuthorityGlAccountList{
     repeated TaxAuthorityGlAccountData values=1;
@@ -236,6 +267,10 @@ message TaxAuthorityRateProductFlatData {
     // extra
     google.protobuf.Struct extra = 28;
     map<string, google.protobuf.Any> attachments = 29 ;
+}
+
+message TaxAuthorityRateProductKey{
+    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id", (google.api.graphql.relay_options).id = true];
 }
 
 message TaxAuthorityRateProductList{

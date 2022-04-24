@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "EntityCryptoExtraProto";
-option objc_class_prefix = "EntityCryptoExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message EntityKeyStoreData {
     map<string, google.protobuf.Any> attachments = 6;
 }
 
+
+message EntityKeyStoreKey{
+    string key_name = 1 [json_name = "key_name", (google.api.graphql.relay_options).id = true];
+}
 
 message EntityKeyStoreList{
     repeated EntityKeyStoreData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "EntityTenantExtraProto";
-option objc_class_prefix = "EntityTenantExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message ComponentData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message ComponentKey{
+    string component_name = 1 [json_name = "component_name", (google.api.graphql.relay_options).id = true];
+}
 
 message ComponentList{
     repeated ComponentData values=1;
@@ -74,6 +77,11 @@ message TenantComponentData {
 }
 
 
+message TenantComponentKey{
+    string component_name = 1 [json_name = "component_name"];
+    string tenant_id = 2 [json_name = "tenant_id"];
+}
+
 message TenantComponentList{
     repeated TenantComponentData values=1;
     // A token to retrieve next page of results.
@@ -106,6 +114,10 @@ message TenantKeyEncryptingKeyData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message TenantKeyEncryptingKeyKey{
+    string tenant_id = 1 [json_name = "tenant_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TenantKeyEncryptingKeyList{
     repeated TenantKeyEncryptingKeyData values=1;

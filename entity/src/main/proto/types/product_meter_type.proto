@@ -32,6 +32,10 @@ message ProductMeterTypeData {
     map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message ProductMeterTypeKey{
+    string product_meter_type_id = 1 [json_name = "product_meter_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductMeterTypeList{
     repeated ProductMeterTypeData values=1;
     // A token to retrieve next page of results.

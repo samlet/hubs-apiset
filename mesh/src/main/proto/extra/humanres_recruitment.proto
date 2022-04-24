@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "HumanresRecruitmentExtraProto";
-option objc_class_prefix = "HumanresRecruitmentExtra";
 
 package domain;
 
@@ -44,6 +43,10 @@ message JobInterviewData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message JobInterviewKey{
+    string job_interview_id = 1 [json_name = "job_interview_id", (google.api.graphql.relay_options).id = true];
+}
 
 message JobInterviewList{
     repeated JobInterviewData values=1;
@@ -89,6 +92,10 @@ message JobRequisitionData {
     map<string, google.protobuf.Any> attachments = 23;
 }
 
+
+message JobRequisitionKey{
+    string job_requisition_id = 1 [json_name = "job_requisition_id", (google.api.graphql.relay_options).id = true];
+}
 
 message JobRequisitionList{
     repeated JobRequisitionData values=1;

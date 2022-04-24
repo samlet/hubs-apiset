@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductProto";
-option objc_class_prefix = "Product";
 
 package domain;
 
@@ -105,6 +104,10 @@ message ProductFlatData {
     map<string, google.protobuf.Any> attachments = 159 ;
 }
 
+message ProductKey{
+    string product_id = 1 [json_name = "product_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductList{
     repeated ProductFlatData values=1;
     // A token to retrieve next page of results.
@@ -148,6 +151,13 @@ message ProductAssocData {
     map<string, google.protobuf.Any> attachments = 24;
 }
 
+
+message ProductAssocKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_id_to = 2 [json_name = "product_id_to"];
+    string product_assoc_type_id = 3 [json_name = "product_assoc_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ProductAssocList{
     repeated ProductAssocData values=1;
@@ -193,6 +203,13 @@ message ProductContentData {
 }
 
 
+message ProductContentKey{
+    string product_id = 1 [json_name = "product_id"];
+    string content_id = 2 [json_name = "content_id"];
+    string product_content_type_id = 3 [json_name = "product_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message ProductContentList{
     repeated ProductContentData values=1;
     // A token to retrieve next page of results.
@@ -230,6 +247,12 @@ message ProductKeywordData {
 }
 
 
+message ProductKeywordKey{
+    string product_id = 1 [json_name = "product_id"];
+    string keyword = 2 [json_name = "keyword"];
+    string keyword_type_id = 3 [json_name = "keyword_type_id"];
+}
+
 message ProductKeywordList{
     repeated ProductKeywordData values=1;
     // A token to retrieve next page of results.
@@ -266,6 +289,10 @@ message ProductReviewFlatData {
     // extra
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19 ;
+}
+
+message ProductReviewKey{
+    string product_review_id = 1 [json_name = "product_review_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductReviewList{

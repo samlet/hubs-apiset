@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductInventoryProto";
-option objc_class_prefix = "ProductInventory";
 
 package domain;
 
@@ -61,6 +60,10 @@ message InventoryItemFlatData {
     map<string, google.protobuf.Any> attachments = 64 ;
 }
 
+message InventoryItemKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];
+}
+
 message InventoryItemList{
     repeated InventoryItemFlatData values=1;
     // A token to retrieve next page of results.
@@ -113,6 +116,11 @@ message InventoryItemDetailData {
     map<string, google.protobuf.Any> attachments = 38;
 }
 
+
+message InventoryItemDetailKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string inventory_item_detail_seq_id = 2 [json_name = "inventory_item_detail_seq_id"];
+}
 
 message InventoryItemDetailList{
     repeated InventoryItemDetailData values=1;

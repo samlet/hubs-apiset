@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentWebsiteProto";
-option objc_class_prefix = "ContentWebsite";
 
 package domain;
 
@@ -41,6 +40,11 @@ message WebAnalyticsConfigData {
 }
 
 
+message WebAnalyticsConfigKey{
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string web_analytics_type_id = 2 [json_name = "web_analytics_type_id"];
+}
+
 message WebAnalyticsConfigList{
     repeated WebAnalyticsConfigData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +81,13 @@ message WebSiteContentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message WebSiteContentKey{
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string content_id = 2 [json_name = "content_id"];
+    string web_site_content_type_id = 3 [json_name = "web_site_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message WebSiteContentList{
     repeated WebSiteContentData values=1;

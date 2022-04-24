@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingInvoiceExtraProto";
-option objc_class_prefix = "AccountingInvoiceExtra";
 
 package domain;
 
@@ -42,6 +41,11 @@ message InvoiceAttributeData {
 }
 
 
+message InvoiceAttributeKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message InvoiceAttributeList{
     repeated InvoiceAttributeData values=1;
     // A token to retrieve next page of results.
@@ -76,6 +80,12 @@ message InvoiceContactMechData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message InvoiceContactMechKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"];
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];
+}
 
 message InvoiceContactMechList{
     repeated InvoiceContactMechData values=1;
@@ -113,6 +123,13 @@ message InvoiceContentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message InvoiceContentKey{
+    string content_id = 1 [json_name = "content_id"];
+    string invoice_id = 2 [json_name = "invoice_id"];
+    string invoice_content_type_id = 3 [json_name = "invoice_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message InvoiceContentList{
     repeated InvoiceContentData values=1;
@@ -157,6 +174,15 @@ message InvoiceItemAssocData {
 }
 
 
+message InvoiceItemAssocKey{
+    string invoice_id_from = 1 [json_name = "invoice_id_from"];
+    string invoice_item_seq_id_from = 2 [json_name = "invoice_item_seq_id_from"];
+    string invoice_id_to = 3 [json_name = "invoice_id_to"];
+    string invoice_item_seq_id_to = 4 [json_name = "invoice_item_seq_id_to"];
+    string invoice_item_assoc_type_id = 5 [json_name = "invoice_item_assoc_type_id"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+}
+
 message InvoiceItemAssocList{
     repeated InvoiceItemAssocData values=1;
     // A token to retrieve next page of results.
@@ -194,6 +220,12 @@ message InvoiceItemAttributeData {
 }
 
 
+message InvoiceItemAttributeKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
+    string attr_name = 3 [json_name = "attr_name"];
+}
+
 message InvoiceItemAttributeList{
     repeated InvoiceItemAttributeData values=1;
     // A token to retrieve next page of results.
@@ -229,6 +261,11 @@ message InvoiceItemTypeAttrData {
 }
 
 
+message InvoiceItemTypeAttrKey{
+    string invoice_item_type_id = 1 [json_name = "invoice_item_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message InvoiceItemTypeAttrList{
     repeated InvoiceItemTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -262,6 +299,11 @@ message InvoiceNoteData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message InvoiceNoteKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string note_id = 2 [json_name = "note_id"];
+}
 
 message InvoiceNoteList{
     repeated InvoiceNoteData values=1;
@@ -303,6 +345,10 @@ message InvoiceTermData {
 }
 
 
+message InvoiceTermKey{
+    string invoice_term_id = 1 [json_name = "invoice_term_id", (google.api.graphql.relay_options).id = true];
+}
+
 message InvoiceTermList{
     repeated InvoiceTermData values=1;
     // A token to retrieve next page of results.
@@ -339,6 +385,11 @@ message InvoiceTermAttributeData {
 }
 
 
+message InvoiceTermAttributeKey{
+    string invoice_term_id = 1 [json_name = "invoice_term_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message InvoiceTermAttributeList{
     repeated InvoiceTermAttributeData values=1;
     // A token to retrieve next page of results.
@@ -373,6 +424,11 @@ message InvoiceTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message InvoiceTypeAttrKey{
+    string invoice_type_id = 1 [json_name = "invoice_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message InvoiceTypeAttrList{
     repeated InvoiceTypeAttrData values=1;

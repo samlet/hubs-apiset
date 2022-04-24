@@ -33,6 +33,10 @@ message InventoryItemTypeData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message InventoryItemTypeKey{
+    string inventory_item_type_id = 1 [json_name = "inventory_item_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message InventoryItemTypeList{
     repeated InventoryItemTypeData values=1;
     // A token to retrieve next page of results.

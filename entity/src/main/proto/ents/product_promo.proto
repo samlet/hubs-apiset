@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductPromoProto";
-option objc_class_prefix = "ProductPromo";
 
 package domain;
 
@@ -50,6 +49,10 @@ message ProductPromoFlatData {
     map<string, google.protobuf.Any> attachments = 38 ;
 }
 
+message ProductPromoKey{
+    string product_promo_id = 1 [json_name = "product_promo_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductPromoList{
     repeated ProductPromoFlatData values=1;
     // A token to retrieve next page of results.
@@ -93,6 +96,12 @@ message ProductPromoActionData {
 }
 
 
+message ProductPromoActionKey{
+    string product_promo_id = 1 [json_name = "product_promo_id"];
+    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
+}
+
 message ProductPromoActionList{
     repeated ProductPromoActionData values=1;
     // A token to retrieve next page of results.
@@ -132,6 +141,15 @@ message ProductPromoCategoryData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message ProductPromoCategoryKey{
+    string product_promo_id = 1 [json_name = "product_promo_id"];
+    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
+    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
+    string product_category_id = 5 [json_name = "product_category_id"];
+    string and_group_id = 6 [json_name = "and_group_id"];
+}
 
 message ProductPromoCategoryList{
     repeated ProductPromoCategoryData values=1;
@@ -174,6 +192,10 @@ message ProductPromoCodeFlatData {
     map<string, google.protobuf.Any> attachments = 27 ;
 }
 
+message ProductPromoCodeKey{
+    string product_promo_code_id = 1 [json_name = "product_promo_code_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductPromoCodeList{
     repeated ProductPromoCodeFlatData values=1;
     // A token to retrieve next page of results.
@@ -213,6 +235,12 @@ message ProductPromoCondData {
 }
 
 
+message ProductPromoCondKey{
+    string product_promo_id = 1 [json_name = "product_promo_id"];
+    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+    string product_promo_cond_seq_id = 3 [json_name = "product_promo_cond_seq_id"];
+}
+
 message ProductPromoCondList{
     repeated ProductPromoCondData values=1;
     // A token to retrieve next page of results.
@@ -251,6 +279,14 @@ message ProductPromoProductData {
 }
 
 
+message ProductPromoProductKey{
+    string product_promo_id = 1 [json_name = "product_promo_id"];
+    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
+    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
+    string product_id = 5 [json_name = "product_id"];
+}
+
 message ProductPromoProductList{
     repeated ProductPromoProductData values=1;
     // A token to retrieve next page of results.
@@ -285,6 +321,11 @@ message ProductPromoRuleData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message ProductPromoRuleKey{
+    string product_promo_id = 1 [json_name = "product_promo_id"];
+    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+}
 
 message ProductPromoRuleList{
     repeated ProductPromoRuleData values=1;

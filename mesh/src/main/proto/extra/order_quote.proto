@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderQuoteExtraProto";
-option objc_class_prefix = "OrderQuoteExtra";
 
 package domain;
 
@@ -42,6 +41,11 @@ message QuoteAttributeData {
 }
 
 
+message QuoteAttributeKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message QuoteAttributeList{
     repeated QuoteAttributeData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +81,11 @@ message QuoteCoefficientData {
 }
 
 
+message QuoteCoefficientKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string coeff_name = 2 [json_name = "coeff_name"];
+}
+
 message QuoteCoefficientList{
     repeated QuoteCoefficientData values=1;
     // A token to retrieve next page of results.
@@ -110,6 +119,11 @@ message QuoteNoteData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message QuoteNoteKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string note_id = 2 [json_name = "note_id"];
+}
 
 message QuoteNoteList{
     repeated QuoteNoteData values=1;
@@ -149,6 +163,13 @@ message QuoteTermAttributeData {
 }
 
 
+message QuoteTermAttributeKey{
+    string term_type_id = 1 [json_name = "term_type_id"];
+    string quote_id = 2 [json_name = "quote_id"];
+    string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];
+    string attr_name = 4 [json_name = "attr_name"];
+}
+
 message QuoteTermAttributeList{
     repeated QuoteTermAttributeData values=1;
     // A token to retrieve next page of results.
@@ -184,6 +205,11 @@ message QuoteTypeAttrData {
 }
 
 
+message QuoteTypeAttrKey{
+    string quote_type_id = 1 [json_name = "quote_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message QuoteTypeAttrList{
     repeated QuoteTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -217,6 +243,11 @@ message QuoteWorkEffortData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message QuoteWorkEffortKey{
+    string quote_id = 1 [json_name = "quote_id"];
+    string work_effort_id = 2 [json_name = "work_effort_id"];
+}
 
 message QuoteWorkEffortList{
     repeated QuoteWorkEffortData values=1;

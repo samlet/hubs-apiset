@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderRequirementExtraProto";
-option objc_class_prefix = "OrderRequirementExtra";
 
 package domain;
 
@@ -42,6 +41,11 @@ message DesiredFeatureData {
 }
 
 
+message DesiredFeatureKey{
+    string desired_feature_id = 1 [json_name = "desired_feature_id"];
+    string requirement_id = 2 [json_name = "requirement_id"];
+}
+
 message DesiredFeatureList{
     repeated DesiredFeatureData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +81,12 @@ message OrderRequirementCommitmentData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message OrderRequirementCommitmentKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+}
 
 message OrderRequirementCommitmentList{
     repeated OrderRequirementCommitmentData values=1;
@@ -114,6 +124,11 @@ message RequirementAttributeData {
 }
 
 
+message RequirementAttributeKey{
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message RequirementAttributeList{
     repeated RequirementAttributeData values=1;
     // A token to retrieve next page of results.
@@ -150,6 +165,12 @@ message RequirementBudgetAllocationData {
 }
 
 
+message RequirementBudgetAllocationKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+}
+
 message RequirementBudgetAllocationList{
     repeated RequirementBudgetAllocationData values=1;
     // A token to retrieve next page of results.
@@ -184,6 +205,12 @@ message RequirementCustRequestData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message RequirementCustRequestKey{
+    string cust_request_id = 1 [json_name = "cust_request_id"];
+    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
+    string requirement_id = 3 [json_name = "requirement_id"];
+}
 
 message RequirementCustRequestList{
     repeated RequirementCustRequestData values=1;
@@ -222,6 +249,13 @@ message RequirementRoleData {
 }
 
 
+message RequirementRoleKey{
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message RequirementRoleList{
     repeated RequirementRoleData values=1;
     // A token to retrieve next page of results.
@@ -258,6 +292,11 @@ message RequirementStatusData {
 }
 
 
+message RequirementStatusKey{
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string status_id = 2 [json_name = "status_id"];
+}
+
 message RequirementStatusList{
     repeated RequirementStatusData values=1;
     // A token to retrieve next page of results.
@@ -293,6 +332,11 @@ message RequirementTypeAttrData {
 }
 
 
+message RequirementTypeAttrKey{
+    string requirement_type_id = 1 [json_name = "requirement_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message RequirementTypeAttrList{
     repeated RequirementTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -327,6 +371,11 @@ message WorkRequirementFulfillmentData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message WorkRequirementFulfillmentKey{
+    string requirement_id = 1 [json_name = "requirement_id"];
+    string work_effort_id = 2 [json_name = "work_effort_id"];
+}
 
 message WorkRequirementFulfillmentList{
     repeated WorkRequirementFulfillmentData values=1;

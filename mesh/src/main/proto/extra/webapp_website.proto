@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WebappWebsiteExtraProto";
-option objc_class_prefix = "WebappWebsiteExtra";
 
 package domain;
 
@@ -40,6 +39,10 @@ message WebPageData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message WebPageKey{
+    string web_page_id = 1 [json_name = "web_page_id", (google.api.graphql.relay_options).id = true];
+}
 
 message WebPageList{
     repeated WebPageData values=1;

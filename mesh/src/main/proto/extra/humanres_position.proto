@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "HumanresPositionExtraProto";
-option objc_class_prefix = "HumanresPositionExtra";
 
 package domain;
 
@@ -51,6 +50,10 @@ message EmplPositionData {
 }
 
 
+message EmplPositionKey{
+    string empl_position_id = 1 [json_name = "empl_position_id", (google.api.graphql.relay_options).id = true];
+}
+
 message EmplPositionList{
     repeated EmplPositionData values=1;
     // A token to retrieve next page of results.
@@ -85,6 +88,10 @@ message EmplPositionClassTypeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message EmplPositionClassTypeKey{
+    string empl_position_class_type_id = 1 [json_name = "empl_position_class_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message EmplPositionClassTypeList{
     repeated EmplPositionClassTypeData values=1;
@@ -122,6 +129,12 @@ message EmplPositionFulfillmentData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message EmplPositionFulfillmentKey{
+    string empl_position_id = 1 [json_name = "empl_position_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message EmplPositionFulfillmentList{
     repeated EmplPositionFulfillmentData values=1;
@@ -161,6 +174,12 @@ message EmplPositionReportingStructData {
 }
 
 
+message EmplPositionReportingStructKey{
+    string empl_position_id_reporting_to = 1 [json_name = "empl_position_id_reporting_to"];
+    string empl_position_id_managed_by = 2 [json_name = "empl_position_id_managed_by"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message EmplPositionReportingStructList{
     repeated EmplPositionReportingStructData values=1;
     // A token to retrieve next page of results.
@@ -198,6 +217,12 @@ message EmplPositionResponsibilityData {
 }
 
 
+message EmplPositionResponsibilityKey{
+    string empl_position_id = 1 [json_name = "empl_position_id"];
+    string responsibility_type_id = 2 [json_name = "responsibility_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message EmplPositionResponsibilityList{
     repeated EmplPositionResponsibilityData values=1;
     // A token to retrieve next page of results.
@@ -234,6 +259,12 @@ message EmplPositionTypeClassData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message EmplPositionTypeClassKey{
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
+    string empl_position_class_type_id = 2 [json_name = "empl_position_class_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message EmplPositionTypeClassList{
     repeated EmplPositionTypeClassData values=1;
@@ -273,6 +304,12 @@ message EmplPositionTypeRateData {
 }
 
 
+message EmplPositionTypeRateKey{
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
+    string rate_type_id = 2 [json_name = "rate_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message EmplPositionTypeRateList{
     repeated EmplPositionTypeRateData values=1;
     // A token to retrieve next page of results.
@@ -309,6 +346,12 @@ message ValidResponsibilityData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ValidResponsibilityKey{
+    string empl_position_type_id = 1 [json_name = "empl_position_type_id"];
+    string responsibility_type_id = 2 [json_name = "responsibility_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message ValidResponsibilityList{
     repeated ValidResponsibilityData values=1;

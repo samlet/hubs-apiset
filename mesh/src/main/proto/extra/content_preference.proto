@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentPreferenceExtraProto";
-option objc_class_prefix = "ContentPreferenceExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message WebPreferenceTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message WebPreferenceTypeKey{
+    string web_preference_type_id = 1 [json_name = "web_preference_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message WebPreferenceTypeList{
     repeated WebPreferenceTypeData values=1;
@@ -75,6 +78,13 @@ message WebUserPreferenceData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message WebUserPreferenceKey{
+    string user_login_id = 1 [json_name = "user_login_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string visit_id = 3 [json_name = "visit_id"];
+    string web_preference_type_id = 4 [json_name = "web_preference_type_id"];
+}
 
 message WebUserPreferenceList{
     repeated WebUserPreferenceData values=1;

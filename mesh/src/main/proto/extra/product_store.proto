@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductStoreExtraProto";
-option objc_class_prefix = "ProductStoreExtra";
 
 package domain;
 
@@ -43,6 +42,12 @@ message ProductStoreGroupMemberData {
 }
 
 
+message ProductStoreGroupMemberKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string product_store_group_id = 2 [json_name = "product_store_group_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductStoreGroupMemberList{
     repeated ProductStoreGroupMemberData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +82,12 @@ message ProductStoreGroupRoleData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ProductStoreGroupRoleKey{
+    string product_store_group_id = 1 [json_name = "product_store_group_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message ProductStoreGroupRoleList{
     repeated ProductStoreGroupRoleData values=1;
@@ -115,6 +126,12 @@ message ProductStoreGroupRollupData {
 }
 
 
+message ProductStoreGroupRollupKey{
+    string product_store_group_id = 1 [json_name = "product_store_group_id"];
+    string parent_group_id = 2 [json_name = "parent_group_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductStoreGroupRollupList{
     repeated ProductStoreGroupRollupData values=1;
     // A token to retrieve next page of results.
@@ -147,6 +164,10 @@ message ProductStoreGroupTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message ProductStoreGroupTypeKey{
+    string product_store_group_type_id = 1 [json_name = "product_store_group_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductStoreGroupTypeList{
     repeated ProductStoreGroupTypeData values=1;
@@ -185,6 +206,12 @@ message ProductStoreTelecomSettingData {
 }
 
 
+message ProductStoreTelecomSettingKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string telecom_method_type_id = 2 [json_name = "telecom_method_type_id"];
+    string telecom_msg_type_enum_id = 3 [json_name = "telecom_msg_type_enum_id"];
+}
+
 message ProductStoreTelecomSettingList{
     repeated ProductStoreTelecomSettingData values=1;
     // A token to retrieve next page of results.
@@ -221,6 +248,13 @@ message ProductStoreVendorPaymentData {
 }
 
 
+message ProductStoreVendorPaymentKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string vendor_party_id = 2 [json_name = "vendor_party_id"];
+    string payment_method_type_id = 3 [json_name = "payment_method_type_id"];
+    string credit_card_enum_id = 4 [json_name = "credit_card_enum_id"];
+}
+
 message ProductStoreVendorPaymentList{
     repeated ProductStoreVendorPaymentData values=1;
     // A token to retrieve next page of results.
@@ -256,6 +290,13 @@ message ProductStoreVendorShipmentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ProductStoreVendorShipmentKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string vendor_party_id = 2 [json_name = "vendor_party_id"];
+    string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];
+    string carrier_party_id = 4 [json_name = "carrier_party_id"];
+}
 
 message ProductStoreVendorShipmentList{
     repeated ProductStoreVendorShipmentData values=1;

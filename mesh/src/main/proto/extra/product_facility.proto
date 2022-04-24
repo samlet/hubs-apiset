@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductFacilityExtraProto";
-option objc_class_prefix = "ProductFacilityExtra";
 
 package domain;
 
@@ -41,6 +40,10 @@ message ContainerData {
 }
 
 
+message ContainerKey{
+    string container_id = 1 [json_name = "container_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ContainerList{
     repeated ContainerData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +80,12 @@ message ContainerGeoPointData {
 }
 
 
+message ContainerGeoPointKey{
+    string container_id = 1 [json_name = "container_id"];
+    string geo_point_id = 2 [json_name = "geo_point_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ContainerGeoPointList{
     repeated ContainerGeoPointData values=1;
     // A token to retrieve next page of results.
@@ -109,6 +118,10 @@ message ContainerTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message ContainerTypeKey{
+    string container_type_id = 1 [json_name = "container_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ContainerTypeList{
     repeated ContainerTypeData values=1;
@@ -145,6 +158,11 @@ message FacilityAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FacilityAttributeKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message FacilityAttributeList{
     repeated FacilityAttributeData values=1;
@@ -183,6 +201,13 @@ message FacilityCalendarData {
 }
 
 
+message FacilityCalendarKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string calendar_id = 2 [json_name = "calendar_id"];
+    string facility_calendar_type_id = 3 [json_name = "facility_calendar_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message FacilityCalendarList{
     repeated FacilityCalendarData values=1;
     // A token to retrieve next page of results.
@@ -216,6 +241,10 @@ message FacilityCalendarTypeData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message FacilityCalendarTypeKey{
+    string facility_calendar_type_id = 1 [json_name = "facility_calendar_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message FacilityCalendarTypeList{
     repeated FacilityCalendarTypeData values=1;
@@ -253,6 +282,13 @@ message FacilityCarrierShipmentData {
 }
 
 
+message FacilityCarrierShipmentKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    string shipment_method_type_id = 4 [json_name = "shipment_method_type_id"];
+}
+
 message FacilityCarrierShipmentList{
     repeated FacilityCarrierShipmentData values=1;
     // A token to retrieve next page of results.
@@ -288,6 +324,12 @@ message FacilityContentData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FacilityContentKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string content_id = 2 [json_name = "content_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message FacilityContentList{
     repeated FacilityContentData values=1;
@@ -326,6 +368,12 @@ message FacilityGroupMemberData {
 }
 
 
+message FacilityGroupMemberKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string facility_group_id = 2 [json_name = "facility_group_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message FacilityGroupMemberList{
     repeated FacilityGroupMemberData values=1;
     // A token to retrieve next page of results.
@@ -360,6 +408,12 @@ message FacilityGroupRoleData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message FacilityGroupRoleKey{
+    string facility_group_id = 1 [json_name = "facility_group_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message FacilityGroupRoleList{
     repeated FacilityGroupRoleData values=1;
@@ -398,6 +452,12 @@ message FacilityGroupRollupData {
 }
 
 
+message FacilityGroupRollupKey{
+    string facility_group_id = 1 [json_name = "facility_group_id"];
+    string parent_facility_group_id = 2 [json_name = "parent_facility_group_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message FacilityGroupRollupList{
     repeated FacilityGroupRollupData values=1;
     // A token to retrieve next page of results.
@@ -435,6 +495,13 @@ message FacilityPartyData {
 }
 
 
+message FacilityPartyKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message FacilityPartyList{
     repeated FacilityPartyData values=1;
     // A token to retrieve next page of results.
@@ -469,6 +536,11 @@ message FacilityTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FacilityTypeAttrKey{
+    string facility_type_id = 1 [json_name = "facility_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message FacilityTypeAttrList{
     repeated FacilityTypeAttrData values=1;

@@ -34,6 +34,11 @@ message StatusValidChangeData {
     map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message StatusValidChangeKey{
+    string status_id = 1 [json_name = "status_id"];
+    string status_id_to = 2 [json_name = "status_id_to"];
+}
+
 message StatusValidChangeList{
     repeated StatusValidChangeData values=1;
     // A token to retrieve next page of results.

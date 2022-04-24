@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderAllocationplanExtraProto";
-option objc_class_prefix = "OrderAllocationplanExtra";
 
 package domain;
 
@@ -44,6 +43,11 @@ message AllocationPlanHeaderData {
     map<string, google.protobuf.Any> attachments = 18;
 }
 
+
+message AllocationPlanHeaderKey{
+    string plan_id = 1 [json_name = "plan_id"];
+    string product_id = 2 [json_name = "product_id"];
+}
 
 message AllocationPlanHeaderList{
     repeated AllocationPlanHeaderData values=1;
@@ -87,6 +91,12 @@ message AllocationPlanItemData {
     map<string, google.protobuf.Any> attachments = 24;
 }
 
+
+message AllocationPlanItemKey{
+    string plan_id = 1 [json_name = "plan_id"];
+    string plan_item_seq_id = 2 [json_name = "plan_item_seq_id"];
+    string product_id = 3 [json_name = "product_id"];
+}
 
 message AllocationPlanItemList{
     repeated AllocationPlanItemData values=1;

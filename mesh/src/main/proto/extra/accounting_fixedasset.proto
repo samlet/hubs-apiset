@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingFixedassetExtraProto";
-option objc_class_prefix = "AccountingFixedassetExtra";
 
 package domain;
 
@@ -39,6 +38,10 @@ message AccommodationClassData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message AccommodationClassKey{
+    string accommodation_class_id = 1 [json_name = "accommodation_class_id", (google.api.graphql.relay_options).id = true];
+}
 
 message AccommodationClassList{
     repeated AccommodationClassData values=1;
@@ -76,6 +79,10 @@ message AccommodationMapData {
 }
 
 
+message AccommodationMapKey{
+    string accommodation_map_id = 1 [json_name = "accommodation_map_id", (google.api.graphql.relay_options).id = true];
+}
+
 message AccommodationMapList{
     repeated AccommodationMapData values=1;
     // A token to retrieve next page of results.
@@ -108,6 +115,10 @@ message AccommodationMapTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message AccommodationMapTypeKey{
+    string accommodation_map_type_id = 1 [json_name = "accommodation_map_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message AccommodationMapTypeList{
     repeated AccommodationMapTypeData values=1;
@@ -145,6 +156,11 @@ message FixedAssetAttributeData {
 }
 
 
+message FixedAssetAttributeKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message FixedAssetAttributeList{
     repeated FixedAssetAttributeData values=1;
     // A token to retrieve next page of results.
@@ -179,6 +195,11 @@ message FixedAssetIdentData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message FixedAssetIdentKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string fixed_asset_ident_type_id = 2 [json_name = "fixed_asset_ident_type_id"];
+}
 
 message FixedAssetIdentList{
     repeated FixedAssetIdentData values=1;
@@ -222,6 +243,11 @@ message FixedAssetMaintData {
 }
 
 
+message FixedAssetMaintKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string maint_hist_seq_id = 2 [json_name = "maint_hist_seq_id"];
+}
+
 message FixedAssetMaintList{
     repeated FixedAssetMaintData values=1;
     // A token to retrieve next page of results.
@@ -258,6 +284,13 @@ message FixedAssetMaintOrderData {
 }
 
 
+message FixedAssetMaintOrderKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string maint_hist_seq_id = 2 [json_name = "maint_hist_seq_id"];
+    string order_id = 3 [json_name = "order_id"];
+    string order_item_seq_id = 4 [json_name = "order_item_seq_id"];
+}
+
 message FixedAssetMaintOrderList{
     repeated FixedAssetMaintOrderData values=1;
     // A token to retrieve next page of results.
@@ -292,6 +325,11 @@ message FixedAssetTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FixedAssetTypeAttrKey{
+    string fixed_asset_type_id = 1 [json_name = "fixed_asset_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message FixedAssetTypeAttrList{
     repeated FixedAssetTypeAttrData values=1;
@@ -333,6 +371,12 @@ message FixedAssetTypeGlAccountData {
 }
 
 
+message FixedAssetTypeGlAccountKey{
+    string fixed_asset_type_id = 1 [json_name = "fixed_asset_type_id"];
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
+    string organization_party_id = 3 [json_name = "organization_party_id"];
+}
+
 message FixedAssetTypeGlAccountList{
     repeated FixedAssetTypeGlAccountData values=1;
     // A token to retrieve next page of results.
@@ -372,6 +416,13 @@ message PartyFixedAssetAssignmentData {
     map<string, google.protobuf.Any> attachments = 18;
 }
 
+
+message PartyFixedAssetAssignmentKey{
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"];
+    string fixed_asset_id = 3 [json_name = "fixed_asset_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message PartyFixedAssetAssignmentList{
     repeated PartyFixedAssetAssignmentData values=1;

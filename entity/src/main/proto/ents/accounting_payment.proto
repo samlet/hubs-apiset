@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingPaymentProto";
-option objc_class_prefix = "AccountingPayment";
 
 package domain;
 
@@ -43,6 +42,10 @@ message BillingAccountFlatData {
     map<string, google.protobuf.Any> attachments = 24 ;
 }
 
+message BillingAccountKey{
+    string billing_account_id = 1 [json_name = "billing_account_id", (google.api.graphql.relay_options).id = true];
+}
+
 message BillingAccountList{
     repeated BillingAccountFlatData values=1;
     // A token to retrieve next page of results.
@@ -78,6 +81,13 @@ message BillingAccountRoleData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message BillingAccountRoleKey{
+    string billing_account_id = 1 [json_name = "billing_account_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message BillingAccountRoleList{
     repeated BillingAccountRoleData values=1;
@@ -125,6 +135,10 @@ message CreditCardFlatData {
     map<string, google.protobuf.Any> attachments = 28 ;
 }
 
+message CreditCardKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CreditCardList{
     repeated CreditCardFlatData values=1;
     // A token to retrieve next page of results.
@@ -160,6 +174,10 @@ message EftAccountFlatData {
     // extra
     google.protobuf.Struct extra = 19;
     map<string, google.protobuf.Any> attachments = 20 ;
+}
+
+message EftAccountKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
 }
 
 message EftAccountList{
@@ -209,6 +227,10 @@ message PaymentFlatData {
     map<string, google.protobuf.Any> attachments = 53 ;
 }
 
+message PaymentKey{
+    string payment_id = 1 [json_name = "payment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentList{
     repeated PaymentFlatData values=1;
     // A token to retrieve next page of results.
@@ -246,6 +268,10 @@ message PaymentApplicationFlatData {
     map<string, google.protobuf.Any> attachments = 22 ;
 }
 
+message PaymentApplicationKey{
+    string payment_application_id = 1 [json_name = "payment_application_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentApplicationList{
     repeated PaymentApplicationFlatData values=1;
     // A token to retrieve next page of results.
@@ -276,6 +302,10 @@ message PaymentContentTypeFlatData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13 ;
+}
+
+message PaymentContentTypeKey{
+    string payment_content_type_id = 1 [json_name = "payment_content_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentContentTypeList{
@@ -328,6 +358,10 @@ message PaymentGatewayResponseFlatData {
     map<string, google.protobuf.Any> attachments = 36 ;
 }
 
+message PaymentGatewayResponseKey{
+    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayResponseList{
     repeated PaymentGatewayResponseFlatData values=1;
     // A token to retrieve next page of results.
@@ -361,6 +395,11 @@ message PaymentGlAccountTypeMapData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentGlAccountTypeMapKey{
+    string payment_type_id = 1 [json_name = "payment_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+}
 
 message PaymentGlAccountTypeMapList{
     repeated PaymentGlAccountTypeMapData values=1;
@@ -399,6 +438,10 @@ message PaymentMethodFlatData {
     map<string, google.protobuf.Any> attachments = 30 ;
 }
 
+message PaymentMethodKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentMethodList{
     repeated PaymentMethodFlatData values=1;
     // A token to retrieve next page of results.
@@ -432,6 +475,11 @@ message PaymentMethodTypeGlAccountData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentMethodTypeGlAccountKey{
+    string payment_method_type_id = 1 [json_name = "payment_method_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+}
 
 message PaymentMethodTypeGlAccountList{
     repeated PaymentMethodTypeGlAccountData values=1;

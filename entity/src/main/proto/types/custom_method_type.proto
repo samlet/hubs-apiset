@@ -33,6 +33,10 @@ message CustomMethodTypeData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message CustomMethodTypeKey{
+    string custom_method_type_id = 1 [json_name = "custom_method_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CustomMethodTypeList{
     repeated CustomMethodTypeData values=1;
     // A token to retrieve next page of results.

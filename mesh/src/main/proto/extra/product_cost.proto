@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductCostExtraProto";
-option objc_class_prefix = "ProductCostExtra";
 
 package domain;
 
@@ -50,6 +49,10 @@ message CostComponentData {
 }
 
 
+message CostComponentKey{
+    string cost_component_id = 1 [json_name = "cost_component_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CostComponentList{
     repeated CostComponentData values=1;
     // A token to retrieve next page of results.
@@ -86,6 +89,11 @@ message CostComponentAttributeData {
 }
 
 
+message CostComponentAttributeKey{
+    string cost_component_id = 1 [json_name = "cost_component_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message CostComponentAttributeList{
     repeated CostComponentAttributeData values=1;
     // A token to retrieve next page of results.
@@ -120,6 +128,11 @@ message CostComponentTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message CostComponentTypeAttrKey{
+    string cost_component_type_id = 1 [json_name = "cost_component_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message CostComponentTypeAttrList{
     repeated CostComponentTypeAttrData values=1;
@@ -158,6 +171,12 @@ message ProductCostComponentCalcData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message ProductCostComponentCalcKey{
+    string product_id = 1 [json_name = "product_id"];
+    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message ProductCostComponentCalcList{
     repeated ProductCostComponentCalcData values=1;

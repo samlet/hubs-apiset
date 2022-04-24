@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderReturnProto";
-option objc_class_prefix = "OrderReturn";
 
 package domain;
 
@@ -48,6 +47,10 @@ message ReturnHeaderFlatData {
     // extra
     google.protobuf.Struct extra = 42;
     map<string, google.protobuf.Any> attachments = 43 ;
+}
+
+message ReturnHeaderKey{
+    string return_id = 1 [json_name = "return_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ReturnHeaderList{
@@ -95,6 +98,11 @@ message ReturnItemData {
     map<string, google.protobuf.Any> attachments = 36;
 }
 
+
+message ReturnItemKey{
+    string return_id = 1 [json_name = "return_id"];
+    string return_item_seq_id = 2 [json_name = "return_item_seq_id"];
+}
 
 message ReturnItemList{
     repeated ReturnItemData values=1;

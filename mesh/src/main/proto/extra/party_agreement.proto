@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "PartyAgreementExtraProto";
-option objc_class_prefix = "PartyAgreementExtra";
 
 package domain;
 
@@ -43,6 +42,10 @@ message AddendumData {
 }
 
 
+message AddendumKey{
+    string addendum_id = 1 [json_name = "addendum_id", (google.api.graphql.relay_options).id = true];
+}
+
 message AddendumList{
     repeated AddendumData values=1;
     // A token to retrieve next page of results.
@@ -78,6 +81,11 @@ message AgreementAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message AgreementAttributeKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message AgreementAttributeList{
     repeated AgreementAttributeData values=1;
@@ -116,6 +124,14 @@ message AgreementContentData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message AgreementContentKey{
+    string content_id = 1 [json_name = "content_id"];
+    string agreement_id = 2 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 3 [json_name = "agreement_item_seq_id"];
+    string agreement_content_type_id = 4 [json_name = "agreement_content_type_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
 
 message AgreementContentList{
     repeated AgreementContentData values=1;
@@ -158,6 +174,16 @@ message AgreementEmploymentApplData {
 }
 
 
+message AgreementEmploymentApplKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string party_id_to = 3 [json_name = "party_id_to"];
+    string party_id_from = 4 [json_name = "party_id_from"];
+    string role_type_id_to = 5 [json_name = "role_type_id_to"];
+    string role_type_id_from = 6 [json_name = "role_type_id_from"];
+    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
+}
+
 message AgreementEmploymentApplList{
     repeated AgreementEmploymentApplData values=1;
     // A token to retrieve next page of results.
@@ -193,6 +219,12 @@ message AgreementFacilityApplData {
 }
 
 
+message AgreementFacilityApplKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string facility_id = 3 [json_name = "facility_id"];
+}
+
 message AgreementFacilityApplList{
     repeated AgreementFacilityApplData values=1;
     // A token to retrieve next page of results.
@@ -227,6 +259,12 @@ message AgreementGeographicalApplicData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message AgreementGeographicalApplicKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string geo_id = 3 [json_name = "geo_id"];
+}
 
 message AgreementGeographicalApplicList{
     repeated AgreementGeographicalApplicData values=1;
@@ -265,6 +303,12 @@ message AgreementItemAttributeData {
 }
 
 
+message AgreementItemAttributeKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string attr_name = 3 [json_name = "attr_name"];
+}
+
 message AgreementItemAttributeList{
     repeated AgreementItemAttributeData values=1;
     // A token to retrieve next page of results.
@@ -300,6 +344,11 @@ message AgreementItemTypeAttrData {
 }
 
 
+message AgreementItemTypeAttrKey{
+    string agreement_item_type_id = 1 [json_name = "agreement_item_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message AgreementItemTypeAttrList{
     repeated AgreementItemTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -334,6 +383,12 @@ message AgreementPartyApplicData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message AgreementPartyApplicKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string party_id = 3 [json_name = "party_id"];
+}
 
 message AgreementPartyApplicList{
     repeated AgreementPartyApplicData values=1;
@@ -373,6 +428,13 @@ message AgreementPromoApplData {
 }
 
 
+message AgreementPromoApplKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string product_promo_id = 3 [json_name = "product_promo_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message AgreementPromoApplList{
     repeated AgreementPromoApplData values=1;
     // A token to retrieve next page of results.
@@ -407,6 +469,12 @@ message AgreementRoleData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message AgreementRoleKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message AgreementRoleList{
     repeated AgreementRoleData values=1;
@@ -444,6 +512,11 @@ message AgreementTermAttributeData {
 }
 
 
+message AgreementTermAttributeKey{
+    string agreement_term_id = 1 [json_name = "agreement_term_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message AgreementTermAttributeList{
     repeated AgreementTermAttributeData values=1;
     // A token to retrieve next page of results.
@@ -478,6 +551,11 @@ message AgreementTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message AgreementTypeAttrKey{
+    string agreement_type_id = 1 [json_name = "agreement_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message AgreementTypeAttrList{
     repeated AgreementTypeAttrData values=1;
@@ -514,6 +592,12 @@ message AgreementWorkEffortApplicData {
 }
 
 
+message AgreementWorkEffortApplicKey{
+    string agreement_id = 1 [json_name = "agreement_id"];
+    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string work_effort_id = 3 [json_name = "work_effort_id"];
+}
+
 message AgreementWorkEffortApplicList{
     repeated AgreementWorkEffortApplicData values=1;
     // A token to retrieve next page of results.
@@ -548,6 +632,11 @@ message TermTypeAttrData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message TermTypeAttrKey{
+    string term_type_id = 1 [json_name = "term_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message TermTypeAttrList{
     repeated TermTypeAttrData values=1;

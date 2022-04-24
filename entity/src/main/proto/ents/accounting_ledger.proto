@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingLedgerProto";
-option objc_class_prefix = "AccountingLedger";
 
 package domain;
 
@@ -63,6 +62,10 @@ message AcctgTransFlatData {
     map<string, google.protobuf.Any> attachments = 55 ;
 }
 
+message AcctgTransKey{
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id", (google.api.graphql.relay_options).id = true];
+}
+
 message AcctgTransList{
     repeated AcctgTransFlatData values=1;
     // A token to retrieve next page of results.
@@ -119,6 +122,11 @@ message AcctgTransEntryData {
 }
 
 
+message AcctgTransEntryKey{
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id"];
+    string acctg_trans_entry_seq_id = 2 [json_name = "acctg_trans_entry_seq_id"];
+}
+
 message AcctgTransEntryList{
     repeated AcctgTransEntryData values=1;
     // A token to retrieve next page of results.
@@ -159,6 +167,10 @@ message GlAccountFlatData {
     map<string, google.protobuf.Any> attachments = 56 ;
 }
 
+message GlAccountKey{
+    string gl_account_id = 1 [json_name = "gl_account_id", (google.api.graphql.relay_options).id = true];
+}
+
 message GlAccountList{
     repeated GlAccountFlatData values=1;
     // A token to retrieve next page of results.
@@ -192,6 +204,11 @@ message GlAccountTypeDefaultData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message GlAccountTypeDefaultKey{
+    string gl_account_type_id = 1 [json_name = "gl_account_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+}
 
 message GlAccountTypeDefaultList{
     repeated GlAccountTypeDefaultData values=1;
@@ -240,6 +257,10 @@ message PartyAcctgPreferenceFlatData {
     // extra
     google.protobuf.Struct extra = 38;
     map<string, google.protobuf.Any> attachments = 39 ;
+}
+
+message PartyAcctgPreferenceKey{
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyAcctgPreferenceList{

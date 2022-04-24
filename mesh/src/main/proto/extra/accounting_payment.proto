@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingPaymentExtraProto";
-option objc_class_prefix = "AccountingPaymentExtra";
 
 package domain;
 
@@ -43,6 +42,10 @@ message BillingAccountTermData {
 }
 
 
+message BillingAccountTermKey{
+    string billing_account_term_id = 1 [json_name = "billing_account_term_id", (google.api.graphql.relay_options).id = true];
+}
+
 message BillingAccountTermList{
     repeated BillingAccountTermData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +80,11 @@ message BillingAccountTermAttrData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message BillingAccountTermAttrKey{
+    string billing_account_term_id = 1 [json_name = "billing_account_term_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message BillingAccountTermAttrList{
     repeated BillingAccountTermAttrData values=1;
@@ -118,6 +126,10 @@ message CheckAccountData {
 }
 
 
+message CheckAccountKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CheckAccountList{
     repeated CheckAccountData values=1;
     // A token to retrieve next page of results.
@@ -152,6 +164,10 @@ message DeductionData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message DeductionKey{
+    string deduction_id = 1 [json_name = "deduction_id", (google.api.graphql.relay_options).id = true];
+}
 
 message DeductionList{
     repeated DeductionData values=1;
@@ -188,6 +204,10 @@ message GiftCardData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message GiftCardKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+}
 
 message GiftCardList{
     repeated GiftCardData values=1;
@@ -234,6 +254,10 @@ message GiftCardFulfillmentData {
 }
 
 
+message GiftCardFulfillmentKey{
+    string fulfillment_id = 1 [json_name = "fulfillment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message GiftCardFulfillmentList{
     repeated GiftCardFulfillmentData values=1;
     // A token to retrieve next page of results.
@@ -274,6 +298,10 @@ message PayPalPaymentMethodData {
 }
 
 
+message PayPalPaymentMethodKey{
+    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PayPalPaymentMethodList{
     repeated PayPalPaymentMethodData values=1;
     // A token to retrieve next page of results.
@@ -309,6 +337,11 @@ message PaymentAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentAttributeKey{
+    string payment_id = 1 [json_name = "payment_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message PaymentAttributeList{
     repeated PaymentAttributeData values=1;
@@ -346,6 +379,12 @@ message PaymentBudgetAllocationData {
 }
 
 
+message PaymentBudgetAllocationKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string payment_id = 3 [json_name = "payment_id"];
+}
+
 message PaymentBudgetAllocationList{
     repeated PaymentBudgetAllocationData values=1;
     // A token to retrieve next page of results.
@@ -382,6 +421,13 @@ message PaymentContentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message PaymentContentKey{
+    string content_id = 1 [json_name = "content_id"];
+    string payment_id = 2 [json_name = "payment_id"];
+    string payment_content_type_id = 3 [json_name = "payment_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message PaymentContentList{
     repeated PaymentContentData values=1;
@@ -433,6 +479,10 @@ message PaymentGatewayAuthorizeNetData {
 }
 
 
+message PaymentGatewayAuthorizeNetKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayAuthorizeNetList{
     repeated PaymentGatewayAuthorizeNetData values=1;
     // A token to retrieve next page of results.
@@ -475,6 +525,10 @@ message PaymentGatewayClearCommerceData {
 }
 
 
+message PaymentGatewayClearCommerceKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayClearCommerceList{
     repeated PaymentGatewayClearCommerceData values=1;
     // A token to retrieve next page of results.
@@ -508,6 +562,10 @@ message PaymentGatewayConfigData {
     map<string, google.protobuf.Any> attachments = 20;
 }
 
+
+message PaymentGatewayConfigKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGatewayConfigList{
     repeated PaymentGatewayConfigData values=1;
@@ -558,6 +616,10 @@ message PaymentGatewayCyberSourceData {
 }
 
 
+message PaymentGatewayCyberSourceKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayCyberSourceList{
     repeated PaymentGatewayCyberSourceData values=1;
     // A token to retrieve next page of results.
@@ -595,6 +657,10 @@ message PaymentGatewayEwayData {
 }
 
 
+message PaymentGatewayEwayKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayEwayList{
     repeated PaymentGatewayEwayData values=1;
     // A token to retrieve next page of results.
@@ -631,6 +697,10 @@ message PaymentGatewayFirstDataData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentGatewayFirstDataKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGatewayFirstDataList{
     repeated PaymentGatewayFirstDataData values=1;
@@ -678,6 +748,10 @@ message PaymentGatewayOrbitalData {
 }
 
 
+message PaymentGatewayOrbitalKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayOrbitalList{
     repeated PaymentGatewayOrbitalData values=1;
     // A token to retrieve next page of results.
@@ -723,6 +797,10 @@ message PaymentGatewayPayPalData {
     map<string, google.protobuf.Any> attachments = 20;
 }
 
+
+message PaymentGatewayPayPalKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGatewayPayPalList{
     repeated PaymentGatewayPayPalData values=1;
@@ -779,6 +857,10 @@ message PaymentGatewayPayflowProData {
 }
 
 
+message PaymentGatewayPayflowProKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayPayflowProList{
     repeated PaymentGatewayPayflowProData values=1;
     // A token to retrieve next page of results.
@@ -812,6 +894,10 @@ message PaymentGatewayRespMsgData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message PaymentGatewayRespMsgKey{
+    string payment_gateway_resp_msg_id = 1 [json_name = "payment_gateway_resp_msg_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGatewayRespMsgList{
     repeated PaymentGatewayRespMsgData values=1;
@@ -858,6 +944,10 @@ message PaymentGatewaySagePayData {
 }
 
 
+message PaymentGatewaySagePayKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewaySagePayList{
     repeated PaymentGatewaySagePayData values=1;
     // A token to retrieve next page of results.
@@ -894,6 +984,10 @@ message PaymentGatewaySecurePayData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentGatewaySecurePayKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGatewaySecurePayList{
     repeated PaymentGatewaySecurePayData values=1;
@@ -937,6 +1031,10 @@ message PaymentGatewayWorldPayData {
 }
 
 
+message PaymentGatewayWorldPayKey{
+    string payment_gateway_config_id = 1 [json_name = "payment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayWorldPayList{
     repeated PaymentGatewayWorldPayData values=1;
     // A token to retrieve next page of results.
@@ -970,6 +1068,10 @@ message PaymentGroupData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message PaymentGroupKey{
+    string payment_group_id = 1 [json_name = "payment_group_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PaymentGroupList{
     repeated PaymentGroupData values=1;
@@ -1008,6 +1110,12 @@ message PaymentGroupMemberData {
 }
 
 
+message PaymentGroupMemberKey{
+    string payment_group_id = 1 [json_name = "payment_group_id"];
+    string payment_id = 2 [json_name = "payment_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message PaymentGroupMemberList{
     repeated PaymentGroupMemberData values=1;
     // A token to retrieve next page of results.
@@ -1042,6 +1150,11 @@ message PaymentTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PaymentTypeAttrKey{
+    string payment_type_id = 1 [json_name = "payment_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message PaymentTypeAttrList{
     repeated PaymentTypeAttrData values=1;
@@ -1086,6 +1199,10 @@ message ValueLinkKeyData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message ValueLinkKeyKey{
+    string merchant_id = 1 [json_name = "merchant_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ValueLinkKeyList{
     repeated ValueLinkKeyData values=1;

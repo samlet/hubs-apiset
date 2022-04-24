@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderReturnExtraProto";
-option objc_class_prefix = "OrderReturnExtra";
 
 package domain;
 
@@ -39,6 +38,11 @@ message CommunicationEventReturnData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message CommunicationEventReturnKey{
+    string return_id = 1 [json_name = "return_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+}
 
 message CommunicationEventReturnList{
     repeated CommunicationEventReturnData values=1;
@@ -102,6 +106,10 @@ message ReturnAdjustmentData {
 }
 
 
+message ReturnAdjustmentKey{
+    string return_adjustment_id = 1 [json_name = "return_adjustment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ReturnAdjustmentList{
     repeated ReturnAdjustmentData values=1;
     // A token to retrieve next page of results.
@@ -136,6 +144,12 @@ message ReturnContactMechData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ReturnContactMechKey{
+    string return_id = 1 [json_name = "return_id"];
+    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"];
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];
+}
 
 message ReturnContactMechList{
     repeated ReturnContactMechData values=1;
@@ -176,6 +190,13 @@ message ReturnItemBillingData {
 }
 
 
+message ReturnItemBillingKey{
+    string return_id = 1 [json_name = "return_id"];
+    string return_item_seq_id = 2 [json_name = "return_item_seq_id"];
+    string invoice_id = 3 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
+}
+
 message ReturnItemBillingList{
     repeated ReturnItemBillingData values=1;
     // A token to retrieve next page of results.
@@ -215,6 +236,10 @@ message ReturnItemResponseData {
 }
 
 
+message ReturnItemResponseKey{
+    string return_item_response_id = 1 [json_name = "return_item_response_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ReturnItemResponseList{
     repeated ReturnItemResponseData values=1;
     // A token to retrieve next page of results.
@@ -252,6 +277,13 @@ message ReturnItemShipmentData {
 }
 
 
+message ReturnItemShipmentKey{
+    string return_id = 1 [json_name = "return_id"];
+    string return_item_seq_id = 2 [json_name = "return_item_seq_id"];
+    string shipment_id = 3 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 4 [json_name = "shipment_item_seq_id"];
+}
+
 message ReturnItemShipmentList{
     repeated ReturnItemShipmentData values=1;
     // A token to retrieve next page of results.
@@ -288,6 +320,10 @@ message ReturnStatusData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message ReturnStatusKey{
+    string return_status_id = 1 [json_name = "return_status_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ReturnStatusList{
     repeated ReturnStatusData values=1;

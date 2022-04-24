@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonUomProto";
-option objc_class_prefix = "CommonUom";
 
 package domain;
 
@@ -46,6 +45,12 @@ message UomConversionDatedData {
     map<string, google.protobuf.Any> attachments = 18;
 }
 
+
+message UomConversionDatedKey{
+    string uom_id = 1 [json_name = "uom_id"];
+    string uom_id_to = 2 [json_name = "uom_id_to"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message UomConversionDatedList{
     repeated UomConversionDatedData values=1;

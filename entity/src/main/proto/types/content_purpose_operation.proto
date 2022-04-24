@@ -35,6 +35,14 @@ message ContentPurposeOperationData {
     map<string, google.protobuf.Any> attachments = 15 ;
 }
 
+message ContentPurposeOperationKey{
+    string content_purpose_type_id = 1 [json_name = "content_purpose_type_id"];
+    string content_operation_id = 2 [json_name = "content_operation_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    string status_id = 4 [json_name = "status_id"];
+    string privilege_enum_id = 5 [json_name = "privilege_enum_id"];
+}
+
 message ContentPurposeOperationList{
     repeated ContentPurposeOperationData values=1;
     // A token to retrieve next page of results.

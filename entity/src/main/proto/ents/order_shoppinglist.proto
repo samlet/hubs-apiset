@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderShoppinglistProto";
-option objc_class_prefix = "OrderShoppinglist";
 
 package domain;
 
@@ -55,6 +54,10 @@ message ShoppingListFlatData {
     map<string, google.protobuf.Any> attachments = 43 ;
 }
 
+message ShoppingListKey{
+    string shopping_list_id = 1 [json_name = "shopping_list_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ShoppingListList{
     repeated ShoppingListFlatData values=1;
     // A token to retrieve next page of results.
@@ -95,6 +98,11 @@ message ShoppingListItemData {
     map<string, google.protobuf.Any> attachments = 19;
 }
 
+
+message ShoppingListItemKey{
+    string shopping_list_id = 1 [json_name = "shopping_list_id"];
+    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];
+}
 
 message ShoppingListItemList{
     repeated ShoppingListItemData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ExampleFeatureExtraProto";
-option objc_class_prefix = "ExampleFeatureExtra";
 
 package domain;
 
@@ -39,6 +38,10 @@ message ExampleFeatureData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message ExampleFeatureKey{
+    string example_feature_id = 1 [json_name = "example_feature_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ExampleFeatureList{
     repeated ExampleFeatureData values=1;
@@ -78,6 +81,12 @@ message ExampleFeatureApplData {
 }
 
 
+message ExampleFeatureApplKey{
+    string example_id = 1 [json_name = "example_id"];
+    string example_feature_id = 2 [json_name = "example_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ExampleFeatureApplList{
     repeated ExampleFeatureApplData values=1;
     // A token to retrieve next page of results.
@@ -111,6 +120,10 @@ message ExampleFeatureApplTypeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message ExampleFeatureApplTypeKey{
+    string example_feature_appl_type_id = 1 [json_name = "example_feature_appl_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ExampleFeatureApplTypeList{
     repeated ExampleFeatureApplTypeData values=1;

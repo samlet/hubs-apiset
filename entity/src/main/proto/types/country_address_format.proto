@@ -37,6 +37,10 @@ message CountryAddressFormatData {
     map<string, google.protobuf.Any> attachments = 14 ;
 }
 
+message CountryAddressFormatKey{
+    string geo_id = 1 [json_name = "geo_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CountryAddressFormatList{
     repeated CountryAddressFormatData values=1;
     // A token to retrieve next page of results.

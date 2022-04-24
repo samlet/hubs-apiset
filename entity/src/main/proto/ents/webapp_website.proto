@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WebappWebsiteProto";
-option objc_class_prefix = "WebappWebsite";
 
 package domain;
 
@@ -50,6 +49,10 @@ message WebSiteFlatData {
     // extra
     google.protobuf.Struct extra = 33;
     map<string, google.protobuf.Any> attachments = 34 ;
+}
+
+message WebSiteKey{
+    string web_site_id = 1 [json_name = "web_site_id", (google.api.graphql.relay_options).id = true];
 }
 
 message WebSiteList{

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingFixedassetProto";
-option objc_class_prefix = "AccountingFixedasset";
 
 package domain;
 
@@ -60,6 +59,10 @@ message FixedAssetFlatData {
     map<string, google.protobuf.Any> attachments = 66 ;
 }
 
+message FixedAssetKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id", (google.api.graphql.relay_options).id = true];
+}
+
 message FixedAssetList{
     repeated FixedAssetFlatData values=1;
     // A token to retrieve next page of results.
@@ -94,6 +97,11 @@ message FixedAssetDepMethodData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FixedAssetDepMethodKey{
+    string depreciation_custom_method_id = 1 [json_name = "depreciation_custom_method_id"];
+    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
+}
 
 message FixedAssetDepMethodList{
     repeated FixedAssetDepMethodData values=1;
@@ -130,6 +138,12 @@ message FixedAssetGeoPointData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message FixedAssetGeoPointKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string geo_point_id = 2 [json_name = "geo_point_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message FixedAssetGeoPointList{
     repeated FixedAssetGeoPointData values=1;
@@ -169,6 +183,12 @@ message FixedAssetMeterData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message FixedAssetMeterKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string product_meter_type_id = 2 [json_name = "product_meter_type_id"];
+    google.protobuf.Timestamp reading_date = 3 [json_name = "reading_date"];
+}
 
 message FixedAssetMeterList{
     repeated FixedAssetMeterData values=1;
@@ -211,6 +231,13 @@ message FixedAssetProductData {
 }
 
 
+message FixedAssetProductKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string product_id = 2 [json_name = "product_id"];
+    string fixed_asset_product_type_id = 3 [json_name = "fixed_asset_product_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message FixedAssetProductList{
     repeated FixedAssetProductData values=1;
     // A token to retrieve next page of results.
@@ -250,6 +277,11 @@ message FixedAssetRegistrationData {
 }
 
 
+message FixedAssetRegistrationKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+}
+
 message FixedAssetRegistrationList{
     repeated FixedAssetRegistrationData values=1;
     // A token to retrieve next page of results.
@@ -287,6 +319,12 @@ message FixedAssetStdCostData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message FixedAssetStdCostKey{
+    string fixed_asset_id = 1 [json_name = "fixed_asset_id"];
+    string fixed_asset_std_cost_type_id = 2 [json_name = "fixed_asset_std_cost_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message FixedAssetStdCostList{
     repeated FixedAssetStdCostData values=1;

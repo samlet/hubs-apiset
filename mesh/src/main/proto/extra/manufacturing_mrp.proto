@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ManufacturingMrpExtraProto";
-option objc_class_prefix = "ManufacturingMrpExtra";
 
 package domain;
 
@@ -46,6 +45,13 @@ message MrpEventData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message MrpEventKey{
+    string mrp_id = 1 [json_name = "mrp_id"];
+    string product_id = 2 [json_name = "product_id"];
+    google.protobuf.Timestamp event_date = 3 [json_name = "event_date"];
+    string mrp_event_type_id = 4 [json_name = "mrp_event_type_id"];
+}
 
 message MrpEventList{
     repeated MrpEventData values=1;

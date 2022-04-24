@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ShipmentExtraProto";
-option objc_class_prefix = "ShipmentExtra";
 
 package domain;
 
@@ -48,6 +47,10 @@ message DeliveryData {
 }
 
 
+message DeliveryKey{
+    string delivery_id = 1 [json_name = "delivery_id", (google.api.graphql.relay_options).id = true];
+}
+
 message DeliveryList{
     repeated DeliveryData values=1;
     // A token to retrieve next page of results.
@@ -84,6 +87,11 @@ message ShipmentAttributeData {
 }
 
 
+message ShipmentAttributeKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message ShipmentAttributeList{
     repeated ShipmentAttributeData values=1;
     // A token to retrieve next page of results.
@@ -118,6 +126,11 @@ message ShipmentContactMechData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ShipmentContactMechKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_contact_mech_type_id = 2 [json_name = "shipment_contact_mech_type_id"];
+}
 
 message ShipmentContactMechList{
     repeated ShipmentContactMechData values=1;
@@ -154,6 +167,12 @@ message ShipmentItemFeatureData {
 }
 
 
+message ShipmentItemFeatureKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
+    string product_feature_id = 3 [json_name = "product_feature_id"];
+}
+
 message ShipmentItemFeatureList{
     repeated ShipmentItemFeatureData values=1;
     // A token to retrieve next page of results.
@@ -188,6 +207,11 @@ message ShipmentTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ShipmentTypeAttrKey{
+    string shipment_type_id = 1 [json_name = "shipment_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message ShipmentTypeAttrList{
     repeated ShipmentTypeAttrData values=1;
@@ -224,6 +248,10 @@ message ShippingDocumentData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ShippingDocumentKey{
+    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ShippingDocumentList{
     repeated ShippingDocumentData values=1;

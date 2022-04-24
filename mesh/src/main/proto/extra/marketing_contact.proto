@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "MarketingContactExtraProto";
-option objc_class_prefix = "MarketingContactExtra";
 
 package domain;
 
@@ -54,6 +53,10 @@ message ContactListData {
 }
 
 
+message ContactListKey{
+    string contact_list_id = 1 [json_name = "contact_list_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ContactListList{
     repeated ContactListData values=1;
     // A token to retrieve next page of results.
@@ -93,6 +96,12 @@ message ContactListCommStatusData {
 }
 
 
+message ContactListCommStatusKey{
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];
+}
+
 message ContactListCommStatusList{
     repeated ContactListCommStatusData values=1;
     // A token to retrieve next page of results.
@@ -130,6 +139,12 @@ message ContactListPartyData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message ContactListPartyKey{
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message ContactListPartyList{
     repeated ContactListPartyData values=1;
@@ -170,6 +185,13 @@ message ContactListPartyStatusData {
 }
 
 
+message ContactListPartyStatusKey{
+    string contact_list_id = 1 [json_name = "contact_list_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    google.protobuf.Timestamp status_date = 4 [json_name = "status_date"];
+}
+
 message ContactListPartyStatusList{
     repeated ContactListPartyStatusData values=1;
     // A token to retrieve next page of results.
@@ -205,6 +227,12 @@ message WebSiteContactListData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message WebSiteContactListKey{
+    string web_site_id = 1 [json_name = "web_site_id"];
+    string contact_list_id = 2 [json_name = "contact_list_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message WebSiteContactListList{
     repeated WebSiteContactListData values=1;

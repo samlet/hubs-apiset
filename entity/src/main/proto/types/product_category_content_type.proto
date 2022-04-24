@@ -33,6 +33,10 @@ message ProductCategoryContentTypeData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message ProductCategoryContentTypeKey{
+    string prod_cat_content_type_id = 1 [json_name = "prod_cat_content_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductCategoryContentTypeList{
     repeated ProductCategoryContentTypeData values=1;
     // A token to retrieve next page of results.

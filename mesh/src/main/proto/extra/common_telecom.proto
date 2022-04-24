@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonTelecomExtraProto";
-option objc_class_prefix = "CommonTelecomExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message TelecomGatewayConfigData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message TelecomGatewayConfigKey{
+    string telecom_gateway_config_id = 1 [json_name = "telecom_gateway_config_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TelecomGatewayConfigList{
     repeated TelecomGatewayConfigData values=1;

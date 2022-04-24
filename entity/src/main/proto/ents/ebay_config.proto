@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "EbayConfigProto";
-option objc_class_prefix = "EbayConfig";
 
 package domain;
 
@@ -43,6 +42,10 @@ message EbayConfigFlatData {
     // extra
     google.protobuf.Struct extra = 17;
     map<string, google.protobuf.Any> attachments = 18 ;
+}
+
+message EbayConfigKey{
+    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
 }
 
 message EbayConfigList{

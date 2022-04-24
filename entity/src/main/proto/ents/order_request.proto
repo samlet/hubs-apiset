@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderRequestProto";
-option objc_class_prefix = "OrderRequest";
 
 package domain;
 
@@ -62,6 +61,10 @@ message CustRequestFlatData {
     map<string, google.protobuf.Any> attachments = 57 ;
 }
 
+message CustRequestKey{
+    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CustRequestList{
     repeated CustRequestFlatData values=1;
     // A token to retrieve next page of results.
@@ -110,6 +113,11 @@ message CustRequestItemData {
 }
 
 
+message CustRequestItemKey{
+    string cust_request_id = 1 [json_name = "cust_request_id"];
+    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
+}
+
 message CustRequestItemList{
     repeated CustRequestItemData values=1;
     // A token to retrieve next page of results.
@@ -142,6 +150,10 @@ message CustRequestTypeFlatData {
     // extra
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19 ;
+}
+
+message CustRequestTypeKey{
+    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustRequestTypeList{

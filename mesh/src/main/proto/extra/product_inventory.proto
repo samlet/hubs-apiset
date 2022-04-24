@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductInventoryExtraProto";
-option objc_class_prefix = "ProductInventoryExtra";
 
 package domain;
 
@@ -42,6 +41,11 @@ message InventoryItemAttributeData {
 }
 
 
+message InventoryItemAttributeKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message InventoryItemAttributeList{
     repeated InventoryItemAttributeData values=1;
     // A token to retrieve next page of results.
@@ -75,6 +79,10 @@ message InventoryItemLabelData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message InventoryItemLabelKey{
+    string inventory_item_label_id = 1 [json_name = "inventory_item_label_id", (google.api.graphql.relay_options).id = true];
+}
 
 message InventoryItemLabelList{
     repeated InventoryItemLabelData values=1;
@@ -112,6 +120,11 @@ message InventoryItemLabelApplData {
 }
 
 
+message InventoryItemLabelApplKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string inventory_item_label_type_id = 2 [json_name = "inventory_item_label_type_id"];
+}
+
 message InventoryItemLabelApplList{
     repeated InventoryItemLabelApplData values=1;
     // A token to retrieve next page of results.
@@ -146,6 +159,10 @@ message InventoryItemLabelTypeData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message InventoryItemLabelTypeKey{
+    string inventory_item_label_type_id = 1 [json_name = "inventory_item_label_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message InventoryItemLabelTypeList{
     repeated InventoryItemLabelTypeData values=1;
@@ -186,6 +203,12 @@ message InventoryItemStatusData {
 }
 
 
+message InventoryItemStatusKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string status_id = 2 [json_name = "status_id"];
+    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
+}
+
 message InventoryItemStatusList{
     repeated InventoryItemStatusData values=1;
     // A token to retrieve next page of results.
@@ -223,6 +246,12 @@ message InventoryItemTempResData {
 }
 
 
+message InventoryItemTempResKey{
+    string visit_id = 1 [json_name = "visit_id"];
+    string product_id = 2 [json_name = "product_id"];
+    string product_store_id = 3 [json_name = "product_store_id"];
+}
+
 message InventoryItemTempResList{
     repeated InventoryItemTempResData values=1;
     // A token to retrieve next page of results.
@@ -257,6 +286,11 @@ message InventoryItemTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message InventoryItemTypeAttrKey{
+    string inventory_item_type_id = 1 [json_name = "inventory_item_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message InventoryItemTypeAttrList{
     repeated InventoryItemTypeAttrData values=1;
@@ -295,6 +329,11 @@ message InventoryItemVarianceData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message InventoryItemVarianceKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id"];
+    string physical_inventory_id = 2 [json_name = "physical_inventory_id"];
+}
 
 message InventoryItemVarianceList{
     repeated InventoryItemVarianceData values=1;
@@ -340,6 +379,10 @@ message InventoryTransferData {
 }
 
 
+message InventoryTransferKey{
+    string inventory_transfer_id = 1 [json_name = "inventory_transfer_id", (google.api.graphql.relay_options).id = true];
+}
+
 message InventoryTransferList{
     repeated InventoryTransferData values=1;
     // A token to retrieve next page of results.
@@ -375,6 +418,10 @@ message LotData {
 }
 
 
+message LotKey{
+    string lot_id = 1 [json_name = "lot_id", (google.api.graphql.relay_options).id = true];
+}
+
 message LotList{
     repeated LotData values=1;
     // A token to retrieve next page of results.
@@ -409,6 +456,10 @@ message PhysicalInventoryData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PhysicalInventoryKey{
+    string physical_inventory_id = 1 [json_name = "physical_inventory_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PhysicalInventoryList{
     repeated PhysicalInventoryData values=1;

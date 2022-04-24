@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "PartyNeedExtraProto";
-option objc_class_prefix = "PartyNeedExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message NeedTypeData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message NeedTypeKey{
+    string need_type_id = 1 [json_name = "need_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message NeedTypeList{
     repeated NeedTypeData values=1;
@@ -81,6 +84,12 @@ message PartyNeedData {
     map<string, google.protobuf.Any> attachments = 25;
 }
 
+
+message PartyNeedKey{
+    string party_need_id = 1 [json_name = "party_need_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message PartyNeedList{
     repeated PartyNeedData values=1;

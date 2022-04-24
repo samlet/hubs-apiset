@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ShipmentIssuanceExtraProto";
-option objc_class_prefix = "ShipmentIssuanceExtra";
 
 package domain;
 
@@ -40,6 +39,12 @@ message ItemIssuanceRoleData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message ItemIssuanceRoleKey{
+    string item_issuance_id = 1 [json_name = "item_issuance_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message ItemIssuanceRoleList{
     repeated ItemIssuanceRoleData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "PartyProto";
-option objc_class_prefix = "Party";
 
 package domain;
 
@@ -47,6 +46,10 @@ message PartyFlatData {
     map<string, google.protobuf.Any> attachments = 205 ;
 }
 
+message PartyKey{
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PartyList{
     repeated PartyFlatData values=1;
     // A token to retrieve next page of results.
@@ -81,6 +84,12 @@ message PartyGeoPointData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message PartyGeoPointKey{
+    string party_id = 1 [json_name = "party_id"];
+    string geo_point_id = 2 [json_name = "geo_point_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message PartyGeoPointList{
     repeated PartyGeoPointData values=1;
@@ -120,6 +129,10 @@ message PartyGroupFlatData {
     map<string, google.protobuf.Any> attachments = 27 ;
 }
 
+message PartyGroupKey{
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PartyGroupList{
     repeated PartyGroupFlatData values=1;
     // A token to retrieve next page of results.
@@ -154,6 +167,11 @@ message PartyIdentificationData {
 }
 
 
+message PartyIdentificationKey{
+    string party_id = 1 [json_name = "party_id"];
+    string party_identification_type_id = 2 [json_name = "party_identification_type_id"];
+}
+
 message PartyIdentificationList{
     repeated PartyIdentificationData values=1;
     // A token to retrieve next page of results.
@@ -185,6 +203,10 @@ message PartyIdentificationTypeFlatData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13 ;
+}
+
+message PartyIdentificationTypeKey{
+    string party_identification_type_id = 1 [json_name = "party_identification_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyIdentificationTypeList{
@@ -230,6 +252,14 @@ message PartyRelationshipFlatData {
     map<string, google.protobuf.Any> attachments = 31 ;
 }
 
+message PartyRelationshipKey{
+    string party_id_from = 1 [json_name = "party_id_from"];
+    string party_id_to = 2 [json_name = "party_id_to"];
+    string role_type_id_from = 3 [json_name = "role_type_id_from"];
+    string role_type_id_to = 4 [json_name = "role_type_id_to"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
+
 message PartyRelationshipList{
     repeated PartyRelationshipFlatData values=1;
     // A token to retrieve next page of results.
@@ -262,6 +292,11 @@ message PartyRoleData {
     map<string, google.protobuf.Any> attachments = 71;
 }
 
+
+message PartyRoleKey{
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"];
+}
 
 message PartyRoleList{
     repeated PartyRoleData values=1;
@@ -298,6 +333,12 @@ message PartyStatusData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message PartyStatusKey{
+    string status_id = 1 [json_name = "status_id"];
+    string party_id = 2 [json_name = "party_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+}
 
 message PartyStatusList{
     repeated PartyStatusData values=1;
@@ -358,6 +399,10 @@ message PersonFlatData {
     // extra
     google.protobuf.Struct extra = 51;
     map<string, google.protobuf.Any> attachments = 52 ;
+}
+
+message PersonKey{
+    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
 }
 
 message PersonList{

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "EntitySynchronizationExtraProto";
-option objc_class_prefix = "EntitySynchronizationExtra";
 
 package domain;
 
@@ -50,6 +49,10 @@ message EntitySyncData {
     map<string, google.protobuf.Any> attachments = 22;
 }
 
+
+message EntitySyncKey{
+    string entity_sync_id = 1 [json_name = "entity_sync_id", (google.api.graphql.relay_options).id = true];
+}
 
 message EntitySyncList{
     repeated EntitySyncData values=1;
@@ -109,6 +112,11 @@ message EntitySyncHistoryData {
 }
 
 
+message EntitySyncHistoryKey{
+    string entity_sync_id = 1 [json_name = "entity_sync_id"];
+    google.protobuf.Timestamp start_date = 2 [json_name = "start_date"];
+}
+
 message EntitySyncHistoryList{
     repeated EntitySyncHistoryData values=1;
     // A token to retrieve next page of results.
@@ -144,6 +152,11 @@ message EntitySyncIncludeData {
 }
 
 
+message EntitySyncIncludeKey{
+    string entity_sync_id = 1 [json_name = "entity_sync_id"];
+    string entity_or_package = 2 [json_name = "entity_or_package"];
+}
+
 message EntitySyncIncludeList{
     repeated EntitySyncIncludeData values=1;
     // A token to retrieve next page of results.
@@ -178,6 +191,11 @@ message EntitySyncIncludeGroupData {
 }
 
 
+message EntitySyncIncludeGroupKey{
+    string entity_sync_id = 1 [json_name = "entity_sync_id"];
+    string entity_group_id = 2 [json_name = "entity_group_id"];
+}
+
 message EntitySyncIncludeGroupList{
     repeated EntitySyncIncludeGroupData values=1;
     // A token to retrieve next page of results.
@@ -210,6 +228,10 @@ message EntitySyncRemoveData {
     map<string, google.protobuf.Any> attachments = 6;
 }
 
+
+message EntitySyncRemoveKey{
+    string entity_sync_remove_id = 1 [json_name = "entity_sync_remove_id", (google.api.graphql.relay_options).id = true];
+}
 
 message EntitySyncRemoveList{
     repeated EntitySyncRemoveData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "PartyContactProto";
-option objc_class_prefix = "PartyContact";
 
 package domain;
 
@@ -36,6 +35,10 @@ message ContactMechFlatData {
     // extra
     google.protobuf.Struct extra = 51;
     map<string, google.protobuf.Any> attachments = 52 ;
+}
+
+message ContactMechKey{
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ContactMechList{
@@ -80,6 +83,12 @@ message PartyContactMechData {
 }
 
 
+message PartyContactMechKey{
+    string party_id = 1 [json_name = "party_id"];
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message PartyContactMechList{
     repeated PartyContactMechData values=1;
     // A token to retrieve next page of results.
@@ -116,6 +125,13 @@ message PartyContactMechPurposeData {
     map<string, google.protobuf.Any> attachments = 18;
 }
 
+
+message PartyContactMechPurposeKey{
+    string party_id = 1 [json_name = "party_id"];
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message PartyContactMechPurposeList{
     repeated PartyContactMechPurposeData values=1;
@@ -164,6 +180,10 @@ message PostalAddressFlatData {
     map<string, google.protobuf.Any> attachments = 48 ;
 }
 
+message PostalAddressKey{
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PostalAddressList{
     repeated PostalAddressFlatData values=1;
     // A token to retrieve next page of results.
@@ -195,6 +215,10 @@ message TelecomNumberFlatData {
     // extra
     google.protobuf.Struct extra = 20;
     map<string, google.protobuf.Any> attachments = 21 ;
+}
+
+message TelecomNumberKey{
+    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];
 }
 
 message TelecomNumberList{

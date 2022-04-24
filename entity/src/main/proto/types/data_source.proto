@@ -32,6 +32,10 @@ message DataSourceData {
     map<string, google.protobuf.Any> attachments = 17 ;
 }
 
+message DataSourceKey{
+    string data_source_id = 1 [json_name = "data_source_id", (google.api.graphql.relay_options).id = true];
+}
+
 message DataSourceList{
     repeated DataSourceData values=1;
     // A token to retrieve next page of results.

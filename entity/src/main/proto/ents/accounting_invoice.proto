@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingInvoiceProto";
-option objc_class_prefix = "AccountingInvoice";
 
 package domain;
 
@@ -49,6 +48,10 @@ message InvoiceFlatData {
     // extra
     google.protobuf.Struct extra = 48;
     map<string, google.protobuf.Any> attachments = 49 ;
+}
+
+message InvoiceKey{
+    string invoice_id = 1 [json_name = "invoice_id", (google.api.graphql.relay_options).id = true];
 }
 
 message InvoiceList{
@@ -99,6 +102,11 @@ message InvoiceItemFlatData {
     map<string, google.protobuf.Any> attachments = 52 ;
 }
 
+message InvoiceItemKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
+}
+
 message InvoiceItemList{
     repeated InvoiceItemFlatData values=1;
     // A token to retrieve next page of results.
@@ -132,6 +140,11 @@ message InvoiceItemTypeGlAccountData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message InvoiceItemTypeGlAccountKey{
+    string invoice_item_type_id = 1 [json_name = "invoice_item_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+}
 
 message InvoiceItemTypeGlAccountList{
     repeated InvoiceItemTypeGlAccountData values=1;
@@ -170,6 +183,12 @@ message InvoiceRoleData {
 }
 
 
+message InvoiceRoleKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
+
 message InvoiceRoleList{
     repeated InvoiceRoleData values=1;
     // A token to retrieve next page of results.
@@ -205,6 +224,12 @@ message InvoiceStatusData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message InvoiceStatusKey{
+    string status_id = 1 [json_name = "status_id"];
+    string invoice_id = 2 [json_name = "invoice_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+}
 
 message InvoiceStatusList{
     repeated InvoiceStatusData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductFeatureProto";
-option objc_class_prefix = "ProductFeature";
 
 package domain;
 
@@ -45,6 +44,10 @@ message ProductFeatureFlatData {
     map<string, google.protobuf.Any> attachments = 32 ;
 }
 
+message ProductFeatureKey{
+    string product_feature_id = 1 [json_name = "product_feature_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductFeatureList{
     repeated ProductFeatureFlatData values=1;
     // A token to retrieve next page of results.
@@ -84,6 +87,12 @@ message ProductFeatureApplData {
 }
 
 
+message ProductFeatureApplKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_feature_id = 2 [json_name = "product_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductFeatureApplList{
     repeated ProductFeatureApplData values=1;
     // A token to retrieve next page of results.
@@ -114,6 +123,10 @@ message ProductFeatureCategoryFlatData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13 ;
+}
+
+message ProductFeatureCategoryKey{
+    string product_feature_category_id = 1 [json_name = "product_feature_category_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductFeatureCategoryList{
@@ -151,6 +164,12 @@ message ProductFeatureCategoryApplData {
 }
 
 
+message ProductFeatureCategoryApplKey{
+    string product_category_id = 1 [json_name = "product_category_id"];
+    string product_feature_category_id = 2 [json_name = "product_feature_category_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductFeatureCategoryApplList{
     repeated ProductFeatureCategoryApplData values=1;
     // A token to retrieve next page of results.
@@ -186,6 +205,11 @@ message ProductFeatureIactnData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ProductFeatureIactnKey{
+    string product_feature_id = 1 [json_name = "product_feature_id"];
+    string product_feature_id_to = 2 [json_name = "product_feature_id_to"];
+}
 
 message ProductFeatureIactnList{
     repeated ProductFeatureIactnData values=1;

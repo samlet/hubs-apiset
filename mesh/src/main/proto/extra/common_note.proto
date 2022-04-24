@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonNoteExtraProto";
-option objc_class_prefix = "CommonNoteExtra";
 
 package domain;
 
@@ -44,6 +43,10 @@ message NoteDataData {
     map<string, google.protobuf.Any> attachments = 22;
 }
 
+
+message NoteDataKey{
+    string note_id = 1 [json_name = "note_id", (google.api.graphql.relay_options).id = true];
+}
 
 message NoteDataList{
     repeated NoteDataData values=1;

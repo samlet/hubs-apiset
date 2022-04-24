@@ -33,6 +33,11 @@ message ReturnItemTypeMapData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message ReturnItemTypeMapKey{
+    string return_item_map_key = 1 [json_name = "return_item_map_key"];
+    string return_header_type_id = 2 [json_name = "return_header_type_id"];
+}
+
 message ReturnItemTypeMapList{
     repeated ReturnItemTypeMapData values=1;
     // A token to retrieve next page of results.

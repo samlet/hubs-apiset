@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderShoppingcartExtraProto";
-option objc_class_prefix = "OrderShoppingcartExtra";
 
 package domain;
 
@@ -51,6 +50,11 @@ message CartAbandonedLineData {
     map<string, google.protobuf.Any> attachments = 21;
 }
 
+
+message CartAbandonedLineKey{
+    string visit_id = 1 [json_name = "visit_id"];
+    string cart_abandoned_line_seq_id = 2 [json_name = "cart_abandoned_line_seq_id"];
+}
 
 message CartAbandonedLineList{
     repeated CartAbandonedLineData values=1;

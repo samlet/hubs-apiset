@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "HumanresEmploymentExtraProto";
-option objc_class_prefix = "HumanresEmploymentExtra";
 
 package domain;
 
@@ -46,6 +45,12 @@ message EmplLeaveData {
 }
 
 
+message EmplLeaveKey{
+    string party_id = 1 [json_name = "party_id"];
+    string leave_type_id = 2 [json_name = "leave_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message EmplLeaveList{
     repeated EmplLeaveData values=1;
     // A token to retrieve next page of results.
@@ -86,6 +91,14 @@ message EmploymentData {
 }
 
 
+message EmploymentKey{
+    string role_type_id_from = 1 [json_name = "role_type_id_from"];
+    string role_type_id_to = 2 [json_name = "role_type_id_to"];
+    string party_id_from = 3 [json_name = "party_id_from"];
+    string party_id_to = 4 [json_name = "party_id_to"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
+
 message EmploymentList{
     repeated EmploymentData values=1;
     // A token to retrieve next page of results.
@@ -125,6 +138,10 @@ message EmploymentAppData {
     map<string, google.protobuf.Any> attachments = 20;
 }
 
+
+message EmploymentAppKey{
+    string application_id = 1 [json_name = "application_id", (google.api.graphql.relay_options).id = true];
+}
 
 message EmploymentAppList{
     repeated EmploymentAppData values=1;
@@ -169,6 +186,15 @@ message PartyBenefitData {
 }
 
 
+message PartyBenefitKey{
+    string role_type_id_from = 1 [json_name = "role_type_id_from"];
+    string role_type_id_to = 2 [json_name = "role_type_id_to"];
+    string party_id_from = 3 [json_name = "party_id_from"];
+    string party_id_to = 4 [json_name = "party_id_to"];
+    string benefit_type_id = 5 [json_name = "benefit_type_id"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+}
+
 message PartyBenefitList{
     repeated PartyBenefitData values=1;
     // A token to retrieve next page of results.
@@ -202,6 +228,10 @@ message PayGradeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message PayGradeKey{
+    string pay_grade_id = 1 [json_name = "pay_grade_id", (google.api.graphql.relay_options).id = true];
+}
 
 message PayGradeList{
     repeated PayGradeData values=1;
@@ -246,6 +276,15 @@ message PayHistoryData {
     map<string, google.protobuf.Any> attachments = 21;
 }
 
+
+message PayHistoryKey{
+    string role_type_id_from = 1 [json_name = "role_type_id_from"];
+    string role_type_id_to = 2 [json_name = "role_type_id_to"];
+    string party_id_from = 3 [json_name = "party_id_from"];
+    string party_id_to = 4 [json_name = "party_id_to"];
+    google.protobuf.Timestamp empl_from_date = 5 [json_name = "empl_from_date"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+}
 
 message PayHistoryList{
     repeated PayHistoryData values=1;
@@ -292,6 +331,12 @@ message PayrollPreferenceData {
 }
 
 
+message PayrollPreferenceKey{
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"];
+    string payroll_preference_seq_id = 3 [json_name = "payroll_preference_seq_id"];
+}
+
 message PayrollPreferenceList{
     repeated PayrollPreferenceData values=1;
     // A token to retrieve next page of results.
@@ -332,6 +377,12 @@ message SalaryStepData {
 }
 
 
+message SalaryStepKey{
+    string salary_step_seq_id = 1 [json_name = "salary_step_seq_id"];
+    string pay_grade_id = 2 [json_name = "pay_grade_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message SalaryStepList{
     repeated SalaryStepData values=1;
     // A token to retrieve next page of results.
@@ -364,6 +415,10 @@ message TerminationReasonData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message TerminationReasonKey{
+    string termination_reason_id = 1 [json_name = "termination_reason_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TerminationReasonList{
     repeated TerminationReasonData values=1;
@@ -405,6 +460,10 @@ message UnemploymentClaimData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message UnemploymentClaimKey{
+    string unemployment_claim_id = 1 [json_name = "unemployment_claim_id", (google.api.graphql.relay_options).id = true];
+}
 
 message UnemploymentClaimList{
     repeated UnemploymentClaimData values=1;

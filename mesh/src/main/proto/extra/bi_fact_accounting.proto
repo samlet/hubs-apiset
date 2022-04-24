@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "BiFactAccountingExtraProto";
-option objc_class_prefix = "BiFactAccountingExtra";
 
 package domain;
 
@@ -54,6 +53,11 @@ message SalesInvoiceItemFactData {
     map<string, google.protobuf.Any> attachments = 25;
 }
 
+
+message SalesInvoiceItemFactKey{
+    string invoice_id = 1 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
+}
 
 message SalesInvoiceItemFactList{
     repeated SalesInvoiceItemFactData values=1;

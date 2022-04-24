@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "BiDimensionProductExtraProto";
-option objc_class_prefix = "BiDimensionProductExtra";
 
 package domain;
 
@@ -41,6 +40,10 @@ message ProductDimensionData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ProductDimensionKey{
+    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductDimensionList{
     repeated ProductDimensionData values=1;

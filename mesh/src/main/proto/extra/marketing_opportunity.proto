@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "MarketingOpportunityExtraProto";
-option objc_class_prefix = "MarketingOpportunityExtra";
 
 package domain;
 
@@ -52,6 +51,10 @@ message SalesForecastData {
 }
 
 
+message SalesForecastKey{
+    string sales_forecast_id = 1 [json_name = "sales_forecast_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SalesForecastList{
     repeated SalesForecastData values=1;
     // A token to retrieve next page of results.
@@ -90,6 +93,11 @@ message SalesForecastDetailData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message SalesForecastDetailKey{
+    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];
+    string sales_forecast_detail_id = 2 [json_name = "sales_forecast_detail_id"];
+}
 
 message SalesForecastDetailList{
     repeated SalesForecastDetailData values=1;
@@ -138,6 +146,10 @@ message SalesForecastHistoryData {
 }
 
 
+message SalesForecastHistoryKey{
+    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SalesForecastHistoryList{
     repeated SalesForecastHistoryData values=1;
     // A token to retrieve next page of results.
@@ -183,6 +195,10 @@ message SalesOpportunityData {
 }
 
 
+message SalesOpportunityKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SalesOpportunityList{
     repeated SalesOpportunityData values=1;
     // A token to retrieve next page of results.
@@ -219,6 +235,11 @@ message SalesOpportunityCompetitorData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message SalesOpportunityCompetitorKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
+    string competitor_party_id = 2 [json_name = "competitor_party_id"];
+}
 
 message SalesOpportunityCompetitorList{
     repeated SalesOpportunityCompetitorData values=1;
@@ -263,6 +284,10 @@ message SalesOpportunityHistoryData {
 }
 
 
+message SalesOpportunityHistoryKey{
+    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SalesOpportunityHistoryList{
     repeated SalesOpportunityHistoryData values=1;
     // A token to retrieve next page of results.
@@ -296,6 +321,11 @@ message SalesOpportunityQuoteData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message SalesOpportunityQuoteKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
+    string quote_id = 2 [json_name = "quote_id"];
+}
 
 message SalesOpportunityQuoteList{
     repeated SalesOpportunityQuoteData values=1;
@@ -332,6 +362,12 @@ message SalesOpportunityRoleData {
 }
 
 
+message SalesOpportunityRoleKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
+
 message SalesOpportunityRoleList{
     repeated SalesOpportunityRoleData values=1;
     // A token to retrieve next page of results.
@@ -366,6 +402,10 @@ message SalesOpportunityStageData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message SalesOpportunityStageKey{
+    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id", (google.api.graphql.relay_options).id = true];
+}
 
 message SalesOpportunityStageList{
     repeated SalesOpportunityStageData values=1;
@@ -402,6 +442,11 @@ message SalesOpportunityTrckCodeData {
 }
 
 
+message SalesOpportunityTrckCodeKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
+    string tracking_code_id = 2 [json_name = "tracking_code_id"];
+}
+
 message SalesOpportunityTrckCodeList{
     repeated SalesOpportunityTrckCodeData values=1;
     // A token to retrieve next page of results.
@@ -435,6 +480,11 @@ message SalesOpportunityWorkEffortData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message SalesOpportunityWorkEffortKey{
+    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
+    string work_effort_id = 2 [json_name = "work_effort_id"];
+}
 
 message SalesOpportunityWorkEffortList{
     repeated SalesOpportunityWorkEffortData values=1;

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductFeatureExtraProto";
-option objc_class_prefix = "ProductFeatureExtra";
 
 package domain;
 
@@ -43,6 +42,13 @@ message ProductFeatureApplAttrData {
 }
 
 
+message ProductFeatureApplAttrKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_feature_id = 2 [json_name = "product_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string attr_name = 4 [json_name = "attr_name"];
+}
+
 message ProductFeatureApplAttrList{
     repeated ProductFeatureApplAttrData values=1;
     // A token to retrieve next page of results.
@@ -79,6 +85,12 @@ message ProductFeatureCatGrpApplData {
 }
 
 
+message ProductFeatureCatGrpApplKey{
+    string product_category_id = 1 [json_name = "product_category_id"];
+    string product_feature_group_id = 2 [json_name = "product_feature_group_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductFeatureCatGrpApplList{
     repeated ProductFeatureCatGrpApplData values=1;
     // A token to retrieve next page of results.
@@ -113,6 +125,11 @@ message ProductFeatureDataResourceData {
 }
 
 
+message ProductFeatureDataResourceKey{
+    string data_resource_id = 1 [json_name = "data_resource_id"];
+    string product_feature_id = 2 [json_name = "product_feature_id"];
+}
+
 message ProductFeatureDataResourceList{
     repeated ProductFeatureDataResourceData values=1;
     // A token to retrieve next page of results.
@@ -145,6 +162,10 @@ message ProductFeatureGroupData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message ProductFeatureGroupKey{
+    string product_feature_group_id = 1 [json_name = "product_feature_group_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductFeatureGroupList{
     repeated ProductFeatureGroupData values=1;
@@ -182,6 +203,12 @@ message ProductFeatureGroupApplData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ProductFeatureGroupApplKey{
+    string product_feature_group_id = 1 [json_name = "product_feature_group_id"];
+    string product_feature_id = 2 [json_name = "product_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message ProductFeatureGroupApplList{
     repeated ProductFeatureGroupApplData values=1;

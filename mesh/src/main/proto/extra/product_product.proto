@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductExtraProto";
-option objc_class_prefix = "ProductExtra";
 
 package domain;
 
@@ -40,6 +39,11 @@ message GoodIdentificationData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message GoodIdentificationKey{
+    string good_identification_type_id = 1 [json_name = "good_identification_type_id"];
+    string product_id = 2 [json_name = "product_id"];
+}
 
 message GoodIdentificationList{
     repeated GoodIdentificationData values=1;
@@ -78,6 +82,11 @@ message ProductAttributeData {
 }
 
 
+message ProductAttributeKey{
+    string product_id = 1 [json_name = "product_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message ProductAttributeList{
     repeated ProductAttributeData values=1;
     // A token to retrieve next page of results.
@@ -112,6 +121,10 @@ message ProductCalculatedInfoData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message ProductCalculatedInfoKey{
+    string product_id = 1 [json_name = "product_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductCalculatedInfoList{
     repeated ProductCalculatedInfoData values=1;
@@ -149,6 +162,11 @@ message ProductGeoData {
 }
 
 
+message ProductGeoKey{
+    string product_id = 1 [json_name = "product_id"];
+    string geo_id = 2 [json_name = "geo_id"];
+}
+
 message ProductGeoList{
     repeated ProductGeoData values=1;
     // A token to retrieve next page of results.
@@ -184,6 +202,12 @@ message ProductGlAccountData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ProductGlAccountKey{
+    string product_id = 1 [json_name = "product_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string gl_account_type_id = 3 [json_name = "gl_account_type_id"];
+}
 
 message ProductGlAccountList{
     repeated ProductGlAccountData values=1;
@@ -223,6 +247,10 @@ message ProductGroupOrderData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message ProductGroupOrderKey{
+    string group_order_id = 1 [json_name = "group_order_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductGroupOrderList{
     repeated ProductGroupOrderData values=1;
@@ -265,6 +293,11 @@ message ProductMaintData {
 }
 
 
+message ProductMaintKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_maint_seq_id = 2 [json_name = "product_maint_seq_id"];
+}
+
 message ProductMaintList{
     repeated ProductMaintData values=1;
     // A token to retrieve next page of results.
@@ -300,6 +333,11 @@ message ProductMeterData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ProductMeterKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_meter_type_id = 2 [json_name = "product_meter_type_id"];
+}
 
 message ProductMeterList{
     repeated ProductMeterData values=1;
@@ -339,6 +377,13 @@ message ProductRoleData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message ProductRoleKey{
+    string product_id = 1 [json_name = "product_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ProductRoleList{
     repeated ProductRoleData values=1;
@@ -383,6 +428,11 @@ message ProductSearchConstraintData {
 }
 
 
+message ProductSearchConstraintKey{
+    string product_search_result_id = 1 [json_name = "product_search_result_id"];
+    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
+}
+
 message ProductSearchConstraintList{
     repeated ProductSearchConstraintData values=1;
     // A token to retrieve next page of results.
@@ -421,6 +471,10 @@ message ProductSearchResultData {
 }
 
 
+message ProductSearchResultKey{
+    string product_search_result_id = 1 [json_name = "product_search_result_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductSearchResultList{
     repeated ProductSearchResultData values=1;
     // A token to retrieve next page of results.
@@ -456,6 +510,11 @@ message ProductTypeAttrData {
 }
 
 
+message ProductTypeAttrKey{
+    string product_type_id = 1 [json_name = "product_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message ProductTypeAttrList{
     repeated ProductTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -490,6 +549,12 @@ message VendorProductData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message VendorProductKey{
+    string product_id = 1 [json_name = "product_id"];
+    string vendor_party_id = 2 [json_name = "vendor_party_id"];
+    string product_store_group_id = 3 [json_name = "product_store_group_id"];
+}
 
 message VendorProductList{
     repeated VendorProductData values=1;

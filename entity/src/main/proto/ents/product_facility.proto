@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductFacilityProto";
-option objc_class_prefix = "ProductFacility";
 
 package domain;
 
@@ -53,6 +52,10 @@ message FacilityFlatData {
     map<string, google.protobuf.Any> attachments = 75 ;
 }
 
+message FacilityKey{
+    string facility_id = 1 [json_name = "facility_id", (google.api.graphql.relay_options).id = true];
+}
+
 message FacilityList{
     repeated FacilityFlatData values=1;
     // A token to retrieve next page of results.
@@ -90,6 +93,12 @@ message FacilityContactMechData {
 }
 
 
+message FacilityContactMechKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message FacilityContactMechList{
     repeated FacilityContactMechData values=1;
     // A token to retrieve next page of results.
@@ -126,6 +135,13 @@ message FacilityContactMechPurposeData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message FacilityContactMechPurposeKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message FacilityContactMechPurposeList{
     repeated FacilityContactMechPurposeData values=1;
@@ -168,6 +184,11 @@ message FacilityLocationData {
 }
 
 
+message FacilityLocationKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string location_seq_id = 2 [json_name = "location_seq_id"];
+}
+
 message FacilityLocationList{
     repeated FacilityLocationData values=1;
     // A token to retrieve next page of results.
@@ -204,6 +225,13 @@ message FacilityLocationGeoPointData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message FacilityLocationGeoPointKey{
+    string facility_id = 1 [json_name = "facility_id"];
+    string location_seq_id = 2 [json_name = "location_seq_id"];
+    string geo_point_id = 3 [json_name = "geo_point_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message FacilityLocationGeoPointList{
     repeated FacilityLocationGeoPointData values=1;
@@ -245,6 +273,11 @@ message ProductFacilityData {
 }
 
 
+message ProductFacilityKey{
+    string product_id = 1 [json_name = "product_id"];
+    string facility_id = 2 [json_name = "facility_id"];
+}
+
 message ProductFacilityList{
     repeated ProductFacilityData values=1;
     // A token to retrieve next page of results.
@@ -285,6 +318,14 @@ message ProductFacilityAssocData {
 }
 
 
+message ProductFacilityAssocKey{
+    string product_id = 1 [json_name = "product_id"];
+    string facility_id = 2 [json_name = "facility_id"];
+    string facility_id_to = 3 [json_name = "facility_id_to"];
+    string facility_assoc_type_id = 4 [json_name = "facility_assoc_type_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
+
 message ProductFacilityAssocList{
     repeated ProductFacilityAssocData values=1;
     // A token to retrieve next page of results.
@@ -321,6 +362,12 @@ message ProductFacilityLocationData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message ProductFacilityLocationKey{
+    string product_id = 1 [json_name = "product_id"];
+    string facility_id = 2 [json_name = "facility_id"];
+    string location_seq_id = 3 [json_name = "location_seq_id"];
+}
 
 message ProductFacilityLocationList{
     repeated ProductFacilityLocationData values=1;

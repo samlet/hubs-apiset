@@ -31,6 +31,10 @@ message ContentOperationData {
     map<string, google.protobuf.Any> attachments = 7 ;
 }
 
+message ContentOperationKey{
+    string content_operation_id = 1 [json_name = "content_operation_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ContentOperationList{
     repeated ContentOperationData values=1;
     // A token to retrieve next page of results.

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductSubscriptionExtraProto";
-option objc_class_prefix = "ProductSubscriptionExtra";
 
 package domain;
 
@@ -72,6 +71,10 @@ message SubscriptionData {
 }
 
 
+message SubscriptionKey{
+    string subscription_id = 1 [json_name = "subscription_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SubscriptionList{
     repeated SubscriptionData values=1;
     // A token to retrieve next page of results.
@@ -105,6 +108,10 @@ message SubscriptionActivityData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message SubscriptionActivityKey{
+    string subscription_activity_id = 1 [json_name = "subscription_activity_id", (google.api.graphql.relay_options).id = true];
+}
 
 message SubscriptionActivityList{
     repeated SubscriptionActivityData values=1;
@@ -142,6 +149,11 @@ message SubscriptionAttributeData {
 }
 
 
+message SubscriptionAttributeKey{
+    string subscription_id = 1 [json_name = "subscription_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message SubscriptionAttributeList{
     repeated SubscriptionAttributeData values=1;
     // A token to retrieve next page of results.
@@ -175,6 +187,11 @@ message SubscriptionCommEventData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message SubscriptionCommEventKey{
+    string subscription_id = 1 [json_name = "subscription_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+}
 
 message SubscriptionCommEventList{
     repeated SubscriptionCommEventData values=1;
@@ -210,6 +227,11 @@ message SubscriptionFulfillmentPieceData {
 }
 
 
+message SubscriptionFulfillmentPieceKey{
+    string subscription_activity_id = 1 [json_name = "subscription_activity_id"];
+    string subscription_id = 2 [json_name = "subscription_id"];
+}
+
 message SubscriptionFulfillmentPieceList{
     repeated SubscriptionFulfillmentPieceData values=1;
     // A token to retrieve next page of results.
@@ -244,6 +266,11 @@ message SubscriptionTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message SubscriptionTypeAttrKey{
+    string subscription_type_id = 1 [json_name = "subscription_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message SubscriptionTypeAttrList{
     repeated SubscriptionTypeAttrData values=1;

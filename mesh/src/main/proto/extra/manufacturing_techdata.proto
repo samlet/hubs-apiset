@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ManufacturingTechdataExtraProto";
-option objc_class_prefix = "ManufacturingTechdataExtra";
 
 package domain;
 
@@ -41,6 +40,11 @@ message TechDataCalendarExcWeekData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message TechDataCalendarExcWeekKey{
+    string calendar_id = 1 [json_name = "calendar_id"];
+    google.type.Date exception_date_start = 2 [json_name = "exception_date_start"];
+}
 
 message TechDataCalendarExcWeekList{
     repeated TechDataCalendarExcWeekData values=1;

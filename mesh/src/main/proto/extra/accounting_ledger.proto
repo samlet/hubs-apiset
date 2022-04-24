@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingLedgerExtraProto";
-option objc_class_prefix = "AccountingLedgerExtra";
 
 package domain;
 
@@ -42,6 +41,11 @@ message AcctgTransAttributeData {
 }
 
 
+message AcctgTransAttributeKey{
+    string acctg_trans_id = 1 [json_name = "acctg_trans_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message AcctgTransAttributeList{
     repeated AcctgTransAttributeData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +81,11 @@ message AcctgTransTypeAttrData {
 }
 
 
+message AcctgTransTypeAttrKey{
+    string acctg_trans_type_id = 1 [json_name = "acctg_trans_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message AcctgTransTypeAttrList{
     repeated AcctgTransTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -111,6 +120,11 @@ message GlAccountGroupMemberData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message GlAccountGroupMemberKey{
+    string gl_account_id = 1 [json_name = "gl_account_id"];
+    string gl_account_group_type_id = 2 [json_name = "gl_account_group_type_id"];
+}
 
 message GlAccountGroupMemberList{
     repeated GlAccountGroupMemberData values=1;
@@ -151,6 +165,12 @@ message GlAccountHistoryData {
 }
 
 
+message GlAccountHistoryKey{
+    string gl_account_id = 1 [json_name = "gl_account_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string custom_time_period_id = 3 [json_name = "custom_time_period_id"];
+}
+
 message GlAccountHistoryList{
     repeated GlAccountHistoryData values=1;
     // A token to retrieve next page of results.
@@ -187,6 +207,13 @@ message GlAccountRoleData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message GlAccountRoleKey{
+    string gl_account_id = 1 [json_name = "gl_account_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message GlAccountRoleList{
     repeated GlAccountRoleData values=1;
@@ -225,6 +252,12 @@ message GlBudgetXrefData {
 }
 
 
+message GlBudgetXrefKey{
+    string gl_account_id = 1 [json_name = "gl_account_id"];
+    string budget_item_type_id = 2 [json_name = "budget_item_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message GlBudgetXrefList{
     repeated GlBudgetXrefData values=1;
     // A token to retrieve next page of results.
@@ -260,6 +293,12 @@ message GlReconciliationEntryData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message GlReconciliationEntryKey{
+    string gl_reconciliation_id = 1 [json_name = "gl_reconciliation_id"];
+    string acctg_trans_id = 2 [json_name = "acctg_trans_id"];
+    string acctg_trans_entry_seq_id = 3 [json_name = "acctg_trans_entry_seq_id"];
+}
 
 message GlReconciliationEntryList{
     repeated GlReconciliationEntryData values=1;
@@ -297,6 +336,13 @@ message PartyGlAccountData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message PartyGlAccountKey{
+    string organization_party_id = 1 [json_name = "organization_party_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    string gl_account_type_id = 4 [json_name = "gl_account_type_id"];
+}
 
 message PartyGlAccountList{
     repeated PartyGlAccountData values=1;
@@ -337,6 +383,10 @@ message PartyPrefDocTypeTplData {
 }
 
 
+message PartyPrefDocTypeTplKey{
+    string party_pref_doc_type_tpl_id = 1 [json_name = "party_pref_doc_type_tpl_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PartyPrefDocTypeTplList{
     repeated PartyPrefDocTypeTplData values=1;
     // A token to retrieve next page of results.
@@ -375,6 +425,14 @@ message ProductAverageCostData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message ProductAverageCostKey{
+    string product_average_cost_type_id = 1 [json_name = "product_average_cost_type_id"];
+    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string product_id = 3 [json_name = "product_id"];
+    string facility_id = 4 [json_name = "facility_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
 
 message ProductAverageCostList{
     repeated ProductAverageCostData values=1;

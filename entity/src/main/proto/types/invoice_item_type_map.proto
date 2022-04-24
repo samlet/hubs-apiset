@@ -33,6 +33,11 @@ message InvoiceItemTypeMapData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message InvoiceItemTypeMapKey{
+    string invoice_item_map_key = 1 [json_name = "invoice_item_map_key"];
+    string invoice_type_id = 2 [json_name = "invoice_type_id"];
+}
+
 message InvoiceItemTypeMapList{
     repeated InvoiceItemTypeMapData values=1;
     // A token to retrieve next page of results.

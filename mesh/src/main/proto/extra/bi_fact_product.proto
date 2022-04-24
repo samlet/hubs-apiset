@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "BiFactProductExtraProto";
-option objc_class_prefix = "BiFactProductExtra";
 
 package domain;
 
@@ -45,6 +44,10 @@ message InventoryItemFactData {
     map<string, google.protobuf.Any> attachments = 16;
 }
 
+
+message InventoryItemFactKey{
+    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];
+}
 
 message InventoryItemFactList{
     repeated InventoryItemFactData values=1;

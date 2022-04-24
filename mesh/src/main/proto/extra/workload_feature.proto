@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WorkloadFeatureExtraProto";
-option objc_class_prefix = "WorkloadFeatureExtra";
 
 package domain;
 
@@ -39,6 +38,10 @@ message WorkloadFeatureData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message WorkloadFeatureKey{
+    string workload_feature_id = 1 [json_name = "workload_feature_id", (google.api.graphql.relay_options).id = true];
+}
 
 message WorkloadFeatureList{
     repeated WorkloadFeatureData values=1;
@@ -78,6 +81,12 @@ message WorkloadFeatureApplData {
 }
 
 
+message WorkloadFeatureApplKey{
+    string workload_id = 1 [json_name = "workload_id"];
+    string workload_feature_id = 2 [json_name = "workload_feature_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message WorkloadFeatureApplList{
     repeated WorkloadFeatureApplData values=1;
     // A token to retrieve next page of results.
@@ -111,6 +120,10 @@ message WorkloadFeatureApplTypeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message WorkloadFeatureApplTypeKey{
+    string workload_feature_appl_type_id = 1 [json_name = "workload_feature_appl_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message WorkloadFeatureApplTypeList{
     repeated WorkloadFeatureApplTypeData values=1;

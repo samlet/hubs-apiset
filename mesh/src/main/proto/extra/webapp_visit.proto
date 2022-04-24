@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WebappVisitExtraProto";
-option objc_class_prefix = "WebappVisitExtra";
 
 package domain;
 
@@ -40,6 +39,10 @@ message BrowserTypeData {
 }
 
 
+message BrowserTypeKey{
+    string browser_type_id = 1 [json_name = "browser_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message BrowserTypeList{
     repeated BrowserTypeData values=1;
     // A token to retrieve next page of results.
@@ -74,6 +77,10 @@ message PlatformTypeData {
 }
 
 
+message PlatformTypeKey{
+    string platform_type_id = 1 [json_name = "platform_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PlatformTypeList{
     repeated PlatformTypeData values=1;
     // A token to retrieve next page of results.
@@ -106,6 +113,10 @@ message ProtocolTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message ProtocolTypeKey{
+    string protocol_type_id = 1 [json_name = "protocol_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProtocolTypeList{
     repeated ProtocolTypeData values=1;
@@ -153,6 +164,13 @@ message ServerHitData {
 }
 
 
+message ServerHitKey{
+    string visit_id = 1 [json_name = "visit_id"];
+    string content_id = 2 [json_name = "content_id"];
+    google.protobuf.Timestamp hit_start_date_time = 3 [json_name = "hit_start_date_time"];
+    string hit_type_id = 4 [json_name = "hit_type_id"];
+}
+
 message ServerHitList{
     repeated ServerHitData values=1;
     // A token to retrieve next page of results.
@@ -194,6 +212,10 @@ message ServerHitBinData {
 }
 
 
+message ServerHitBinKey{
+    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ServerHitBinList{
     repeated ServerHitBinData values=1;
     // A token to retrieve next page of results.
@@ -231,6 +253,10 @@ message UserAgentData {
 }
 
 
+message UserAgentKey{
+    string user_agent_id = 1 [json_name = "user_agent_id", (google.api.graphql.relay_options).id = true];
+}
+
 message UserAgentList{
     repeated UserAgentData values=1;
     // A token to retrieve next page of results.
@@ -264,6 +290,10 @@ message UserAgentMethodTypeData {
 }
 
 
+message UserAgentMethodTypeKey{
+    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message UserAgentMethodTypeList{
     repeated UserAgentMethodTypeData values=1;
     // A token to retrieve next page of results.
@@ -296,6 +326,10 @@ message UserAgentTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message UserAgentTypeKey{
+    string user_agent_type_id = 1 [json_name = "user_agent_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message UserAgentTypeList{
     repeated UserAgentTypeData values=1;
@@ -352,6 +386,10 @@ message VisitData {
 }
 
 
+message VisitKey{
+    string visit_id = 1 [json_name = "visit_id", (google.api.graphql.relay_options).id = true];
+}
+
 message VisitList{
     repeated VisitData values=1;
     // A token to retrieve next page of results.
@@ -385,6 +423,10 @@ message VisitorData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message VisitorKey{
+    string visitor_id = 1 [json_name = "visitor_id", (google.api.graphql.relay_options).id = true];
+}
 
 message VisitorList{
     repeated VisitorData values=1;

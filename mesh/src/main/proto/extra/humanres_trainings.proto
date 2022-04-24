@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "HumanresTrainingsExtraProto";
-option objc_class_prefix = "HumanresTrainingsExtra";
 
 package domain;
 
@@ -37,6 +36,10 @@ message TrainingRequestData {
     map<string, google.protobuf.Any> attachments = 6;
 }
 
+
+message TrainingRequestKey{
+    string training_request_id = 1 [json_name = "training_request_id", (google.api.graphql.relay_options).id = true];
+}
 
 message TrainingRequestList{
     repeated TrainingRequestData values=1;

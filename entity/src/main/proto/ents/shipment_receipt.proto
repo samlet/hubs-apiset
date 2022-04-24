@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ShipmentReceiptProto";
-option objc_class_prefix = "ShipmentReceipt";
 
 package domain;
 
@@ -49,6 +48,10 @@ message ShipmentReceiptFlatData {
     // extra
     google.protobuf.Struct extra = 36;
     map<string, google.protobuf.Any> attachments = 37 ;
+}
+
+message ShipmentReceiptKey{
+    string receipt_id = 1 [json_name = "receipt_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ShipmentReceiptList{

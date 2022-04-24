@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductPriceProto";
-option objc_class_prefix = "ProductPrice";
 
 package domain;
 
@@ -47,6 +46,13 @@ message ProductFeaturePriceData {
     map<string, google.protobuf.Any> attachments = 19;
 }
 
+
+message ProductFeaturePriceKey{
+    string product_feature_id = 1 [json_name = "product_feature_id"];
+    string product_price_type_id = 2 [json_name = "product_price_type_id"];
+    string currency_uom_id = 3 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ProductFeaturePriceList{
     repeated ProductFeaturePriceData values=1;
@@ -101,6 +107,15 @@ message ProductPriceData {
 }
 
 
+message ProductPriceKey{
+    string product_id = 1 [json_name = "product_id"];
+    string product_price_type_id = 2 [json_name = "product_price_type_id"];
+    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
+    string currency_uom_id = 4 [json_name = "currency_uom_id"];
+    string product_store_group_id = 5 [json_name = "product_store_group_id"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+}
+
 message ProductPriceList{
     repeated ProductPriceData values=1;
     // A token to retrieve next page of results.
@@ -137,6 +152,11 @@ message ProductPriceActionData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ProductPriceActionKey{
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
+    string product_price_action_seq_id = 2 [json_name = "product_price_action_seq_id"];
+}
 
 message ProductPriceActionList{
     repeated ProductPriceActionData values=1;
@@ -175,6 +195,11 @@ message ProductPriceCondData {
 }
 
 
+message ProductPriceCondKey{
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
+    string product_price_cond_seq_id = 2 [json_name = "product_price_cond_seq_id"];
+}
+
 message ProductPriceCondList{
     repeated ProductPriceCondData values=1;
     // A token to retrieve next page of results.
@@ -210,6 +235,10 @@ message ProductPriceRuleFlatData {
     map<string, google.protobuf.Any> attachments = 16 ;
 }
 
+message ProductPriceRuleKey{
+    string product_price_rule_id = 1 [json_name = "product_price_rule_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductPriceRuleList{
     repeated ProductPriceRuleFlatData values=1;
     // A token to retrieve next page of results.
@@ -240,6 +269,10 @@ message QuantityBreakFlatData {
     // extra
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14 ;
+}
+
+message QuantityBreakKey{
+    string quantity_break_id = 1 [json_name = "quantity_break_id", (google.api.graphql.relay_options).id = true];
 }
 
 message QuantityBreakList{

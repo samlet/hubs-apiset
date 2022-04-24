@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductStoreProto";
-option objc_class_prefix = "ProductStore";
 
 package domain;
 
@@ -113,6 +112,10 @@ message ProductStoreFlatData {
     map<string, google.protobuf.Any> attachments = 130 ;
 }
 
+message ProductStoreKey{
+    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductStoreList{
     repeated ProductStoreFlatData values=1;
     // A token to retrieve next page of results.
@@ -145,6 +148,12 @@ message ProductStoreCatalogFlatData {
     // extra
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14 ;
+}
+
+message ProductStoreCatalogKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string prod_catalog_id = 2 [json_name = "prod_catalog_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
 }
 
 message ProductStoreCatalogList{
@@ -187,6 +196,11 @@ message ProductStoreEmailSettingData {
 }
 
 
+message ProductStoreEmailSettingKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string email_type = 2 [json_name = "email_type"];
+}
+
 message ProductStoreEmailSettingList{
     repeated ProductStoreEmailSettingData values=1;
     // A token to retrieve next page of results.
@@ -220,6 +234,12 @@ message ProductStoreFacilityFlatData {
     // extra
     google.protobuf.Struct extra = 13;
     map<string, google.protobuf.Any> attachments = 14 ;
+}
+
+message ProductStoreFacilityKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string facility_id = 2 [json_name = "facility_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
 }
 
 message ProductStoreFacilityList{
@@ -268,6 +288,11 @@ message ProductStoreFinActSettingData {
 }
 
 
+message ProductStoreFinActSettingKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string fin_account_type_id = 2 [json_name = "fin_account_type_id"];
+}
+
 message ProductStoreFinActSettingList{
     repeated ProductStoreFinActSettingData values=1;
     // A token to retrieve next page of results.
@@ -305,6 +330,12 @@ message ProductStoreKeywordOvrdData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message ProductStoreKeywordOvrdKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string keyword = 2 [json_name = "keyword"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message ProductStoreKeywordOvrdList{
     repeated ProductStoreKeywordOvrdData values=1;
@@ -346,6 +377,12 @@ message ProductStorePaymentSettingData {
 }
 
 
+message ProductStorePaymentSettingKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
+    string payment_service_type_enum_id = 3 [json_name = "payment_service_type_enum_id"];
+}
+
 message ProductStorePaymentSettingList{
     repeated ProductStorePaymentSettingData values=1;
     // A token to retrieve next page of results.
@@ -384,6 +421,12 @@ message ProductStorePromoApplData {
 }
 
 
+message ProductStorePromoApplKey{
+    string product_store_id = 1 [json_name = "product_store_id"];
+    string product_promo_id = 2 [json_name = "product_promo_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message ProductStorePromoApplList{
     repeated ProductStorePromoApplData values=1;
     // A token to retrieve next page of results.
@@ -421,6 +464,13 @@ message ProductStoreRoleData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message ProductStoreRoleKey{
+    string party_id = 1 [json_name = "party_id"];
+    string role_type_id = 2 [json_name = "role_type_id"];
+    string product_store_id = 3 [json_name = "product_store_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ProductStoreRoleList{
     repeated ProductStoreRoleData values=1;
@@ -479,6 +529,10 @@ message ProductStoreShipmentMethFlatData {
     map<string, google.protobuf.Any> attachments = 41 ;
 }
 
+message ProductStoreShipmentMethKey{
+    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductStoreShipmentMethList{
     repeated ProductStoreShipmentMethFlatData values=1;
     // A token to retrieve next page of results.
@@ -517,6 +571,10 @@ message ProductStoreSurveyApplFlatData {
     // extra
     google.protobuf.Struct extra = 23;
     map<string, google.protobuf.Any> attachments = 24 ;
+}
+
+message ProductStoreSurveyApplKey{
+    string product_store_survey_id = 1 [json_name = "product_store_survey_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductStoreSurveyApplList{

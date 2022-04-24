@@ -33,6 +33,10 @@ message PaymentGatewayConfigTypeData {
     map<string, google.protobuf.Any> attachments = 12 ;
 }
 
+message PaymentGatewayConfigTypeKey{
+    string payment_gateway_config_type_id = 1 [json_name = "payment_gateway_config_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentGatewayConfigTypeList{
     repeated PaymentGatewayConfigTypeData values=1;
     // A token to retrieve next page of results.

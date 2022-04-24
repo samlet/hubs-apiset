@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentDataExtraProto";
-option objc_class_prefix = "ContentDataExtra";
 
 package domain;
 
@@ -38,6 +37,10 @@ message AudioDataResourceData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message AudioDataResourceKey{
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+}
 
 message AudioDataResourceList{
     repeated AudioDataResourceData values=1;
@@ -75,6 +78,11 @@ message DataResourceAttributeData {
 }
 
 
+message DataResourceAttributeKey{
+    string data_resource_id = 1 [json_name = "data_resource_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message DataResourceAttributeList{
     repeated DataResourceAttributeData values=1;
     // A token to retrieve next page of results.
@@ -111,6 +119,11 @@ message DataResourceMetaDataData {
 }
 
 
+message DataResourceMetaDataKey{
+    string data_resource_id = 1 [json_name = "data_resource_id"];
+    string meta_data_predicate_id = 2 [json_name = "meta_data_predicate_id"];
+}
+
 message DataResourceMetaDataList{
     repeated DataResourceMetaDataData values=1;
     // A token to retrieve next page of results.
@@ -144,6 +157,11 @@ message DataResourcePurposeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message DataResourcePurposeKey{
+    string data_resource_id = 1 [json_name = "data_resource_id"];
+    string content_purpose_type_id = 2 [json_name = "content_purpose_type_id"];
+}
 
 message DataResourcePurposeList{
     repeated DataResourcePurposeData values=1;
@@ -182,6 +200,13 @@ message DataResourceRoleData {
 }
 
 
+message DataResourceRoleKey{
+    string data_resource_id = 1 [json_name = "data_resource_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message DataResourceRoleList{
     repeated DataResourceRoleData values=1;
     // A token to retrieve next page of results.
@@ -217,6 +242,11 @@ message DataResourceTypeAttrData {
 }
 
 
+message DataResourceTypeAttrKey{
+    string data_resource_type_id = 1 [json_name = "data_resource_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message DataResourceTypeAttrList{
     repeated DataResourceTypeAttrData values=1;
     // A token to retrieve next page of results.
@@ -249,6 +279,10 @@ message ImageDataResourceData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message ImageDataResourceKey{
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ImageDataResourceList{
     repeated ImageDataResourceData values=1;
@@ -283,6 +317,10 @@ message OtherDataResourceData {
 }
 
 
+message OtherDataResourceKey{
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+}
+
 message OtherDataResourceList{
     repeated OtherDataResourceData values=1;
     // A token to retrieve next page of results.
@@ -315,6 +353,10 @@ message VideoDataResourceData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message VideoDataResourceKey{
+    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+}
 
 message VideoDataResourceList{
     repeated VideoDataResourceData values=1;

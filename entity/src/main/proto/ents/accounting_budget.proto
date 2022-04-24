@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingBudgetProto";
-option objc_class_prefix = "AccountingBudget";
 
 package domain;
 
@@ -37,6 +36,10 @@ message BudgetFlatData {
     // extra
     google.protobuf.Struct extra = 22;
     map<string, google.protobuf.Any> attachments = 23 ;
+}
+
+message BudgetKey{
+    string budget_id = 1 [json_name = "budget_id", (google.api.graphql.relay_options).id = true];
 }
 
 message BudgetList{
@@ -74,6 +77,11 @@ message BudgetStatusData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message BudgetStatusKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string status_id = 2 [json_name = "status_id"];
+}
 
 message BudgetStatusList{
     repeated BudgetStatusData values=1;

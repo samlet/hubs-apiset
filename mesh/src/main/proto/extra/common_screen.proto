@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonScreenExtraProto";
-option objc_class_prefix = "CommonScreenExtra";
 
 package domain;
 
@@ -41,6 +40,10 @@ message CustomScreenData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message CustomScreenKey{
+    string custom_screen_id = 1 [json_name = "custom_screen_id", (google.api.graphql.relay_options).id = true];
+}
 
 message CustomScreenList{
     repeated CustomScreenData values=1;

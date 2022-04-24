@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderReservationsExtraProto";
-option objc_class_prefix = "OrderReservationsExtra";
 
 package domain;
 
@@ -41,6 +40,10 @@ message AccommodationSpotData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message AccommodationSpotKey{
+    string accommodation_spot_id = 1 [json_name = "accommodation_spot_id", (google.api.graphql.relay_options).id = true];
+}
 
 message AccommodationSpotList{
     repeated AccommodationSpotData values=1;

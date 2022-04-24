@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingBudgetExtraProto";
-option objc_class_prefix = "AccountingBudgetExtra";
 
 package domain;
 
@@ -41,6 +40,11 @@ message BudgetAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message BudgetAttributeKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message BudgetAttributeList{
     repeated BudgetAttributeData values=1;
@@ -80,6 +84,11 @@ message BudgetItemData {
 }
 
 
+message BudgetItemKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+}
+
 message BudgetItemList{
     repeated BudgetItemData values=1;
     // A token to retrieve next page of results.
@@ -117,6 +126,12 @@ message BudgetItemAttributeData {
 }
 
 
+message BudgetItemAttributeKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string attr_name = 3 [json_name = "attr_name"];
+}
+
 message BudgetItemAttributeList{
     repeated BudgetItemAttributeData values=1;
     // A token to retrieve next page of results.
@@ -151,6 +166,11 @@ message BudgetItemTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message BudgetItemTypeAttrKey{
+    string budget_item_type_id = 1 [json_name = "budget_item_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message BudgetItemTypeAttrList{
     repeated BudgetItemTypeAttrData values=1;
@@ -189,6 +209,13 @@ message BudgetReviewData {
 }
 
 
+message BudgetReviewKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_review_id = 2 [json_name = "budget_review_id"];
+    string party_id = 3 [json_name = "party_id"];
+    string budget_review_result_type_id = 4 [json_name = "budget_review_result_type_id"];
+}
+
 message BudgetReviewList{
     repeated BudgetReviewData values=1;
     // A token to retrieve next page of results.
@@ -223,6 +250,11 @@ message BudgetRevisionData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message BudgetRevisionKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string revision_seq_id = 2 [json_name = "revision_seq_id"];
+}
 
 message BudgetRevisionList{
     repeated BudgetRevisionData values=1;
@@ -262,6 +294,12 @@ message BudgetRevisionImpactData {
 }
 
 
+message BudgetRevisionImpactKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string revision_seq_id = 3 [json_name = "revision_seq_id"];
+}
+
 message BudgetRevisionImpactList{
     repeated BudgetRevisionImpactData values=1;
     // A token to retrieve next page of results.
@@ -297,6 +335,12 @@ message BudgetRoleData {
 }
 
 
+message BudgetRoleKey{
+    string budget_id = 1 [json_name = "budget_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
+
 message BudgetRoleList{
     repeated BudgetRoleData values=1;
     // A token to retrieve next page of results.
@@ -329,6 +373,10 @@ message BudgetScenarioData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message BudgetScenarioKey{
+    string budget_scenario_id = 1 [json_name = "budget_scenario_id", (google.api.graphql.relay_options).id = true];
+}
 
 message BudgetScenarioList{
     repeated BudgetScenarioData values=1;
@@ -368,6 +416,11 @@ message BudgetScenarioApplicationData {
 }
 
 
+message BudgetScenarioApplicationKey{
+    string budget_scenario_applic_id = 1 [json_name = "budget_scenario_applic_id"];
+    string budget_scenario_id = 2 [json_name = "budget_scenario_id"];
+}
+
 message BudgetScenarioApplicationList{
     repeated BudgetScenarioApplicationData values=1;
     // A token to retrieve next page of results.
@@ -404,6 +457,11 @@ message BudgetScenarioRuleData {
 }
 
 
+message BudgetScenarioRuleKey{
+    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];
+    string budget_item_type_id = 2 [json_name = "budget_item_type_id"];
+}
+
 message BudgetScenarioRuleList{
     repeated BudgetScenarioRuleData values=1;
     // A token to retrieve next page of results.
@@ -438,6 +496,11 @@ message BudgetTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message BudgetTypeAttrKey{
+    string budget_type_id = 1 [json_name = "budget_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message BudgetTypeAttrList{
     repeated BudgetTypeAttrData values=1;

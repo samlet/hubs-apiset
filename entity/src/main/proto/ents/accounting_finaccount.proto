@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingFinaccountProto";
-option objc_class_prefix = "AccountingFinaccount";
 
 package domain;
 
@@ -52,6 +51,10 @@ message FinAccountFlatData {
     map<string, google.protobuf.Any> attachments = 38 ;
 }
 
+message FinAccountKey{
+    string fin_account_id = 1 [json_name = "fin_account_id", (google.api.graphql.relay_options).id = true];
+}
+
 message FinAccountList{
     repeated FinAccountFlatData values=1;
     // A token to retrieve next page of results.
@@ -87,6 +90,13 @@ message FinAccountRoleData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message FinAccountRoleKey{
+    string fin_account_id = 1 [json_name = "fin_account_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message FinAccountRoleList{
     repeated FinAccountRoleData values=1;
@@ -124,6 +134,12 @@ message FinAccountStatusData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message FinAccountStatusKey{
+    string fin_account_id = 1 [json_name = "fin_account_id"];
+    string status_id = 2 [json_name = "status_id"];
+    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+}
 
 message FinAccountStatusList{
     repeated FinAccountStatusData values=1;
@@ -167,6 +183,10 @@ message FinAccountTransFlatData {
     // extra
     google.protobuf.Struct extra = 33;
     map<string, google.protobuf.Any> attachments = 34 ;
+}
+
+message FinAccountTransKey{
+    string fin_account_trans_id = 1 [json_name = "fin_account_trans_id", (google.api.graphql.relay_options).id = true];
 }
 
 message FinAccountTransList{

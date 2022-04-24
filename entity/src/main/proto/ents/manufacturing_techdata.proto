@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ManufacturingTechdataProto";
-option objc_class_prefix = "ManufacturingTechdata";
 
 package domain;
 
@@ -36,6 +35,10 @@ message TechDataCalendarFlatData {
     // extra
     google.protobuf.Struct extra = 12;
     map<string, google.protobuf.Any> attachments = 13 ;
+}
+
+message TechDataCalendarKey{
+    string calendar_id = 1 [json_name = "calendar_id", (google.api.graphql.relay_options).id = true];
 }
 
 message TechDataCalendarList{
@@ -73,6 +76,11 @@ message TechDataCalendarExcDayData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message TechDataCalendarExcDayKey{
+    string calendar_id = 1 [json_name = "calendar_id"];
+    google.protobuf.Timestamp exception_date_start_time = 2 [json_name = "exception_date_start_time"];
+}
 
 message TechDataCalendarExcDayList{
     repeated TechDataCalendarExcDayData values=1;
@@ -117,6 +125,10 @@ message TechDataCalendarWeekFlatData {
     // extra
     google.protobuf.Struct extra = 23;
     map<string, google.protobuf.Any> attachments = 24 ;
+}
+
+message TechDataCalendarWeekKey{
+    string calendar_week_id = 1 [json_name = "calendar_week_id", (google.api.graphql.relay_options).id = true];
 }
 
 message TechDataCalendarWeekList{

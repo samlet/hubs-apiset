@@ -38,6 +38,10 @@ message CostComponentCalcData {
     map<string, google.protobuf.Any> attachments = 20 ;
 }
 
+message CostComponentCalcKey{
+    string cost_component_calc_id = 1 [json_name = "cost_component_calc_id", (google.api.graphql.relay_options).id = true];
+}
+
 message CostComponentCalcList{
     repeated CostComponentCalcData values=1;
     // A token to retrieve next page of results.

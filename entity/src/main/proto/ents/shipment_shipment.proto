@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ShipmentProto";
-option objc_class_prefix = "Shipment";
 
 package domain;
 
@@ -42,6 +41,11 @@ message CarrierShipmentBoxTypeData {
 }
 
 
+message CarrierShipmentBoxTypeKey{
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id"];
+    string party_id = 2 [json_name = "party_id"];
+}
+
 message CarrierShipmentBoxTypeList{
     repeated CarrierShipmentBoxTypeData values=1;
     // A token to retrieve next page of results.
@@ -78,6 +82,12 @@ message CarrierShipmentMethodData {
     map<string, google.protobuf.Any> attachments = 18;
 }
 
+
+message CarrierShipmentMethodKey{
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message CarrierShipmentMethodList{
     repeated CarrierShipmentMethodData values=1;
@@ -138,6 +148,10 @@ message ShipmentFlatData {
     map<string, google.protobuf.Any> attachments = 76 ;
 }
 
+message ShipmentKey{
+    string shipment_id = 1 [json_name = "shipment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ShipmentList{
     repeated ShipmentFlatData values=1;
     // A token to retrieve next page of results.
@@ -172,6 +186,10 @@ message ShipmentBoxTypeFlatData {
     // extra
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19 ;
+}
+
+message ShipmentBoxTypeKey{
+    string shipment_box_type_id = 1 [json_name = "shipment_box_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ShipmentBoxTypeList{
@@ -230,6 +248,10 @@ message ShipmentCostEstimateFlatData {
     map<string, google.protobuf.Any> attachments = 47 ;
 }
 
+message ShipmentCostEstimateKey{
+    string shipment_cost_estimate_id = 1 [json_name = "shipment_cost_estimate_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ShipmentCostEstimateList{
     repeated ShipmentCostEstimateFlatData values=1;
     // A token to retrieve next page of results.
@@ -265,6 +287,11 @@ message ShipmentItemData {
     map<string, google.protobuf.Any> attachments = 20;
 }
 
+
+message ShipmentItemKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
+}
 
 message ShipmentItemList{
     repeated ShipmentItemData values=1;
@@ -302,6 +329,13 @@ message ShipmentItemBillingData {
 }
 
 
+message ShipmentItemBillingKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
+    string invoice_id = 3 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
+}
+
 message ShipmentItemBillingList{
     repeated ShipmentItemBillingData values=1;
     // A token to retrieve next page of results.
@@ -332,6 +366,10 @@ message ShipmentMethodTypeFlatData {
     // extra
     google.protobuf.Struct extra = 16;
     map<string, google.protobuf.Any> attachments = 17 ;
+}
+
+message ShipmentMethodTypeKey{
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message ShipmentMethodTypeList{
@@ -376,6 +414,11 @@ message ShipmentPackageData {
 }
 
 
+message ShipmentPackageKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+}
+
 message ShipmentPackageList{
     repeated ShipmentPackageData values=1;
     // A token to retrieve next page of results.
@@ -413,6 +456,12 @@ message ShipmentPackageContentData {
     map<string, google.protobuf.Any> attachments = 15;
 }
 
+
+message ShipmentPackageContentKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+    string shipment_item_seq_id = 3 [json_name = "shipment_item_seq_id"];
+}
 
 message ShipmentPackageContentList{
     repeated ShipmentPackageContentData values=1;
@@ -461,6 +510,12 @@ message ShipmentPackageRouteSegData {
     map<string, google.protobuf.Any> attachments = 25;
 }
 
+
+message ShipmentPackageRouteSegKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_package_seq_id = 2 [json_name = "shipment_package_seq_id"];
+    string shipment_route_segment_id = 3 [json_name = "shipment_route_segment_id"];
+}
 
 message ShipmentPackageRouteSegList{
     repeated ShipmentPackageRouteSegData values=1;
@@ -530,6 +585,11 @@ message ShipmentRouteSegmentData {
 }
 
 
+message ShipmentRouteSegmentKey{
+    string shipment_id = 1 [json_name = "shipment_id"];
+    string shipment_route_segment_id = 2 [json_name = "shipment_route_segment_id"];
+}
+
 message ShipmentRouteSegmentList{
     repeated ShipmentRouteSegmentData values=1;
     // A token to retrieve next page of results.
@@ -565,6 +625,11 @@ message ShipmentStatusData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ShipmentStatusKey{
+    string status_id = 1 [json_name = "status_id"];
+    string shipment_id = 2 [json_name = "shipment_id"];
+}
 
 message ShipmentStatusList{
     repeated ShipmentStatusData values=1;
@@ -607,6 +672,15 @@ message ShipmentTimeEstimateData {
     map<string, google.protobuf.Any> attachments = 19;
 }
 
+
+message ShipmentTimeEstimateKey{
+    string shipment_method_type_id = 1 [json_name = "shipment_method_type_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+    string geo_id_to = 4 [json_name = "geo_id_to"];
+    string geo_id_from = 5 [json_name = "geo_id_from"];
+    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+}
 
 message ShipmentTimeEstimateList{
     repeated ShipmentTimeEstimateData values=1;

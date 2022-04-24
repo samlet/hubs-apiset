@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CatalinaSessionExtraProto";
-option objc_class_prefix = "CatalinaSessionExtra";
 
 package domain;
 
@@ -42,6 +41,10 @@ message CatalinaSessionData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message CatalinaSessionKey{
+    string session_id = 1 [json_name = "session_id", (google.api.graphql.relay_options).id = true];
+}
 
 message CatalinaSessionList{
     repeated CatalinaSessionData values=1;

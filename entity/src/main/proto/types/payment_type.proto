@@ -33,6 +33,10 @@ message PaymentTypeData {
     map<string, google.protobuf.Any> attachments = 13 ;
 }
 
+message PaymentTypeKey{
+    string payment_type_id = 1 [json_name = "payment_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message PaymentTypeList{
     repeated PaymentTypeData values=1;
     // A token to retrieve next page of results.

@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentSurveyExtraProto";
-option objc_class_prefix = "ContentSurveyExtra";
 
 package domain;
 
@@ -46,6 +45,10 @@ message SurveyResponseData {
     map<string, google.protobuf.Any> attachments = 23;
 }
 
+
+message SurveyResponseKey{
+    string survey_response_id = 1 [json_name = "survey_response_id", (google.api.graphql.relay_options).id = true];
+}
 
 message SurveyResponseList{
     repeated SurveyResponseData values=1;
@@ -97,6 +100,12 @@ message SurveyResponseAnswerData {
 }
 
 
+message SurveyResponseAnswerKey{
+    string survey_response_id = 1 [json_name = "survey_response_id"];
+    string survey_question_id = 2 [json_name = "survey_question_id"];
+    string survey_multi_resp_col_id = 3 [json_name = "survey_multi_resp_col_id"];
+}
+
 message SurveyResponseAnswerList{
     repeated SurveyResponseAnswerData values=1;
     // A token to retrieve next page of results.
@@ -132,6 +141,12 @@ message SurveyTriggerData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message SurveyTriggerKey{
+    string survey_id = 1 [json_name = "survey_id"];
+    string survey_appl_type_id = 2 [json_name = "survey_appl_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message SurveyTriggerList{
     repeated SurveyTriggerData values=1;

@@ -32,6 +32,10 @@ message ProductMaintTypeData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message ProductMaintTypeKey{
+    string product_maint_type_id = 1 [json_name = "product_maint_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductMaintTypeList{
     repeated ProductMaintTypeData values=1;
     // A token to retrieve next page of results.

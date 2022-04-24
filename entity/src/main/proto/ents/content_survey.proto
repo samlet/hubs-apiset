@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ContentSurveyProto";
-option objc_class_prefix = "ContentSurvey";
 
 package domain;
 
@@ -45,6 +44,10 @@ message SurveyFlatData {
     map<string, google.protobuf.Any> attachments = 25 ;
 }
 
+message SurveyKey{
+    string survey_id = 1 [json_name = "survey_id", (google.api.graphql.relay_options).id = true];
+}
+
 message SurveyList{
     repeated SurveyFlatData values=1;
     // A token to retrieve next page of results.
@@ -73,6 +76,10 @@ message SurveyApplTypeFlatData {
     // extra
     google.protobuf.Struct extra = 9;
     map<string, google.protobuf.Any> attachments = 10 ;
+}
+
+message SurveyApplTypeKey{
+    string survey_appl_type_id = 1 [json_name = "survey_appl_type_id", (google.api.graphql.relay_options).id = true];
 }
 
 message SurveyApplTypeList{
@@ -108,6 +115,11 @@ message SurveyMultiRespData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message SurveyMultiRespKey{
+    string survey_id = 1 [json_name = "survey_id"];
+    string survey_multi_resp_id = 2 [json_name = "survey_multi_resp_id"];
+}
 
 message SurveyMultiRespList{
     repeated SurveyMultiRespData values=1;
@@ -146,6 +158,12 @@ message SurveyMultiRespColumnData {
 }
 
 
+message SurveyMultiRespColumnKey{
+    string survey_id = 1 [json_name = "survey_id"];
+    string survey_multi_resp_id = 2 [json_name = "survey_multi_resp_id"];
+    string survey_multi_resp_col_id = 3 [json_name = "survey_multi_resp_col_id"];
+}
+
 message SurveyMultiRespColumnList{
     repeated SurveyMultiRespColumnData values=1;
     // A token to retrieve next page of results.
@@ -181,6 +199,11 @@ message SurveyPageData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message SurveyPageKey{
+    string survey_id = 1 [json_name = "survey_id"];
+    string survey_page_seq_id = 2 [json_name = "survey_page_seq_id"];
+}
 
 message SurveyPageList{
     repeated SurveyPageData values=1;
@@ -218,6 +241,10 @@ message SurveyQuestionFlatData {
     // extra
     google.protobuf.Struct extra = 21;
     map<string, google.protobuf.Any> attachments = 22 ;
+}
+
+message SurveyQuestionKey{
+    string survey_question_id = 1 [json_name = "survey_question_id", (google.api.graphql.relay_options).id = true];
 }
 
 message SurveyQuestionList{
@@ -263,6 +290,12 @@ message SurveyQuestionApplData {
 }
 
 
+message SurveyQuestionApplKey{
+    string survey_id = 1 [json_name = "survey_id"];
+    string survey_question_id = 2 [json_name = "survey_question_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message SurveyQuestionApplList{
     repeated SurveyQuestionApplData values=1;
     // A token to retrieve next page of results.
@@ -293,6 +326,10 @@ message SurveyQuestionCategoryFlatData {
     // extra
     google.protobuf.Struct extra = 11;
     map<string, google.protobuf.Any> attachments = 12 ;
+}
+
+message SurveyQuestionCategoryKey{
+    string survey_question_category_id = 1 [json_name = "survey_question_category_id", (google.api.graphql.relay_options).id = true];
 }
 
 message SurveyQuestionCategoryList{
@@ -334,6 +371,11 @@ message SurveyQuestionOptionData {
     map<string, google.protobuf.Any> attachments = 17;
 }
 
+
+message SurveyQuestionOptionKey{
+    string survey_question_id = 1 [json_name = "survey_question_id"];
+    string survey_option_seq_id = 2 [json_name = "survey_option_seq_id"];
+}
 
 message SurveyQuestionOptionList{
     repeated SurveyQuestionOptionData values=1;

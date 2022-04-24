@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "MarketingTrackingExtraProto";
-option objc_class_prefix = "MarketingTrackingExtra";
 
 package domain;
 
@@ -56,6 +55,10 @@ message TrackingCodeData {
 }
 
 
+message TrackingCodeKey{
+    string tracking_code_id = 1 [json_name = "tracking_code_id", (google.api.graphql.relay_options).id = true];
+}
+
 message TrackingCodeList{
     repeated TrackingCodeData values=1;
     // A token to retrieve next page of results.
@@ -94,6 +97,11 @@ message TrackingCodeOrderData {
     map<string, google.protobuf.Any> attachments = 15;
 }
 
+
+message TrackingCodeOrderKey{
+    string order_id = 1 [json_name = "order_id"];
+    string tracking_code_type_id = 2 [json_name = "tracking_code_type_id"];
+}
 
 message TrackingCodeOrderList{
     repeated TrackingCodeOrderData values=1;
@@ -136,6 +144,12 @@ message TrackingCodeOrderReturnData {
 }
 
 
+message TrackingCodeOrderReturnKey{
+    string return_id = 1 [json_name = "return_id"];
+    string order_id = 2 [json_name = "order_id"];
+    string tracking_code_type_id = 3 [json_name = "tracking_code_type_id"];
+}
+
 message TrackingCodeOrderReturnList{
     repeated TrackingCodeOrderReturnData values=1;
     // A token to retrieve next page of results.
@@ -171,6 +185,12 @@ message TrackingCodeVisitData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message TrackingCodeVisitKey{
+    string tracking_code_id = 1 [json_name = "tracking_code_id"];
+    string visit_id = 2 [json_name = "visit_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
 
 message TrackingCodeVisitList{
     repeated TrackingCodeVisitData values=1;

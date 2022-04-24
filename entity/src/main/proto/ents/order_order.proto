@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderProto";
-option objc_class_prefix = "Order";
 
 package domain;
 
@@ -68,6 +67,10 @@ message OrderAdjustmentFlatData {
     map<string, google.protobuf.Any> attachments = 58 ;
 }
 
+message OrderAdjustmentKey{
+    string order_adjustment_id = 1 [json_name = "order_adjustment_id", (google.api.graphql.relay_options).id = true];
+}
+
 message OrderAdjustmentList{
     repeated OrderAdjustmentFlatData values=1;
     // A token to retrieve next page of results.
@@ -103,6 +106,12 @@ message OrderAdjustmentBillingData {
 }
 
 
+message OrderAdjustmentBillingKey{
+    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];
+    string invoice_id = 2 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 3 [json_name = "invoice_item_seq_id"];
+}
+
 message OrderAdjustmentBillingList{
     repeated OrderAdjustmentBillingData values=1;
     // A token to retrieve next page of results.
@@ -137,6 +146,12 @@ message OrderContactMechData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderContactMechKey{
+    string order_id = 1 [json_name = "order_id"];
+    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"];
+    string contact_mech_id = 3 [json_name = "contact_mech_id"];
+}
 
 message OrderContactMechList{
     repeated OrderContactMechData values=1;
@@ -195,6 +210,10 @@ message OrderHeaderFlatData {
     // extra
     google.protobuf.Struct extra = 96;
     map<string, google.protobuf.Any> attachments = 97 ;
+}
+
+message OrderHeaderKey{
+    string order_id = 1 [json_name = "order_id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderHeaderList{
@@ -273,6 +292,11 @@ message OrderItemFlatData {
     map<string, google.protobuf.Any> attachments = 103 ;
 }
 
+message OrderItemKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+}
+
 message OrderItemList{
     repeated OrderItemFlatData values=1;
     // A token to retrieve next page of results.
@@ -312,6 +336,13 @@ message OrderItemBillingData {
 }
 
 
+message OrderItemBillingKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string invoice_id = 3 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
+}
+
 message OrderItemBillingList{
     repeated OrderItemBillingData values=1;
     // A token to retrieve next page of results.
@@ -347,6 +378,10 @@ message OrderItemPriceInfoFlatData {
     // extra
     google.protobuf.Struct extra = 17;
     map<string, google.protobuf.Any> attachments = 18 ;
+}
+
+message OrderItemPriceInfoKey{
+    string order_item_price_info_id = 1 [json_name = "order_item_price_info_id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderItemPriceInfoList{
@@ -400,6 +435,11 @@ message OrderItemShipGroupData {
 }
 
 
+message OrderItemShipGroupKey{
+    string order_id = 1 [json_name = "order_id"];
+    string ship_group_seq_id = 2 [json_name = "ship_group_seq_id"];
+}
+
 message OrderItemShipGroupList{
     repeated OrderItemShipGroupData values=1;
     // A token to retrieve next page of results.
@@ -436,6 +476,12 @@ message OrderItemShipGroupAssocData {
     map<string, google.protobuf.Any> attachments = 19;
 }
 
+
+message OrderItemShipGroupAssocKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
+}
 
 message OrderItemShipGroupAssocList{
     repeated OrderItemShipGroupAssocData values=1;
@@ -481,6 +527,13 @@ message OrderItemShipGrpInvResData {
     map<string, google.protobuf.Any> attachments = 26;
 }
 
+
+message OrderItemShipGrpInvResKey{
+    string order_id = 1 [json_name = "order_id"];
+    string ship_group_seq_id = 2 [json_name = "ship_group_seq_id"];
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+    string inventory_item_id = 4 [json_name = "inventory_item_id"];
+}
 
 message OrderItemShipGrpInvResList{
     repeated OrderItemShipGrpInvResData values=1;
@@ -535,6 +588,10 @@ message OrderPaymentPreferenceFlatData {
     map<string, google.protobuf.Any> attachments = 46 ;
 }
 
+message OrderPaymentPreferenceKey{
+    string order_payment_preference_id = 1 [json_name = "order_payment_preference_id", (google.api.graphql.relay_options).id = true];
+}
+
 message OrderPaymentPreferenceList{
     repeated OrderPaymentPreferenceFlatData values=1;
     // A token to retrieve next page of results.
@@ -568,6 +625,12 @@ message OrderRoleData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message OrderRoleKey{
+    string order_id = 1 [json_name = "order_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string role_type_id = 3 [json_name = "role_type_id"];
+}
 
 message OrderRoleList{
     repeated OrderRoleData values=1;
@@ -604,6 +667,10 @@ message OrderStatusFlatData {
     // extra
     google.protobuf.Struct extra = 18;
     map<string, google.protobuf.Any> attachments = 19 ;
+}
+
+message OrderStatusKey{
+    string order_status_id = 1 [json_name = "order_status_id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderStatusList{

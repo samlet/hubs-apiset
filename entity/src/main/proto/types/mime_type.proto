@@ -31,6 +31,10 @@ message MimeTypeData {
     map<string, google.protobuf.Any> attachments = 11 ;
 }
 
+message MimeTypeKey{
+    string mime_type_id = 1 [json_name = "mime_type_id", (google.api.graphql.relay_options).id = true];
+}
+
 message MimeTypeList{
     repeated MimeTypeData values=1;
     // A token to retrieve next page of results.

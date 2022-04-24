@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonUomExtraProto";
-option objc_class_prefix = "CommonUomExtra";
 
 package domain;
 
@@ -39,6 +38,11 @@ message UomGroupData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message UomGroupKey{
+    string uom_group_id = 1 [json_name = "uom_group_id"];
+    string uom_id = 2 [json_name = "uom_id"];
+}
 
 message UomGroupList{
     repeated UomGroupData values=1;

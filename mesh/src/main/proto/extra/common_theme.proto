@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonThemeExtraProto";
-option objc_class_prefix = "CommonThemeExtra";
 
 package domain;
 
@@ -40,6 +39,10 @@ message VisualThemeData {
 }
 
 
+message VisualThemeKey{
+    string visual_theme_id = 1 [json_name = "visual_theme_id", (google.api.graphql.relay_options).id = true];
+}
+
 message VisualThemeList{
     repeated VisualThemeData values=1;
     // A token to retrieve next page of results.
@@ -75,6 +78,12 @@ message VisualThemeResourceData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message VisualThemeResourceKey{
+    string visual_theme_id = 1 [json_name = "visual_theme_id"];
+    string resource_type_enum_id = 2 [json_name = "resource_type_enum_id"];
+    string sequence_id = 3 [json_name = "sequence_id"];
+}
 
 message VisualThemeResourceList{
     repeated VisualThemeResourceData values=1;

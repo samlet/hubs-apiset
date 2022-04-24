@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "AccountingTaxExtraProto";
-option objc_class_prefix = "AccountingTaxExtra";
 
 package domain;
 
@@ -44,6 +43,13 @@ message ZipSalesRuleLookupData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message ZipSalesRuleLookupKey{
+    string state_code = 1 [json_name = "state_code"];
+    string city = 2 [json_name = "city"];
+    string county = 3 [json_name = "county"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message ZipSalesRuleLookupList{
     repeated ZipSalesRuleLookupData values=1;
@@ -98,6 +104,14 @@ message ZipSalesTaxLookupData {
     map<string, google.protobuf.Any> attachments = 27;
 }
 
+
+message ZipSalesTaxLookupKey{
+    string zip_code = 1 [json_name = "zip_code"];
+    string state_code = 2 [json_name = "state_code"];
+    string city = 3 [json_name = "city"];
+    string county = 4 [json_name = "county"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
 
 message ZipSalesTaxLookupList{
     repeated ZipSalesTaxLookupData values=1;

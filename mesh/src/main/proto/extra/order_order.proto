@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "OrderExtraProto";
-option objc_class_prefix = "OrderExtra";
 
 package domain;
 
@@ -40,6 +39,11 @@ message CommunicationEventOrderData {
 }
 
 
+message CommunicationEventOrderKey{
+    string order_id = 1 [json_name = "order_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+}
+
 message CommunicationEventOrderList{
     repeated CommunicationEventOrderData values=1;
     // A token to retrieve next page of results.
@@ -74,6 +78,11 @@ message OldOrderBlacklistData {
 }
 
 
+message OldOrderBlacklistKey{
+    string blacklist_string = 1 [json_name = "blacklist_string"];
+    string order_blacklist_type_id = 2 [json_name = "order_blacklist_type_id"];
+}
+
 message OldOrderBlacklistList{
     repeated OldOrderBlacklistData values=1;
     // A token to retrieve next page of results.
@@ -106,6 +115,10 @@ message OldOrderBlacklistTypeData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message OldOrderBlacklistTypeKey{
+    string order_blacklist_type_id = 1 [json_name = "order_blacklist_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message OldOrderBlacklistTypeList{
     repeated OldOrderBlacklistTypeData values=1;
@@ -143,6 +156,11 @@ message OrderAdjustmentAttributeData {
 }
 
 
+message OrderAdjustmentAttributeKey{
+    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message OrderAdjustmentAttributeList{
     repeated OrderAdjustmentAttributeData values=1;
     // A token to retrieve next page of results.
@@ -177,6 +195,11 @@ message OrderAdjustmentTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderAdjustmentTypeAttrKey{
+    string order_adjustment_type_id = 1 [json_name = "order_adjustment_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message OrderAdjustmentTypeAttrList{
     repeated OrderAdjustmentTypeAttrData values=1;
@@ -213,6 +236,11 @@ message OrderAttributeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderAttributeKey{
+    string order_id = 1 [json_name = "order_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message OrderAttributeList{
     repeated OrderAttributeData values=1;
@@ -252,6 +280,14 @@ message OrderContentData {
 }
 
 
+message OrderContentKey{
+    string content_id = 1 [json_name = "content_id"];
+    string order_id = 2 [json_name = "order_id"];
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+    string order_content_type_id = 4 [json_name = "order_content_type_id"];
+    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+}
+
 message OrderContentList{
     repeated OrderContentData values=1;
     // A token to retrieve next page of results.
@@ -286,6 +322,10 @@ message OrderContentTypeData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderContentTypeKey{
+    string order_content_type_id = 1 [json_name = "order_content_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message OrderContentTypeList{
     repeated OrderContentTypeData values=1;
@@ -330,6 +370,11 @@ message OrderDeliveryScheduleData {
 }
 
 
+message OrderDeliveryScheduleKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+}
+
 message OrderDeliveryScheduleList{
     repeated OrderDeliveryScheduleData values=1;
     // A token to retrieve next page of results.
@@ -363,6 +408,11 @@ message OrderDenylistData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message OrderDenylistKey{
+    string denylist_string = 1 [json_name = "denylist_string"];
+    string order_denylist_type_id = 2 [json_name = "order_denylist_type_id"];
+}
 
 message OrderDenylistList{
     repeated OrderDenylistData values=1;
@@ -399,6 +449,11 @@ message OrderHeaderNoteData {
 }
 
 
+message OrderHeaderNoteKey{
+    string order_id = 1 [json_name = "order_id"];
+    string note_id = 2 [json_name = "note_id"];
+}
+
 message OrderHeaderNoteList{
     repeated OrderHeaderNoteData values=1;
     // A token to retrieve next page of results.
@@ -432,6 +487,11 @@ message OrderHeaderWorkEffortData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message OrderHeaderWorkEffortKey{
+    string order_id = 1 [json_name = "order_id"];
+    string work_effort_id = 2 [json_name = "work_effort_id"];
+}
 
 message OrderHeaderWorkEffortList{
     repeated OrderHeaderWorkEffortData values=1;
@@ -473,6 +533,16 @@ message OrderItemAssocData {
 }
 
 
+message OrderItemAssocKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
+    string to_order_id = 4 [json_name = "to_order_id"];
+    string to_order_item_seq_id = 5 [json_name = "to_order_item_seq_id"];
+    string to_ship_group_seq_id = 6 [json_name = "to_ship_group_seq_id"];
+    string order_item_assoc_type_id = 7 [json_name = "order_item_assoc_type_id"];
+}
+
 message OrderItemAssocList{
     repeated OrderItemAssocData values=1;
     // A token to retrieve next page of results.
@@ -509,6 +579,12 @@ message OrderItemAttributeData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message OrderItemAttributeKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string attr_name = 3 [json_name = "attr_name"];
+}
 
 message OrderItemAttributeList{
     repeated OrderItemAttributeData values=1;
@@ -553,6 +629,10 @@ message OrderItemChangeData {
 }
 
 
+message OrderItemChangeKey{
+    string order_item_change_id = 1 [json_name = "order_item_change_id", (google.api.graphql.relay_options).id = true];
+}
+
 message OrderItemChangeList{
     repeated OrderItemChangeData values=1;
     // A token to retrieve next page of results.
@@ -588,6 +668,12 @@ message OrderItemContactMechData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message OrderItemContactMechKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"];
+}
 
 message OrderItemContactMechList{
     repeated OrderItemContactMechData values=1;
@@ -625,6 +711,11 @@ message OrderItemGroupData {
 }
 
 
+message OrderItemGroupKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_group_seq_id = 2 [json_name = "order_item_group_seq_id"];
+}
+
 message OrderItemGroupList{
     repeated OrderItemGroupData values=1;
     // A token to retrieve next page of results.
@@ -659,6 +750,12 @@ message OrderItemGroupOrderData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message OrderItemGroupOrderKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string group_order_id = 3 [json_name = "group_order_id"];
+}
 
 message OrderItemGroupOrderList{
     repeated OrderItemGroupOrderData values=1;
@@ -696,6 +793,13 @@ message OrderItemRoleData {
 }
 
 
+message OrderItemRoleKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string party_id = 3 [json_name = "party_id"];
+    string role_type_id = 4 [json_name = "role_type_id"];
+}
+
 message OrderItemRoleList{
     repeated OrderItemRoleData values=1;
     // A token to retrieve next page of results.
@@ -730,6 +834,11 @@ message OrderItemTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderItemTypeAttrKey{
+    string order_item_type_id = 1 [json_name = "order_item_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message OrderItemTypeAttrList{
     repeated OrderItemTypeAttrData values=1;
@@ -767,6 +876,10 @@ message OrderNotificationData {
 }
 
 
+message OrderNotificationKey{
+    string order_notification_id = 1 [json_name = "order_notification_id", (google.api.graphql.relay_options).id = true];
+}
+
 message OrderNotificationList{
     repeated OrderNotificationData values=1;
     // A token to retrieve next page of results.
@@ -800,6 +913,11 @@ message OrderProductPromoCodeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message OrderProductPromoCodeKey{
+    string order_id = 1 [json_name = "order_id"];
+    string product_promo_code_id = 2 [json_name = "product_promo_code_id"];
+}
 
 message OrderProductPromoCodeList{
     repeated OrderProductPromoCodeData values=1;
@@ -839,6 +957,14 @@ message OrderShipmentData {
 }
 
 
+message OrderShipmentKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
+    string shipment_id = 4 [json_name = "shipment_id"];
+    string shipment_item_seq_id = 5 [json_name = "shipment_item_seq_id"];
+}
+
 message OrderShipmentList{
     repeated OrderShipmentData values=1;
     // A token to retrieve next page of results.
@@ -876,6 +1002,12 @@ message OrderSummaryEntryData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message OrderSummaryEntryKey{
+    google.type.Date entry_date = 1 [json_name = "entry_date"];
+    string product_id = 2 [json_name = "product_id"];
+    string facility_id = 3 [json_name = "facility_id"];
+}
 
 message OrderSummaryEntryList{
     repeated OrderSummaryEntryData values=1;
@@ -917,6 +1049,12 @@ message OrderTermData {
 }
 
 
+message OrderTermKey{
+    string term_type_id = 1 [json_name = "term_type_id"];
+    string order_id = 2 [json_name = "order_id"];
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+}
+
 message OrderTermList{
     repeated OrderTermData values=1;
     // A token to retrieve next page of results.
@@ -955,6 +1093,13 @@ message OrderTermAttributeData {
 }
 
 
+message OrderTermAttributeKey{
+    string term_type_id = 1 [json_name = "term_type_id"];
+    string order_id = 2 [json_name = "order_id"];
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+    string attr_name = 4 [json_name = "attr_name"];
+}
+
 message OrderTermAttributeList{
     repeated OrderTermAttributeData values=1;
     // A token to retrieve next page of results.
@@ -989,6 +1134,11 @@ message OrderTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message OrderTypeAttrKey{
+    string order_type_id = 1 [json_name = "order_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message OrderTypeAttrList{
     repeated OrderTypeAttrData values=1;
@@ -1027,6 +1177,13 @@ message ProductOrderItemData {
 }
 
 
+message ProductOrderItemKey{
+    string order_id = 1 [json_name = "order_id"];
+    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string engagement_id = 3 [json_name = "engagement_id"];
+    string engagement_item_seq_id = 4 [json_name = "engagement_item_seq_id"];
+}
+
 message ProductOrderItemList{
     repeated ProductOrderItemData values=1;
     // A token to retrieve next page of results.
@@ -1062,6 +1219,12 @@ message WorkOrderItemFulfillmentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message WorkOrderItemFulfillmentKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string order_id = 2 [json_name = "order_id"];
+    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+}
 
 message WorkOrderItemFulfillmentList{
     repeated WorkOrderItemFulfillmentData values=1;

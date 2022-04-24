@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductSupplierProto";
-option objc_class_prefix = "ProductSupplier";
 
 package domain;
 
@@ -58,6 +57,14 @@ message SupplierProductData {
 }
 
 
+message SupplierProductKey{
+    string product_id = 1 [json_name = "product_id"];
+    string party_id = 2 [json_name = "party_id"];
+    string currency_uom_id = 3 [json_name = "currency_uom_id"];
+    routines.FixedPoint minimum_order_quantity = 4 [json_name = "minimum_order_quantity"];
+    google.protobuf.Timestamp available_from_date = 5 [json_name = "available_from_date"];
+}
+
 message SupplierProductList{
     repeated SupplierProductData values=1;
     // A token to retrieve next page of results.
@@ -94,6 +101,11 @@ message SupplierProductFeatureData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message SupplierProductFeatureKey{
+    string party_id = 1 [json_name = "party_id"];
+    string product_feature_id = 2 [json_name = "product_feature_id"];
+}
 
 message SupplierProductFeatureList{
     repeated SupplierProductFeatureData values=1;

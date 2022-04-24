@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "SecurityLoginExtraProto";
-option objc_class_prefix = "SecurityLoginExtra";
 
 package domain;
 
@@ -46,6 +45,11 @@ message UserLoginHistoryData {
 }
 
 
+message UserLoginHistoryKey{
+    string user_login_id = 1 [json_name = "user_login_id"];
+    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+}
+
 message UserLoginHistoryList{
     repeated UserLoginHistoryData values=1;
     // A token to retrieve next page of results.
@@ -82,6 +86,11 @@ message UserLoginPasswordHistoryData {
 }
 
 
+message UserLoginPasswordHistoryKey{
+    string user_login_id = 1 [json_name = "user_login_id"];
+    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+}
+
 message UserLoginPasswordHistoryList{
     repeated UserLoginPasswordHistoryData values=1;
     // A token to retrieve next page of results.
@@ -115,6 +124,10 @@ message UserLoginSessionData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message UserLoginSessionKey{
+    string user_login_id = 1 [json_name = "user_login_id", (google.api.graphql.relay_options).id = true];
+}
 
 message UserLoginSessionList{
     repeated UserLoginSessionData values=1;

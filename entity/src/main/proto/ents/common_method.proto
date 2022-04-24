@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "CommonMethodProto";
-option objc_class_prefix = "CommonMethod";
 
 package domain;
 
@@ -37,6 +36,10 @@ message CustomMethodFlatData {
     // extra
     google.protobuf.Struct extra = 26;
     map<string, google.protobuf.Any> attachments = 27 ;
+}
+
+message CustomMethodKey{
+    string custom_method_id = 1 [json_name = "custom_method_id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustomMethodList{

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "PartySupplierProto";
+
+package party;
+
+import "routines.proto";
+import "relay.proto";
+
+import "ents/product_supplier.proto";
+import "ents/party_party.proto";
+
+message SupplierData {
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.PartyFlatData party=2;
+  // components
+  domain.SupplierProductList supplierProducts=3;
+}
+

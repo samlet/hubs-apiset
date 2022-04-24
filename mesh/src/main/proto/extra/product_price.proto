@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ProductPriceExtraProto";
-option objc_class_prefix = "ProductPriceExtra";
 
 package domain;
 
@@ -44,6 +43,13 @@ message ProductPaymentMethodTypeData {
 }
 
 
+message ProductPaymentMethodTypeKey{
+    string product_id = 1 [json_name = "product_id"];
+    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
+    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
+
 message ProductPaymentMethodTypeList{
     repeated ProductPaymentMethodTypeData values=1;
     // A token to retrieve next page of results.
@@ -79,6 +85,10 @@ message ProductPriceAutoNoticeData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message ProductPriceAutoNoticeKey{
+    string product_price_notice_id = 1 [json_name = "product_price_notice_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductPriceAutoNoticeList{
     repeated ProductPriceAutoNoticeData values=1;
@@ -123,6 +133,10 @@ message ProductPriceChangeData {
 }
 
 
+message ProductPriceChangeKey{
+    string product_price_change_id = 1 [json_name = "product_price_change_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ProductPriceChangeList{
     repeated ProductPriceChangeData values=1;
     // A token to retrieve next page of results.
@@ -155,6 +169,10 @@ message SaleTypeData {
     map<string, google.protobuf.Any> attachments = 6;
 }
 
+
+message SaleTypeKey{
+    string sale_type_id = 1 [json_name = "sale_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message SaleTypeList{
     repeated SaleTypeData values=1;

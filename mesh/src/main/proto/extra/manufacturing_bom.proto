@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "ManufacturingBomExtraProto";
-option objc_class_prefix = "ManufacturingBomExtra";
 
 package domain;
 
@@ -48,6 +47,10 @@ message ProductManufacturingRuleData {
     map<string, google.protobuf.Any> attachments = 21;
 }
 
+
+message ProductManufacturingRuleKey{
+    string rule_id = 1 [json_name = "rule_id", (google.api.graphql.relay_options).id = true];
+}
 
 message ProductManufacturingRuleList{
     repeated ProductManufacturingRuleData values=1;

@@ -33,6 +33,11 @@ message EntityGroupEntryData {
     map<string, google.protobuf.Any> attachments = 9 ;
 }
 
+message EntityGroupEntryKey{
+    string entity_group_id = 1 [json_name = "entity_group_id"];
+    string entity_or_package = 2 [json_name = "entity_or_package"];
+}
+
 message EntityGroupEntryList{
     repeated EntityGroupEntryData values=1;
     // A token to retrieve next page of results.

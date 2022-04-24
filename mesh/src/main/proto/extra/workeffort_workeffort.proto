@@ -3,7 +3,6 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
 option java_outer_classname = "WorkeffortExtraProto";
-option objc_class_prefix = "WorkeffortExtra";
 
 package domain;
 
@@ -43,6 +42,10 @@ message ApplicationSandboxData {
 }
 
 
+message ApplicationSandboxKey{
+    string application_id = 1 [json_name = "application_id", (google.api.graphql.relay_options).id = true];
+}
+
 message ApplicationSandboxList{
     repeated ApplicationSandboxData values=1;
     // A token to retrieve next page of results.
@@ -77,6 +80,11 @@ message CommunicationEventWorkEffData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message CommunicationEventWorkEffKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string communication_event_id = 2 [json_name = "communication_event_id"];
+}
 
 message CommunicationEventWorkEffList{
     repeated CommunicationEventWorkEffData values=1;
@@ -113,6 +121,10 @@ message DeliverableData {
 }
 
 
+message DeliverableKey{
+    string deliverable_id = 1 [json_name = "deliverable_id", (google.api.graphql.relay_options).id = true];
+}
+
 message DeliverableList{
     repeated DeliverableData values=1;
     // A token to retrieve next page of results.
@@ -145,6 +157,10 @@ message DeliverableTypeData {
     map<string, google.protobuf.Any> attachments = 8;
 }
 
+
+message DeliverableTypeKey{
+    string deliverable_type_id = 1 [json_name = "deliverable_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message DeliverableTypeList{
     repeated DeliverableTypeData values=1;
@@ -185,6 +201,13 @@ message WorkEffortAssocAttributeData {
 }
 
 
+message WorkEffortAssocAttributeKey{
+    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
+    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
+    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
+    string attr_name = 4 [json_name = "attr_name"];
+}
+
 message WorkEffortAssocAttributeList{
     repeated WorkEffortAssocAttributeData values=1;
     // A token to retrieve next page of results.
@@ -219,6 +242,11 @@ message WorkEffortAssocTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message WorkEffortAssocTypeAttrKey{
+    string work_effort_assoc_type_id = 1 [json_name = "work_effort_assoc_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message WorkEffortAssocTypeAttrList{
     repeated WorkEffortAssocTypeAttrData values=1;
@@ -256,6 +284,11 @@ message WorkEffortAttributeData {
 }
 
 
+message WorkEffortAttributeKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
+
 message WorkEffortAttributeList{
     repeated WorkEffortAttributeData values=1;
     // A token to retrieve next page of results.
@@ -291,6 +324,12 @@ message WorkEffortBillingData {
     map<string, google.protobuf.Any> attachments = 12;
 }
 
+
+message WorkEffortBillingKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string invoice_id = 2 [json_name = "invoice_id"];
+    string invoice_item_seq_id = 3 [json_name = "invoice_item_seq_id"];
+}
 
 message WorkEffortBillingList{
     repeated WorkEffortBillingData values=1;
@@ -329,6 +368,12 @@ message WorkEffortContactMechData {
 }
 
 
+message WorkEffortContactMechKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string contact_mech_id = 2 [json_name = "contact_mech_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message WorkEffortContactMechList{
     repeated WorkEffortContactMechData values=1;
     // A token to retrieve next page of results.
@@ -365,6 +410,13 @@ message WorkEffortContentData {
     map<string, google.protobuf.Any> attachments = 13;
 }
 
+
+message WorkEffortContentKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string content_id = 2 [json_name = "content_id"];
+    string work_effort_content_type_id = 3 [json_name = "work_effort_content_type_id"];
+    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+}
 
 message WorkEffortContentList{
     repeated WorkEffortContentData values=1;
@@ -403,6 +455,12 @@ message WorkEffortCostCalcData {
 }
 
 
+message WorkEffortCostCalcKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message WorkEffortCostCalcList{
     repeated WorkEffortCostCalcData values=1;
     // A token to retrieve next page of results.
@@ -436,6 +494,11 @@ message WorkEffortDeliverableProdData {
     map<string, google.protobuf.Any> attachments = 9;
 }
 
+
+message WorkEffortDeliverableProdKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string deliverable_id = 2 [json_name = "deliverable_id"];
+}
 
 message WorkEffortDeliverableProdList{
     repeated WorkEffortDeliverableProdData values=1;
@@ -480,6 +543,11 @@ message WorkEffortEventReminderData {
 }
 
 
+message WorkEffortEventReminderKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string sequence_id = 2 [json_name = "sequence_id"];
+}
+
 message WorkEffortEventReminderList{
     repeated WorkEffortEventReminderData values=1;
     // A token to retrieve next page of results.
@@ -517,6 +585,11 @@ message WorkEffortFixedAssetStdData {
 }
 
 
+message WorkEffortFixedAssetStdKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];
+}
+
 message WorkEffortFixedAssetStdList{
     repeated WorkEffortFixedAssetStdData values=1;
     // A token to retrieve next page of results.
@@ -549,6 +622,10 @@ message WorkEffortIcalDataData {
     map<string, google.protobuf.Any> attachments = 7;
 }
 
+
+message WorkEffortIcalDataKey{
+    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
+}
 
 message WorkEffortIcalDataList{
     repeated WorkEffortIcalDataData values=1;
@@ -586,6 +663,11 @@ message WorkEffortInventoryAssignData {
 }
 
 
+message WorkEffortInventoryAssignKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+}
+
 message WorkEffortInventoryAssignList{
     repeated WorkEffortInventoryAssignData values=1;
     // A token to retrieve next page of results.
@@ -619,6 +701,11 @@ message WorkEffortInventoryProducedData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message WorkEffortInventoryProducedKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+}
 
 message WorkEffortInventoryProducedList{
     repeated WorkEffortInventoryProducedData values=1;
@@ -655,6 +742,11 @@ message WorkEffortKeywordData {
 }
 
 
+message WorkEffortKeywordKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string keyword = 2 [json_name = "keyword"];
+}
+
 message WorkEffortKeywordList{
     repeated WorkEffortKeywordData values=1;
     // A token to retrieve next page of results.
@@ -689,6 +781,11 @@ message WorkEffortNoteData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message WorkEffortNoteKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string note_id = 2 [json_name = "note_id"];
+}
 
 message WorkEffortNoteList{
     repeated WorkEffortNoteData values=1;
@@ -728,6 +825,12 @@ message WorkEffortReviewData {
     map<string, google.protobuf.Any> attachments = 15;
 }
 
+
+message WorkEffortReviewKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string user_login_id = 2 [json_name = "user_login_id"];
+    google.protobuf.Timestamp review_date = 3 [json_name = "review_date"];
+}
 
 message WorkEffortReviewList{
     repeated WorkEffortReviewData values=1;
@@ -772,6 +875,11 @@ message WorkEffortSearchConstraintData {
 }
 
 
+message WorkEffortSearchConstraintKey{
+    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id"];
+    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
+}
+
 message WorkEffortSearchConstraintList{
     repeated WorkEffortSearchConstraintData values=1;
     // A token to retrieve next page of results.
@@ -810,6 +918,10 @@ message WorkEffortSearchResultData {
 }
 
 
+message WorkEffortSearchResultKey{
+    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id", (google.api.graphql.relay_options).id = true];
+}
+
 message WorkEffortSearchResultList{
     repeated WorkEffortSearchResultData values=1;
     // A token to retrieve next page of results.
@@ -847,6 +959,12 @@ message WorkEffortStatusData {
 }
 
 
+message WorkEffortStatusKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string status_id = 2 [json_name = "status_id"];
+    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
+}
+
 message WorkEffortStatusList{
     repeated WorkEffortStatusData values=1;
     // A token to retrieve next page of results.
@@ -883,6 +1001,12 @@ message WorkEffortSurveyApplData {
 }
 
 
+message WorkEffortSurveyApplKey{
+    string work_effort_id = 1 [json_name = "work_effort_id"];
+    string survey_id = 2 [json_name = "survey_id"];
+    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+}
+
 message WorkEffortSurveyApplList{
     repeated WorkEffortSurveyApplData values=1;
     // A token to retrieve next page of results.
@@ -918,6 +1042,12 @@ message WorkEffortTransBoxData {
 }
 
 
+message WorkEffortTransBoxKey{
+    string process_work_effort_id = 1 [json_name = "process_work_effort_id"];
+    string to_activity_id = 2 [json_name = "to_activity_id"];
+    string transition_id = 3 [json_name = "transition_id"];
+}
+
 message WorkEffortTransBoxList{
     repeated WorkEffortTransBoxData values=1;
     // A token to retrieve next page of results.
@@ -952,6 +1082,11 @@ message WorkEffortTypeAttrData {
     map<string, google.protobuf.Any> attachments = 11;
 }
 
+
+message WorkEffortTypeAttrKey{
+    string work_effort_type_id = 1 [json_name = "work_effort_type_id"];
+    string attr_name = 2 [json_name = "attr_name"];
+}
 
 message WorkEffortTypeAttrList{
     repeated WorkEffortTypeAttrData values=1;
