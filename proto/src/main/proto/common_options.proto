@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package bluecc;
+option java_outer_classname = "CommonOptionsProto";
+option java_package = "com.bluecc.hubs.options";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.MessageOptions {
+  optional string bundle_name = 71234;
+}

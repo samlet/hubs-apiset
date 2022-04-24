@@ -17,6 +17,7 @@ extend google.protobuf.MessageOptions {
   optional EntityKey keys = 51235;
   optional bool flat = 51236;
   optional bool has_table = 51237;
+  optional string links = 51238;
 }
 
 extend google.protobuf.FieldOptions{
