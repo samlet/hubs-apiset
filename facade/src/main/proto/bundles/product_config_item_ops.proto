@@ -22,13 +22,13 @@ service ProductConfigItemOperations {
   rpc GetProductConfigItem(BundleGetRequest) returns (domain.ProductConfigItemFlatData) {}
 
   
-  rpc AddConfigItemProductConfigOption(AddConfigItemProductConfigOptionParams) returns (routines.Response) {}
-  rpc UpdateConfigItemProductConfigOption(UpdateConfigItemProductConfigOptionParams) returns (routines.Response) {}
-  rpc RemoveConfigItemProductConfigOption(RemoveConfigItemProductConfigOptionParams) returns (routines.Response) {}
-  
   rpc AddConfigItemProductConfigProduct(AddConfigItemProductConfigProductParams) returns (routines.Response) {}
   rpc UpdateConfigItemProductConfigProduct(UpdateConfigItemProductConfigProductParams) returns (routines.Response) {}
   rpc RemoveConfigItemProductConfigProduct(RemoveConfigItemProductConfigProductParams) returns (routines.Response) {}
+  
+  rpc AddConfigItemProductConfigOption(AddConfigItemProductConfigOptionParams) returns (routines.Response) {}
+  rpc UpdateConfigItemProductConfigOption(UpdateConfigItemProductConfigOptionParams) returns (routines.Response) {}
+  rpc RemoveConfigItemProductConfigOption(RemoveConfigItemProductConfigOptionParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -66,29 +66,6 @@ message UpdateProductConfigItemParams{
 }
 
 
-// Mutations for ConfigItemProductConfigOption
-
-message AddConfigItemProductConfigOptionParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductConfigOptionData data = 3;
-  string comment = 4;
-}
-
-message UpdateConfigItemProductConfigOptionParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductConfigOptionData data = 3;
-  string comment = 4;
-}
-
-message RemoveConfigItemProductConfigOptionParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for ConfigItemProductConfigProduct
 
 message AddConfigItemProductConfigProductParams{
@@ -106,6 +83,29 @@ message UpdateConfigItemProductConfigProductParams{
 }
 
 message RemoveConfigItemProductConfigProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ConfigItemProductConfigOption
+
+message AddConfigItemProductConfigOptionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigOptionData data = 3;
+  string comment = 4;
+}
+
+message UpdateConfigItemProductConfigOptionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductConfigOptionData data = 3;
+  string comment = 4;
+}
+
+message RemoveConfigItemProductConfigOptionParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

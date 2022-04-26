@@ -29,6 +29,10 @@ service InvoiceOperations {
   rpc UpdateInvoiceItem(UpdateInvoiceItemParams) returns (routines.Response) {}
   rpc RemoveInvoiceItem(RemoveInvoiceItemParams) returns (routines.Response) {}
   
+  rpc AddAcctgTrans(AddAcctgTransParams) returns (routines.Response) {}
+  rpc UpdateAcctgTrans(UpdateAcctgTransParams) returns (routines.Response) {}
+  rpc RemoveAcctgTrans(RemoveAcctgTransParams) returns (routines.Response) {}
+  
   rpc AddOrderItemBilling(AddOrderItemBillingParams) returns (routines.Response) {}
   rpc UpdateOrderItemBilling(UpdateOrderItemBillingParams) returns (routines.Response) {}
   rpc RemoveOrderItemBilling(RemoveOrderItemBillingParams) returns (routines.Response) {}
@@ -36,10 +40,6 @@ service InvoiceOperations {
   rpc AddOrderAdjustmentBilling(AddOrderAdjustmentBillingParams) returns (routines.Response) {}
   rpc UpdateOrderAdjustmentBilling(UpdateOrderAdjustmentBillingParams) returns (routines.Response) {}
   rpc RemoveOrderAdjustmentBilling(RemoveOrderAdjustmentBillingParams) returns (routines.Response) {}
-  
-  rpc AddAcctgTrans(AddAcctgTransParams) returns (routines.Response) {}
-  rpc UpdateAcctgTrans(UpdateAcctgTransParams) returns (routines.Response) {}
-  rpc RemoveAcctgTrans(RemoveAcctgTransParams) returns (routines.Response) {}
   
 
   // -- relations: one --

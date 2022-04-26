@@ -23,6 +23,18 @@ service OrderOperations {
   rpc GetOrder(BundleGetRequest) returns (domain.OrderHeaderFlatData) {}
 
   
+  rpc AddOrderContactMech(AddOrderContactMechParams) returns (routines.Response) {}
+  rpc UpdateOrderContactMech(UpdateOrderContactMechParams) returns (routines.Response) {}
+  rpc RemoveOrderContactMech(RemoveOrderContactMechParams) returns (routines.Response) {}
+  
+  rpc AddOrderStatus(AddOrderStatusParams) returns (routines.Response) {}
+  rpc UpdateOrderStatus(UpdateOrderStatusParams) returns (routines.Response) {}
+  rpc RemoveOrderStatus(RemoveOrderStatusParams) returns (routines.Response) {}
+  
+  rpc AddOrderAdjustment(AddOrderAdjustmentParams) returns (routines.Response) {}
+  rpc UpdateOrderAdjustment(UpdateOrderAdjustmentParams) returns (routines.Response) {}
+  rpc RemoveOrderAdjustment(RemoveOrderAdjustmentParams) returns (routines.Response) {}
+  
   rpc AddOrderItem(AddOrderItemParams) returns (routines.Response) {}
   rpc UpdateOrderItem(UpdateOrderItemParams) returns (routines.Response) {}
   rpc RemoveOrderItem(RemoveOrderItemParams) returns (routines.Response) {}
@@ -35,17 +47,9 @@ service OrderOperations {
   rpc UpdateOrderItemPriceInfo(UpdateOrderItemPriceInfoParams) returns (routines.Response) {}
   rpc RemoveOrderItemPriceInfo(RemoveOrderItemPriceInfoParams) returns (routines.Response) {}
   
-  rpc AddOrderAdjustment(AddOrderAdjustmentParams) returns (routines.Response) {}
-  rpc UpdateOrderAdjustment(UpdateOrderAdjustmentParams) returns (routines.Response) {}
-  rpc RemoveOrderAdjustment(RemoveOrderAdjustmentParams) returns (routines.Response) {}
-  
   rpc AddOrderItemShipGroup(AddOrderItemShipGroupParams) returns (routines.Response) {}
   rpc UpdateOrderItemShipGroup(UpdateOrderItemShipGroupParams) returns (routines.Response) {}
   rpc RemoveOrderItemShipGroup(RemoveOrderItemShipGroupParams) returns (routines.Response) {}
-  
-  rpc AddOrderContactMech(AddOrderContactMechParams) returns (routines.Response) {}
-  rpc UpdateOrderContactMech(UpdateOrderContactMechParams) returns (routines.Response) {}
-  rpc RemoveOrderContactMech(RemoveOrderContactMechParams) returns (routines.Response) {}
   
   rpc AddOrderPaymentPreference(AddOrderPaymentPreferenceParams) returns (routines.Response) {}
   rpc UpdateOrderPaymentPreference(UpdateOrderPaymentPreferenceParams) returns (routines.Response) {}
@@ -54,10 +58,6 @@ service OrderOperations {
   rpc AddOrderRole(AddOrderRoleParams) returns (routines.Response) {}
   rpc UpdateOrderRole(UpdateOrderRoleParams) returns (routines.Response) {}
   rpc RemoveOrderRole(RemoveOrderRoleParams) returns (routines.Response) {}
-  
-  rpc AddOrderStatus(AddOrderStatusParams) returns (routines.Response) {}
-  rpc UpdateOrderStatus(UpdateOrderStatusParams) returns (routines.Response) {}
-  rpc RemoveOrderStatus(RemoveOrderStatusParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -95,6 +95,75 @@ message UpdateOrderParams{
   string comment = 4;
 }
 
+
+// Mutations for OrderContactMech
+
+message AddOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderContactMechData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderContactMechData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderStatus
+
+message AddOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderStatusFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderStatusFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderAdjustment
+
+message AddOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for OrderItem
 
@@ -165,29 +234,6 @@ message RemoveOrderItemPriceInfoParams{
   string comment = 4;
 }
 
-// Mutations for OrderAdjustment
-
-message AddOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderAdjustmentFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderAdjustmentFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for OrderItemShipGroup
 
 message AddOrderItemShipGroupParams{
@@ -205,29 +251,6 @@ message UpdateOrderItemShipGroupParams{
 }
 
 message RemoveOrderItemShipGroupParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for OrderContactMech
-
-message AddOrderContactMechParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderContactMechData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderContactMechParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderContactMechData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderContactMechParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -274,29 +297,6 @@ message UpdateOrderRoleParams{
 }
 
 message RemoveOrderRoleParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for OrderStatus
-
-message AddOrderStatusParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderStatusFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderStatusParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderStatusFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderStatusParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

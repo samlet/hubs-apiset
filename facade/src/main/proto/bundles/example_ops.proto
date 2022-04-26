@@ -22,13 +22,13 @@ service ExampleOperations {
   rpc GetExample(BundleGetRequest) returns (domain.ExampleData) {}
 
   
-  rpc AddExampleItem(AddExampleItemParams) returns (routines.Response) {}
-  rpc UpdateExampleItem(UpdateExampleItemParams) returns (routines.Response) {}
-  rpc RemoveExampleItem(RemoveExampleItemParams) returns (routines.Response) {}
-  
   rpc AddExampleStatus(AddExampleStatusParams) returns (routines.Response) {}
   rpc UpdateExampleStatus(UpdateExampleStatusParams) returns (routines.Response) {}
   rpc RemoveExampleStatus(RemoveExampleStatusParams) returns (routines.Response) {}
+  
+  rpc AddExampleItem(AddExampleItemParams) returns (routines.Response) {}
+  rpc UpdateExampleItem(UpdateExampleItemParams) returns (routines.Response) {}
+  rpc RemoveExampleItem(RemoveExampleItemParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -67,29 +67,6 @@ message UpdateExampleParams{
 }
 
 
-// Mutations for ExampleItem
-
-message AddExampleItemParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ExampleItemData data = 3;
-  string comment = 4;
-}
-
-message UpdateExampleItemParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ExampleItemData data = 3;
-  string comment = 4;
-}
-
-message RemoveExampleItemParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for ExampleStatus
 
 message AddExampleStatusParams{
@@ -107,6 +84,29 @@ message UpdateExampleStatusParams{
 }
 
 message RemoveExampleStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ExampleItem
+
+message AddExampleItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateExampleItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ExampleItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveExampleItemParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

@@ -14,7 +14,9 @@ import "routines.proto";
 import "facade_common.proto";
 
 
+import "ents/product_supplier.proto";
 import "types/party_type.proto";
+import "extra/party_agreement.proto";
 import "extra/party_party.proto";
 import "ents/party_party.proto";
 
@@ -28,9 +30,21 @@ service PartyOperations {
   rpc UpdatePartyRole(UpdatePartyRoleParams) returns (routines.Response) {}
   rpc RemovePartyRole(RemovePartyRoleParams) returns (routines.Response) {}
   
+  rpc AddSupplierProduct(AddSupplierProductParams) returns (routines.Response) {}
+  rpc UpdateSupplierProduct(UpdateSupplierProductParams) returns (routines.Response) {}
+  rpc RemoveSupplierProduct(RemoveSupplierProductParams) returns (routines.Response) {}
+  
   rpc AddPartyNote(AddPartyNoteParams) returns (routines.Response) {}
   rpc UpdatePartyNote(UpdatePartyNoteParams) returns (routines.Response) {}
   rpc RemovePartyNote(RemovePartyNoteParams) returns (routines.Response) {}
+  
+  rpc AddAgreementRole(AddAgreementRoleParams) returns (routines.Response) {}
+  rpc UpdateAgreementRole(UpdateAgreementRoleParams) returns (routines.Response) {}
+  rpc RemoveAgreementRole(RemoveAgreementRoleParams) returns (routines.Response) {}
+  
+  rpc AddSupplierProductFeature(AddSupplierProductFeatureParams) returns (routines.Response) {}
+  rpc UpdateSupplierProductFeature(UpdateSupplierProductFeatureParams) returns (routines.Response) {}
+  rpc RemoveSupplierProductFeature(RemoveSupplierProductFeatureParams) returns (routines.Response) {}
   
   rpc AddPartyStatus(AddPartyStatusParams) returns (routines.Response) {}
   rpc UpdatePartyStatus(UpdatePartyStatusParams) returns (routines.Response) {}
@@ -38,8 +52,8 @@ service PartyOperations {
   
 
   // -- relations: one --
-  rpc ModifyPerson(ModifyPersonParams) returns (routines.Response) {}
   rpc ModifyPartyGroup(ModifyPartyGroupParams) returns (routines.Response) {}
+  rpc ModifyPerson(ModifyPersonParams) returns (routines.Response) {}
   rpc ModifyPartyType(ModifyPartyTypeParams) returns (routines.Response) {}
 
   // -- extensions --
@@ -98,6 +112,29 @@ message RemovePartyRoleParams{
   string comment = 4;
 }
 
+// Mutations for SupplierProduct
+
+message AddSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductData data = 3;
+  string comment = 4;
+}
+
+message UpdateSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductData data = 3;
+  string comment = 4;
+}
+
+message RemoveSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
 // Mutations for PartyNote
 
 message AddPartyNoteParams{
@@ -115,6 +152,52 @@ message UpdatePartyNoteParams{
 }
 
 message RemovePartyNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for AgreementRole
+
+message AddAgreementRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementRoleData data = 3;
+  string comment = 4;
+}
+
+message UpdateAgreementRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementRoleData data = 3;
+  string comment = 4;
+}
+
+message RemoveAgreementRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for SupplierProductFeature
+
+message AddSupplierProductFeatureParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductFeatureData data = 3;
+  string comment = 4;
+}
+
+message UpdateSupplierProductFeatureParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductFeatureData data = 3;
+  string comment = 4;
+}
+
+message RemoveSupplierProductFeatureParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -144,21 +227,21 @@ message RemovePartyStatusParams{
   string comment = 4;
 }
 
-// Mutations for Person
-
-message ModifyPersonParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.PersonFlatData data = 3;
-  string comment = 4;
-}
-
 // Mutations for PartyGroup
 
 message ModifyPartyGroupParams{
   BundleHandle handle = 1;
   string main_id = 2;
   domain.PartyGroupFlatData data = 3;
+  string comment = 4;
+}
+
+// Mutations for Person
+
+message ModifyPersonParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PersonFlatData data = 3;
   string comment = 4;
 }
 

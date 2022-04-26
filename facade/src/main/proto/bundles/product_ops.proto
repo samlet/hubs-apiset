@@ -14,7 +14,6 @@ import "routines.proto";
 import "facade_common.proto";
 
 
-import "ents/product_supplier.proto";
 import "ents/product_config.proto";
 import "ents/workeffort_workeffort.proto";
 import "ents/product_price.proto";
@@ -28,37 +27,33 @@ service ProductOperations {
   rpc GetProduct(BundleGetRequest) returns (domain.ProductFlatData) {}
 
   
-  rpc AddProductPrice(AddProductPriceParams) returns (routines.Response) {}
-  rpc UpdateProductPrice(UpdateProductPriceParams) returns (routines.Response) {}
-  rpc RemoveProductPrice(RemoveProductPriceParams) returns (routines.Response) {}
-  
-  rpc AddProductContent(AddProductContentParams) returns (routines.Response) {}
-  rpc UpdateProductContent(UpdateProductContentParams) returns (routines.Response) {}
-  rpc RemoveProductContent(RemoveProductContentParams) returns (routines.Response) {}
-  
-  rpc AddMainProductAssoc(AddMainProductAssocParams) returns (routines.Response) {}
-  rpc UpdateMainProductAssoc(UpdateMainProductAssocParams) returns (routines.Response) {}
-  rpc RemoveMainProductAssoc(RemoveMainProductAssocParams) returns (routines.Response) {}
-  
   rpc AddAssocProductAssoc(AddAssocProductAssocParams) returns (routines.Response) {}
   rpc UpdateAssocProductAssoc(UpdateAssocProductAssocParams) returns (routines.Response) {}
   rpc RemoveAssocProductAssoc(RemoveAssocProductAssocParams) returns (routines.Response) {}
-  
-  rpc AddProductProductConfig(AddProductProductConfigParams) returns (routines.Response) {}
-  rpc UpdateProductProductConfig(UpdateProductProductConfigParams) returns (routines.Response) {}
-  rpc RemoveProductProductConfig(RemoveProductProductConfigParams) returns (routines.Response) {}
-  
-  rpc AddWorkEffortGoodStandard(AddWorkEffortGoodStandardParams) returns (routines.Response) {}
-  rpc UpdateWorkEffortGoodStandard(UpdateWorkEffortGoodStandardParams) returns (routines.Response) {}
-  rpc RemoveWorkEffortGoodStandard(RemoveWorkEffortGoodStandardParams) returns (routines.Response) {}
   
   rpc AddProductFeatureAppl(AddProductFeatureApplParams) returns (routines.Response) {}
   rpc UpdateProductFeatureAppl(UpdateProductFeatureApplParams) returns (routines.Response) {}
   rpc RemoveProductFeatureAppl(RemoveProductFeatureApplParams) returns (routines.Response) {}
   
-  rpc AddSupplierProduct(AddSupplierProductParams) returns (routines.Response) {}
-  rpc UpdateSupplierProduct(UpdateSupplierProductParams) returns (routines.Response) {}
-  rpc RemoveSupplierProduct(RemoveSupplierProductParams) returns (routines.Response) {}
+  rpc AddProductProductConfig(AddProductProductConfigParams) returns (routines.Response) {}
+  rpc UpdateProductProductConfig(UpdateProductProductConfigParams) returns (routines.Response) {}
+  rpc RemoveProductProductConfig(RemoveProductProductConfigParams) returns (routines.Response) {}
+  
+  rpc AddProductPrice(AddProductPriceParams) returns (routines.Response) {}
+  rpc UpdateProductPrice(UpdateProductPriceParams) returns (routines.Response) {}
+  rpc RemoveProductPrice(RemoveProductPriceParams) returns (routines.Response) {}
+  
+  rpc AddMainProductAssoc(AddMainProductAssocParams) returns (routines.Response) {}
+  rpc UpdateMainProductAssoc(UpdateMainProductAssocParams) returns (routines.Response) {}
+  rpc RemoveMainProductAssoc(RemoveMainProductAssocParams) returns (routines.Response) {}
+  
+  rpc AddWorkEffortGoodStandard(AddWorkEffortGoodStandardParams) returns (routines.Response) {}
+  rpc UpdateWorkEffortGoodStandard(UpdateWorkEffortGoodStandardParams) returns (routines.Response) {}
+  rpc RemoveWorkEffortGoodStandard(RemoveWorkEffortGoodStandardParams) returns (routines.Response) {}
+  
+  rpc AddProductContent(AddProductContentParams) returns (routines.Response) {}
+  rpc UpdateProductContent(UpdateProductContentParams) returns (routines.Response) {}
+  rpc RemoveProductContent(RemoveProductContentParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -99,75 +94,6 @@ message UpdateProductParams{
 }
 
 
-// Mutations for ProductPrice
-
-message AddProductPriceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductPriceData data = 3;
-  string comment = 4;
-}
-
-message UpdateProductPriceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductPriceData data = 3;
-  string comment = 4;
-}
-
-message RemoveProductPriceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for ProductContent
-
-message AddProductContentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductContentData data = 3;
-  string comment = 4;
-}
-
-message UpdateProductContentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductContentData data = 3;
-  string comment = 4;
-}
-
-message RemoveProductContentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for MainProductAssoc
-
-message AddMainProductAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductAssocData data = 3;
-  string comment = 4;
-}
-
-message UpdateMainProductAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductAssocData data = 3;
-  string comment = 4;
-}
-
-message RemoveMainProductAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for AssocProductAssoc
 
 message AddAssocProductAssocParams{
@@ -185,52 +111,6 @@ message UpdateAssocProductAssocParams{
 }
 
 message RemoveAssocProductAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for ProductProductConfig
-
-message AddProductProductConfigParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductConfigData data = 3;
-  string comment = 4;
-}
-
-message UpdateProductProductConfigParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductConfigData data = 3;
-  string comment = 4;
-}
-
-message RemoveProductProductConfigParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for WorkEffortGoodStandard
-
-message AddWorkEffortGoodStandardParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.WorkEffortGoodStandardData data = 3;
-  string comment = 4;
-}
-
-message UpdateWorkEffortGoodStandardParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.WorkEffortGoodStandardData data = 3;
-  string comment = 4;
-}
-
-message RemoveWorkEffortGoodStandardParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -260,23 +140,115 @@ message RemoveProductFeatureApplParams{
   string comment = 4;
 }
 
-// Mutations for SupplierProduct
+// Mutations for ProductProductConfig
 
-message AddSupplierProductParams{
+message AddProductProductConfigParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.SupplierProductData data = 3;
+  domain.ProductConfigData data = 3;
   string comment = 4;
 }
 
-message UpdateSupplierProductParams{
+message UpdateProductProductConfigParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.SupplierProductData data = 3;
+  domain.ProductConfigData data = 3;
   string comment = 4;
 }
 
-message RemoveSupplierProductParams{
+message RemoveProductProductConfigParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductPrice
+
+message AddProductPriceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPriceData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductPriceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPriceData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductPriceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for MainProductAssoc
+
+message AddMainProductAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateMainProductAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveMainProductAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for WorkEffortGoodStandard
+
+message AddWorkEffortGoodStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortGoodStandardData data = 3;
+  string comment = 4;
+}
+
+message UpdateWorkEffortGoodStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortGoodStandardData data = 3;
+  string comment = 4;
+}
+
+message RemoveWorkEffortGoodStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductContent
+
+message AddProductContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductContentData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductContentData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductContentParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

@@ -26,13 +26,13 @@ service AgreementOperations {
   rpc UpdateAgreementItem(UpdateAgreementItemParams) returns (routines.Response) {}
   rpc RemoveAgreementItem(RemoveAgreementItemParams) returns (routines.Response) {}
   
-  rpc AddAgreementProductAppl(AddAgreementProductApplParams) returns (routines.Response) {}
-  rpc UpdateAgreementProductAppl(UpdateAgreementProductApplParams) returns (routines.Response) {}
-  rpc RemoveAgreementProductAppl(RemoveAgreementProductApplParams) returns (routines.Response) {}
-  
   rpc AddAgreementTerm(AddAgreementTermParams) returns (routines.Response) {}
   rpc UpdateAgreementTerm(UpdateAgreementTermParams) returns (routines.Response) {}
   rpc RemoveAgreementTerm(RemoveAgreementTermParams) returns (routines.Response) {}
+  
+  rpc AddAgreementProductAppl(AddAgreementProductApplParams) returns (routines.Response) {}
+  rpc UpdateAgreementProductAppl(UpdateAgreementProductApplParams) returns (routines.Response) {}
+  rpc RemoveAgreementProductAppl(RemoveAgreementProductApplParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -93,29 +93,6 @@ message RemoveAgreementItemParams{
   string comment = 4;
 }
 
-// Mutations for AgreementProductAppl
-
-message AddAgreementProductApplParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.AgreementProductApplData data = 3;
-  string comment = 4;
-}
-
-message UpdateAgreementProductApplParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.AgreementProductApplData data = 3;
-  string comment = 4;
-}
-
-message RemoveAgreementProductApplParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for AgreementTerm
 
 message AddAgreementTermParams{
@@ -133,6 +110,29 @@ message UpdateAgreementTermParams{
 }
 
 message RemoveAgreementTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for AgreementProductAppl
+
+message AddAgreementProductApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementProductApplData data = 3;
+  string comment = 4;
+}
+
+message UpdateAgreementProductApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AgreementProductApplData data = 3;
+  string comment = 4;
+}
+
+message RemoveAgreementProductApplParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

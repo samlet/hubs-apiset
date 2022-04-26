@@ -22,13 +22,13 @@ service ProductCategoryOperations {
   rpc GetProductCategory(BundleGetRequest) returns (domain.ProductCategoryFlatData) {}
 
   
-  rpc AddCurrentProductCategoryRollup(AddCurrentProductCategoryRollupParams) returns (routines.Response) {}
-  rpc UpdateCurrentProductCategoryRollup(UpdateCurrentProductCategoryRollupParams) returns (routines.Response) {}
-  rpc RemoveCurrentProductCategoryRollup(RemoveCurrentProductCategoryRollupParams) returns (routines.Response) {}
-  
   rpc AddProductCategoryMember(AddProductCategoryMemberParams) returns (routines.Response) {}
   rpc UpdateProductCategoryMember(UpdateProductCategoryMemberParams) returns (routines.Response) {}
   rpc RemoveProductCategoryMember(RemoveProductCategoryMemberParams) returns (routines.Response) {}
+  
+  rpc AddCurrentProductCategoryRollup(AddCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  rpc UpdateCurrentProductCategoryRollup(UpdateCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  rpc RemoveCurrentProductCategoryRollup(RemoveCurrentProductCategoryRollupParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -66,29 +66,6 @@ message UpdateProductCategoryParams{
 }
 
 
-// Mutations for CurrentProductCategoryRollup
-
-message AddCurrentProductCategoryRollupParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductCategoryRollupFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateCurrentProductCategoryRollupParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ProductCategoryRollupFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveCurrentProductCategoryRollupParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for ProductCategoryMember
 
 message AddProductCategoryMemberParams{
@@ -106,6 +83,29 @@ message UpdateProductCategoryMemberParams{
 }
 
 message RemoveProductCategoryMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for CurrentProductCategoryRollup
+
+message AddCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryRollupFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryRollupFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveCurrentProductCategoryRollupParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

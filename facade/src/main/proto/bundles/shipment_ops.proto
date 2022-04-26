@@ -24,21 +24,17 @@ service ShipmentOperations {
   rpc GetShipment(BundleGetRequest) returns (domain.ShipmentFlatData) {}
 
   
-  rpc AddShipmentItem(AddShipmentItemParams) returns (routines.Response) {}
-  rpc UpdateShipmentItem(UpdateShipmentItemParams) returns (routines.Response) {}
-  rpc RemoveShipmentItem(RemoveShipmentItemParams) returns (routines.Response) {}
-  
-  rpc AddItemIssuance(AddItemIssuanceParams) returns (routines.Response) {}
-  rpc UpdateItemIssuance(UpdateItemIssuanceParams) returns (routines.Response) {}
-  rpc RemoveItemIssuance(RemoveItemIssuanceParams) returns (routines.Response) {}
-  
-  rpc AddShipmentItemBilling(AddShipmentItemBillingParams) returns (routines.Response) {}
-  rpc UpdateShipmentItemBilling(UpdateShipmentItemBillingParams) returns (routines.Response) {}
-  rpc RemoveShipmentItemBilling(RemoveShipmentItemBillingParams) returns (routines.Response) {}
+  rpc AddShipmentPackageRouteSeg(AddShipmentPackageRouteSegParams) returns (routines.Response) {}
+  rpc UpdateShipmentPackageRouteSeg(UpdateShipmentPackageRouteSegParams) returns (routines.Response) {}
+  rpc RemoveShipmentPackageRouteSeg(RemoveShipmentPackageRouteSegParams) returns (routines.Response) {}
   
   rpc AddShipmentRouteSegment(AddShipmentRouteSegmentParams) returns (routines.Response) {}
   rpc UpdateShipmentRouteSegment(UpdateShipmentRouteSegmentParams) returns (routines.Response) {}
   rpc RemoveShipmentRouteSegment(RemoveShipmentRouteSegmentParams) returns (routines.Response) {}
+  
+  rpc AddShipmentStatus(AddShipmentStatusParams) returns (routines.Response) {}
+  rpc UpdateShipmentStatus(UpdateShipmentStatusParams) returns (routines.Response) {}
+  rpc RemoveShipmentStatus(RemoveShipmentStatusParams) returns (routines.Response) {}
   
   rpc AddShipmentPackage(AddShipmentPackageParams) returns (routines.Response) {}
   rpc UpdateShipmentPackage(UpdateShipmentPackageParams) returns (routines.Response) {}
@@ -48,9 +44,21 @@ service ShipmentOperations {
   rpc UpdateAcctgTrans(UpdateAcctgTransParams) returns (routines.Response) {}
   rpc RemoveAcctgTrans(RemoveAcctgTransParams) returns (routines.Response) {}
   
-  rpc AddShipmentStatus(AddShipmentStatusParams) returns (routines.Response) {}
-  rpc UpdateShipmentStatus(UpdateShipmentStatusParams) returns (routines.Response) {}
-  rpc RemoveShipmentStatus(RemoveShipmentStatusParams) returns (routines.Response) {}
+  rpc AddItemIssuance(AddItemIssuanceParams) returns (routines.Response) {}
+  rpc UpdateItemIssuance(UpdateItemIssuanceParams) returns (routines.Response) {}
+  rpc RemoveItemIssuance(RemoveItemIssuanceParams) returns (routines.Response) {}
+  
+  rpc AddShipmentPackageContent(AddShipmentPackageContentParams) returns (routines.Response) {}
+  rpc UpdateShipmentPackageContent(UpdateShipmentPackageContentParams) returns (routines.Response) {}
+  rpc RemoveShipmentPackageContent(RemoveShipmentPackageContentParams) returns (routines.Response) {}
+  
+  rpc AddShipmentItem(AddShipmentItemParams) returns (routines.Response) {}
+  rpc UpdateShipmentItem(UpdateShipmentItemParams) returns (routines.Response) {}
+  rpc RemoveShipmentItem(RemoveShipmentItemParams) returns (routines.Response) {}
+  
+  rpc AddShipmentItemBilling(AddShipmentItemBillingParams) returns (routines.Response) {}
+  rpc UpdateShipmentItemBilling(UpdateShipmentItemBillingParams) returns (routines.Response) {}
+  rpc RemoveShipmentItemBilling(RemoveShipmentItemBillingParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -88,69 +96,23 @@ message UpdateShipmentParams{
 }
 
 
-// Mutations for ShipmentItem
+// Mutations for ShipmentPackageRouteSeg
 
-message AddShipmentItemParams{
+message AddShipmentPackageRouteSegParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.ShipmentItemData data = 3;
+  domain.ShipmentPackageRouteSegData data = 3;
   string comment = 4;
 }
 
-message UpdateShipmentItemParams{
+message UpdateShipmentPackageRouteSegParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.ShipmentItemData data = 3;
+  domain.ShipmentPackageRouteSegData data = 3;
   string comment = 4;
 }
 
-message RemoveShipmentItemParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for ItemIssuance
-
-message AddItemIssuanceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ItemIssuanceFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateItemIssuanceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ItemIssuanceFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveItemIssuanceParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for ShipmentItemBilling
-
-message AddShipmentItemBillingParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ShipmentItemBillingData data = 3;
-  string comment = 4;
-}
-
-message UpdateShipmentItemBillingParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.ShipmentItemBillingData data = 3;
-  string comment = 4;
-}
-
-message RemoveShipmentItemBillingParams{
+message RemoveShipmentPackageRouteSegParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -180,6 +142,29 @@ message RemoveShipmentRouteSegmentParams{
   string comment = 4;
 }
 
+// Mutations for ShipmentStatus
+
+message AddShipmentStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateShipmentStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveShipmentStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
 // Mutations for ShipmentPackage
 
 message AddShipmentPackageParams{
@@ -203,23 +188,92 @@ message RemoveShipmentPackageParams{
   string comment = 4;
 }
 
-// Mutations for ShipmentStatus
+// Mutations for ItemIssuance
 
-message AddShipmentStatusParams{
+message AddItemIssuanceParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.ShipmentStatusData data = 3;
+  domain.ItemIssuanceFlatData data = 3;
   string comment = 4;
 }
 
-message UpdateShipmentStatusParams{
+message UpdateItemIssuanceParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.ShipmentStatusData data = 3;
+  domain.ItemIssuanceFlatData data = 3;
   string comment = 4;
 }
 
-message RemoveShipmentStatusParams{
+message RemoveItemIssuanceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ShipmentPackageContent
+
+message AddShipmentPackageContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentPackageContentData data = 3;
+  string comment = 4;
+}
+
+message UpdateShipmentPackageContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentPackageContentData data = 3;
+  string comment = 4;
+}
+
+message RemoveShipmentPackageContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ShipmentItem
+
+message AddShipmentItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateShipmentItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveShipmentItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ShipmentItemBilling
+
+message AddShipmentItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentItemBillingData data = 3;
+  string comment = 4;
+}
+
+message UpdateShipmentItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentItemBillingData data = 3;
+  string comment = 4;
+}
+
+message RemoveShipmentItemBillingParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

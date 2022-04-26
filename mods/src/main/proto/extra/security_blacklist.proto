@@ -39,6 +39,10 @@ message BlacklistData {
 }
 
 
+message BlacklistKey{
+    string blacklist_id = 1 [json_name = "blacklist_id", (google.api.graphql.relay_options).id = true];
+}
+
 message BlacklistList{
     repeated BlacklistData values=1;
     // A token to retrieve next page of results.
@@ -72,6 +76,10 @@ message BlacklistTypeData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message BlacklistTypeKey{
+    string blacklist_type_id = 1 [json_name = "blacklist_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message BlacklistTypeList{
     repeated BlacklistTypeData values=1;
@@ -109,6 +117,11 @@ message BlacklistStatusData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message BlacklistStatusKey{
+    string blacklist_id = 1 [json_name = "blacklist_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+}
 
 message BlacklistStatusList{
     repeated BlacklistStatusData values=1;
@@ -150,6 +163,10 @@ message BlacklistItemData {
 }
 
 
+message BlacklistItemKey{
+    string blacklist_item_id = 1 [json_name = "blacklist_item_id", (google.api.graphql.relay_options).id = true];
+}
+
 message BlacklistItemList{
     repeated BlacklistItemData values=1;
     // A token to retrieve next page of results.
@@ -183,6 +200,10 @@ message BlacklistItemTypeData {
     map<string, google.protobuf.Any> attachments = 10;
 }
 
+
+message BlacklistItemTypeKey{
+    string blacklist_item_type_id = 1 [json_name = "blacklist_item_type_id", (google.api.graphql.relay_options).id = true];
+}
 
 message BlacklistItemTypeList{
     repeated BlacklistItemTypeData values=1;
@@ -220,6 +241,11 @@ message BlacklistItemStatusData {
     map<string, google.protobuf.Any> attachments = 14;
 }
 
+
+message BlacklistItemStatusKey{
+    string blacklist_item_id = 1 [json_name = "blacklist_item_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+}
 
 message BlacklistItemStatusList{
     repeated BlacklistItemStatusData values=1;
