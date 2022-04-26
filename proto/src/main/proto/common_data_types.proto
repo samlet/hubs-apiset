@@ -21,3 +21,10 @@ message FieldCats{
   string entity=6;
 }
 
+//
+
+message CreateId{
+  string created_id=1;
+  repeated string tx_id=2;
+}
+
