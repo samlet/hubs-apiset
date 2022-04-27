@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.service";
+option java_outer_classname = "DeltaServiceProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+import "routines.proto";
+import "invos.proto";
+
+service DeltaService {
+  rpc ReceiveDelta(InvocationDataList) returns (routines.Response) {}
+
+  rpc LoadRegion(google.protobuf.StringValue) returns (BundleDeltaProtoList) {}
+  rpc GetBundleData(google.protobuf.StringValue) returns (BundleDeltaProto) {}
+  rpc GetRegionBundleIds(google.protobuf.StringValue) returns (routines.Strings) {}
+  rpc DeleteBundleData(google.protobuf.StringValue) returns (google.protobuf.Empty) {}
+  rpc UpdateBundleProto(UpdateProtoParams) returns (BundleDeltaProto) {}
+}
+
+message UpdateProtoParams{
+  string bundle_id=1;
+  string proto=2;
+}
+
+message BundleDeltaProto {
+  string bundle_id = 1;
+  string tags = 2;
+  string description = 3;
+  string proto = 4;
+  string region = 5;
+  string entity_type = 6;
+  google.protobuf.Timestamp create_ts = 7;
+  google.protobuf.Timestamp update_ts = 9;
+}
+
+message BundleDeltaProtoList{
+  repeated BundleDeltaProto delta=1;
+}
+
+message TypeDeltaProto {
+  string type_id = 1;
+  string proto = 4;
+  string region = 5;
+  string entity_type = 6;
+  google.protobuf.Timestamp create_ts = 7;
+  google.protobuf.Timestamp update_ts = 9;
+}
+
+

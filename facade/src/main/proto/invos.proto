@@ -36,5 +36,8 @@ message InvocationDataList{
   // for raft applied index
   int64 term=4;
   int64 index=5;
+
+  // for snapshot
+  map<string, bytes> snapshot=6;
 }
 
