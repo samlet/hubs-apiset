@@ -15,13 +15,23 @@ import "routines.proto";
 import "invos.proto";
 
 service DeltaService {
+  // for bundle ---
   rpc ReceiveDelta(InvocationDataList) returns (routines.Response) {}
 
-  rpc LoadRegion(google.protobuf.StringValue) returns (BundleDeltaProtoList) {}
+  rpc LoadRegionBundles(google.protobuf.StringValue) returns (BundleDeltaProtoList) {}
   rpc GetBundleData(google.protobuf.StringValue) returns (BundleDeltaProto) {}
   rpc GetRegionBundleIds(google.protobuf.StringValue) returns (routines.Strings) {}
   rpc DeleteBundleData(google.protobuf.StringValue) returns (google.protobuf.Empty) {}
   rpc UpdateBundleProto(UpdateProtoParams) returns (BundleDeltaProto) {}
+
+  // for types ---
+  rpc ApplyTypes(TypeDeltaProtoList) returns (routines.Response) {}
+
+  rpc RemoveTypes(routines.Strings) returns (routines.Response) {}
+  rpc LoadRegionTypes(google.protobuf.StringValue) returns (TypeDeltaProtoList) {}
+  rpc GetTypeData(google.protobuf.StringValue) returns (TypeDeltaProto) {}
+  rpc GetRegionTypeIds(google.protobuf.StringValue) returns (routines.Strings) {}
+
 }
 
 message UpdateProtoParams{
@@ -45,12 +55,19 @@ message BundleDeltaProtoList{
 }
 
 message TypeDeltaProto {
-  string type_id = 1;
+  enum ApplyType{
+    SET=0;
+    DELETE=3;
+  }
+  ApplyType apply_type=1;
+  string type_id = 2;
   string proto = 4;
   string region = 5;
   string entity_type = 6;
-  google.protobuf.Timestamp create_ts = 7;
-  google.protobuf.Timestamp update_ts = 9;
+  google.protobuf.Timestamp update_ts = 7;
 }
 
-
+message TypeDeltaProtoList{
+  string region_id=1;
+  repeated TypeDeltaProto delta=2;
+}
