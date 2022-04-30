@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "UserBehaviorProto";
+
+package fact;
+
+import "google/protobuf/timestamp.proto";
+
+/** 用户行为数据 用户ID，商品ID，商品类目ID，行为类型，时间戳 */
+message UserBehaviorData{
+  // userId: String, itemId: String, categoryId: Int,
+  // behavior: String, timestamp: String
+  string user_id=1;
+  string item_id=2;
+  string category_id=3;
+  // 行为包括点击、购买、加购、喜欢
+  // 包括('pv', 'buy', 'cart', 'fav')
+  string behavior=4;
+  google.protobuf.Timestamp timestamp=5;
+}
+

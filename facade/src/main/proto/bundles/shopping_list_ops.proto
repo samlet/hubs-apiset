@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ShoppingListOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "types/shopping_list_type.proto";
+import "ents/order_shoppinglist.proto";
+
+service ShoppingListOperations {
+  rpc CreateShoppingList(CreateShoppingListParams) returns (domain.ShoppingListFlatData) {}
+  rpc UpdateShoppingList(UpdateShoppingListParams) returns (domain.ShoppingListFlatData) {}
+  rpc GetShoppingList(BundleGetRequest) returns (domain.ShoppingListFlatData) {}
+
+  
+  rpc AddShoppingListItem(AddShoppingListItemParams) returns (routines.Response) {}
+  rpc UpdateShoppingListItem(UpdateShoppingListItemParams) returns (routines.Response) {}
+  rpc RemoveShoppingListItem(RemoveShoppingListItemParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyShoppingListType(ModifyShoppingListTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ShoppingListList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ShoppingListList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ShoppingListFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ShoppingListList) {}
+
+  rpc ListShoppingLists(BundleListRequest) returns (domain.ShoppingListList) {}
+  rpc LoadShoppingLists(BundleIdsRequest) returns (domain.ShoppingListList) {}
+  rpc StreamShoppingLists(BundleListRequest) returns (stream domain.ShoppingListList) {}
+  rpc RemoveShoppingList(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateShoppingListParams{
+  BundleHandle handle = 1;
+  domain.ShoppingListFlatData shoppingList = 2;
+  string comment = 3;
+}
+
+message UpdateShoppingListParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShoppingListFlatData shoppingList = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ShoppingListItem
+
+message AddShoppingListItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShoppingListItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateShoppingListItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShoppingListItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveShoppingListItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ShoppingListType
+
+message ModifyShoppingListTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShoppingListTypeData data = 3;
+  string comment = 4;
+}
+

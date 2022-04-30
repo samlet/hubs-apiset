@@ -12,6 +12,11 @@ message StringMap{
   map<string, string> values = 1;
 }
 
+message RawResultSet{
+  string type_name=1;
+  repeated bytes data=2;
+}
+
 message FieldCats{
   google.protobuf.Struct series = 1;    // date-time, value type is string_value or number_value
   google.protobuf.Struct measure = 2;   // decimal, number type, value is string_value or number_value

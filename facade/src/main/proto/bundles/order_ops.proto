@@ -16,6 +16,7 @@ import "facade_common.proto";
 
 import "ents/order_order.proto";
 import "types/order_type.proto";
+import "extra/order_order.proto";
 
 service OrderOperations {
   rpc CreateOrder(CreateOrderParams) returns (domain.OrderHeaderFlatData) {}
@@ -58,6 +59,10 @@ service OrderOperations {
   rpc AddOrderRole(AddOrderRoleParams) returns (routines.Response) {}
   rpc UpdateOrderRole(UpdateOrderRoleParams) returns (routines.Response) {}
   rpc RemoveOrderRole(RemoveOrderRoleParams) returns (routines.Response) {}
+  
+  rpc AddOrderHeaderNote(AddOrderHeaderNoteParams) returns (routines.Response) {}
+  rpc UpdateOrderHeaderNote(UpdateOrderHeaderNoteParams) returns (routines.Response) {}
+  rpc RemoveOrderHeaderNote(RemoveOrderHeaderNoteParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -297,6 +302,29 @@ message UpdateOrderRoleParams{
 }
 
 message RemoveOrderRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderHeaderNote
+
+message AddOrderHeaderNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderHeaderNoteData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderHeaderNoteParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderHeaderNoteData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderHeaderNoteParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
