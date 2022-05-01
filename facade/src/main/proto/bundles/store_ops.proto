@@ -22,6 +22,18 @@ service StoreOperations {
   rpc GetStore(BundleGetRequest) returns (domain.ProductStoreFlatData) {}
 
   
+  rpc AddProductStoreEmailSetting(AddProductStoreEmailSettingParams) returns (routines.Response) {}
+  rpc UpdateProductStoreEmailSetting(UpdateProductStoreEmailSettingParams) returns (routines.Response) {}
+  rpc RemoveProductStoreEmailSetting(RemoveProductStoreEmailSettingParams) returns (routines.Response) {}
+  
+  rpc AddProductStoreFacility(AddProductStoreFacilityParams) returns (routines.Response) {}
+  rpc UpdateProductStoreFacility(UpdateProductStoreFacilityParams) returns (routines.Response) {}
+  rpc RemoveProductStoreFacility(RemoveProductStoreFacilityParams) returns (routines.Response) {}
+  
+  rpc AddProductStorePaymentSetting(AddProductStorePaymentSettingParams) returns (routines.Response) {}
+  rpc UpdateProductStorePaymentSetting(UpdateProductStorePaymentSettingParams) returns (routines.Response) {}
+  rpc RemoveProductStorePaymentSetting(RemoveProductStorePaymentSettingParams) returns (routines.Response) {}
+  
   rpc AddProductStoreCatalog(AddProductStoreCatalogParams) returns (routines.Response) {}
   rpc UpdateProductStoreCatalog(UpdateProductStoreCatalogParams) returns (routines.Response) {}
   rpc RemoveProductStoreCatalog(RemoveProductStoreCatalogParams) returns (routines.Response) {}
@@ -65,6 +77,75 @@ message UpdateStoreParams{
   string comment = 4;
 }
 
+
+// Mutations for ProductStoreEmailSetting
+
+message AddProductStoreEmailSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreEmailSettingData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStoreEmailSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreEmailSettingData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStoreEmailSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductStoreFacility
+
+message AddProductStoreFacilityParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreFacilityFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStoreFacilityParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreFacilityFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStoreFacilityParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductStorePaymentSetting
+
+message AddProductStorePaymentSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStorePaymentSettingData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStorePaymentSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStorePaymentSettingData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStorePaymentSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for ProductStoreCatalog
 

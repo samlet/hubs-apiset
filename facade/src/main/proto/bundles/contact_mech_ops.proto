@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContactMechOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "types/contact_mech_type.proto";
+import "ents/party_contact.proto";
+
+service ContactMechOperations {
+  rpc CreateContactMech(CreateContactMechParams) returns (domain.ContactMechFlatData) {}
+  rpc UpdateContactMech(UpdateContactMechParams) returns (domain.ContactMechFlatData) {}
+  rpc GetContactMech(BundleGetRequest) returns (domain.ContactMechFlatData) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyPostalAddress(ModifyPostalAddressParams) returns (routines.Response) {}
+  rpc ModifyContactMechType(ModifyContactMechTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ContactMechList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ContactMechList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ContactMechFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ContactMechList) {}
+
+  rpc ListContactMeches(BundleListRequest) returns (domain.ContactMechList) {}
+  rpc LoadContactMeches(BundleIdsRequest) returns (domain.ContactMechList) {}
+  rpc StreamContactMeches(BundleListRequest) returns (stream domain.ContactMechList) {}
+  rpc RemoveContactMech(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateContactMechParams{
+  BundleHandle handle = 1;
+  domain.ContactMechFlatData contactMech = 2;
+  string comment = 3;
+}
+
+message UpdateContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContactMechFlatData contactMech = 3;
+  string comment = 4;
+}
+
+
+// Mutations for PostalAddress
+
+message ModifyPostalAddressParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PostalAddressFlatData data = 3;
+  string comment = 4;
+}
+
+// Mutations for ContactMechType
+
+message ModifyContactMechTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContactMechTypeData data = 3;
+  string comment = 4;
+}
+

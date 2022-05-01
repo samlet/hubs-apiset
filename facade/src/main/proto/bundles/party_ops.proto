@@ -18,6 +18,7 @@ import "ents/product_supplier.proto";
 import "types/party_type.proto";
 import "extra/party_agreement.proto";
 import "extra/party_party.proto";
+import "ents/party_contact.proto";
 import "ents/party_party.proto";
 
 service PartyOperations {
@@ -30,9 +31,9 @@ service PartyOperations {
   rpc UpdatePartyRole(UpdatePartyRoleParams) returns (routines.Response) {}
   rpc RemovePartyRole(RemovePartyRoleParams) returns (routines.Response) {}
   
-  rpc AddSupplierProduct(AddSupplierProductParams) returns (routines.Response) {}
-  rpc UpdateSupplierProduct(UpdateSupplierProductParams) returns (routines.Response) {}
-  rpc RemoveSupplierProduct(RemoveSupplierProductParams) returns (routines.Response) {}
+  rpc AddPartyGeoPoint(AddPartyGeoPointParams) returns (routines.Response) {}
+  rpc UpdatePartyGeoPoint(UpdatePartyGeoPointParams) returns (routines.Response) {}
+  rpc RemovePartyGeoPoint(RemovePartyGeoPointParams) returns (routines.Response) {}
   
   rpc AddPartyNote(AddPartyNoteParams) returns (routines.Response) {}
   rpc UpdatePartyNote(UpdatePartyNoteParams) returns (routines.Response) {}
@@ -42,13 +43,29 @@ service PartyOperations {
   rpc UpdateAgreementRole(UpdateAgreementRoleParams) returns (routines.Response) {}
   rpc RemoveAgreementRole(RemoveAgreementRoleParams) returns (routines.Response) {}
   
+  rpc AddPartyStatus(AddPartyStatusParams) returns (routines.Response) {}
+  rpc UpdatePartyStatus(UpdatePartyStatusParams) returns (routines.Response) {}
+  rpc RemovePartyStatus(RemovePartyStatusParams) returns (routines.Response) {}
+  
+  rpc AddSupplierProduct(AddSupplierProductParams) returns (routines.Response) {}
+  rpc UpdateSupplierProduct(UpdateSupplierProductParams) returns (routines.Response) {}
+  rpc RemoveSupplierProduct(RemoveSupplierProductParams) returns (routines.Response) {}
+  
+  rpc AddPartyContactMechPurpose(AddPartyContactMechPurposeParams) returns (routines.Response) {}
+  rpc UpdatePartyContactMechPurpose(UpdatePartyContactMechPurposeParams) returns (routines.Response) {}
+  rpc RemovePartyContactMechPurpose(RemovePartyContactMechPurposeParams) returns (routines.Response) {}
+  
   rpc AddSupplierProductFeature(AddSupplierProductFeatureParams) returns (routines.Response) {}
   rpc UpdateSupplierProductFeature(UpdateSupplierProductFeatureParams) returns (routines.Response) {}
   rpc RemoveSupplierProductFeature(RemoveSupplierProductFeatureParams) returns (routines.Response) {}
   
-  rpc AddPartyStatus(AddPartyStatusParams) returns (routines.Response) {}
-  rpc UpdatePartyStatus(UpdatePartyStatusParams) returns (routines.Response) {}
-  rpc RemovePartyStatus(RemovePartyStatusParams) returns (routines.Response) {}
+  rpc AddFromPartyRelationship(AddFromPartyRelationshipParams) returns (routines.Response) {}
+  rpc UpdateFromPartyRelationship(UpdateFromPartyRelationshipParams) returns (routines.Response) {}
+  rpc RemoveFromPartyRelationship(RemoveFromPartyRelationshipParams) returns (routines.Response) {}
+  
+  rpc AddPartyContactMech(AddPartyContactMechParams) returns (routines.Response) {}
+  rpc UpdatePartyContactMech(UpdatePartyContactMechParams) returns (routines.Response) {}
+  rpc RemovePartyContactMech(RemovePartyContactMechParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -112,23 +129,23 @@ message RemovePartyRoleParams{
   string comment = 4;
 }
 
-// Mutations for SupplierProduct
+// Mutations for PartyGeoPoint
 
-message AddSupplierProductParams{
+message AddPartyGeoPointParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.SupplierProductData data = 3;
+  domain.PartyGeoPointData data = 3;
   string comment = 4;
 }
 
-message UpdateSupplierProductParams{
+message UpdatePartyGeoPointParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.SupplierProductData data = 3;
+  domain.PartyGeoPointData data = 3;
   string comment = 4;
 }
 
-message RemoveSupplierProductParams{
+message RemovePartyGeoPointParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -181,6 +198,75 @@ message RemoveAgreementRoleParams{
   string comment = 4;
 }
 
+// Mutations for PartyStatus
+
+message AddPartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyStatusData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for SupplierProduct
+
+message AddSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductData data = 3;
+  string comment = 4;
+}
+
+message UpdateSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.SupplierProductData data = 3;
+  string comment = 4;
+}
+
+message RemoveSupplierProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyContactMechPurpose
+
+message AddPartyContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyContactMechPurposeData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyContactMechPurposeData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
 // Mutations for SupplierProductFeature
 
 message AddSupplierProductFeatureParams{
@@ -204,23 +290,46 @@ message RemoveSupplierProductFeatureParams{
   string comment = 4;
 }
 
-// Mutations for PartyStatus
+// Mutations for FromPartyRelationship
 
-message AddPartyStatusParams{
+message AddFromPartyRelationshipParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.PartyStatusData data = 3;
+  domain.PartyRelationshipFlatData data = 3;
   string comment = 4;
 }
 
-message UpdatePartyStatusParams{
+message UpdateFromPartyRelationshipParams{
   BundleHandle handle = 1;
   string main_id = 2;
-  domain.PartyStatusData data = 3;
+  domain.PartyRelationshipFlatData data = 3;
   string comment = 4;
 }
 
-message RemovePartyStatusParams{
+message RemoveFromPartyRelationshipParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for PartyContactMech
+
+message AddPartyContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyContactMechData data = 3;
+  string comment = 4;
+}
+
+message UpdatePartyContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PartyContactMechData data = 3;
+  string comment = 4;
+}
+
+message RemovePartyContactMechParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContactMechSubtypesProto";
+
+package contact_mech;
+
+import "routines.proto";
+import "relay.proto";
+import "common_options.proto";
+
+import "ents/party_contact.proto";
+
+
+message PostalAddressProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "ContactMech";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.ContactMechFlatData contact_mech=2;
+  // components
+  domain.PostalAddressFlatData postal_address=3;
+}
+
+message EmailAddressProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "ContactMech";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.ContactMechFlatData contact_mech=2;
+  // components
+}
+
