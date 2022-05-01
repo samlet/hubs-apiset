@@ -19,5 +19,6 @@ clean-types:
 	rm entity/src/main/proto/types/*.proto
 
 bundle-proto:
-    just inst facade
     just inst mods
+    just inst facade
+

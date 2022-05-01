@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "FactOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/common_fact.proto";
+
+service FactOperations {
+  rpc CreateFact(CreateFactParams) returns (domain.FactProtoData) {}
+  rpc UpdateFact(UpdateFactParams) returns (domain.FactProtoData) {}
+  rpc GetFact(BundleGetRequest) returns (domain.FactProtoData) {}
+
+  
+  rpc AddFactProtoStatus(AddFactProtoStatusParams) returns (routines.Response) {}
+  rpc UpdateFactProtoStatus(UpdateFactProtoStatusParams) returns (routines.Response) {}
+  rpc RemoveFactProtoStatus(RemoveFactProtoStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyFactProtoType(ModifyFactProtoTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.FactProtoList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.FactProtoList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.FactProtoData) {}
+  rpc Select(BundleHandle) returns (domain.FactProtoList) {}
+
+  rpc ListFactProtos(BundleListRequest) returns (domain.FactProtoList) {}
+  rpc LoadFactProtos(BundleIdsRequest) returns (domain.FactProtoList) {}
+  rpc StreamFactProtos(BundleListRequest) returns (stream domain.FactProtoList) {}
+  rpc RemoveFactProto(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateFactParams{
+  BundleHandle handle = 1;
+  domain.FactProtoData factProto = 2;
+  string comment = 3;
+}
+
+message UpdateFactParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FactProtoData factProto = 3;
+  string comment = 4;
+}
+
+
+// Mutations for FactProtoStatus
+
+message AddFactProtoStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FactProtoStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateFactProtoStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FactProtoStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveFactProtoStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FactProtoType
+
+message ModifyFactProtoTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FactProtoTypeData data = 3;
+  string comment = 4;
+}
+
