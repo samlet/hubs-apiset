@@ -16,6 +16,7 @@ import "facade_common.proto";
 
 import "ents/product_inventory.proto";
 import "extra/product_inventory.proto";
+import "ents/shipment_receipt.proto";
 import "types/inventory_item_type.proto";
 
 service InventoryOperations {
@@ -23,6 +24,10 @@ service InventoryOperations {
   rpc UpdateInventory(UpdateInventoryParams) returns (domain.InventoryItemFlatData) {}
   rpc GetInventory(BundleGetRequest) returns (domain.InventoryItemFlatData) {}
 
+  
+  rpc AddShipmentReceipt(AddShipmentReceiptParams) returns (routines.Response) {}
+  rpc UpdateShipmentReceipt(UpdateShipmentReceiptParams) returns (routines.Response) {}
+  rpc RemoveShipmentReceipt(RemoveShipmentReceiptParams) returns (routines.Response) {}
   
   rpc AddInventoryItemDetail(AddInventoryItemDetailParams) returns (routines.Response) {}
   rpc UpdateInventoryItemDetail(UpdateInventoryItemDetailParams) returns (routines.Response) {}
@@ -68,6 +73,29 @@ message UpdateInventoryParams{
   string comment = 4;
 }
 
+
+// Mutations for ShipmentReceipt
+
+message AddShipmentReceiptParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentReceiptFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateShipmentReceiptParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ShipmentReceiptFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveShipmentReceiptParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for InventoryItemDetail
 

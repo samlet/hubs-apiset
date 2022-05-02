@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderFactOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/order_fact.proto";
+
+service OrderFactOperations {
+  rpc CreateOrderFact(CreateOrderFactParams) returns (domain.OrderFactData) {}
+  rpc UpdateOrderFact(UpdateOrderFactParams) returns (domain.OrderFactData) {}
+  rpc GetOrderFact(BundleGetRequest) returns (domain.OrderFactData) {}
+
+  
+  rpc AddOrderFactStatus(AddOrderFactStatusParams) returns (routines.Response) {}
+  rpc UpdateOrderFactStatus(UpdateOrderFactStatusParams) returns (routines.Response) {}
+  rpc RemoveOrderFactStatus(RemoveOrderFactStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyOrderFactType(ModifyOrderFactTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.OrderFactList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.OrderFactList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.OrderFactData) {}
+  rpc Select(BundleHandle) returns (domain.OrderFactList) {}
+
+  rpc ListOrderFacts(BundleListRequest) returns (domain.OrderFactList) {}
+  rpc LoadOrderFacts(BundleIdsRequest) returns (domain.OrderFactList) {}
+  rpc StreamOrderFacts(BundleListRequest) returns (stream domain.OrderFactList) {}
+  rpc RemoveOrderFact(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateOrderFactParams{
+  BundleHandle handle = 1;
+  domain.OrderFactData orderFact = 2;
+  string comment = 3;
+}
+
+message UpdateOrderFactParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderFactData orderFact = 3;
+  string comment = 4;
+}
+
+
+// Mutations for OrderFactStatus
+
+message AddOrderFactStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderFactStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderFactStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderFactStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderFactStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderFactType
+
+message ModifyOrderFactTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderFactTypeData data = 3;
+  string comment = 4;
+}
+

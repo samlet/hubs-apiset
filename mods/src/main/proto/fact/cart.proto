@@ -43,7 +43,7 @@ message CartData{
   string placing_customer = 104;
   string ship_to_customer = 105;
 
-  // from OrderContactMech.contactMechId
+  // from OrderContactMech.contactMechId, field-name: contactMechPurposeTypeId
   string billing_location = 110;
   string order_email = 111;
   string shipping_location = 112;

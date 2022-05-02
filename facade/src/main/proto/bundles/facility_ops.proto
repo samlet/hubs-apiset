@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "FacilityOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_facility.proto";
+import "types/facility_type.proto";
+
+service FacilityOperations {
+  rpc CreateFacility(CreateFacilityParams) returns (domain.FacilityFlatData) {}
+  rpc UpdateFacility(UpdateFacilityParams) returns (domain.FacilityFlatData) {}
+  rpc GetFacility(BundleGetRequest) returns (domain.FacilityFlatData) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyFacilityType(ModifyFacilityTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.FacilityList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.FacilityList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.FacilityFlatData) {}
+  rpc Select(BundleHandle) returns (domain.FacilityList) {}
+
+  rpc ListFacilities(BundleListRequest) returns (domain.FacilityList) {}
+  rpc LoadFacilities(BundleIdsRequest) returns (domain.FacilityList) {}
+  rpc StreamFacilities(BundleListRequest) returns (stream domain.FacilityList) {}
+  rpc RemoveFacility(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateFacilityParams{
+  BundleHandle handle = 1;
+  domain.FacilityFlatData facility = 2;
+  string comment = 3;
+}
+
+message UpdateFacilityParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityFlatData facility = 3;
+  string comment = 4;
+}
+
+
+// Mutations for FacilityType
+
+message ModifyFacilityTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityTypeData data = 3;
+  string comment = 4;
+}
+

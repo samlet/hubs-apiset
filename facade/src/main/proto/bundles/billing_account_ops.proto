@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "BillingAccountOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/accounting_payment.proto";
+
+service BillingAccountOperations {
+  rpc CreateBillingAccount(CreateBillingAccountParams) returns (domain.BillingAccountFlatData) {}
+  rpc UpdateBillingAccount(UpdateBillingAccountParams) returns (domain.BillingAccountFlatData) {}
+  rpc GetBillingAccount(BundleGetRequest) returns (domain.BillingAccountFlatData) {}
+
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.BillingAccountList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.BillingAccountList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.BillingAccountFlatData) {}
+  rpc Select(BundleHandle) returns (domain.BillingAccountList) {}
+
+  rpc ListBillingAccounts(BundleListRequest) returns (domain.BillingAccountList) {}
+  rpc LoadBillingAccounts(BundleIdsRequest) returns (domain.BillingAccountList) {}
+  rpc StreamBillingAccounts(BundleListRequest) returns (stream domain.BillingAccountList) {}
+  rpc RemoveBillingAccount(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateBillingAccountParams{
+  BundleHandle handle = 1;
+  domain.BillingAccountFlatData billingAccount = 2;
+  string comment = 3;
+}
+
+message UpdateBillingAccountParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BillingAccountFlatData billingAccount = 3;
+  string comment = 4;
+}
+
+

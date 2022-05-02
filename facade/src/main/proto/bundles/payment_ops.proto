@@ -35,6 +35,7 @@ service PaymentOperations {
 
   // -- relations: one --
   rpc ModifyPaymentType(ModifyPaymentTypeParams) returns (routines.Response) {}
+  rpc ModifyPaymentGatewayResponse(ModifyPaymentGatewayResponseParams) returns (routines.Response) {}
 
   // -- extensions --
   
@@ -98,6 +99,15 @@ message ModifyPaymentTypeParams{
   BundleHandle handle = 1;
   string main_id = 2;
   domain.PaymentTypeData data = 3;
+  string comment = 4;
+}
+
+// Mutations for PaymentGatewayResponse
+
+message ModifyPaymentGatewayResponseParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.PaymentGatewayResponseFlatData data = 3;
   string comment = 4;
 }
 
