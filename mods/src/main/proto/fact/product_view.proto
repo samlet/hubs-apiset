@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "ProductViewProto";
+
+package fact;
+
+import "google/protobuf/timestamp.proto";
+import "relay.proto";
+import "routines.proto";
+
+message ProductView{
+  // product info (from ProductFlatData)
+  string product_id = 1 [json_name = "product_id", (google.api.graphql.relay_options).id = true];
+  string product_type_id = 2 [json_name = "product_type_id"];
+  string primary_product_category_id = 3 [json_name = "primary_product_category_id"];
+
+  string brand_name = 11 [json_name = "brand_name"];
+  string comments = 12 [json_name = "comments"];
+  string product_name = 13 [json_name = "product_name"];
+  string description = 14 [json_name = "description"];
+  string long_description = 15 [json_name = "long_description"];
+  string price_detail_text = 16 [json_name = "price_detail_text"];
+  string small_image_url = 17 [json_name = "small_image_url"];
+  string medium_image_url = 18 [json_name = "medium_image_url"];
+  string large_image_url = 19 [json_name = "large_image_url"];
+  string detail_image_url = 20 [json_name = "detail_image_url"];
+  string original_image_url = 21 [json_name = "original_image_url"];
+  string detail_screen = 22 [json_name = "detail_screen"];
+  string inventory_message = 23 [json_name = "inventory_message"];
+  string inventory_item_type_id = 24 [json_name = "inventory_item_type_id"];
+
+  // prices (from ProductPriceData)
+  string currency_uom_id = 100;
+  routines.Currency default_price=101;
+  routines.Currency list_price=102;
+
+  // from ProductCategoryMember.productCategoryId
+  repeated string categories=105;
+
+}
+

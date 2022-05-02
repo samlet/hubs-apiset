@@ -1,0 +1,159 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "CartProto";
+
+package fact;
+
+import "google/protobuf/timestamp.proto";
+import "routines.proto";
+import "relay.proto";
+
+import "ents/order_order.proto";
+import "ents/accounting_payment.proto";
+
+message CartData{
+  // from OrderHeaderFlatData
+  string order_id = 1 [json_name = "order_id", (google.api.graphql.relay_options).id = true];
+  string order_type_id = 2 [json_name = "order_type_id"];
+  string order_name = 3 [json_name = "order_name"];
+  string external_id = 4 [json_name = "external_id"];
+  string sales_channel_enum_id = 5 [json_name = "sales_channel_enum_id"];
+  google.protobuf.Timestamp order_date = 6 [json_name = "order_date"];
+  routines.Indicator priority = 7 [json_name = "priority"];
+  google.protobuf.Timestamp entry_date = 8 [json_name = "entry_date"];
+  string visit_id = 10 [json_name = "visit_id"];
+  string created_by = 12 [json_name = "created_by"];
+  string currency_uom = 14 [json_name = "currency_uom"];
+  string billing_account_id = 16 [json_name = "billing_account_id"];
+  string web_site_id = 18 [json_name = "web_site_id"];
+  string product_store_id = 19 [json_name = "product_store_id"];
+  string agreement_id = 20 [json_name = "agreement_id"];
+  string terminal_id = 21 [json_name = "terminal_id"];
+  string transaction_id = 22 [json_name = "transaction_id"];
+
+  string auto_order_shopping_list_id = 23 [json_name = "auto_order_shopping_list_id"];
+  routines.Currency grand_total = 28 [json_name = "grand_total"];
+
+  // from OrderRole.partyId
+  string bill_from_vendor = 101;
+  string bill_to_customer = 102;
+  string end_user_customer = 103;
+  string placing_customer = 104;
+  string ship_to_customer = 105;
+
+  // from OrderContactMech.contactMechId
+  string billing_location = 110;
+  string order_email = 111;
+  string shipping_location = 112;
+
+  // attachments
+  repeated CartItemData cart_items = 120;
+
+  // from OrderAdjustmentFlatData, setOrderItemSeqId(NA)
+  repeated CartAdjustment adjustments = 150;
+
+  CartBilling billing = 151;
+}
+
+message CartItemData{
+  // from OrderItemFlatData
+  string product_id = 10 [json_name = "product_id"];
+  string product_feature_id = 12 [json_name = "product_feature_id"];
+  string prod_catalog_id = 13 [json_name = "prod_catalog_id"];
+  string product_category_id = 14 [json_name = "product_category_id"];
+  routines.Indicator is_promo = 15 [json_name = "is_promo"];
+
+  routines.FixedPoint quantity = 22 [json_name = "quantity"];
+  routines.FixedPoint cancel_quantity = 23 [json_name = "cancel_quantity"];
+  routines.FixedPoint selected_amount = 24 [json_name = "selected_amount"];
+  routines.Currency unit_price = 25 [json_name = "unit_price"];
+  routines.Currency unit_list_price = 26 [json_name = "unit_list_price"];
+  routines.Currency unit_average_cost = 27 [json_name = "unit_average_cost"];
+  routines.Currency unit_recurring_price = 28 [json_name = "unit_recurring_price"];
+  routines.Indicator is_modified_price = 29 [json_name = "is_modified_price"];
+
+  string item_description = 31 [json_name = "item_description"];
+  string comments = 32 [json_name = "comments"];
+
+  google.protobuf.Timestamp estimated_ship_date = 36 [json_name = "estimated_ship_date"];
+  google.protobuf.Timestamp estimated_delivery_date = 37 [json_name = "estimated_delivery_date"];
+  google.protobuf.Timestamp auto_cancel_date = 38 [json_name = "auto_cancel_date"];
+  google.protobuf.Timestamp dont_cancel_set_date = 39 [json_name = "dont_cancel_set_date"];
+
+  google.protobuf.Timestamp ship_before_date = 41 [json_name = "ship_before_date"];
+  google.protobuf.Timestamp ship_after_date = 42 [json_name = "ship_after_date"];
+  google.protobuf.Timestamp reserve_after_date = 43 [json_name = "reserve_after_date"];
+  google.protobuf.Timestamp cancel_back_order_date = 44 [json_name = "cancel_back_order_date"];
+
+  // from OrderAdjustmentFlatData
+  repeated CartAdjustment adjustments = 50;
+
+  CartItemBilling billing = 51;
+}
+
+message CartAdjustment{
+  // from OrderAdjustmentFlatData
+  string order_adjustment_type_id = 2 [json_name = "order_adjustment_type_id"];
+  string ship_group_seq_id = 5 [json_name = "ship_group_seq_id"];
+  string comments = 6 [json_name = "comments"];
+  routines.Currency amount = 8 [json_name = "amount"];
+  routines.Currency recurring_amount = 9 [json_name = "recurring_amount"];
+  string product_promo_id = 11 [json_name = "product_promo_id"];
+}
+
+// fe与be的交换数据, 在be中需要通过payment, payment-application(paymentId, invoiceId),
+// 来绑定order到invoice, 具体的绑定信息在CartItemBilling(OrderItemBillingData)
+message CartBilling {
+  // from InvoiceFlatData
+  string invoice_id = 1 [json_name = "invoice_id", (google.api.graphql.relay_options).id = true];
+  string invoice_type_id = 2 [json_name = "invoice_type_id"];
+  string party_id_from = 3 [json_name = "party_id_from"];
+  string party_id = 4 [json_name = "party_id"];
+  string role_type_id = 5 [json_name = "role_type_id"];
+  string status_id = 6 [json_name = "status_id"];
+  string billing_account_id = 7 [json_name = "billing_account_id"];
+  string contact_mech_id = 8 [json_name = "contact_mech_id"];
+  google.protobuf.Timestamp invoice_date = 9 [json_name = "invoice_date"];
+  google.protobuf.Timestamp due_date = 10 [json_name = "due_date"];
+  google.protobuf.Timestamp paid_date = 11 [json_name = "paid_date"];
+  string invoice_message = 12 [json_name = "invoice_message"];
+  string reference_number = 13 [json_name = "reference_number"];
+  string description = 14 [json_name = "description"];
+  string currency_uom_id = 15 [json_name = "currency_uom_id"];
+  string recurrence_info_id = 16 [json_name = "recurrence_info_id"];
+
+  // from PaymentFlatData
+  string payment_id = 51 [json_name = "payment_id"];
+  string payment_type_id = 52 [json_name = "payment_type_id"];
+  string payment_method_type_id = 53 [json_name = "payment_method_type_id"]; // PaymentMethodType
+  string payment_method_id = 54 [json_name = "payment_method_id"];
+  string payment_gateway_response_id = 55 [json_name = "payment_gateway_response_id"];
+  string payment_preference_id = 56 [json_name = "payment_preference_id"];
+  // same fields: party_id_from, party_id(party_id_to)
+
+  // from: OrderPaymentPreference, PaymentGatewayResponse
+  domain.OrderPaymentPreferenceFlatData payment_preference=100; // retrieve from be
+  domain.PaymentGatewayResponseFlatData payment_gateway_response=101; // receive from gateway
+
+  // from: BillingAccount -> BillingAccountRole(auto-bind: party_id)
+  domain.BillingAccountFlatData billing_account=102;  // retrieve from be
+
+  // auto-create: PaymentApplication(paymentId, invoiceId)
+}
+
+// 可用于部分退款的依据
+message CartItemBilling{
+  // from OrderItemBillingData
+  string invoice_id = 3 [json_name = "invoice_id"];
+  string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
+  string item_issuance_id = 5 [json_name = "item_issuance_id"];
+  string shipment_receipt_id = 6 [json_name = "shipment_receipt_id"];
+  routines.FixedPoint quantity = 7 [json_name = "quantity"];
+  routines.Currency amount = 8 [json_name = "amount"];
+
+  // from InvoiceItemFlatData
+  string invoice_item_type_id = 20 [json_name = "invoice_item_type_id"];
+}
+
