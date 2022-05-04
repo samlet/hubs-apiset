@@ -30,3 +30,12 @@ message EmailAddressProto {
   // components
 }
 
+message TelecomNumberProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "ContactMech";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.ContactMechFlatData contact_mech=2;
+  // components
+  domain.TelecomNumberFlatData telecom_number=3;
+}
+

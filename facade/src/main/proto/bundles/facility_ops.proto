@@ -23,6 +23,14 @@ service FacilityOperations {
   rpc GetFacility(BundleGetRequest) returns (domain.FacilityFlatData) {}
 
   
+  rpc AddFacilityContactMechPurpose(AddFacilityContactMechPurposeParams) returns (routines.Response) {}
+  rpc UpdateFacilityContactMechPurpose(UpdateFacilityContactMechPurposeParams) returns (routines.Response) {}
+  rpc RemoveFacilityContactMechPurpose(RemoveFacilityContactMechPurposeParams) returns (routines.Response) {}
+  
+  rpc AddFacilityContactMech(AddFacilityContactMechParams) returns (routines.Response) {}
+  rpc UpdateFacilityContactMech(UpdateFacilityContactMechParams) returns (routines.Response) {}
+  rpc RemoveFacilityContactMech(RemoveFacilityContactMechParams) returns (routines.Response) {}
+  
 
   // -- relations: one --
   rpc ModifyFacilityType(ModifyFacilityTypeParams) returns (routines.Response) {}
@@ -59,6 +67,52 @@ message UpdateFacilityParams{
   string comment = 4;
 }
 
+
+// Mutations for FacilityContactMechPurpose
+
+message AddFacilityContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityContactMechPurposeData data = 3;
+  string comment = 4;
+}
+
+message UpdateFacilityContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityContactMechPurposeData data = 3;
+  string comment = 4;
+}
+
+message RemoveFacilityContactMechPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FacilityContactMech
+
+message AddFacilityContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityContactMechData data = 3;
+  string comment = 4;
+}
+
+message UpdateFacilityContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FacilityContactMechData data = 3;
+  string comment = 4;
+}
+
+message RemoveFacilityContactMechParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for FacilityType
 

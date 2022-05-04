@@ -28,12 +28,15 @@ message CartData{
   string currency_uom = 14 [json_name = "currency_uom"];
   string billing_account_id = 16 [json_name = "billing_account_id"];
   string web_site_id = 18 [json_name = "web_site_id"];
+
+  // store (contains facility, and facility contacts)
   string product_store_id = 19 [json_name = "product_store_id"];
   string agreement_id = 20 [json_name = "agreement_id"];
   string terminal_id = 21 [json_name = "terminal_id"];
   string transaction_id = 22 [json_name = "transaction_id"];
 
   string auto_order_shopping_list_id = 23 [json_name = "auto_order_shopping_list_id"];
+  // 总共应支付? -- 对应CartBilling.amount_applied
   routines.Currency grand_total = 28 [json_name = "grand_total"];
 
   // from OrderRole.partyId
@@ -93,8 +96,11 @@ message CartItemData{
   CartItemBilling billing = 51;
 }
 
+/** 可绑定order或orderItem */
 message CartAdjustment{
   // from OrderAdjustmentFlatData
+  // 可选值有: SHIPPING_CHARGES, PROMOTION_ADJUSTMENT等
+  // 当为SHIPPING_CHARGES时, 会有shipment-item与之对应
   string order_adjustment_type_id = 2 [json_name = "order_adjustment_type_id"];
   string ship_group_seq_id = 5 [json_name = "ship_group_seq_id"];
   string comments = 6 [json_name = "comments"];
@@ -142,6 +148,8 @@ message CartBilling {
   domain.BillingAccountFlatData billing_account=102;  // retrieve from be
 
   // auto-create: PaymentApplication(paymentId, invoiceId)
+  // -- PaymentApplication.amountApplied (实际支付)
+  routines.Currency amount_applied=110;
 }
 
 // 可用于部分退款的依据

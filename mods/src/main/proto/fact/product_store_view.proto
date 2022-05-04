@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "ProductStoreViewProto";
+
+package fact;
+
+import "google/protobuf/timestamp.proto";
+import "relay.proto";
+import "routines.proto";
+import "ents/party_contact.proto";
+import "ents/product_facility.proto";
+
+message ProductStoreView{
+  // from: ProductStoreFlatData
+  string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
+  string primary_store_group_id = 2 [json_name = "primary_store_group_id"];
+  string store_name = 3 [json_name = "store_name"];
+  string company_name = 4 [json_name = "company_name"];
+  string title = 5 [json_name = "title"];
+  string subtitle = 6 [json_name = "subtitle"];
+  string pay_to_party_id = 7 [json_name = "pay_to_party_id"];
+
+  // ... ids
+//  string contact_mech_id = 101; // addr
+//  string facility_id=102;
+//  string telecom_number_id=103; // tel
+
+  // retrieves with ids
+  domain.PostalAddressFlatData address=110;
+  domain.TelecomNumberFlatData tel=111;
+  domain.FacilityFlatData facility=112;
+}
+

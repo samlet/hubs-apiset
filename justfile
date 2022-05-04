@@ -22,3 +22,7 @@ bundle-proto:
     just inst mods
     just inst facade
 
+bi:
+    just inst mods
+    just inst facade
+

@@ -24,6 +24,18 @@ service OrderOperations {
   rpc GetOrder(BundleGetRequest) returns (domain.OrderHeaderFlatData) {}
 
   
+  rpc AddOrderItemShipGroupAssoc(AddOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  rpc UpdateOrderItemShipGroupAssoc(UpdateOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  rpc RemoveOrderItemShipGroupAssoc(RemoveOrderItemShipGroupAssocParams) returns (routines.Response) {}
+  
+  rpc AddOrderItemPriceInfo(AddOrderItemPriceInfoParams) returns (routines.Response) {}
+  rpc UpdateOrderItemPriceInfo(UpdateOrderItemPriceInfoParams) returns (routines.Response) {}
+  rpc RemoveOrderItemPriceInfo(RemoveOrderItemPriceInfoParams) returns (routines.Response) {}
+  
+  rpc AddOrderAdjustment(AddOrderAdjustmentParams) returns (routines.Response) {}
+  rpc UpdateOrderAdjustment(UpdateOrderAdjustmentParams) returns (routines.Response) {}
+  rpc RemoveOrderAdjustment(RemoveOrderAdjustmentParams) returns (routines.Response) {}
+  
   rpc AddOrderContactMech(AddOrderContactMechParams) returns (routines.Response) {}
   rpc UpdateOrderContactMech(UpdateOrderContactMechParams) returns (routines.Response) {}
   rpc RemoveOrderContactMech(RemoveOrderContactMechParams) returns (routines.Response) {}
@@ -32,21 +44,9 @@ service OrderOperations {
   rpc UpdateOrderStatus(UpdateOrderStatusParams) returns (routines.Response) {}
   rpc RemoveOrderStatus(RemoveOrderStatusParams) returns (routines.Response) {}
   
-  rpc AddOrderAdjustment(AddOrderAdjustmentParams) returns (routines.Response) {}
-  rpc UpdateOrderAdjustment(UpdateOrderAdjustmentParams) returns (routines.Response) {}
-  rpc RemoveOrderAdjustment(RemoveOrderAdjustmentParams) returns (routines.Response) {}
-  
   rpc AddOrderItem(AddOrderItemParams) returns (routines.Response) {}
   rpc UpdateOrderItem(UpdateOrderItemParams) returns (routines.Response) {}
   rpc RemoveOrderItem(RemoveOrderItemParams) returns (routines.Response) {}
-  
-  rpc AddOrderItemShipGroupAssoc(AddOrderItemShipGroupAssocParams) returns (routines.Response) {}
-  rpc UpdateOrderItemShipGroupAssoc(UpdateOrderItemShipGroupAssocParams) returns (routines.Response) {}
-  rpc RemoveOrderItemShipGroupAssoc(RemoveOrderItemShipGroupAssocParams) returns (routines.Response) {}
-  
-  rpc AddOrderItemPriceInfo(AddOrderItemPriceInfoParams) returns (routines.Response) {}
-  rpc UpdateOrderItemPriceInfo(UpdateOrderItemPriceInfoParams) returns (routines.Response) {}
-  rpc RemoveOrderItemPriceInfo(RemoveOrderItemPriceInfoParams) returns (routines.Response) {}
   
   rpc AddOrderItemShipGroup(AddOrderItemShipGroupParams) returns (routines.Response) {}
   rpc UpdateOrderItemShipGroup(UpdateOrderItemShipGroupParams) returns (routines.Response) {}
@@ -101,6 +101,75 @@ message UpdateOrderParams{
 }
 
 
+// Mutations for OrderItemShipGroupAssoc
+
+message AddOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemShipGroupAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemShipGroupAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderItemPriceInfo
+
+message AddOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemPriceInfoFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderItemPriceInfoFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderItemPriceInfoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for OrderAdjustment
+
+message AddOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message UpdateOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.OrderAdjustmentFlatData data = 3;
+  string comment = 4;
+}
+
+message RemoveOrderAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
 // Mutations for OrderContactMech
 
 message AddOrderContactMechParams{
@@ -147,29 +216,6 @@ message RemoveOrderStatusParams{
   string comment = 4;
 }
 
-// Mutations for OrderAdjustment
-
-message AddOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderAdjustmentFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderAdjustmentFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderAdjustmentParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
 // Mutations for OrderItem
 
 message AddOrderItemParams{
@@ -187,52 +233,6 @@ message UpdateOrderItemParams{
 }
 
 message RemoveOrderItemParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for OrderItemShipGroupAssoc
-
-message AddOrderItemShipGroupAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderItemShipGroupAssocData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderItemShipGroupAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderItemShipGroupAssocData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderItemShipGroupAssocParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for OrderItemPriceInfo
-
-message AddOrderItemPriceInfoParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderItemPriceInfoFlatData data = 3;
-  string comment = 4;
-}
-
-message UpdateOrderItemPriceInfoParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.OrderItemPriceInfoFlatData data = 3;
-  string comment = 4;
-}
-
-message RemoveOrderItemPriceInfoParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

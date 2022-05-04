@@ -27,6 +27,7 @@ service ContactMechOperations {
   // -- relations: one --
   rpc ModifyPostalAddress(ModifyPostalAddressParams) returns (routines.Response) {}
   rpc ModifyContactMechType(ModifyContactMechTypeParams) returns (routines.Response) {}
+  rpc ModifyTelecomNumber(ModifyTelecomNumberParams) returns (routines.Response) {}
 
   // -- extensions --
   
@@ -76,6 +77,15 @@ message ModifyContactMechTypeParams{
   BundleHandle handle = 1;
   string main_id = 2;
   domain.ContactMechTypeData data = 3;
+  string comment = 4;
+}
+
+// Mutations for TelecomNumber
+
+message ModifyTelecomNumberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TelecomNumberFlatData data = 3;
   string comment = 4;
 }
 

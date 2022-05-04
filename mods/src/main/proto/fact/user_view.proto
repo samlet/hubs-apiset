@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "UserViewProto";
+
+package fact;
+
+import "google/protobuf/timestamp.proto";
+import "date.proto";
+import "relay.proto";
+import "routines.proto";
+
+import "ents/party_contact.proto";
+
+message UserView{
+  // from: PersonFlatData
+  string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+  string salutation = 2 [json_name = "salutation"];
+  string first_name = 3 [json_name = "first_name"];
+  string middle_name = 4 [json_name = "middle_name"];
+  string last_name = 5 [json_name = "last_name"];
+  string personal_title = 6 [json_name = "personal_title"];
+  string suffix = 7 [json_name = "suffix"];
+  string nickname = 8 [json_name = "nickname"];
+  string first_name_local = 9 [json_name = "first_name_local"];
+  string middle_name_local = 10 [json_name = "middle_name_local"];
+  string last_name_local = 11 [json_name = "last_name_local"];
+  string other_local = 12 [json_name = "other_local"];
+  string member_id = 13 [json_name = "member_id"];
+  routines.Indicator gender = 14 [json_name = "gender"];
+  google.type.Date birth_date = 15 [json_name = "birth_date"];
+
+  // ...
+//  string contact_mech_id = 101; // addr
+//  string telecom_number_id=102;
+
+  // retrieves
+  domain.PostalAddressFlatData address=110;
+  domain.TelecomNumberFlatData tel=111;
+}
