@@ -223,3 +223,8 @@ message FixedPoint{
 //  string value = 1;
   int32 scaling_position = 2 [json_name = "scaling_position"];
 }
+
+message DecimalMap{
+  map<string, routines.FixedPoint> values = 1;
+}
+

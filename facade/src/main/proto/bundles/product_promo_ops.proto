@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductPromoOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_promo.proto";
+
+service ProductPromoOperations {
+  rpc CreateProductPromo(CreateProductPromoParams) returns (domain.ProductPromoFlatData) {}
+  rpc UpdateProductPromo(UpdateProductPromoParams) returns (domain.ProductPromoFlatData) {}
+  rpc GetProductPromo(BundleGetRequest) returns (domain.ProductPromoFlatData) {}
+
+  
+  rpc AddProductPromoAction(AddProductPromoActionParams) returns (routines.Response) {}
+  rpc UpdateProductPromoAction(UpdateProductPromoActionParams) returns (routines.Response) {}
+  rpc RemoveProductPromoAction(RemoveProductPromoActionParams) returns (routines.Response) {}
+  
+  rpc AddProductPromoRule(AddProductPromoRuleParams) returns (routines.Response) {}
+  rpc UpdateProductPromoRule(UpdateProductPromoRuleParams) returns (routines.Response) {}
+  rpc RemoveProductPromoRule(RemoveProductPromoRuleParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductPromoList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductPromoList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductPromoFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductPromoList) {}
+
+  rpc ListProductPromos(BundleListRequest) returns (domain.ProductPromoList) {}
+  rpc LoadProductPromos(BundleIdsRequest) returns (domain.ProductPromoList) {}
+  rpc StreamProductPromos(BundleListRequest) returns (stream domain.ProductPromoList) {}
+  rpc RemoveProductPromo(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateProductPromoParams{
+  BundleHandle handle = 1;
+  domain.ProductPromoFlatData productPromo = 2;
+  string comment = 3;
+}
+
+message UpdateProductPromoParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoFlatData productPromo = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ProductPromoAction
+
+message AddProductPromoActionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoActionData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductPromoActionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoActionData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductPromoActionParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductPromoRule
+
+message AddProductPromoRuleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoRuleData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductPromoRuleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoRuleData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductPromoRuleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

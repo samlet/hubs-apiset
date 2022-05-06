@@ -22,6 +22,10 @@ service StoreOperations {
   rpc GetStore(BundleGetRequest) returns (domain.ProductStoreFlatData) {}
 
   
+  rpc AddProductStorePromoAppl(AddProductStorePromoApplParams) returns (routines.Response) {}
+  rpc UpdateProductStorePromoAppl(UpdateProductStorePromoApplParams) returns (routines.Response) {}
+  rpc RemoveProductStorePromoAppl(RemoveProductStorePromoApplParams) returns (routines.Response) {}
+  
   rpc AddProductStoreEmailSetting(AddProductStoreEmailSettingParams) returns (routines.Response) {}
   rpc UpdateProductStoreEmailSetting(UpdateProductStoreEmailSettingParams) returns (routines.Response) {}
   rpc RemoveProductStoreEmailSetting(RemoveProductStoreEmailSettingParams) returns (routines.Response) {}
@@ -77,6 +81,29 @@ message UpdateStoreParams{
   string comment = 4;
 }
 
+
+// Mutations for ProductStorePromoAppl
+
+message AddProductStorePromoApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStorePromoApplData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStorePromoApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStorePromoApplData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStorePromoApplParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for ProductStoreEmailSetting
 

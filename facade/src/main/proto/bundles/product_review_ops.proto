@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ProductReviewOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/product_product.proto";
+
+service ProductReviewOperations {
+  rpc CreateProductReview(CreateProductReviewParams) returns (domain.ProductReviewFlatData) {}
+  rpc UpdateProductReview(UpdateProductReviewParams) returns (domain.ProductReviewFlatData) {}
+  rpc GetProductReview(BundleGetRequest) returns (domain.ProductReviewFlatData) {}
+
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ProductReviewList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ProductReviewList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ProductReviewFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ProductReviewList) {}
+
+  rpc ListProductReviews(BundleListRequest) returns (domain.ProductReviewList) {}
+  rpc LoadProductReviews(BundleIdsRequest) returns (domain.ProductReviewList) {}
+  rpc StreamProductReviews(BundleListRequest) returns (stream domain.ProductReviewList) {}
+  rpc RemoveProductReview(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateProductReviewParams{
+  BundleHandle handle = 1;
+  domain.ProductReviewFlatData productReview = 2;
+  string comment = 3;
+}
+
+message UpdateProductReviewParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductReviewFlatData productReview = 3;
+  string comment = 4;
+}
+
+

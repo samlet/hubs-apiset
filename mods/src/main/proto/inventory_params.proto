@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.mods";
+option java_outer_classname = "InventoryParamsProto";
+
+package params;
+
+import "routines.proto";
+import "google/protobuf/timestamp.proto";
+/*
+  facilityId: 'WebStoreWarehouse',
+    productId: 'GZ-2644',
+    quantityAccepted: new BigDecimal('2'),
+    quantityRejected: BigDecimal.ZERO,
+    unitCost: new BigDecimal('24'),
+    inventoryItemTypeId: 'NON_SERIAL_INV_ITEM',
+    datetimeReceived: UtilDateTime.nowTimestamp(),
+    userLogin: userLogin
+ */
+message InventoryRequest{
+  string facility_id=1;
+  string product_id=2;
+  routines.FixedPoint quantity_accepted=3;
+//  routines.FixedPoint quantity_rejected=4;
+  routines.FixedPoint unit_cost=5;
+  string inventory_item_typeId=6;
+  google.protobuf.Timestamp datetime_received=7;
+  string user_login=8;
+}

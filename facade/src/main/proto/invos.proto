@@ -26,6 +26,7 @@ message InvocationData{
   google.protobuf.Any data=4;
   // slug-uuid, 包含有时间戳, 通过Slug.of(var).getDateTime()获取时间戳
   string seq_id=5;
+  string tx_id=6;
 }
 
 message InvocationDataList{

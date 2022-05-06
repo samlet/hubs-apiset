@@ -24,6 +24,10 @@ service InventoryOperations {
   rpc GetInventory(BundleGetRequest) returns (domain.InventoryItemFlatData) {}
 
   
+  rpc AddInventoryTransfer(AddInventoryTransferParams) returns (routines.Response) {}
+  rpc UpdateInventoryTransfer(UpdateInventoryTransferParams) returns (routines.Response) {}
+  rpc RemoveInventoryTransfer(RemoveInventoryTransferParams) returns (routines.Response) {}
+  
   rpc AddInventoryItemDetail(AddInventoryItemDetailParams) returns (routines.Response) {}
   rpc UpdateInventoryItemDetail(UpdateInventoryItemDetailParams) returns (routines.Response) {}
   rpc RemoveInventoryItemDetail(RemoveInventoryItemDetailParams) returns (routines.Response) {}
@@ -68,6 +72,29 @@ message UpdateInventoryParams{
   string comment = 4;
 }
 
+
+// Mutations for InventoryTransfer
+
+message AddInventoryTransferParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryTransferData data = 3;
+  string comment = 4;
+}
+
+message UpdateInventoryTransferParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.InventoryTransferData data = 3;
+  string comment = 4;
+}
+
+message RemoveInventoryTransferParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for InventoryItemDetail
 

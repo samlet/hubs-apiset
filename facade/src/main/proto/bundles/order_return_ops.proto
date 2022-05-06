@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "OrderReturnOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/order_return.proto";
+import "ents/order_return.proto";
+
+service OrderReturnOperations {
+  rpc CreateOrderReturn(CreateOrderReturnParams) returns (domain.ReturnHeaderFlatData) {}
+  rpc UpdateOrderReturn(UpdateOrderReturnParams) returns (domain.ReturnHeaderFlatData) {}
+  rpc GetOrderReturn(BundleGetRequest) returns (domain.ReturnHeaderFlatData) {}
+
+  
+  rpc AddReturnAdjustment(AddReturnAdjustmentParams) returns (routines.Response) {}
+  rpc UpdateReturnAdjustment(UpdateReturnAdjustmentParams) returns (routines.Response) {}
+  rpc RemoveReturnAdjustment(RemoveReturnAdjustmentParams) returns (routines.Response) {}
+  
+  rpc AddReturnItemBilling(AddReturnItemBillingParams) returns (routines.Response) {}
+  rpc UpdateReturnItemBilling(UpdateReturnItemBillingParams) returns (routines.Response) {}
+  rpc RemoveReturnItemBilling(RemoveReturnItemBillingParams) returns (routines.Response) {}
+  
+  rpc AddReturnItemShipment(AddReturnItemShipmentParams) returns (routines.Response) {}
+  rpc UpdateReturnItemShipment(UpdateReturnItemShipmentParams) returns (routines.Response) {}
+  rpc RemoveReturnItemShipment(RemoveReturnItemShipmentParams) returns (routines.Response) {}
+  
+  rpc AddReturnStatus(AddReturnStatusParams) returns (routines.Response) {}
+  rpc UpdateReturnStatus(UpdateReturnStatusParams) returns (routines.Response) {}
+  rpc RemoveReturnStatus(RemoveReturnStatusParams) returns (routines.Response) {}
+  
+  rpc AddReturnItem(AddReturnItemParams) returns (routines.Response) {}
+  rpc UpdateReturnItem(UpdateReturnItemParams) returns (routines.Response) {}
+  rpc RemoveReturnItem(RemoveReturnItemParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ReturnHeaderList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ReturnHeaderList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ReturnHeaderFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ReturnHeaderList) {}
+
+  rpc ListReturnHeaders(BundleListRequest) returns (domain.ReturnHeaderList) {}
+  rpc LoadReturnHeaders(BundleIdsRequest) returns (domain.ReturnHeaderList) {}
+  rpc StreamReturnHeaders(BundleListRequest) returns (stream domain.ReturnHeaderList) {}
+  rpc RemoveReturnHeader(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateOrderReturnParams{
+  BundleHandle handle = 1;
+  domain.ReturnHeaderFlatData returnHeader = 2;
+  string comment = 3;
+}
+
+message UpdateOrderReturnParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnHeaderFlatData returnHeader = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ReturnAdjustment
+
+message AddReturnAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnAdjustmentData data = 3;
+  string comment = 4;
+}
+
+message UpdateReturnAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnAdjustmentData data = 3;
+  string comment = 4;
+}
+
+message RemoveReturnAdjustmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ReturnItemBilling
+
+message AddReturnItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemBillingData data = 3;
+  string comment = 4;
+}
+
+message UpdateReturnItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemBillingData data = 3;
+  string comment = 4;
+}
+
+message RemoveReturnItemBillingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ReturnItemShipment
+
+message AddReturnItemShipmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemShipmentData data = 3;
+  string comment = 4;
+}
+
+message UpdateReturnItemShipmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemShipmentData data = 3;
+  string comment = 4;
+}
+
+message RemoveReturnItemShipmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ReturnStatus
+
+message AddReturnStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateReturnStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveReturnStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ReturnItem
+
+message AddReturnItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemData data = 3;
+  string comment = 4;
+}
+
+message UpdateReturnItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ReturnItemData data = 3;
+  string comment = 4;
+}
+
+message RemoveReturnItemParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

@@ -15,6 +15,7 @@ import "facade_common.proto";
 
 
 import "ents/product_category.proto";
+import "ents/product_promo.proto";
 
 service ProductCategoryOperations {
   rpc CreateProductCategory(CreateProductCategoryParams) returns (domain.ProductCategoryFlatData) {}
@@ -29,6 +30,10 @@ service ProductCategoryOperations {
   rpc AddCurrentProductCategoryRollup(AddCurrentProductCategoryRollupParams) returns (routines.Response) {}
   rpc UpdateCurrentProductCategoryRollup(UpdateCurrentProductCategoryRollupParams) returns (routines.Response) {}
   rpc RemoveCurrentProductCategoryRollup(RemoveCurrentProductCategoryRollupParams) returns (routines.Response) {}
+  
+  rpc AddProductPromoCategory(AddProductPromoCategoryParams) returns (routines.Response) {}
+  rpc UpdateProductPromoCategory(UpdateProductPromoCategoryParams) returns (routines.Response) {}
+  rpc RemoveProductPromoCategory(RemoveProductPromoCategoryParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -106,6 +111,29 @@ message UpdateCurrentProductCategoryRollupParams{
 }
 
 message RemoveCurrentProductCategoryRollupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductPromoCategory
+
+message AddProductPromoCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoCategoryData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductPromoCategoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductPromoCategoryData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductPromoCategoryParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
