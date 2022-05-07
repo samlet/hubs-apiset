@@ -33,3 +33,12 @@ message CreateId{
   repeated string tx_id=2;
 }
 
+//
+
+message ExtractedToken{
+  string token_string=1;  // the original token
+  string jwt_id=2;        // the slug id
+  string login_id=3;
+  string owner_id=4;      // party id
+}
+

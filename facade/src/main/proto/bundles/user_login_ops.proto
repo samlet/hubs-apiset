@@ -33,6 +33,10 @@ service UserLoginOperations {
   rpc UpdateUserLoginSecurityGroup(UpdateUserLoginSecurityGroupParams) returns (routines.Response) {}
   rpc RemoveUserLoginSecurityGroup(RemoveUserLoginSecurityGroupParams) returns (routines.Response) {}
   
+  rpc AddUserLoginPasswordHistory(AddUserLoginPasswordHistoryParams) returns (routines.Response) {}
+  rpc UpdateUserLoginPasswordHistory(UpdateUserLoginPasswordHistoryParams) returns (routines.Response) {}
+  rpc RemoveUserLoginPasswordHistory(RemoveUserLoginPasswordHistoryParams) returns (routines.Response) {}
+  
 
   // -- relations: one --
   rpc ModifyUserLoginSession(ModifyUserLoginSessionParams) returns (routines.Response) {}
@@ -110,6 +114,29 @@ message UpdateUserLoginSecurityGroupParams{
 }
 
 message RemoveUserLoginSecurityGroupParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for UserLoginPasswordHistory
+
+message AddUserLoginPasswordHistoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginPasswordHistoryData data = 3;
+  string comment = 4;
+}
+
+message UpdateUserLoginPasswordHistoryParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.UserLoginPasswordHistoryData data = 3;
+  string comment = 4;
+}
+
+message RemoveUserLoginPasswordHistoryParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
