@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "RequirementOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/order_requirement.proto";
+import "types/requirement_type.proto";
+
+service RequirementOperations {
+  rpc CreateRequirement(CreateRequirementParams) returns (domain.RequirementFlatData) {}
+  rpc UpdateRequirement(UpdateRequirementParams) returns (domain.RequirementFlatData) {}
+  rpc GetRequirement(BundleGetRequest) returns (domain.RequirementFlatData) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyRequirementType(ModifyRequirementTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.RequirementList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.RequirementList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.RequirementFlatData) {}
+  rpc Select(BundleHandle) returns (domain.RequirementList) {}
+
+  rpc ListRequirements(BundleListRequest) returns (domain.RequirementList) {}
+  rpc LoadRequirements(BundleIdsRequest) returns (domain.RequirementList) {}
+  rpc StreamRequirements(BundleListRequest) returns (stream domain.RequirementList) {}
+  rpc RemoveRequirement(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateRequirementParams{
+  BundleHandle handle = 1;
+  domain.RequirementFlatData requirement = 2;
+  string comment = 3;
+}
+
+message UpdateRequirementParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.RequirementFlatData requirement = 3;
+  string comment = 4;
+}
+
+
+// Mutations for RequirementType
+
+message ModifyRequirementTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.RequirementTypeData data = 3;
+  string comment = 4;
+}
+
