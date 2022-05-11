@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "com.bluecc.hubs.stub";
-option java_outer_classname = "OrderBlueprintProto";
+option java_outer_classname = "ProductFeatureBlueprintProto";
 
 package blueprint;
 
@@ -11,11 +11,11 @@ import "routines.proto";
 import "relay.proto";
 import "common_options.proto";
 
-import "ents/order_order.proto";
+import "ents/product_feature.proto";
 import "common_data_types.proto";
 
-message OrderBlueprintData {
-  option (bluecc.bundle_name) = "Order";
+message ProductFeatureBlueprintData {
+  option (bluecc.bundle_name) = "ProductFeature";
   string id = 1 [(google.api.graphql.relay_options).id = true];
   google.protobuf.Timestamp start_ts=2;
 
@@ -26,7 +26,7 @@ message OrderBlueprintData {
   //  string token=5;       // 发起者, token, slug
   proto.ExtractedToken token=3;
 
-  domain.OrderHeaderFlatData entity=10;
+  domain.ProductFeatureFlatData entity=10;
   repeated routines.Response response=11;  // 包含每一步骤的操作结果, 包括转换token的结果
 }
 

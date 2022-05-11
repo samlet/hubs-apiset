@@ -9,6 +9,8 @@ package routines;
 import "google/protobuf/descriptor.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
 import "date.proto";
 import "timeofday.proto";
 
@@ -121,6 +123,7 @@ message Response{
   string result_type=4;
   google.protobuf.Value result_data=5;
   google.protobuf.Any result_object=6;
+  google.protobuf.Timestamp ts=7;
 }
 
 message PipeResponse{

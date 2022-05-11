@@ -37,8 +37,9 @@ message CreateId{
 
 message ExtractedToken{
   string token_string=1;  // the original token
-  string jwt_id=2;        // the slug id
-  string login_id=3;
-  string owner_id=4;      // party id
+  string region_id=2;
+  string jwt_id=3;        // the slug id
+  string login_id=4;
+  string owner_id=5;      // party id
 }
 
