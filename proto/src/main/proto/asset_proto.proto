@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "AssetsProto";
+
+package proto;
+
+import "google/protobuf/struct.proto";
+
+message QlCommandArgProto{
+  string name=1;
+  string type=2;
+  string help=3;
+  bool optional=4;
+  bool as_var=5;
+}
+
+message QlCommandProto{
+  string ql=1;
+  repeated string gen_ids=2;
+  repeated QlCommandArgProto args=3;
+}
+
+message QlConfProto{
+  map<string, QlCommandProto> commands=1;
+}
+
