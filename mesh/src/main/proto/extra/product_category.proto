@@ -54,6 +54,7 @@ message ProductCategoryAttributeList{
     // field in the subsequent call to `ListProductCategoryAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -96,6 +97,7 @@ message ProductCategoryGlAccountList{
     // field in the subsequent call to `ListProductCategoryGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -136,6 +138,7 @@ message ProductCategoryTypeAttrList{
     // field in the subsequent call to `ListProductCategoryTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

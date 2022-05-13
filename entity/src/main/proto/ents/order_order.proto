@@ -79,6 +79,7 @@ message OrderAdjustmentList{
     // field in the subsequent call to `ListOrderAdjustments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Order Adjustment Billing
@@ -120,6 +121,7 @@ message OrderAdjustmentBillingList{
     // field in the subsequent call to `ListOrderAdjustmentBillings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -161,6 +163,7 @@ message OrderContactMechList{
     // field in the subsequent call to `ListOrderContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -224,6 +227,7 @@ message OrderHeaderList{
     // field in the subsequent call to `ListOrderHeaders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Order Item
@@ -305,6 +309,7 @@ message OrderItemList{
     // field in the subsequent call to `ListOrderItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Order Item Billing
@@ -351,6 +356,7 @@ message OrderItemBillingList{
     // field in the subsequent call to `ListOrderItemBillings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -392,6 +398,7 @@ message OrderItemPriceInfoList{
     // field in the subsequent call to `ListOrderItemPriceInfos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Order Item Ship Group
@@ -448,6 +455,7 @@ message OrderItemShipGroupList{
     // field in the subsequent call to `ListOrderItemShipGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -491,6 +499,7 @@ message OrderItemShipGroupAssocList{
     // field in the subsequent call to `ListOrderItemShipGroupAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -543,6 +552,7 @@ message OrderItemShipGrpInvResList{
     // field in the subsequent call to `ListOrderItemShipGrpInvRes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -600,6 +610,7 @@ message OrderPaymentPreferenceList{
     // field in the subsequent call to `ListOrderPaymentPreferences` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Order Role
@@ -640,6 +651,7 @@ message OrderRoleList{
     // field in the subsequent call to `ListOrderRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -681,5 +693,6 @@ message OrderStatusList{
     // field in the subsequent call to `ListOrderStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

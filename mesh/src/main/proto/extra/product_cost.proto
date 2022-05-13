@@ -61,6 +61,7 @@ message CostComponentList{
     // field in the subsequent call to `ListCostComponents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -102,6 +103,7 @@ message CostComponentAttributeList{
     // field in the subsequent call to `ListCostComponentAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -142,6 +144,7 @@ message CostComponentTypeAttrList{
     // field in the subsequent call to `ListCostComponentTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -186,6 +189,7 @@ message ProductCostComponentCalcList{
     // field in the subsequent call to `ListProductCostComponentCalcs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -58,6 +58,7 @@ message ProductPaymentMethodTypeList{
     // field in the subsequent call to `ListProductPaymentMethodTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -98,6 +99,7 @@ message ProductPriceAutoNoticeList{
     // field in the subsequent call to `ListProductPriceAutoNotices` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -145,6 +147,7 @@ message ProductPriceChangeList{
     // field in the subsequent call to `ListProductPriceChanges` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -182,6 +185,7 @@ message SaleTypeList{
     // field in the subsequent call to `ListSaleTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

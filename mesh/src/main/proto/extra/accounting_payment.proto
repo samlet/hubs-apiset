@@ -54,6 +54,7 @@ message BillingAccountTermList{
     // field in the subsequent call to `ListBillingAccountTerms` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message BillingAccountTermAttrList{
     // field in the subsequent call to `ListBillingAccountTermAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -138,6 +140,7 @@ message CheckAccountList{
     // field in the subsequent call to `ListCheckAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -177,6 +180,7 @@ message DeductionList{
     // field in the subsequent call to `ListDeductions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -217,6 +221,7 @@ message GiftCardList{
     // field in the subsequent call to `ListGiftCards` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -266,6 +271,7 @@ message GiftCardFulfillmentList{
     // field in the subsequent call to `ListGiftCardFulfillments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -310,6 +316,7 @@ message PayPalPaymentMethodList{
     // field in the subsequent call to `ListPayPalPaymentMethods` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -351,6 +358,7 @@ message PaymentAttributeList{
     // field in the subsequent call to `ListPaymentAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -393,6 +401,7 @@ message PaymentBudgetAllocationList{
     // field in the subsequent call to `ListPaymentBudgetAllocations` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -437,6 +446,7 @@ message PaymentContentList{
     // field in the subsequent call to `ListPaymentContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -491,6 +501,7 @@ message PaymentGatewayAuthorizeNetList{
     // field in the subsequent call to `ListPaymentGatewayAuthorizeNets` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -537,6 +548,7 @@ message PaymentGatewayClearCommerceList{
     // field in the subsequent call to `ListPaymentGatewayClearCommerces` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -575,6 +587,7 @@ message PaymentGatewayConfigList{
     // field in the subsequent call to `ListPaymentGatewayConfigs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -628,6 +641,7 @@ message PaymentGatewayCyberSourceList{
     // field in the subsequent call to `ListPaymentGatewayCyberSources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -669,6 +683,7 @@ message PaymentGatewayEwayList{
     // field in the subsequent call to `ListPaymentGatewayEways` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -710,6 +725,7 @@ message PaymentGatewayFirstDataList{
     // field in the subsequent call to `ListPaymentGatewayFirstData` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -760,6 +776,7 @@ message PaymentGatewayOrbitalList{
     // field in the subsequent call to `ListPaymentGatewayOrbitals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -810,6 +827,7 @@ message PaymentGatewayPayPalList{
     // field in the subsequent call to `ListPaymentGatewayPayPals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -869,6 +887,7 @@ message PaymentGatewayPayflowProList{
     // field in the subsequent call to `ListPaymentGatewayPayflowPros` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -907,6 +926,7 @@ message PaymentGatewayRespMsgList{
     // field in the subsequent call to `ListPaymentGatewayRespMsgs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -956,6 +976,7 @@ message PaymentGatewaySagePayList{
     // field in the subsequent call to `ListPaymentGatewaySagePays` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -997,6 +1018,7 @@ message PaymentGatewaySecurePayList{
     // field in the subsequent call to `ListPaymentGatewaySecurePays` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1043,6 +1065,7 @@ message PaymentGatewayWorldPayList{
     // field in the subsequent call to `ListPaymentGatewayWorldPays` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1081,6 +1104,7 @@ message PaymentGroupList{
     // field in the subsequent call to `ListPaymentGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1124,6 +1148,7 @@ message PaymentGroupMemberList{
     // field in the subsequent call to `ListPaymentGroupMembers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1164,6 +1189,7 @@ message PaymentTypeAttrList{
     // field in the subsequent call to `ListPaymentTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1212,6 +1238,7 @@ message ValueLinkKeyList{
     // field in the subsequent call to `ListValueLinkKeys` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

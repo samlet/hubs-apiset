@@ -73,6 +73,7 @@ message CommunicationEventList{
     // field in the subsequent call to `ListCommunicationEvents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Communication Event Role Entity showing all participants of the communication event.
@@ -115,6 +116,7 @@ message CommunicationEventRoleList{
     // field in the subsequent call to `ListCommunicationEventRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

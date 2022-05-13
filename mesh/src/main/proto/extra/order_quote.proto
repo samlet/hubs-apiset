@@ -54,6 +54,7 @@ message QuoteAttributeList{
     // field in the subsequent call to `ListQuoteAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message QuoteCoefficientList{
     // field in the subsequent call to `ListQuoteCoefficients` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message QuoteNoteList{
     // field in the subsequent call to `ListQuoteNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -178,6 +181,7 @@ message QuoteTermAttributeList{
     // field in the subsequent call to `ListQuoteTermAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -218,6 +222,7 @@ message QuoteTypeAttrList{
     // field in the subsequent call to `ListQuoteTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -257,6 +262,7 @@ message QuoteWorkEffortList{
     // field in the subsequent call to `ListQuoteWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

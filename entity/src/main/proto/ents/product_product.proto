@@ -116,6 +116,7 @@ message ProductList{
     // field in the subsequent call to `ListProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Association
@@ -167,6 +168,7 @@ message ProductAssocList{
     // field in the subsequent call to `ListProductAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -218,6 +220,7 @@ message ProductContentList{
     // field in the subsequent call to `ListProductContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -261,6 +264,7 @@ message ProductKeywordList{
     // field in the subsequent call to `ListProductKeywords` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -303,5 +307,6 @@ message ProductReviewList{
     // field in the subsequent call to `ListProductReviews` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

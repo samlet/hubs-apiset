@@ -50,6 +50,7 @@ message WebPreferenceTypeList{
     // field in the subsequent call to `ListWebPreferenceTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message WebUserPreferenceList{
     // field in the subsequent call to `ListWebUserPreferences` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

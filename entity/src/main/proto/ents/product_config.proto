@@ -62,6 +62,7 @@ message ProductConfigList{
     // field in the subsequent call to `ListProductConfigs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -101,6 +102,7 @@ message ProductConfigItemList{
     // field in the subsequent call to `ListProductConfigItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Configuration Options
@@ -144,6 +146,7 @@ message ProductConfigOptionList{
     // field in the subsequent call to `ListProductConfigOptions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -187,6 +190,7 @@ message ProductConfigProductList{
     // field in the subsequent call to `ListProductConfigProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

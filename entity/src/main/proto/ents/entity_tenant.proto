@@ -52,6 +52,7 @@ message TenantList{
     // field in the subsequent call to `ListTenants` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message TenantDataSourceList{
     // field in the subsequent call to `ListTenantDataSources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -131,6 +133,7 @@ message TenantDomainNameList{
     // field in the subsequent call to `ListTenantDomainNames` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

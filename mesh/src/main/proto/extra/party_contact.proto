@@ -54,6 +54,7 @@ message ContactMechAttributeList{
     // field in the subsequent call to `ListContactMechAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -93,6 +94,7 @@ message ContactMechLinkList{
     // field in the subsequent call to `ListContactMechLinks` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message ContactMechTypeAttrList{
     // field in the subsequent call to `ListContactMechTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -171,6 +174,7 @@ message EmailAddressVerificationList{
     // field in the subsequent call to `ListEmailAddressVerifications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -216,6 +220,7 @@ message FtpAddressList{
     // field in the subsequent call to `ListFtpAddresses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -255,6 +260,7 @@ message PostalAddressBoundaryList{
     // field in the subsequent call to `ListPostalAddressBoundaries` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -294,6 +300,7 @@ message ValidContactMechRoleList{
     // field in the subsequent call to `ListValidContactMechRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

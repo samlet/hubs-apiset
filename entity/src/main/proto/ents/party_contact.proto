@@ -49,6 +49,7 @@ message ContactMechList{
     // field in the subsequent call to `ListContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Party Contact Mechanism
@@ -97,6 +98,7 @@ message PartyContactMechList{
     // field in the subsequent call to `ListPartyContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -141,6 +143,7 @@ message PartyContactMechPurposeList{
     // field in the subsequent call to `ListPartyContactMechPurposes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -192,6 +195,7 @@ message PostalAddressList{
     // field in the subsequent call to `ListPostalAddresses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Telecommunications Number
@@ -229,5 +233,6 @@ message TelecomNumberList{
     // field in the subsequent call to `ListTelecomNumbers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

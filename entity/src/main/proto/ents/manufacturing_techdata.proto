@@ -49,6 +49,7 @@ message TechDataCalendarList{
     // field in the subsequent call to `ListTechDataCalendars` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Calendar Exception Day
@@ -90,6 +91,7 @@ message TechDataCalendarExcDayList{
     // field in the subsequent call to `ListTechDataCalendarExcDays` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -139,5 +141,6 @@ message TechDataCalendarWeekList{
     // field in the subsequent call to `ListTechDataCalendarWeeks` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

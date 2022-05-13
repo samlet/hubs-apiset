@@ -62,6 +62,7 @@ message EmplPositionList{
     // field in the subsequent call to `ListEmplPositions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -101,6 +102,7 @@ message EmplPositionClassTypeList{
     // field in the subsequent call to `ListEmplPositionClassTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -144,6 +146,7 @@ message EmplPositionFulfillmentList{
     // field in the subsequent call to `ListEmplPositionFulfillments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -188,6 +191,7 @@ message EmplPositionReportingStructList{
     // field in the subsequent call to `ListEmplPositionReportingStructs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -231,6 +235,7 @@ message EmplPositionResponsibilityList{
     // field in the subsequent call to `ListEmplPositionResponsibilities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -274,6 +279,7 @@ message EmplPositionTypeClassList{
     // field in the subsequent call to `ListEmplPositionTypeClasses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -318,6 +324,7 @@ message EmplPositionTypeRateList{
     // field in the subsequent call to `ListEmplPositionTypeRates` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -361,6 +368,7 @@ message ValidResponsibilityList{
     // field in the subsequent call to `ListValidResponsibilities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -54,6 +54,7 @@ message DesiredFeatureList{
     // field in the subsequent call to `ListDesiredFeatures` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -96,6 +97,7 @@ message OrderRequirementCommitmentList{
     // field in the subsequent call to `ListOrderRequirementCommitments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message RequirementAttributeList{
     // field in the subsequent call to `ListRequirementAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -179,6 +182,7 @@ message RequirementBudgetAllocationList{
     // field in the subsequent call to `ListRequirementBudgetAllocations` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -220,6 +224,7 @@ message RequirementCustRequestList{
     // field in the subsequent call to `ListRequirementCustRequests` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -264,6 +269,7 @@ message RequirementRoleList{
     // field in the subsequent call to `ListRequirementRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -305,6 +311,7 @@ message RequirementStatusList{
     // field in the subsequent call to `ListRequirementStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -345,6 +352,7 @@ message RequirementTypeAttrList{
     // field in the subsequent call to `ListRequirementTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -385,6 +393,7 @@ message WorkRequirementFulfillmentList{
     // field in the subsequent call to `ListWorkRequirementFulfillments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

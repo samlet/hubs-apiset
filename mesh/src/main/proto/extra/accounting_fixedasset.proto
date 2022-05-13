@@ -51,6 +51,7 @@ message AccommodationClassList{
     // field in the subsequent call to `ListAccommodationClasses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -91,6 +92,7 @@ message AccommodationMapList{
     // field in the subsequent call to `ListAccommodationMaps` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -128,6 +130,7 @@ message AccommodationMapTypeList{
     // field in the subsequent call to `ListAccommodationMapTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -169,6 +172,7 @@ message FixedAssetAttributeList{
     // field in the subsequent call to `ListFixedAssetAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -209,6 +213,7 @@ message FixedAssetIdentList{
     // field in the subsequent call to `ListFixedAssetIdents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -256,6 +261,7 @@ message FixedAssetMaintList{
     // field in the subsequent call to `ListFixedAssetMaints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -299,6 +305,7 @@ message FixedAssetMaintOrderList{
     // field in the subsequent call to `ListFixedAssetMaintOrders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -339,6 +346,7 @@ message FixedAssetTypeAttrList{
     // field in the subsequent call to `ListFixedAssetTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -385,6 +393,7 @@ message FixedAssetTypeGlAccountList{
     // field in the subsequent call to `ListFixedAssetTypeGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -432,6 +441,7 @@ message PartyFixedAssetAssignmentList{
     // field in the subsequent call to `ListPartyFixedAssetAssignments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

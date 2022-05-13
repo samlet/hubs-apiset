@@ -57,6 +57,7 @@ message ProductCategoryList{
     // field in the subsequent call to `ListProductCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Category Data Object
@@ -104,6 +105,7 @@ message ProductCategoryContentList{
     // field in the subsequent call to `ListProductCategoryContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -155,6 +157,7 @@ message ProductCategoryLinkList{
     // field in the subsequent call to `ListProductCategoryLinks` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -198,6 +201,7 @@ message ProductCategoryMemberList{
     // field in the subsequent call to `ListProductCategoryMembers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Category Role
@@ -242,6 +246,7 @@ message ProductCategoryRoleList{
     // field in the subsequent call to `ListProductCategoryRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -283,5 +288,6 @@ message ProductCategoryRollupList{
     // field in the subsequent call to `ListProductCategoryRollups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

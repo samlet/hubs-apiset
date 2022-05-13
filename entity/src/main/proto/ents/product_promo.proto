@@ -61,6 +61,7 @@ message ProductPromoList{
     // field in the subsequent call to `ListProductPromos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Promotion Action
@@ -110,6 +111,7 @@ message ProductPromoActionList{
     // field in the subsequent call to `ListProductPromoActions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -159,6 +161,7 @@ message ProductPromoCategoryList{
     // field in the subsequent call to `ListProductPromoCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -204,6 +207,7 @@ message ProductPromoCodeList{
     // field in the subsequent call to `ListProductPromoCodes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Promotion Condition
@@ -249,6 +253,7 @@ message ProductPromoCondList{
     // field in the subsequent call to `ListProductPromoConds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -295,6 +300,7 @@ message ProductPromoProductList{
     // field in the subsequent call to `ListProductPromoProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -335,6 +341,7 @@ message ProductPromoRuleList{
     // field in the subsequent call to `ListProductPromoRules` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

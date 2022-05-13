@@ -54,6 +54,7 @@ message BillingAccountList{
     // field in the subsequent call to `ListBillingAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Billing Account Role
@@ -97,6 +98,7 @@ message BillingAccountRoleList{
     // field in the subsequent call to `ListBillingAccountRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -147,6 +149,7 @@ message CreditCardList{
     // field in the subsequent call to `ListCreditCards` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: EFT Account Information
@@ -188,6 +191,7 @@ message EftAccountList{
     // field in the subsequent call to `ListEftAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Payment
@@ -239,6 +243,7 @@ message PaymentList{
     // field in the subsequent call to `ListPayments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Payment Application
@@ -280,6 +285,7 @@ message PaymentApplicationList{
     // field in the subsequent call to `ListPaymentApplications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Payment Content Type
@@ -316,6 +322,7 @@ message PaymentContentTypeList{
     // field in the subsequent call to `ListPaymentContentTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Payment Gateway Response
@@ -370,6 +377,7 @@ message PaymentGatewayResponseList{
     // field in the subsequent call to `ListPaymentGatewayResponses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Maps PaymentTypes to GlAccountTypes, allowing user to configure payments and gl accounts
@@ -409,6 +417,7 @@ message PaymentGlAccountTypeMapList{
     // field in the subsequent call to `ListPaymentGlAccountTypeMaps` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -450,6 +459,7 @@ message PaymentMethodList{
     // field in the subsequent call to `ListPaymentMethods` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Payment Method Type GL Account
@@ -489,6 +499,7 @@ message PaymentMethodTypeGlAccountList{
     // field in the subsequent call to `ListPaymentMethodTypeGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

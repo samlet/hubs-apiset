@@ -52,6 +52,7 @@ message OldProductPromoCodeEmailList{
     // field in the subsequent call to `ListOldProductPromoCodeEmails` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -91,6 +92,7 @@ message ProdPromoCodeContactMechList{
     // field in the subsequent call to `ListProdPromoCodeContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -130,6 +132,7 @@ message ProductPromoCodePartyList{
     // field in the subsequent call to `ListProductPromoCodeParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -174,6 +177,7 @@ message ProductPromoContentList{
     // field in the subsequent call to `ListProductPromoContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -218,6 +222,7 @@ message ProductPromoUseList{
     // field in the subsequent call to `ListProductPromice` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

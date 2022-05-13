@@ -54,6 +54,7 @@ message InvoiceAttributeList{
     // field in the subsequent call to `ListInvoiceAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -95,6 +96,7 @@ message InvoiceContactMechList{
     // field in the subsequent call to `ListInvoiceContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -139,6 +141,7 @@ message InvoiceContentList{
     // field in the subsequent call to `ListInvoiceContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -191,6 +194,7 @@ message InvoiceItemAssocList{
     // field in the subsequent call to `ListInvoiceItemAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -234,6 +238,7 @@ message InvoiceItemAttributeList{
     // field in the subsequent call to `ListInvoiceItemAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -274,6 +279,7 @@ message InvoiceItemTypeAttrList{
     // field in the subsequent call to `ListInvoiceItemTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -313,6 +319,7 @@ message InvoiceNoteList{
     // field in the subsequent call to `ListInvoiceNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -357,6 +364,7 @@ message InvoiceTermList{
     // field in the subsequent call to `ListInvoiceTerms` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -398,6 +406,7 @@ message InvoiceTermAttributeList{
     // field in the subsequent call to `ListInvoiceTermAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -438,6 +447,7 @@ message InvoiceTypeAttrList{
     // field in the subsequent call to `ListInvoiceTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

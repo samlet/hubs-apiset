@@ -63,6 +63,7 @@ message FinAccountList{
     // field in the subsequent call to `ListFinAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Financial Account Role
@@ -106,6 +107,7 @@ message FinAccountRoleList{
     // field in the subsequent call to `ListFinAccountRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -149,6 +151,7 @@ message FinAccountStatusList{
     // field in the subsequent call to `ListFinAccountStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -197,5 +200,6 @@ message FinAccountTransList{
     // field in the subsequent call to `ListFinAccountTrans` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

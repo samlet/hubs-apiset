@@ -71,6 +71,7 @@ message JobSandboxList{
     // field in the subsequent call to `ListJobSandboxes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Recurrence Info
@@ -110,6 +111,7 @@ message RecurrenceInfoList{
     // field in the subsequent call to `ListRecurrenceInfos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Recurrence Rule
@@ -158,6 +160,7 @@ message RecurrenceRuleList{
     // field in the subsequent call to `ListRecurrenceRules` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Temporal Expression
@@ -199,6 +202,7 @@ message TemporalExpressionList{
     // field in the subsequent call to `ListTemporalExpressions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Temporal Expression Association
@@ -238,6 +242,7 @@ message TemporalExpressionAssocList{
     // field in the subsequent call to `ListTemporalExpressionAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

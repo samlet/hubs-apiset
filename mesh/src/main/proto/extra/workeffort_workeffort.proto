@@ -54,6 +54,7 @@ message ApplicationSandboxList{
     // field in the subsequent call to `ListApplicationSandboxes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message CommunicationEventWorkEffList{
     // field in the subsequent call to `ListCommunicationEventWorkEffs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message DeliverableList{
     // field in the subsequent call to `ListDeliverables` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -170,6 +173,7 @@ message DeliverableTypeList{
     // field in the subsequent call to `ListDeliverableTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -216,6 +220,7 @@ message WorkEffortAssocAttributeList{
     // field in the subsequent call to `ListWorkEffortAssocAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -256,6 +261,7 @@ message WorkEffortAssocTypeAttrList{
     // field in the subsequent call to `ListWorkEffortAssocTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -297,6 +303,7 @@ message WorkEffortAttributeList{
     // field in the subsequent call to `ListWorkEffortAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -339,6 +346,7 @@ message WorkEffortBillingList{
     // field in the subsequent call to `ListWorkEffortBillings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -382,6 +390,7 @@ message WorkEffortContactMechList{
     // field in the subsequent call to `ListWorkEffortContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -426,6 +435,7 @@ message WorkEffortContentList{
     // field in the subsequent call to `ListWorkEffortContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -469,6 +479,7 @@ message WorkEffortCostCalcList{
     // field in the subsequent call to `ListWorkEffortCostCalcs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -508,6 +519,7 @@ message WorkEffortDeliverableProdList{
     // field in the subsequent call to `ListWorkEffortDeliverableProds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -556,6 +568,7 @@ message WorkEffortEventReminderList{
     // field in the subsequent call to `ListWorkEffortEventReminders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -598,6 +611,7 @@ message WorkEffortFixedAssetStdList{
     // field in the subsequent call to `ListWorkEffortFixedAssetStds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -635,6 +649,7 @@ message WorkEffortIcalDataList{
     // field in the subsequent call to `ListWorkEffortIcalData` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -676,6 +691,7 @@ message WorkEffortInventoryAssignList{
     // field in the subsequent call to `ListWorkEffortInventoryAssigns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -715,6 +731,7 @@ message WorkEffortInventoryProducedList{
     // field in the subsequent call to `ListWorkEffortInventoryProduceds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -755,6 +772,7 @@ message WorkEffortKeywordList{
     // field in the subsequent call to `ListWorkEffortKeywords` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -795,6 +813,7 @@ message WorkEffortNoteList{
     // field in the subsequent call to `ListWorkEffortNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -840,6 +859,7 @@ message WorkEffortReviewList{
     // field in the subsequent call to `ListWorkEffortReviews` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -888,6 +908,7 @@ message WorkEffortSearchConstraintList{
     // field in the subsequent call to `ListWorkEffortSearchConstraints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -930,6 +951,7 @@ message WorkEffortSearchResultList{
     // field in the subsequent call to `ListWorkEffortSearchResults` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -973,6 +995,7 @@ message WorkEffortStatusList{
     // field in the subsequent call to `ListWorkEffortStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1015,6 +1038,7 @@ message WorkEffortSurveyApplList{
     // field in the subsequent call to `ListWorkEffortSurveyAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1056,6 +1080,7 @@ message WorkEffortTransBoxList{
     // field in the subsequent call to `ListWorkEffortTransBoxes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1096,6 +1121,7 @@ message WorkEffortTypeAttrList{
     // field in the subsequent call to `ListWorkEffortTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

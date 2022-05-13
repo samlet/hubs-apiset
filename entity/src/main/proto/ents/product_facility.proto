@@ -64,6 +64,7 @@ message FacilityList{
     // field in the subsequent call to `ListFacilities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Facility Contact Mechanism
@@ -107,6 +108,7 @@ message FacilityContactMechList{
     // field in the subsequent call to `ListFacilityContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -151,6 +153,7 @@ message FacilityContactMechPurposeList{
     // field in the subsequent call to `ListFacilityContactMechPurposes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -197,6 +200,7 @@ message FacilityLocationList{
     // field in the subsequent call to `ListFacilityLocations` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -241,6 +245,7 @@ message FacilityLocationGeoPointList{
     // field in the subsequent call to `ListFacilityLocationGeoPoints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -286,6 +291,7 @@ message ProductFacilityList{
     // field in the subsequent call to `ListProductFacilities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -334,6 +340,7 @@ message ProductFacilityAssocList{
     // field in the subsequent call to `ListProductFacilityAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -377,6 +384,7 @@ message ProductFacilityLocationList{
     // field in the subsequent call to `ListProductFacilityLocations` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

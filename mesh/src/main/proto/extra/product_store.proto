@@ -56,6 +56,7 @@ message ProductStoreGroupMemberList{
     // field in the subsequent call to `ListProductStoreGroupMembers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message ProductStoreGroupRoleList{
     // field in the subsequent call to `ListProductStoreGroupRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -140,6 +142,7 @@ message ProductStoreGroupRollupList{
     // field in the subsequent call to `ListProductStoreGroupRollups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -177,6 +180,7 @@ message ProductStoreGroupTypeList{
     // field in the subsequent call to `ListProductStoreGroupTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -220,6 +224,7 @@ message ProductStoreTelecomSettingList{
     // field in the subsequent call to `ListProductStoreTelecomSettings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -263,6 +268,7 @@ message ProductStoreVendorPaymentList{
     // field in the subsequent call to `ListProductStoreVendorPayments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -306,6 +312,7 @@ message ProductStoreVendorShipmentList{
     // field in the subsequent call to `ListProductStoreVendorShipments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

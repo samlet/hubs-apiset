@@ -62,6 +62,7 @@ message ProductFeaturePriceList{
     // field in the subsequent call to `ListProductFeaturePrices` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -124,6 +125,7 @@ message ProductPriceList{
     // field in the subsequent call to `ListProductPrices` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -166,6 +168,7 @@ message ProductPriceActionList{
     // field in the subsequent call to `ListProductPriceActions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -208,6 +211,7 @@ message ProductPriceCondList{
     // field in the subsequent call to `ListProductPriceConds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -247,6 +251,7 @@ message ProductPriceRuleList{
     // field in the subsequent call to `ListProductPriceRules` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Quantity Break
@@ -283,5 +288,6 @@ message QuantityBreakList{
     // field in the subsequent call to `ListQuantityBreaks` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

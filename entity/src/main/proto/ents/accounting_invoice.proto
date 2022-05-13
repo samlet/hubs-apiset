@@ -62,6 +62,7 @@ message InvoiceList{
     // field in the subsequent call to `ListInvoices` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Invoice Item
@@ -115,6 +116,7 @@ message InvoiceItemList{
     // field in the subsequent call to `ListInvoiceItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Invoice Item Type GL Account
@@ -154,6 +156,7 @@ message InvoiceItemTypeGlAccountList{
     // field in the subsequent call to `ListInvoiceItemTypeGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -197,6 +200,7 @@ message InvoiceRoleList{
     // field in the subsequent call to `ListInvoiceRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -239,6 +243,7 @@ message InvoiceStatusList{
     // field in the subsequent call to `ListInvoiceStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

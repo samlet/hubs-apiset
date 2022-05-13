@@ -54,6 +54,7 @@ message FinAccountAttributeList{
     // field in the subsequent call to `ListFinAccountAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -96,6 +97,7 @@ message FinAccountAuthList{
     // field in the subsequent call to `ListFinAccountAuths` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message FinAccountTransAttributeList{
     // field in the subsequent call to `ListFinAccountTransAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -177,6 +180,7 @@ message FinAccountTransTypeAttrList{
     // field in the subsequent call to `ListFinAccountTransTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -218,6 +222,7 @@ message FinAccountTypeAttrList{
     // field in the subsequent call to `ListFinAccountTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

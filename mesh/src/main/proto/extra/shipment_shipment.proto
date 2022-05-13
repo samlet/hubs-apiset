@@ -59,6 +59,7 @@ message DeliveryList{
     // field in the subsequent call to `ListDeliveries` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -100,6 +101,7 @@ message ShipmentAttributeList{
     // field in the subsequent call to `ListShipmentAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -140,6 +142,7 @@ message ShipmentContactMechList{
     // field in the subsequent call to `ListShipmentContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -181,6 +184,7 @@ message ShipmentItemFeatureList{
     // field in the subsequent call to `ListShipmentItemFeatures` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -221,6 +225,7 @@ message ShipmentTypeAttrList{
     // field in the subsequent call to `ListShipmentTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -261,6 +266,7 @@ message ShippingDocumentList{
     // field in the subsequent call to `ListShippingDocuments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

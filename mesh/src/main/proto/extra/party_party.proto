@@ -53,6 +53,7 @@ message AddressMatchMapList{
     // field in the subsequent call to `ListAddressMatchMaps` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message AffiliateList{
     // field in the subsequent call to `ListAffiliates` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -138,6 +140,7 @@ message PartyAttributeList{
     // field in the subsequent call to `ListPartyAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -181,6 +184,7 @@ message PartyCarrierAccountList{
     // field in the subsequent call to `ListPartyCarrierAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -223,6 +227,7 @@ message PartyClassificationList{
     // field in the subsequent call to `ListPartyClassifications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -262,6 +267,7 @@ message PartyClassificationGroupList{
     // field in the subsequent call to `ListPartyClassificationGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -306,6 +312,7 @@ message PartyContentList{
     // field in the subsequent call to `ListPartyContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -350,6 +357,7 @@ message PartyDataSourceList{
     // field in the subsequent call to `ListPartyDataSources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -387,6 +395,7 @@ message PartyIcsAvsOverrideList{
     // field in the subsequent call to `ListPartyIcsAvsOverrides` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -429,6 +438,7 @@ message PartyInvitationList{
     // field in the subsequent call to `ListPartyInvitations` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -468,6 +478,7 @@ message PartyInvitationGroupAssocList{
     // field in the subsequent call to `ListPartyInvitationGroupAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -507,6 +518,7 @@ message PartyInvitationRoleAssocList{
     // field in the subsequent call to `ListPartyInvitationRoleAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -552,6 +564,7 @@ message PartyNameHistoryList{
     // field in the subsequent call to `ListPartyNameHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -591,6 +604,7 @@ message PartyNoteList{
     // field in the subsequent call to `ListPartyNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -634,6 +648,7 @@ message PartyProfileDefaultList{
     // field in the subsequent call to `ListPartyProfileDefaults` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -674,6 +689,7 @@ message PartyTypeAttrList{
     // field in the subsequent call to `ListPartyTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -711,6 +727,7 @@ message PriorityTypeList{
     // field in the subsequent call to `ListPriorityTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -751,6 +768,7 @@ message RoleTypeAttrList{
     // field in the subsequent call to `ListRoleTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -791,6 +809,7 @@ message VendorList{
     // field in the subsequent call to `ListVendors` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -836,6 +855,7 @@ message WebSiteRoleList{
     // field in the subsequent call to `ListWebSiteRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

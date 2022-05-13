@@ -65,6 +65,7 @@ message ContactListList{
     // field in the subsequent call to `ListContactLists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -110,6 +111,7 @@ message ContactListCommStatusList{
     // field in the subsequent call to `ListContactListCommStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -154,6 +156,7 @@ message ContactListPartyList{
     // field in the subsequent call to `ListContactListParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -200,6 +203,7 @@ message ContactListPartyStatusList{
     // field in the subsequent call to `ListContactListPartyStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -242,6 +246,7 @@ message WebSiteContactListList{
     // field in the subsequent call to `ListWebSiteContactLists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

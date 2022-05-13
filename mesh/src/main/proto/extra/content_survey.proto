@@ -58,6 +58,7 @@ message SurveyResponseList{
     // field in the subsequent call to `ListSurveyResponses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -114,6 +115,7 @@ message SurveyResponseAnswerList{
     // field in the subsequent call to `ListSurveyResponseAnswers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -156,6 +158,7 @@ message SurveyTriggerList{
     // field in the subsequent call to `ListSurveyTriggers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -58,6 +58,7 @@ message PartyList{
     // field in the subsequent call to `ListParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Party Geo Location with history
@@ -99,6 +100,7 @@ message PartyGeoPointList{
     // field in the subsequent call to `ListPartyGeoPoints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -141,6 +143,7 @@ message PartyGroupList{
     // field in the subsequent call to `ListPartyGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Party Identification
@@ -180,6 +183,7 @@ message PartyIdentificationList{
     // field in the subsequent call to `ListPartyIdentifications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -217,6 +221,7 @@ message PartyIdentificationTypeList{
     // field in the subsequent call to `ListPartyIdentificationTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Party Relationship
@@ -268,6 +273,7 @@ message PartyRelationshipList{
     // field in the subsequent call to `ListPartyRelationships` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Party Role
@@ -306,6 +312,7 @@ message PartyRoleList{
     // field in the subsequent call to `ListPartyRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -348,6 +355,7 @@ message PartyStatusList{
     // field in the subsequent call to `ListPartyStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -413,5 +421,6 @@ message PersonList{
     // field in the subsequent call to `ListPeople` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

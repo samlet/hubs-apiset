@@ -54,6 +54,7 @@ message InventoryItemAttributeList{
     // field in the subsequent call to `ListInventoryItemAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -92,6 +93,7 @@ message InventoryItemLabelList{
     // field in the subsequent call to `ListInventoryItemLabels` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message InventoryItemLabelApplList{
     // field in the subsequent call to `ListInventoryItemLabelAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -172,6 +175,7 @@ message InventoryItemLabelTypeList{
     // field in the subsequent call to `ListInventoryItemLabelTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -217,6 +221,7 @@ message InventoryItemStatusList{
     // field in the subsequent call to `ListInventoryItemStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -260,6 +265,7 @@ message InventoryItemTempResList{
     // field in the subsequent call to `ListInventoryItemTempRes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -300,6 +306,7 @@ message InventoryItemTypeAttrList{
     // field in the subsequent call to `ListInventoryItemTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -343,6 +350,7 @@ message InventoryItemVarianceList{
     // field in the subsequent call to `ListInventoryItemVariances` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -391,6 +399,7 @@ message InventoryTransferList{
     // field in the subsequent call to `ListInventoryTransfers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -430,6 +439,7 @@ message LotList{
     // field in the subsequent call to `ListLots` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -469,6 +479,7 @@ message PhysicalInventoryList{
     // field in the subsequent call to `ListPhysicalInventories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

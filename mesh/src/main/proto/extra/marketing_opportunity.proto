@@ -63,6 +63,7 @@ message SalesForecastList{
     // field in the subsequent call to `ListSalesForecasts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -107,6 +108,7 @@ message SalesForecastDetailList{
     // field in the subsequent call to `ListSalesForecastDetails` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -158,6 +160,7 @@ message SalesForecastHistoryList{
     // field in the subsequent call to `ListSalesForecastHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -207,6 +210,7 @@ message SalesOpportunityList{
     // field in the subsequent call to `ListSalesOpportunities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -249,6 +253,7 @@ message SalesOpportunityCompetitorList{
     // field in the subsequent call to `ListSalesOpportunityCompetitors` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -296,6 +301,7 @@ message SalesOpportunityHistoryList{
     // field in the subsequent call to `ListSalesOpportunityHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -335,6 +341,7 @@ message SalesOpportunityQuoteList{
     // field in the subsequent call to `ListSalesOpportunityQuotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -376,6 +383,7 @@ message SalesOpportunityRoleList{
     // field in the subsequent call to `ListSalesOpportunityRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -415,6 +423,7 @@ message SalesOpportunityStageList{
     // field in the subsequent call to `ListSalesOpportunityStages` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -455,6 +464,7 @@ message SalesOpportunityTrckCodeList{
     // field in the subsequent call to `ListSalesOpportunityTrckCodes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -494,6 +504,7 @@ message SalesOpportunityWorkEffortList{
     // field in the subsequent call to `ListSalesOpportunityWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

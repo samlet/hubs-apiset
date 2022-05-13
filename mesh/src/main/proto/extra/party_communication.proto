@@ -50,6 +50,7 @@ message CommContentAssocTypeList{
     // field in the subsequent call to `ListCommContentAssocTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message CommEventContentAssocList{
     // field in the subsequent call to `ListCommEventContentAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message CommunicationEventProductList{
     // field in the subsequent call to `ListCommunicationEventProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -173,6 +176,7 @@ message CommunicationEventPurposeList{
     // field in the subsequent call to `ListCommunicationEventPurposes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

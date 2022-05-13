@@ -52,6 +52,7 @@ message CommunicationEventOrderList{
     // field in the subsequent call to `ListCommunicationEventOrders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -91,6 +92,7 @@ message OldOrderBlacklistList{
     // field in the subsequent call to `ListOldOrderBlacklists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -128,6 +130,7 @@ message OldOrderBlacklistTypeList{
     // field in the subsequent call to `ListOldOrderBlacklistTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -169,6 +172,7 @@ message OrderAdjustmentAttributeList{
     // field in the subsequent call to `ListOrderAdjustmentAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -209,6 +213,7 @@ message OrderAdjustmentTypeAttrList{
     // field in the subsequent call to `ListOrderAdjustmentTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -250,6 +255,7 @@ message OrderAttributeList{
     // field in the subsequent call to `ListOrderAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -296,6 +302,7 @@ message OrderContentList{
     // field in the subsequent call to `ListOrderContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -335,6 +342,7 @@ message OrderContentTypeList{
     // field in the subsequent call to `ListOrderContentTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -383,6 +391,7 @@ message OrderDeliveryScheduleList{
     // field in the subsequent call to `ListOrderDeliverySchedules` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -422,6 +431,7 @@ message OrderDenylistList{
     // field in the subsequent call to `ListOrderDenylists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -462,6 +472,7 @@ message OrderHeaderNoteList{
     // field in the subsequent call to `ListOrderHeaderNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -501,6 +512,7 @@ message OrderHeaderWorkEffortList{
     // field in the subsequent call to `ListOrderHeaderWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -551,6 +563,7 @@ message OrderItemAssocList{
     // field in the subsequent call to `ListOrderItemAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -594,6 +607,7 @@ message OrderItemAttributeList{
     // field in the subsequent call to `ListOrderItemAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -641,6 +655,7 @@ message OrderItemChangeList{
     // field in the subsequent call to `ListOrderItemChanges` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -683,6 +698,7 @@ message OrderItemContactMechList{
     // field in the subsequent call to `ListOrderItemContactMeches` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -724,6 +740,7 @@ message OrderItemGroupList{
     // field in the subsequent call to `ListOrderItemGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -765,6 +782,7 @@ message OrderItemGroupOrderList{
     // field in the subsequent call to `ListOrderItemGroupOrders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -808,6 +826,7 @@ message OrderItemRoleList{
     // field in the subsequent call to `ListOrderItemRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -848,6 +867,7 @@ message OrderItemTypeAttrList{
     // field in the subsequent call to `ListOrderItemTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -888,6 +908,7 @@ message OrderNotificationList{
     // field in the subsequent call to `ListOrderNotifications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -927,6 +948,7 @@ message OrderProductPromoCodeList{
     // field in the subsequent call to `ListOrderProductPromoCodes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -973,6 +995,7 @@ message OrderShipmentList{
     // field in the subsequent call to `ListOrderShipments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1017,6 +1040,7 @@ message OrderSummaryEntryList{
     // field in the subsequent call to `ListOrderSummaryEntries` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1063,6 +1087,7 @@ message OrderTermList{
     // field in the subsequent call to `ListOrderTerms` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1108,6 +1133,7 @@ message OrderTermAttributeList{
     // field in the subsequent call to `ListOrderTermAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1148,6 +1174,7 @@ message OrderTypeAttrList{
     // field in the subsequent call to `ListOrderTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1192,6 +1219,7 @@ message ProductOrderItemList{
     // field in the subsequent call to `ListProductOrderItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -1234,6 +1262,7 @@ message WorkOrderItemFulfillmentList{
     // field in the subsequent call to `ListWorkOrderItemFulfillments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

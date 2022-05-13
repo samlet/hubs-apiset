@@ -57,6 +57,7 @@ message EntityAuditLogList{
     // field in the subsequent call to `ListEntityAuditLogs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

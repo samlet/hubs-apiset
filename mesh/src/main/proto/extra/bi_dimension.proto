@@ -55,6 +55,7 @@ message CountryDimensionList{
     // field in the subsequent call to `ListCountryDimensions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -93,6 +94,7 @@ message CurrencyDimensionList{
     // field in the subsequent call to `ListCurrencyDimensions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -142,6 +144,7 @@ message DateDimensionList{
     // field in the subsequent call to `ListDateDimensions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

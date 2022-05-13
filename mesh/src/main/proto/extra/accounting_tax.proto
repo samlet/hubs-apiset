@@ -59,6 +59,7 @@ message ZipSalesRuleLookupList{
     // field in the subsequent call to `ListZipSalesRuleLookups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -121,6 +122,7 @@ message ZipSalesTaxLookupList{
     // field in the subsequent call to `ListZipSalesTaxLookups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

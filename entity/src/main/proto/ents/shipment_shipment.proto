@@ -54,6 +54,7 @@ message CarrierShipmentBoxTypeList{
     // field in the subsequent call to `ListCarrierShipmentBoxTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message CarrierShipmentMethodList{
     // field in the subsequent call to `ListCarrierShipmentMethods` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -160,6 +162,7 @@ message ShipmentList{
     // field in the subsequent call to `ListShipments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Shipment Contact Mechanism Type
@@ -200,6 +203,7 @@ message ShipmentBoxTypeList{
     // field in the subsequent call to `ListShipmentBoxTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Shipment Cost Estimate
@@ -260,6 +264,7 @@ message ShipmentCostEstimateList{
     // field in the subsequent call to `ListShipmentCostEstimates` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Shipment Item
@@ -301,6 +306,7 @@ message ShipmentItemList{
     // field in the subsequent call to `ListShipmentItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -344,6 +350,7 @@ message ShipmentItemBillingList{
     // field in the subsequent call to `ListShipmentItemBillings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -380,6 +387,7 @@ message ShipmentMethodTypeList{
     // field in the subsequent call to `ListShipmentMethodTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Shipment Package
@@ -427,6 +435,7 @@ message ShipmentPackageList{
     // field in the subsequent call to `ListShipmentPackages` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -471,6 +480,7 @@ message ShipmentPackageContentList{
     // field in the subsequent call to `ListShipmentPackageContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -525,6 +535,7 @@ message ShipmentPackageRouteSegList{
     // field in the subsequent call to `ListShipmentPackageRouteSegs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -598,6 +609,7 @@ message ShipmentRouteSegmentList{
     // field in the subsequent call to `ListShipmentRouteSegments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -639,6 +651,7 @@ message ShipmentStatusList{
     // field in the subsequent call to `ListShipmentStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -690,6 +703,7 @@ message ShipmentTimeEstimateList{
     // field in the subsequent call to `ListShipmentTimeEstimates` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

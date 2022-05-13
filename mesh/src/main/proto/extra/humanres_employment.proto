@@ -59,6 +59,7 @@ message EmplLeaveList{
     // field in the subsequent call to `ListEmplLeaves` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -107,6 +108,7 @@ message EmploymentList{
     // field in the subsequent call to `ListEmployments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -151,6 +153,7 @@ message EmploymentAppList{
     // field in the subsequent call to `ListEmploymentApps` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -203,6 +206,7 @@ message PartyBenefitList{
     // field in the subsequent call to `ListPartyBenefits` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -241,6 +245,7 @@ message PayGradeList{
     // field in the subsequent call to `ListPayGrades` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -294,6 +299,7 @@ message PayHistoryList{
     // field in the subsequent call to `ListPayHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -345,6 +351,7 @@ message PayrollPreferenceList{
     // field in the subsequent call to `ListPayrollPreferences` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -391,6 +398,7 @@ message SalaryStepList{
     // field in the subsequent call to `ListSalarySteps` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -428,6 +436,7 @@ message TerminationReasonList{
     // field in the subsequent call to `ListTerminationReasons` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -473,6 +482,7 @@ message UnemploymentClaimList{
     // field in the subsequent call to `ListUnemploymentClaims` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

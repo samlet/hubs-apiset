@@ -54,6 +54,7 @@ message ShoppingListItemSurveyList{
     // field in the subsequent call to `ListShoppingListItemSurveys` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -93,6 +94,7 @@ message ShoppingListWorkEffortList{
     // field in the subsequent call to `ListShoppingListWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

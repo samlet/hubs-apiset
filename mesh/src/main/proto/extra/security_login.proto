@@ -58,6 +58,7 @@ message UserLoginHistoryList{
     // field in the subsequent call to `ListUserLoginHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -99,6 +100,7 @@ message UserLoginPasswordHistoryList{
     // field in the subsequent call to `ListUserLoginPasswordHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message UserLoginSessionList{
     // field in the subsequent call to `ListUserLoginSessions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

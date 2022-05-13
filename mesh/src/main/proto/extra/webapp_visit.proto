@@ -51,6 +51,7 @@ message BrowserTypeList{
     // field in the subsequent call to `ListBrowserTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -89,6 +90,7 @@ message PlatformTypeList{
     // field in the subsequent call to `ListPlatformTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -126,6 +128,7 @@ message ProtocolTypeList{
     // field in the subsequent call to `ListProtocolTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -179,6 +182,7 @@ message ServerHitList{
     // field in the subsequent call to `ListServerHits` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -224,6 +228,7 @@ message ServerHitBinList{
     // field in the subsequent call to `ListServerHitBins` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -265,6 +270,7 @@ message UserAgentList{
     // field in the subsequent call to `ListUserAgents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -302,6 +308,7 @@ message UserAgentMethodTypeList{
     // field in the subsequent call to `ListUserAgentMethodTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -339,6 +346,7 @@ message UserAgentTypeList{
     // field in the subsequent call to `ListUserAgentTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -398,6 +406,7 @@ message VisitList{
     // field in the subsequent call to `ListVisits` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -436,6 +445,7 @@ message VisitorList{
     // field in the subsequent call to `ListVisitors` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

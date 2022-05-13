@@ -55,6 +55,7 @@ message MarketInterestList{
     // field in the subsequent call to `ListMarketInterests` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -100,6 +101,7 @@ message ReorderGuidelineList{
     // field in the subsequent call to `ListReorderGuidelines` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message SupplierRatingTypeList{
     // field in the subsequent call to `ListSupplierRatingTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

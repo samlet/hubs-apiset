@@ -53,6 +53,7 @@ message GoodIdentificationList{
     // field in the subsequent call to `ListGoodIdentifications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -95,6 +96,7 @@ message ProductAttributeList{
     // field in the subsequent call to `ListProductAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -134,6 +136,7 @@ message ProductCalculatedInfoList{
     // field in the subsequent call to `ListProductCalculatedInfos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -175,6 +178,7 @@ message ProductGeoList{
     // field in the subsequent call to `ListProductGeos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -217,6 +221,7 @@ message ProductGlAccountList{
     // field in the subsequent call to `ListProductGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -260,6 +265,7 @@ message ProductGroupOrderList{
     // field in the subsequent call to `ListProductGroupOrders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -306,6 +312,7 @@ message ProductMaintList{
     // field in the subsequent call to `ListProductMaints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -347,6 +354,7 @@ message ProductMeterList{
     // field in the subsequent call to `ListProductMeters` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -393,6 +401,7 @@ message ProductRoleList{
     // field in the subsequent call to `ListProductRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -441,6 +450,7 @@ message ProductSearchConstraintList{
     // field in the subsequent call to `ListProductSearchConstraints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -483,6 +493,7 @@ message ProductSearchResultList{
     // field in the subsequent call to `ListProductSearchResults` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -523,6 +534,7 @@ message ProductTypeAttrList{
     // field in the subsequent call to `ListProductTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -564,6 +576,7 @@ message VendorProductList{
     // field in the subsequent call to `ListVendorProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

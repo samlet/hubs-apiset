@@ -49,6 +49,7 @@ message SecurityGroupList{
     // field in the subsequent call to `ListSecurityGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Security Component - Security Group Permission
@@ -90,6 +91,7 @@ message SecurityGroupPermissionList{
     // field in the subsequent call to `ListSecurityGroupPermissions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -125,6 +127,7 @@ message SecurityPermissionList{
     // field in the subsequent call to `ListSecurityPermissions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Security Component - User Login Security Group
@@ -166,6 +169,7 @@ message UserLoginSecurityGroupList{
     // field in the subsequent call to `ListUserLoginSecurityGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

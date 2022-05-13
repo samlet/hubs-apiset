@@ -54,6 +54,7 @@ message BudgetAttributeList{
     // field in the subsequent call to `ListBudgetAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message BudgetItemList{
     // field in the subsequent call to `ListBudgetItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -140,6 +142,7 @@ message BudgetItemAttributeList{
     // field in the subsequent call to `ListBudgetItemAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -180,6 +183,7 @@ message BudgetItemTypeAttrList{
     // field in the subsequent call to `ListBudgetItemTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -224,6 +228,7 @@ message BudgetReviewList{
     // field in the subsequent call to `ListBudgetReviews` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -264,6 +269,7 @@ message BudgetRevisionList{
     // field in the subsequent call to `ListBudgetRevisions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -308,6 +314,7 @@ message BudgetRevisionImpactList{
     // field in the subsequent call to `ListBudgetRevisionImpacts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -349,6 +356,7 @@ message BudgetRoleList{
     // field in the subsequent call to `ListBudgetRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -386,6 +394,7 @@ message BudgetScenarioList{
     // field in the subsequent call to `ListBudgetScenarios` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -429,6 +438,7 @@ message BudgetScenarioApplicationList{
     // field in the subsequent call to `ListBudgetScenarioApplications` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -470,6 +480,7 @@ message BudgetScenarioRuleList{
     // field in the subsequent call to `ListBudgetScenarioRules` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -510,6 +521,7 @@ message BudgetTypeAttrList{
     // field in the subsequent call to `ListBudgetTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

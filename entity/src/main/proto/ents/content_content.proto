@@ -69,6 +69,7 @@ message ContentList{
     // field in the subsequent call to `ListContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Content Association
@@ -122,6 +123,7 @@ message ContentAssocList{
     // field in the subsequent call to `ListContentAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -163,6 +165,7 @@ message ContentAttributeList{
     // field in the subsequent call to `ListContentAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -207,6 +210,7 @@ message ContentRoleList{
     // field in the subsequent call to `ListContentRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

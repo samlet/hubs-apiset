@@ -98,6 +98,7 @@ message WorkEffortList{
     // field in the subsequent call to `ListWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Work Effort Association
@@ -142,6 +143,7 @@ message WorkEffortAssocList{
     // field in the subsequent call to `ListWorkEffortAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -188,6 +190,7 @@ message WorkEffortFixedAssetAssignList{
     // field in the subsequent call to `ListWorkEffortFixedAssetAssigns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -235,6 +238,7 @@ message WorkEffortGoodStandardList{
     // field in the subsequent call to `ListWorkEffortGoodStandards` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -288,6 +292,7 @@ message WorkEffortPartyAssignmentList{
     // field in the subsequent call to `ListWorkEffortPartyAssignments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -330,6 +335,7 @@ message WorkEffortSkillStandardList{
     // field in the subsequent call to `ListWorkEffortSkillStandards` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

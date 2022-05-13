@@ -58,6 +58,7 @@ message WebSitePathAliasList{
     // field in the subsequent call to `ListWebSitePathAliases` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -103,6 +104,7 @@ message WebSitePublishPointList{
     // field in the subsequent call to `ListWebSitePublishPoints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -67,6 +67,7 @@ message TrackingCodeList{
     // field in the subsequent call to `ListTrackingCodes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -111,6 +112,7 @@ message TrackingCodeOrderList{
     // field in the subsequent call to `ListTrackingCodeOrders` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -158,6 +160,7 @@ message TrackingCodeOrderReturnList{
     // field in the subsequent call to `ListTrackingCodeOrderReturns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -200,6 +203,7 @@ message TrackingCodeVisitList{
     // field in the subsequent call to `ListTrackingCodeVisits` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

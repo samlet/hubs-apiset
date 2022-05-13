@@ -52,6 +52,7 @@ message PosTerminalList{
     // field in the subsequent call to `ListPosTerminals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -91,6 +92,7 @@ message PosTerminalInternTxList{
     // field in the subsequent call to `ListPosTerminalInternTxes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -136,6 +138,7 @@ message PosTerminalLogList{
     // field in the subsequent call to `ListPosTerminalLogs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -186,6 +189,7 @@ message PosTerminalStateList{
     // field in the subsequent call to `ListPosTerminalStates` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

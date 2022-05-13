@@ -55,6 +55,7 @@ message ProdCatalogList{
     // field in the subsequent call to `ListProdCatalogs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Catalog Category Association
@@ -97,5 +98,6 @@ message ProdCatalogCategoryList{
     // field in the subsequent call to `ListProdCatalogCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

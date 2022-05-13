@@ -60,6 +60,7 @@ message PartyTaxAuthInfoList{
     // field in the subsequent call to `ListPartyTaxAuthInfos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -102,6 +103,7 @@ message TaxAuthorityList{
     // field in the subsequent call to `ListTaxAuthorities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -149,6 +151,7 @@ message TaxAuthorityAssocList{
     // field in the subsequent call to `ListTaxAuthorityAssocs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -190,6 +193,7 @@ message TaxAuthorityCategoryList{
     // field in the subsequent call to `ListTaxAuthorityCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -232,6 +236,7 @@ message TaxAuthorityGlAccountList{
     // field in the subsequent call to `ListTaxAuthorityGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -281,5 +286,6 @@ message TaxAuthorityRateProductList{
     // field in the subsequent call to `ListTaxAuthorityRateProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

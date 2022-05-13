@@ -59,6 +59,7 @@ message JobManagerLockList{
     // field in the subsequent call to `ListJobManagerLocks` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -96,6 +97,7 @@ message RuntimeDataList{
     // field in the subsequent call to `ListRuntimeData` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

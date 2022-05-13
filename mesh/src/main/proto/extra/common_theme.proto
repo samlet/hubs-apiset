@@ -51,6 +51,7 @@ message VisualThemeList{
     // field in the subsequent call to `ListVisualThemes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -93,6 +94,7 @@ message VisualThemeResourceList{
     // field in the subsequent call to `ListVisualThemeResources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -53,6 +53,7 @@ message WebAnalyticsConfigList{
     // field in the subsequent call to `ListWebAnalyticsConfigs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message WebSiteContentList{
     // field in the subsequent call to `ListWebSiteContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

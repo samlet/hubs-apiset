@@ -52,6 +52,7 @@ message ContainerList{
     // field in the subsequent call to `ListContainers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -94,6 +95,7 @@ message ContainerGeoPointList{
     // field in the subsequent call to `ListContainerGeoPoints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -131,6 +133,7 @@ message ContainerTypeList{
     // field in the subsequent call to `ListContainerTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -172,6 +175,7 @@ message FacilityAttributeList{
     // field in the subsequent call to `ListFacilityAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -216,6 +220,7 @@ message FacilityCalendarList{
     // field in the subsequent call to `ListFacilityCalendars` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -254,6 +259,7 @@ message FacilityCalendarTypeList{
     // field in the subsequent call to `ListFacilityCalendarTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -297,6 +303,7 @@ message FacilityCarrierShipmentList{
     // field in the subsequent call to `ListFacilityCarrierShipments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -339,6 +346,7 @@ message FacilityContentList{
     // field in the subsequent call to `ListFacilityContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -382,6 +390,7 @@ message FacilityGroupMemberList{
     // field in the subsequent call to `ListFacilityGroupMembers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -423,6 +432,7 @@ message FacilityGroupRoleList{
     // field in the subsequent call to `ListFacilityGroupRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -466,6 +476,7 @@ message FacilityGroupRollupList{
     // field in the subsequent call to `ListFacilityGroupRollups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -510,6 +521,7 @@ message FacilityPartyList{
     // field in the subsequent call to `ListFacilityParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -550,6 +562,7 @@ message FacilityTypeAttrList{
     // field in the subsequent call to `ListFacilityTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

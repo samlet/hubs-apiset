@@ -50,6 +50,7 @@ message BudgetList{
     // field in the subsequent call to `ListBudgets` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Budget Status
@@ -91,6 +92,7 @@ message BudgetStatusList{
     // field in the subsequent call to `ListBudgetStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

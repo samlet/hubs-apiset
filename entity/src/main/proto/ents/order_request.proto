@@ -73,6 +73,7 @@ message CustRequestList{
     // field in the subsequent call to `ListCustRequests` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Customer Request Item
@@ -126,6 +127,7 @@ message CustRequestItemList{
     // field in the subsequent call to `ListCustRequestItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -164,5 +166,6 @@ message CustRequestTypeList{
     // field in the subsequent call to `ListCustRequestTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

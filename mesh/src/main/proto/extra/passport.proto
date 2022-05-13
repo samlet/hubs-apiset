@@ -53,6 +53,7 @@ message GitHubUserList{
     // field in the subsequent call to `ListGitHubUsers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -92,6 +93,7 @@ message LinkedInUserList{
     // field in the subsequent call to `ListLinkedInUsers` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message OAuth2GitHubList{
     // field in the subsequent call to `ListOAuth2GitHubs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -183,6 +186,7 @@ message OAuth2LinkedInList{
     // field in the subsequent call to `ListOAuth2LinkedIns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -228,6 +232,7 @@ message ThirdPartyLoginList{
     // field in the subsequent call to `ListThirdPartyLogins` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

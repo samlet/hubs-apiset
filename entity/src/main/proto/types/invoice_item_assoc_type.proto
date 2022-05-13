@@ -45,4 +45,5 @@ message InvoiceItemAssocTypeList{
     // field in the subsequent call to `ListInvoiceItemAssocTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }

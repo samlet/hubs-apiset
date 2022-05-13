@@ -58,6 +58,7 @@ message AgreementList{
     // field in the subsequent call to `ListAgreements` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Agreement Item
@@ -100,6 +101,7 @@ message AgreementItemList{
     // field in the subsequent call to `ListAgreementItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -142,6 +144,7 @@ message AgreementProductApplList{
     // field in the subsequent call to `ListAgreementProductAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -188,5 +191,6 @@ message AgreementTermList{
     // field in the subsequent call to `ListAgreementTerms` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

@@ -59,6 +59,7 @@ message ExcelImportHistoryList{
     // field in the subsequent call to `ListExcelImportHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -102,6 +103,7 @@ message ProdCatalogInvFacilityList{
     // field in the subsequent call to `ListProdCatalogInvFacilities` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -147,6 +149,7 @@ message ProdCatalogRoleList{
     // field in the subsequent call to `ListProdCatalogRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

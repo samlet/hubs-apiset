@@ -54,6 +54,7 @@ message CustRequestAttributeList{
     // field in the subsequent call to `ListCustRequestAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -92,6 +93,7 @@ message CustRequestCategoryList{
     // field in the subsequent call to `ListCustRequestCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -131,6 +133,7 @@ message CustRequestCommEventList{
     // field in the subsequent call to `ListCustRequestCommEvents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -173,6 +176,7 @@ message CustRequestContentList{
     // field in the subsequent call to `ListCustRequestContents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -214,6 +218,7 @@ message CustRequestItemNoteList{
     // field in the subsequent call to `ListCustRequestItemNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -255,6 +260,7 @@ message CustRequestItemWorkEffortList{
     // field in the subsequent call to `ListCustRequestItemWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -294,6 +300,7 @@ message CustRequestNoteList{
     // field in the subsequent call to `ListCustRequestNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -338,6 +345,7 @@ message CustRequestPartyList{
     // field in the subsequent call to `ListCustRequestParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -379,6 +387,7 @@ message CustRequestStatusList{
     // field in the subsequent call to `ListCustRequestStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -419,6 +428,7 @@ message CustRequestTypeAttrList{
     // field in the subsequent call to `ListCustRequestTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -458,6 +468,7 @@ message CustRequestWorkEffortList{
     // field in the subsequent call to `ListCustRequestWorkEfforts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -501,6 +512,7 @@ message RespondingPartyList{
     // field in the subsequent call to `ListRespondingParties` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

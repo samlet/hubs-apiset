@@ -59,6 +59,7 @@ message WorkloadList{
     // field in the subsequent call to `ListWorkloads` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -101,6 +102,7 @@ message WorkloadItemList{
     // field in the subsequent call to `ListWorkloadItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -143,6 +145,7 @@ message WorkloadStatusList{
     // field in the subsequent call to `ListWorkloadStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -181,6 +184,7 @@ message WorkloadTypeList{
     // field in the subsequent call to `ListWorkloadTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

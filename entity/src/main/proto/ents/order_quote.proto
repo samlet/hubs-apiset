@@ -58,6 +58,7 @@ message QuoteList{
     // field in the subsequent call to `ListQuotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // flat-ent: Quote Adjustment
@@ -117,6 +118,7 @@ message QuoteAdjustmentList{
     // field in the subsequent call to `ListQuoteAdjustments` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Quote Item
@@ -174,6 +176,7 @@ message QuoteItemList{
     // field in the subsequent call to `ListQuoteItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -217,6 +220,7 @@ message QuoteRoleList{
     // field in the subsequent call to `ListQuoteRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -263,6 +267,7 @@ message QuoteTermList{
     // field in the subsequent call to `ListQuoteTerms` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

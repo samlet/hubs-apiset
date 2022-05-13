@@ -74,6 +74,7 @@ message AcctgTransList{
     // field in the subsequent call to `ListAcctgTrans` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Transaction Entry
@@ -135,6 +136,7 @@ message AcctgTransEntryList{
     // field in the subsequent call to `ListAcctgTransEntries` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -179,6 +181,7 @@ message GlAccountList{
     // field in the subsequent call to `ListGlAccounts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // GL Account Organization
@@ -218,6 +221,7 @@ message GlAccountTypeDefaultList{
     // field in the subsequent call to `ListGlAccountTypeDefaults` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -271,5 +275,6 @@ message PartyAcctgPreferenceList{
     // field in the subsequent call to `ListPartyAcctgPreferences` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 

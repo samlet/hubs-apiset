@@ -50,6 +50,7 @@ message ComponentList{
     // field in the subsequent call to `ListComponents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -90,6 +91,7 @@ message TenantComponentList{
     // field in the subsequent call to `ListTenantComponents` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -127,6 +129,7 @@ message TenantKeyEncryptingKeyList{
     // field in the subsequent call to `ListTenantKeyEncryptingKeys` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

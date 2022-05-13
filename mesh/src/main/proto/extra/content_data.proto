@@ -50,6 +50,7 @@ message AudioDataResourceList{
     // field in the subsequent call to `ListAudioDataResources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -91,6 +92,7 @@ message DataResourceAttributeList{
     // field in the subsequent call to `ListDataResourceAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -132,6 +134,7 @@ message DataResourceMetaDataList{
     // field in the subsequent call to `ListDataResourceMetaData` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -171,6 +174,7 @@ message DataResourcePurposeList{
     // field in the subsequent call to `ListDataResourcePurposes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -215,6 +219,7 @@ message DataResourceRoleList{
     // field in the subsequent call to `ListDataResourceRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -255,6 +260,7 @@ message DataResourceTypeAttrList{
     // field in the subsequent call to `ListDataResourceTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -292,6 +298,7 @@ message ImageDataResourceList{
     // field in the subsequent call to `ListImageDataResources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -329,6 +336,7 @@ message OtherDataResourceList{
     // field in the subsequent call to `ListOtherDataResources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -366,6 +374,7 @@ message VideoDataResourceList{
     // field in the subsequent call to `ListVideoDataResources` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

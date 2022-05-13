@@ -67,6 +67,7 @@ message MarketingCampaignList{
     // field in the subsequent call to `ListMarketingCampaigns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -106,6 +107,7 @@ message MarketingCampaignNoteList{
     // field in the subsequent call to `ListMarketingCampaignNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -148,6 +150,7 @@ message MarketingCampaignPriceList{
     // field in the subsequent call to `ListMarketingCampaignPrices` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -190,6 +193,7 @@ message MarketingCampaignPromoList{
     // field in the subsequent call to `ListMarketingCampaignPromos` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -234,6 +238,7 @@ message MarketingCampaignRoleList{
     // field in the subsequent call to `ListMarketingCampaignRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

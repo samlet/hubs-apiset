@@ -57,6 +57,7 @@ message OrderFactList{
     // field in the subsequent call to `ListOrderFacts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -95,6 +96,7 @@ message OrderFactTypeList{
     // field in the subsequent call to `ListOrderFactTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message OrderFactStatusList{
     // field in the subsequent call to `ListOrderFactStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

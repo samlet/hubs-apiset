@@ -50,6 +50,7 @@ message NeedTypeList{
     // field in the subsequent call to `ListNeedTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -99,6 +100,7 @@ message PartyNeedList{
     // field in the subsequent call to `ListPartyNeeds` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

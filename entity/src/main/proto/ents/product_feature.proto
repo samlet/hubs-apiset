@@ -56,6 +56,7 @@ message ProductFeatureList{
     // field in the subsequent call to `ListProductFeatures` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Feature Applicability
@@ -101,6 +102,7 @@ message ProductFeatureApplList{
     // field in the subsequent call to `ListProductFeatureAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -137,6 +139,7 @@ message ProductFeatureCategoryList{
     // field in the subsequent call to `ListProductFeatureCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 // Product Feature Category Application
@@ -178,6 +181,7 @@ message ProductFeatureCategoryApplList{
     // field in the subsequent call to `ListProductFeatureCategoryAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -219,6 +223,7 @@ message ProductFeatureIactnList{
     // field in the subsequent call to `ListProductFeatureIactns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

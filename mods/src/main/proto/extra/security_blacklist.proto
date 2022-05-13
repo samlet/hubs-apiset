@@ -51,6 +51,7 @@ message BlacklistList{
     // field in the subsequent call to `ListBlacklists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -89,6 +90,7 @@ message BlacklistTypeList{
     // field in the subsequent call to `ListBlacklistTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -131,6 +133,7 @@ message BlacklistStatusList{
     // field in the subsequent call to `ListBlacklistStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -175,6 +178,7 @@ message BlacklistItemList{
     // field in the subsequent call to `ListBlacklistItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -213,6 +217,7 @@ message BlacklistItemTypeList{
     // field in the subsequent call to `ListBlacklistItemTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -255,6 +260,7 @@ message BlacklistItemStatusList{
     // field in the subsequent call to `ListBlacklistItemStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

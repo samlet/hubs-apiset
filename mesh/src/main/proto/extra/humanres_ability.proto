@@ -59,6 +59,7 @@ message PartyQualList{
     // field in the subsequent call to `ListPartyQuals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -99,6 +100,7 @@ message PartyResumeList{
     // field in the subsequent call to `ListPartyResumes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -142,6 +144,7 @@ message PartySkillList{
     // field in the subsequent call to `ListPartySkills` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -190,6 +193,7 @@ message PerfReviewList{
     // field in the subsequent call to `ListPerfReviews` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -236,6 +240,7 @@ message PerfReviewItemList{
     // field in the subsequent call to `ListPerfReviewItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -280,6 +285,7 @@ message PerformanceNoteList{
     // field in the subsequent call to `ListPerformanceNotes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -327,6 +333,7 @@ message PersonTrainingList{
     // field in the subsequent call to `ListPersonTrainings` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

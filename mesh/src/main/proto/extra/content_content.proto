@@ -57,6 +57,7 @@ message ContentApprovalList{
     // field in the subsequent call to `ListContentApprovals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -97,6 +98,7 @@ message ContentKeywordList{
     // field in the subsequent call to `ListContentKeywords` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -138,6 +140,7 @@ message ContentMetaDataList{
     // field in the subsequent call to `ListContentMetaData` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -178,6 +181,7 @@ message ContentPurposeList{
     // field in the subsequent call to `ListContentPurposes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -219,6 +223,7 @@ message ContentRevisionList{
     // field in the subsequent call to `ListContentRevisions` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -262,6 +267,7 @@ message ContentRevisionItemList{
     // field in the subsequent call to `ListContentRevisionItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -310,6 +316,7 @@ message ContentSearchConstraintList{
     // field in the subsequent call to `ListContentSearchConstraints` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -352,6 +359,7 @@ message ContentSearchResultList{
     // field in the subsequent call to `ListContentSearchResults` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -392,6 +400,7 @@ message ContentTypeAttrList{
     // field in the subsequent call to `ListContentTypeAttrs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

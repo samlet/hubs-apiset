@@ -51,6 +51,7 @@ message WorkloadFeatureList{
     // field in the subsequent call to `ListWorkloadFeatures` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -95,6 +96,7 @@ message WorkloadFeatureApplList{
     // field in the subsequent call to `ListWorkloadFeatureAppls` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -133,6 +135,7 @@ message WorkloadFeatureApplTypeList{
     // field in the subsequent call to `ListWorkloadFeatureApplTypes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

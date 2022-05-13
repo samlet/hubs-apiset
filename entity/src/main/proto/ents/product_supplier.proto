@@ -73,6 +73,7 @@ message SupplierProductList{
     // field in the subsequent call to `ListSupplierProducts` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -115,6 +116,7 @@ message SupplierProductFeatureList{
     // field in the subsequent call to `ListSupplierProductFeatures` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

@@ -57,6 +57,7 @@ message PortalPageList{
     // field in the subsequent call to `ListPortalPages` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -98,6 +99,7 @@ message PortalPageColumnList{
     // field in the subsequent call to `ListPortalPageColumns` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -141,6 +143,7 @@ message PortalPagePortletList{
     // field in the subsequent call to `ListPortalPagePortlets` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -186,6 +189,7 @@ message PortalPortletList{
     // field in the subsequent call to `ListPortalPortlets` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -232,6 +236,7 @@ message PortletAttributeList{
     // field in the subsequent call to `ListPortletAttributes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -269,6 +274,7 @@ message PortletCategoryList{
     // field in the subsequent call to `ListPortletCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -308,6 +314,7 @@ message PortletPortletCategoryList{
     // field in the subsequent call to `ListPortletPortletCategories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

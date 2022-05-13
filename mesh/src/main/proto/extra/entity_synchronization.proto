@@ -62,6 +62,7 @@ message EntitySyncList{
     // field in the subsequent call to `ListEntitySyncs` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -125,6 +126,7 @@ message EntitySyncHistoryList{
     // field in the subsequent call to `ListEntitySyncHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -165,6 +167,7 @@ message EntitySyncIncludeList{
     // field in the subsequent call to `ListEntitySyncIncludes` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -204,6 +207,7 @@ message EntitySyncIncludeGroupList{
     // field in the subsequent call to `ListEntitySyncIncludeGroups` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -241,6 +245,7 @@ message EntitySyncRemoveList{
     // field in the subsequent call to `ListEntitySyncRemoves` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

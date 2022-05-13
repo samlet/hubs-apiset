@@ -55,6 +55,7 @@ message OldPicklistStatusHistoryList{
     // field in the subsequent call to `ListOldPicklistStatusHistories` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -100,6 +101,7 @@ message PicklistList{
     // field in the subsequent call to `ListPicklists` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -140,6 +142,7 @@ message PicklistBinList{
     // field in the subsequent call to `ListPicklistBins` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -187,6 +190,7 @@ message PicklistItemList{
     // field in the subsequent call to `ListPicklistItems` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -233,6 +237,7 @@ message PicklistRoleList{
     // field in the subsequent call to `ListPicklistRoles` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 
@@ -275,6 +280,7 @@ message PicklistStatusList{
     // field in the subsequent call to `ListPicklistStatuses` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }
 
 

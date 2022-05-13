@@ -46,4 +46,5 @@ message GlJournalList{
     // field in the subsequent call to `ListGlJournals` method to retrieve the next
     // page of results.
     string next_page_token = 2;
+    string region_id=3;
 }

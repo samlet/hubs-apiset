@@ -43,3 +43,8 @@ message ExtractedToken{
   string owner_id=5;      // party id
 }
 
+// query opts
+message QueryOpts{
+  int64 limit=1;
+  int64 offset=2;
+}
