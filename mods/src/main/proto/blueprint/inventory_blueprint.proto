@@ -16,6 +16,7 @@ import "common_data_types.proto";
 
 message InventoryBlueprintData {
   option (bluecc.bundle_name) = "Inventory";
+  // blueprint id, slug
   string id = 1 [(google.api.graphql.relay_options).id = true];
   google.protobuf.Timestamp start_ts=2;
 

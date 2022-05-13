@@ -20,6 +20,7 @@ message QlCommandProto{
   string ql=1;
   repeated string gen_ids=2;
   repeated QlCommandArgProto args=3;
+  map<string, string> path=4;
 }
 
 message QlConfProto{
