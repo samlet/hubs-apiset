@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "ContentOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/content_content.proto";
+import "ents/content_content.proto";
+
+service ContentOperations {
+  rpc CreateContent(CreateContentParams) returns (domain.ContentFlatData) {}
+  rpc UpdateContent(UpdateContentParams) returns (domain.ContentFlatData) {}
+  rpc GetContent(BundleGetRequest) returns (domain.ContentFlatData) {}
+
+  
+  rpc AddContentAttribute(AddContentAttributeParams) returns (routines.Response) {}
+  rpc UpdateContentAttribute(UpdateContentAttributeParams) returns (routines.Response) {}
+  rpc RemoveContentAttribute(RemoveContentAttributeParams) returns (routines.Response) {}
+  
+  rpc AddToContentAssoc(AddToContentAssocParams) returns (routines.Response) {}
+  rpc UpdateToContentAssoc(UpdateToContentAssocParams) returns (routines.Response) {}
+  rpc RemoveToContentAssoc(RemoveToContentAssocParams) returns (routines.Response) {}
+  
+  rpc AddContentPurpose(AddContentPurposeParams) returns (routines.Response) {}
+  rpc UpdateContentPurpose(UpdateContentPurposeParams) returns (routines.Response) {}
+  rpc RemoveContentPurpose(RemoveContentPurposeParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.ContentList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.ContentList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.ContentFlatData) {}
+  rpc Select(BundleHandle) returns (domain.ContentList) {}
+
+  rpc ListContents(BundleListRequest) returns (domain.ContentList) {}
+  rpc LoadContents(BundleIdsRequest) returns (domain.ContentList) {}
+  rpc StreamContents(BundleListRequest) returns (stream domain.ContentList) {}
+  rpc RemoveContent(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateContentParams{
+  BundleHandle handle = 1;
+  domain.ContentFlatData content = 2;
+  string comment = 3;
+}
+
+message UpdateContentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentFlatData content = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ContentAttribute
+
+message AddContentAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentAttributeData data = 3;
+  string comment = 4;
+}
+
+message UpdateContentAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentAttributeData data = 3;
+  string comment = 4;
+}
+
+message RemoveContentAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ToContentAssoc
+
+message AddToContentAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateToContentAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveToContentAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ContentPurpose
+
+message AddContentPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentPurposeData data = 3;
+  string comment = 4;
+}
+
+message UpdateContentPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ContentPurposeData data = 3;
+  string comment = 4;
+}
+
+message RemoveContentPurposeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+

@@ -198,6 +198,8 @@ enum Indicator{
   F = 70;
   G = 71;
   H = 72;
+
+  P = 80;
 }
 
 message DecimalValue {

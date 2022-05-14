@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "DataResourceSubtypesProto";
+
+package data_resource;
+
+import "routines.proto";
+import "relay.proto";
+import "common_options.proto";
+
+import "ents/content_data.proto";
+import "extra/content_data.proto";
+
+
+message TextProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "DataResource";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.DataResourceFlatData data_resource=2;
+  // components
+  domain.ElectronicTextFlatData electronic_text=3;
+}
+
+message ImageProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "DataResource";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.DataResourceFlatData data_resource=2;
+  // components
+  domain.ImageDataResourceData image_data_resource=3;
+}
+
+message VideoProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "DataResource";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.DataResourceFlatData data_resource=2;
+  // components
+  domain.VideoDataResourceData video_data_resource=3;
+}
+
+message AudioProto {
+  option (routines.links) = "";
+  option (bluecc.bundle_name) = "DataResource";
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  domain.DataResourceFlatData data_resource=2;
+  // components
+  domain.AudioDataResourceData audio_data_resource=3;
+}
+

@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "DataResourceOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/content_data.proto";
+import "types/data_resource_type.proto";
+import "extra/content_data.proto";
+
+service DataResourceOperations {
+  rpc CreateDataResource(CreateDataResourceParams) returns (domain.DataResourceFlatData) {}
+  rpc UpdateDataResource(UpdateDataResourceParams) returns (domain.DataResourceFlatData) {}
+  rpc GetDataResource(BundleGetRequest) returns (domain.DataResourceFlatData) {}
+
+  
+
+  // -- relations: one --
+  rpc ModifyElectronicText(ModifyElectronicTextParams) returns (routines.Response) {}
+  rpc ModifyAudioDataResource(ModifyAudioDataResourceParams) returns (routines.Response) {}
+  rpc ModifyDataResourceType(ModifyDataResourceTypeParams) returns (routines.Response) {}
+  rpc ModifyImageDataResource(ModifyImageDataResourceParams) returns (routines.Response) {}
+  rpc ModifyVideoDataResource(ModifyVideoDataResourceParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.DataResourceList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.DataResourceList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.DataResourceFlatData) {}
+  rpc Select(BundleHandle) returns (domain.DataResourceList) {}
+
+  rpc ListDataResources(BundleListRequest) returns (domain.DataResourceList) {}
+  rpc LoadDataResources(BundleIdsRequest) returns (domain.DataResourceList) {}
+  rpc StreamDataResources(BundleListRequest) returns (stream domain.DataResourceList) {}
+  rpc RemoveDataResource(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateDataResourceParams{
+  BundleHandle handle = 1;
+  domain.DataResourceFlatData dataResource = 2;
+  string comment = 3;
+}
+
+message UpdateDataResourceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.DataResourceFlatData dataResource = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ElectronicText
+
+message ModifyElectronicTextParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ElectronicTextFlatData data = 3;
+  string comment = 4;
+}
+
+// Mutations for AudioDataResource
+
+message ModifyAudioDataResourceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.AudioDataResourceData data = 3;
+  string comment = 4;
+}
+
+// Mutations for DataResourceType
+
+message ModifyDataResourceTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.DataResourceTypeData data = 3;
+  string comment = 4;
+}
+
+// Mutations for ImageDataResource
+
+message ModifyImageDataResourceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ImageDataResourceData data = 3;
+  string comment = 4;
+}
+
+// Mutations for VideoDataResource
+
+message ModifyVideoDataResourceParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.VideoDataResourceData data = 3;
+  string comment = 4;
+}
+
