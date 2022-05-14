@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "SubviewProto";
+
+package proto;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message ListItemProto{
+  string key=1;       // id
+  string title=2;     // name
+  string subtitle=3;  // description
+
+  string thumbnail=4;
+  repeated SectionProto sections=5;
+  google.protobuf.Timestamp create_ts=6;
+  google.protobuf.Timestamp update_ts=7;
+}
+
+message SectionProto{
+  string name=1;
+  string value=2;
+  string type=3;
+}
+
+message ListItems{
+  repeated ListItemProto items=1;
+}
