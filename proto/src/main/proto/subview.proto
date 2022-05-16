@@ -18,6 +18,8 @@ message ListItemProto{
   repeated SectionProto sections=5;
   google.protobuf.Timestamp create_ts=6;
   google.protobuf.Timestamp update_ts=7;
+
+  string entity=8;
 }
 
 message SectionProto{
