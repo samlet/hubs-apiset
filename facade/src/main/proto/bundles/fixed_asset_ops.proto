@@ -1,0 +1,180 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "FixedAssetOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "types/fixed_asset_type.proto";
+import "extra/accounting_fixedasset.proto";
+import "ents/accounting_fixedasset.proto";
+
+service FixedAssetOperations {
+  rpc CreateFixedAsset(CreateFixedAssetParams) returns (domain.FixedAssetFlatData) {}
+  rpc UpdateFixedAsset(UpdateFixedAssetParams) returns (domain.FixedAssetFlatData) {}
+  rpc GetFixedAsset(BundleGetRequest) returns (domain.FixedAssetFlatData) {}
+
+  
+  rpc AddFixedAssetGeoPoint(AddFixedAssetGeoPointParams) returns (routines.Response) {}
+  rpc UpdateFixedAssetGeoPoint(UpdateFixedAssetGeoPointParams) returns (routines.Response) {}
+  rpc RemoveFixedAssetGeoPoint(RemoveFixedAssetGeoPointParams) returns (routines.Response) {}
+  
+  rpc AddFixedAssetProduct(AddFixedAssetProductParams) returns (routines.Response) {}
+  rpc UpdateFixedAssetProduct(UpdateFixedAssetProductParams) returns (routines.Response) {}
+  rpc RemoveFixedAssetProduct(RemoveFixedAssetProductParams) returns (routines.Response) {}
+  
+  rpc AddFixedAssetAttribute(AddFixedAssetAttributeParams) returns (routines.Response) {}
+  rpc UpdateFixedAssetAttribute(UpdateFixedAssetAttributeParams) returns (routines.Response) {}
+  rpc RemoveFixedAssetAttribute(RemoveFixedAssetAttributeParams) returns (routines.Response) {}
+  
+  rpc AddFixedAssetMaint(AddFixedAssetMaintParams) returns (routines.Response) {}
+  rpc UpdateFixedAssetMaint(UpdateFixedAssetMaintParams) returns (routines.Response) {}
+  rpc RemoveFixedAssetMaint(RemoveFixedAssetMaintParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyFixedAssetType(ModifyFixedAssetTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.FixedAssetList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.FixedAssetList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.FixedAssetFlatData) {}
+  rpc Select(BundleHandle) returns (domain.FixedAssetList) {}
+
+  rpc ListFixedAssets(BundleListRequest) returns (domain.FixedAssetList) {}
+  rpc LoadFixedAssets(BundleIdsRequest) returns (domain.FixedAssetList) {}
+  rpc StreamFixedAssets(BundleListRequest) returns (stream domain.FixedAssetList) {}
+  rpc RemoveFixedAsset(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateFixedAssetParams{
+  BundleHandle handle = 1;
+  domain.FixedAssetFlatData fixedAsset = 2;
+  string comment = 3;
+}
+
+message UpdateFixedAssetParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetFlatData fixedAsset = 3;
+  string comment = 4;
+}
+
+
+// Mutations for FixedAssetGeoPoint
+
+message AddFixedAssetGeoPointParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetGeoPointData data = 3;
+  string comment = 4;
+}
+
+message UpdateFixedAssetGeoPointParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetGeoPointData data = 3;
+  string comment = 4;
+}
+
+message RemoveFixedAssetGeoPointParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FixedAssetProduct
+
+message AddFixedAssetProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetProductData data = 3;
+  string comment = 4;
+}
+
+message UpdateFixedAssetProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetProductData data = 3;
+  string comment = 4;
+}
+
+message RemoveFixedAssetProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FixedAssetAttribute
+
+message AddFixedAssetAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetAttributeData data = 3;
+  string comment = 4;
+}
+
+message UpdateFixedAssetAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetAttributeData data = 3;
+  string comment = 4;
+}
+
+message RemoveFixedAssetAttributeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FixedAssetMaint
+
+message AddFixedAssetMaintParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetMaintData data = 3;
+  string comment = 4;
+}
+
+message UpdateFixedAssetMaintParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetMaintData data = 3;
+  string comment = 4;
+}
+
+message RemoveFixedAssetMaintParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FixedAssetType
+
+message ModifyFixedAssetTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.FixedAssetTypeData data = 3;
+  string comment = 4;
+}
+

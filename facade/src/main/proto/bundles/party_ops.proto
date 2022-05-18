@@ -16,7 +16,6 @@ import "facade_common.proto";
 
 import "ents/product_supplier.proto";
 import "types/party_type.proto";
-import "ents/accounting_payment.proto";
 import "extra/party_agreement.proto";
 import "extra/party_party.proto";
 import "ents/party_contact.proto";
@@ -35,10 +34,6 @@ service PartyOperations {
   rpc AddPartyGeoPoint(AddPartyGeoPointParams) returns (routines.Response) {}
   rpc UpdatePartyGeoPoint(UpdatePartyGeoPointParams) returns (routines.Response) {}
   rpc RemovePartyGeoPoint(RemovePartyGeoPointParams) returns (routines.Response) {}
-  
-  rpc AddBillingAccountRole(AddBillingAccountRoleParams) returns (routines.Response) {}
-  rpc UpdateBillingAccountRole(UpdateBillingAccountRoleParams) returns (routines.Response) {}
-  rpc RemoveBillingAccountRole(RemoveBillingAccountRoleParams) returns (routines.Response) {}
   
   rpc AddPartyNote(AddPartyNoteParams) returns (routines.Response) {}
   rpc UpdatePartyNote(UpdatePartyNoteParams) returns (routines.Response) {}
@@ -151,29 +146,6 @@ message UpdatePartyGeoPointParams{
 }
 
 message RemovePartyGeoPointParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  string item_id = 3;
-  string comment = 4;
-}
-
-// Mutations for BillingAccountRole
-
-message AddBillingAccountRoleParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.BillingAccountRoleData data = 3;
-  string comment = 4;
-}
-
-message UpdateBillingAccountRoleParams{
-  BundleHandle handle = 1;
-  string main_id = 2;
-  domain.BillingAccountRoleData data = 3;
-  string comment = 4;
-}
-
-message RemoveBillingAccountRoleParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

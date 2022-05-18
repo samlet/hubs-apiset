@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "FixedAssetBlueprintProto";
+
+package blueprint;
+
+import "google/protobuf/timestamp.proto";
+import "routines.proto";
+import "relay.proto";
+import "common_options.proto";
+
+import "ents/accounting_fixedasset.proto";
+import "common_data_types.proto";
+
+message FixedAssetBlueprintData {
+  option (bluecc.bundle_name) = "FixedAsset";
+  // blueprint id, slug
+  string id = 1 [(google.api.graphql.relay_options).id = true];
+  google.protobuf.Timestamp start_ts=2;
+
+  // fields encoding with jwt
+  //  string region_id=2;
+  //  string login_id=3;    // 发起者, userLoginId
+  //  string owner_id=4;    // 发起者, partyId
+  //  string token=5;       // 发起者, token, slug
+  proto.ExtractedToken token=3;
+
+  domain.FixedAssetFlatData entity=10;
+  repeated routines.Response response=11;  // 包含每一步骤的操作结果, 包括转换token的结果
+}
+

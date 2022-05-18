@@ -15,12 +15,21 @@ import "facade_common.proto";
 
 
 import "ents/accounting_payment.proto";
+import "extra/accounting_payment.proto";
 
 service BillingAccountOperations {
   rpc CreateBillingAccount(CreateBillingAccountParams) returns (domain.BillingAccountFlatData) {}
   rpc UpdateBillingAccount(UpdateBillingAccountParams) returns (domain.BillingAccountFlatData) {}
   rpc GetBillingAccount(BundleGetRequest) returns (domain.BillingAccountFlatData) {}
 
+  
+  rpc AddBillingAccountRole(AddBillingAccountRoleParams) returns (routines.Response) {}
+  rpc UpdateBillingAccountRole(UpdateBillingAccountRoleParams) returns (routines.Response) {}
+  rpc RemoveBillingAccountRole(RemoveBillingAccountRoleParams) returns (routines.Response) {}
+  
+  rpc AddBillingAccountTerm(AddBillingAccountTermParams) returns (routines.Response) {}
+  rpc UpdateBillingAccountTerm(UpdateBillingAccountTermParams) returns (routines.Response) {}
+  rpc RemoveBillingAccountTerm(RemoveBillingAccountTermParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -57,4 +66,50 @@ message UpdateBillingAccountParams{
   string comment = 4;
 }
 
+
+// Mutations for BillingAccountRole
+
+message AddBillingAccountRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BillingAccountRoleData data = 3;
+  string comment = 4;
+}
+
+message UpdateBillingAccountRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BillingAccountRoleData data = 3;
+  string comment = 4;
+}
+
+message RemoveBillingAccountRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for BillingAccountTerm
+
+message AddBillingAccountTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BillingAccountTermData data = 3;
+  string comment = 4;
+}
+
+message UpdateBillingAccountTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.BillingAccountTermData data = 3;
+  string comment = 4;
+}
+
+message RemoveBillingAccountTermParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
