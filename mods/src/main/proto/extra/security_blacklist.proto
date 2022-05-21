@@ -28,14 +28,15 @@ message BlacklistData {
     string blacklist_id = 1 [json_name = "blacklist_id", (google.api.graphql.relay_options).id = true];
     string blacklist_type_id = 2 [json_name = "blacklist_type_id"];
     string status_id = 3 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    string tenant_id = 4 [json_name = "tenant_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
     
         
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
 }
 
 
@@ -155,14 +156,15 @@ message BlacklistItemData {
     string block_by = 7 [json_name = "block_by"];
     string blacklist_item_type_id = 8 [json_name = "blacklist_item_type_id"];
     string status_id = 9 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
+    string tenant_id = 10 [json_name = "tenant_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
     
         
 
     // extra
-    google.protobuf.Struct extra = 21;
-    map<string, google.protobuf.Any> attachments = 22;
+    google.protobuf.Struct extra = 22;
+    map<string, google.protobuf.Any> attachments = 23;
 }
 
 

@@ -47,7 +47,7 @@ message ModelField{
   bool pk = 3;
   bool not_null = 4;
 
-  bool internal=5;
+  bool internal = 5;
 }
 
 message ModelRelation{
@@ -57,7 +57,7 @@ message ModelRelation{
   string title = 4;
   map<string, string> keymaps = 5;
 
-  bool auto_relation=6;
+  bool auto_relation = 6;
 }
 
 message ModelEntity{
@@ -69,7 +69,7 @@ message ModelEntity{
   map<string, ModelRelation> relations = 6;
 
   // --
-  string pkg=7;
+  string pkg = 7;
 }
 
 // -----------
@@ -179,6 +179,8 @@ message BundleListRequest{
   // [*List.next_page_token][google.example.library.v1.*List.next_page_token].
   // returned from the previous call to `List*` method.
   string page_token = 4;
+
+  string tenant_id = 5;
 }
 
 message BundleIdsRequest{

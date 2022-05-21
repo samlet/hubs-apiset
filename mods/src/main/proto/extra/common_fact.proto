@@ -29,14 +29,15 @@ message FactProtoData {
     string data = 2 [json_name = "data"];
     string fact_proto_type_id = 3 [json_name = "fact_proto_type_id"];
     string status_id = 4 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
+    string tenant_id = 5 [json_name = "tenant_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
     
         
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 14;
+    map<string, google.protobuf.Any> attachments = 15;
 }
 
 

@@ -1,0 +1,438 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "CommonTypesExtendProto";
+
+package domain;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+
+import "date.proto";
+import "timeofday.proto";
+import "routines.proto";
+import "condition.proto";
+import "relay.proto";
+
+// Types entity
+message TypesEntityData {
+    option (routines.entity_type) = "TypesEntity";
+    option (routines.keys).keys = "entity_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: entityId
+    // fields
+    string entity_id = 1 [json_name = "entity_id", (google.api.graphql.relay_options).id = true];
+    string entity = 2 [json_name = "entity"];
+    string party_content_type_id = 3 [json_name = "party_content_type_id"];
+    int64 sequence_num = 4 [json_name = "sequence_num"];
+    string enum_code = 5 [json_name = "enum_code"];
+    string mime_type_id = 6 [json_name = "mime_type_id"];
+    string return_type_id = 7 [json_name = "return_type_id"];
+    string contact_mech_type_id = 8 [json_name = "contact_mech_type_id"];
+    string customer_classification = 9 [json_name = "customer_classification"];
+    string plan_type_id = 10 [json_name = "plan_type_id"];
+    string acctg_trans_entry_type_id = 11 [json_name = "acctg_trans_entry_type_id"];
+    string facility_group_name = 12 [json_name = "facility_group_name"];
+    string fin_account_type_id = 13 [json_name = "fin_account_type_id"];
+    string shipment_gateway_config_id = 14 [json_name = "shipment_gateway_config_id"];
+    string default_packaging_type = 15 [json_name = "default_packaging_type"];
+    string product_category_type_id = 16 [json_name = "product_category_type_id"];
+    string product_meter_type_id = 17 [json_name = "product_meter_type_id"];
+    string lang_code3b = 18 [json_name = "lang_code3b"];
+    string gl_fiscal_type_id = 19 [json_name = "gl_fiscal_type_id"];
+    string gl_journal_id = 20 [json_name = "gl_journal_id"];
+    int64 term_value = 21 [json_name = "term_value"];
+    string supplier_pref_order_id = 22 [json_name = "supplier_pref_order_id"];
+    string lang_code3t = 23 [json_name = "lang_code3t"];
+    string perf_review_item_type_id = 24 [json_name = "perf_review_item_type_id"];
+    string content_operation_id = 25 [json_name = "content_operation_id"];
+    string gl_account_class_id = 26 [json_name = "gl_account_class_id"];
+    string fixed_asset_product_type_id = 27 [json_name = "fixed_asset_product_type_id"];
+    string order_item_assoc_type_id = 28 [json_name = "order_item_assoc_type_id"];
+    string fixed_asset_ident_type_id = 29 [json_name = "fixed_asset_ident_type_id"];
+    string agreement_content_type_id = 30 [json_name = "agreement_content_type_id"];
+    string status_code = 31 [json_name = "status_code"];
+    string geo_name = 32 [json_name = "geo_name"];
+    double employer_paid_percentage = 33 [json_name = "employer_paid_percentage"];
+    string status_type_id = 34 [json_name = "status_type_id"];
+    string label_image_format = 35 [json_name = "label_image_format"];
+    string contact_list_type_id = 36 [json_name = "contact_list_type_id"];
+    string party_relationship_name = 37 [json_name = "party_relationship_name"];
+    string cost_custom_method_id = 38 [json_name = "cost_custom_method_id"];
+    string work_effort_content_type_id = 39 [json_name = "work_effort_content_type_id"];
+    string invoice_item_assoc_type_id = 40 [json_name = "invoice_item_assoc_type_id"];
+    string lang_name = 41 [json_name = "lang_name"];
+    string visual_theme_set_id = 42 [json_name = "visual_theme_set_id"];
+    string inventory_item_type_id = 43 [json_name = "inventory_item_type_id"];
+    string survey_question_type_id = 44 [json_name = "survey_question_type_id"];
+    string product_feature_type_id = 45 [json_name = "product_feature_type_id"];
+    string postal_code_regex = 46 [json_name = "postal_code_regex"];
+    string role_type_id = 47 [json_name = "role_type_id"];
+    string require_state_province_id = 48 [json_name = "require_state_province_id"];
+    string parent_type_id = 49 [json_name = "parent_type_id"];
+    routines.Indicator has_postal_code_ext = 50 [json_name = "has_postal_code_ext"];
+    string address_format = 51 [json_name = "address_format"];
+    string period_type_id = 52 [json_name = "period_type_id"];
+    string gl_reconciliation_name = 53 [json_name = "gl_reconciliation_name"];
+    google.protobuf.Timestamp reconciled_date = 54 [json_name = "reconciled_date"];
+    string abbreviation = 55 [json_name = "abbreviation"];
+    string uom_id_to = 56 [json_name = "uom_id_to"];
+    string cost_component_calc_id = 57 [json_name = "cost_component_calc_id"];
+    string tele_code = 58 [json_name = "tele_code"];
+    string user_login_id = 59 [json_name = "user_login_id"];
+    string invoice_item_map_key = 60 [json_name = "invoice_item_map_key"];
+    string rounding_mode = 61 [json_name = "rounding_mode"];
+    string skill_type_id = 62 [json_name = "skill_type_id"];
+    string prod_catalog_category_type_id = 63 [json_name = "prod_catalog_category_type_id"];
+    string currency_uom_id = 64 [json_name = "currency_uom_id"];
+    google.protobuf.Timestamp created_date = 65 [json_name = "created_date"];
+    routines.Indicator is_closed = 66 [json_name = "is_closed"];
+    string return_item_type_id = 67 [json_name = "return_item_type_id"];
+    string organization_party_id = 68 [json_name = "organization_party_id"];
+    string entity_group_id = 69 [json_name = "entity_group_id"];
+    string entity_group_name = 70 [json_name = "entity_group_name"];
+    string product_price_type_id = 71 [json_name = "product_price_type_id"];
+    string default_return_label_memo = 72 [json_name = "default_return_label_memo"];
+    routines.FixedPoint amount_percentage = 73 [json_name = "amount_percentage"];
+    string access_meter_number = 74 [json_name = "access_meter_number"];
+    string budget_type_id = 75 [json_name = "budget_type_id"];
+    string access_user_key = 76 [json_name = "access_user_key"];
+    string sequence_id = 77 [json_name = "sequence_id"];
+    string geo_sec_code = 78 [json_name = "geo_sec_code"];
+    string cod_surcharge_currency_uom_id = 79 [json_name = "cod_surcharge_currency_uom_id"];
+    int64 numeric_code = 80 [json_name = "numeric_code"];
+    string privilege_enum_id = 81 [json_name = "privilege_enum_id"];
+    string return_adjustment_type_id = 82 [json_name = "return_adjustment_type_id"];
+    string content_assoc_predicate_id = 83 [json_name = "content_assoc_predicate_id"];
+    routines.Indicator is_posted = 84 [json_name = "is_posted"];
+    routines.Indicator has_table = 85 [json_name = "has_table"];
+    string web_site_content_type_id = 86 [json_name = "web_site_content_type_id"];
+    string data_source_type_id = 87 [json_name = "data_source_type_id"];
+    string user_pref_value = 88 [json_name = "user_pref_value"];
+    string default_gl_account_id = 89 [json_name = "default_gl_account_id"];
+    string termination_type_id = 90 [json_name = "termination_type_id"];
+    string user_pref_data_type = 91 [json_name = "user_pref_data_type"];
+    string term_name = 92 [json_name = "term_name"];
+    string data_resource_type_id = 93 [json_name = "data_resource_type_id"];
+    string parent_gl_xbrl_class_id = 94 [json_name = "parent_gl_xbrl_class_id"];
+    string test = 95 [json_name = "test"];
+    string fixed_asset_type_id = 96 [json_name = "fixed_asset_type_id"];
+    string work_effort_purpose_type_id = 97 [json_name = "work_effort_purpose_type_id"];
+    string bill_shipper_account_number = 98 [json_name = "bill_shipper_account_number"];
+    string gl_account_category_type_id = 99 [json_name = "gl_account_category_type_id"];
+    string order_adjustment_type_id = 100 [json_name = "order_adjustment_type_id"];
+    string settlement_term_id = 101 [json_name = "settlement_term_id"];
+    string good_identification_type_id = 102 [json_name = "good_identification_type_id"];
+    string payment_method_type_id = 103 [json_name = "payment_method_type_id"];
+    google.protobuf.Timestamp thru_date = 104 [json_name = "thru_date"];
+    string return_item_map_key = 105 [json_name = "return_item_map_key"];
+    routines.Indicator require_postal_code = 106 [json_name = "require_postal_code"];
+    string entity_or_package = 107 [json_name = "entity_or_package"];
+    string fin_account_trans_type_id = 108 [json_name = "fin_account_trans_type_id"];
+    string contact_mech_purpose_type_id = 109 [json_name = "contact_mech_purpose_type_id"];
+    string gl_account_group_type_id = 110 [json_name = "gl_account_group_type_id"];
+    int64 period_length = 111 [json_name = "period_length"];
+    string country_name = 112 [json_name = "country_name"];
+    string gl_xbrl_class_id = 113 [json_name = "gl_xbrl_class_id"];
+    string segment_group_type_id = 114 [json_name = "segment_group_type_id"];
+    string training_class_type_id = 115 [json_name = "training_class_type_id"];
+    string well_known_text = 116 [json_name = "well_known_text"];
+    string product_store_group_type_id = 117 [json_name = "product_store_group_type_id"];
+    string replenish_enum_id = 118 [json_name = "replenish_enum_id"];
+    string hit_type_id = 119 [json_name = "hit_type_id"];
+    string benefit_type_id = 120 [json_name = "benefit_type_id"];
+    string description = 121 [json_name = "description"];
+    string status_id_to = 122 [json_name = "status_id_to"];
+    string uom_type_id = 123 [json_name = "uom_type_id"];
+    string product_store_group_id = 124 [json_name = "product_store_group_id"];
+    string enum_type_id = 125 [json_name = "enum_type_id"];
+    string work_effort_good_std_type_id = 126 [json_name = "work_effort_good_std_type_id"];
+    routines.Currency reconciled_balance = 127 [json_name = "reconciled_balance"];
+    string quote_type_id = 128 [json_name = "quote_type_id"];
+    string payment_type_id = 129 [json_name = "payment_type_id"];
+    string connect_soap_url = 130 [json_name = "connect_soap_url"];
+    string geo_id_to = 131 [json_name = "geo_id_to"];
+    string country_number = 132 [json_name = "country_number"];
+    routines.Indicator require_postal_code_ext = 133 [json_name = "require_postal_code_ext"];
+    string gl_reconciliation_id = 134 [json_name = "gl_reconciliation_id"];
+    string work_effort_assoc_type_id = 135 [json_name = "work_effort_assoc_type_id"];
+    routines.Indicator is_refundable = 136 [json_name = "is_refundable"];
+    string variance_reason_id = 137 [json_name = "variance_reason_id"];
+    string rejection_id = 138 [json_name = "rejection_id"];
+    string cod_funds_code = 139 [json_name = "cod_funds_code"];
+    string benefit_name = 140 [json_name = "benefit_name"];
+    string employment_app_source_type_id = 141 [json_name = "employment_app_source_type_id"];
+    string gl_account_category_id = 142 [json_name = "gl_account_category_id"];
+    string invoice_type_id = 143 [json_name = "invoice_type_id"];
+    string meta_data_predicate_id = 144 [json_name = "meta_data_predicate_id"];
+    string period_name = 145 [json_name = "period_name"];
+    string agreement_type_id = 146 [json_name = "agreement_type_id"];
+    string shipper_number = 147 [json_name = "shipper_number"];
+    string communication_event_type_id = 148 [json_name = "communication_event_type_id"];
+    string transition_name = 149 [json_name = "transition_name"];
+    string requirement_type_id = 150 [json_name = "requirement_type_id"];
+    string party_type_id = 151 [json_name = "party_type_id"];
+    string country_abbr = 152 [json_name = "country_abbr"];
+    string content_assoc_type_id = 153 [json_name = "content_assoc_type_id"];
+    string order_denylist_type_id = 154 [json_name = "order_denylist_type_id"];
+    routines.FixedPoint min_estimate_weight = 155 [json_name = "min_estimate_weight"];
+    string product_feature_appl_type_id = 156 [json_name = "product_feature_appl_type_id"];
+    string product_price_action_type_id = 157 [json_name = "product_price_action_type_id"];
+    string created_by_user_login = 158 [json_name = "created_by_user_login"];
+    string party_classification_type_id = 159 [json_name = "party_classification_type_id"];
+    string save_cert_path = 160 [json_name = "save_cert_path"];
+    string standard_language_id = 161 [json_name = "standard_language_id"];
+    string telecom_method_type_id = 162 [json_name = "telecom_method_type_id"];
+    string label_image_type = 163 [json_name = "label_image_type"];
+    string uom_id = 164 [json_name = "uom_id"];
+    string appl_enum_id = 165 [json_name = "appl_enum_id"];
+    string head_version = 166 [json_name = "head_version"];
+    int64 per_milli_second = 167 [json_name = "per_milli_second"];
+    string custom_method_type_id = 168 [json_name = "custom_method_type_id"];
+    string prod_cat_content_type_id = 169 [json_name = "prod_cat_content_type_id"];
+    string shipper_pickup_type = 170 [json_name = "shipper_pickup_type"];
+    string user_pref_group_type_id = 171 [json_name = "user_pref_group_type_id"];
+    string gl_account_type_id = 172 [json_name = "gl_account_type_id"];
+    string custom_screen_type_id = 173 [json_name = "custom_screen_type_id"];
+    string template_location = 174 [json_name = "template_location"];
+    string budget_item_type_id = 175 [json_name = "budget_item_type_id"];
+    string rate_type_id = 176 [json_name = "rate_type_id"];
+    string role_type_id_valid_from = 177 [json_name = "role_type_id_valid_from"];
+    string extension = 178 [json_name = "extension"];
+    string communication_event_prp_typ_id = 179 [json_name = "communication_event_prp_typ_id"];
+    int64 decimal_scale = 180 [json_name = "decimal_scale"];
+    string rate_estimate_template = 181 [json_name = "rate_estimate_template"];
+    string content_type_id = 182 [json_name = "content_type_id"];
+    string gl_account_id = 183 [json_name = "gl_account_id"];
+    string term_type_id = 184 [json_name = "term_type_id"];
+    string web_analytics_type_id = 185 [json_name = "web_analytics_type_id"];
+    string template_subscription = 186 [json_name = "template_subscription"];
+    string file_extension_id = 187 [json_name = "file_extension_id"];
+    string data_source_id = 188 [json_name = "data_source_id"];
+    string lang_code2 = 189 [json_name = "lang_code2"];
+    string parent_class_id = 190 [json_name = "parent_class_id"];
+    string job_interview_type_id = 191 [json_name = "job_interview_type_id"];
+    string return_reason_id = 192 [json_name = "return_reason_id"];
+    string country_code = 193 [json_name = "country_code"];
+    string responsibility_type_id = 194 [json_name = "responsibility_type_id"];
+    string quantity_break_type_id = 195 [json_name = "quantity_break_type_id"];
+    string access_account_nbr = 196 [json_name = "access_account_nbr"];
+    string product_assoc_type_id = 197 [json_name = "product_assoc_type_id"];
+    string offsetting_gl_account_type_id = 198 [json_name = "offsetting_gl_account_type_id"];
+    string access_license_number = 199 [json_name = "access_license_number"];
+    string role_type_id_valid_to = 200 [json_name = "role_type_id_valid_to"];
+    string work_req_fulf_type_id = 201 [json_name = "work_req_fulf_type_id"];
+    string cust_request_resolution_id = 202 [json_name = "cust_request_resolution_id"];
+    string enum_id = 203 [json_name = "enum_id"];
+    string condition_expression = 204 [json_name = "condition_expression"];
+    string default_uom_id = 205 [json_name = "default_uom_id"];
+    string cost_component_type_id = 206 [json_name = "cost_component_type_id"];
+    string budget_review_result_type_id = 207 [json_name = "budget_review_result_type_id"];
+    string facility_group_id = 208 [json_name = "facility_group_id"];
+    string template_shipment = 209 [json_name = "template_shipment"];
+    string product_content_type_id = 210 [json_name = "product_content_type_id"];
+    string invoice_content_type_id = 211 [json_name = "invoice_content_type_id"];
+    string access_user_pwd = 212 [json_name = "access_user_pwd"];
+    string user_pref_type_id = 213 [json_name = "user_pref_type_id"];
+    string parent_category_id = 214 [json_name = "parent_category_id"];
+    string cust_request_type_id = 215 [json_name = "cust_request_type_id"];
+    string shipment_type_id = 216 [json_name = "shipment_type_id"];
+    string access_user_id = 217 [json_name = "access_user_id"];
+    string mrp_event_type_id = 218 [json_name = "mrp_event_type_id"];
+    string facility_group_type_id = 219 [json_name = "facility_group_type_id"];
+    string work_effort_type_id = 220 [json_name = "work_effort_type_id"];
+    string product_feature_iactn_type_id = 221 [json_name = "product_feature_iactn_type_id"];
+    string party_qual_type_id = 222 [json_name = "party_qual_type_id"];
+    string gl_journal_name = 223 [json_name = "gl_journal_name"];
+    string data_category_id = 224 [json_name = "data_category_id"];
+    string agreement_item_type_id = 225 [json_name = "agreement_item_type_id"];
+    string shipment_gateway_conf_type_id = 226 [json_name = "shipment_gateway_conf_type_id"];
+    string return_header_type_id = 227 [json_name = "return_header_type_id"];
+    string geo_id = 228 [json_name = "geo_id"];
+    int64 connect_timeout = 229 [json_name = "connect_timeout"];
+    string deduction_type_id = 230 [json_name = "deduction_type_id"];
+    routines.Currency opening_balance = 231 [json_name = "opening_balance"];
+    string gl_account_group_id = 232 [json_name = "gl_account_group_id"];
+    string head_action = 233 [json_name = "head_action"];
+    string perf_rating_type_id = 234 [json_name = "perf_rating_type_id"];
+    string fixed_asset_std_cost_type_id = 235 [json_name = "fixed_asset_std_cost_type_id"];
+    string acctg_trans_type_id = 236 [json_name = "acctg_trans_type_id"];
+    string tax_authority_assoc_type_id = 237 [json_name = "tax_authority_assoc_type_id"];
+    string product_maint_type_id = 238 [json_name = "product_maint_type_id"];
+    string invoice_item_type_id = 239 [json_name = "invoice_item_type_id"];
+    string cod_surcharge_apply_to_package = 240 [json_name = "cod_surcharge_apply_to_package"];
+    string save_cert_info = 241 [json_name = "save_cert_info"];
+    string country_capital = 242 [json_name = "country_capital"];
+    google.protobuf.Timestamp from_date = 243 [json_name = "from_date"];
+    string party_relationship_type_id = 244 [json_name = "party_relationship_type_id"];
+    string access_shipping_key = 245 [json_name = "access_shipping_key"];
+    string empl_leave_reason_type_id = 246 [json_name = "empl_leave_reason_type_id"];
+    string lang_family = 247 [json_name = "lang_family"];
+    routines.FixedPoint cod_surcharge_amount = 248 [json_name = "cod_surcharge_amount"];
+    string leave_type_id = 249 [json_name = "leave_type_id"];
+    string tax_authority_rate_type_id = 250 [json_name = "tax_authority_rate_type_id"];
+    string custom_time_period_id = 251 [json_name = "custom_time_period_id"];
+    int64 period_num = 252 [json_name = "period_num"];
+    string geo_type_id = 253 [json_name = "geo_type_id"];
+    double conversion_factor = 254 [json_name = "conversion_factor"];
+    string document_type_id = 255 [json_name = "document_type_id"];
+    string default_dropoff_type = 256 [json_name = "default_dropoff_type"];
+    string order_type_id = 257 [json_name = "order_type_id"];
+    string subscription_type_id = 258 [json_name = "subscription_type_id"];
+    string parent_period_id = 259 [json_name = "parent_period_id"];
+    string category_name = 260 [json_name = "category_name"];
+    string shipment_contact_mech_type_id = 261 [json_name = "shipment_contact_mech_type_id"];
+    string connect_url_labels = 262 [json_name = "connect_url_labels"];
+    string shopping_list_type_id = 263 [json_name = "shopping_list_type_id"];
+    google.protobuf.Timestamp posted_date = 264 [json_name = "posted_date"];
+    string primary_parent_group_id = 265 [json_name = "primary_parent_group_id"];
+    string content_purpose_type_id = 266 [json_name = "content_purpose_type_id"];
+    string last_modified_by_user_login = 267 [json_name = "last_modified_by_user_login"];
+    string tracking_code_type_id = 268 [json_name = "tracking_code_type_id"];
+    routines.Currency variable_cost = 269 [json_name = "variable_cost"];
+    string cost_gl_account_type_id = 270 [json_name = "cost_gl_account_type_id"];
+    string facility_type_id = 271 [json_name = "facility_type_id"];
+    string product_price_purpose_id = 272 [json_name = "product_price_purpose_id"];
+    string access_password = 273 [json_name = "access_password"];
+    string order_item_type_id = 274 [json_name = "order_item_type_id"];
+    string conf_item_content_type_id = 275 [json_name = "conf_item_content_type_id"];
+    string connect_url = 276 [json_name = "connect_url"];
+    routines.Indicator is_physical = 277 [json_name = "is_physical"];
+    string product_store_group_name = 278 [json_name = "product_store_group_name"];
+    string data_template_type_id = 279 [json_name = "data_template_type_id"];
+    string comments = 280 [json_name = "comments"];
+    routines.Indicator is_digital = 281 [json_name = "is_digital"];
+    string product_average_cost_type_id = 282 [json_name = "product_average_cost_type_id"];
+    google.protobuf.Timestamp last_modified_date = 283 [json_name = "last_modified_date"];
+    routines.Currency fixed_cost = 284 [json_name = "fixed_cost"];
+    string card_type = 285 [json_name = "card_type"];
+    string geo_code = 286 [json_name = "geo_code"];
+    string payment_gateway_config_type_id = 287 [json_name = "payment_gateway_config_type_id"];
+    string default_return_label_subject = 288 [json_name = "default_return_label_subject"];
+    string lang_charset = 289 [json_name = "lang_charset"];
+    int64 max_estimate_weight = 290 [json_name = "max_estimate_weight"];
+    string character_set_id = 291 [json_name = "character_set_id"];
+    string custom_method_id = 292 [json_name = "custom_method_id"];
+    string payment_group_type_id = 293 [json_name = "payment_group_type_id"];
+    string product_type_id = 294 [json_name = "product_type_id"];
+    string gl_resource_type_id = 295 [json_name = "gl_resource_type_id"];
+    string cod_allow_cod = 296 [json_name = "cod_allow_cod"];
+    string geo_assoc_type_id = 297 [json_name = "geo_assoc_type_id"];
+    routines.Indicator is_asset_class = 298 [json_name = "is_asset_class"];
+    string facility_assoc_type_id = 299 [json_name = "facility_assoc_type_id"];
+    string types_entity_type_id = 300 [json_name = "types_entity_type_id"];
+    string status_id = 301 [json_name = "status_id"];
+    string tenant_id = 302 [json_name = "tenant_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 303 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 304 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 311;
+    map<string, google.protobuf.Any> attachments = 312;
+}
+
+
+message TypesEntityKey{
+    string entity_id = 1 [json_name = "entity_id", (google.api.graphql.relay_options).id = true];
+}
+
+message TypesEntityList{
+    repeated TypesEntityData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTypesEntities` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+    string region_id=3;
+}
+
+
+// Types Entity Type Entity
+message TypesEntityTypeData {
+    option (routines.entity_type) = "TypesEntityType";
+    option (routines.keys).keys = "types_entity_type_id";
+    option (routines.keys).combine = false;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: typesEntityTypeId
+    // fields
+    string types_entity_type_id = 1 [json_name = "types_entity_type_id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [json_name = "parent_type_id"];
+    string description = 3 [json_name = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
+}
+
+
+message TypesEntityTypeKey{
+    string types_entity_type_id = 1 [json_name = "types_entity_type_id", (google.api.graphql.relay_options).id = true];
+}
+
+message TypesEntityTypeList{
+    repeated TypesEntityTypeData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTypesEntityTypes` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+    string region_id=3;
+}
+
+
+// Types Entity Status Entity
+message TypesEntityStatusData {
+    option (routines.entity_type) = "TypesEntityStatus";
+    option (routines.keys).keys = "types_entity_id, status_date";
+    option (routines.keys).combine = true;
+    option (routines.flat) = true;
+    option (routines.has_table) = true;
+    // keys: typesEntityId, statusDate
+    // fields
+    string types_entity_id = 1 [json_name = "types_entity_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
+    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
+    string status_id = 5 [json_name = "status_id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    
+        
+
+    // extra
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
+}
+
+
+message TypesEntityStatusKey{
+    string types_entity_id = 1 [json_name = "types_entity_id"];
+    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+}
+
+message TypesEntityStatusList{
+    repeated TypesEntityStatusData values=1;
+    // A token to retrieve next page of results.
+    // Pass this value in the
+    // [ListRequest.page_token][google.example.library.v1.ListRequest.page_token]
+    // field in the subsequent call to `ListTypesEntityStatuses` method to retrieve the next
+    // page of results.
+    string next_page_token = 2;
+    string region_id=3;
+}
+
+

@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "TypesEntityOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "extra/common_types.proto";
+
+service TypesEntityOperations {
+  rpc CreateTypesEntity(CreateTypesEntityParams) returns (domain.TypesEntityData) {}
+  rpc UpdateTypesEntity(UpdateTypesEntityParams) returns (domain.TypesEntityData) {}
+  rpc GetTypesEntity(BundleGetRequest) returns (domain.TypesEntityData) {}
+
+  
+  rpc AddTypesEntityStatus(AddTypesEntityStatusParams) returns (routines.Response) {}
+  rpc UpdateTypesEntityStatus(UpdateTypesEntityStatusParams) returns (routines.Response) {}
+  rpc RemoveTypesEntityStatus(RemoveTypesEntityStatusParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+  rpc ModifyTypesEntityType(ModifyTypesEntityTypeParams) returns (routines.Response) {}
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.TypesEntityList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.TypesEntityList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.TypesEntityData) {}
+  rpc Select(BundleHandle) returns (domain.TypesEntityList) {}
+
+  rpc ListTypesEntities(BundleListRequest) returns (domain.TypesEntityList) {}
+  rpc LoadTypesEntities(BundleIdsRequest) returns (domain.TypesEntityList) {}
+  rpc StreamTypesEntities(BundleListRequest) returns (stream domain.TypesEntityList) {}
+  rpc RemoveTypesEntity(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateTypesEntityParams{
+  BundleHandle handle = 1;
+  domain.TypesEntityData typesEntity = 2;
+  string comment = 3;
+}
+
+message UpdateTypesEntityParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TypesEntityData typesEntity = 3;
+  string comment = 4;
+}
+
+
+// Mutations for TypesEntityStatus
+
+message AddTypesEntityStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TypesEntityStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateTypesEntityStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TypesEntityStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveTypesEntityStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for TypesEntityType
+
+message ModifyTypesEntityTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TypesEntityTypeData data = 3;
+  string comment = 4;
+}
+
