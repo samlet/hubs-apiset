@@ -25,18 +25,18 @@ message ZipSalesRuleLookupData {
     option (routines.has_table) = true;
     // keys: stateCode, city, county, fromDate
     // fields
-    string state_code = 1 [json_name = "state_code"];
-    string city = 2 [json_name = "city"];
-    string county = 3 [json_name = "county"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    string id_code = 5 [json_name = "id_code"];
-    string taxable = 6 [json_name = "taxable"];
-    string ship_cond = 7 [json_name = "ship_cond"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string state_code = 1 [(routines.opts).field_type = "short-varchar"];
+    string city = 2 [(routines.opts).field_type = "short-varchar"];
+    string county = 3 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    string id_code = 5 [(routines.opts).field_type = "short-varchar"];
+    string taxable = 6 [(routines.opts).field_type = "short-varchar"];
+    string ship_cond = 7 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -45,10 +45,10 @@ message ZipSalesRuleLookupData {
 
 
 message ZipSalesRuleLookupKey{
-    string state_code = 1 [json_name = "state_code"];
-    string city = 2 [json_name = "city"];
-    string county = 3 [json_name = "county"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string state_code = 1 [(routines.opts).field_type = "short-varchar"];
+    string city = 2 [(routines.opts).field_type = "short-varchar"];
+    string county = 3 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ZipSalesRuleLookupList{
@@ -72,33 +72,33 @@ message ZipSalesTaxLookupData {
     option (routines.has_table) = true;
     // keys: zipCode, stateCode, city, county, fromDate
     // fields
-    string zip_code = 1 [json_name = "zip_code"];
-    string state_code = 2 [json_name = "state_code"];
-    string city = 3 [json_name = "city"];
-    string county = 4 [json_name = "county"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    string county_fips = 6 [json_name = "county_fips"];
-    routines.Indicator county_default = 7 [json_name = "county_default"];
-    routines.Indicator general_default = 8 [json_name = "general_default"];
-    routines.Indicator inside_city = 9 [json_name = "inside_city"];
-    string geo_code = 10 [json_name = "geo_code"];
-    routines.FixedPoint state_sales_tax = 11 [json_name = "state_sales_tax"];
-    routines.FixedPoint city_sales_tax = 12 [json_name = "city_sales_tax"];
-    routines.FixedPoint city_local_sales_tax = 13 [json_name = "city_local_sales_tax"];
-    routines.FixedPoint county_sales_tax = 14 [json_name = "county_sales_tax"];
-    routines.FixedPoint county_local_sales_tax = 15 [json_name = "county_local_sales_tax"];
-    routines.FixedPoint combo_sales_tax = 16 [json_name = "combo_sales_tax"];
-    routines.FixedPoint state_use_tax = 17 [json_name = "state_use_tax"];
-    routines.FixedPoint city_use_tax = 18 [json_name = "city_use_tax"];
-    routines.FixedPoint city_local_use_tax = 19 [json_name = "city_local_use_tax"];
-    routines.FixedPoint county_use_tax = 20 [json_name = "county_use_tax"];
-    routines.FixedPoint county_local_use_tax = 21 [json_name = "county_local_use_tax"];
-    routines.FixedPoint combo_use_tax = 22 [json_name = "combo_use_tax"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 23 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 24 [json_name = "created_tx_stamp"];
-    string id = 25 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string zip_code = 1 [(routines.opts).field_type = "short-varchar"];
+    string state_code = 2 [(routines.opts).field_type = "short-varchar"];
+    string city = 3 [(routines.opts).field_type = "short-varchar"];
+    string county = 4 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    string county_fips = 6 [(routines.opts).field_type = "short-varchar"];
+    routines.Indicator county_default = 7 [(routines.opts).field_type = "indicator"];
+    routines.Indicator general_default = 8 [(routines.opts).field_type = "indicator"];
+    routines.Indicator inside_city = 9 [(routines.opts).field_type = "indicator"];
+    string geo_code = 10 [(routines.opts).field_type = "short-varchar"];
+    routines.FixedPoint state_sales_tax = 11 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint city_sales_tax = 12 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint city_local_sales_tax = 13 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint county_sales_tax = 14 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint county_local_sales_tax = 15 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint combo_sales_tax = 16 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint state_use_tax = 17 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint city_use_tax = 18 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint city_local_use_tax = 19 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint county_use_tax = 20 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint county_local_use_tax = 21 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint combo_use_tax = 22 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 23 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 24 [(routines.opts).field_type = "date-time"];
+    string id = 25 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 26;
@@ -107,11 +107,11 @@ message ZipSalesTaxLookupData {
 
 
 message ZipSalesTaxLookupKey{
-    string zip_code = 1 [json_name = "zip_code"];
-    string state_code = 2 [json_name = "state_code"];
-    string city = 3 [json_name = "city"];
-    string county = 4 [json_name = "county"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+    string zip_code = 1 [(routines.opts).field_type = "short-varchar"];
+    string state_code = 2 [(routines.opts).field_type = "short-varchar"];
+    string city = 3 [(routines.opts).field_type = "short-varchar"];
+    string county = 4 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
 }
 
 message ZipSalesTaxLookupList{

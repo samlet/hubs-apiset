@@ -25,21 +25,21 @@ message TestFieldTypeData {
     option (routines.has_table) = true;
     // keys: testFieldTypeId
     // fields
-    string test_field_type_id = 1 [json_name = "test_field_type_id", (google.api.graphql.relay_options).id = true];
-    bytes blob_field = 2 [json_name = "blob_field"];
-    bytes byte_array_field = 3 [json_name = "byte_array_field"];
-    bytes object_field = 4 [json_name = "object_field"];
-    google.type.Date date_field = 5 [json_name = "date_field"];
-    google.type.TimeOfDay time_field = 6 [json_name = "time_field"];
-    google.protobuf.Timestamp date_time_field = 7 [json_name = "date_time_field"];
-    routines.FixedPoint fixed_point_field = 8 [json_name = "fixed_point_field"];
-    double floating_point_field = 9 [json_name = "floating_point_field"];
-    int64 numeric_field = 10 [json_name = "numeric_field"];
-    string clob_field = 11 [json_name = "clob_field"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    
-        
+    string test_field_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    bytes blob_field = 2 [(routines.opts).field_type = "blob"];
+    bytes byte_array_field = 3 [(routines.opts).field_type = "byte-array"];
+    bytes object_field = 4 [(routines.opts).field_type = "object"];
+    google.type.Date date_field = 5 [(routines.opts).field_type = "date"];
+    google.type.TimeOfDay time_field = 6 [(routines.opts).field_type = "time"];
+    google.protobuf.Timestamp date_time_field = 7 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint fixed_point_field = 8 [(routines.opts).field_type = "fixed-point"];
+    double floating_point_field = 9 [(routines.opts).field_type = "floating-point"];
+    int64 numeric_field = 10 [(routines.opts).field_type = "numeric"];
+    string clob_field = 11 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -48,7 +48,7 @@ message TestFieldTypeData {
 
 
 message TestFieldTypeKey{
-    string test_field_type_id = 1 [json_name = "test_field_type_id", (google.api.graphql.relay_options).id = true];
+    string test_field_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestFieldTypeList{
@@ -72,17 +72,17 @@ message TestingData {
     option (routines.has_table) = true;
     // keys: testingId
     // fields
-    string testing_id = 1 [json_name = "testing_id", (google.api.graphql.relay_options).id = true];
-    string testing_type_id = 2 [json_name = "testing_type_id"];
-    string testing_name = 3 [json_name = "testing_name"];
-    string description = 4 [json_name = "description"];
-    string comments = 5 [json_name = "comments"];
-    int64 testing_size = 6 [json_name = "testing_size"];
-    google.protobuf.Timestamp testing_date = 7 [json_name = "testing_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string testing_type_id = 2 [(routines.opts).field_type = "id"];
+    string testing_name = 3 [(routines.opts).field_type = "name"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    string comments = 5 [(routines.opts).field_type = "comment"];
+    int64 testing_size = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp testing_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -91,7 +91,7 @@ message TestingData {
 
 
 message TestingKey{
-    string testing_id = 1 [json_name = "testing_id", (google.api.graphql.relay_options).id = true];
+    string testing_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingList{
@@ -115,15 +115,15 @@ message TestingCryptoData {
     option (routines.has_table) = true;
     // keys: testingCryptoId
     // fields
-    string testing_crypto_id = 1 [json_name = "testing_crypto_id", (google.api.graphql.relay_options).id = true];
-    string testing_crypto_type_id = 2 [json_name = "testing_crypto_type_id"];
-    string unencrypted_value = 3 [json_name = "unencrypted_value"];
-    string encrypted_value = 4 [json_name = "encrypted_value"];
-    string salted_encrypted_value = 5 [json_name = "salted_encrypted_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_crypto_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string testing_crypto_type_id = 2 [(routines.opts).field_type = "id"];
+    string unencrypted_value = 3 [(routines.opts).field_type = "description"];
+    string encrypted_value = 4 [(routines.opts).field_type = "description"];
+    string salted_encrypted_value = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -132,7 +132,7 @@ message TestingCryptoData {
 
 
 message TestingCryptoKey{
-    string testing_crypto_id = 1 [json_name = "testing_crypto_id", (google.api.graphql.relay_options).id = true];
+    string testing_crypto_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingCryptoList{
@@ -156,14 +156,14 @@ message TestingItemData {
     option (routines.has_table) = true;
     // keys: testingId, testingSeqId
     // fields
-    string testing_id = 1 [json_name = "testing_id"];
-    string testing_seq_id = 2 [json_name = "testing_seq_id"];
-    string testing_history = 3 [json_name = "testing_history"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string testing_id = 1 [(routines.opts).field_type = "id"];
+    string testing_seq_id = 2 [(routines.opts).field_type = "id"];
+    string testing_history = 3 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -172,8 +172,8 @@ message TestingItemData {
 
 
 message TestingItemKey{
-    string testing_id = 1 [json_name = "testing_id"];
-    string testing_seq_id = 2 [json_name = "testing_seq_id"];
+    string testing_id = 1 [(routines.opts).field_type = "id"];
+    string testing_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message TestingItemList{
@@ -197,13 +197,13 @@ message TestingNodeData {
     option (routines.has_table) = true;
     // keys: testingNodeId
     // fields
-    string testing_node_id = 1 [json_name = "testing_node_id", (google.api.graphql.relay_options).id = true];
-    string primary_parent_node_id = 2 [json_name = "primary_parent_node_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_node_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string primary_parent_node_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -212,7 +212,7 @@ message TestingNodeData {
 
 
 message TestingNodeKey{
-    string testing_node_id = 1 [json_name = "testing_node_id", (google.api.graphql.relay_options).id = true];
+    string testing_node_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingNodeList{
@@ -236,17 +236,17 @@ message TestingNodeMemberData {
     option (routines.has_table) = true;
     // keys: testingNodeId, testingId, fromDate
     // fields
-    string testing_node_id = 1 [json_name = "testing_node_id"];
-    string testing_id = 2 [json_name = "testing_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp extend_from_date = 5 [json_name = "extend_from_date"];
-    google.protobuf.Timestamp extend_thru_date = 6 [json_name = "extend_thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string testing_node_id = 1 [(routines.opts).field_type = "id"];
+    string testing_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp extend_from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp extend_thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -255,9 +255,9 @@ message TestingNodeMemberData {
 
 
 message TestingNodeMemberKey{
-    string testing_node_id = 1 [json_name = "testing_node_id"];
-    string testing_id = 2 [json_name = "testing_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string testing_node_id = 1 [(routines.opts).field_type = "id"];
+    string testing_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message TestingNodeMemberList{
@@ -281,12 +281,12 @@ message TestingRemoveAllData {
     option (routines.has_table) = true;
     // keys: testingRemoveAllId
     // fields
-    string testing_remove_all_id = 1 [json_name = "testing_remove_all_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_remove_all_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 5;
@@ -295,7 +295,7 @@ message TestingRemoveAllData {
 
 
 message TestingRemoveAllKey{
-    string testing_remove_all_id = 1 [json_name = "testing_remove_all_id", (google.api.graphql.relay_options).id = true];
+    string testing_remove_all_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingRemoveAllList{
@@ -319,15 +319,15 @@ message TestingStatusData {
     option (routines.has_table) = true;
     // keys: testingStatusId
     // fields
-    string testing_status_id = 1 [json_name = "testing_status_id", (google.api.graphql.relay_options).id = true];
-    string testing_id = 2 [json_name = "testing_id"];
-    string status_id = 3 [json_name = "status_id"];
-    google.protobuf.Timestamp status_date = 4 [json_name = "status_date"];
-    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_status_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string testing_id = 2 [(routines.opts).field_type = "id"];
+    string status_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 4 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 5 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -336,7 +336,7 @@ message TestingStatusData {
 
 
 message TestingStatusKey{
-    string testing_status_id = 1 [json_name = "testing_status_id", (google.api.graphql.relay_options).id = true];
+    string testing_status_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingStatusList{
@@ -360,12 +360,12 @@ message TestingSubtypeData {
     option (routines.has_table) = true;
     // keys: testingTypeId
     // fields
-    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
-    string subtype_description = 2 [json_name = "subtype_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string subtype_description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 5;
@@ -374,7 +374,7 @@ message TestingSubtypeData {
 
 
 message TestingSubtypeKey{
-    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
+    string testing_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingSubtypeList{
@@ -398,12 +398,12 @@ message TestingTypeData {
     option (routines.has_table) = true;
     // keys: testingTypeId
     // fields
-    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string testing_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -412,7 +412,7 @@ message TestingTypeData {
 
 
 message TestingTypeKey{
-    string testing_type_id = 1 [json_name = "testing_type_id", (google.api.graphql.relay_options).id = true];
+    string testing_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TestingTypeList{

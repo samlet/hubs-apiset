@@ -25,16 +25,16 @@ message CatalinaSessionData {
     option (routines.has_table) = true;
     // keys: sessionId
     // fields
-    string session_id = 1 [json_name = "session_id", (google.api.graphql.relay_options).id = true];
-    int64 session_size = 2 [json_name = "session_size"];
-    bytes session_info = 3 [json_name = "session_info"];
-    routines.Indicator is_valid = 4 [json_name = "is_valid"];
-    int64 max_idle = 5 [json_name = "max_idle"];
-    int64 last_accessed = 6 [json_name = "last_accessed"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    
-        
+    string session_id = 1 [(routines.opts).field_type = "id-long", (google.api.graphql.relay_options).id = true];
+    int64 session_size = 2 [(routines.opts).field_type = "numeric"];
+    bytes session_info = 3 [(routines.opts).field_type = "blob"];
+    routines.Indicator is_valid = 4 [(routines.opts).field_type = "indicator"];
+    int64 max_idle = 5 [(routines.opts).field_type = "numeric"];
+    int64 last_accessed = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -43,7 +43,7 @@ message CatalinaSessionData {
 
 
 message CatalinaSessionKey{
-    string session_id = 1 [json_name = "session_id", (google.api.graphql.relay_options).id = true];
+    string session_id = 1 [(routines.opts).field_type = "id-long", (google.api.graphql.relay_options).id = true];
 }
 
 message CatalinaSessionList{

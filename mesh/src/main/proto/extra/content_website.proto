@@ -25,18 +25,18 @@ message WebSitePathAliasData {
     option (routines.has_table) = true;
     // keys: webSiteId, pathAlias, fromDate
     // fields
-    string web_site_id = 1 [json_name = "web_site_id"];
-    string path_alias = 2 [json_name = "path_alias"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string alias_to = 5 [json_name = "alias_to"];
-    string content_id = 6 [json_name = "content_id"];
-    string map_key = 7 [json_name = "map_key"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string web_site_id = 1 [(routines.opts).field_type = "id"];
+    string path_alias = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string alias_to = 5 [(routines.opts).field_type = "long-varchar"];
+    string content_id = 6 [(routines.opts).field_type = "id"];
+    string map_key = 7 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -45,9 +45,9 @@ message WebSitePathAliasData {
 
 
 message WebSitePathAliasKey{
-    string web_site_id = 1 [json_name = "web_site_id"];
-    string path_alias = 2 [json_name = "path_alias"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string web_site_id = 1 [(routines.opts).field_type = "id"];
+    string path_alias = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WebSitePathAliasList{
@@ -71,20 +71,20 @@ message WebSitePublishPointData {
     option (routines.has_table) = true;
     // keys: contentId
     // fields
-    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];
-    string template_title = 2 [json_name = "template_title"];
-    string style_sheet_file = 3 [json_name = "style_sheet_file"];
-    string logo = 4 [json_name = "logo"];
-    string medallion_logo = 5 [json_name = "medallion_logo"];
-    string line_logo = 6 [json_name = "line_logo"];
-    string left_bar_id = 7 [json_name = "left_bar_id"];
-    string right_bar_id = 8 [json_name = "right_bar_id"];
-    string content_dept = 9 [json_name = "content_dept"];
-    string about_content_id = 10 [json_name = "about_content_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string template_title = 2 [(routines.opts).field_type = "long-varchar"];
+    string style_sheet_file = 3 [(routines.opts).field_type = "long-varchar"];
+    string logo = 4 [(routines.opts).field_type = "long-varchar"];
+    string medallion_logo = 5 [(routines.opts).field_type = "long-varchar"];
+    string line_logo = 6 [(routines.opts).field_type = "long-varchar"];
+    string left_bar_id = 7 [(routines.opts).field_type = "id"];
+    string right_bar_id = 8 [(routines.opts).field_type = "id"];
+    string content_dept = 9 [(routines.opts).field_type = "id"];
+    string about_content_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -93,7 +93,7 @@ message WebSitePublishPointData {
 
 
 message WebSitePublishPointKey{
-    string content_id = 1 [json_name = "content_id", (google.api.graphql.relay_options).id = true];
+    string content_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message WebSitePublishPointList{

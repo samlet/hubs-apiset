@@ -20,15 +20,15 @@ message PartyRelationshipTypeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: partyRelationshipTypeId
-    string party_relationship_type_id = 1 [json_name = "party_relationship_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string party_relationship_name = 4 [json_name = "party_relationship_name"];
-    string description = 5 [json_name = "description"];
-    string role_type_id_valid_from = 6 [json_name = "role_type_id_valid_from"];
-    string role_type_id_valid_to = 7 [json_name = "role_type_id_valid_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+    string party_relationship_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string party_relationship_name = 4 [(routines.opts).field_type = "name"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    string role_type_id_valid_from = 6 [(routines.opts).field_type = "id"];
+    string role_type_id_valid_to = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -37,7 +37,7 @@ message PartyRelationshipTypeData {
 }
 
 message PartyRelationshipTypeKey{
-    string party_relationship_type_id = 1 [json_name = "party_relationship_type_id", (google.api.graphql.relay_options).id = true];
+    string party_relationship_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyRelationshipTypeList{

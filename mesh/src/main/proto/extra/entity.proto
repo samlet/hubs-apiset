@@ -25,12 +25,12 @@ message JavaResourceData {
     option (routines.has_table) = true;
     // keys: resourceName
     // fields
-    string resource_name = 1 [json_name = "resource_name", (google.api.graphql.relay_options).id = true];
-    bytes resource_value = 2 [json_name = "resource_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string resource_name = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
+    bytes resource_value = 2 [(routines.opts).field_type = "byte-array"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 5;
@@ -39,7 +39,7 @@ message JavaResourceData {
 
 
 message JavaResourceKey{
-    string resource_name = 1 [json_name = "resource_name", (google.api.graphql.relay_options).id = true];
+    string resource_name = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
 }
 
 message JavaResourceList{

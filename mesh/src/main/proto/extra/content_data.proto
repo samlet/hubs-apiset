@@ -25,12 +25,12 @@ message AudioDataResourceData {
     option (routines.has_table) = true;
     // keys: dataResourceId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
-    bytes audio_data = 2 [json_name = "audio_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    bytes audio_data = 2 [(routines.opts).field_type = "byte-array"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -39,7 +39,7 @@ message AudioDataResourceData {
 
 
 message AudioDataResourceKey{
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message AudioDataResourceList{
@@ -63,15 +63,15 @@ message DataResourceAttributeData {
     option (routines.has_table) = true;
     // keys: dataResourceId, attrName
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -80,8 +80,8 @@ message DataResourceAttributeData {
 
 
 message DataResourceAttributeKey{
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message DataResourceAttributeList{
@@ -105,15 +105,15 @@ message DataResourceMetaDataData {
     option (routines.has_table) = true;
     // keys: dataResourceId, metaDataPredicateId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string meta_data_predicate_id = 2 [json_name = "meta_data_predicate_id"];
-    string meta_data_value = 3 [json_name = "meta_data_value"];
-    string data_source_id = 4 [json_name = "data_source_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string meta_data_predicate_id = 2 [(routines.opts).field_type = "id"];
+    string meta_data_value = 3 [(routines.opts).field_type = "value"];
+    string data_source_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -122,8 +122,8 @@ message DataResourceMetaDataData {
 
 
 message DataResourceMetaDataKey{
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string meta_data_predicate_id = 2 [json_name = "meta_data_predicate_id"];
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string meta_data_predicate_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message DataResourceMetaDataList{
@@ -147,13 +147,13 @@ message DataResourcePurposeData {
     option (routines.has_table) = true;
     // keys: dataResourceId, contentPurposeTypeId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string content_purpose_type_id = 2 [json_name = "content_purpose_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string content_purpose_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -162,8 +162,8 @@ message DataResourcePurposeData {
 
 
 message DataResourcePurposeKey{
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string content_purpose_type_id = 2 [json_name = "content_purpose_type_id"];
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string content_purpose_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message DataResourcePurposeList{
@@ -187,16 +187,16 @@ message DataResourceRoleData {
     option (routines.has_table) = true;
     // keys: dataResourceId, partyId, roleTypeId, fromDate
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -205,10 +205,10 @@ message DataResourceRoleData {
 
 
 message DataResourceRoleKey{
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message DataResourceRoleList{
@@ -232,14 +232,14 @@ message DataResourceTypeAttrData {
     option (routines.has_table) = true;
     // keys: dataResourceTypeId, attrName
     // fields
-    string data_resource_type_id = 1 [json_name = "data_resource_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -248,8 +248,8 @@ message DataResourceTypeAttrData {
 
 
 message DataResourceTypeAttrKey{
-    string data_resource_type_id = 1 [json_name = "data_resource_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string data_resource_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message DataResourceTypeAttrList{
@@ -273,12 +273,12 @@ message ImageDataResourceData {
     option (routines.has_table) = true;
     // keys: dataResourceId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
-    bytes image_data = 2 [json_name = "image_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    bytes image_data = 2 [(routines.opts).field_type = "byte-array"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -287,7 +287,7 @@ message ImageDataResourceData {
 
 
 message ImageDataResourceKey{
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ImageDataResourceList{
@@ -311,12 +311,12 @@ message OtherDataResourceData {
     option (routines.has_table) = true;
     // keys: dataResourceId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
-    bytes data_resource_content = 2 [json_name = "data_resource_content"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    bytes data_resource_content = 2 [(routines.opts).field_type = "byte-array"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -325,7 +325,7 @@ message OtherDataResourceData {
 
 
 message OtherDataResourceKey{
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message OtherDataResourceList{
@@ -349,12 +349,12 @@ message VideoDataResourceData {
     option (routines.has_table) = true;
     // keys: dataResourceId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
-    bytes video_data = 2 [json_name = "video_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    bytes video_data = 2 [(routines.opts).field_type = "byte-array"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -363,7 +363,7 @@ message VideoDataResourceData {
 
 
 message VideoDataResourceKey{
-    string data_resource_id = 1 [json_name = "data_resource_id", (google.api.graphql.relay_options).id = true];
+    string data_resource_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message VideoDataResourceList{

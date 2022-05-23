@@ -20,13 +20,13 @@ message UomData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: uomId
-    string uom_id = 1 [json_name = "uom_id", (google.api.graphql.relay_options).id = true];
-    string uom_type_id = 2 [json_name = "uom_type_id"];
-    string abbreviation = 3 [json_name = "abbreviation"];
-    int64 numeric_code = 4 [json_name = "numeric_code"];
-    string description = 5 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string uom_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string uom_type_id = 2 [(routines.opts).field_type = "id"];
+    string abbreviation = 3 [(routines.opts).field_type = "short-varchar"];
+    int64 numeric_code = 4 [(routines.opts).field_type = "numeric"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -35,7 +35,7 @@ message UomData {
 }
 
 message UomKey{
-    string uom_id = 1 [json_name = "uom_id", (google.api.graphql.relay_options).id = true];
+    string uom_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message UomList{

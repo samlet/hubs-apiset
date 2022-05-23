@@ -25,15 +25,15 @@ message AccommodationSpotData {
     option (routines.has_table) = true;
     // keys: accommodationSpotId
     // fields
-    string accommodation_spot_id = 1 [json_name = "accommodation_spot_id", (google.api.graphql.relay_options).id = true];
-    string accommodation_class_id = 2 [json_name = "accommodation_class_id"];
-    string fixed_asset_id = 3 [json_name = "fixed_asset_id"];
-    int64 number_of_spaces = 4 [json_name = "number_of_spaces"];
-    string description = 5 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string accommodation_spot_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string accommodation_class_id = 2 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 3 [(routines.opts).field_type = "id"];
+    int64 number_of_spaces = 4 [(routines.opts).field_type = "numeric"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -42,7 +42,7 @@ message AccommodationSpotData {
 
 
 message AccommodationSpotKey{
-    string accommodation_spot_id = 1 [json_name = "accommodation_spot_id", (google.api.graphql.relay_options).id = true];
+    string accommodation_spot_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message AccommodationSpotList{

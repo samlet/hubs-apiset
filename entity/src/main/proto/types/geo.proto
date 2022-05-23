@@ -20,15 +20,15 @@ message GeoData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: geoId
-    string geo_id = 1 [json_name = "geo_id", (google.api.graphql.relay_options).id = true];
-    string geo_type_id = 2 [json_name = "geo_type_id"];
-    string geo_name = 3 [json_name = "geo_name"];
-    string geo_code = 4 [json_name = "geo_code"];
-    string geo_sec_code = 5 [json_name = "geo_sec_code"];
-    string abbreviation = 6 [json_name = "abbreviation"];
-    string well_known_text = 7 [json_name = "well_known_text"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
+    string geo_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string geo_type_id = 2 [(routines.opts).field_type = "id"];
+    string geo_name = 3 [(routines.opts).field_type = "name"];
+    string geo_code = 4 [(routines.opts).field_type = "short-varchar"];
+    string geo_sec_code = 5 [(routines.opts).field_type = "short-varchar"];
+    string abbreviation = 6 [(routines.opts).field_type = "short-varchar"];
+    string well_known_text = 7 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -37,7 +37,7 @@ message GeoData {
 }
 
 message GeoKey{
-    string geo_id = 1 [json_name = "geo_id", (google.api.graphql.relay_options).id = true];
+    string geo_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message GeoList{

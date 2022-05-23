@@ -25,15 +25,15 @@ message ContactMechAttributeData {
     option (routines.has_table) = true;
     // keys: contactMechId, attrName
     // fields
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string contact_mech_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message ContactMechAttributeData {
 
 
 message ContactMechAttributeKey{
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string contact_mech_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message ContactMechAttributeList{
@@ -67,13 +67,13 @@ message ContactMechLinkData {
     option (routines.has_table) = true;
     // keys: contactMechIdFrom, contactMechIdTo
     // fields
-    string contact_mech_id_from = 1 [json_name = "contact_mech_id_from"];
-    string contact_mech_id_to = 2 [json_name = "contact_mech_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string contact_mech_id_from = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_id_to = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -82,8 +82,8 @@ message ContactMechLinkData {
 
 
 message ContactMechLinkKey{
-    string contact_mech_id_from = 1 [json_name = "contact_mech_id_from"];
-    string contact_mech_id_to = 2 [json_name = "contact_mech_id_to"];
+    string contact_mech_id_from = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_id_to = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContactMechLinkList{
@@ -107,14 +107,14 @@ message ContactMechTypeAttrData {
     option (routines.has_table) = true;
     // keys: contactMechTypeId, attrName
     // fields
-    string contact_mech_type_id = 1 [json_name = "contact_mech_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string contact_mech_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -123,8 +123,8 @@ message ContactMechTypeAttrData {
 
 
 message ContactMechTypeAttrKey{
-    string contact_mech_type_id = 1 [json_name = "contact_mech_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string contact_mech_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message ContactMechTypeAttrList{
@@ -148,13 +148,13 @@ message EmailAddressVerificationData {
     option (routines.has_table) = true;
     // keys: emailAddress
     // fields
-    string email_address = 1 [json_name = "email_address", (google.api.graphql.relay_options).id = true];
-    string verify_hash = 2 [json_name = "verify_hash"];
-    google.protobuf.Timestamp expire_date = 3 [json_name = "expire_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string email_address = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
+    string verify_hash = 2 [(routines.opts).field_type = "value"];
+    google.protobuf.Timestamp expire_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -163,7 +163,7 @@ message EmailAddressVerificationData {
 
 
 message EmailAddressVerificationKey{
-    string email_address = 1 [json_name = "email_address", (google.api.graphql.relay_options).id = true];
+    string email_address = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
 }
 
 message EmailAddressVerificationList{
@@ -187,20 +187,20 @@ message FtpAddressData {
     option (routines.has_table) = true;
     // keys: contactMechId
     // fields
-    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];
-    string hostname = 2 [json_name = "hostname"];
-    int64 port = 3 [json_name = "port"];
-    string username = 4 [json_name = "username"];
-    string ftp_password = 5 [json_name = "ftp_password"];
-    routines.Indicator binary_transfer = 6 [json_name = "binary_transfer"];
-    string file_path = 7 [json_name = "file_path"];
-    routines.Indicator zip_file = 8 [json_name = "zip_file"];
-    routines.Indicator passive_mode = 9 [json_name = "passive_mode"];
-    int64 default_timeout = 10 [json_name = "default_timeout"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string contact_mech_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string hostname = 2 [(routines.opts).field_type = "long-varchar"];
+    int64 port = 3 [(routines.opts).field_type = "numeric"];
+    string username = 4 [(routines.opts).field_type = "long-varchar"];
+    string ftp_password = 5 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator binary_transfer = 6 [(routines.opts).field_type = "indicator"];
+    string file_path = 7 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator zip_file = 8 [(routines.opts).field_type = "indicator"];
+    routines.Indicator passive_mode = 9 [(routines.opts).field_type = "indicator"];
+    int64 default_timeout = 10 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -209,7 +209,7 @@ message FtpAddressData {
 
 
 message FtpAddressKey{
-    string contact_mech_id = 1 [json_name = "contact_mech_id", (google.api.graphql.relay_options).id = true];
+    string contact_mech_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message FtpAddressList{
@@ -233,13 +233,13 @@ message PostalAddressBoundaryData {
     option (routines.has_table) = true;
     // keys: contactMechId, geoId
     // fields
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];
-    string geo_id = 2 [json_name = "geo_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string contact_mech_id = 1 [(routines.opts).field_type = "id"];
+    string geo_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -248,8 +248,8 @@ message PostalAddressBoundaryData {
 
 
 message PostalAddressBoundaryKey{
-    string contact_mech_id = 1 [json_name = "contact_mech_id"];
-    string geo_id = 2 [json_name = "geo_id"];
+    string contact_mech_id = 1 [(routines.opts).field_type = "id"];
+    string geo_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PostalAddressBoundaryList{
@@ -273,13 +273,13 @@ message ValidContactMechRoleData {
     option (routines.has_table) = true;
     // keys: roleTypeId, contactMechTypeId
     // fields
-    string role_type_id = 1 [json_name = "role_type_id"];
-    string contact_mech_type_id = 2 [json_name = "contact_mech_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string role_type_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -288,8 +288,8 @@ message ValidContactMechRoleData {
 
 
 message ValidContactMechRoleKey{
-    string role_type_id = 1 [json_name = "role_type_id"];
-    string contact_mech_type_id = 2 [json_name = "contact_mech_type_id"];
+    string role_type_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ValidContactMechRoleList{

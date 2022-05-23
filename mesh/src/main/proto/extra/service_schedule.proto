@@ -25,20 +25,20 @@ message JobManagerLockData {
     option (routines.has_table) = true;
     // keys: instanceId, fromDate
     // fields
-    string instance_id = 1 [json_name = "instance_id"];
-    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 3 [json_name = "thru_date"];
-    string reason_enum_id = 4 [json_name = "reason_enum_id"];
-    string comments = 5 [json_name = "comments"];
-    google.protobuf.Timestamp created_date = 6 [json_name = "created_date"];
-    string created_by_user_login = 7 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 8 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 9 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string instance_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 3 [(routines.opts).field_type = "date-time"];
+    string reason_enum_id = 4 [(routines.opts).field_type = "id"];
+    string comments = 5 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp created_date = 6 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 7 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 8 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 9 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -47,8 +47,8 @@ message JobManagerLockData {
 
 
 message JobManagerLockKey{
-    string instance_id = 1 [json_name = "instance_id"];
-    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+    string instance_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message JobManagerLockList{
@@ -72,12 +72,12 @@ message RuntimeDataData {
     option (routines.has_table) = true;
     // keys: runtimeDataId
     // fields
-    string runtime_data_id = 1 [json_name = "runtime_data_id", (google.api.graphql.relay_options).id = true];
-    string runtime_info = 2 [json_name = "runtime_info"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string runtime_data_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string runtime_info = 2 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -86,7 +86,7 @@ message RuntimeDataData {
 
 
 message RuntimeDataKey{
-    string runtime_data_id = 1 [json_name = "runtime_data_id", (google.api.graphql.relay_options).id = true];
+    string runtime_data_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message RuntimeDataList{

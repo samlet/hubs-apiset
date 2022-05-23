@@ -25,19 +25,19 @@ message UserLoginHistoryData {
     option (routines.has_table) = true;
     // keys: userLoginId, fromDate
     // fields
-    string user_login_id = 1 [json_name = "user_login_id"];
-    string visit_id = 2 [json_name = "visit_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string password_used = 5 [json_name = "password_used"];
-    routines.Indicator successful_login = 6 [json_name = "successful_login"];
-    string origin_user_login_id = 7 [json_name = "origin_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string party_id = 10 [json_name = "party_id"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    string visit_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string password_used = 5 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator successful_login = 6 [(routines.opts).field_type = "indicator"];
+    string origin_user_login_id = 7 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string party_id = 10 [(routines.opts).field_type = "id"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -46,8 +46,8 @@ message UserLoginHistoryData {
 
 
 message UserLoginHistoryKey{
-    string user_login_id = 1 [json_name = "user_login_id"];
-    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp from_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message UserLoginHistoryList{
@@ -71,15 +71,15 @@ message UserLoginPasswordHistoryData {
     option (routines.has_table) = true;
     // keys: userLoginId, fromDate
     // fields
-    string user_login_id = 1 [json_name = "user_login_id"];
-    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 3 [json_name = "thru_date"];
-    string current_password = 4 [json_name = "current_password"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp from_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 3 [(routines.opts).field_type = "date-time"];
+    string current_password = 4 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -88,8 +88,8 @@ message UserLoginPasswordHistoryData {
 
 
 message UserLoginPasswordHistoryKey{
-    string user_login_id = 1 [json_name = "user_login_id"];
-    google.protobuf.Timestamp from_date = 2 [json_name = "from_date"];
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp from_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message UserLoginPasswordHistoryList{
@@ -113,13 +113,13 @@ message UserLoginSessionData {
     option (routines.has_table) = true;
     // keys: userLoginId
     // fields
-    string user_login_id = 1 [json_name = "user_login_id", (google.api.graphql.relay_options).id = true];
-    google.protobuf.Timestamp saved_date = 2 [json_name = "saved_date"];
-    string session_data = 3 [json_name = "session_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp saved_date = 2 [(routines.opts).field_type = "date-time"];
+    string session_data = 3 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -128,7 +128,7 @@ message UserLoginSessionData {
 
 
 message UserLoginSessionKey{
-    string user_login_id = 1 [json_name = "user_login_id", (google.api.graphql.relay_options).id = true];
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong", (google.api.graphql.relay_options).id = true];
 }
 
 message UserLoginSessionList{

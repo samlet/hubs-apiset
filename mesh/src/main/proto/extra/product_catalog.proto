@@ -25,20 +25,20 @@ message ExcelImportHistoryData {
     option (routines.has_table) = true;
     // keys: userLoginId, sequenceNum
     // fields
-    string user_login_id = 1 [json_name = "user_login_id"];
-    int64 sequence_num = 2 [json_name = "sequence_num"];
-    string file_name = 3 [json_name = "file_name"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string thru_reason_id = 6 [json_name = "thru_reason_id"];
-    string status_id = 7 [json_name = "status_id"];
-    string thread_name = 8 [json_name = "thread_name"];
-    string log_file_name = 9 [json_name = "log_file_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    int64 sequence_num = 2 [(routines.opts).field_type = "numeric"];
+    string file_name = 3 [(routines.opts).field_type = "value"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string thru_reason_id = 6 [(routines.opts).field_type = "id"];
+    string status_id = 7 [(routines.opts).field_type = "id"];
+    string thread_name = 8 [(routines.opts).field_type = "name"];
+    string log_file_name = 9 [(routines.opts).field_type = "value"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -47,8 +47,8 @@ message ExcelImportHistoryData {
 
 
 message ExcelImportHistoryKey{
-    string user_login_id = 1 [json_name = "user_login_id"];
-    int64 sequence_num = 2 [json_name = "sequence_num"];
+    string user_login_id = 1 [(routines.opts).field_type = "id-vlong"];
+    int64 sequence_num = 2 [(routines.opts).field_type = "numeric"];
 }
 
 message ExcelImportHistoryList{
@@ -72,16 +72,16 @@ message ProdCatalogInvFacilityData {
     option (routines.has_table) = true;
     // keys: prodCatalogId, facilityId, fromDate
     // fields
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];
-    string facility_id = 2 [json_name = "facility_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string prod_catalog_id = 1 [(routines.opts).field_type = "id"];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -90,9 +90,9 @@ message ProdCatalogInvFacilityData {
 
 
 message ProdCatalogInvFacilityKey{
-    string prod_catalog_id = 1 [json_name = "prod_catalog_id"];
-    string facility_id = 2 [json_name = "facility_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string prod_catalog_id = 1 [(routines.opts).field_type = "id"];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProdCatalogInvFacilityList{
@@ -116,17 +116,17 @@ message ProdCatalogRoleData {
     option (routines.has_table) = true;
     // keys: partyId, roleTypeId, prodCatalogId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string prod_catalog_id = 3 [json_name = "prod_catalog_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    int64 sequence_num = 6 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string prod_catalog_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -135,10 +135,10 @@ message ProdCatalogRoleData {
 
 
 message ProdCatalogRoleKey{
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string prod_catalog_id = 3 [json_name = "prod_catalog_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string prod_catalog_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ProdCatalogRoleList{

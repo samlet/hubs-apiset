@@ -25,15 +25,15 @@ message FactProtoData {
     option (routines.has_table) = true;
     // keys: factId
     // fields
-    string fact_id = 1 [json_name = "fact_id", (google.api.graphql.relay_options).id = true];
-    string data = 2 [json_name = "data"];
-    string fact_proto_type_id = 3 [json_name = "fact_proto_type_id"];
-    string status_id = 4 [json_name = "status_id"];
-    string tenant_id = 5 [json_name = "tenant_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string fact_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string data = 2 [(routines.opts).field_type = "proto"];
+    string fact_proto_type_id = 3 [(routines.opts).field_type = "id"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -42,7 +42,7 @@ message FactProtoData {
 
 
 message FactProtoKey{
-    string fact_id = 1 [json_name = "fact_id", (google.api.graphql.relay_options).id = true];
+    string fact_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message FactProtoList{
@@ -66,13 +66,13 @@ message FactProtoTypeData {
     option (routines.has_table) = true;
     // keys: factProtoTypeId
     // fields
-    string fact_proto_type_id = 1 [json_name = "fact_proto_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string fact_proto_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -81,7 +81,7 @@ message FactProtoTypeData {
 
 
 message FactProtoTypeKey{
-    string fact_proto_type_id = 1 [json_name = "fact_proto_type_id", (google.api.graphql.relay_options).id = true];
+    string fact_proto_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message FactProtoTypeList{
@@ -105,16 +105,16 @@ message FactProtoStatusData {
     option (routines.has_table) = true;
     // keys: factProtoId, statusDate
     // fields
-    string fact_proto_id = 1 [json_name = "fact_proto_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
-    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    string status_id = 5 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string fact_proto_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp status_end_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -123,8 +123,8 @@ message FactProtoStatusData {
 
 
 message FactProtoStatusKey{
-    string fact_proto_id = 1 [json_name = "fact_proto_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    string fact_proto_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message FactProtoStatusList{

@@ -25,13 +25,13 @@ message UomGroupData {
     option (routines.has_table) = true;
     // keys: uomGroupId, uomId
     // fields
-    string uom_group_id = 1 [json_name = "uom_group_id"];
-    string uom_id = 2 [json_name = "uom_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string uom_group_id = 1 [(routines.opts).field_type = "id"];
+    string uom_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -40,8 +40,8 @@ message UomGroupData {
 
 
 message UomGroupKey{
-    string uom_group_id = 1 [json_name = "uom_group_id"];
-    string uom_id = 2 [json_name = "uom_id"];
+    string uom_group_id = 1 [(routines.opts).field_type = "id"];
+    string uom_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message UomGroupList{

@@ -24,28 +24,28 @@ message RequirementFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: requirementId
-    string requirement_id = 1 [json_name = "requirement_id", (google.api.graphql.relay_options).id = true];
-    string requirement_type_id = 2 [json_name = "requirement_type_id"];
-    string facility_id = 3 [json_name = "facility_id"];
-    string deliverable_id = 4 [json_name = "deliverable_id"];
-    string fixed_asset_id = 5 [json_name = "fixed_asset_id"];
-    string product_id = 6 [json_name = "product_id"];
-    string status_id = 7 [json_name = "status_id"];
-    string description = 8 [json_name = "description"];
-    google.protobuf.Timestamp requirement_start_date = 9 [json_name = "requirement_start_date"];
-    google.protobuf.Timestamp required_by_date = 10 [json_name = "required_by_date"];
-    routines.Currency estimated_budget = 11 [json_name = "estimated_budget"];
-    routines.FixedPoint quantity = 12 [json_name = "quantity"];
-    string use_case = 13 [json_name = "use_case"];
-    string reason = 14 [json_name = "reason"];
-    google.protobuf.Timestamp created_date = 15 [json_name = "created_date"];
-    string created_by_user_login = 16 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 17 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 18 [json_name = "last_modified_by_user_login"];
-    string facility_id_to = 19 [json_name = "facility_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
-    string tenant_id = 22 [json_name = "tenant_id"];
+    string requirement_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string requirement_type_id = 2 [(routines.opts).field_type = "id"];
+    string facility_id = 3 [(routines.opts).field_type = "id"];
+    string deliverable_id = 4 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 5 [(routines.opts).field_type = "id"];
+    string product_id = 6 [(routines.opts).field_type = "id"];
+    string status_id = 7 [(routines.opts).field_type = "id"];
+    string description = 8 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp requirement_start_date = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp required_by_date = 10 [(routines.opts).field_type = "date-time"];
+    routines.Currency estimated_budget = 11 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint quantity = 12 [(routines.opts).field_type = "fixed-point"];
+    string use_case = 13 [(routines.opts).field_type = "very-long"];
+    string reason = 14 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp created_date = 15 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 16 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 17 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 18 [(routines.opts).field_type = "id-vlong"];
+    string facility_id_to = 19 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 21 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 22 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -54,7 +54,7 @@ message RequirementFlatData {
 }
 
 message RequirementKey{
-    string requirement_id = 1 [json_name = "requirement_id", (google.api.graphql.relay_options).id = true];
+    string requirement_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message RequirementList{

@@ -25,15 +25,15 @@ message CustRequestAttributeData {
     option (routines.has_table) = true;
     // keys: custRequestId, attrName
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message CustRequestAttributeData {
 
 
 message CustRequestAttributeKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message CustRequestAttributeList{
@@ -67,13 +67,13 @@ message CustRequestCategoryData {
     option (routines.has_table) = true;
     // keys: custRequestCategoryId
     // fields
-    string cust_request_category_id = 1 [json_name = "cust_request_category_id", (google.api.graphql.relay_options).id = true];
-    string cust_request_type_id = 2 [json_name = "cust_request_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string cust_request_category_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string cust_request_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -82,7 +82,7 @@ message CustRequestCategoryData {
 
 
 message CustRequestCategoryKey{
-    string cust_request_category_id = 1 [json_name = "cust_request_category_id", (google.api.graphql.relay_options).id = true];
+    string cust_request_category_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustRequestCategoryList{
@@ -106,13 +106,13 @@ message CustRequestCommEventData {
     option (routines.has_table) = true;
     // keys: custRequestId, communicationEventId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -121,8 +121,8 @@ message CustRequestCommEventData {
 
 
 message CustRequestCommEventKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestCommEventList{
@@ -146,15 +146,15 @@ message CustRequestContentData {
     option (routines.has_table) = true;
     // keys: custRequestId, contentId, fromDate
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string content_id = 2 [json_name = "content_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -163,9 +163,9 @@ message CustRequestContentData {
 
 
 message CustRequestContentKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string content_id = 2 [json_name = "content_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message CustRequestContentList{
@@ -189,14 +189,14 @@ message CustRequestItemNoteData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId, noteId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string note_id = 3 [json_name = "note_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string note_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -205,9 +205,9 @@ message CustRequestItemNoteData {
 
 
 message CustRequestItemNoteKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string note_id = 3 [json_name = "note_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string note_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestItemNoteList{
@@ -231,14 +231,14 @@ message CustRequestItemWorkEffortData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId, workEffortId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string work_effort_id = 3 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -247,9 +247,9 @@ message CustRequestItemWorkEffortData {
 
 
 message CustRequestItemWorkEffortKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string work_effort_id = 3 [json_name = "work_effort_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestItemWorkEffortList{
@@ -273,13 +273,13 @@ message CustRequestNoteData {
     option (routines.has_table) = true;
     // keys: custRequestId, noteId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string note_id = 2 [json_name = "note_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -288,8 +288,8 @@ message CustRequestNoteData {
 
 
 message CustRequestNoteKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string note_id = 2 [json_name = "note_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestNoteList{
@@ -313,16 +313,16 @@ message CustRequestPartyData {
     option (routines.has_table) = true;
     // keys: custRequestId, partyId, roleTypeId, fromDate
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -331,10 +331,10 @@ message CustRequestPartyData {
 
 
 message CustRequestPartyKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message CustRequestPartyList{
@@ -358,16 +358,16 @@ message CustRequestStatusData {
     option (routines.has_table) = true;
     // keys: custRequestStatusId
     // fields
-    string cust_request_status_id = 1 [json_name = "cust_request_status_id", (google.api.graphql.relay_options).id = true];
-    string status_id = 2 [json_name = "status_id"];
-    string cust_request_id = 3 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 4 [json_name = "cust_request_item_seq_id"];
-    google.protobuf.Timestamp status_date = 5 [json_name = "status_date"];
-    string change_by_user_login_id = 6 [json_name = "change_by_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    
-        
+    string cust_request_status_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    string cust_request_id = 3 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 5 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 6 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -376,7 +376,7 @@ message CustRequestStatusData {
 
 
 message CustRequestStatusKey{
-    string cust_request_status_id = 1 [json_name = "cust_request_status_id", (google.api.graphql.relay_options).id = true];
+    string cust_request_status_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustRequestStatusList{
@@ -400,14 +400,14 @@ message CustRequestTypeAttrData {
     option (routines.has_table) = true;
     // keys: custRequestTypeId, attrName
     // fields
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -416,8 +416,8 @@ message CustRequestTypeAttrData {
 
 
 message CustRequestTypeAttrKey{
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string cust_request_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message CustRequestTypeAttrList{
@@ -441,13 +441,13 @@ message CustRequestWorkEffortData {
     option (routines.has_table) = true;
     // keys: custRequestId, workEffortId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -456,8 +456,8 @@ message CustRequestWorkEffortData {
 
 
 message CustRequestWorkEffortKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestWorkEffortList{
@@ -481,16 +481,16 @@ message RespondingPartyData {
     option (routines.has_table) = true;
     // keys: respondingPartySeqId, custRequestId, partyId
     // fields
-    string responding_party_seq_id = 1 [json_name = "responding_party_seq_id"];
-    string cust_request_id = 2 [json_name = "cust_request_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string contact_mech_id = 4 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp date_sent = 5 [json_name = "date_sent"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string responding_party_seq_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp date_sent = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -499,9 +499,9 @@ message RespondingPartyData {
 
 
 message RespondingPartyKey{
-    string responding_party_seq_id = 1 [json_name = "responding_party_seq_id"];
-    string cust_request_id = 2 [json_name = "cust_request_id"];
-    string party_id = 3 [json_name = "party_id"];
+    string responding_party_seq_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message RespondingPartyList{

@@ -24,25 +24,25 @@ message InvoiceFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: invoiceId
-    string invoice_id = 1 [json_name = "invoice_id", (google.api.graphql.relay_options).id = true];
-    string invoice_type_id = 2 [json_name = "invoice_type_id"];
-    string party_id_from = 3 [json_name = "party_id_from"];
-    string party_id = 4 [json_name = "party_id"];
-    string role_type_id = 5 [json_name = "role_type_id"];
-    string status_id = 6 [json_name = "status_id"];
-    string billing_account_id = 7 [json_name = "billing_account_id"];
-    string contact_mech_id = 8 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp invoice_date = 9 [json_name = "invoice_date"];
-    google.protobuf.Timestamp due_date = 10 [json_name = "due_date"];
-    google.protobuf.Timestamp paid_date = 11 [json_name = "paid_date"];
-    string invoice_message = 12 [json_name = "invoice_message"];
-    string reference_number = 13 [json_name = "reference_number"];
-    string description = 14 [json_name = "description"];
-    string currency_uom_id = 15 [json_name = "currency_uom_id"];
-    string recurrence_info_id = 16 [json_name = "recurrence_info_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
-    string tenant_id = 19 [json_name = "tenant_id"];
+    string invoice_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string invoice_type_id = 2 [(routines.opts).field_type = "id"];
+    string party_id_from = 3 [(routines.opts).field_type = "id"];
+    string party_id = 4 [(routines.opts).field_type = "id"];
+    string role_type_id = 5 [(routines.opts).field_type = "id"];
+    string status_id = 6 [(routines.opts).field_type = "id"];
+    string billing_account_id = 7 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 8 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp invoice_date = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp due_date = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp paid_date = 11 [(routines.opts).field_type = "date-time"];
+    string invoice_message = 12 [(routines.opts).field_type = "long-varchar"];
+    string reference_number = 13 [(routines.opts).field_type = "short-varchar"];
+    string description = 14 [(routines.opts).field_type = "description"];
+    string currency_uom_id = 15 [(routines.opts).field_type = "id"];
+    string recurrence_info_id = 16 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 19 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -51,7 +51,7 @@ message InvoiceFlatData {
 }
 
 message InvoiceKey{
-    string invoice_id = 1 [json_name = "invoice_id", (google.api.graphql.relay_options).id = true];
+    string invoice_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message InvoiceList{
@@ -73,29 +73,29 @@ message InvoiceItemFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: invoiceId, invoiceItemSeqId
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
-    string invoice_item_type_id = 3 [json_name = "invoice_item_type_id"];
-    string override_gl_account_id = 4 [json_name = "override_gl_account_id"];
-    string override_org_party_id = 5 [json_name = "override_org_party_id"];
-    string inventory_item_id = 6 [json_name = "inventory_item_id"];
-    string product_id = 7 [json_name = "product_id"];
-    string product_feature_id = 8 [json_name = "product_feature_id"];
-    string parent_invoice_id = 9 [json_name = "parent_invoice_id"];
-    string parent_invoice_item_seq_id = 10 [json_name = "parent_invoice_item_seq_id"];
-    string uom_id = 11 [json_name = "uom_id"];
-    routines.Indicator taxable_flag = 12 [json_name = "taxable_flag"];
-    routines.FixedPoint quantity = 13 [json_name = "quantity"];
-    routines.Currency amount = 14 [json_name = "amount"];
-    string description = 15 [json_name = "description"];
-    string tax_auth_party_id = 16 [json_name = "tax_auth_party_id"];
-    string tax_auth_geo_id = 17 [json_name = "tax_auth_geo_id"];
-    string tax_authority_rate_seq_id = 18 [json_name = "tax_authority_rate_seq_id"];
-    string sales_opportunity_id = 19 [json_name = "sales_opportunity_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
-    string id = 22 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    string tenant_id = 23 [json_name = "tenant_id"];
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string invoice_item_type_id = 3 [(routines.opts).field_type = "id"];
+    string override_gl_account_id = 4 [(routines.opts).field_type = "id"];
+    string override_org_party_id = 5 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 6 [(routines.opts).field_type = "id"];
+    string product_id = 7 [(routines.opts).field_type = "id"];
+    string product_feature_id = 8 [(routines.opts).field_type = "id"];
+    string parent_invoice_id = 9 [(routines.opts).field_type = "id"];
+    string parent_invoice_item_seq_id = 10 [(routines.opts).field_type = "id"];
+    string uom_id = 11 [(routines.opts).field_type = "id"];
+    routines.Indicator taxable_flag = 12 [(routines.opts).field_type = "indicator"];
+    routines.FixedPoint quantity = 13 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency amount = 14 [(routines.opts).field_type = "currency-precise"];
+    string description = 15 [(routines.opts).field_type = "description"];
+    string tax_auth_party_id = 16 [(routines.opts).field_type = "id"];
+    string tax_auth_geo_id = 17 [(routines.opts).field_type = "id"];
+    string tax_authority_rate_seq_id = 18 [(routines.opts).field_type = "id"];
+    string sales_opportunity_id = 19 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 21 [(routines.opts).field_type = "date-time"];
+    string id = 22 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 23 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -104,8 +104,8 @@ message InvoiceItemFlatData {
 }
 
 message InvoiceItemKey{
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message InvoiceItemList{
@@ -128,14 +128,14 @@ message InvoiceItemTypeGlAccountData {
     option (routines.has_table) = true;
     // keys: invoiceItemTypeId, organizationPartyId
     // fields
-    string invoice_item_type_id = 1 [json_name = "invoice_item_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
-    string gl_account_id = 3 [json_name = "gl_account_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string invoice_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
+    string gl_account_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -144,8 +144,8 @@ message InvoiceItemTypeGlAccountData {
 
 
 message InvoiceItemTypeGlAccountKey{
-    string invoice_item_type_id = 1 [json_name = "invoice_item_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string invoice_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message InvoiceItemTypeGlAccountList{
@@ -169,16 +169,16 @@ message InvoiceRoleData {
     option (routines.has_table) = true;
     // keys: invoiceId, partyId, roleTypeId
     // fields
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp datetime_performed = 4 [json_name = "datetime_performed"];
-    routines.FixedPoint percentage = 5 [json_name = "percentage"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp datetime_performed = 4 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint percentage = 5 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -187,9 +187,9 @@ message InvoiceRoleData {
 
 
 message InvoiceRoleKey{
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message InvoiceRoleList{
@@ -213,15 +213,15 @@ message InvoiceStatusData {
     option (routines.has_table) = true;
     // keys: statusId, invoiceId, statusDate
     // fields
-    string status_id = 1 [json_name = "status_id"];
-    string invoice_id = 2 [json_name = "invoice_id"];
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string status_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -230,9 +230,9 @@ message InvoiceStatusData {
 
 
 message InvoiceStatusKey{
-    string status_id = 1 [json_name = "status_id"];
-    string invoice_id = 2 [json_name = "invoice_id"];
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
+    string status_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message InvoiceStatusList{

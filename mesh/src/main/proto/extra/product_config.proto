@@ -25,18 +25,18 @@ message ConfigOptionProductOptionData {
     option (routines.has_table) = true;
     // keys: configId, configItemId, configOptionId, sequenceNum, productId
     // fields
-    string config_id = 1 [json_name = "config_id"];
-    string config_item_id = 2 [json_name = "config_item_id"];
-    int64 sequence_num = 3 [json_name = "sequence_num"];
-    string config_option_id = 4 [json_name = "config_option_id"];
-    string product_id = 5 [json_name = "product_id"];
-    string product_option_id = 6 [json_name = "product_option_id"];
-    string description = 7 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string config_item_id = 2 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 3 [(routines.opts).field_type = "numeric"];
+    string config_option_id = 4 [(routines.opts).field_type = "id"];
+    string product_id = 5 [(routines.opts).field_type = "id"];
+    string product_option_id = 6 [(routines.opts).field_type = "id"];
+    string description = 7 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -45,11 +45,11 @@ message ConfigOptionProductOptionData {
 
 
 message ConfigOptionProductOptionKey{
-    string config_id = 1 [json_name = "config_id"];
-    string config_item_id = 2 [json_name = "config_item_id"];
-    string config_option_id = 3 [json_name = "config_option_id"];
-    int64 sequence_num = 4 [json_name = "sequence_num"];
-    string product_id = 5 [json_name = "product_id"];
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string config_item_id = 2 [(routines.opts).field_type = "id"];
+    string config_option_id = 3 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 4 [(routines.opts).field_type = "numeric"];
+    string product_id = 5 [(routines.opts).field_type = "id"];
 }
 
 message ConfigOptionProductOptionList{
@@ -73,16 +73,16 @@ message ProdConfItemContentData {
     option (routines.has_table) = true;
     // keys: configItemId, contentId, confItemContentTypeId, fromDate
     // fields
-    string config_item_id = 1 [json_name = "config_item_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string conf_item_content_type_id = 3 [json_name = "conf_item_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string config_item_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string conf_item_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -91,10 +91,10 @@ message ProdConfItemContentData {
 
 
 message ProdConfItemContentKey{
-    string config_item_id = 1 [json_name = "config_item_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string conf_item_content_type_id = 3 [json_name = "conf_item_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string config_item_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string conf_item_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ProdConfItemContentList{
@@ -118,16 +118,16 @@ message ProductConfigConfigData {
     option (routines.has_table) = true;
     // keys: configId, configItemId, configOptionId, sequenceNum
     // fields
-    string config_id = 1 [json_name = "config_id"];
-    string config_item_id = 2 [json_name = "config_item_id"];
-    int64 sequence_num = 3 [json_name = "sequence_num"];
-    string config_option_id = 4 [json_name = "config_option_id"];
-    string description = 5 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string config_item_id = 2 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 3 [(routines.opts).field_type = "numeric"];
+    string config_option_id = 4 [(routines.opts).field_type = "id"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -136,10 +136,10 @@ message ProductConfigConfigData {
 
 
 message ProductConfigConfigKey{
-    string config_id = 1 [json_name = "config_id"];
-    string config_item_id = 2 [json_name = "config_item_id"];
-    string config_option_id = 3 [json_name = "config_option_id"];
-    int64 sequence_num = 4 [json_name = "sequence_num"];
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string config_item_id = 2 [(routines.opts).field_type = "id"];
+    string config_option_id = 3 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 4 [(routines.opts).field_type = "numeric"];
 }
 
 message ProductConfigConfigList{
@@ -163,18 +163,18 @@ message ProductConfigOptionIactnData {
     option (routines.has_table) = true;
     // keys: configItemId, configOptionId, configItemIdTo, configOptionIdTo, sequenceNum
     // fields
-    string config_item_id = 1 [json_name = "config_item_id"];
-    string config_option_id = 2 [json_name = "config_option_id"];
-    string config_item_id_to = 3 [json_name = "config_item_id_to"];
-    string config_option_id_to = 4 [json_name = "config_option_id_to"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    string config_iactn_type_id = 6 [json_name = "config_iactn_type_id"];
-    string description = 7 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string config_item_id = 1 [(routines.opts).field_type = "id"];
+    string config_option_id = 2 [(routines.opts).field_type = "id"];
+    string config_item_id_to = 3 [(routines.opts).field_type = "id"];
+    string config_option_id_to = 4 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    string config_iactn_type_id = 6 [(routines.opts).field_type = "id"];
+    string description = 7 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -183,11 +183,11 @@ message ProductConfigOptionIactnData {
 
 
 message ProductConfigOptionIactnKey{
-    string config_item_id = 1 [json_name = "config_item_id"];
-    string config_option_id = 2 [json_name = "config_option_id"];
-    string config_item_id_to = 3 [json_name = "config_item_id_to"];
-    string config_option_id_to = 4 [json_name = "config_option_id_to"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
+    string config_item_id = 1 [(routines.opts).field_type = "id"];
+    string config_option_id = 2 [(routines.opts).field_type = "id"];
+    string config_item_id_to = 3 [(routines.opts).field_type = "id"];
+    string config_option_id_to = 4 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
 }
 
 message ProductConfigOptionIactnList{
@@ -211,15 +211,15 @@ message ProductConfigStatsData {
     option (routines.has_table) = true;
     // keys: configId, productId
     // fields
-    string config_id = 1 [json_name = "config_id"];
-    string product_id = 2 [json_name = "product_id"];
-    int64 num_of_confs = 3 [json_name = "num_of_confs"];
-    string config_type_id = 4 [json_name = "config_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    int64 num_of_confs = 3 [(routines.opts).field_type = "numeric"];
+    string config_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -228,8 +228,8 @@ message ProductConfigStatsData {
 
 
 message ProductConfigStatsKey{
-    string config_id = 1 [json_name = "config_id"];
-    string product_id = 2 [json_name = "product_id"];
+    string config_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductConfigStatsList{

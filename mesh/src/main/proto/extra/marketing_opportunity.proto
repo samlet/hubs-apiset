@@ -25,25 +25,25 @@ message SalesForecastData {
     option (routines.has_table) = true;
     // keys: salesForecastId
     // fields
-    string sales_forecast_id = 1 [json_name = "sales_forecast_id", (google.api.graphql.relay_options).id = true];
-    string parent_sales_forecast_id = 2 [json_name = "parent_sales_forecast_id"];
-    string organization_party_id = 3 [json_name = "organization_party_id"];
-    string internal_party_id = 4 [json_name = "internal_party_id"];
-    string custom_time_period_id = 5 [json_name = "custom_time_period_id"];
-    string currency_uom_id = 6 [json_name = "currency_uom_id"];
-    routines.Currency quota_amount = 7 [json_name = "quota_amount"];
-    routines.Currency forecast_amount = 8 [json_name = "forecast_amount"];
-    routines.Currency best_case_amount = 9 [json_name = "best_case_amount"];
-    routines.Currency closed_amount = 10 [json_name = "closed_amount"];
-    routines.FixedPoint percent_of_quota_forecast = 11 [json_name = "percent_of_quota_forecast"];
-    routines.FixedPoint percent_of_quota_closed = 12 [json_name = "percent_of_quota_closed"];
-    routines.Currency pipeline_amount = 13 [json_name = "pipeline_amount"];
-    string created_by_user_login_id = 14 [json_name = "created_by_user_login_id"];
-    string modified_by_user_login_id = 15 [json_name = "modified_by_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
-    
-        
+    string sales_forecast_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_sales_forecast_id = 2 [(routines.opts).field_type = "id"];
+    string organization_party_id = 3 [(routines.opts).field_type = "id"];
+    string internal_party_id = 4 [(routines.opts).field_type = "id"];
+    string custom_time_period_id = 5 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 6 [(routines.opts).field_type = "id"];
+    routines.Currency quota_amount = 7 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency forecast_amount = 8 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency best_case_amount = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency closed_amount = 10 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint percent_of_quota_forecast = 11 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint percent_of_quota_closed = 12 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency pipeline_amount = 13 [(routines.opts).field_type = "currency-amount"];
+    string created_by_user_login_id = 14 [(routines.opts).field_type = "id-vlong"];
+    string modified_by_user_login_id = 15 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 28;
@@ -52,7 +52,7 @@ message SalesForecastData {
 
 
 message SalesForecastKey{
-    string sales_forecast_id = 1 [json_name = "sales_forecast_id", (google.api.graphql.relay_options).id = true];
+    string sales_forecast_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SalesForecastList{
@@ -76,18 +76,18 @@ message SalesForecastDetailData {
     option (routines.has_table) = true;
     // keys: salesForecastId, salesForecastDetailId
     // fields
-    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];
-    string sales_forecast_detail_id = 2 [json_name = "sales_forecast_detail_id"];
-    routines.Currency amount = 3 [json_name = "amount"];
-    string quantity_uom_id = 4 [json_name = "quantity_uom_id"];
-    routines.FixedPoint quantity = 5 [json_name = "quantity"];
-    string product_id = 6 [json_name = "product_id"];
-    string product_category_id = 7 [json_name = "product_category_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_forecast_id = 1 [(routines.opts).field_type = "id"];
+    string sales_forecast_detail_id = 2 [(routines.opts).field_type = "id"];
+    routines.Currency amount = 3 [(routines.opts).field_type = "currency-amount"];
+    string quantity_uom_id = 4 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 5 [(routines.opts).field_type = "fixed-point"];
+    string product_id = 6 [(routines.opts).field_type = "id"];
+    string product_category_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -96,8 +96,8 @@ message SalesForecastDetailData {
 
 
 message SalesForecastDetailKey{
-    string sales_forecast_id = 1 [json_name = "sales_forecast_id"];
-    string sales_forecast_detail_id = 2 [json_name = "sales_forecast_detail_id"];
+    string sales_forecast_id = 1 [(routines.opts).field_type = "id"];
+    string sales_forecast_detail_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesForecastDetailList{
@@ -121,26 +121,26 @@ message SalesForecastHistoryData {
     option (routines.has_table) = true;
     // keys: salesForecastHistoryId
     // fields
-    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id", (google.api.graphql.relay_options).id = true];
-    string sales_forecast_id = 2 [json_name = "sales_forecast_id"];
-    string parent_sales_forecast_id = 3 [json_name = "parent_sales_forecast_id"];
-    string organization_party_id = 4 [json_name = "organization_party_id"];
-    string internal_party_id = 5 [json_name = "internal_party_id"];
-    string custom_time_period_id = 6 [json_name = "custom_time_period_id"];
-    string currency_uom_id = 7 [json_name = "currency_uom_id"];
-    routines.Currency quota_amount = 8 [json_name = "quota_amount"];
-    routines.Currency forecast_amount = 9 [json_name = "forecast_amount"];
-    routines.Currency best_case_amount = 10 [json_name = "best_case_amount"];
-    routines.Currency closed_amount = 11 [json_name = "closed_amount"];
-    routines.FixedPoint percent_of_quota_forecast = 12 [json_name = "percent_of_quota_forecast"];
-    routines.FixedPoint percent_of_quota_closed = 13 [json_name = "percent_of_quota_closed"];
-    string change_note = 14 [json_name = "change_note"];
-    string modified_by_user_login_id = 15 [json_name = "modified_by_user_login_id"];
-    google.protobuf.Timestamp modified_timestamp = 16 [json_name = "modified_timestamp"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
-    
-        
+    string sales_forecast_history_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string sales_forecast_id = 2 [(routines.opts).field_type = "id"];
+    string parent_sales_forecast_id = 3 [(routines.opts).field_type = "id"];
+    string organization_party_id = 4 [(routines.opts).field_type = "id"];
+    string internal_party_id = 5 [(routines.opts).field_type = "id"];
+    string custom_time_period_id = 6 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 7 [(routines.opts).field_type = "id"];
+    routines.Currency quota_amount = 8 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency forecast_amount = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency best_case_amount = 10 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency closed_amount = 11 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint percent_of_quota_forecast = 12 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint percent_of_quota_closed = 13 [(routines.opts).field_type = "fixed-point"];
+    string change_note = 14 [(routines.opts).field_type = "very-long"];
+    string modified_by_user_login_id = 15 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp modified_timestamp = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 25;
@@ -149,7 +149,7 @@ message SalesForecastHistoryData {
 
 
 message SalesForecastHistoryKey{
-    string sales_forecast_history_id = 1 [json_name = "sales_forecast_history_id", (google.api.graphql.relay_options).id = true];
+    string sales_forecast_history_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SalesForecastHistoryList{
@@ -173,24 +173,24 @@ message SalesOpportunityData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id", (google.api.graphql.relay_options).id = true];
-    string opportunity_name = 2 [json_name = "opportunity_name"];
-    string description = 3 [json_name = "description"];
-    string next_step = 4 [json_name = "next_step"];
-    google.protobuf.Timestamp next_step_date = 5 [json_name = "next_step_date"];
-    routines.Currency estimated_amount = 6 [json_name = "estimated_amount"];
-    routines.FixedPoint estimated_probability = 7 [json_name = "estimated_probability"];
-    string currency_uom_id = 8 [json_name = "currency_uom_id"];
-    string marketing_campaign_id = 9 [json_name = "marketing_campaign_id"];
-    string data_source_id = 10 [json_name = "data_source_id"];
-    google.protobuf.Timestamp estimated_close_date = 11 [json_name = "estimated_close_date"];
-    string opportunity_stage_id = 12 [json_name = "opportunity_stage_id"];
-    string type_enum_id = 13 [json_name = "type_enum_id"];
-    string created_by_user_login = 14 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string opportunity_name = 2 [(routines.opts).field_type = "name"];
+    string description = 3 [(routines.opts).field_type = "very-long"];
+    string next_step = 4 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp next_step_date = 5 [(routines.opts).field_type = "date-time"];
+    routines.Currency estimated_amount = 6 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint estimated_probability = 7 [(routines.opts).field_type = "fixed-point"];
+    string currency_uom_id = 8 [(routines.opts).field_type = "id"];
+    string marketing_campaign_id = 9 [(routines.opts).field_type = "id"];
+    string data_source_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp estimated_close_date = 11 [(routines.opts).field_type = "date-time"];
+    string opportunity_stage_id = 12 [(routines.opts).field_type = "id"];
+    string type_enum_id = 13 [(routines.opts).field_type = "id"];
+    string created_by_user_login = 14 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 31;
@@ -199,7 +199,7 @@ message SalesOpportunityData {
 
 
 message SalesOpportunityKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id", (google.api.graphql.relay_options).id = true];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SalesOpportunityList{
@@ -223,16 +223,16 @@ message SalesOpportunityCompetitorData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId, competitorPartyId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string competitor_party_id = 2 [json_name = "competitor_party_id"];
-    string position_enum_id = 3 [json_name = "position_enum_id"];
-    string strengths = 4 [json_name = "strengths"];
-    string weaknesses = 5 [json_name = "weaknesses"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string competitor_party_id = 2 [(routines.opts).field_type = "id"];
+    string position_enum_id = 3 [(routines.opts).field_type = "id"];
+    string strengths = 4 [(routines.opts).field_type = "very-long"];
+    string weaknesses = 5 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -241,8 +241,8 @@ message SalesOpportunityCompetitorData {
 
 
 message SalesOpportunityCompetitorKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string competitor_party_id = 2 [json_name = "competitor_party_id"];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string competitor_party_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesOpportunityCompetitorList{
@@ -266,22 +266,22 @@ message SalesOpportunityHistoryData {
     option (routines.has_table) = true;
     // keys: salesOpportunityHistoryId
     // fields
-    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id", (google.api.graphql.relay_options).id = true];
-    string sales_opportunity_id = 2 [json_name = "sales_opportunity_id"];
-    string description = 3 [json_name = "description"];
-    string next_step = 4 [json_name = "next_step"];
-    routines.Currency estimated_amount = 5 [json_name = "estimated_amount"];
-    routines.FixedPoint estimated_probability = 6 [json_name = "estimated_probability"];
-    string currency_uom_id = 7 [json_name = "currency_uom_id"];
-    google.protobuf.Timestamp estimated_close_date = 8 [json_name = "estimated_close_date"];
-    string opportunity_stage_id = 9 [json_name = "opportunity_stage_id"];
-    string change_note = 10 [json_name = "change_note"];
-    string modified_by_user_login = 11 [json_name = "modified_by_user_login"];
-    google.protobuf.Timestamp modified_timestamp = 12 [json_name = "modified_timestamp"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    
-        
+    string sales_opportunity_history_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string sales_opportunity_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "very-long"];
+    string next_step = 4 [(routines.opts).field_type = "very-long"];
+    routines.Currency estimated_amount = 5 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint estimated_probability = 6 [(routines.opts).field_type = "fixed-point"];
+    string currency_uom_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp estimated_close_date = 8 [(routines.opts).field_type = "date-time"];
+    string opportunity_stage_id = 9 [(routines.opts).field_type = "id"];
+    string change_note = 10 [(routines.opts).field_type = "very-long"];
+    string modified_by_user_login = 11 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp modified_timestamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -290,7 +290,7 @@ message SalesOpportunityHistoryData {
 
 
 message SalesOpportunityHistoryKey{
-    string sales_opportunity_history_id = 1 [json_name = "sales_opportunity_history_id", (google.api.graphql.relay_options).id = true];
+    string sales_opportunity_history_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SalesOpportunityHistoryList{
@@ -314,13 +314,13 @@ message SalesOpportunityQuoteData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId, quoteId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string quote_id = 2 [json_name = "quote_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string quote_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -329,8 +329,8 @@ message SalesOpportunityQuoteData {
 
 
 message SalesOpportunityQuoteKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string quote_id = 2 [json_name = "quote_id"];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string quote_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesOpportunityQuoteList{
@@ -354,14 +354,14 @@ message SalesOpportunityRoleData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId, partyId, roleTypeId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -370,9 +370,9 @@ message SalesOpportunityRoleData {
 
 
 message SalesOpportunityRoleKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message SalesOpportunityRoleList{
@@ -396,14 +396,14 @@ message SalesOpportunityStageData {
     option (routines.has_table) = true;
     // keys: opportunityStageId
     // fields
-    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    routines.FixedPoint default_probability = 3 [json_name = "default_probability"];
-    int64 sequence_num = 4 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string opportunity_stage_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    routines.FixedPoint default_probability = 3 [(routines.opts).field_type = "fixed-point"];
+    int64 sequence_num = 4 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -412,7 +412,7 @@ message SalesOpportunityStageData {
 
 
 message SalesOpportunityStageKey{
-    string opportunity_stage_id = 1 [json_name = "opportunity_stage_id", (google.api.graphql.relay_options).id = true];
+    string opportunity_stage_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SalesOpportunityStageList{
@@ -436,14 +436,14 @@ message SalesOpportunityTrckCodeData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId, trackingCodeId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string tracking_code_id = 2 [json_name = "tracking_code_id"];
-    google.protobuf.Timestamp received_date = 3 [json_name = "received_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string tracking_code_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp received_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -452,8 +452,8 @@ message SalesOpportunityTrckCodeData {
 
 
 message SalesOpportunityTrckCodeKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string tracking_code_id = 2 [json_name = "tracking_code_id"];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string tracking_code_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesOpportunityTrckCodeList{
@@ -477,13 +477,13 @@ message SalesOpportunityWorkEffortData {
     option (routines.has_table) = true;
     // keys: salesOpportunityId, workEffortId
     // fields
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -492,8 +492,8 @@ message SalesOpportunityWorkEffortData {
 
 
 message SalesOpportunityWorkEffortKey{
-    string sales_opportunity_id = 1 [json_name = "sales_opportunity_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string sales_opportunity_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesOpportunityWorkEffortList{

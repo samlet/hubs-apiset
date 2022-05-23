@@ -22,9 +22,13 @@ extend google.protobuf.MessageOptions {
   optional string links = 51238;
 }
 
-extend google.protobuf.FieldOptions{
+message HubsFieldOptions{
   optional string field_type=61234;
   optional string relation=61235;  // in yaml format
+}
+
+extend google.protobuf.FieldOptions{
+  HubsFieldOptions opts=71234;
 }
 
 message EntityKey{

@@ -25,15 +25,15 @@ message InventoryItemAttributeData {
     option (routines.has_table) = true;
     // keys: inventoryItemId, attrName
     // fields
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message InventoryItemAttributeData {
 
 
 message InventoryItemAttributeKey{
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message InventoryItemAttributeList{
@@ -67,13 +67,13 @@ message InventoryItemLabelData {
     option (routines.has_table) = true;
     // keys: inventoryItemLabelId
     // fields
-    string inventory_item_label_id = 1 [json_name = "inventory_item_label_id", (google.api.graphql.relay_options).id = true];
-    string inventory_item_label_type_id = 2 [json_name = "inventory_item_label_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string inventory_item_label_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_label_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -82,7 +82,7 @@ message InventoryItemLabelData {
 
 
 message InventoryItemLabelKey{
-    string inventory_item_label_id = 1 [json_name = "inventory_item_label_id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_label_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message InventoryItemLabelList{
@@ -106,15 +106,15 @@ message InventoryItemLabelApplData {
     option (routines.has_table) = true;
     // keys: inventoryItemId, inventoryItemLabelTypeId
     // fields
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string inventory_item_label_type_id = 2 [json_name = "inventory_item_label_type_id"];
-    string inventory_item_label_id = 3 [json_name = "inventory_item_label_id"];
-    int64 sequence_num = 4 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_label_type_id = 2 [(routines.opts).field_type = "id"];
+    string inventory_item_label_id = 3 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 4 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -123,8 +123,8 @@ message InventoryItemLabelApplData {
 
 
 message InventoryItemLabelApplKey{
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string inventory_item_label_type_id = 2 [json_name = "inventory_item_label_type_id"];
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_label_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message InventoryItemLabelApplList{
@@ -148,14 +148,14 @@ message InventoryItemLabelTypeData {
     option (routines.has_table) = true;
     // keys: inventoryItemLabelTypeId
     // fields
-    string inventory_item_label_type_id = 1 [json_name = "inventory_item_label_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string description = 4 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string inventory_item_label_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -164,7 +164,7 @@ message InventoryItemLabelTypeData {
 
 
 message InventoryItemLabelTypeKey{
-    string inventory_item_label_type_id = 1 [json_name = "inventory_item_label_type_id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_label_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message InventoryItemLabelTypeList{
@@ -188,18 +188,18 @@ message InventoryItemStatusData {
     option (routines.has_table) = true;
     // keys: inventoryItemId, statusId, statusDatetime
     // fields
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string status_id = 2 [json_name = "status_id"];
-    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
-    google.protobuf.Timestamp status_end_datetime = 4 [json_name = "status_end_datetime"];
-    string change_by_user_login_id = 5 [json_name = "change_by_user_login_id"];
-    string owner_party_id = 6 [json_name = "owner_party_id"];
-    string product_id = 7 [json_name = "product_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_datetime = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp status_end_datetime = 4 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 5 [(routines.opts).field_type = "id-vlong"];
+    string owner_party_id = 6 [(routines.opts).field_type = "id"];
+    string product_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -208,9 +208,9 @@ message InventoryItemStatusData {
 
 
 message InventoryItemStatusKey{
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string status_id = 2 [json_name = "status_id"];
-    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_datetime = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message InventoryItemStatusList{
@@ -234,16 +234,16 @@ message InventoryItemTempResData {
     option (routines.has_table) = true;
     // keys: visitId, productId, productStoreId
     // fields
-    string visit_id = 1 [json_name = "visit_id"];
-    string product_id = 2 [json_name = "product_id"];
-    string product_store_id = 3 [json_name = "product_store_id"];
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];
-    google.protobuf.Timestamp reserved_date = 5 [json_name = "reserved_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string product_store_id = 3 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 4 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp reserved_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -252,9 +252,9 @@ message InventoryItemTempResData {
 
 
 message InventoryItemTempResKey{
-    string visit_id = 1 [json_name = "visit_id"];
-    string product_id = 2 [json_name = "product_id"];
-    string product_store_id = 3 [json_name = "product_store_id"];
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string product_store_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message InventoryItemTempResList{
@@ -278,14 +278,14 @@ message InventoryItemTypeAttrData {
     option (routines.has_table) = true;
     // keys: inventoryItemTypeId, attrName
     // fields
-    string inventory_item_type_id = 1 [json_name = "inventory_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string inventory_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -294,8 +294,8 @@ message InventoryItemTypeAttrData {
 
 
 message InventoryItemTypeAttrKey{
-    string inventory_item_type_id = 1 [json_name = "inventory_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string inventory_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message InventoryItemTypeAttrList{
@@ -319,17 +319,17 @@ message InventoryItemVarianceData {
     option (routines.has_table) = true;
     // keys: inventoryItemId, physicalInventoryId
     // fields
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string physical_inventory_id = 2 [json_name = "physical_inventory_id"];
-    string variance_reason_id = 3 [json_name = "variance_reason_id"];
-    routines.FixedPoint available_to_promise_var = 4 [json_name = "available_to_promise_var"];
-    routines.FixedPoint quantity_on_hand_var = 5 [json_name = "quantity_on_hand_var"];
-    string comments = 6 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string physical_inventory_id = 2 [(routines.opts).field_type = "id"];
+    string variance_reason_id = 3 [(routines.opts).field_type = "id"];
+    routines.FixedPoint available_to_promise_var = 4 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint quantity_on_hand_var = 5 [(routines.opts).field_type = "fixed-point"];
+    string comments = 6 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -338,8 +338,8 @@ message InventoryItemVarianceData {
 
 
 message InventoryItemVarianceKey{
-    string inventory_item_id = 1 [json_name = "inventory_item_id"];
-    string physical_inventory_id = 2 [json_name = "physical_inventory_id"];
+    string inventory_item_id = 1 [(routines.opts).field_type = "id"];
+    string physical_inventory_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message InventoryItemVarianceList{
@@ -363,23 +363,23 @@ message InventoryTransferData {
     option (routines.has_table) = true;
     // keys: inventoryTransferId
     // fields
-    string inventory_transfer_id = 1 [json_name = "inventory_transfer_id", (google.api.graphql.relay_options).id = true];
-    string status_id = 2 [json_name = "status_id"];
-    string inventory_item_id = 3 [json_name = "inventory_item_id"];
-    string facility_id = 4 [json_name = "facility_id"];
-    string location_seq_id = 5 [json_name = "location_seq_id"];
-    string container_id = 6 [json_name = "container_id"];
-    string facility_id_to = 7 [json_name = "facility_id_to"];
-    string location_seq_id_to = 8 [json_name = "location_seq_id_to"];
-    string container_id_to = 9 [json_name = "container_id_to"];
-    string item_issuance_id = 10 [json_name = "item_issuance_id"];
-    google.protobuf.Timestamp send_date = 11 [json_name = "send_date"];
-    google.protobuf.Timestamp receive_date = 12 [json_name = "receive_date"];
-    string comments = 13 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
-    
-        
+    string inventory_transfer_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 3 [(routines.opts).field_type = "id"];
+    string facility_id = 4 [(routines.opts).field_type = "id"];
+    string location_seq_id = 5 [(routines.opts).field_type = "id"];
+    string container_id = 6 [(routines.opts).field_type = "id"];
+    string facility_id_to = 7 [(routines.opts).field_type = "id"];
+    string location_seq_id_to = 8 [(routines.opts).field_type = "id"];
+    string container_id_to = 9 [(routines.opts).field_type = "id"];
+    string item_issuance_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp send_date = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp receive_date = 12 [(routines.opts).field_type = "date-time"];
+    string comments = 13 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 25;
@@ -388,7 +388,7 @@ message InventoryTransferData {
 
 
 message InventoryTransferKey{
-    string inventory_transfer_id = 1 [json_name = "inventory_transfer_id", (google.api.graphql.relay_options).id = true];
+    string inventory_transfer_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message InventoryTransferList{
@@ -412,14 +412,14 @@ message LotData {
     option (routines.has_table) = true;
     // keys: lotId
     // fields
-    string lot_id = 1 [json_name = "lot_id", (google.api.graphql.relay_options).id = true];
-    google.protobuf.Timestamp creation_date = 2 [json_name = "creation_date"];
-    routines.FixedPoint quantity = 3 [json_name = "quantity"];
-    google.protobuf.Timestamp expiration_date = 4 [json_name = "expiration_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string lot_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp creation_date = 2 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint quantity = 3 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp expiration_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -428,7 +428,7 @@ message LotData {
 
 
 message LotKey{
-    string lot_id = 1 [json_name = "lot_id", (google.api.graphql.relay_options).id = true];
+    string lot_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message LotList{
@@ -452,14 +452,14 @@ message PhysicalInventoryData {
     option (routines.has_table) = true;
     // keys: physicalInventoryId
     // fields
-    string physical_inventory_id = 1 [json_name = "physical_inventory_id", (google.api.graphql.relay_options).id = true];
-    google.protobuf.Timestamp physical_inventory_date = 2 [json_name = "physical_inventory_date"];
-    string party_id = 3 [json_name = "party_id"];
-    string general_comments = 4 [json_name = "general_comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string physical_inventory_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp physical_inventory_date = 2 [(routines.opts).field_type = "date-time"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string general_comments = 4 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -468,7 +468,7 @@ message PhysicalInventoryData {
 
 
 message PhysicalInventoryKey{
-    string physical_inventory_id = 1 [json_name = "physical_inventory_id", (google.api.graphql.relay_options).id = true];
+    string physical_inventory_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PhysicalInventoryList{

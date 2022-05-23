@@ -20,11 +20,11 @@ message ContactMechTypePurposeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: contactMechTypeId, contactMechPurposeTypeId
-    string contact_mech_type_id = 1 [json_name = "contact_mech_type_id"];
-    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    string contact_mech_type_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_purpose_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
      
 
     // extra
@@ -33,8 +33,8 @@ message ContactMechTypePurposeData {
 }
 
 message ContactMechTypePurposeKey{
-    string contact_mech_type_id = 1 [json_name = "contact_mech_type_id"];
-    string contact_mech_purpose_type_id = 2 [json_name = "contact_mech_purpose_type_id"];
+    string contact_mech_type_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_purpose_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContactMechTypePurposeList{

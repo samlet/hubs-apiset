@@ -25,14 +25,14 @@ message TenantData {
     option (routines.has_table) = true;
     // keys: tenantId
     // fields
-    string tenant_id = 1 [json_name = "tenant_id", (google.api.graphql.relay_options).id = true];
-    string tenant_name = 2 [json_name = "tenant_name"];
-    string initial_path = 3 [json_name = "initial_path"];
-    routines.Indicator disabled = 4 [json_name = "disabled"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string tenant_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_name = 2 [(routines.opts).field_type = "name"];
+    string initial_path = 3 [(routines.opts).field_type = "value"];
+    routines.Indicator disabled = 4 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -41,7 +41,7 @@ message TenantData {
 
 
 message TenantKey{
-    string tenant_id = 1 [json_name = "tenant_id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TenantList{
@@ -65,16 +65,16 @@ message TenantDataSourceData {
     option (routines.has_table) = true;
     // keys: tenantId, entityGroupName
     // fields
-    string tenant_id = 1 [json_name = "tenant_id"];
-    string entity_group_name = 2 [json_name = "entity_group_name"];
-    string jdbc_uri = 3 [json_name = "jdbc_uri"];
-    string jdbc_username = 4 [json_name = "jdbc_username"];
-    string jdbc_password = 5 [json_name = "jdbc_password"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string tenant_id = 1 [(routines.opts).field_type = "id"];
+    string entity_group_name = 2 [(routines.opts).field_type = "name"];
+    string jdbc_uri = 3 [(routines.opts).field_type = "long-varchar"];
+    string jdbc_username = 4 [(routines.opts).field_type = "long-varchar"];
+    string jdbc_password = 5 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -83,8 +83,8 @@ message TenantDataSourceData {
 
 
 message TenantDataSourceKey{
-    string tenant_id = 1 [json_name = "tenant_id"];
-    string entity_group_name = 2 [json_name = "entity_group_name"];
+    string tenant_id = 1 [(routines.opts).field_type = "id"];
+    string entity_group_name = 2 [(routines.opts).field_type = "name"];
 }
 
 message TenantDataSourceList{
@@ -108,12 +108,12 @@ message TenantDomainNameData {
     option (routines.has_table) = true;
     // keys: domainName
     // fields
-    string tenant_id = 1 [json_name = "tenant_id"];
-    string domain_name = 2 [json_name = "domain_name", (google.api.graphql.relay_options).id = true];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string tenant_id = 1 [(routines.opts).field_type = "id"];
+    string domain_name = 2 [(routines.opts).field_type = "long-varchar", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -122,7 +122,7 @@ message TenantDomainNameData {
 
 
 message TenantDomainNameKey{
-    string domain_name = 1 [json_name = "domain_name", (google.api.graphql.relay_options).id = true];
+    string domain_name = 1 [(routines.opts).field_type = "long-varchar", (google.api.graphql.relay_options).id = true];
 }
 
 message TenantDomainNameList{

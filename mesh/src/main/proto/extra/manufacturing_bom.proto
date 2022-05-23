@@ -25,22 +25,22 @@ message ProductManufacturingRuleData {
     option (routines.has_table) = true;
     // keys: ruleId
     // fields
-    string rule_id = 1 [json_name = "rule_id", (google.api.graphql.relay_options).id = true];
-    string product_id = 2 [json_name = "product_id"];
-    string product_id_for = 3 [json_name = "product_id_for"];
-    string product_id_in = 4 [json_name = "product_id_in"];
-    string rule_seq_id = 5 [json_name = "rule_seq_id"];
-    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
-    string product_id_in_subst = 7 [json_name = "product_id_in_subst"];
-    string product_feature = 8 [json_name = "product_feature"];
-    string rule_operator = 9 [json_name = "rule_operator"];
-    double quantity = 10 [json_name = "quantity"];
-    string description = 11 [json_name = "description"];
-    google.protobuf.Timestamp thru_date = 12 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    
-        
+    string rule_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string product_id_for = 3 [(routines.opts).field_type = "id"];
+    string product_id_in = 4 [(routines.opts).field_type = "id"];
+    string rule_seq_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 6 [(routines.opts).field_type = "date-time"];
+    string product_id_in_subst = 7 [(routines.opts).field_type = "id"];
+    string product_feature = 8 [(routines.opts).field_type = "id"];
+    string rule_operator = 9 [(routines.opts).field_type = "id"];
+    double quantity = 10 [(routines.opts).field_type = "floating-point"];
+    string description = 11 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp thru_date = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -49,7 +49,7 @@ message ProductManufacturingRuleData {
 
 
 message ProductManufacturingRuleKey{
-    string rule_id = 1 [json_name = "rule_id", (google.api.graphql.relay_options).id = true];
+    string rule_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductManufacturingRuleList{

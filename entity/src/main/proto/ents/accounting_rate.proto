@@ -25,17 +25,17 @@ message PartyRateData {
     option (routines.has_table) = true;
     // keys: partyId, rateTypeId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string rate_type_id = 2 [json_name = "rate_type_id"];
-    routines.Indicator default_rate = 3 [json_name = "default_rate"];
-    double percentage_used = 4 [json_name = "percentage_used"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string rate_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator default_rate = 3 [(routines.opts).field_type = "indicator"];
+    double percentage_used = 4 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -44,9 +44,9 @@ message PartyRateData {
 
 
 message PartyRateKey{
-    string party_id = 1 [json_name = "party_id"];
-    string rate_type_id = 2 [json_name = "rate_type_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string rate_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyRateList{
@@ -70,20 +70,20 @@ message RateAmountData {
     option (routines.has_table) = true;
     // keys: rateTypeId, rateCurrencyUomId, periodTypeId, partyId, workEffortId, emplPositionTypeId, fromDate
     // fields
-    string rate_type_id = 1 [json_name = "rate_type_id"];
-    string rate_currency_uom_id = 2 [json_name = "rate_currency_uom_id"];
-    string period_type_id = 3 [json_name = "period_type_id"];
-    string work_effort_id = 4 [json_name = "work_effort_id"];
-    string party_id = 5 [json_name = "party_id"];
-    string empl_position_type_id = 6 [json_name = "empl_position_type_id"];
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];
-    routines.Currency rate_amount = 9 [json_name = "rate_amount"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string rate_type_id = 1 [(routines.opts).field_type = "id"];
+    string rate_currency_uom_id = 2 [(routines.opts).field_type = "id"];
+    string period_type_id = 3 [(routines.opts).field_type = "id"];
+    string work_effort_id = 4 [(routines.opts).field_type = "id"];
+    string party_id = 5 [(routines.opts).field_type = "id"];
+    string empl_position_type_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 8 [(routines.opts).field_type = "date-time"];
+    routines.Currency rate_amount = 9 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -92,13 +92,13 @@ message RateAmountData {
 
 
 message RateAmountKey{
-    string rate_type_id = 1 [json_name = "rate_type_id"];
-    string rate_currency_uom_id = 2 [json_name = "rate_currency_uom_id"];
-    string period_type_id = 3 [json_name = "period_type_id"];
-    string party_id = 4 [json_name = "party_id"];
-    string work_effort_id = 5 [json_name = "work_effort_id"];
-    string empl_position_type_id = 6 [json_name = "empl_position_type_id"];
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
+    string rate_type_id = 1 [(routines.opts).field_type = "id"];
+    string rate_currency_uom_id = 2 [(routines.opts).field_type = "id"];
+    string period_type_id = 3 [(routines.opts).field_type = "id"];
+    string party_id = 4 [(routines.opts).field_type = "id"];
+    string work_effort_id = 5 [(routines.opts).field_type = "id"];
+    string empl_position_type_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 7 [(routines.opts).field_type = "date-time"];
 }
 
 message RateAmountList{

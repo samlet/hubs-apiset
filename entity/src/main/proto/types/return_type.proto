@@ -20,13 +20,13 @@ message ReturnTypeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: returnTypeId
-    string return_type_id = 1 [json_name = "return_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string description = 4 [json_name = "description"];
-    string sequence_id = 5 [json_name = "sequence_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string return_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    string sequence_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -35,7 +35,7 @@ message ReturnTypeData {
 }
 
 message ReturnTypeKey{
-    string return_type_id = 1 [json_name = "return_type_id", (google.api.graphql.relay_options).id = true];
+    string return_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ReturnTypeList{

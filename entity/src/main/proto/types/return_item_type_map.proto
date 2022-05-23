@@ -20,12 +20,12 @@ message ReturnItemTypeMapData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: returnItemMapKey, returnHeaderTypeId
-    string return_item_map_key = 1 [json_name = "return_item_map_key"];
-    string return_header_type_id = 2 [json_name = "return_header_type_id"];
-    string return_item_type_id = 3 [json_name = "return_item_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
+    string return_item_map_key = 1 [(routines.opts).field_type = "id"];
+    string return_header_type_id = 2 [(routines.opts).field_type = "id"];
+    string return_item_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
      
 
     // extra
@@ -34,8 +34,8 @@ message ReturnItemTypeMapData {
 }
 
 message ReturnItemTypeMapKey{
-    string return_item_map_key = 1 [json_name = "return_item_map_key"];
-    string return_header_type_id = 2 [json_name = "return_header_type_id"];
+    string return_item_map_key = 1 [(routines.opts).field_type = "id"];
+    string return_header_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ReturnItemTypeMapList{

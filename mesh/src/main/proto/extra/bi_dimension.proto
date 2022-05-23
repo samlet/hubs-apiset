@@ -25,17 +25,17 @@ message CountryDimensionData {
     option (routines.has_table) = true;
     // keys: dimensionId
     // fields
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
-    string geo_id = 2 [json_name = "geo_id"];
-    string geo_name = 3 [json_name = "geo_name"];
-    string geo_code = 4 [json_name = "geo_code"];
-    string abbreviation = 5 [json_name = "abbreviation"];
-    string tel_country_code = 6 [json_name = "tel_country_code"];
-    string cc_tld = 7 [json_name = "cc_tld"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string geo_id = 2 [(routines.opts).field_type = "id"];
+    string geo_name = 3 [(routines.opts).field_type = "name"];
+    string geo_code = 4 [(routines.opts).field_type = "short-varchar"];
+    string abbreviation = 5 [(routines.opts).field_type = "short-varchar"];
+    string tel_country_code = 6 [(routines.opts).field_type = "short-varchar"];
+    string cc_tld = 7 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -44,7 +44,7 @@ message CountryDimensionData {
 
 
 message CountryDimensionKey{
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CountryDimensionList{
@@ -68,13 +68,13 @@ message CurrencyDimensionData {
     option (routines.has_table) = true;
     // keys: dimensionId
     // fields
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
-    string currency_id = 2 [json_name = "currency_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string currency_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -83,7 +83,7 @@ message CurrencyDimensionData {
 
 
 message CurrencyDimensionKey{
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CurrencyDimensionList{
@@ -107,24 +107,24 @@ message DateDimensionData {
     option (routines.has_table) = true;
     // keys: dimensionId
     // fields
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
-    google.type.Date date_value = 2 [json_name = "date_value"];
-    string description = 3 [json_name = "description"];
-    string day_name = 4 [json_name = "day_name"];
-    int64 day_of_month = 5 [json_name = "day_of_month"];
-    int64 day_of_year = 6 [json_name = "day_of_year"];
-    string month_name = 7 [json_name = "month_name"];
-    int64 month_of_year = 8 [json_name = "month_of_year"];
-    int64 year_name = 9 [json_name = "year_name"];
-    int64 week_of_month = 10 [json_name = "week_of_month"];
-    int64 week_of_year = 11 [json_name = "week_of_year"];
-    string year_month_day = 12 [json_name = "year_month_day"];
-    string year_and_month = 13 [json_name = "year_and_month"];
-    string weekday_type = 14 [json_name = "weekday_type"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
-    
-        
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    google.type.Date date_value = 2 [(routines.opts).field_type = "date"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    string day_name = 4 [(routines.opts).field_type = "short-varchar"];
+    int64 day_of_month = 5 [(routines.opts).field_type = "numeric"];
+    int64 day_of_year = 6 [(routines.opts).field_type = "numeric"];
+    string month_name = 7 [(routines.opts).field_type = "short-varchar"];
+    int64 month_of_year = 8 [(routines.opts).field_type = "numeric"];
+    int64 year_name = 9 [(routines.opts).field_type = "numeric"];
+    int64 week_of_month = 10 [(routines.opts).field_type = "numeric"];
+    int64 week_of_year = 11 [(routines.opts).field_type = "numeric"];
+    string year_month_day = 12 [(routines.opts).field_type = "short-varchar"];
+    string year_and_month = 13 [(routines.opts).field_type = "short-varchar"];
+    string weekday_type = 14 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -133,7 +133,7 @@ message DateDimensionData {
 
 
 message DateDimensionKey{
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message DateDimensionList{

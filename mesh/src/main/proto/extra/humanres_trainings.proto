@@ -25,11 +25,11 @@ message TrainingRequestData {
     option (routines.has_table) = true;
     // keys: trainingRequestId
     // fields
-    string training_request_id = 1 [json_name = "training_request_id", (google.api.graphql.relay_options).id = true];
-    google.protobuf.Timestamp last_updated_tx_stamp = 2 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 3 [json_name = "created_tx_stamp"];
-    
-        
+    string training_request_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    google.protobuf.Timestamp last_updated_tx_stamp = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 5;
@@ -38,7 +38,7 @@ message TrainingRequestData {
 
 
 message TrainingRequestKey{
-    string training_request_id = 1 [json_name = "training_request_id", (google.api.graphql.relay_options).id = true];
+    string training_request_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TrainingRequestList{

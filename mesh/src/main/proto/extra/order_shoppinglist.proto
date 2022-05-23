@@ -25,14 +25,14 @@ message ShoppingListItemSurveyData {
     option (routines.has_table) = true;
     // keys: shoppingListId, shoppingListItemSeqId, surveyResponseId
     // fields
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];
-    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];
-    string survey_response_id = 3 [json_name = "survey_response_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shopping_list_id = 1 [(routines.opts).field_type = "id"];
+    string shopping_list_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string survey_response_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -41,9 +41,9 @@ message ShoppingListItemSurveyData {
 
 
 message ShoppingListItemSurveyKey{
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];
-    string shopping_list_item_seq_id = 2 [json_name = "shopping_list_item_seq_id"];
-    string survey_response_id = 3 [json_name = "survey_response_id"];
+    string shopping_list_id = 1 [(routines.opts).field_type = "id"];
+    string shopping_list_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string survey_response_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ShoppingListItemSurveyList{
@@ -67,13 +67,13 @@ message ShoppingListWorkEffortData {
     option (routines.has_table) = true;
     // keys: shoppingListId, workEffortId
     // fields
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shopping_list_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -82,8 +82,8 @@ message ShoppingListWorkEffortData {
 
 
 message ShoppingListWorkEffortKey{
-    string shopping_list_id = 1 [json_name = "shopping_list_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string shopping_list_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ShoppingListWorkEffortList{

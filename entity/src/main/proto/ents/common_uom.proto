@@ -25,20 +25,20 @@ message UomConversionDatedData {
     option (routines.has_table) = true;
     // keys: uomId, uomIdTo, fromDate
     // fields
-    string uom_id = 1 [json_name = "uom_id"];
-    string uom_id_to = 2 [json_name = "uom_id_to"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    double conversion_factor = 5 [json_name = "conversion_factor"];
-    string custom_method_id = 6 [json_name = "custom_method_id"];
-    int64 decimal_scale = 7 [json_name = "decimal_scale"];
-    string rounding_mode = 8 [json_name = "rounding_mode"];
-    string purpose_enum_id = 9 [json_name = "purpose_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string uom_id = 1 [(routines.opts).field_type = "id"];
+    string uom_id_to = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    double conversion_factor = 5 [(routines.opts).field_type = "floating-point"];
+    string custom_method_id = 6 [(routines.opts).field_type = "id"];
+    int64 decimal_scale = 7 [(routines.opts).field_type = "numeric"];
+    string rounding_mode = 8 [(routines.opts).field_type = "id"];
+    string purpose_enum_id = 9 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -47,9 +47,9 @@ message UomConversionDatedData {
 
 
 message UomConversionDatedKey{
-    string uom_id = 1 [json_name = "uom_id"];
-    string uom_id_to = 2 [json_name = "uom_id_to"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string uom_id = 1 [(routines.opts).field_type = "id"];
+    string uom_id_to = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message UomConversionDatedList{

@@ -25,14 +25,14 @@ message SegmentGroupData {
     option (routines.has_table) = true;
     // keys: segmentGroupId
     // fields
-    string segment_group_id = 1 [json_name = "segment_group_id", (google.api.graphql.relay_options).id = true];
-    string segment_group_type_id = 2 [json_name = "segment_group_type_id"];
-    string description = 3 [json_name = "description"];
-    string product_store_id = 4 [json_name = "product_store_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string segment_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string segment_group_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    string product_store_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -41,7 +41,7 @@ message SegmentGroupData {
 
 
 message SegmentGroupKey{
-    string segment_group_id = 1 [json_name = "segment_group_id", (google.api.graphql.relay_options).id = true];
+    string segment_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SegmentGroupList{
@@ -65,13 +65,13 @@ message SegmentGroupClassificationData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, partyClassificationGroupId
     // fields
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_classification_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -80,8 +80,8 @@ message SegmentGroupClassificationData {
 
 
 message SegmentGroupClassificationKey{
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_classification_group_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SegmentGroupClassificationList{
@@ -105,13 +105,13 @@ message SegmentGroupGeoData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, geoId
     // fields
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string geo_id = 2 [json_name = "geo_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string geo_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -120,8 +120,8 @@ message SegmentGroupGeoData {
 
 
 message SegmentGroupGeoKey{
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string geo_id = 2 [json_name = "geo_id"];
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string geo_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SegmentGroupGeoList{
@@ -145,14 +145,14 @@ message SegmentGroupRoleData {
     option (routines.has_table) = true;
     // keys: segmentGroupId, partyId, roleTypeId
     // fields
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -161,9 +161,9 @@ message SegmentGroupRoleData {
 
 
 message SegmentGroupRoleKey{
-    string segment_group_id = 1 [json_name = "segment_group_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string segment_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message SegmentGroupRoleList{

@@ -24,87 +24,87 @@ message ProductStoreFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productStoreId
-    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
-    string primary_store_group_id = 2 [json_name = "primary_store_group_id"];
-    string store_name = 3 [json_name = "store_name"];
-    string company_name = 4 [json_name = "company_name"];
-    string title = 5 [json_name = "title"];
-    string subtitle = 6 [json_name = "subtitle"];
-    string pay_to_party_id = 7 [json_name = "pay_to_party_id"];
-    int64 days_to_cancel_non_pay = 8 [json_name = "days_to_cancel_non_pay"];
-    routines.Indicator manual_auth_is_capture = 9 [json_name = "manual_auth_is_capture"];
-    routines.Indicator prorate_shipping = 10 [json_name = "prorate_shipping"];
-    routines.Indicator prorate_taxes = 11 [json_name = "prorate_taxes"];
-    routines.Indicator view_cart_on_add = 12 [json_name = "view_cart_on_add"];
-    routines.Indicator auto_save_cart = 13 [json_name = "auto_save_cart"];
-    routines.Indicator auto_approve_reviews = 14 [json_name = "auto_approve_reviews"];
-    routines.Indicator is_demo_store = 15 [json_name = "is_demo_store"];
-    routines.Indicator is_immediately_fulfilled = 16 [json_name = "is_immediately_fulfilled"];
-    string inventory_facility_id = 17 [json_name = "inventory_facility_id"];
-    routines.Indicator one_inventory_facility = 18 [json_name = "one_inventory_facility"];
-    routines.Indicator check_inventory = 19 [json_name = "check_inventory"];
-    routines.Indicator reserve_inventory = 20 [json_name = "reserve_inventory"];
-    string reserve_order_enum_id = 21 [json_name = "reserve_order_enum_id"];
-    routines.Indicator require_inventory = 22 [json_name = "require_inventory"];
-    routines.Indicator balance_res_on_order_creation = 23 [json_name = "balance_res_on_order_creation"];
-    string requirement_method_enum_id = 24 [json_name = "requirement_method_enum_id"];
-    string order_number_prefix = 25 [json_name = "order_number_prefix"];
-    string default_locale_string = 26 [json_name = "default_locale_string"];
-    string default_currency_uom_id = 27 [json_name = "default_currency_uom_id"];
-    string default_time_zone_string = 28 [json_name = "default_time_zone_string"];
-    string default_sales_channel_enum_id = 29 [json_name = "default_sales_channel_enum_id"];
-    routines.Indicator allow_password = 30 [json_name = "allow_password"];
-    string default_password = 31 [json_name = "default_password"];
-    routines.Indicator explode_order_items = 32 [json_name = "explode_order_items"];
-    routines.Indicator check_gc_balance = 33 [json_name = "check_gc_balance"];
-    routines.Indicator retry_failed_auths = 34 [json_name = "retry_failed_auths"];
-    string header_approved_status = 35 [json_name = "header_approved_status"];
-    string item_approved_status = 36 [json_name = "item_approved_status"];
-    string digital_item_approved_status = 37 [json_name = "digital_item_approved_status"];
-    string header_declined_status = 38 [json_name = "header_declined_status"];
-    string item_declined_status = 39 [json_name = "item_declined_status"];
-    string header_cancel_status = 40 [json_name = "header_cancel_status"];
-    string item_cancel_status = 41 [json_name = "item_cancel_status"];
-    string auth_declined_message = 42 [json_name = "auth_declined_message"];
-    string auth_fraud_message = 43 [json_name = "auth_fraud_message"];
-    string auth_error_message = 44 [json_name = "auth_error_message"];
-    string visual_theme_id = 45 [json_name = "visual_theme_id"];
-    string store_credit_account_enum_id = 46 [json_name = "store_credit_account_enum_id"];
-    routines.Indicator use_primary_email_username = 47 [json_name = "use_primary_email_username"];
-    routines.Indicator require_customer_role = 48 [json_name = "require_customer_role"];
-    routines.Indicator auto_invoice_digital_items = 49 [json_name = "auto_invoice_digital_items"];
-    routines.Indicator req_ship_addr_for_dig_items = 50 [json_name = "req_ship_addr_for_dig_items"];
-    routines.Indicator show_checkout_gift_options = 51 [json_name = "show_checkout_gift_options"];
-    routines.Indicator select_payment_type_per_item = 52 [json_name = "select_payment_type_per_item"];
-    routines.Indicator show_prices_with_vat_tax = 53 [json_name = "show_prices_with_vat_tax"];
-    routines.Indicator show_tax_is_exempt = 54 [json_name = "show_tax_is_exempt"];
-    string vat_tax_auth_geo_id = 55 [json_name = "vat_tax_auth_geo_id"];
-    string vat_tax_auth_party_id = 56 [json_name = "vat_tax_auth_party_id"];
-    routines.Indicator enable_auto_suggestion_list = 57 [json_name = "enable_auto_suggestion_list"];
-    routines.Indicator enable_dig_prod_upload = 58 [json_name = "enable_dig_prod_upload"];
-    routines.Indicator prod_search_exclude_variants = 59 [json_name = "prod_search_exclude_variants"];
-    string dig_prod_upload_category_id = 60 [json_name = "dig_prod_upload_category_id"];
-    routines.Indicator auto_order_cc_try_exp = 61 [json_name = "auto_order_cc_try_exp"];
-    routines.Indicator auto_order_cc_try_other_cards = 62 [json_name = "auto_order_cc_try_other_cards"];
-    routines.Indicator auto_order_cc_try_later_nsf = 63 [json_name = "auto_order_cc_try_later_nsf"];
-    int64 auto_order_cc_try_later_max = 64 [json_name = "auto_order_cc_try_later_max"];
-    int64 store_credit_valid_days = 65 [json_name = "store_credit_valid_days"];
-    routines.Indicator auto_approve_invoice = 66 [json_name = "auto_approve_invoice"];
-    routines.Indicator auto_approve_order = 67 [json_name = "auto_approve_order"];
-    routines.Indicator ship_if_capture_fails = 68 [json_name = "ship_if_capture_fails"];
-    routines.Indicator set_owner_upon_issuance = 69 [json_name = "set_owner_upon_issuance"];
-    routines.Indicator req_return_inventory_receive = 70 [json_name = "req_return_inventory_receive"];
-    routines.Indicator add_to_cart_remove_incompat = 71 [json_name = "add_to_cart_remove_incompat"];
-    routines.Indicator add_to_cart_replace_upsell = 72 [json_name = "add_to_cart_replace_upsell"];
-    routines.Indicator split_pay_pref_per_shp_grp = 73 [json_name = "split_pay_pref_per_shp_grp"];
-    routines.Indicator managed_by_lot = 74 [json_name = "managed_by_lot"];
-    routines.Indicator show_out_of_stock_products = 75 [json_name = "show_out_of_stock_products"];
-    routines.Indicator order_decimal_quantity = 76 [json_name = "order_decimal_quantity"];
-    routines.Indicator allow_comment = 77 [json_name = "allow_comment"];
-    routines.Indicator allocate_inventory = 78 [json_name = "allocate_inventory"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 79 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 80 [json_name = "created_tx_stamp"];
-    string tenant_id = 81 [json_name = "tenant_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string primary_store_group_id = 2 [(routines.opts).field_type = "id"];
+    string store_name = 3 [(routines.opts).field_type = "name"];
+    string company_name = 4 [(routines.opts).field_type = "name"];
+    string title = 5 [(routines.opts).field_type = "name"];
+    string subtitle = 6 [(routines.opts).field_type = "description"];
+    string pay_to_party_id = 7 [(routines.opts).field_type = "id"];
+    int64 days_to_cancel_non_pay = 8 [(routines.opts).field_type = "numeric"];
+    routines.Indicator manual_auth_is_capture = 9 [(routines.opts).field_type = "indicator"];
+    routines.Indicator prorate_shipping = 10 [(routines.opts).field_type = "indicator"];
+    routines.Indicator prorate_taxes = 11 [(routines.opts).field_type = "indicator"];
+    routines.Indicator view_cart_on_add = 12 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_save_cart = 13 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_approve_reviews = 14 [(routines.opts).field_type = "indicator"];
+    routines.Indicator is_demo_store = 15 [(routines.opts).field_type = "indicator"];
+    routines.Indicator is_immediately_fulfilled = 16 [(routines.opts).field_type = "indicator"];
+    string inventory_facility_id = 17 [(routines.opts).field_type = "id"];
+    routines.Indicator one_inventory_facility = 18 [(routines.opts).field_type = "indicator"];
+    routines.Indicator check_inventory = 19 [(routines.opts).field_type = "indicator"];
+    routines.Indicator reserve_inventory = 20 [(routines.opts).field_type = "indicator"];
+    string reserve_order_enum_id = 21 [(routines.opts).field_type = "id"];
+    routines.Indicator require_inventory = 22 [(routines.opts).field_type = "indicator"];
+    routines.Indicator balance_res_on_order_creation = 23 [(routines.opts).field_type = "indicator"];
+    string requirement_method_enum_id = 24 [(routines.opts).field_type = "id"];
+    string order_number_prefix = 25 [(routines.opts).field_type = "id-long"];
+    string default_locale_string = 26 [(routines.opts).field_type = "very-short"];
+    string default_currency_uom_id = 27 [(routines.opts).field_type = "id"];
+    string default_time_zone_string = 28 [(routines.opts).field_type = "id-long"];
+    string default_sales_channel_enum_id = 29 [(routines.opts).field_type = "id"];
+    routines.Indicator allow_password = 30 [(routines.opts).field_type = "indicator"];
+    string default_password = 31 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator explode_order_items = 32 [(routines.opts).field_type = "indicator"];
+    routines.Indicator check_gc_balance = 33 [(routines.opts).field_type = "indicator"];
+    routines.Indicator retry_failed_auths = 34 [(routines.opts).field_type = "indicator"];
+    string header_approved_status = 35 [(routines.opts).field_type = "id"];
+    string item_approved_status = 36 [(routines.opts).field_type = "id"];
+    string digital_item_approved_status = 37 [(routines.opts).field_type = "id"];
+    string header_declined_status = 38 [(routines.opts).field_type = "id"];
+    string item_declined_status = 39 [(routines.opts).field_type = "id"];
+    string header_cancel_status = 40 [(routines.opts).field_type = "id"];
+    string item_cancel_status = 41 [(routines.opts).field_type = "id"];
+    string auth_declined_message = 42 [(routines.opts).field_type = "long-varchar"];
+    string auth_fraud_message = 43 [(routines.opts).field_type = "long-varchar"];
+    string auth_error_message = 44 [(routines.opts).field_type = "long-varchar"];
+    string visual_theme_id = 45 [(routines.opts).field_type = "id"];
+    string store_credit_account_enum_id = 46 [(routines.opts).field_type = "id"];
+    routines.Indicator use_primary_email_username = 47 [(routines.opts).field_type = "indicator"];
+    routines.Indicator require_customer_role = 48 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_invoice_digital_items = 49 [(routines.opts).field_type = "indicator"];
+    routines.Indicator req_ship_addr_for_dig_items = 50 [(routines.opts).field_type = "indicator"];
+    routines.Indicator show_checkout_gift_options = 51 [(routines.opts).field_type = "indicator"];
+    routines.Indicator select_payment_type_per_item = 52 [(routines.opts).field_type = "indicator"];
+    routines.Indicator show_prices_with_vat_tax = 53 [(routines.opts).field_type = "indicator"];
+    routines.Indicator show_tax_is_exempt = 54 [(routines.opts).field_type = "indicator"];
+    string vat_tax_auth_geo_id = 55 [(routines.opts).field_type = "id"];
+    string vat_tax_auth_party_id = 56 [(routines.opts).field_type = "id"];
+    routines.Indicator enable_auto_suggestion_list = 57 [(routines.opts).field_type = "indicator"];
+    routines.Indicator enable_dig_prod_upload = 58 [(routines.opts).field_type = "indicator"];
+    routines.Indicator prod_search_exclude_variants = 59 [(routines.opts).field_type = "indicator"];
+    string dig_prod_upload_category_id = 60 [(routines.opts).field_type = "id"];
+    routines.Indicator auto_order_cc_try_exp = 61 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_order_cc_try_other_cards = 62 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_order_cc_try_later_nsf = 63 [(routines.opts).field_type = "indicator"];
+    int64 auto_order_cc_try_later_max = 64 [(routines.opts).field_type = "numeric"];
+    int64 store_credit_valid_days = 65 [(routines.opts).field_type = "numeric"];
+    routines.Indicator auto_approve_invoice = 66 [(routines.opts).field_type = "indicator"];
+    routines.Indicator auto_approve_order = 67 [(routines.opts).field_type = "indicator"];
+    routines.Indicator ship_if_capture_fails = 68 [(routines.opts).field_type = "indicator"];
+    routines.Indicator set_owner_upon_issuance = 69 [(routines.opts).field_type = "indicator"];
+    routines.Indicator req_return_inventory_receive = 70 [(routines.opts).field_type = "indicator"];
+    routines.Indicator add_to_cart_remove_incompat = 71 [(routines.opts).field_type = "indicator"];
+    routines.Indicator add_to_cart_replace_upsell = 72 [(routines.opts).field_type = "indicator"];
+    routines.Indicator split_pay_pref_per_shp_grp = 73 [(routines.opts).field_type = "indicator"];
+    routines.Indicator managed_by_lot = 74 [(routines.opts).field_type = "indicator"];
+    routines.Indicator show_out_of_stock_products = 75 [(routines.opts).field_type = "indicator"];
+    routines.Indicator order_decimal_quantity = 76 [(routines.opts).field_type = "indicator"];
+    routines.Indicator allow_comment = 77 [(routines.opts).field_type = "indicator"];
+    routines.Indicator allocate_inventory = 78 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 79 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 80 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 81 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -113,7 +113,7 @@ message ProductStoreFlatData {
 }
 
 message ProductStoreKey{
-    string product_store_id = 1 [json_name = "product_store_id", (google.api.graphql.relay_options).id = true];
+    string product_store_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductStoreList{
@@ -135,15 +135,15 @@ message ProductStoreCatalogFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productStoreId, prodCatalogId, fromDate
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string prod_catalog_id = 2 [json_name = "prod_catalog_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    string tenant_id = 9 [json_name = "tenant_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string prod_catalog_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -152,9 +152,9 @@ message ProductStoreCatalogFlatData {
 }
 
 message ProductStoreCatalogKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string prod_catalog_id = 2 [json_name = "prod_catalog_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string prod_catalog_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreCatalogList{
@@ -177,20 +177,20 @@ message ProductStoreEmailSettingData {
     option (routines.has_table) = true;
     // keys: productStoreId, emailType
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string email_type = 2 [json_name = "email_type"];
-    string body_screen_location = 3 [json_name = "body_screen_location"];
-    string xslfo_attach_screen_location = 4 [json_name = "xslfo_attach_screen_location"];
-    string from_address = 5 [json_name = "from_address"];
-    string cc_address = 6 [json_name = "cc_address"];
-    string bcc_address = 7 [json_name = "bcc_address"];
-    string subject = 8 [json_name = "subject"];
-    string content_type = 9 [json_name = "content_type"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string email_type = 2 [(routines.opts).field_type = "id"];
+    string body_screen_location = 3 [(routines.opts).field_type = "long-varchar"];
+    string xslfo_attach_screen_location = 4 [(routines.opts).field_type = "long-varchar"];
+    string from_address = 5 [(routines.opts).field_type = "email"];
+    string cc_address = 6 [(routines.opts).field_type = "email"];
+    string bcc_address = 7 [(routines.opts).field_type = "email"];
+    string subject = 8 [(routines.opts).field_type = "comment"];
+    string content_type = 9 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -199,8 +199,8 @@ message ProductStoreEmailSettingData {
 
 
 message ProductStoreEmailSettingKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string email_type = 2 [json_name = "email_type"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string email_type = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreEmailSettingList{
@@ -223,15 +223,15 @@ message ProductStoreFacilityFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productStoreId, facilityId, fromDate
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string facility_id = 2 [json_name = "facility_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    string tenant_id = 9 [json_name = "tenant_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -240,9 +240,9 @@ message ProductStoreFacilityFlatData {
 }
 
 message ProductStoreFacilityKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string facility_id = 2 [json_name = "facility_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreFacilityList{
@@ -265,26 +265,26 @@ message ProductStoreFinActSettingData {
     option (routines.has_table) = true;
     // keys: productStoreId, finAccountTypeId
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string fin_account_type_id = 2 [json_name = "fin_account_type_id"];
-    routines.Indicator require_pin_code = 3 [json_name = "require_pin_code"];
-    routines.Indicator validate_g_c_fin_acct = 4 [json_name = "validate_g_c_fin_acct"];
-    int64 account_code_length = 5 [json_name = "account_code_length"];
-    int64 pin_code_length = 6 [json_name = "pin_code_length"];
-    int64 account_valid_days = 7 [json_name = "account_valid_days"];
-    int64 auth_valid_days = 8 [json_name = "auth_valid_days"];
-    string purchase_survey_id = 9 [json_name = "purchase_survey_id"];
-    string purch_survey_send_to = 10 [json_name = "purch_survey_send_to"];
-    string purch_survey_copy_me = 11 [json_name = "purch_survey_copy_me"];
-    routines.Indicator allow_auth_to_negative = 12 [json_name = "allow_auth_to_negative"];
-    routines.Currency min_balance = 13 [json_name = "min_balance"];
-    routines.Currency replenish_threshold = 14 [json_name = "replenish_threshold"];
-    string replenish_method_enum_id = 15 [json_name = "replenish_method_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
-    string id = 18 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string fin_account_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator require_pin_code = 3 [(routines.opts).field_type = "indicator"];
+    routines.Indicator validate_g_c_fin_acct = 4 [(routines.opts).field_type = "indicator"];
+    int64 account_code_length = 5 [(routines.opts).field_type = "numeric"];
+    int64 pin_code_length = 6 [(routines.opts).field_type = "numeric"];
+    int64 account_valid_days = 7 [(routines.opts).field_type = "numeric"];
+    int64 auth_valid_days = 8 [(routines.opts).field_type = "numeric"];
+    string purchase_survey_id = 9 [(routines.opts).field_type = "id"];
+    string purch_survey_send_to = 10 [(routines.opts).field_type = "id"];
+    string purch_survey_copy_me = 11 [(routines.opts).field_type = "id"];
+    routines.Indicator allow_auth_to_negative = 12 [(routines.opts).field_type = "indicator"];
+    routines.Currency min_balance = 13 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency replenish_threshold = 14 [(routines.opts).field_type = "currency-amount"];
+    string replenish_method_enum_id = 15 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+    string id = 18 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 23;
@@ -293,8 +293,8 @@ message ProductStoreFinActSettingData {
 
 
 message ProductStoreFinActSettingKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string fin_account_type_id = 2 [json_name = "fin_account_type_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string fin_account_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreFinActSettingList{
@@ -318,17 +318,17 @@ message ProductStoreKeywordOvrdData {
     option (routines.has_table) = true;
     // keys: productStoreId, keyword, fromDate
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string keyword = 2 [json_name = "keyword"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string target = 5 [json_name = "target"];
-    string target_type_enum_id = 6 [json_name = "target_type_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string target = 5 [(routines.opts).field_type = "long-varchar"];
+    string target_type_enum_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -337,9 +337,9 @@ message ProductStoreKeywordOvrdData {
 
 
 message ProductStoreKeywordOvrdKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string keyword = 2 [json_name = "keyword"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreKeywordOvrdList{
@@ -363,19 +363,19 @@ message ProductStorePaymentSettingData {
     option (routines.has_table) = true;
     // keys: productStoreId, paymentMethodTypeId, paymentServiceTypeEnumId
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
-    string payment_service_type_enum_id = 3 [json_name = "payment_service_type_enum_id"];
-    string payment_service = 4 [json_name = "payment_service"];
-    string payment_custom_method_id = 5 [json_name = "payment_custom_method_id"];
-    string payment_gateway_config_id = 6 [json_name = "payment_gateway_config_id"];
-    string payment_properties_path = 7 [json_name = "payment_properties_path"];
-    routines.Indicator apply_to_all_products = 8 [json_name = "apply_to_all_products"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string payment_service_type_enum_id = 3 [(routines.opts).field_type = "id"];
+    string payment_service = 4 [(routines.opts).field_type = "value"];
+    string payment_custom_method_id = 5 [(routines.opts).field_type = "id"];
+    string payment_gateway_config_id = 6 [(routines.opts).field_type = "id"];
+    string payment_properties_path = 7 [(routines.opts).field_type = "value"];
+    routines.Indicator apply_to_all_products = 8 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -384,9 +384,9 @@ message ProductStorePaymentSettingData {
 
 
 message ProductStorePaymentSettingKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
-    string payment_service_type_enum_id = 3 [json_name = "payment_service_type_enum_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string payment_service_type_enum_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ProductStorePaymentSettingList{
@@ -410,17 +410,17 @@ message ProductStorePromoApplData {
     option (routines.has_table) = true;
     // keys: productStoreId, productPromoId, fromDate
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string product_promo_id = 2 [json_name = "product_promo_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    routines.Indicator manual_only = 6 [json_name = "manual_only"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    routines.Indicator manual_only = 6 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -429,9 +429,9 @@ message ProductStorePromoApplData {
 
 
 message ProductStorePromoApplKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string product_promo_id = 2 [json_name = "product_promo_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStorePromoApplList{
@@ -455,17 +455,17 @@ message ProductStoreRoleData {
     option (routines.has_table) = true;
     // keys: partyId, roleTypeId, productStoreId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string product_store_id = 3 [json_name = "product_store_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    int64 sequence_num = 6 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_store_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -474,10 +474,10 @@ message ProductStoreRoleData {
 
 
 message ProductStoreRoleKey{
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string product_store_id = 3 [json_name = "product_store_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_store_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreRoleList{
@@ -500,37 +500,37 @@ message ProductStoreShipmentMethFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productStoreShipMethId
-    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id", (google.api.graphql.relay_options).id = true];
-    string product_store_id = 2 [json_name = "product_store_id"];
-    string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];
-    string party_id = 4 [json_name = "party_id"];
-    string role_type_id = 5 [json_name = "role_type_id"];
-    string company_party_id = 6 [json_name = "company_party_id"];
-    routines.FixedPoint min_weight = 7 [json_name = "min_weight"];
-    routines.FixedPoint max_weight = 8 [json_name = "max_weight"];
-    routines.FixedPoint min_size = 9 [json_name = "min_size"];
-    routines.FixedPoint max_size = 10 [json_name = "max_size"];
-    routines.Currency min_total = 11 [json_name = "min_total"];
-    routines.Currency max_total = 12 [json_name = "max_total"];
-    routines.Indicator allow_usps_addr = 13 [json_name = "allow_usps_addr"];
-    routines.Indicator require_usps_addr = 14 [json_name = "require_usps_addr"];
-    routines.Indicator allow_company_addr = 15 [json_name = "allow_company_addr"];
-    routines.Indicator require_company_addr = 16 [json_name = "require_company_addr"];
-    routines.Indicator include_no_charge_items = 17 [json_name = "include_no_charge_items"];
-    string include_feature_group = 18 [json_name = "include_feature_group"];
-    string exclude_feature_group = 19 [json_name = "exclude_feature_group"];
-    string include_geo_id = 20 [json_name = "include_geo_id"];
-    string exclude_geo_id = 21 [json_name = "exclude_geo_id"];
-    string service_name = 22 [json_name = "service_name"];
-    string config_props = 23 [json_name = "config_props"];
-    string shipment_custom_method_id = 24 [json_name = "shipment_custom_method_id"];
-    string shipment_gateway_config_id = 25 [json_name = "shipment_gateway_config_id"];
-    int64 sequence_number = 26 [json_name = "sequence_number"];
-    routines.FixedPoint allowance_percent = 27 [json_name = "allowance_percent"];
-    routines.Currency minimum_price = 28 [json_name = "minimum_price"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 29 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 30 [json_name = "created_tx_stamp"];
-    string tenant_id = 31 [json_name = "tenant_id"];
+    string product_store_ship_meth_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_store_id = 2 [(routines.opts).field_type = "id"];
+    string shipment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string party_id = 4 [(routines.opts).field_type = "id"];
+    string role_type_id = 5 [(routines.opts).field_type = "id"];
+    string company_party_id = 6 [(routines.opts).field_type = "id"];
+    routines.FixedPoint min_weight = 7 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint max_weight = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint min_size = 9 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint max_size = 10 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency min_total = 11 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency max_total = 12 [(routines.opts).field_type = "currency-amount"];
+    routines.Indicator allow_usps_addr = 13 [(routines.opts).field_type = "indicator"];
+    routines.Indicator require_usps_addr = 14 [(routines.opts).field_type = "indicator"];
+    routines.Indicator allow_company_addr = 15 [(routines.opts).field_type = "indicator"];
+    routines.Indicator require_company_addr = 16 [(routines.opts).field_type = "indicator"];
+    routines.Indicator include_no_charge_items = 17 [(routines.opts).field_type = "indicator"];
+    string include_feature_group = 18 [(routines.opts).field_type = "id"];
+    string exclude_feature_group = 19 [(routines.opts).field_type = "id"];
+    string include_geo_id = 20 [(routines.opts).field_type = "id"];
+    string exclude_geo_id = 21 [(routines.opts).field_type = "id"];
+    string service_name = 22 [(routines.opts).field_type = "long-varchar"];
+    string config_props = 23 [(routines.opts).field_type = "long-varchar"];
+    string shipment_custom_method_id = 24 [(routines.opts).field_type = "id"];
+    string shipment_gateway_config_id = 25 [(routines.opts).field_type = "id"];
+    int64 sequence_number = 26 [(routines.opts).field_type = "numeric"];
+    routines.FixedPoint allowance_percent = 27 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency minimum_price = 28 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 29 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 30 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 31 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -539,7 +539,7 @@ message ProductStoreShipmentMethFlatData {
 }
 
 message ProductStoreShipmentMethKey{
-    string product_store_ship_meth_id = 1 [json_name = "product_store_ship_meth_id", (google.api.graphql.relay_options).id = true];
+    string product_store_ship_meth_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductStoreShipmentMethList{
@@ -561,21 +561,21 @@ message ProductStoreSurveyApplFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productStoreSurveyId
-    string product_store_survey_id = 1 [json_name = "product_store_survey_id", (google.api.graphql.relay_options).id = true];
-    string product_store_id = 2 [json_name = "product_store_id"];
-    string survey_appl_type_id = 3 [json_name = "survey_appl_type_id"];
-    string group_name = 4 [json_name = "group_name"];
-    string survey_id = 5 [json_name = "survey_id"];
-    string product_id = 6 [json_name = "product_id"];
-    string product_category_id = 7 [json_name = "product_category_id"];
-    google.protobuf.Timestamp from_date = 8 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 9 [json_name = "thru_date"];
-    string survey_template = 10 [json_name = "survey_template"];
-    string result_template = 11 [json_name = "result_template"];
-    int64 sequence_num = 12 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    string tenant_id = 15 [json_name = "tenant_id"];
+    string product_store_survey_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_store_id = 2 [(routines.opts).field_type = "id"];
+    string survey_appl_type_id = 3 [(routines.opts).field_type = "id"];
+    string group_name = 4 [(routines.opts).field_type = "name"];
+    string survey_id = 5 [(routines.opts).field_type = "id"];
+    string product_id = 6 [(routines.opts).field_type = "id"];
+    string product_category_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 9 [(routines.opts).field_type = "date-time"];
+    string survey_template = 10 [(routines.opts).field_type = "long-varchar"];
+    string result_template = 11 [(routines.opts).field_type = "long-varchar"];
+    int64 sequence_num = 12 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 15 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -584,7 +584,7 @@ message ProductStoreSurveyApplFlatData {
 }
 
 message ProductStoreSurveyApplKey{
-    string product_store_survey_id = 1 [json_name = "product_store_survey_id", (google.api.graphql.relay_options).id = true];
+    string product_store_survey_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductStoreSurveyApplList{

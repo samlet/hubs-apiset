@@ -25,20 +25,20 @@ message SurveyResponseData {
     option (routines.has_table) = true;
     // keys: surveyResponseId
     // fields
-    string survey_response_id = 1 [json_name = "survey_response_id", (google.api.graphql.relay_options).id = true];
-    string survey_id = 2 [json_name = "survey_id"];
-    string party_id = 3 [json_name = "party_id"];
-    google.protobuf.Timestamp response_date = 4 [json_name = "response_date"];
-    google.protobuf.Timestamp last_modified_date = 5 [json_name = "last_modified_date"];
-    string reference_id = 6 [json_name = "reference_id"];
-    string general_feedback = 7 [json_name = "general_feedback"];
-    string order_id = 8 [json_name = "order_id"];
-    string order_item_seq_id = 9 [json_name = "order_item_seq_id"];
-    string status_id = 10 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string survey_response_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string survey_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp response_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_modified_date = 5 [(routines.opts).field_type = "date-time"];
+    string reference_id = 6 [(routines.opts).field_type = "id-vlong"];
+    string general_feedback = 7 [(routines.opts).field_type = "very-long"];
+    string order_id = 8 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 9 [(routines.opts).field_type = "id"];
+    string status_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 22;
@@ -47,7 +47,7 @@ message SurveyResponseData {
 
 
 message SurveyResponseKey{
-    string survey_response_id = 1 [json_name = "survey_response_id", (google.api.graphql.relay_options).id = true];
+    string survey_response_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SurveyResponseList{
@@ -71,29 +71,29 @@ message SurveyResponseAnswerData {
     option (routines.has_table) = true;
     // keys: surveyResponseId, surveyQuestionId, surveyMultiRespColId
     // fields
-    string survey_response_id = 1 [json_name = "survey_response_id"];
-    string survey_question_id = 2 [json_name = "survey_question_id"];
-    string survey_multi_resp_col_id = 3 [json_name = "survey_multi_resp_col_id"];
-    string survey_multi_resp_id = 4 [json_name = "survey_multi_resp_id"];
-    routines.Indicator boolean_response = 5 [json_name = "boolean_response"];
-    routines.Currency currency_response = 6 [json_name = "currency_response"];
-    double float_response = 7 [json_name = "float_response"];
-    int64 numeric_response = 8 [json_name = "numeric_response"];
-    string text_response = 9 [json_name = "text_response"];
-    string survey_option_seq_id = 10 [json_name = "survey_option_seq_id"];
-    string content_id = 11 [json_name = "content_id"];
-    google.protobuf.Timestamp answered_date = 12 [json_name = "answered_date"];
-    routines.Currency amount_base = 13 [json_name = "amount_base"];
-    string amount_base_uom_id = 14 [json_name = "amount_base_uom_id"];
-    double weight_factor = 15 [json_name = "weight_factor"];
-    int64 duration = 16 [json_name = "duration"];
-    string duration_uom_id = 17 [json_name = "duration_uom_id"];
-    int64 sequence_num = 18 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 19 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 20 [json_name = "created_tx_stamp"];
-    string id = 21 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string survey_response_id = 1 [(routines.opts).field_type = "id"];
+    string survey_question_id = 2 [(routines.opts).field_type = "id"];
+    string survey_multi_resp_col_id = 3 [(routines.opts).field_type = "id"];
+    string survey_multi_resp_id = 4 [(routines.opts).field_type = "id"];
+    routines.Indicator boolean_response = 5 [(routines.opts).field_type = "indicator"];
+    routines.Currency currency_response = 6 [(routines.opts).field_type = "currency-amount"];
+    double float_response = 7 [(routines.opts).field_type = "floating-point"];
+    int64 numeric_response = 8 [(routines.opts).field_type = "numeric"];
+    string text_response = 9 [(routines.opts).field_type = "very-long"];
+    string survey_option_seq_id = 10 [(routines.opts).field_type = "id"];
+    string content_id = 11 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp answered_date = 12 [(routines.opts).field_type = "date-time"];
+    routines.Currency amount_base = 13 [(routines.opts).field_type = "currency-amount"];
+    string amount_base_uom_id = 14 [(routines.opts).field_type = "id"];
+    double weight_factor = 15 [(routines.opts).field_type = "floating-point"];
+    int64 duration = 16 [(routines.opts).field_type = "numeric"];
+    string duration_uom_id = 17 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 18 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 19 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 20 [(routines.opts).field_type = "date-time"];
+    string id = 21 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 26;
@@ -102,9 +102,9 @@ message SurveyResponseAnswerData {
 
 
 message SurveyResponseAnswerKey{
-    string survey_response_id = 1 [json_name = "survey_response_id"];
-    string survey_question_id = 2 [json_name = "survey_question_id"];
-    string survey_multi_resp_col_id = 3 [json_name = "survey_multi_resp_col_id"];
+    string survey_response_id = 1 [(routines.opts).field_type = "id"];
+    string survey_question_id = 2 [(routines.opts).field_type = "id"];
+    string survey_multi_resp_col_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message SurveyResponseAnswerList{
@@ -128,15 +128,15 @@ message SurveyTriggerData {
     option (routines.has_table) = true;
     // keys: surveyId, surveyApplTypeId, fromDate
     // fields
-    string survey_id = 1 [json_name = "survey_id"];
-    string survey_appl_type_id = 2 [json_name = "survey_appl_type_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string survey_id = 1 [(routines.opts).field_type = "id"];
+    string survey_appl_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -145,9 +145,9 @@ message SurveyTriggerData {
 
 
 message SurveyTriggerKey{
-    string survey_id = 1 [json_name = "survey_id"];
-    string survey_appl_type_id = 2 [json_name = "survey_appl_type_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string survey_id = 1 [(routines.opts).field_type = "id"];
+    string survey_appl_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message SurveyTriggerList{

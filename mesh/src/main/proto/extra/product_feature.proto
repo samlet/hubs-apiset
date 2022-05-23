@@ -25,16 +25,16 @@ message ProductFeatureApplAttrData {
     option (routines.has_table) = true;
     // keys: productId, productFeatureId, fromDate, attrName
     // fields
-    string product_id = 1 [json_name = "product_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    string attr_name = 4 [json_name = "attr_name"];
-    string attr_value = 5 [json_name = "attr_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
+    string attr_value = 5 [(routines.opts).field_type = "value"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -43,10 +43,10 @@ message ProductFeatureApplAttrData {
 
 
 message ProductFeatureApplAttrKey{
-    string product_id = 1 [json_name = "product_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    string attr_name = 4 [json_name = "attr_name"];
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
 }
 
 message ProductFeatureApplAttrList{
@@ -70,15 +70,15 @@ message ProductFeatureCatGrpApplData {
     option (routines.has_table) = true;
     // keys: productCategoryId, productFeatureGroupId, fromDate
     // fields
-    string product_category_id = 1 [json_name = "product_category_id"];
-    string product_feature_group_id = 2 [json_name = "product_feature_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_category_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -87,9 +87,9 @@ message ProductFeatureCatGrpApplData {
 
 
 message ProductFeatureCatGrpApplKey{
-    string product_category_id = 1 [json_name = "product_category_id"];
-    string product_feature_group_id = 2 [json_name = "product_feature_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_category_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductFeatureCatGrpApplList{
@@ -113,13 +113,13 @@ message ProductFeatureDataResourceData {
     option (routines.has_table) = true;
     // keys: dataResourceId, productFeatureId
     // fields
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -128,8 +128,8 @@ message ProductFeatureDataResourceData {
 
 
 message ProductFeatureDataResourceKey{
-    string data_resource_id = 1 [json_name = "data_resource_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
+    string data_resource_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductFeatureDataResourceList{
@@ -153,12 +153,12 @@ message ProductFeatureGroupData {
     option (routines.has_table) = true;
     // keys: productFeatureGroupId
     // fields
-    string product_feature_group_id = 1 [json_name = "product_feature_group_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string product_feature_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -167,7 +167,7 @@ message ProductFeatureGroupData {
 
 
 message ProductFeatureGroupKey{
-    string product_feature_group_id = 1 [json_name = "product_feature_group_id", (google.api.graphql.relay_options).id = true];
+    string product_feature_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductFeatureGroupList{
@@ -191,16 +191,16 @@ message ProductFeatureGroupApplData {
     option (routines.has_table) = true;
     // keys: productFeatureGroupId, productFeatureId, fromDate
     // fields
-    string product_feature_group_id = 1 [json_name = "product_feature_group_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_feature_group_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -209,9 +209,9 @@ message ProductFeatureGroupApplData {
 
 
 message ProductFeatureGroupApplKey{
-    string product_feature_group_id = 1 [json_name = "product_feature_group_id"];
-    string product_feature_id = 2 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_feature_group_id = 1 [(routines.opts).field_type = "id"];
+    string product_feature_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductFeatureGroupApplList{

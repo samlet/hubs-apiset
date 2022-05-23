@@ -25,14 +25,14 @@ message BlacklistData {
     option (routines.has_table) = true;
     // keys: blacklistId
     // fields
-    string blacklist_id = 1 [json_name = "blacklist_id", (google.api.graphql.relay_options).id = true];
-    string blacklist_type_id = 2 [json_name = "blacklist_type_id"];
-    string status_id = 3 [json_name = "status_id"];
-    string tenant_id = 4 [json_name = "tenant_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string blacklist_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string blacklist_type_id = 2 [(routines.opts).field_type = "id"];
+    string status_id = 3 [(routines.opts).field_type = "id"];
+    string tenant_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -41,7 +41,7 @@ message BlacklistData {
 
 
 message BlacklistKey{
-    string blacklist_id = 1 [json_name = "blacklist_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BlacklistList{
@@ -65,13 +65,13 @@ message BlacklistTypeData {
     option (routines.has_table) = true;
     // keys: blacklistTypeId
     // fields
-    string blacklist_type_id = 1 [json_name = "blacklist_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string blacklist_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -80,7 +80,7 @@ message BlacklistTypeData {
 
 
 message BlacklistTypeKey{
-    string blacklist_type_id = 1 [json_name = "blacklist_type_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BlacklistTypeList{
@@ -104,16 +104,16 @@ message BlacklistStatusData {
     option (routines.has_table) = true;
     // keys: blacklistId, statusDate
     // fields
-    string blacklist_id = 1 [json_name = "blacklist_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
-    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    string status_id = 5 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string blacklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp status_end_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -122,8 +122,8 @@ message BlacklistStatusData {
 
 
 message BlacklistStatusKey{
-    string blacklist_id = 1 [json_name = "blacklist_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    string blacklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message BlacklistStatusList{
@@ -147,20 +147,20 @@ message BlacklistItemData {
     option (routines.has_table) = true;
     // keys: blacklistItemId
     // fields
-    string blacklist_item_id = 1 [json_name = "blacklist_item_id", (google.api.graphql.relay_options).id = true];
-    string blacklist_id = 2 [json_name = "blacklist_id"];
-    string login_id = 3 [json_name = "login_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string reason = 6 [json_name = "reason"];
-    string block_by = 7 [json_name = "block_by"];
-    string blacklist_item_type_id = 8 [json_name = "blacklist_item_type_id"];
-    string status_id = 9 [json_name = "status_id"];
-    string tenant_id = 10 [json_name = "tenant_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string blacklist_item_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string blacklist_id = 2 [(routines.opts).field_type = "id"];
+    string login_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string reason = 6 [(routines.opts).field_type = "comment"];
+    string block_by = 7 [(routines.opts).field_type = "id"];
+    string blacklist_item_type_id = 8 [(routines.opts).field_type = "id"];
+    string status_id = 9 [(routines.opts).field_type = "id"];
+    string tenant_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 22;
@@ -169,7 +169,7 @@ message BlacklistItemData {
 
 
 message BlacklistItemKey{
-    string blacklist_item_id = 1 [json_name = "blacklist_item_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_item_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BlacklistItemList{
@@ -193,13 +193,13 @@ message BlacklistItemTypeData {
     option (routines.has_table) = true;
     // keys: blacklistItemTypeId
     // fields
-    string blacklist_item_type_id = 1 [json_name = "blacklist_item_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string blacklist_item_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -208,7 +208,7 @@ message BlacklistItemTypeData {
 
 
 message BlacklistItemTypeKey{
-    string blacklist_item_type_id = 1 [json_name = "blacklist_item_type_id", (google.api.graphql.relay_options).id = true];
+    string blacklist_item_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BlacklistItemTypeList{
@@ -232,16 +232,16 @@ message BlacklistItemStatusData {
     option (routines.has_table) = true;
     // keys: blacklistItemId, statusDate
     // fields
-    string blacklist_item_id = 1 [json_name = "blacklist_item_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
-    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    string status_id = 5 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string blacklist_item_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp status_end_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -250,8 +250,8 @@ message BlacklistItemStatusData {
 
 
 message BlacklistItemStatusKey{
-    string blacklist_item_id = 1 [json_name = "blacklist_item_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    string blacklist_item_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message BlacklistItemStatusList{

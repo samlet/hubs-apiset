@@ -24,17 +24,17 @@ message BillingAccountFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: billingAccountId
-    string billing_account_id = 1 [json_name = "billing_account_id", (google.api.graphql.relay_options).id = true];
-    routines.Currency account_limit = 2 [json_name = "account_limit"];
-    string account_currency_uom_id = 3 [json_name = "account_currency_uom_id"];
-    string contact_mech_id = 4 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    string description = 7 [json_name = "description"];
-    string external_account_id = 8 [json_name = "external_account_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string tenant_id = 11 [json_name = "tenant_id"];
+    string billing_account_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    routines.Currency account_limit = 2 [(routines.opts).field_type = "currency-amount"];
+    string account_currency_uom_id = 3 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    string description = 7 [(routines.opts).field_type = "description"];
+    string external_account_id = 8 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 11 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -43,7 +43,7 @@ message BillingAccountFlatData {
 }
 
 message BillingAccountKey{
-    string billing_account_id = 1 [json_name = "billing_account_id", (google.api.graphql.relay_options).id = true];
+    string billing_account_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BillingAccountList{
@@ -66,16 +66,16 @@ message BillingAccountRoleData {
     option (routines.has_table) = true;
     // keys: billingAccountId, partyId, roleTypeId, fromDate
     // fields
-    string billing_account_id = 1 [json_name = "billing_account_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string billing_account_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -84,10 +84,10 @@ message BillingAccountRoleData {
 
 
 message BillingAccountRoleKey{
-    string billing_account_id = 1 [json_name = "billing_account_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string billing_account_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message BillingAccountRoleList{
@@ -110,26 +110,26 @@ message CreditCardFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentMethodId
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
-    string card_type = 2 [json_name = "card_type"];
-    string card_number = 3 [json_name = "card_number"];
-    string valid_from_date = 4 [json_name = "valid_from_date"];
-    string expire_date = 5 [json_name = "expire_date"];
-    string issue_number = 6 [json_name = "issue_number"];
-    string company_name_on_card = 7 [json_name = "company_name_on_card"];
-    string title_on_card = 8 [json_name = "title_on_card"];
-    string first_name_on_card = 9 [json_name = "first_name_on_card"];
-    string middle_name_on_card = 10 [json_name = "middle_name_on_card"];
-    string last_name_on_card = 11 [json_name = "last_name_on_card"];
-    string suffix_on_card = 12 [json_name = "suffix_on_card"];
-    string contact_mech_id = 13 [json_name = "contact_mech_id"];
-    int64 consecutive_failed_auths = 14 [json_name = "consecutive_failed_auths"];
-    google.protobuf.Timestamp last_failed_auth_date = 15 [json_name = "last_failed_auth_date"];
-    int64 consecutive_failed_nsf = 16 [json_name = "consecutive_failed_nsf"];
-    google.protobuf.Timestamp last_failed_nsf_date = 17 [json_name = "last_failed_nsf_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];
-    string tenant_id = 20 [json_name = "tenant_id"];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string card_type = 2 [(routines.opts).field_type = "short-varchar"];
+    string card_number = 3 [(routines.opts).field_type = "credit-card-number"];
+    string valid_from_date = 4 [(routines.opts).field_type = "credit-card-date"];
+    string expire_date = 5 [(routines.opts).field_type = "credit-card-date"];
+    string issue_number = 6 [(routines.opts).field_type = "credit-card-date"];
+    string company_name_on_card = 7 [(routines.opts).field_type = "name"];
+    string title_on_card = 8 [(routines.opts).field_type = "name"];
+    string first_name_on_card = 9 [(routines.opts).field_type = "name"];
+    string middle_name_on_card = 10 [(routines.opts).field_type = "name"];
+    string last_name_on_card = 11 [(routines.opts).field_type = "name"];
+    string suffix_on_card = 12 [(routines.opts).field_type = "name"];
+    string contact_mech_id = 13 [(routines.opts).field_type = "id"];
+    int64 consecutive_failed_auths = 14 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_failed_auth_date = 15 [(routines.opts).field_type = "date-time"];
+    int64 consecutive_failed_nsf = 16 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_failed_nsf_date = 17 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 19 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 20 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -138,7 +138,7 @@ message CreditCardFlatData {
 }
 
 message CreditCardKey{
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CreditCardList{
@@ -160,18 +160,18 @@ message EftAccountFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentMethodId
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
-    string bank_name = 2 [json_name = "bank_name"];
-    string routing_number = 3 [json_name = "routing_number"];
-    string account_type = 4 [json_name = "account_type"];
-    string account_number = 5 [json_name = "account_number"];
-    string name_on_account = 6 [json_name = "name_on_account"];
-    string company_name_on_account = 7 [json_name = "company_name_on_account"];
-    string contact_mech_id = 8 [json_name = "contact_mech_id"];
-    int64 years_at_bank = 9 [json_name = "years_at_bank"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string tenant_id = 12 [json_name = "tenant_id"];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string bank_name = 2 [(routines.opts).field_type = "name"];
+    string routing_number = 3 [(routines.opts).field_type = "short-varchar"];
+    string account_type = 4 [(routines.opts).field_type = "short-varchar"];
+    string account_number = 5 [(routines.opts).field_type = "long-varchar"];
+    string name_on_account = 6 [(routines.opts).field_type = "name"];
+    string company_name_on_account = 7 [(routines.opts).field_type = "name"];
+    string contact_mech_id = 8 [(routines.opts).field_type = "id"];
+    int64 years_at_bank = 9 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 12 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -180,7 +180,7 @@ message EftAccountFlatData {
 }
 
 message EftAccountKey{
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message EftAccountList{
@@ -202,28 +202,28 @@ message PaymentFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentId
-    string payment_id = 1 [json_name = "payment_id", (google.api.graphql.relay_options).id = true];
-    string payment_type_id = 2 [json_name = "payment_type_id"];
-    string payment_method_type_id = 3 [json_name = "payment_method_type_id"];
-    string payment_method_id = 4 [json_name = "payment_method_id"];
-    string payment_gateway_response_id = 5 [json_name = "payment_gateway_response_id"];
-    string payment_preference_id = 6 [json_name = "payment_preference_id"];
-    string party_id_from = 7 [json_name = "party_id_from"];
-    string party_id_to = 8 [json_name = "party_id_to"];
-    string role_type_id_to = 9 [json_name = "role_type_id_to"];
-    string status_id = 10 [json_name = "status_id"];
-    google.protobuf.Timestamp effective_date = 11 [json_name = "effective_date"];
-    string payment_ref_num = 12 [json_name = "payment_ref_num"];
-    routines.Currency amount = 13 [json_name = "amount"];
-    string currency_uom_id = 14 [json_name = "currency_uom_id"];
-    string comments = 15 [json_name = "comments"];
-    string fin_account_trans_id = 16 [json_name = "fin_account_trans_id"];
-    string override_gl_account_id = 17 [json_name = "override_gl_account_id"];
-    routines.Currency actual_currency_amount = 18 [json_name = "actual_currency_amount"];
-    string actual_currency_uom_id = 19 [json_name = "actual_currency_uom_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 20 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 21 [json_name = "created_tx_stamp"];
-    string tenant_id = 22 [json_name = "tenant_id"];
+    string payment_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string payment_type_id = 2 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string payment_method_id = 4 [(routines.opts).field_type = "id"];
+    string payment_gateway_response_id = 5 [(routines.opts).field_type = "id"];
+    string payment_preference_id = 6 [(routines.opts).field_type = "id"];
+    string party_id_from = 7 [(routines.opts).field_type = "id"];
+    string party_id_to = 8 [(routines.opts).field_type = "id"];
+    string role_type_id_to = 9 [(routines.opts).field_type = "id"];
+    string status_id = 10 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp effective_date = 11 [(routines.opts).field_type = "date-time"];
+    string payment_ref_num = 12 [(routines.opts).field_type = "short-varchar"];
+    routines.Currency amount = 13 [(routines.opts).field_type = "currency-amount"];
+    string currency_uom_id = 14 [(routines.opts).field_type = "id"];
+    string comments = 15 [(routines.opts).field_type = "comment"];
+    string fin_account_trans_id = 16 [(routines.opts).field_type = "id"];
+    string override_gl_account_id = 17 [(routines.opts).field_type = "id"];
+    routines.Currency actual_currency_amount = 18 [(routines.opts).field_type = "currency-amount"];
+    string actual_currency_uom_id = 19 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 20 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 21 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 22 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -232,7 +232,7 @@ message PaymentFlatData {
 }
 
 message PaymentKey{
-    string payment_id = 1 [json_name = "payment_id", (google.api.graphql.relay_options).id = true];
+    string payment_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentList{
@@ -254,18 +254,18 @@ message PaymentApplicationFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentApplicationId
-    string payment_application_id = 1 [json_name = "payment_application_id", (google.api.graphql.relay_options).id = true];
-    string payment_id = 2 [json_name = "payment_id"];
-    string invoice_id = 3 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 4 [json_name = "invoice_item_seq_id"];
-    string billing_account_id = 5 [json_name = "billing_account_id"];
-    string override_gl_account_id = 6 [json_name = "override_gl_account_id"];
-    string to_payment_id = 7 [json_name = "to_payment_id"];
-    string tax_auth_geo_id = 8 [json_name = "tax_auth_geo_id"];
-    routines.Currency amount_applied = 9 [json_name = "amount_applied"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string tenant_id = 12 [json_name = "tenant_id"];
+    string payment_application_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string payment_id = 2 [(routines.opts).field_type = "id"];
+    string invoice_id = 3 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 4 [(routines.opts).field_type = "id"];
+    string billing_account_id = 5 [(routines.opts).field_type = "id"];
+    string override_gl_account_id = 6 [(routines.opts).field_type = "id"];
+    string to_payment_id = 7 [(routines.opts).field_type = "id"];
+    string tax_auth_geo_id = 8 [(routines.opts).field_type = "id"];
+    routines.Currency amount_applied = 9 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 12 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -274,7 +274,7 @@ message PaymentApplicationFlatData {
 }
 
 message PaymentApplicationKey{
-    string payment_application_id = 1 [json_name = "payment_application_id", (google.api.graphql.relay_options).id = true];
+    string payment_application_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentApplicationList{
@@ -296,13 +296,13 @@ message PaymentContentTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentContentTypeId
-    string payment_content_type_id = 1 [json_name = "payment_content_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string description = 4 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string tenant_id = 7 [json_name = "tenant_id"];
+    string payment_content_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 7 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -311,7 +311,7 @@ message PaymentContentTypeFlatData {
 }
 
 message PaymentContentTypeKey{
-    string payment_content_type_id = 1 [json_name = "payment_content_type_id", (google.api.graphql.relay_options).id = true];
+    string payment_content_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentContentTypeList{
@@ -333,31 +333,31 @@ message PaymentGatewayResponseFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentGatewayResponseId
-    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id", (google.api.graphql.relay_options).id = true];
-    string payment_service_type_enum_id = 2 [json_name = "payment_service_type_enum_id"];
-    string order_payment_preference_id = 3 [json_name = "order_payment_preference_id"];
-    string payment_method_type_id = 4 [json_name = "payment_method_type_id"];
-    string payment_method_id = 5 [json_name = "payment_method_id"];
-    string trans_code_enum_id = 6 [json_name = "trans_code_enum_id"];
-    routines.Currency amount = 7 [json_name = "amount"];
-    string currency_uom_id = 8 [json_name = "currency_uom_id"];
-    string reference_num = 9 [json_name = "reference_num"];
-    string alt_reference = 10 [json_name = "alt_reference"];
-    string sub_reference = 11 [json_name = "sub_reference"];
-    string gateway_code = 12 [json_name = "gateway_code"];
-    string gateway_flag = 13 [json_name = "gateway_flag"];
-    string gateway_avs_result = 14 [json_name = "gateway_avs_result"];
-    string gateway_cv_result = 15 [json_name = "gateway_cv_result"];
-    string gateway_score_result = 16 [json_name = "gateway_score_result"];
-    string gateway_message = 17 [json_name = "gateway_message"];
-    google.protobuf.Timestamp transaction_date = 18 [json_name = "transaction_date"];
-    routines.Indicator result_declined = 19 [json_name = "result_declined"];
-    routines.Indicator result_nsf = 20 [json_name = "result_nsf"];
-    routines.Indicator result_bad_expire = 21 [json_name = "result_bad_expire"];
-    routines.Indicator result_bad_card_number = 22 [json_name = "result_bad_card_number"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 23 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 24 [json_name = "created_tx_stamp"];
-    string tenant_id = 25 [json_name = "tenant_id"];
+    string payment_gateway_response_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string payment_service_type_enum_id = 2 [(routines.opts).field_type = "id"];
+    string order_payment_preference_id = 3 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 4 [(routines.opts).field_type = "id"];
+    string payment_method_id = 5 [(routines.opts).field_type = "id"];
+    string trans_code_enum_id = 6 [(routines.opts).field_type = "id"];
+    routines.Currency amount = 7 [(routines.opts).field_type = "currency-amount"];
+    string currency_uom_id = 8 [(routines.opts).field_type = "id"];
+    string reference_num = 9 [(routines.opts).field_type = "short-varchar"];
+    string alt_reference = 10 [(routines.opts).field_type = "short-varchar"];
+    string sub_reference = 11 [(routines.opts).field_type = "short-varchar"];
+    string gateway_code = 12 [(routines.opts).field_type = "short-varchar"];
+    string gateway_flag = 13 [(routines.opts).field_type = "short-varchar"];
+    string gateway_avs_result = 14 [(routines.opts).field_type = "short-varchar"];
+    string gateway_cv_result = 15 [(routines.opts).field_type = "short-varchar"];
+    string gateway_score_result = 16 [(routines.opts).field_type = "short-varchar"];
+    string gateway_message = 17 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp transaction_date = 18 [(routines.opts).field_type = "date-time"];
+    routines.Indicator result_declined = 19 [(routines.opts).field_type = "indicator"];
+    routines.Indicator result_nsf = 20 [(routines.opts).field_type = "indicator"];
+    routines.Indicator result_bad_expire = 21 [(routines.opts).field_type = "indicator"];
+    routines.Indicator result_bad_card_number = 22 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 23 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 24 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 25 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -366,7 +366,7 @@ message PaymentGatewayResponseFlatData {
 }
 
 message PaymentGatewayResponseKey{
-    string payment_gateway_response_id = 1 [json_name = "payment_gateway_response_id", (google.api.graphql.relay_options).id = true];
+    string payment_gateway_response_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentGatewayResponseList{
@@ -389,14 +389,14 @@ message PaymentGlAccountTypeMapData {
     option (routines.has_table) = true;
     // keys: paymentTypeId, organizationPartyId
     // fields
-    string payment_type_id = 1 [json_name = "payment_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
-    string gl_account_type_id = 3 [json_name = "gl_account_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string payment_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
+    string gl_account_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -405,8 +405,8 @@ message PaymentGlAccountTypeMapData {
 
 
 message PaymentGlAccountTypeMapKey{
-    string payment_type_id = 1 [json_name = "payment_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string payment_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PaymentGlAccountTypeMapList{
@@ -429,17 +429,17 @@ message PaymentMethodFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: paymentMethodId
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
-    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string gl_account_id = 4 [json_name = "gl_account_id"];
-    string fin_account_id = 5 [json_name = "fin_account_id"];
-    string description = 6 [json_name = "description"];
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string tenant_id = 11 [json_name = "tenant_id"];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string payment_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string gl_account_id = 4 [(routines.opts).field_type = "id"];
+    string fin_account_id = 5 [(routines.opts).field_type = "id"];
+    string description = 6 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp from_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 11 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -448,7 +448,7 @@ message PaymentMethodFlatData {
 }
 
 message PaymentMethodKey{
-    string payment_method_id = 1 [json_name = "payment_method_id", (google.api.graphql.relay_options).id = true];
+    string payment_method_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PaymentMethodList{
@@ -471,14 +471,14 @@ message PaymentMethodTypeGlAccountData {
     option (routines.has_table) = true;
     // keys: paymentMethodTypeId, organizationPartyId
     // fields
-    string payment_method_type_id = 1 [json_name = "payment_method_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
-    string gl_account_id = 3 [json_name = "gl_account_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string payment_method_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
+    string gl_account_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -487,8 +487,8 @@ message PaymentMethodTypeGlAccountData {
 
 
 message PaymentMethodTypeGlAccountKey{
-    string payment_method_type_id = 1 [json_name = "payment_method_type_id"];
-    string organization_party_id = 2 [json_name = "organization_party_id"];
+    string payment_method_type_id = 1 [(routines.opts).field_type = "id"];
+    string organization_party_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PaymentMethodTypeGlAccountList{

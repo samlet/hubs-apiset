@@ -20,14 +20,14 @@ message BenefitTypeData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: benefitTypeId
-    string benefit_type_id = 1 [json_name = "benefit_type_id", (google.api.graphql.relay_options).id = true];
-    string benefit_name = 2 [json_name = "benefit_name"];
-    string parent_type_id = 3 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 4 [json_name = "has_table"];
-    string description = 5 [json_name = "description"];
-    double employer_paid_percentage = 6 [json_name = "employer_paid_percentage"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
+    string benefit_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string benefit_name = 2 [(routines.opts).field_type = "name"];
+    string parent_type_id = 3 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 4 [(routines.opts).field_type = "indicator"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    double employer_paid_percentage = 6 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -36,7 +36,7 @@ message BenefitTypeData {
 }
 
 message BenefitTypeKey{
-    string benefit_type_id = 1 [json_name = "benefit_type_id", (google.api.graphql.relay_options).id = true];
+    string benefit_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BenefitTypeList{

@@ -25,21 +25,21 @@ message DeliveryData {
     option (routines.has_table) = true;
     // keys: deliveryId
     // fields
-    string delivery_id = 1 [json_name = "delivery_id", (google.api.graphql.relay_options).id = true];
-    string origin_facility_id = 2 [json_name = "origin_facility_id"];
-    string dest_facility_id = 3 [json_name = "dest_facility_id"];
-    google.protobuf.Timestamp actual_start_date = 4 [json_name = "actual_start_date"];
-    google.protobuf.Timestamp actual_arrival_date = 5 [json_name = "actual_arrival_date"];
-    google.protobuf.Timestamp estimated_start_date = 6 [json_name = "estimated_start_date"];
-    google.protobuf.Timestamp estimated_arrival_date = 7 [json_name = "estimated_arrival_date"];
-    string fixed_asset_id = 8 [json_name = "fixed_asset_id"];
-    routines.FixedPoint start_mileage = 9 [json_name = "start_mileage"];
-    routines.FixedPoint end_mileage = 10 [json_name = "end_mileage"];
-    routines.FixedPoint fuel_used = 11 [json_name = "fuel_used"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    
-        
+    string delivery_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string origin_facility_id = 2 [(routines.opts).field_type = "id"];
+    string dest_facility_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp actual_start_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp actual_arrival_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp estimated_start_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp estimated_arrival_date = 7 [(routines.opts).field_type = "date-time"];
+    string fixed_asset_id = 8 [(routines.opts).field_type = "id"];
+    routines.FixedPoint start_mileage = 9 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint end_mileage = 10 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint fuel_used = 11 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -48,7 +48,7 @@ message DeliveryData {
 
 
 message DeliveryKey{
-    string delivery_id = 1 [json_name = "delivery_id", (google.api.graphql.relay_options).id = true];
+    string delivery_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message DeliveryList{
@@ -72,15 +72,15 @@ message ShipmentAttributeData {
     option (routines.has_table) = true;
     // keys: shipmentId, attrName
     // fields
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -89,8 +89,8 @@ message ShipmentAttributeData {
 
 
 message ShipmentAttributeKey{
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message ShipmentAttributeList{
@@ -114,14 +114,14 @@ message ShipmentContactMechData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentContactMechTypeId
     // fields
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string shipment_contact_mech_type_id = 2 [json_name = "shipment_contact_mech_type_id"];
-    string contact_mech_id = 3 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string shipment_contact_mech_type_id = 2 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -130,8 +130,8 @@ message ShipmentContactMechData {
 
 
 message ShipmentContactMechKey{
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string shipment_contact_mech_type_id = 2 [json_name = "shipment_contact_mech_type_id"];
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string shipment_contact_mech_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ShipmentContactMechList{
@@ -155,14 +155,14 @@ message ShipmentItemFeatureData {
     option (routines.has_table) = true;
     // keys: shipmentId, shipmentItemSeqId, productFeatureId
     // fields
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
-    string product_feature_id = 3 [json_name = "product_feature_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_feature_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -171,9 +171,9 @@ message ShipmentItemFeatureData {
 
 
 message ShipmentItemFeatureKey{
-    string shipment_id = 1 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 2 [json_name = "shipment_item_seq_id"];
-    string product_feature_id = 3 [json_name = "product_feature_id"];
+    string shipment_id = 1 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_feature_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ShipmentItemFeatureList{
@@ -197,14 +197,14 @@ message ShipmentTypeAttrData {
     option (routines.has_table) = true;
     // keys: shipmentTypeId, attrName
     // fields
-    string shipment_type_id = 1 [json_name = "shipment_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string shipment_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -213,8 +213,8 @@ message ShipmentTypeAttrData {
 
 
 message ShipmentTypeAttrKey{
-    string shipment_type_id = 1 [json_name = "shipment_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string shipment_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message ShipmentTypeAttrList{
@@ -238,15 +238,15 @@ message ShippingDocumentData {
     option (routines.has_table) = true;
     // keys: documentId
     // fields
-    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];
-    string shipment_id = 2 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 3 [json_name = "shipment_item_seq_id"];
-    string shipment_package_seq_id = 4 [json_name = "shipment_package_seq_id"];
-    string description = 5 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string document_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string shipment_id = 2 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string shipment_package_seq_id = 4 [(routines.opts).field_type = "id"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -255,7 +255,7 @@ message ShippingDocumentData {
 
 
 message ShippingDocumentKey{
-    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];
+    string document_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ShippingDocumentList{

@@ -25,25 +25,25 @@ message CartAbandonedLineData {
     option (routines.has_table) = true;
     // keys: visitId, cartAbandonedLineSeqId
     // fields
-    string visit_id = 1 [json_name = "visit_id"];
-    string cart_abandoned_line_seq_id = 2 [json_name = "cart_abandoned_line_seq_id"];
-    string product_id = 3 [json_name = "product_id"];
-    string prod_catalog_id = 4 [json_name = "prod_catalog_id"];
-    routines.FixedPoint quantity = 5 [json_name = "quantity"];
-    google.protobuf.Timestamp reserv_start = 6 [json_name = "reserv_start"];
-    routines.FixedPoint reserv_length = 7 [json_name = "reserv_length"];
-    routines.FixedPoint reserv_persons = 8 [json_name = "reserv_persons"];
-    routines.Currency unit_price = 9 [json_name = "unit_price"];
-    routines.FixedPoint reserv_2nd_p_p_perc = 10 [json_name = "reserv_2nd_p_p_perc"];
-    routines.FixedPoint reserv_nth_p_p_perc = 11 [json_name = "reserv_nth_p_p_perc"];
-    string config_id = 12 [json_name = "config_id"];
-    routines.Currency total_with_adjustments = 13 [json_name = "total_with_adjustments"];
-    routines.Indicator was_reserved = 14 [json_name = "was_reserved"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
-    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string cart_abandoned_line_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_id = 3 [(routines.opts).field_type = "id"];
+    string prod_catalog_id = 4 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 5 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp reserv_start = 6 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint reserv_length = 7 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_persons = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency unit_price = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint reserv_2nd_p_p_perc = 10 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_nth_p_p_perc = 11 [(routines.opts).field_type = "fixed-point"];
+    string config_id = 12 [(routines.opts).field_type = "id"];
+    routines.Currency total_with_adjustments = 13 [(routines.opts).field_type = "currency-amount"];
+    routines.Indicator was_reserved = 14 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    string id = 17 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -52,8 +52,8 @@ message CartAbandonedLineData {
 
 
 message CartAbandonedLineKey{
-    string visit_id = 1 [json_name = "visit_id"];
-    string cart_abandoned_line_seq_id = 2 [json_name = "cart_abandoned_line_seq_id"];
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string cart_abandoned_line_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CartAbandonedLineList{

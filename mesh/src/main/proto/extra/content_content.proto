@@ -25,19 +25,19 @@ message ContentApprovalData {
     option (routines.has_table) = true;
     // keys: contentApprovalId
     // fields
-    string content_approval_id = 1 [json_name = "content_approval_id", (google.api.graphql.relay_options).id = true];
-    string content_id = 2 [json_name = "content_id"];
-    string content_revision_seq_id = 3 [json_name = "content_revision_seq_id"];
-    string party_id = 4 [json_name = "party_id"];
-    string role_type_id = 5 [json_name = "role_type_id"];
-    string approval_status_id = 6 [json_name = "approval_status_id"];
-    google.protobuf.Timestamp approval_date = 7 [json_name = "approval_date"];
-    int64 sequence_num = 8 [json_name = "sequence_num"];
-    string comments = 9 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    
-        
+    string content_approval_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string content_revision_seq_id = 3 [(routines.opts).field_type = "id"];
+    string party_id = 4 [(routines.opts).field_type = "id"];
+    string role_type_id = 5 [(routines.opts).field_type = "id"];
+    string approval_status_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp approval_date = 7 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 8 [(routines.opts).field_type = "numeric"];
+    string comments = 9 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -46,7 +46,7 @@ message ContentApprovalData {
 
 
 message ContentApprovalKey{
-    string content_approval_id = 1 [json_name = "content_approval_id", (google.api.graphql.relay_options).id = true];
+    string content_approval_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ContentApprovalList{
@@ -70,14 +70,14 @@ message ContentKeywordData {
     option (routines.has_table) = true;
     // keys: contentId, keyword
     // fields
-    string content_id = 1 [json_name = "content_id"];
-    string keyword = 2 [json_name = "keyword"];
-    int64 relevancy_weight = 3 [json_name = "relevancy_weight"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
+    int64 relevancy_weight = 3 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -86,8 +86,8 @@ message ContentKeywordData {
 
 
 message ContentKeywordKey{
-    string content_id = 1 [json_name = "content_id"];
-    string keyword = 2 [json_name = "keyword"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
 }
 
 message ContentKeywordList{
@@ -111,15 +111,15 @@ message ContentMetaDataData {
     option (routines.has_table) = true;
     // keys: contentId, metaDataPredicateId
     // fields
-    string content_id = 1 [json_name = "content_id"];
-    string meta_data_predicate_id = 2 [json_name = "meta_data_predicate_id"];
-    string meta_data_value = 3 [json_name = "meta_data_value"];
-    string data_source_id = 4 [json_name = "data_source_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string meta_data_predicate_id = 2 [(routines.opts).field_type = "id"];
+    string meta_data_value = 3 [(routines.opts).field_type = "value"];
+    string data_source_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -128,8 +128,8 @@ message ContentMetaDataData {
 
 
 message ContentMetaDataKey{
-    string content_id = 1 [json_name = "content_id"];
-    string meta_data_predicate_id = 2 [json_name = "meta_data_predicate_id"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string meta_data_predicate_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContentMetaDataList{
@@ -153,14 +153,14 @@ message ContentPurposeData {
     option (routines.has_table) = true;
     // keys: contentId, contentPurposeTypeId
     // fields
-    string content_id = 1 [json_name = "content_id"];
-    string content_purpose_type_id = 2 [json_name = "content_purpose_type_id"];
-    int64 sequence_num = 3 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_purpose_type_id = 2 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 3 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -169,8 +169,8 @@ message ContentPurposeData {
 
 
 message ContentPurposeKey{
-    string content_id = 1 [json_name = "content_id"];
-    string content_purpose_type_id = 2 [json_name = "content_purpose_type_id"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_purpose_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContentPurposeList{
@@ -194,15 +194,15 @@ message ContentRevisionData {
     option (routines.has_table) = true;
     // keys: contentId, contentRevisionSeqId
     // fields
-    string content_id = 1 [json_name = "content_id"];
-    string content_revision_seq_id = 2 [json_name = "content_revision_seq_id"];
-    string committed_by_party_id = 3 [json_name = "committed_by_party_id"];
-    string comments = 4 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_revision_seq_id = 2 [(routines.opts).field_type = "id"];
+    string committed_by_party_id = 3 [(routines.opts).field_type = "id"];
+    string comments = 4 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -211,8 +211,8 @@ message ContentRevisionData {
 
 
 message ContentRevisionKey{
-    string content_id = 1 [json_name = "content_id"];
-    string content_revision_seq_id = 2 [json_name = "content_revision_seq_id"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_revision_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContentRevisionList{
@@ -236,16 +236,16 @@ message ContentRevisionItemData {
     option (routines.has_table) = true;
     // keys: contentId, contentRevisionSeqId, itemContentId
     // fields
-    string content_id = 1 [json_name = "content_id"];
-    string content_revision_seq_id = 2 [json_name = "content_revision_seq_id"];
-    string item_content_id = 3 [json_name = "item_content_id"];
-    string old_data_resource_id = 4 [json_name = "old_data_resource_id"];
-    string new_data_resource_id = 5 [json_name = "new_data_resource_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_revision_seq_id = 2 [(routines.opts).field_type = "id"];
+    string item_content_id = 3 [(routines.opts).field_type = "id"];
+    string old_data_resource_id = 4 [(routines.opts).field_type = "id"];
+    string new_data_resource_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -254,9 +254,9 @@ message ContentRevisionItemData {
 
 
 message ContentRevisionItemKey{
-    string content_id = 1 [json_name = "content_id"];
-    string content_revision_seq_id = 2 [json_name = "content_revision_seq_id"];
-    string item_content_id = 3 [json_name = "item_content_id"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string content_revision_seq_id = 2 [(routines.opts).field_type = "id"];
+    string item_content_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ContentRevisionItemList{
@@ -280,22 +280,22 @@ message ContentSearchConstraintData {
     option (routines.has_table) = true;
     // keys: contentSearchResultId, constraintSeqId
     // fields
-    string content_search_result_id = 1 [json_name = "content_search_result_id"];
-    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
-    string constraint_name = 3 [json_name = "constraint_name"];
-    string info_string = 4 [json_name = "info_string"];
-    routines.Indicator include_sub_categories = 5 [json_name = "include_sub_categories"];
-    routines.Indicator is_and = 6 [json_name = "is_and"];
-    routines.Indicator any_prefix = 7 [json_name = "any_prefix"];
-    routines.Indicator any_suffix = 8 [json_name = "any_suffix"];
-    routines.Indicator remove_stems = 9 [json_name = "remove_stems"];
-    string low_value = 10 [json_name = "low_value"];
-    string high_value = 11 [json_name = "high_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_search_result_id = 1 [(routines.opts).field_type = "id"];
+    string constraint_seq_id = 2 [(routines.opts).field_type = "id"];
+    string constraint_name = 3 [(routines.opts).field_type = "long-varchar"];
+    string info_string = 4 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator include_sub_categories = 5 [(routines.opts).field_type = "indicator"];
+    routines.Indicator is_and = 6 [(routines.opts).field_type = "indicator"];
+    routines.Indicator any_prefix = 7 [(routines.opts).field_type = "indicator"];
+    routines.Indicator any_suffix = 8 [(routines.opts).field_type = "indicator"];
+    routines.Indicator remove_stems = 9 [(routines.opts).field_type = "indicator"];
+    string low_value = 10 [(routines.opts).field_type = "short-varchar"];
+    string high_value = 11 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    string id = 14 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -304,8 +304,8 @@ message ContentSearchConstraintData {
 
 
 message ContentSearchConstraintKey{
-    string content_search_result_id = 1 [json_name = "content_search_result_id"];
-    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
+    string content_search_result_id = 1 [(routines.opts).field_type = "id"];
+    string constraint_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ContentSearchConstraintList{
@@ -329,17 +329,17 @@ message ContentSearchResultData {
     option (routines.has_table) = true;
     // keys: contentSearchResultId
     // fields
-    string content_search_result_id = 1 [json_name = "content_search_result_id", (google.api.graphql.relay_options).id = true];
-    string visit_id = 2 [json_name = "visit_id"];
-    string order_by_name = 3 [json_name = "order_by_name"];
-    routines.Indicator is_ascending = 4 [json_name = "is_ascending"];
-    int64 num_results = 5 [json_name = "num_results"];
-    double seconds_total = 6 [json_name = "seconds_total"];
-    google.protobuf.Timestamp search_date = 7 [json_name = "search_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string content_search_result_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string visit_id = 2 [(routines.opts).field_type = "id"];
+    string order_by_name = 3 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator is_ascending = 4 [(routines.opts).field_type = "indicator"];
+    int64 num_results = 5 [(routines.opts).field_type = "numeric"];
+    double seconds_total = 6 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp search_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -348,7 +348,7 @@ message ContentSearchResultData {
 
 
 message ContentSearchResultKey{
-    string content_search_result_id = 1 [json_name = "content_search_result_id", (google.api.graphql.relay_options).id = true];
+    string content_search_result_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ContentSearchResultList{
@@ -372,14 +372,14 @@ message ContentTypeAttrData {
     option (routines.has_table) = true;
     // keys: contentTypeId, attrName
     // fields
-    string content_type_id = 1 [json_name = "content_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string content_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -388,8 +388,8 @@ message ContentTypeAttrData {
 
 
 message ContentTypeAttrKey{
-    string content_type_id = 1 [json_name = "content_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string content_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message ContentTypeAttrList{

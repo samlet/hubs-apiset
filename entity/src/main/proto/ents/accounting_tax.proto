@@ -25,19 +25,19 @@ message PartyTaxAuthInfoData {
     option (routines.has_table) = true;
     // keys: partyId, taxAuthGeoId, taxAuthPartyId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string tax_auth_geo_id = 2 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 3 [json_name = "tax_auth_party_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string party_tax_id = 6 [json_name = "party_tax_id"];
-    routines.Indicator is_exempt = 7 [json_name = "is_exempt"];
-    routines.Indicator is_nexus = 8 [json_name = "is_nexus"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_geo_id = 2 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string party_tax_id = 6 [(routines.opts).field_type = "id-long"];
+    routines.Indicator is_exempt = 7 [(routines.opts).field_type = "indicator"];
+    routines.Indicator is_nexus = 8 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -46,10 +46,10 @@ message PartyTaxAuthInfoData {
 
 
 message PartyTaxAuthInfoKey{
-    string party_id = 1 [json_name = "party_id"];
-    string tax_auth_geo_id = 2 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 3 [json_name = "tax_auth_party_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_geo_id = 2 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyTaxAuthInfoList{
@@ -73,16 +73,16 @@ message TaxAuthorityData {
     option (routines.has_table) = true;
     // keys: taxAuthGeoId, taxAuthPartyId
     // fields
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    routines.Indicator require_tax_id_for_exemption = 3 [json_name = "require_tax_id_for_exemption"];
-    string tax_id_format_pattern = 4 [json_name = "tax_id_format_pattern"];
-    routines.Indicator include_tax_in_price = 5 [json_name = "include_tax_in_price"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator require_tax_id_for_exemption = 3 [(routines.opts).field_type = "indicator"];
+    string tax_id_format_pattern = 4 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator include_tax_in_price = 5 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 21;
@@ -91,8 +91,8 @@ message TaxAuthorityData {
 
 
 message TaxAuthorityKey{
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message TaxAuthorityList{
@@ -116,18 +116,18 @@ message TaxAuthorityAssocData {
     option (routines.has_table) = true;
     // keys: taxAuthGeoId, taxAuthPartyId, toTaxAuthGeoId, toTaxAuthPartyId, fromDate
     // fields
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string to_tax_auth_geo_id = 3 [json_name = "to_tax_auth_geo_id"];
-    string to_tax_auth_party_id = 4 [json_name = "to_tax_auth_party_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    string tax_authority_assoc_type_id = 7 [json_name = "tax_authority_assoc_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string to_tax_auth_geo_id = 3 [(routines.opts).field_type = "id"];
+    string to_tax_auth_party_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    string tax_authority_assoc_type_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -136,11 +136,11 @@ message TaxAuthorityAssocData {
 
 
 message TaxAuthorityAssocKey{
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string to_tax_auth_geo_id = 3 [json_name = "to_tax_auth_geo_id"];
-    string to_tax_auth_party_id = 4 [json_name = "to_tax_auth_party_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string to_tax_auth_geo_id = 3 [(routines.opts).field_type = "id"];
+    string to_tax_auth_party_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
 }
 
 message TaxAuthorityAssocList{
@@ -164,14 +164,14 @@ message TaxAuthorityCategoryData {
     option (routines.has_table) = true;
     // keys: taxAuthGeoId, taxAuthPartyId, productCategoryId
     // fields
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string product_category_id = 3 [json_name = "product_category_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string product_category_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -180,9 +180,9 @@ message TaxAuthorityCategoryData {
 
 
 message TaxAuthorityCategoryKey{
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string product_category_id = 3 [json_name = "product_category_id"];
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string product_category_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message TaxAuthorityCategoryList{
@@ -206,15 +206,15 @@ message TaxAuthorityGlAccountData {
     option (routines.has_table) = true;
     // keys: taxAuthGeoId, taxAuthPartyId, organizationPartyId
     // fields
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string organization_party_id = 3 [json_name = "organization_party_id"];
-    string gl_account_id = 4 [json_name = "gl_account_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string organization_party_id = 3 [(routines.opts).field_type = "id"];
+    string gl_account_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -223,9 +223,9 @@ message TaxAuthorityGlAccountData {
 
 
 message TaxAuthorityGlAccountKey{
-    string tax_auth_geo_id = 1 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 2 [json_name = "tax_auth_party_id"];
-    string organization_party_id = 3 [json_name = "organization_party_id"];
+    string tax_auth_geo_id = 1 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 2 [(routines.opts).field_type = "id"];
+    string organization_party_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message TaxAuthorityGlAccountList{
@@ -248,25 +248,25 @@ message TaxAuthorityRateProductFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: taxAuthorityRateSeqId
-    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id", (google.api.graphql.relay_options).id = true];
-    string tax_auth_geo_id = 2 [json_name = "tax_auth_geo_id"];
-    string tax_auth_party_id = 3 [json_name = "tax_auth_party_id"];
-    string tax_authority_rate_type_id = 4 [json_name = "tax_authority_rate_type_id"];
-    string product_store_id = 5 [json_name = "product_store_id"];
-    string product_category_id = 6 [json_name = "product_category_id"];
-    string title_transfer_enum_id = 7 [json_name = "title_transfer_enum_id"];
-    routines.Currency min_item_price = 8 [json_name = "min_item_price"];
-    routines.Currency min_purchase = 9 [json_name = "min_purchase"];
-    routines.Indicator tax_shipping = 10 [json_name = "tax_shipping"];
-    routines.FixedPoint tax_percentage = 11 [json_name = "tax_percentage"];
-    routines.Indicator tax_promotions = 12 [json_name = "tax_promotions"];
-    google.protobuf.Timestamp from_date = 13 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 14 [json_name = "thru_date"];
-    string description = 15 [json_name = "description"];
-    routines.Indicator is_tax_in_shipping_price = 16 [json_name = "is_tax_in_shipping_price"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 17 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 18 [json_name = "created_tx_stamp"];
-    string tenant_id = 19 [json_name = "tenant_id"];
+    string tax_authority_rate_seq_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tax_auth_geo_id = 2 [(routines.opts).field_type = "id"];
+    string tax_auth_party_id = 3 [(routines.opts).field_type = "id"];
+    string tax_authority_rate_type_id = 4 [(routines.opts).field_type = "id"];
+    string product_store_id = 5 [(routines.opts).field_type = "id"];
+    string product_category_id = 6 [(routines.opts).field_type = "id"];
+    string title_transfer_enum_id = 7 [(routines.opts).field_type = "id"];
+    routines.Currency min_item_price = 8 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency min_purchase = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.Indicator tax_shipping = 10 [(routines.opts).field_type = "indicator"];
+    routines.FixedPoint tax_percentage = 11 [(routines.opts).field_type = "fixed-point"];
+    routines.Indicator tax_promotions = 12 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp from_date = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 14 [(routines.opts).field_type = "date-time"];
+    string description = 15 [(routines.opts).field_type = "description"];
+    routines.Indicator is_tax_in_shipping_price = 16 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 19 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -275,7 +275,7 @@ message TaxAuthorityRateProductFlatData {
 }
 
 message TaxAuthorityRateProductKey{
-    string tax_authority_rate_seq_id = 1 [json_name = "tax_authority_rate_seq_id", (google.api.graphql.relay_options).id = true];
+    string tax_authority_rate_seq_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TaxAuthorityRateProductList{

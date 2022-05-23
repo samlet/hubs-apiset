@@ -25,23 +25,23 @@ message CostComponentData {
     option (routines.has_table) = true;
     // keys: costComponentId
     // fields
-    string cost_component_id = 1 [json_name = "cost_component_id", (google.api.graphql.relay_options).id = true];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
-    string product_id = 3 [json_name = "product_id"];
-    string product_feature_id = 4 [json_name = "product_feature_id"];
-    string party_id = 5 [json_name = "party_id"];
-    string geo_id = 6 [json_name = "geo_id"];
-    string work_effort_id = 7 [json_name = "work_effort_id"];
-    string fixed_asset_id = 8 [json_name = "fixed_asset_id"];
-    string cost_component_calc_id = 9 [json_name = "cost_component_calc_id"];
-    google.protobuf.Timestamp from_date = 10 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 11 [json_name = "thru_date"];
-    routines.FixedPoint cost = 12 [json_name = "cost"];
-    string cost_uom_id = 13 [json_name = "cost_uom_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
-    
-        
+    string cost_component_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string cost_component_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_id = 3 [(routines.opts).field_type = "id"];
+    string product_feature_id = 4 [(routines.opts).field_type = "id"];
+    string party_id = 5 [(routines.opts).field_type = "id"];
+    string geo_id = 6 [(routines.opts).field_type = "id"];
+    string work_effort_id = 7 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 8 [(routines.opts).field_type = "id"];
+    string cost_component_calc_id = 9 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 11 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint cost = 12 [(routines.opts).field_type = "fixed-point"];
+    string cost_uom_id = 13 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 27;
@@ -50,7 +50,7 @@ message CostComponentData {
 
 
 message CostComponentKey{
-    string cost_component_id = 1 [json_name = "cost_component_id", (google.api.graphql.relay_options).id = true];
+    string cost_component_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CostComponentList{
@@ -74,15 +74,15 @@ message CostComponentAttributeData {
     option (routines.has_table) = true;
     // keys: costComponentId, attrName
     // fields
-    string cost_component_id = 1 [json_name = "cost_component_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cost_component_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -91,8 +91,8 @@ message CostComponentAttributeData {
 
 
 message CostComponentAttributeKey{
-    string cost_component_id = 1 [json_name = "cost_component_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string cost_component_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message CostComponentAttributeList{
@@ -116,14 +116,14 @@ message CostComponentTypeAttrData {
     option (routines.has_table) = true;
     // keys: costComponentTypeId, attrName
     // fields
-    string cost_component_type_id = 1 [json_name = "cost_component_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cost_component_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -132,8 +132,8 @@ message CostComponentTypeAttrData {
 
 
 message CostComponentTypeAttrKey{
-    string cost_component_type_id = 1 [json_name = "cost_component_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string cost_component_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message CostComponentTypeAttrList{
@@ -157,17 +157,17 @@ message ProductCostComponentCalcData {
     option (routines.has_table) = true;
     // keys: productId, costComponentTypeId, fromDate
     // fields
-    string product_id = 1 [json_name = "product_id"];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
-    string cost_component_calc_id = 3 [json_name = "cost_component_calc_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string cost_component_type_id = 2 [(routines.opts).field_type = "id"];
+    string cost_component_calc_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -176,9 +176,9 @@ message ProductCostComponentCalcData {
 
 
 message ProductCostComponentCalcKey{
-    string product_id = 1 [json_name = "product_id"];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string cost_component_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductCostComponentCalcList{

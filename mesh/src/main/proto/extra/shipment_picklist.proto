@@ -25,16 +25,16 @@ message OldPicklistStatusHistoryData {
     option (routines.has_table) = true;
     // keys: picklistId, changeDate
     // fields
-    string picklist_id = 1 [json_name = "picklist_id"];
-    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];
-    string change_user_login_id = 3 [json_name = "change_user_login_id"];
-    string status_id = 4 [json_name = "status_id"];
-    string status_id_to = 5 [json_name = "status_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp change_date = 2 [(routines.opts).field_type = "date-time"];
+    string change_user_login_id = 3 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    string status_id_to = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -43,8 +43,8 @@ message OldPicklistStatusHistoryData {
 
 
 message OldPicklistStatusHistoryKey{
-    string picklist_id = 1 [json_name = "picklist_id"];
-    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp change_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message OldPicklistStatusHistoryList{
@@ -68,20 +68,20 @@ message PicklistData {
     option (routines.has_table) = true;
     // keys: picklistId
     // fields
-    string picklist_id = 1 [json_name = "picklist_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    string facility_id = 3 [json_name = "facility_id"];
-    string shipment_method_type_id = 4 [json_name = "shipment_method_type_id"];
-    string status_id = 5 [json_name = "status_id"];
-    google.protobuf.Timestamp picklist_date = 6 [json_name = "picklist_date"];
-    google.protobuf.Timestamp created_date = 7 [json_name = "created_date"];
-    string created_by_user_login = 8 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 9 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 10 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string picklist_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    string facility_id = 3 [(routines.opts).field_type = "id"];
+    string shipment_method_type_id = 4 [(routines.opts).field_type = "id"];
+    string status_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp picklist_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_date = 7 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 8 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 9 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 10 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 21;
@@ -90,7 +90,7 @@ message PicklistData {
 
 
 message PicklistKey{
-    string picklist_id = 1 [json_name = "picklist_id", (google.api.graphql.relay_options).id = true];
+    string picklist_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PicklistList{
@@ -114,15 +114,15 @@ message PicklistBinData {
     option (routines.has_table) = true;
     // keys: picklistBinId
     // fields
-    string picklist_bin_id = 1 [json_name = "picklist_bin_id", (google.api.graphql.relay_options).id = true];
-    string picklist_id = 2 [json_name = "picklist_id"];
-    int64 bin_location_number = 3 [json_name = "bin_location_number"];
-    string primary_order_id = 4 [json_name = "primary_order_id"];
-    string primary_ship_group_seq_id = 5 [json_name = "primary_ship_group_seq_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string picklist_bin_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string picklist_id = 2 [(routines.opts).field_type = "id"];
+    int64 bin_location_number = 3 [(routines.opts).field_type = "numeric"];
+    string primary_order_id = 4 [(routines.opts).field_type = "id"];
+    string primary_ship_group_seq_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -131,7 +131,7 @@ message PicklistBinData {
 
 
 message PicklistBinKey{
-    string picklist_bin_id = 1 [json_name = "picklist_bin_id", (google.api.graphql.relay_options).id = true];
+    string picklist_bin_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PicklistBinList{
@@ -155,18 +155,18 @@ message PicklistItemData {
     option (routines.has_table) = true;
     // keys: picklistBinId, orderId, orderItemSeqId, shipGroupSeqId, inventoryItemId
     // fields
-    string picklist_bin_id = 1 [json_name = "picklist_bin_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];
-    string inventory_item_id = 5 [json_name = "inventory_item_id"];
-    string item_status_id = 6 [json_name = "item_status_id"];
-    routines.FixedPoint quantity = 7 [json_name = "quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string picklist_bin_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 4 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 5 [(routines.opts).field_type = "id"];
+    string item_status_id = 6 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 7 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -175,11 +175,11 @@ message PicklistItemData {
 
 
 message PicklistItemKey{
-    string picklist_bin_id = 1 [json_name = "picklist_bin_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];
-    string inventory_item_id = 5 [json_name = "inventory_item_id"];
+    string picklist_bin_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 4 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 5 [(routines.opts).field_type = "id"];
 }
 
 message PicklistItemList{
@@ -203,18 +203,18 @@ message PicklistRoleData {
     option (routines.has_table) = true;
     // keys: picklistId, partyId, roleTypeId, fromDate
     // fields
-    string picklist_id = 1 [json_name = "picklist_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string created_by_user_login = 6 [json_name = "created_by_user_login"];
-    string last_modified_by_user_login = 7 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 6 [(routines.opts).field_type = "id-vlong"];
+    string last_modified_by_user_login = 7 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -223,10 +223,10 @@ message PicklistRoleData {
 
 
 message PicklistRoleKey{
-    string picklist_id = 1 [json_name = "picklist_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message PicklistRoleList{
@@ -250,16 +250,16 @@ message PicklistStatusData {
     option (routines.has_table) = true;
     // keys: picklistId, statusDate
     // fields
-    string picklist_id = 1 [json_name = "picklist_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
-    string change_by_user_login_id = 3 [json_name = "change_by_user_login_id"];
-    string status_id = 4 [json_name = "status_id"];
-    string status_id_to = 5 [json_name = "status_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 3 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    string status_id_to = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -268,8 +268,8 @@ message PicklistStatusData {
 
 
 message PicklistStatusKey{
-    string picklist_id = 1 [json_name = "picklist_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    string picklist_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message PicklistStatusList{

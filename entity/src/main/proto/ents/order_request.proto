@@ -24,36 +24,36 @@ message CustRequestFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: custRequestId
-    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];
-    string cust_request_type_id = 2 [json_name = "cust_request_type_id"];
-    string cust_request_category_id = 3 [json_name = "cust_request_category_id"];
-    string status_id = 4 [json_name = "status_id"];
-    string from_party_id = 5 [json_name = "from_party_id"];
-    int64 priority = 6 [json_name = "priority"];
-    google.protobuf.Timestamp cust_request_date = 7 [json_name = "cust_request_date"];
-    google.protobuf.Timestamp response_required_date = 8 [json_name = "response_required_date"];
-    string cust_request_name = 9 [json_name = "cust_request_name"];
-    string description = 10 [json_name = "description"];
-    string maximum_amount_uom_id = 11 [json_name = "maximum_amount_uom_id"];
-    string product_store_id = 12 [json_name = "product_store_id"];
-    string sales_channel_enum_id = 13 [json_name = "sales_channel_enum_id"];
-    string fulfill_contact_mech_id = 14 [json_name = "fulfill_contact_mech_id"];
-    string currency_uom_id = 15 [json_name = "currency_uom_id"];
-    google.protobuf.Timestamp open_date_time = 16 [json_name = "open_date_time"];
-    google.protobuf.Timestamp closed_date_time = 17 [json_name = "closed_date_time"];
-    string internal_comment = 18 [json_name = "internal_comment"];
-    string reason = 19 [json_name = "reason"];
-    google.protobuf.Timestamp created_date = 20 [json_name = "created_date"];
-    string created_by_user_login = 21 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 22 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 23 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 24 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 25 [json_name = "created_tx_stamp"];
-    double cust_estimated_milli_seconds = 26 [json_name = "cust_estimated_milli_seconds"];
-    int64 cust_sequence_num = 27 [json_name = "cust_sequence_num"];
-    string parent_cust_request_id = 28 [json_name = "parent_cust_request_id"];
-    routines.Indicator billed = 29 [json_name = "billed"];
-    string tenant_id = 30 [json_name = "tenant_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string cust_request_type_id = 2 [(routines.opts).field_type = "id"];
+    string cust_request_category_id = 3 [(routines.opts).field_type = "id"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    string from_party_id = 5 [(routines.opts).field_type = "id"];
+    int64 priority = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp cust_request_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp response_required_date = 8 [(routines.opts).field_type = "date-time"];
+    string cust_request_name = 9 [(routines.opts).field_type = "name"];
+    string description = 10 [(routines.opts).field_type = "description"];
+    string maximum_amount_uom_id = 11 [(routines.opts).field_type = "id"];
+    string product_store_id = 12 [(routines.opts).field_type = "id"];
+    string sales_channel_enum_id = 13 [(routines.opts).field_type = "id"];
+    string fulfill_contact_mech_id = 14 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 15 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp open_date_time = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp closed_date_time = 17 [(routines.opts).field_type = "date-time"];
+    string internal_comment = 18 [(routines.opts).field_type = "comment"];
+    string reason = 19 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp created_date = 20 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 21 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 22 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 23 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 24 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 25 [(routines.opts).field_type = "date-time"];
+    double cust_estimated_milli_seconds = 26 [(routines.opts).field_type = "floating-point"];
+    int64 cust_sequence_num = 27 [(routines.opts).field_type = "numeric"];
+    string parent_cust_request_id = 28 [(routines.opts).field_type = "id"];
+    routines.Indicator billed = 29 [(routines.opts).field_type = "indicator"];
+    string tenant_id = 30 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -62,7 +62,7 @@ message CustRequestFlatData {
 }
 
 message CustRequestKey{
-    string cust_request_id = 1 [json_name = "cust_request_id", (google.api.graphql.relay_options).id = true];
+    string cust_request_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustRequestList{
@@ -85,28 +85,28 @@ message CustRequestItemData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string cust_request_resolution_id = 3 [json_name = "cust_request_resolution_id"];
-    string status_id = 4 [json_name = "status_id"];
-    int64 priority = 5 [json_name = "priority"];
-    int64 sequence_num = 6 [json_name = "sequence_num"];
-    google.protobuf.Timestamp required_by_date = 7 [json_name = "required_by_date"];
-    string product_id = 8 [json_name = "product_id"];
-    routines.FixedPoint quantity = 9 [json_name = "quantity"];
-    routines.FixedPoint selected_amount = 10 [json_name = "selected_amount"];
-    routines.Currency maximum_amount = 11 [json_name = "maximum_amount"];
-    google.protobuf.Timestamp reserv_start = 12 [json_name = "reserv_start"];
-    routines.FixedPoint reserv_length = 13 [json_name = "reserv_length"];
-    routines.FixedPoint reserv_persons = 14 [json_name = "reserv_persons"];
-    string config_id = 15 [json_name = "config_id"];
-    string description = 16 [json_name = "description"];
-    string story = 17 [json_name = "story"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];
-    string id = 20 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string cust_request_resolution_id = 3 [(routines.opts).field_type = "id"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    int64 priority = 5 [(routines.opts).field_type = "numeric"];
+    int64 sequence_num = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp required_by_date = 7 [(routines.opts).field_type = "date-time"];
+    string product_id = 8 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 9 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint selected_amount = 10 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency maximum_amount = 11 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp reserv_start = 12 [(routines.opts).field_type = "date-time"];
+    routines.FixedPoint reserv_length = 13 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_persons = 14 [(routines.opts).field_type = "fixed-point"];
+    string config_id = 15 [(routines.opts).field_type = "id"];
+    string description = 16 [(routines.opts).field_type = "description"];
+    string story = 17 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 19 [(routines.opts).field_type = "date-time"];
+    string id = 20 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 30;
@@ -115,8 +115,8 @@ message CustRequestItemData {
 
 
 message CustRequestItemKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CustRequestItemList{
@@ -139,14 +139,14 @@ message CustRequestTypeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: custRequestTypeId
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string description = 4 [json_name = "description"];
-    string party_id = 5 [json_name = "party_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string tenant_id = 8 [json_name = "tenant_id"];
+    string cust_request_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    string party_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 8 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -155,7 +155,7 @@ message CustRequestTypeFlatData {
 }
 
 message CustRequestTypeKey{
-    string cust_request_type_id = 1 [json_name = "cust_request_type_id", (google.api.graphql.relay_options).id = true];
+    string cust_request_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message CustRequestTypeList{

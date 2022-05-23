@@ -24,22 +24,22 @@ message ItemIssuanceFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: itemIssuanceId
-    string item_issuance_id = 1 [json_name = "item_issuance_id", (google.api.graphql.relay_options).id = true];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];
-    string inventory_item_id = 5 [json_name = "inventory_item_id"];
-    string shipment_id = 6 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 7 [json_name = "shipment_item_seq_id"];
-    string fixed_asset_id = 8 [json_name = "fixed_asset_id"];
-    string maint_hist_seq_id = 9 [json_name = "maint_hist_seq_id"];
-    google.protobuf.Timestamp issued_date_time = 10 [json_name = "issued_date_time"];
-    string issued_by_user_login_id = 11 [json_name = "issued_by_user_login_id"];
-    routines.FixedPoint quantity = 12 [json_name = "quantity"];
-    routines.FixedPoint cancel_quantity = 13 [json_name = "cancel_quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
-    string tenant_id = 16 [json_name = "tenant_id"];
+    string item_issuance_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 4 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 5 [(routines.opts).field_type = "id"];
+    string shipment_id = 6 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 7 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 8 [(routines.opts).field_type = "id"];
+    string maint_hist_seq_id = 9 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp issued_date_time = 10 [(routines.opts).field_type = "date-time"];
+    string issued_by_user_login_id = 11 [(routines.opts).field_type = "id-vlong"];
+    routines.FixedPoint quantity = 12 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint cancel_quantity = 13 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 16 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -48,7 +48,7 @@ message ItemIssuanceFlatData {
 }
 
 message ItemIssuanceKey{
-    string item_issuance_id = 1 [json_name = "item_issuance_id", (google.api.graphql.relay_options).id = true];
+    string item_issuance_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ItemIssuanceList{

@@ -24,24 +24,24 @@ message ProductPromoFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productPromoId
-    string product_promo_id = 1 [json_name = "product_promo_id", (google.api.graphql.relay_options).id = true];
-    string promo_name = 2 [json_name = "promo_name"];
-    string promo_text = 3 [json_name = "promo_text"];
-    routines.Indicator user_entered = 4 [json_name = "user_entered"];
-    routines.Indicator show_to_customer = 5 [json_name = "show_to_customer"];
-    routines.Indicator require_code = 6 [json_name = "require_code"];
-    int64 use_limit_per_order = 7 [json_name = "use_limit_per_order"];
-    int64 use_limit_per_customer = 8 [json_name = "use_limit_per_customer"];
-    int64 use_limit_per_promotion = 9 [json_name = "use_limit_per_promotion"];
-    routines.FixedPoint billback_factor = 10 [json_name = "billback_factor"];
-    string override_org_party_id = 11 [json_name = "override_org_party_id"];
-    google.protobuf.Timestamp created_date = 12 [json_name = "created_date"];
-    string created_by_user_login = 13 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 14 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 15 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 16 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 17 [json_name = "created_tx_stamp"];
-    string tenant_id = 18 [json_name = "tenant_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string promo_name = 2 [(routines.opts).field_type = "name"];
+    string promo_text = 3 [(routines.opts).field_type = "description"];
+    routines.Indicator user_entered = 4 [(routines.opts).field_type = "indicator"];
+    routines.Indicator show_to_customer = 5 [(routines.opts).field_type = "indicator"];
+    routines.Indicator require_code = 6 [(routines.opts).field_type = "indicator"];
+    int64 use_limit_per_order = 7 [(routines.opts).field_type = "numeric"];
+    int64 use_limit_per_customer = 8 [(routines.opts).field_type = "numeric"];
+    int64 use_limit_per_promotion = 9 [(routines.opts).field_type = "numeric"];
+    routines.FixedPoint billback_factor = 10 [(routines.opts).field_type = "fixed-point"];
+    string override_org_party_id = 11 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp created_date = 12 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 13 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 14 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 15 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 17 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 18 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -50,7 +50,7 @@ message ProductPromoFlatData {
 }
 
 message ProductPromoKey{
-    string product_promo_id = 1 [json_name = "product_promo_id", (google.api.graphql.relay_options).id = true];
+    string product_promo_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductPromoList{
@@ -73,23 +73,23 @@ message ProductPromoActionData {
     option (routines.has_table) = true;
     // keys: productPromoId, productPromoRuleId, productPromoActionSeqId
     // fields
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
-    string product_promo_action_enum_id = 4 [json_name = "product_promo_action_enum_id"];
-    string custom_method_id = 5 [json_name = "custom_method_id"];
-    string order_adjustment_type_id = 6 [json_name = "order_adjustment_type_id"];
-    string service_name = 7 [json_name = "service_name"];
-    routines.FixedPoint quantity = 8 [json_name = "quantity"];
-    routines.FixedPoint amount = 9 [json_name = "amount"];
-    string product_id = 10 [json_name = "product_id"];
-    string party_id = 11 [json_name = "party_id"];
-    routines.Indicator use_cart_quantity = 12 [json_name = "use_cart_quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    string id = 15 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
+    string product_promo_action_enum_id = 4 [(routines.opts).field_type = "id"];
+    string custom_method_id = 5 [(routines.opts).field_type = "id"];
+    string order_adjustment_type_id = 6 [(routines.opts).field_type = "id"];
+    string service_name = 7 [(routines.opts).field_type = "long-varchar"];
+    routines.FixedPoint quantity = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint amount = 9 [(routines.opts).field_type = "fixed-point"];
+    string product_id = 10 [(routines.opts).field_type = "id"];
+    string party_id = 11 [(routines.opts).field_type = "id"];
+    routines.Indicator use_cart_quantity = 12 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    string id = 15 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 26;
@@ -98,9 +98,9 @@ message ProductPromoActionData {
 
 
 message ProductPromoActionKey{
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ProductPromoActionList{
@@ -124,19 +124,19 @@ message ProductPromoCategoryData {
     option (routines.has_table) = true;
     // keys: productPromoId, productPromoRuleId, productPromoActionSeqId, productPromoCondSeqId, productCategoryId, andGroupId
     // fields
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
-    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
-    string product_category_id = 5 [json_name = "product_category_id"];
-    string and_group_id = 6 [json_name = "and_group_id"];
-    string product_promo_appl_enum_id = 7 [json_name = "product_promo_appl_enum_id"];
-    routines.Indicator include_sub_categories = 8 [json_name = "include_sub_categories"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 4 [(routines.opts).field_type = "id"];
+    string product_category_id = 5 [(routines.opts).field_type = "id"];
+    string and_group_id = 6 [(routines.opts).field_type = "id"];
+    string product_promo_appl_enum_id = 7 [(routines.opts).field_type = "id"];
+    routines.Indicator include_sub_categories = 8 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -145,12 +145,12 @@ message ProductPromoCategoryData {
 
 
 message ProductPromoCategoryKey{
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
-    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
-    string product_category_id = 5 [json_name = "product_category_id"];
-    string and_group_id = 6 [json_name = "and_group_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 4 [(routines.opts).field_type = "id"];
+    string product_category_id = 5 [(routines.opts).field_type = "id"];
+    string and_group_id = 6 [(routines.opts).field_type = "id"];
 }
 
 message ProductPromoCategoryList{
@@ -173,21 +173,21 @@ message ProductPromoCodeFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productPromoCodeId
-    string product_promo_code_id = 1 [json_name = "product_promo_code_id", (google.api.graphql.relay_options).id = true];
-    string product_promo_id = 2 [json_name = "product_promo_id"];
-    routines.Indicator user_entered = 3 [json_name = "user_entered"];
-    routines.Indicator require_email_or_party = 4 [json_name = "require_email_or_party"];
-    int64 use_limit_per_code = 5 [json_name = "use_limit_per_code"];
-    int64 use_limit_per_customer = 6 [json_name = "use_limit_per_customer"];
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];
-    google.protobuf.Timestamp created_date = 9 [json_name = "created_date"];
-    string created_by_user_login = 10 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 11 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 12 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    string tenant_id = 15 [json_name = "tenant_id"];
+    string product_promo_code_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_promo_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator user_entered = 3 [(routines.opts).field_type = "indicator"];
+    routines.Indicator require_email_or_party = 4 [(routines.opts).field_type = "indicator"];
+    int64 use_limit_per_code = 5 [(routines.opts).field_type = "numeric"];
+    int64 use_limit_per_customer = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp from_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_date = 9 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 10 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 11 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 12 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 15 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -196,7 +196,7 @@ message ProductPromoCodeFlatData {
 }
 
 message ProductPromoCodeKey{
-    string product_promo_code_id = 1 [json_name = "product_promo_code_id", (google.api.graphql.relay_options).id = true];
+    string product_promo_code_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductPromoCodeList{
@@ -219,19 +219,19 @@ message ProductPromoCondData {
     option (routines.has_table) = true;
     // keys: productPromoId, productPromoRuleId, productPromoCondSeqId
     // fields
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_cond_seq_id = 3 [json_name = "product_promo_cond_seq_id"];
-    string custom_method_id = 4 [json_name = "custom_method_id"];
-    string input_param_enum_id = 5 [json_name = "input_param_enum_id"];
-    string operator_enum_id = 6 [json_name = "operator_enum_id"];
-    string cond_value = 7 [json_name = "cond_value"];
-    string other_value = 8 [json_name = "other_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 3 [(routines.opts).field_type = "id"];
+    string custom_method_id = 4 [(routines.opts).field_type = "id"];
+    string input_param_enum_id = 5 [(routines.opts).field_type = "id"];
+    string operator_enum_id = 6 [(routines.opts).field_type = "id"];
+    string cond_value = 7 [(routines.opts).field_type = "long-varchar"];
+    string other_value = 8 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -240,9 +240,9 @@ message ProductPromoCondData {
 
 
 message ProductPromoCondKey{
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_cond_seq_id = 3 [json_name = "product_promo_cond_seq_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ProductPromoCondList{
@@ -266,17 +266,17 @@ message ProductPromoProductData {
     option (routines.has_table) = true;
     // keys: productPromoId, productPromoRuleId, productPromoActionSeqId, productPromoCondSeqId, productId
     // fields
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
-    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
-    string product_id = 5 [json_name = "product_id"];
-    string product_promo_appl_enum_id = 6 [json_name = "product_promo_appl_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 4 [(routines.opts).field_type = "id"];
+    string product_id = 5 [(routines.opts).field_type = "id"];
+    string product_promo_appl_enum_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -285,11 +285,11 @@ message ProductPromoProductData {
 
 
 message ProductPromoProductKey{
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string product_promo_action_seq_id = 3 [json_name = "product_promo_action_seq_id"];
-    string product_promo_cond_seq_id = 4 [json_name = "product_promo_cond_seq_id"];
-    string product_id = 5 [json_name = "product_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string product_promo_action_seq_id = 3 [(routines.opts).field_type = "id"];
+    string product_promo_cond_seq_id = 4 [(routines.opts).field_type = "id"];
+    string product_id = 5 [(routines.opts).field_type = "id"];
 }
 
 message ProductPromoProductList{
@@ -313,14 +313,14 @@ message ProductPromoRuleData {
     option (routines.has_table) = true;
     // keys: productPromoId, productPromoRuleId
     // fields
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
-    string rule_name = 3 [json_name = "rule_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
+    string rule_name = 3 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -329,8 +329,8 @@ message ProductPromoRuleData {
 
 
 message ProductPromoRuleKey{
-    string product_promo_id = 1 [json_name = "product_promo_id"];
-    string product_promo_rule_id = 2 [json_name = "product_promo_rule_id"];
+    string product_promo_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_rule_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductPromoRuleList{

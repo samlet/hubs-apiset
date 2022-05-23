@@ -20,19 +20,19 @@ message ShipmentGatewayDhlData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: shipmentGatewayConfigId
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
-    string connect_url = 2 [json_name = "connect_url"];
-    int64 connect_timeout = 3 [json_name = "connect_timeout"];
-    string head_version = 4 [json_name = "head_version"];
-    string head_action = 5 [json_name = "head_action"];
-    string access_user_id = 6 [json_name = "access_user_id"];
-    string access_password = 7 [json_name = "access_password"];
-    string access_account_nbr = 8 [json_name = "access_account_nbr"];
-    string access_shipping_key = 9 [json_name = "access_shipping_key"];
-    string label_image_format = 10 [json_name = "label_image_format"];
-    string rate_estimate_template = 11 [json_name = "rate_estimate_template"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
+    string shipment_gateway_config_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string connect_url = 2 [(routines.opts).field_type = "value"];
+    int64 connect_timeout = 3 [(routines.opts).field_type = "numeric"];
+    string head_version = 4 [(routines.opts).field_type = "short-varchar"];
+    string head_action = 5 [(routines.opts).field_type = "value"];
+    string access_user_id = 6 [(routines.opts).field_type = "value"];
+    string access_password = 7 [(routines.opts).field_type = "value"];
+    string access_account_nbr = 8 [(routines.opts).field_type = "value"];
+    string access_shipping_key = 9 [(routines.opts).field_type = "value"];
+    string label_image_format = 10 [(routines.opts).field_type = "short-varchar"];
+    string rate_estimate_template = 11 [(routines.opts).field_type = "value"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -41,7 +41,7 @@ message ShipmentGatewayDhlData {
 }
 
 message ShipmentGatewayDhlKey{
-    string shipment_gateway_config_id = 1 [json_name = "shipment_gateway_config_id", (google.api.graphql.relay_options).id = true];
+    string shipment_gateway_config_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ShipmentGatewayDhlList{

@@ -24,61 +24,61 @@ message WorkEffortFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: workEffortId
-    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
-    string work_effort_type_id = 2 [json_name = "work_effort_type_id"];
-    string current_status_id = 3 [json_name = "current_status_id"];
-    google.protobuf.Timestamp last_status_update = 4 [json_name = "last_status_update"];
-    string work_effort_purpose_type_id = 5 [json_name = "work_effort_purpose_type_id"];
-    string work_effort_parent_id = 6 [json_name = "work_effort_parent_id"];
-    string scope_enum_id = 7 [json_name = "scope_enum_id"];
-    int64 priority = 8 [json_name = "priority"];
-    int64 percent_complete = 9 [json_name = "percent_complete"];
-    string work_effort_name = 10 [json_name = "work_effort_name"];
-    string show_as_enum_id = 11 [json_name = "show_as_enum_id"];
-    routines.Indicator send_notification_email = 12 [json_name = "send_notification_email"];
-    string description = 13 [json_name = "description"];
-    string location_desc = 14 [json_name = "location_desc"];
-    google.protobuf.Timestamp estimated_start_date = 15 [json_name = "estimated_start_date"];
-    google.protobuf.Timestamp estimated_completion_date = 16 [json_name = "estimated_completion_date"];
-    google.protobuf.Timestamp actual_start_date = 17 [json_name = "actual_start_date"];
-    google.protobuf.Timestamp actual_completion_date = 18 [json_name = "actual_completion_date"];
-    double estimated_milli_seconds = 19 [json_name = "estimated_milli_seconds"];
-    double estimated_setup_millis = 20 [json_name = "estimated_setup_millis"];
-    string estimate_calc_method = 21 [json_name = "estimate_calc_method"];
-    double actual_milli_seconds = 22 [json_name = "actual_milli_seconds"];
-    double actual_setup_millis = 23 [json_name = "actual_setup_millis"];
-    double total_milli_seconds_allowed = 24 [json_name = "total_milli_seconds_allowed"];
-    routines.Currency total_money_allowed = 25 [json_name = "total_money_allowed"];
-    string money_uom_id = 26 [json_name = "money_uom_id"];
-    string special_terms = 27 [json_name = "special_terms"];
-    int64 time_transparency = 28 [json_name = "time_transparency"];
-    string universal_id = 29 [json_name = "universal_id"];
-    string source_reference_id = 30 [json_name = "source_reference_id"];
-    string fixed_asset_id = 31 [json_name = "fixed_asset_id"];
-    string facility_id = 32 [json_name = "facility_id"];
-    string info_url = 33 [json_name = "info_url"];
-    string recurrence_info_id = 34 [json_name = "recurrence_info_id"];
-    string temp_expr_id = 35 [json_name = "temp_expr_id"];
-    string runtime_data_id = 36 [json_name = "runtime_data_id"];
-    string note_id = 37 [json_name = "note_id"];
-    string service_loader_name = 38 [json_name = "service_loader_name"];
-    routines.FixedPoint quantity_to_produce = 39 [json_name = "quantity_to_produce"];
-    routines.FixedPoint quantity_produced = 40 [json_name = "quantity_produced"];
-    routines.FixedPoint quantity_rejected = 41 [json_name = "quantity_rejected"];
-    routines.FixedPoint reserv_persons = 42 [json_name = "reserv_persons"];
-    routines.FixedPoint reserv_2nd_p_p_perc = 43 [json_name = "reserv_2nd_p_p_perc"];
-    routines.FixedPoint reserv_nth_p_p_perc = 44 [json_name = "reserv_nth_p_p_perc"];
-    string accommodation_map_id = 45 [json_name = "accommodation_map_id"];
-    string accommodation_spot_id = 46 [json_name = "accommodation_spot_id"];
-    int64 revision_number = 47 [json_name = "revision_number"];
-    google.protobuf.Timestamp created_date = 48 [json_name = "created_date"];
-    string created_by_user_login = 49 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 50 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 51 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 52 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 53 [json_name = "created_tx_stamp"];
-    int64 sequence_num = 54 [json_name = "sequence_num"];
-    string tenant_id = 55 [json_name = "tenant_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string work_effort_type_id = 2 [(routines.opts).field_type = "id"];
+    string current_status_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_status_update = 4 [(routines.opts).field_type = "date-time"];
+    string work_effort_purpose_type_id = 5 [(routines.opts).field_type = "id"];
+    string work_effort_parent_id = 6 [(routines.opts).field_type = "id"];
+    string scope_enum_id = 7 [(routines.opts).field_type = "id"];
+    int64 priority = 8 [(routines.opts).field_type = "numeric"];
+    int64 percent_complete = 9 [(routines.opts).field_type = "numeric"];
+    string work_effort_name = 10 [(routines.opts).field_type = "name"];
+    string show_as_enum_id = 11 [(routines.opts).field_type = "id"];
+    routines.Indicator send_notification_email = 12 [(routines.opts).field_type = "indicator"];
+    string description = 13 [(routines.opts).field_type = "description"];
+    string location_desc = 14 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp estimated_start_date = 15 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp estimated_completion_date = 16 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp actual_start_date = 17 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp actual_completion_date = 18 [(routines.opts).field_type = "date-time"];
+    double estimated_milli_seconds = 19 [(routines.opts).field_type = "floating-point"];
+    double estimated_setup_millis = 20 [(routines.opts).field_type = "floating-point"];
+    string estimate_calc_method = 21 [(routines.opts).field_type = "id"];
+    double actual_milli_seconds = 22 [(routines.opts).field_type = "floating-point"];
+    double actual_setup_millis = 23 [(routines.opts).field_type = "floating-point"];
+    double total_milli_seconds_allowed = 24 [(routines.opts).field_type = "floating-point"];
+    routines.Currency total_money_allowed = 25 [(routines.opts).field_type = "currency-amount"];
+    string money_uom_id = 26 [(routines.opts).field_type = "id"];
+    string special_terms = 27 [(routines.opts).field_type = "long-varchar"];
+    int64 time_transparency = 28 [(routines.opts).field_type = "numeric"];
+    string universal_id = 29 [(routines.opts).field_type = "short-varchar"];
+    string source_reference_id = 30 [(routines.opts).field_type = "id-long"];
+    string fixed_asset_id = 31 [(routines.opts).field_type = "id"];
+    string facility_id = 32 [(routines.opts).field_type = "id"];
+    string info_url = 33 [(routines.opts).field_type = "long-varchar"];
+    string recurrence_info_id = 34 [(routines.opts).field_type = "id"];
+    string temp_expr_id = 35 [(routines.opts).field_type = "id"];
+    string runtime_data_id = 36 [(routines.opts).field_type = "id"];
+    string note_id = 37 [(routines.opts).field_type = "id"];
+    string service_loader_name = 38 [(routines.opts).field_type = "name"];
+    routines.FixedPoint quantity_to_produce = 39 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint quantity_produced = 40 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint quantity_rejected = 41 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_persons = 42 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_2nd_p_p_perc = 43 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint reserv_nth_p_p_perc = 44 [(routines.opts).field_type = "fixed-point"];
+    string accommodation_map_id = 45 [(routines.opts).field_type = "id"];
+    string accommodation_spot_id = 46 [(routines.opts).field_type = "id"];
+    int64 revision_number = 47 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp created_date = 48 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 49 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 50 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 51 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 52 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 53 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 54 [(routines.opts).field_type = "numeric"];
+    string tenant_id = 55 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -87,7 +87,7 @@ message WorkEffortFlatData {
 }
 
 message WorkEffortKey{
-    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
+    string work_effort_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message WorkEffortList{
@@ -110,17 +110,17 @@ message WorkEffortAssocData {
     option (routines.has_table) = true;
     // keys: workEffortIdFrom, workEffortIdTo, workEffortAssocTypeId, fromDate
     // fields
-    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
-    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
-    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
-    int64 sequence_num = 4 [json_name = "sequence_num"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id_from = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id_to = 2 [(routines.opts).field_type = "id"];
+    string work_effort_assoc_type_id = 3 [(routines.opts).field_type = "id"];
+    int64 sequence_num = 4 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -129,10 +129,10 @@ message WorkEffortAssocData {
 
 
 message WorkEffortAssocKey{
-    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
-    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
-    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string work_effort_id_from = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id_to = 2 [(routines.opts).field_type = "id"];
+    string work_effort_assoc_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortAssocList{
@@ -156,19 +156,19 @@ message WorkEffortFixedAssetAssignData {
     option (routines.has_table) = true;
     // keys: workEffortId, fixedAssetId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
-    string status_id = 3 [json_name = "status_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string availability_status_id = 6 [json_name = "availability_status_id"];
-    routines.Currency allocated_cost = 7 [json_name = "allocated_cost"];
-    string comments = 8 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 2 [(routines.opts).field_type = "id"];
+    string status_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string availability_status_id = 6 [(routines.opts).field_type = "id"];
+    routines.Currency allocated_cost = 7 [(routines.opts).field_type = "currency-amount"];
+    string comments = 8 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -177,9 +177,9 @@ message WorkEffortFixedAssetAssignData {
 
 
 message WorkEffortFixedAssetAssignKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string fixed_asset_id = 2 [json_name = "fixed_asset_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string fixed_asset_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortFixedAssetAssignList{
@@ -203,19 +203,19 @@ message WorkEffortGoodStandardData {
     option (routines.has_table) = true;
     // keys: workEffortId, productId, workEffortGoodStdTypeId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string product_id = 2 [json_name = "product_id"];
-    string work_effort_good_std_type_id = 3 [json_name = "work_effort_good_std_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string status_id = 6 [json_name = "status_id"];
-    double estimated_quantity = 7 [json_name = "estimated_quantity"];
-    routines.Currency estimated_cost = 8 [json_name = "estimated_cost"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_good_std_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string status_id = 6 [(routines.opts).field_type = "id"];
+    double estimated_quantity = 7 [(routines.opts).field_type = "floating-point"];
+    routines.Currency estimated_cost = 8 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -224,10 +224,10 @@ message WorkEffortGoodStandardData {
 
 
 message WorkEffortGoodStandardKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string product_id = 2 [json_name = "product_id"];
-    string work_effort_good_std_type_id = 3 [json_name = "work_effort_good_std_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_good_std_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortGoodStandardList{
@@ -251,25 +251,25 @@ message WorkEffortPartyAssignmentData {
     option (routines.has_table) = true;
     // keys: workEffortId, partyId, roleTypeId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string assigned_by_user_login_id = 6 [json_name = "assigned_by_user_login_id"];
-    string status_id = 7 [json_name = "status_id"];
-    google.protobuf.Timestamp status_date_time = 8 [json_name = "status_date_time"];
-    string expectation_enum_id = 9 [json_name = "expectation_enum_id"];
-    string delegate_reason_enum_id = 10 [json_name = "delegate_reason_enum_id"];
-    string facility_id = 11 [json_name = "facility_id"];
-    string comments = 12 [json_name = "comments"];
-    routines.Indicator must_rsvp = 13 [json_name = "must_rsvp"];
-    string availability_status_id = 14 [json_name = "availability_status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 15 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 16 [json_name = "created_tx_stamp"];
-    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string assigned_by_user_login_id = 6 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date_time = 8 [(routines.opts).field_type = "date-time"];
+    string expectation_enum_id = 9 [(routines.opts).field_type = "id"];
+    string delegate_reason_enum_id = 10 [(routines.opts).field_type = "id"];
+    string facility_id = 11 [(routines.opts).field_type = "id"];
+    string comments = 12 [(routines.opts).field_type = "comment"];
+    routines.Indicator must_rsvp = 13 [(routines.opts).field_type = "indicator"];
+    string availability_status_id = 14 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    string id = 17 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 29;
@@ -278,10 +278,10 @@ message WorkEffortPartyAssignmentData {
 
 
 message WorkEffortPartyAssignmentKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortPartyAssignmentList{
@@ -305,16 +305,16 @@ message WorkEffortSkillStandardData {
     option (routines.has_table) = true;
     // keys: workEffortId, skillTypeId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string skill_type_id = 2 [json_name = "skill_type_id"];
-    double estimated_num_people = 3 [json_name = "estimated_num_people"];
-    double estimated_duration = 4 [json_name = "estimated_duration"];
-    routines.Currency estimated_cost = 5 [json_name = "estimated_cost"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string skill_type_id = 2 [(routines.opts).field_type = "id"];
+    double estimated_num_people = 3 [(routines.opts).field_type = "floating-point"];
+    double estimated_duration = 4 [(routines.opts).field_type = "floating-point"];
+    routines.Currency estimated_cost = 5 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -323,8 +323,8 @@ message WorkEffortSkillStandardData {
 
 
 message WorkEffortSkillStandardKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string skill_type_id = 2 [json_name = "skill_type_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string skill_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortSkillStandardList{

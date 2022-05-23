@@ -20,13 +20,13 @@ message EnumerationData {
     option (routines.flat) = true;
     option (routines.has_table) = false;
     // keys: enumId
-    string enum_id = 1 [json_name = "enum_id", (google.api.graphql.relay_options).id = true];
-    string enum_type_id = 2 [json_name = "enum_type_id"];
-    string enum_code = 3 [json_name = "enum_code"];
-    string sequence_id = 4 [json_name = "sequence_id"];
-    string description = 5 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
+    string enum_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string enum_type_id = 2 [(routines.opts).field_type = "id"];
+    string enum_code = 3 [(routines.opts).field_type = "short-varchar"];
+    string sequence_id = 4 [(routines.opts).field_type = "id"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
      
 
     // extra
@@ -35,7 +35,7 @@ message EnumerationData {
 }
 
 message EnumerationKey{
-    string enum_id = 1 [json_name = "enum_id", (google.api.graphql.relay_options).id = true];
+    string enum_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message EnumerationList{

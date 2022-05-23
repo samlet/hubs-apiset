@@ -25,19 +25,19 @@ message EntityAuditLogData {
     option (routines.has_table) = true;
     // keys: auditHistorySeqId
     // fields
-    string audit_history_seq_id = 1 [json_name = "audit_history_seq_id", (google.api.graphql.relay_options).id = true];
-    string changed_entity_name = 2 [json_name = "changed_entity_name"];
-    string changed_field_name = 3 [json_name = "changed_field_name"];
-    string pk_combined_value_text = 4 [json_name = "pk_combined_value_text"];
-    string old_value_text = 5 [json_name = "old_value_text"];
-    string new_value_text = 6 [json_name = "new_value_text"];
-    google.protobuf.Timestamp changed_date = 7 [json_name = "changed_date"];
-    string changed_by_info = 8 [json_name = "changed_by_info"];
-    string changed_session_info = 9 [json_name = "changed_session_info"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    
-        
+    string audit_history_seq_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string changed_entity_name = 2 [(routines.opts).field_type = "long-varchar"];
+    string changed_field_name = 3 [(routines.opts).field_type = "long-varchar"];
+    string pk_combined_value_text = 4 [(routines.opts).field_type = "long-varchar"];
+    string old_value_text = 5 [(routines.opts).field_type = "long-varchar"];
+    string new_value_text = 6 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp changed_date = 7 [(routines.opts).field_type = "date-time"];
+    string changed_by_info = 8 [(routines.opts).field_type = "long-varchar"];
+    string changed_session_info = 9 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -46,7 +46,7 @@ message EntityAuditLogData {
 
 
 message EntityAuditLogKey{
-    string audit_history_seq_id = 1 [json_name = "audit_history_seq_id", (google.api.graphql.relay_options).id = true];
+    string audit_history_seq_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message EntityAuditLogList{

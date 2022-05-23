@@ -25,28 +25,28 @@ message SalesInvoiceItemFactData {
     option (routines.has_table) = true;
     // keys: invoiceId, invoiceItemSeqId
     // fields
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
-    string order_id = 3 [json_name = "order_id"];
-    string invoice_date_dim_id = 4 [json_name = "invoice_date_dim_id"];
-    string product_dim_id = 5 [json_name = "product_dim_id"];
-    string bill_to_customer_dim_id = 6 [json_name = "bill_to_customer_dim_id"];
-    string orig_currency_dim_id = 7 [json_name = "orig_currency_dim_id"];
-    routines.FixedPoint quantity = 8 [json_name = "quantity"];
-    routines.Currency ext_gross_amount = 9 [json_name = "ext_gross_amount"];
-    routines.Currency ext_discount_amount = 10 [json_name = "ext_discount_amount"];
-    routines.Currency ext_net_amount = 11 [json_name = "ext_net_amount"];
-    routines.Currency ext_tax_amount = 12 [json_name = "ext_tax_amount"];
-    routines.Currency ext_man_fixed_cost = 13 [json_name = "ext_man_fixed_cost"];
-    routines.Currency ext_man_var_cost = 14 [json_name = "ext_man_var_cost"];
-    routines.Currency ext_storage_cost = 15 [json_name = "ext_storage_cost"];
-    routines.Currency ext_distribution_cost = 16 [json_name = "ext_distribution_cost"];
-    routines.Currency contribution_amount = 17 [json_name = "contribution_amount"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 18 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 19 [json_name = "created_tx_stamp"];
-    string id = 20 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string order_id = 3 [(routines.opts).field_type = "id"];
+    string invoice_date_dim_id = 4 [(routines.opts).field_type = "id"];
+    string product_dim_id = 5 [(routines.opts).field_type = "id"];
+    string bill_to_customer_dim_id = 6 [(routines.opts).field_type = "id"];
+    string orig_currency_dim_id = 7 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency ext_gross_amount = 9 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_discount_amount = 10 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_net_amount = 11 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_tax_amount = 12 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_man_fixed_cost = 13 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_man_var_cost = 14 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_storage_cost = 15 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency ext_distribution_cost = 16 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency contribution_amount = 17 [(routines.opts).field_type = "currency-precise"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 18 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 19 [(routines.opts).field_type = "date-time"];
+    string id = 20 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 24;
@@ -55,8 +55,8 @@ message SalesInvoiceItemFactData {
 
 
 message SalesInvoiceItemFactKey{
-    string invoice_id = 1 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 2 [json_name = "invoice_item_seq_id"];
+    string invoice_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message SalesInvoiceItemFactList{

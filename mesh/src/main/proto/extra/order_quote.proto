@@ -25,15 +25,15 @@ message QuoteAttributeData {
     option (routines.has_table) = true;
     // keys: quoteId, attrName
     // fields
-    string quote_id = 1 [json_name = "quote_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message QuoteAttributeData {
 
 
 message QuoteAttributeKey{
-    string quote_id = 1 [json_name = "quote_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message QuoteAttributeList{
@@ -67,14 +67,14 @@ message QuoteCoefficientData {
     option (routines.has_table) = true;
     // keys: quoteId, coeffName
     // fields
-    string quote_id = 1 [json_name = "quote_id"];
-    string coeff_name = 2 [json_name = "coeff_name"];
-    routines.FixedPoint coeff_value = 3 [json_name = "coeff_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string coeff_name = 2 [(routines.opts).field_type = "id-long"];
+    routines.FixedPoint coeff_value = 3 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -83,8 +83,8 @@ message QuoteCoefficientData {
 
 
 message QuoteCoefficientKey{
-    string quote_id = 1 [json_name = "quote_id"];
-    string coeff_name = 2 [json_name = "coeff_name"];
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string coeff_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message QuoteCoefficientList{
@@ -108,13 +108,13 @@ message QuoteNoteData {
     option (routines.has_table) = true;
     // keys: quoteId, noteId
     // fields
-    string quote_id = 1 [json_name = "quote_id"];
-    string note_id = 2 [json_name = "note_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -123,8 +123,8 @@ message QuoteNoteData {
 
 
 message QuoteNoteKey{
-    string quote_id = 1 [json_name = "quote_id"];
-    string note_id = 2 [json_name = "note_id"];
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message QuoteNoteList{
@@ -148,17 +148,17 @@ message QuoteTermAttributeData {
     option (routines.has_table) = true;
     // keys: termTypeId, quoteId, quoteItemSeqId, attrName
     // fields
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string quote_id = 2 [json_name = "quote_id"];
-    string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];
-    string attr_name = 4 [json_name = "attr_name"];
-    string attr_value = 5 [json_name = "attr_value"];
-    string attr_description = 6 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string quote_id = 2 [(routines.opts).field_type = "id"];
+    string quote_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
+    string attr_value = 5 [(routines.opts).field_type = "value"];
+    string attr_description = 6 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -167,10 +167,10 @@ message QuoteTermAttributeData {
 
 
 message QuoteTermAttributeKey{
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string quote_id = 2 [json_name = "quote_id"];
-    string quote_item_seq_id = 3 [json_name = "quote_item_seq_id"];
-    string attr_name = 4 [json_name = "attr_name"];
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string quote_id = 2 [(routines.opts).field_type = "id"];
+    string quote_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
 }
 
 message QuoteTermAttributeList{
@@ -194,14 +194,14 @@ message QuoteTypeAttrData {
     option (routines.has_table) = true;
     // keys: quoteTypeId, attrName
     // fields
-    string quote_type_id = 1 [json_name = "quote_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string quote_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -210,8 +210,8 @@ message QuoteTypeAttrData {
 
 
 message QuoteTypeAttrKey{
-    string quote_type_id = 1 [json_name = "quote_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string quote_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message QuoteTypeAttrList{
@@ -235,13 +235,13 @@ message QuoteWorkEffortData {
     option (routines.has_table) = true;
     // keys: quoteId, workEffortId
     // fields
-    string quote_id = 1 [json_name = "quote_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -250,8 +250,8 @@ message QuoteWorkEffortData {
 
 
 message QuoteWorkEffortKey{
-    string quote_id = 1 [json_name = "quote_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string quote_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message QuoteWorkEffortList{

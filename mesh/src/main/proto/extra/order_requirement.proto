@@ -25,15 +25,15 @@ message DesiredFeatureData {
     option (routines.has_table) = true;
     // keys: desiredFeatureId, requirementId
     // fields
-    string desired_feature_id = 1 [json_name = "desired_feature_id"];
-    string requirement_id = 2 [json_name = "requirement_id"];
-    string product_feature_id = 3 [json_name = "product_feature_id"];
-    routines.Indicator optional_ind = 4 [json_name = "optional_ind"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string desired_feature_id = 1 [(routines.opts).field_type = "id"];
+    string requirement_id = 2 [(routines.opts).field_type = "id"];
+    string product_feature_id = 3 [(routines.opts).field_type = "id"];
+    routines.Indicator optional_ind = 4 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message DesiredFeatureData {
 
 
 message DesiredFeatureKey{
-    string desired_feature_id = 1 [json_name = "desired_feature_id"];
-    string requirement_id = 2 [json_name = "requirement_id"];
+    string desired_feature_id = 1 [(routines.opts).field_type = "id"];
+    string requirement_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message DesiredFeatureList{
@@ -67,15 +67,15 @@ message OrderRequirementCommitmentData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, requirementId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
-    routines.FixedPoint quantity = 4 [json_name = "quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 4 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -84,9 +84,9 @@ message OrderRequirementCommitmentData {
 
 
 message OrderRequirementCommitmentKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message OrderRequirementCommitmentList{
@@ -110,15 +110,15 @@ message RequirementAttributeData {
     option (routines.has_table) = true;
     // keys: requirementId, attrName
     // fields
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -127,8 +127,8 @@ message RequirementAttributeData {
 
 
 message RequirementAttributeKey{
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message RequirementAttributeList{
@@ -152,15 +152,15 @@ message RequirementBudgetAllocationData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetItemSeqId, requirementId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
-    routines.Currency amount = 4 [json_name = "amount"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
+    routines.Currency amount = 4 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -169,9 +169,9 @@ message RequirementBudgetAllocationData {
 
 
 message RequirementBudgetAllocationKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message RequirementBudgetAllocationList{
@@ -195,14 +195,14 @@ message RequirementCustRequestData {
     option (routines.has_table) = true;
     // keys: custRequestId, custRequestItemSeqId, requirementId
     // fields
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -211,9 +211,9 @@ message RequirementCustRequestData {
 
 
 message RequirementCustRequestKey{
-    string cust_request_id = 1 [json_name = "cust_request_id"];
-    string cust_request_item_seq_id = 2 [json_name = "cust_request_item_seq_id"];
-    string requirement_id = 3 [json_name = "requirement_id"];
+    string cust_request_id = 1 [(routines.opts).field_type = "id"];
+    string cust_request_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string requirement_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message RequirementCustRequestList{
@@ -237,16 +237,16 @@ message RequirementRoleData {
     option (routines.has_table) = true;
     // keys: requirementId, partyId, roleTypeId, fromDate
     // fields
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -255,10 +255,10 @@ message RequirementRoleData {
 
 
 message RequirementRoleKey{
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message RequirementRoleList{
@@ -282,15 +282,15 @@ message RequirementStatusData {
     option (routines.has_table) = true;
     // keys: requirementId, statusId
     // fields
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string status_id = 2 [json_name = "status_id"];
-    google.protobuf.Timestamp status_date = 3 [json_name = "status_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -299,8 +299,8 @@ message RequirementStatusData {
 
 
 message RequirementStatusKey{
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string status_id = 2 [json_name = "status_id"];
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message RequirementStatusList{
@@ -324,14 +324,14 @@ message RequirementTypeAttrData {
     option (routines.has_table) = true;
     // keys: requirementTypeId, attrName
     // fields
-    string requirement_type_id = 1 [json_name = "requirement_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string requirement_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -340,8 +340,8 @@ message RequirementTypeAttrData {
 
 
 message RequirementTypeAttrKey{
-    string requirement_type_id = 1 [json_name = "requirement_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string requirement_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message RequirementTypeAttrList{
@@ -365,14 +365,14 @@ message WorkRequirementFulfillmentData {
     option (routines.has_table) = true;
     // keys: requirementId, workEffortId
     // fields
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    string work_req_fulf_type_id = 3 [json_name = "work_req_fulf_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    string work_req_fulf_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -381,8 +381,8 @@ message WorkRequirementFulfillmentData {
 
 
 message WorkRequirementFulfillmentKey{
-    string requirement_id = 1 [json_name = "requirement_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string requirement_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkRequirementFulfillmentList{

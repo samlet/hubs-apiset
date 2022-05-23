@@ -25,17 +25,17 @@ message ProductPaymentMethodTypeData {
     option (routines.has_table) = true;
     // keys: productId, paymentMethodTypeId, productPricePurposeId, fromDate
     // fields
-    string product_id = 1 [json_name = "product_id"];
-    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
-    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    int64 sequence_num = 6 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_purpose_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -44,10 +44,10 @@ message ProductPaymentMethodTypeData {
 
 
 message ProductPaymentMethodTypeKey{
-    string product_id = 1 [json_name = "product_id"];
-    string payment_method_type_id = 2 [json_name = "payment_method_type_id"];
-    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_purpose_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductPaymentMethodTypeList{
@@ -71,15 +71,15 @@ message ProductPriceAutoNoticeData {
     option (routines.has_table) = true;
     // keys: productPriceNoticeId
     // fields
-    string product_price_notice_id = 1 [json_name = "product_price_notice_id", (google.api.graphql.relay_options).id = true];
-    string facility_id = 2 [json_name = "facility_id"];
-    google.protobuf.Timestamp run_date = 3 [json_name = "run_date"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string product_price_notice_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp run_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -88,7 +88,7 @@ message ProductPriceAutoNoticeData {
 
 
 message ProductPriceAutoNoticeKey{
-    string product_price_notice_id = 1 [json_name = "product_price_notice_id", (google.api.graphql.relay_options).id = true];
+    string product_price_notice_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductPriceAutoNoticeList{
@@ -112,22 +112,22 @@ message ProductPriceChangeData {
     option (routines.has_table) = true;
     // keys: productPriceChangeId
     // fields
-    string product_price_change_id = 1 [json_name = "product_price_change_id", (google.api.graphql.relay_options).id = true];
-    string product_id = 2 [json_name = "product_id"];
-    string product_price_type_id = 3 [json_name = "product_price_type_id"];
-    string product_price_purpose_id = 4 [json_name = "product_price_purpose_id"];
-    string currency_uom_id = 5 [json_name = "currency_uom_id"];
-    string product_store_group_id = 6 [json_name = "product_store_group_id"];
-    google.protobuf.Timestamp from_date = 7 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 8 [json_name = "thru_date"];
-    routines.Currency price = 9 [json_name = "price"];
-    routines.Currency old_price = 10 [json_name = "old_price"];
-    google.protobuf.Timestamp changed_date = 11 [json_name = "changed_date"];
-    string changed_by_user_login = 12 [json_name = "changed_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    
-        
+    string product_price_change_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_type_id = 3 [(routines.opts).field_type = "id"];
+    string product_price_purpose_id = 4 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 5 [(routines.opts).field_type = "id"];
+    string product_store_group_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 8 [(routines.opts).field_type = "date-time"];
+    routines.Currency price = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency old_price = 10 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp changed_date = 11 [(routines.opts).field_type = "date-time"];
+    string changed_by_user_login = 12 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -136,7 +136,7 @@ message ProductPriceChangeData {
 
 
 message ProductPriceChangeKey{
-    string product_price_change_id = 1 [json_name = "product_price_change_id", (google.api.graphql.relay_options).id = true];
+    string product_price_change_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductPriceChangeList{
@@ -160,12 +160,12 @@ message SaleTypeData {
     option (routines.has_table) = true;
     // keys: saleTypeId
     // fields
-    string sale_type_id = 1 [json_name = "sale_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string sale_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 5;
@@ -174,7 +174,7 @@ message SaleTypeData {
 
 
 message SaleTypeKey{
-    string sale_type_id = 1 [json_name = "sale_type_id", (google.api.graphql.relay_options).id = true];
+    string sale_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message SaleTypeList{

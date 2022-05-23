@@ -25,20 +25,20 @@ message MrpEventData {
     option (routines.has_table) = true;
     // keys: mrpId, productId, eventDate, mrpEventTypeId
     // fields
-    string mrp_id = 1 [json_name = "mrp_id"];
-    string product_id = 2 [json_name = "product_id"];
-    google.protobuf.Timestamp event_date = 3 [json_name = "event_date"];
-    string mrp_event_type_id = 4 [json_name = "mrp_event_type_id"];
-    string facility_id = 5 [json_name = "facility_id"];
-    double quantity = 6 [json_name = "quantity"];
-    string event_name = 7 [json_name = "event_name"];
-    routines.Indicator is_late = 8 [json_name = "is_late"];
-    string facility_id_to = 9 [json_name = "facility_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    string id = 12 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string mrp_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp event_date = 3 [(routines.opts).field_type = "date-time"];
+    string mrp_event_type_id = 4 [(routines.opts).field_type = "id"];
+    string facility_id = 5 [(routines.opts).field_type = "id"];
+    double quantity = 6 [(routines.opts).field_type = "floating-point"];
+    string event_name = 7 [(routines.opts).field_type = "very-long"];
+    routines.Indicator is_late = 8 [(routines.opts).field_type = "indicator"];
+    string facility_id_to = 9 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string id = 12 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -47,10 +47,10 @@ message MrpEventData {
 
 
 message MrpEventKey{
-    string mrp_id = 1 [json_name = "mrp_id"];
-    string product_id = 2 [json_name = "product_id"];
-    google.protobuf.Timestamp event_date = 3 [json_name = "event_date"];
-    string mrp_event_type_id = 4 [json_name = "mrp_event_type_id"];
+    string mrp_id = 1 [(routines.opts).field_type = "id"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp event_date = 3 [(routines.opts).field_type = "date-time"];
+    string mrp_event_type_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message MrpEventList{

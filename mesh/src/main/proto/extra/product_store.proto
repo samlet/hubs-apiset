@@ -25,16 +25,16 @@ message ProductStoreGroupMemberData {
     option (routines.has_table) = true;
     // keys: productStoreId, productStoreGroupId, fromDate
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string product_store_group_id = 2 [json_name = "product_store_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string product_store_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -43,9 +43,9 @@ message ProductStoreGroupMemberData {
 
 
 message ProductStoreGroupMemberKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string product_store_group_id = 2 [json_name = "product_store_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string product_store_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreGroupMemberList{
@@ -69,14 +69,14 @@ message ProductStoreGroupRoleData {
     option (routines.has_table) = true;
     // keys: productStoreGroupId, partyId, roleTypeId
     // fields
-    string product_store_group_id = 1 [json_name = "product_store_group_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -85,9 +85,9 @@ message ProductStoreGroupRoleData {
 
 
 message ProductStoreGroupRoleKey{
-    string product_store_group_id = 1 [json_name = "product_store_group_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string product_store_group_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreGroupRoleList{
@@ -111,16 +111,16 @@ message ProductStoreGroupRollupData {
     option (routines.has_table) = true;
     // keys: productStoreGroupId, parentGroupId, fromDate
     // fields
-    string product_store_group_id = 1 [json_name = "product_store_group_id"];
-    string parent_group_id = 2 [json_name = "parent_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    int64 sequence_num = 5 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_group_id = 1 [(routines.opts).field_type = "id"];
+    string parent_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 5 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -129,9 +129,9 @@ message ProductStoreGroupRollupData {
 
 
 message ProductStoreGroupRollupKey{
-    string product_store_group_id = 1 [json_name = "product_store_group_id"];
-    string parent_group_id = 2 [json_name = "parent_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string product_store_group_id = 1 [(routines.opts).field_type = "id"];
+    string parent_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductStoreGroupRollupList{
@@ -155,12 +155,12 @@ message ProductStoreGroupTypeData {
     option (routines.has_table) = true;
     // keys: productStoreGroupTypeId
     // fields
-    string product_store_group_type_id = 1 [json_name = "product_store_group_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string product_store_group_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -169,7 +169,7 @@ message ProductStoreGroupTypeData {
 
 
 message ProductStoreGroupTypeKey{
-    string product_store_group_type_id = 1 [json_name = "product_store_group_type_id", (google.api.graphql.relay_options).id = true];
+    string product_store_group_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductStoreGroupTypeList{
@@ -193,16 +193,16 @@ message ProductStoreTelecomSettingData {
     option (routines.has_table) = true;
     // keys: productStoreId, telecomMethodTypeId, telecomMsgTypeEnumId
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string telecom_method_type_id = 2 [json_name = "telecom_method_type_id"];
-    string telecom_msg_type_enum_id = 3 [json_name = "telecom_msg_type_enum_id"];
-    string telecom_custom_method_id = 4 [json_name = "telecom_custom_method_id"];
-    string telecom_gateway_config_id = 5 [json_name = "telecom_gateway_config_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string telecom_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string telecom_msg_type_enum_id = 3 [(routines.opts).field_type = "id"];
+    string telecom_custom_method_id = 4 [(routines.opts).field_type = "id"];
+    string telecom_gateway_config_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -211,9 +211,9 @@ message ProductStoreTelecomSettingData {
 
 
 message ProductStoreTelecomSettingKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string telecom_method_type_id = 2 [json_name = "telecom_method_type_id"];
-    string telecom_msg_type_enum_id = 3 [json_name = "telecom_msg_type_enum_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string telecom_method_type_id = 2 [(routines.opts).field_type = "id"];
+    string telecom_msg_type_enum_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreTelecomSettingList{
@@ -237,15 +237,15 @@ message ProductStoreVendorPaymentData {
     option (routines.has_table) = true;
     // keys: productStoreId, vendorPartyId, paymentMethodTypeId, creditCardEnumId
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string vendor_party_id = 2 [json_name = "vendor_party_id"];
-    string payment_method_type_id = 3 [json_name = "payment_method_type_id"];
-    string credit_card_enum_id = 4 [json_name = "credit_card_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string vendor_party_id = 2 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string credit_card_enum_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -254,10 +254,10 @@ message ProductStoreVendorPaymentData {
 
 
 message ProductStoreVendorPaymentKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string vendor_party_id = 2 [json_name = "vendor_party_id"];
-    string payment_method_type_id = 3 [json_name = "payment_method_type_id"];
-    string credit_card_enum_id = 4 [json_name = "credit_card_enum_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string vendor_party_id = 2 [(routines.opts).field_type = "id"];
+    string payment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string credit_card_enum_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreVendorPaymentList{
@@ -281,15 +281,15 @@ message ProductStoreVendorShipmentData {
     option (routines.has_table) = true;
     // keys: productStoreId, vendorPartyId, shipmentMethodTypeId, carrierPartyId
     // fields
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string vendor_party_id = 2 [json_name = "vendor_party_id"];
-    string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];
-    string carrier_party_id = 4 [json_name = "carrier_party_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string vendor_party_id = 2 [(routines.opts).field_type = "id"];
+    string shipment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string carrier_party_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -298,10 +298,10 @@ message ProductStoreVendorShipmentData {
 
 
 message ProductStoreVendorShipmentKey{
-    string product_store_id = 1 [json_name = "product_store_id"];
-    string vendor_party_id = 2 [json_name = "vendor_party_id"];
-    string shipment_method_type_id = 3 [json_name = "shipment_method_type_id"];
-    string carrier_party_id = 4 [json_name = "carrier_party_id"];
+    string product_store_id = 1 [(routines.opts).field_type = "id"];
+    string vendor_party_id = 2 [(routines.opts).field_type = "id"];
+    string shipment_method_type_id = 3 [(routines.opts).field_type = "id"];
+    string carrier_party_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message ProductStoreVendorShipmentList{

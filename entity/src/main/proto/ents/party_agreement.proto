@@ -24,21 +24,21 @@ message AgreementFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: agreementId
-    string agreement_id = 1 [json_name = "agreement_id", (google.api.graphql.relay_options).id = true];
-    string product_id = 2 [json_name = "product_id"];
-    string party_id_from = 3 [json_name = "party_id_from"];
-    string party_id_to = 4 [json_name = "party_id_to"];
-    string role_type_id_from = 5 [json_name = "role_type_id_from"];
-    string role_type_id_to = 6 [json_name = "role_type_id_to"];
-    string agreement_type_id = 7 [json_name = "agreement_type_id"];
-    google.protobuf.Timestamp agreement_date = 8 [json_name = "agreement_date"];
-    google.protobuf.Timestamp from_date = 9 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 10 [json_name = "thru_date"];
-    string description = 11 [json_name = "description"];
-    string text_data = 12 [json_name = "text_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    string tenant_id = 15 [json_name = "tenant_id"];
+    string agreement_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string party_id_from = 3 [(routines.opts).field_type = "id"];
+    string party_id_to = 4 [(routines.opts).field_type = "id"];
+    string role_type_id_from = 5 [(routines.opts).field_type = "id"];
+    string role_type_id_to = 6 [(routines.opts).field_type = "id"];
+    string agreement_type_id = 7 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp agreement_date = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp from_date = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 10 [(routines.opts).field_type = "date-time"];
+    string description = 11 [(routines.opts).field_type = "description"];
+    string text_data = 12 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 15 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -47,7 +47,7 @@ message AgreementFlatData {
 }
 
 message AgreementKey{
-    string agreement_id = 1 [json_name = "agreement_id", (google.api.graphql.relay_options).id = true];
+    string agreement_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message AgreementList{
@@ -70,17 +70,17 @@ message AgreementItemData {
     option (routines.has_table) = true;
     // keys: agreementId, agreementItemSeqId
     // fields
-    string agreement_id = 1 [json_name = "agreement_id"];
-    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
-    string agreement_item_type_id = 3 [json_name = "agreement_item_type_id"];
-    string currency_uom_id = 4 [json_name = "currency_uom_id"];
-    string agreement_text = 5 [json_name = "agreement_text"];
-    bytes agreement_image = 6 [json_name = "agreement_image"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string agreement_id = 1 [(routines.opts).field_type = "id"];
+    string agreement_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string agreement_item_type_id = 3 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 4 [(routines.opts).field_type = "id"];
+    string agreement_text = 5 [(routines.opts).field_type = "very-long"];
+    bytes agreement_image = 6 [(routines.opts).field_type = "object"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 24;
@@ -89,8 +89,8 @@ message AgreementItemData {
 
 
 message AgreementItemKey{
-    string agreement_id = 1 [json_name = "agreement_id"];
-    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
+    string agreement_id = 1 [(routines.opts).field_type = "id"];
+    string agreement_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message AgreementItemList{
@@ -114,15 +114,15 @@ message AgreementProductApplData {
     option (routines.has_table) = true;
     // keys: agreementId, agreementItemSeqId, productId
     // fields
-    string agreement_id = 1 [json_name = "agreement_id"];
-    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
-    string product_id = 3 [json_name = "product_id"];
-    routines.Currency price = 4 [json_name = "price"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string agreement_id = 1 [(routines.opts).field_type = "id"];
+    string agreement_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_id = 3 [(routines.opts).field_type = "id"];
+    routines.Currency price = 4 [(routines.opts).field_type = "currency-precise"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -131,9 +131,9 @@ message AgreementProductApplData {
 
 
 message AgreementProductApplKey{
-    string agreement_id = 1 [json_name = "agreement_id"];
-    string agreement_item_seq_id = 2 [json_name = "agreement_item_seq_id"];
-    string product_id = 3 [json_name = "product_id"];
+    string agreement_id = 1 [(routines.opts).field_type = "id"];
+    string agreement_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message AgreementProductApplList{
@@ -156,22 +156,22 @@ message AgreementTermFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: agreementTermId
-    string agreement_term_id = 1 [json_name = "agreement_term_id", (google.api.graphql.relay_options).id = true];
-    string term_type_id = 2 [json_name = "term_type_id"];
-    string agreement_id = 3 [json_name = "agreement_id"];
-    string agreement_item_seq_id = 4 [json_name = "agreement_item_seq_id"];
-    string invoice_item_type_id = 5 [json_name = "invoice_item_type_id"];
-    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];
-    routines.Currency term_value = 8 [json_name = "term_value"];
-    int64 term_days = 9 [json_name = "term_days"];
-    string text_value = 10 [json_name = "text_value"];
-    double min_quantity = 11 [json_name = "min_quantity"];
-    double max_quantity = 12 [json_name = "max_quantity"];
-    string description = 13 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
-    string tenant_id = 16 [json_name = "tenant_id"];
+    string agreement_term_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string term_type_id = 2 [(routines.opts).field_type = "id"];
+    string agreement_id = 3 [(routines.opts).field_type = "id"];
+    string agreement_item_seq_id = 4 [(routines.opts).field_type = "id"];
+    string invoice_item_type_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 7 [(routines.opts).field_type = "date-time"];
+    routines.Currency term_value = 8 [(routines.opts).field_type = "currency-precise"];
+    int64 term_days = 9 [(routines.opts).field_type = "numeric"];
+    string text_value = 10 [(routines.opts).field_type = "description"];
+    double min_quantity = 11 [(routines.opts).field_type = "floating-point"];
+    double max_quantity = 12 [(routines.opts).field_type = "floating-point"];
+    string description = 13 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 16 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -180,7 +180,7 @@ message AgreementTermFlatData {
 }
 
 message AgreementTermKey{
-    string agreement_term_id = 1 [json_name = "agreement_term_id", (google.api.graphql.relay_options).id = true];
+    string agreement_term_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message AgreementTermList{

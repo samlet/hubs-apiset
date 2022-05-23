@@ -25,19 +25,19 @@ message InventoryItemFactData {
     option (routines.has_table) = true;
     // keys: inventoryItemId
     // fields
-    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];
-    string facility_id = 2 [json_name = "facility_id"];
-    string product_dim_id = 3 [json_name = "product_dim_id"];
-    string orig_currency_dim_id = 4 [json_name = "orig_currency_dim_id"];
-    string inventory_date_dim_id = 5 [json_name = "inventory_date_dim_id"];
-    routines.FixedPoint quantity_on_hand_total = 6 [json_name = "quantity_on_hand_total"];
-    routines.FixedPoint available_to_promise_total = 7 [json_name = "available_to_promise_total"];
-    routines.FixedPoint unit_cost = 8 [json_name = "unit_cost"];
-    routines.FixedPoint soldout_amount = 9 [json_name = "soldout_amount"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    
-        
+    string inventory_item_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    string product_dim_id = 3 [(routines.opts).field_type = "id"];
+    string orig_currency_dim_id = 4 [(routines.opts).field_type = "id"];
+    string inventory_date_dim_id = 5 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity_on_hand_total = 6 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint available_to_promise_total = 7 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint unit_cost = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint soldout_amount = 9 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -46,7 +46,7 @@ message InventoryItemFactData {
 
 
 message InventoryItemFactKey{
-    string inventory_item_id = 1 [json_name = "inventory_item_id", (google.api.graphql.relay_options).id = true];
+    string inventory_item_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message InventoryItemFactList{

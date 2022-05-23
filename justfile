@@ -26,3 +26,9 @@ bi:
     just inst mods
     just inst facade
 
+all-proto:
+    just inst proto
+    just inst entity
+    just inst facade
+    just inst mesh
+    just inst mods

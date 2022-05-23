@@ -25,14 +25,14 @@ message PosTerminalData {
     option (routines.has_table) = true;
     // keys: posTerminalId
     // fields
-    string pos_terminal_id = 1 [json_name = "pos_terminal_id", (google.api.graphql.relay_options).id = true];
-    string facility_id = 2 [json_name = "facility_id"];
-    string push_entity_sync_id = 3 [json_name = "push_entity_sync_id"];
-    string terminal_name = 4 [json_name = "terminal_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string pos_terminal_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string facility_id = 2 [(routines.opts).field_type = "id"];
+    string push_entity_sync_id = 3 [(routines.opts).field_type = "id"];
+    string terminal_name = 4 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -41,7 +41,7 @@ message PosTerminalData {
 
 
 message PosTerminalKey{
-    string pos_terminal_id = 1 [json_name = "pos_terminal_id", (google.api.graphql.relay_options).id = true];
+    string pos_terminal_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PosTerminalList{
@@ -65,14 +65,14 @@ message PosTerminalInternTxData {
     option (routines.has_table) = true;
     // keys: posTerminalLogId
     // fields
-    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id", (google.api.graphql.relay_options).id = true];
-    routines.Currency paid_amount = 2 [json_name = "paid_amount"];
-    string reason_comment = 3 [json_name = "reason_comment"];
-    string reason_enum_id = 4 [json_name = "reason_enum_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string pos_terminal_log_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    routines.Currency paid_amount = 2 [(routines.opts).field_type = "currency-amount"];
+    string reason_comment = 3 [(routines.opts).field_type = "comment"];
+    string reason_enum_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -81,7 +81,7 @@ message PosTerminalInternTxData {
 
 
 message PosTerminalInternTxKey{
-    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id", (google.api.graphql.relay_options).id = true];
+    string pos_terminal_log_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PosTerminalInternTxList{
@@ -105,20 +105,20 @@ message PosTerminalLogData {
     option (routines.has_table) = true;
     // keys: posTerminalLogId
     // fields
-    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id", (google.api.graphql.relay_options).id = true];
-    string pos_terminal_id = 2 [json_name = "pos_terminal_id"];
-    string transaction_id = 3 [json_name = "transaction_id"];
-    int64 item_count = 4 [json_name = "item_count"];
-    string order_id = 5 [json_name = "order_id"];
-    string return_id = 6 [json_name = "return_id"];
-    string user_login_id = 7 [json_name = "user_login_id"];
-    string status_id = 8 [json_name = "status_id"];
-    google.protobuf.Timestamp log_start_date_time = 9 [json_name = "log_start_date_time"];
-    google.protobuf.Timestamp log_end_date_time = 10 [json_name = "log_end_date_time"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    
-        
+    string pos_terminal_log_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string pos_terminal_id = 2 [(routines.opts).field_type = "id"];
+    string transaction_id = 3 [(routines.opts).field_type = "id"];
+    int64 item_count = 4 [(routines.opts).field_type = "numeric"];
+    string order_id = 5 [(routines.opts).field_type = "id"];
+    string return_id = 6 [(routines.opts).field_type = "id"];
+    string user_login_id = 7 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 8 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp log_start_date_time = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp log_end_date_time = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -127,7 +127,7 @@ message PosTerminalLogData {
 
 
 message PosTerminalLogKey{
-    string pos_terminal_log_id = 1 [json_name = "pos_terminal_log_id", (google.api.graphql.relay_options).id = true];
+    string pos_terminal_log_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PosTerminalLogList{
@@ -151,24 +151,24 @@ message PosTerminalStateData {
     option (routines.has_table) = true;
     // keys: posTerminalId, openedDate
     // fields
-    string pos_terminal_id = 1 [json_name = "pos_terminal_id"];
-    google.protobuf.Timestamp opened_date = 2 [json_name = "opened_date"];
-    google.protobuf.Timestamp closed_date = 3 [json_name = "closed_date"];
-    string starting_tx_id = 4 [json_name = "starting_tx_id"];
-    string ending_tx_id = 5 [json_name = "ending_tx_id"];
-    string opened_by_user_login_id = 6 [json_name = "opened_by_user_login_id"];
-    string closed_by_user_login_id = 7 [json_name = "closed_by_user_login_id"];
-    routines.Currency starting_drawer_amount = 8 [json_name = "starting_drawer_amount"];
-    routines.Currency actual_ending_cash = 9 [json_name = "actual_ending_cash"];
-    routines.Currency actual_ending_check = 10 [json_name = "actual_ending_check"];
-    routines.Currency actual_ending_cc = 11 [json_name = "actual_ending_cc"];
-    routines.Currency actual_ending_gc = 12 [json_name = "actual_ending_gc"];
-    routines.Currency actual_ending_other = 13 [json_name = "actual_ending_other"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 14 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 15 [json_name = "created_tx_stamp"];
-    string id = 16 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string pos_terminal_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp opened_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp closed_date = 3 [(routines.opts).field_type = "date-time"];
+    string starting_tx_id = 4 [(routines.opts).field_type = "id-long"];
+    string ending_tx_id = 5 [(routines.opts).field_type = "id-long"];
+    string opened_by_user_login_id = 6 [(routines.opts).field_type = "id-vlong"];
+    string closed_by_user_login_id = 7 [(routines.opts).field_type = "id-vlong"];
+    routines.Currency starting_drawer_amount = 8 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency actual_ending_cash = 9 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency actual_ending_check = 10 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency actual_ending_cc = 11 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency actual_ending_gc = 12 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency actual_ending_other = 13 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    string id = 16 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -177,8 +177,8 @@ message PosTerminalStateData {
 
 
 message PosTerminalStateKey{
-    string pos_terminal_id = 1 [json_name = "pos_terminal_id"];
-    google.protobuf.Timestamp opened_date = 2 [json_name = "opened_date"];
+    string pos_terminal_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp opened_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message PosTerminalStateList{

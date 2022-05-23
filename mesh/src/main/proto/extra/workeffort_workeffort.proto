@@ -25,16 +25,16 @@ message ApplicationSandboxData {
     option (routines.has_table) = true;
     // keys: applicationId
     // fields
-    string application_id = 1 [json_name = "application_id", (google.api.graphql.relay_options).id = true];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string role_type_id = 4 [json_name = "role_type_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    string runtime_data_id = 6 [json_name = "runtime_data_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    
-        
+    string application_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string role_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    string runtime_data_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -43,7 +43,7 @@ message ApplicationSandboxData {
 
 
 message ApplicationSandboxKey{
-    string application_id = 1 [json_name = "application_id", (google.api.graphql.relay_options).id = true];
+    string application_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ApplicationSandboxList{
@@ -67,14 +67,14 @@ message CommunicationEventWorkEffData {
     option (routines.has_table) = true;
     // keys: workEffortId, communicationEventId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -83,8 +83,8 @@ message CommunicationEventWorkEffData {
 
 
 message CommunicationEventWorkEffKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CommunicationEventWorkEffList{
@@ -108,14 +108,14 @@ message DeliverableData {
     option (routines.has_table) = true;
     // keys: deliverableId
     // fields
-    string deliverable_id = 1 [json_name = "deliverable_id", (google.api.graphql.relay_options).id = true];
-    string deliverable_type_id = 2 [json_name = "deliverable_type_id"];
-    string deliverable_name = 3 [json_name = "deliverable_name"];
-    string description = 4 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string deliverable_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string deliverable_type_id = 2 [(routines.opts).field_type = "id"];
+    string deliverable_name = 3 [(routines.opts).field_type = "name"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -124,7 +124,7 @@ message DeliverableData {
 
 
 message DeliverableKey{
-    string deliverable_id = 1 [json_name = "deliverable_id", (google.api.graphql.relay_options).id = true];
+    string deliverable_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message DeliverableList{
@@ -148,12 +148,12 @@ message DeliverableTypeData {
     option (routines.has_table) = true;
     // keys: deliverableTypeId
     // fields
-    string deliverable_type_id = 1 [json_name = "deliverable_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string deliverable_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -162,7 +162,7 @@ message DeliverableTypeData {
 
 
 message DeliverableTypeKey{
-    string deliverable_type_id = 1 [json_name = "deliverable_type_id", (google.api.graphql.relay_options).id = true];
+    string deliverable_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message DeliverableTypeList{
@@ -186,18 +186,18 @@ message WorkEffortAssocAttributeData {
     option (routines.has_table) = true;
     // keys: workEffortIdFrom, workEffortIdTo, workEffortAssocTypeId, attrName
     // fields
-    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
-    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
-    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    string attr_name = 5 [json_name = "attr_name"];
-    string attr_value = 6 [json_name = "attr_value"];
-    string attr_description = 7 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id_from = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id_to = 2 [(routines.opts).field_type = "id"];
+    string work_effort_assoc_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    string attr_name = 5 [(routines.opts).field_type = "id-long"];
+    string attr_value = 6 [(routines.opts).field_type = "value"];
+    string attr_description = 7 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -206,10 +206,10 @@ message WorkEffortAssocAttributeData {
 
 
 message WorkEffortAssocAttributeKey{
-    string work_effort_id_from = 1 [json_name = "work_effort_id_from"];
-    string work_effort_id_to = 2 [json_name = "work_effort_id_to"];
-    string work_effort_assoc_type_id = 3 [json_name = "work_effort_assoc_type_id"];
-    string attr_name = 4 [json_name = "attr_name"];
+    string work_effort_id_from = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id_to = 2 [(routines.opts).field_type = "id"];
+    string work_effort_assoc_type_id = 3 [(routines.opts).field_type = "id"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
 }
 
 message WorkEffortAssocAttributeList{
@@ -233,14 +233,14 @@ message WorkEffortAssocTypeAttrData {
     option (routines.has_table) = true;
     // keys: workEffortAssocTypeId, attrName
     // fields
-    string work_effort_assoc_type_id = 1 [json_name = "work_effort_assoc_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_assoc_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -249,8 +249,8 @@ message WorkEffortAssocTypeAttrData {
 
 
 message WorkEffortAssocTypeAttrKey{
-    string work_effort_assoc_type_id = 1 [json_name = "work_effort_assoc_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string work_effort_assoc_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message WorkEffortAssocTypeAttrList{
@@ -274,15 +274,15 @@ message WorkEffortAttributeData {
     option (routines.has_table) = true;
     // keys: workEffortId, attrName
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -291,8 +291,8 @@ message WorkEffortAttributeData {
 
 
 message WorkEffortAttributeKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message WorkEffortAttributeList{
@@ -316,15 +316,15 @@ message WorkEffortBillingData {
     option (routines.has_table) = true;
     // keys: workEffortId, invoiceId, invoiceItemSeqId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string invoice_id = 2 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 3 [json_name = "invoice_item_seq_id"];
-    double percentage = 4 [json_name = "percentage"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_id = 2 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    double percentage = 4 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -333,9 +333,9 @@ message WorkEffortBillingData {
 
 
 message WorkEffortBillingKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string invoice_id = 2 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 3 [json_name = "invoice_item_seq_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string invoice_id = 2 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortBillingList{
@@ -359,16 +359,16 @@ message WorkEffortContactMechData {
     option (routines.has_table) = true;
     // keys: workEffortId, contactMechId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string contact_mech_id = 2 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string comments = 5 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string comments = 5 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -377,9 +377,9 @@ message WorkEffortContactMechData {
 
 
 message WorkEffortContactMechKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string contact_mech_id = 2 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortContactMechList{
@@ -403,16 +403,16 @@ message WorkEffortContentData {
     option (routines.has_table) = true;
     // keys: workEffortId, contentId, workEffortContentTypeId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string work_effort_content_type_id = 3 [json_name = "work_effort_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -421,10 +421,10 @@ message WorkEffortContentData {
 
 
 message WorkEffortContentKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string work_effort_content_type_id = 3 [json_name = "work_effort_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string work_effort_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortContentList{
@@ -448,16 +448,16 @@ message WorkEffortCostCalcData {
     option (routines.has_table) = true;
     // keys: workEffortId, costComponentTypeId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
-    string cost_component_calc_id = 3 [json_name = "cost_component_calc_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string cost_component_type_id = 2 [(routines.opts).field_type = "id"];
+    string cost_component_calc_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -466,9 +466,9 @@ message WorkEffortCostCalcData {
 
 
 message WorkEffortCostCalcKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string cost_component_type_id = 2 [json_name = "cost_component_type_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string cost_component_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortCostCalcList{
@@ -492,13 +492,13 @@ message WorkEffortDeliverableProdData {
     option (routines.has_table) = true;
     // keys: workEffortId, deliverableId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string deliverable_id = 2 [json_name = "deliverable_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string deliverable_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -507,8 +507,8 @@ message WorkEffortDeliverableProdData {
 
 
 message WorkEffortDeliverableProdKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string deliverable_id = 2 [json_name = "deliverable_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string deliverable_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortDeliverableProdList{
@@ -532,22 +532,22 @@ message WorkEffortEventReminderData {
     option (routines.has_table) = true;
     // keys: workEffortId, sequenceId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string sequence_id = 2 [json_name = "sequence_id"];
-    string contact_mech_id = 3 [json_name = "contact_mech_id"];
-    string party_id = 4 [json_name = "party_id"];
-    google.protobuf.Timestamp reminder_date_time = 5 [json_name = "reminder_date_time"];
-    int64 repeat_count = 6 [json_name = "repeat_count"];
-    int64 repeat_interval = 7 [json_name = "repeat_interval"];
-    int64 current_count = 8 [json_name = "current_count"];
-    int64 reminder_offset = 9 [json_name = "reminder_offset"];
-    string locale_id = 10 [json_name = "locale_id"];
-    string time_zone_id = 11 [json_name = "time_zone_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string sequence_id = 2 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 3 [(routines.opts).field_type = "id"];
+    string party_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp reminder_date_time = 5 [(routines.opts).field_type = "date-time"];
+    int64 repeat_count = 6 [(routines.opts).field_type = "numeric"];
+    int64 repeat_interval = 7 [(routines.opts).field_type = "numeric"];
+    int64 current_count = 8 [(routines.opts).field_type = "numeric"];
+    int64 reminder_offset = 9 [(routines.opts).field_type = "numeric"];
+    string locale_id = 10 [(routines.opts).field_type = "id"];
+    string time_zone_id = 11 [(routines.opts).field_type = "id-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    string id = 14 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -556,8 +556,8 @@ message WorkEffortEventReminderData {
 
 
 message WorkEffortEventReminderKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string sequence_id = 2 [json_name = "sequence_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string sequence_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortEventReminderList{
@@ -581,16 +581,16 @@ message WorkEffortFixedAssetStdData {
     option (routines.has_table) = true;
     // keys: workEffortId, fixedAssetTypeId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];
-    double estimated_quantity = 3 [json_name = "estimated_quantity"];
-    double estimated_duration = 4 [json_name = "estimated_duration"];
-    routines.Currency estimated_cost = 5 [json_name = "estimated_cost"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string fixed_asset_type_id = 2 [(routines.opts).field_type = "id"];
+    double estimated_quantity = 3 [(routines.opts).field_type = "floating-point"];
+    double estimated_duration = 4 [(routines.opts).field_type = "floating-point"];
+    routines.Currency estimated_cost = 5 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -599,8 +599,8 @@ message WorkEffortFixedAssetStdData {
 
 
 message WorkEffortFixedAssetStdKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string fixed_asset_type_id = 2 [json_name = "fixed_asset_type_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string fixed_asset_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortFixedAssetStdList{
@@ -624,12 +624,12 @@ message WorkEffortIcalDataData {
     option (routines.has_table) = true;
     // keys: workEffortId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
-    string ical_data = 2 [json_name = "ical_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string ical_data = 2 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -638,7 +638,7 @@ message WorkEffortIcalDataData {
 
 
 message WorkEffortIcalDataKey{
-    string work_effort_id = 1 [json_name = "work_effort_id", (google.api.graphql.relay_options).id = true];
+    string work_effort_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message WorkEffortIcalDataList{
@@ -662,15 +662,15 @@ message WorkEffortInventoryAssignData {
     option (routines.has_table) = true;
     // keys: workEffortId, inventoryItemId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string inventory_item_id = 2 [json_name = "inventory_item_id"];
-    string status_id = 3 [json_name = "status_id"];
-    double quantity = 4 [json_name = "quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 2 [(routines.opts).field_type = "id"];
+    string status_id = 3 [(routines.opts).field_type = "id"];
+    double quantity = 4 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -679,8 +679,8 @@ message WorkEffortInventoryAssignData {
 
 
 message WorkEffortInventoryAssignKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortInventoryAssignList{
@@ -704,13 +704,13 @@ message WorkEffortInventoryProducedData {
     option (routines.has_table) = true;
     // keys: workEffortId, inventoryItemId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string inventory_item_id = 2 [json_name = "inventory_item_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -719,8 +719,8 @@ message WorkEffortInventoryProducedData {
 
 
 message WorkEffortInventoryProducedKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string inventory_item_id = 2 [json_name = "inventory_item_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string inventory_item_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortInventoryProducedList{
@@ -744,14 +744,14 @@ message WorkEffortKeywordData {
     option (routines.has_table) = true;
     // keys: workEffortId, keyword
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string keyword = 2 [json_name = "keyword"];
-    int64 relevancy_weight = 3 [json_name = "relevancy_weight"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
+    int64 relevancy_weight = 3 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -760,8 +760,8 @@ message WorkEffortKeywordData {
 
 
 message WorkEffortKeywordKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string keyword = 2 [json_name = "keyword"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string keyword = 2 [(routines.opts).field_type = "short-varchar"];
 }
 
 message WorkEffortKeywordList{
@@ -785,14 +785,14 @@ message WorkEffortNoteData {
     option (routines.has_table) = true;
     // keys: workEffortId, noteId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string note_id = 2 [json_name = "note_id"];
-    routines.Indicator internal_note = 3 [json_name = "internal_note"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator internal_note = 3 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -801,8 +801,8 @@ message WorkEffortNoteData {
 
 
 message WorkEffortNoteKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string note_id = 2 [json_name = "note_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortNoteList{
@@ -826,18 +826,18 @@ message WorkEffortReviewData {
     option (routines.has_table) = true;
     // keys: workEffortId, userLoginId, reviewDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string user_login_id = 2 [json_name = "user_login_id"];
-    google.protobuf.Timestamp review_date = 3 [json_name = "review_date"];
-    string status_id = 4 [json_name = "status_id"];
-    routines.Indicator posted_anonymous = 5 [json_name = "posted_anonymous"];
-    double rating = 6 [json_name = "rating"];
-    string review_text = 7 [json_name = "review_text"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    string id = 10 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string user_login_id = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp review_date = 3 [(routines.opts).field_type = "date-time"];
+    string status_id = 4 [(routines.opts).field_type = "id"];
+    routines.Indicator posted_anonymous = 5 [(routines.opts).field_type = "indicator"];
+    double rating = 6 [(routines.opts).field_type = "floating-point"];
+    string review_text = 7 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -846,9 +846,9 @@ message WorkEffortReviewData {
 
 
 message WorkEffortReviewKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string user_login_id = 2 [json_name = "user_login_id"];
-    google.protobuf.Timestamp review_date = 3 [json_name = "review_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string user_login_id = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp review_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortReviewList{
@@ -872,22 +872,22 @@ message WorkEffortSearchConstraintData {
     option (routines.has_table) = true;
     // keys: workEffortSearchResultId, constraintSeqId
     // fields
-    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id"];
-    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
-    string constraint_name = 3 [json_name = "constraint_name"];
-    string info_string = 4 [json_name = "info_string"];
-    routines.Indicator include_sub_work_efforts = 5 [json_name = "include_sub_work_efforts"];
-    routines.Indicator is_and = 6 [json_name = "is_and"];
-    routines.Indicator any_prefix = 7 [json_name = "any_prefix"];
-    routines.Indicator any_suffix = 8 [json_name = "any_suffix"];
-    routines.Indicator remove_stems = 9 [json_name = "remove_stems"];
-    string low_value = 10 [json_name = "low_value"];
-    string high_value = 11 [json_name = "high_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_search_result_id = 1 [(routines.opts).field_type = "id"];
+    string constraint_seq_id = 2 [(routines.opts).field_type = "id"];
+    string constraint_name = 3 [(routines.opts).field_type = "long-varchar"];
+    string info_string = 4 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator include_sub_work_efforts = 5 [(routines.opts).field_type = "indicator"];
+    routines.Indicator is_and = 6 [(routines.opts).field_type = "indicator"];
+    routines.Indicator any_prefix = 7 [(routines.opts).field_type = "indicator"];
+    routines.Indicator any_suffix = 8 [(routines.opts).field_type = "indicator"];
+    routines.Indicator remove_stems = 9 [(routines.opts).field_type = "indicator"];
+    string low_value = 10 [(routines.opts).field_type = "short-varchar"];
+    string high_value = 11 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    string id = 14 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -896,8 +896,8 @@ message WorkEffortSearchConstraintData {
 
 
 message WorkEffortSearchConstraintKey{
-    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id"];
-    string constraint_seq_id = 2 [json_name = "constraint_seq_id"];
+    string work_effort_search_result_id = 1 [(routines.opts).field_type = "id"];
+    string constraint_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message WorkEffortSearchConstraintList{
@@ -921,17 +921,17 @@ message WorkEffortSearchResultData {
     option (routines.has_table) = true;
     // keys: workEffortSearchResultId
     // fields
-    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id", (google.api.graphql.relay_options).id = true];
-    string visit_id = 2 [json_name = "visit_id"];
-    string order_by_name = 3 [json_name = "order_by_name"];
-    routines.Indicator is_ascending = 4 [json_name = "is_ascending"];
-    int64 num_results = 5 [json_name = "num_results"];
-    double seconds_total = 6 [json_name = "seconds_total"];
-    google.protobuf.Timestamp search_date = 7 [json_name = "search_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string work_effort_search_result_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string visit_id = 2 [(routines.opts).field_type = "id"];
+    string order_by_name = 3 [(routines.opts).field_type = "long-varchar"];
+    routines.Indicator is_ascending = 4 [(routines.opts).field_type = "indicator"];
+    int64 num_results = 5 [(routines.opts).field_type = "numeric"];
+    double seconds_total = 6 [(routines.opts).field_type = "floating-point"];
+    google.protobuf.Timestamp search_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -940,7 +940,7 @@ message WorkEffortSearchResultData {
 
 
 message WorkEffortSearchResultKey{
-    string work_effort_search_result_id = 1 [json_name = "work_effort_search_result_id", (google.api.graphql.relay_options).id = true];
+    string work_effort_search_result_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message WorkEffortSearchResultList{
@@ -964,16 +964,16 @@ message WorkEffortStatusData {
     option (routines.has_table) = true;
     // keys: workEffortId, statusId, statusDatetime
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string status_id = 2 [json_name = "status_id"];
-    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
-    string set_by_user_login = 4 [json_name = "set_by_user_login"];
-    string reason = 5 [json_name = "reason"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_datetime = 3 [(routines.opts).field_type = "date-time"];
+    string set_by_user_login = 4 [(routines.opts).field_type = "id-vlong"];
+    string reason = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -982,9 +982,9 @@ message WorkEffortStatusData {
 
 
 message WorkEffortStatusKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string status_id = 2 [json_name = "status_id"];
-    google.protobuf.Timestamp status_datetime = 3 [json_name = "status_datetime"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string status_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_datetime = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortStatusList{
@@ -1008,15 +1008,15 @@ message WorkEffortSurveyApplData {
     option (routines.has_table) = true;
     // keys: workEffortId, surveyId, fromDate
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string survey_id = 2 [json_name = "survey_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string survey_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -1025,9 +1025,9 @@ message WorkEffortSurveyApplData {
 
 
 message WorkEffortSurveyApplKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string survey_id = 2 [json_name = "survey_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string survey_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message WorkEffortSurveyApplList{
@@ -1051,14 +1051,14 @@ message WorkEffortTransBoxData {
     option (routines.has_table) = true;
     // keys: processWorkEffortId, toActivityId, transitionId
     // fields
-    string process_work_effort_id = 1 [json_name = "process_work_effort_id"];
-    string to_activity_id = 2 [json_name = "to_activity_id"];
-    string transition_id = 3 [json_name = "transition_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string process_work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string to_activity_id = 2 [(routines.opts).field_type = "id-long"];
+    string transition_id = 3 [(routines.opts).field_type = "id-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -1067,9 +1067,9 @@ message WorkEffortTransBoxData {
 
 
 message WorkEffortTransBoxKey{
-    string process_work_effort_id = 1 [json_name = "process_work_effort_id"];
-    string to_activity_id = 2 [json_name = "to_activity_id"];
-    string transition_id = 3 [json_name = "transition_id"];
+    string process_work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string to_activity_id = 2 [(routines.opts).field_type = "id-long"];
+    string transition_id = 3 [(routines.opts).field_type = "id-long"];
 }
 
 message WorkEffortTransBoxList{
@@ -1093,14 +1093,14 @@ message WorkEffortTypeAttrData {
     option (routines.has_table) = true;
     // keys: workEffortTypeId, attrName
     // fields
-    string work_effort_type_id = 1 [json_name = "work_effort_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -1109,8 +1109,8 @@ message WorkEffortTypeAttrData {
 
 
 message WorkEffortTypeAttrKey{
-    string work_effort_type_id = 1 [json_name = "work_effort_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string work_effort_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message WorkEffortTypeAttrList{

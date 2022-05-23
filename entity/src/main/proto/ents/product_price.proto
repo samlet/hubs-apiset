@@ -25,21 +25,21 @@ message ProductFeaturePriceData {
     option (routines.has_table) = true;
     // keys: productFeatureId, productPriceTypeId, currencyUomId, fromDate
     // fields
-    string product_feature_id = 1 [json_name = "product_feature_id"];
-    string product_price_type_id = 2 [json_name = "product_price_type_id"];
-    string currency_uom_id = 3 [json_name = "currency_uom_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    routines.Currency price = 6 [json_name = "price"];
-    google.protobuf.Timestamp created_date = 7 [json_name = "created_date"];
-    string created_by_user_login = 8 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 9 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 10 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 11 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 12 [json_name = "created_tx_stamp"];
-    string id = 13 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_feature_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_type_id = 2 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    routines.Currency price = 6 [(routines.opts).field_type = "currency-precise"];
+    google.protobuf.Timestamp created_date = 7 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 8 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 9 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 10 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    string id = 13 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 18;
@@ -48,10 +48,10 @@ message ProductFeaturePriceData {
 
 
 message ProductFeaturePriceKey{
-    string product_feature_id = 1 [json_name = "product_feature_id"];
-    string product_price_type_id = 2 [json_name = "product_price_type_id"];
-    string currency_uom_id = 3 [json_name = "currency_uom_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string product_feature_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_type_id = 2 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductFeaturePriceList{
@@ -75,32 +75,32 @@ message ProductPriceData {
     option (routines.has_table) = true;
     // keys: productId, productPriceTypeId, productPricePurposeId, currencyUomId, productStoreGroupId, fromDate
     // fields
-    string product_id = 1 [json_name = "product_id"];
-    string product_price_type_id = 2 [json_name = "product_price_type_id"];
-    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
-    string currency_uom_id = 4 [json_name = "currency_uom_id"];
-    string product_store_group_id = 5 [json_name = "product_store_group_id"];
-    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 7 [json_name = "thru_date"];
-    routines.Currency price = 8 [json_name = "price"];
-    string term_uom_id = 9 [json_name = "term_uom_id"];
-    string custom_price_calc_service = 10 [json_name = "custom_price_calc_service"];
-    routines.Currency price_without_tax = 11 [json_name = "price_without_tax"];
-    routines.Currency price_with_tax = 12 [json_name = "price_with_tax"];
-    routines.Currency tax_amount = 13 [json_name = "tax_amount"];
-    routines.FixedPoint tax_percentage = 14 [json_name = "tax_percentage"];
-    string tax_auth_party_id = 15 [json_name = "tax_auth_party_id"];
-    string tax_auth_geo_id = 16 [json_name = "tax_auth_geo_id"];
-    routines.Indicator tax_in_price = 17 [json_name = "tax_in_price"];
-    google.protobuf.Timestamp created_date = 18 [json_name = "created_date"];
-    string created_by_user_login = 19 [json_name = "created_by_user_login"];
-    google.protobuf.Timestamp last_modified_date = 20 [json_name = "last_modified_date"];
-    string last_modified_by_user_login = 21 [json_name = "last_modified_by_user_login"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 22 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 23 [json_name = "created_tx_stamp"];
-    string id = 24 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_purpose_id = 3 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 4 [(routines.opts).field_type = "id"];
+    string product_store_group_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 7 [(routines.opts).field_type = "date-time"];
+    routines.Currency price = 8 [(routines.opts).field_type = "currency-precise"];
+    string term_uom_id = 9 [(routines.opts).field_type = "id"];
+    string custom_price_calc_service = 10 [(routines.opts).field_type = "id"];
+    routines.Currency price_without_tax = 11 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency price_with_tax = 12 [(routines.opts).field_type = "currency-precise"];
+    routines.Currency tax_amount = 13 [(routines.opts).field_type = "currency-precise"];
+    routines.FixedPoint tax_percentage = 14 [(routines.opts).field_type = "fixed-point"];
+    string tax_auth_party_id = 15 [(routines.opts).field_type = "id"];
+    string tax_auth_geo_id = 16 [(routines.opts).field_type = "id"];
+    routines.Indicator tax_in_price = 17 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp created_date = 18 [(routines.opts).field_type = "date-time"];
+    string created_by_user_login = 19 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_modified_date = 20 [(routines.opts).field_type = "date-time"];
+    string last_modified_by_user_login = 21 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 22 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 23 [(routines.opts).field_type = "date-time"];
+    string id = 24 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 37;
@@ -109,12 +109,12 @@ message ProductPriceData {
 
 
 message ProductPriceKey{
-    string product_id = 1 [json_name = "product_id"];
-    string product_price_type_id = 2 [json_name = "product_price_type_id"];
-    string product_price_purpose_id = 3 [json_name = "product_price_purpose_id"];
-    string currency_uom_id = 4 [json_name = "currency_uom_id"];
-    string product_store_group_id = 5 [json_name = "product_store_group_id"];
-    google.protobuf.Timestamp from_date = 6 [json_name = "from_date"];
+    string product_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_type_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_purpose_id = 3 [(routines.opts).field_type = "id"];
+    string currency_uom_id = 4 [(routines.opts).field_type = "id"];
+    string product_store_group_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 6 [(routines.opts).field_type = "date-time"];
 }
 
 message ProductPriceList{
@@ -138,16 +138,16 @@ message ProductPriceActionData {
     option (routines.has_table) = true;
     // keys: productPriceRuleId, productPriceActionSeqId
     // fields
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
-    string product_price_action_seq_id = 2 [json_name = "product_price_action_seq_id"];
-    string product_price_action_type_id = 3 [json_name = "product_price_action_type_id"];
-    routines.FixedPoint amount = 4 [json_name = "amount"];
-    string rate_code = 5 [json_name = "rate_code"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_action_seq_id = 2 [(routines.opts).field_type = "id"];
+    string product_price_action_type_id = 3 [(routines.opts).field_type = "id"];
+    routines.FixedPoint amount = 4 [(routines.opts).field_type = "fixed-point"];
+    string rate_code = 5 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -156,8 +156,8 @@ message ProductPriceActionData {
 
 
 message ProductPriceActionKey{
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
-    string product_price_action_seq_id = 2 [json_name = "product_price_action_seq_id"];
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_action_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductPriceActionList{
@@ -181,16 +181,16 @@ message ProductPriceCondData {
     option (routines.has_table) = true;
     // keys: productPriceRuleId, productPriceCondSeqId
     // fields
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
-    string product_price_cond_seq_id = 2 [json_name = "product_price_cond_seq_id"];
-    string input_param_enum_id = 3 [json_name = "input_param_enum_id"];
-    string operator_enum_id = 4 [json_name = "operator_enum_id"];
-    string cond_value = 5 [json_name = "cond_value"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_cond_seq_id = 2 [(routines.opts).field_type = "id"];
+    string input_param_enum_id = 3 [(routines.opts).field_type = "id"];
+    string operator_enum_id = 4 [(routines.opts).field_type = "id"];
+    string cond_value = 5 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -199,8 +199,8 @@ message ProductPriceCondData {
 
 
 message ProductPriceCondKey{
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id"];
-    string product_price_cond_seq_id = 2 [json_name = "product_price_cond_seq_id"];
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id"];
+    string product_price_cond_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ProductPriceCondList{
@@ -223,15 +223,15 @@ message ProductPriceRuleFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: productPriceRuleId
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id", (google.api.graphql.relay_options).id = true];
-    string rule_name = 2 [json_name = "rule_name"];
-    string description = 3 [json_name = "description"];
-    routines.Indicator is_sale = 4 [json_name = "is_sale"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string tenant_id = 9 [json_name = "tenant_id"];
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string rule_name = 2 [(routines.opts).field_type = "name"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    routines.Indicator is_sale = 4 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -240,7 +240,7 @@ message ProductPriceRuleFlatData {
 }
 
 message ProductPriceRuleKey{
-    string product_price_rule_id = 1 [json_name = "product_price_rule_id", (google.api.graphql.relay_options).id = true];
+    string product_price_rule_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductPriceRuleList{
@@ -262,13 +262,13 @@ message QuantityBreakFlatData {
     option (routines.flat) = true;
     option (routines.has_table) = true;
     // keys: quantityBreakId
-    string quantity_break_id = 1 [json_name = "quantity_break_id", (google.api.graphql.relay_options).id = true];
-    string quantity_break_type_id = 2 [json_name = "quantity_break_type_id"];
-    routines.FixedPoint from_quantity = 3 [json_name = "from_quantity"];
-    routines.FixedPoint thru_quantity = 4 [json_name = "thru_quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string tenant_id = 7 [json_name = "tenant_id"];
+    string quantity_break_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string quantity_break_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.FixedPoint from_quantity = 3 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint thru_quantity = 4 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 7 [(routines.opts).field_type = "id"];
      
 
     // extra
@@ -277,7 +277,7 @@ message QuantityBreakFlatData {
 }
 
 message QuantityBreakKey{
-    string quantity_break_id = 1 [json_name = "quantity_break_id", (google.api.graphql.relay_options).id = true];
+    string quantity_break_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message QuantityBreakList{

@@ -25,15 +25,15 @@ message ProductDimensionData {
     option (routines.has_table) = true;
     // keys: dimensionId
     // fields
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
-    string product_id = 2 [json_name = "product_id"];
-    string product_type = 3 [json_name = "product_type"];
-    string brand_name = 4 [json_name = "brand_name"];
-    string internal_name = 5 [json_name = "internal_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string product_type = 3 [(routines.opts).field_type = "description"];
+    string brand_name = 4 [(routines.opts).field_type = "name"];
+    string internal_name = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -42,7 +42,7 @@ message ProductDimensionData {
 
 
 message ProductDimensionKey{
-    string dimension_id = 1 [json_name = "dimension_id", (google.api.graphql.relay_options).id = true];
+    string dimension_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProductDimensionList{

@@ -25,22 +25,22 @@ message TimeEntryData {
     option (routines.has_table) = true;
     // keys: timeEntryId
     // fields
-    string time_entry_id = 1 [json_name = "time_entry_id", (google.api.graphql.relay_options).id = true];
-    string party_id = 2 [json_name = "party_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string rate_type_id = 5 [json_name = "rate_type_id"];
-    string work_effort_id = 6 [json_name = "work_effort_id"];
-    string timesheet_id = 7 [json_name = "timesheet_id"];
-    string invoice_id = 8 [json_name = "invoice_id"];
-    string invoice_item_seq_id = 9 [json_name = "invoice_item_seq_id"];
-    double hours = 10 [json_name = "hours"];
-    string comments = 11 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    double plan_hours = 14 [json_name = "plan_hours"];
-    
-        
+    string time_entry_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string rate_type_id = 5 [(routines.opts).field_type = "id"];
+    string work_effort_id = 6 [(routines.opts).field_type = "id"];
+    string timesheet_id = 7 [(routines.opts).field_type = "id"];
+    string invoice_id = 8 [(routines.opts).field_type = "id"];
+    string invoice_item_seq_id = 9 [(routines.opts).field_type = "id"];
+    double hours = 10 [(routines.opts).field_type = "floating-point"];
+    string comments = 11 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    double plan_hours = 14 [(routines.opts).field_type = "floating-point"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 21;
@@ -49,7 +49,7 @@ message TimeEntryData {
 
 
 message TimeEntryKey{
-    string time_entry_id = 1 [json_name = "time_entry_id", (google.api.graphql.relay_options).id = true];
+    string time_entry_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TimeEntryList{
@@ -73,18 +73,18 @@ message TimesheetData {
     option (routines.has_table) = true;
     // keys: timesheetId
     // fields
-    string timesheet_id = 1 [json_name = "timesheet_id", (google.api.graphql.relay_options).id = true];
-    string party_id = 2 [json_name = "party_id"];
-    string client_party_id = 3 [json_name = "client_party_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    string status_id = 6 [json_name = "status_id"];
-    string approved_by_user_login_id = 7 [json_name = "approved_by_user_login_id"];
-    string comments = 8 [json_name = "comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    
-        
+    string timesheet_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string client_party_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    string status_id = 6 [(routines.opts).field_type = "id"];
+    string approved_by_user_login_id = 7 [(routines.opts).field_type = "id-vlong"];
+    string comments = 8 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -93,7 +93,7 @@ message TimesheetData {
 
 
 message TimesheetKey{
-    string timesheet_id = 1 [json_name = "timesheet_id", (google.api.graphql.relay_options).id = true];
+    string timesheet_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message TimesheetList{
@@ -117,14 +117,14 @@ message TimesheetRoleData {
     option (routines.has_table) = true;
     // keys: timesheetId, partyId, roleTypeId
     // fields
-    string timesheet_id = 1 [json_name = "timesheet_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string timesheet_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -133,9 +133,9 @@ message TimesheetRoleData {
 
 
 message TimesheetRoleKey{
-    string timesheet_id = 1 [json_name = "timesheet_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string timesheet_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message TimesheetRoleList{

@@ -25,14 +25,14 @@ message AddressMatchMapData {
     option (routines.has_table) = true;
     // keys: mapKey, mapValue
     // fields
-    string map_key = 1 [json_name = "map_key"];
-    string map_value = 2 [json_name = "map_value"];
-    int64 sequence_num = 3 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string map_key = 1 [(routines.opts).field_type = "id-vlong"];
+    string map_value = 2 [(routines.opts).field_type = "id-vlong"];
+    int64 sequence_num = 3 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -41,8 +41,8 @@ message AddressMatchMapData {
 
 
 message AddressMatchMapKey{
-    string map_key = 1 [json_name = "map_key"];
-    string map_value = 2 [json_name = "map_value"];
+    string map_key = 1 [(routines.opts).field_type = "id-vlong"];
+    string map_value = 2 [(routines.opts).field_type = "id-vlong"];
 }
 
 message AddressMatchMapList{
@@ -66,19 +66,19 @@ message AffiliateData {
     option (routines.has_table) = true;
     // keys: partyId
     // fields
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
-    string affiliate_name = 2 [json_name = "affiliate_name"];
-    string affiliate_description = 3 [json_name = "affiliate_description"];
-    string year_established = 4 [json_name = "year_established"];
-    string site_type = 5 [json_name = "site_type"];
-    string site_page_views = 6 [json_name = "site_page_views"];
-    string site_visitors = 7 [json_name = "site_visitors"];
-    google.protobuf.Timestamp date_time_created = 8 [json_name = "date_time_created"];
-    google.protobuf.Timestamp date_time_approved = 9 [json_name = "date_time_approved"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 10 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 11 [json_name = "created_tx_stamp"];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string affiliate_name = 2 [(routines.opts).field_type = "name"];
+    string affiliate_description = 3 [(routines.opts).field_type = "description"];
+    string year_established = 4 [(routines.opts).field_type = "very-short"];
+    string site_type = 5 [(routines.opts).field_type = "comment"];
+    string site_page_views = 6 [(routines.opts).field_type = "comment"];
+    string site_visitors = 7 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp date_time_created = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp date_time_approved = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -87,7 +87,7 @@ message AffiliateData {
 
 
 message AffiliateKey{
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message AffiliateList{
@@ -111,15 +111,15 @@ message PartyAttributeData {
     option (routines.has_table) = true;
     // keys: partyId, attrName
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -128,8 +128,8 @@ message PartyAttributeData {
 
 
 message PartyAttributeKey{
-    string party_id = 1 [json_name = "party_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message PartyAttributeList{
@@ -153,16 +153,16 @@ message PartyCarrierAccountData {
     option (routines.has_table) = true;
     // keys: partyId, carrierPartyId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string carrier_party_id = 2 [json_name = "carrier_party_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    string account_number = 5 [json_name = "account_number"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string carrier_party_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    string account_number = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -171,9 +171,9 @@ message PartyCarrierAccountData {
 
 
 message PartyCarrierAccountKey{
-    string party_id = 1 [json_name = "party_id"];
-    string carrier_party_id = 2 [json_name = "carrier_party_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string carrier_party_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyCarrierAccountList{
@@ -197,15 +197,15 @@ message PartyClassificationData {
     option (routines.has_table) = true;
     // keys: partyId, partyClassificationGroupId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 4 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string party_classification_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -214,9 +214,9 @@ message PartyClassificationData {
 
 
 message PartyClassificationKey{
-    string party_id = 1 [json_name = "party_id"];
-    string party_classification_group_id = 2 [json_name = "party_classification_group_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string party_classification_group_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyClassificationList{
@@ -240,14 +240,14 @@ message PartyClassificationGroupData {
     option (routines.has_table) = true;
     // keys: partyClassificationGroupId
     // fields
-    string party_classification_group_id = 1 [json_name = "party_classification_group_id", (google.api.graphql.relay_options).id = true];
-    string party_classification_type_id = 2 [json_name = "party_classification_type_id"];
-    string parent_group_id = 3 [json_name = "parent_group_id"];
-    string description = 4 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string party_classification_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string party_classification_type_id = 2 [(routines.opts).field_type = "id"];
+    string parent_group_id = 3 [(routines.opts).field_type = "id"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -256,7 +256,7 @@ message PartyClassificationGroupData {
 
 
 message PartyClassificationGroupKey{
-    string party_classification_group_id = 1 [json_name = "party_classification_group_id", (google.api.graphql.relay_options).id = true];
+    string party_classification_group_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyClassificationGroupList{
@@ -280,16 +280,16 @@ message PartyContentData {
     option (routines.has_table) = true;
     // keys: partyId, contentId, partyContentTypeId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string party_content_type_id = 3 [json_name = "party_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string party_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -298,10 +298,10 @@ message PartyContentData {
 
 
 message PartyContentKey{
-    string party_id = 1 [json_name = "party_id"];
-    string content_id = 2 [json_name = "content_id"];
-    string party_content_type_id = 3 [json_name = "party_content_type_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id"];
+    string party_content_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyContentList{
@@ -325,17 +325,17 @@ message PartyDataSourceData {
     option (routines.has_table) = true;
     // keys: partyId, dataSourceId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string data_source_id = 2 [json_name = "data_source_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
-    string visit_id = 4 [json_name = "visit_id"];
-    string comments = 5 [json_name = "comments"];
-    routines.Indicator is_create = 6 [json_name = "is_create"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string data_source_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
+    string visit_id = 4 [(routines.opts).field_type = "id"];
+    string comments = 5 [(routines.opts).field_type = "comment"];
+    routines.Indicator is_create = 6 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -344,9 +344,9 @@ message PartyDataSourceData {
 
 
 message PartyDataSourceKey{
-    string party_id = 1 [json_name = "party_id"];
-    string data_source_id = 2 [json_name = "data_source_id"];
-    google.protobuf.Timestamp from_date = 3 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string data_source_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 3 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyDataSourceList{
@@ -370,12 +370,12 @@ message PartyIcsAvsOverrideData {
     option (routines.has_table) = true;
     // keys: partyId
     // fields
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
-    string avs_decline_string = 2 [json_name = "avs_decline_string"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string avs_decline_string = 2 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -384,7 +384,7 @@ message PartyIcsAvsOverrideData {
 
 
 message PartyIcsAvsOverrideKey{
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyIcsAvsOverrideList{
@@ -408,17 +408,17 @@ message PartyInvitationData {
     option (routines.has_table) = true;
     // keys: partyInvitationId
     // fields
-    string party_invitation_id = 1 [json_name = "party_invitation_id", (google.api.graphql.relay_options).id = true];
-    string party_id_from = 2 [json_name = "party_id_from"];
-    string party_id = 3 [json_name = "party_id"];
-    string to_name = 4 [json_name = "to_name"];
-    string email_address = 5 [json_name = "email_address"];
-    string status_id = 6 [json_name = "status_id"];
-    google.protobuf.Timestamp last_invite_date = 7 [json_name = "last_invite_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string party_invitation_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string party_id_from = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string to_name = 4 [(routines.opts).field_type = "name"];
+    string email_address = 5 [(routines.opts).field_type = "long-varchar"];
+    string status_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_invite_date = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -427,7 +427,7 @@ message PartyInvitationData {
 
 
 message PartyInvitationKey{
-    string party_invitation_id = 1 [json_name = "party_invitation_id", (google.api.graphql.relay_options).id = true];
+    string party_invitation_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PartyInvitationList{
@@ -451,13 +451,13 @@ message PartyInvitationGroupAssocData {
     option (routines.has_table) = true;
     // keys: partyInvitationId, partyIdTo
     // fields
-    string party_invitation_id = 1 [json_name = "party_invitation_id"];
-    string party_id_to = 2 [json_name = "party_id_to"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_invitation_id = 1 [(routines.opts).field_type = "id"];
+    string party_id_to = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -466,8 +466,8 @@ message PartyInvitationGroupAssocData {
 
 
 message PartyInvitationGroupAssocKey{
-    string party_invitation_id = 1 [json_name = "party_invitation_id"];
-    string party_id_to = 2 [json_name = "party_id_to"];
+    string party_invitation_id = 1 [(routines.opts).field_type = "id"];
+    string party_id_to = 2 [(routines.opts).field_type = "id"];
 }
 
 message PartyInvitationGroupAssocList{
@@ -491,13 +491,13 @@ message PartyInvitationRoleAssocData {
     option (routines.has_table) = true;
     // keys: partyInvitationId, roleTypeId
     // fields
-    string party_invitation_id = 1 [json_name = "party_invitation_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_invitation_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -506,8 +506,8 @@ message PartyInvitationRoleAssocData {
 
 
 message PartyInvitationRoleAssocKey{
-    string party_invitation_id = 1 [json_name = "party_invitation_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
+    string party_invitation_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PartyInvitationRoleAssocList{
@@ -531,19 +531,19 @@ message PartyNameHistoryData {
     option (routines.has_table) = true;
     // keys: partyId, changeDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];
-    string group_name = 3 [json_name = "group_name"];
-    string first_name = 4 [json_name = "first_name"];
-    string middle_name = 5 [json_name = "middle_name"];
-    string last_name = 6 [json_name = "last_name"];
-    string personal_title = 7 [json_name = "personal_title"];
-    string suffix = 8 [json_name = "suffix"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp change_date = 2 [(routines.opts).field_type = "date-time"];
+    string group_name = 3 [(routines.opts).field_type = "name"];
+    string first_name = 4 [(routines.opts).field_type = "name"];
+    string middle_name = 5 [(routines.opts).field_type = "name"];
+    string last_name = 6 [(routines.opts).field_type = "name"];
+    string personal_title = 7 [(routines.opts).field_type = "name"];
+    string suffix = 8 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -552,8 +552,8 @@ message PartyNameHistoryData {
 
 
 message PartyNameHistoryKey{
-    string party_id = 1 [json_name = "party_id"];
-    google.protobuf.Timestamp change_date = 2 [json_name = "change_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp change_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message PartyNameHistoryList{
@@ -577,13 +577,13 @@ message PartyNoteData {
     option (routines.has_table) = true;
     // keys: partyId, noteId
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string note_id = 2 [json_name = "note_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -592,8 +592,8 @@ message PartyNoteData {
 
 
 message PartyNoteKey{
-    string party_id = 1 [json_name = "party_id"];
-    string note_id = 2 [json_name = "note_id"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PartyNoteList{
@@ -617,17 +617,17 @@ message PartyProfileDefaultData {
     option (routines.has_table) = true;
     // keys: partyId, productStoreId
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string product_store_id = 2 [json_name = "product_store_id"];
-    string default_ship_addr = 3 [json_name = "default_ship_addr"];
-    string default_bill_addr = 4 [json_name = "default_bill_addr"];
-    string default_pay_meth = 5 [json_name = "default_pay_meth"];
-    string default_ship_meth = 6 [json_name = "default_ship_meth"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string product_store_id = 2 [(routines.opts).field_type = "id"];
+    string default_ship_addr = 3 [(routines.opts).field_type = "id"];
+    string default_bill_addr = 4 [(routines.opts).field_type = "id"];
+    string default_pay_meth = 5 [(routines.opts).field_type = "id"];
+    string default_ship_meth = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -636,8 +636,8 @@ message PartyProfileDefaultData {
 
 
 message PartyProfileDefaultKey{
-    string party_id = 1 [json_name = "party_id"];
-    string product_store_id = 2 [json_name = "product_store_id"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string product_store_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message PartyProfileDefaultList{
@@ -661,14 +661,14 @@ message PartyTypeAttrData {
     option (routines.has_table) = true;
     // keys: partyTypeId, attrName
     // fields
-    string party_type_id = 1 [json_name = "party_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -677,8 +677,8 @@ message PartyTypeAttrData {
 
 
 message PartyTypeAttrKey{
-    string party_type_id = 1 [json_name = "party_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string party_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message PartyTypeAttrList{
@@ -702,12 +702,12 @@ message PriorityTypeData {
     option (routines.has_table) = true;
     // keys: priorityTypeId
     // fields
-    string priority_type_id = 1 [json_name = "priority_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string priority_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -716,7 +716,7 @@ message PriorityTypeData {
 
 
 message PriorityTypeKey{
-    string priority_type_id = 1 [json_name = "priority_type_id", (google.api.graphql.relay_options).id = true];
+    string priority_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PriorityTypeList{
@@ -740,14 +740,14 @@ message RoleTypeAttrData {
     option (routines.has_table) = true;
     // keys: roleTypeId, attrName
     // fields
-    string role_type_id = 1 [json_name = "role_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string role_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -756,8 +756,8 @@ message RoleTypeAttrData {
 
 
 message RoleTypeAttrKey{
-    string role_type_id = 1 [json_name = "role_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string role_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message RoleTypeAttrList{
@@ -781,15 +781,15 @@ message VendorData {
     option (routines.has_table) = true;
     // keys: partyId
     // fields
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
-    string manifest_company_name = 2 [json_name = "manifest_company_name"];
-    string manifest_company_title = 3 [json_name = "manifest_company_title"];
-    string manifest_logo_url = 4 [json_name = "manifest_logo_url"];
-    string manifest_policies = 5 [json_name = "manifest_policies"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string manifest_company_name = 2 [(routines.opts).field_type = "name"];
+    string manifest_company_title = 3 [(routines.opts).field_type = "name"];
+    string manifest_logo_url = 4 [(routines.opts).field_type = "url"];
+    string manifest_policies = 5 [(routines.opts).field_type = "very-long"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -798,7 +798,7 @@ message VendorData {
 
 
 message VendorKey{
-    string party_id = 1 [json_name = "party_id", (google.api.graphql.relay_options).id = true];
+    string party_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message VendorList{
@@ -822,17 +822,17 @@ message WebSiteRoleData {
     option (routines.has_table) = true;
     // keys: partyId, roleTypeId, webSiteId, fromDate
     // fields
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string web_site_id = 3 [json_name = "web_site_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 5 [json_name = "thru_date"];
-    int64 sequence_num = 6 [json_name = "sequence_num"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string web_site_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 5 [(routines.opts).field_type = "date-time"];
+    int64 sequence_num = 6 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 16;
@@ -841,10 +841,10 @@ message WebSiteRoleData {
 
 
 message WebSiteRoleKey{
-    string party_id = 1 [json_name = "party_id"];
-    string role_type_id = 2 [json_name = "role_type_id"];
-    string web_site_id = 3 [json_name = "web_site_id"];
-    google.protobuf.Timestamp from_date = 4 [json_name = "from_date"];
+    string party_id = 1 [(routines.opts).field_type = "id"];
+    string role_type_id = 2 [(routines.opts).field_type = "id"];
+    string web_site_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 4 [(routines.opts).field_type = "date-time"];
 }
 
 message WebSiteRoleList{

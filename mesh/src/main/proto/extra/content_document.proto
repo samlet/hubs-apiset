@@ -25,17 +25,17 @@ message DocumentData {
     option (routines.has_table) = true;
     // keys: documentId
     // fields
-    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];
-    string document_type_id = 2 [json_name = "document_type_id"];
-    google.protobuf.Timestamp date_created = 3 [json_name = "date_created"];
-    string comments = 4 [json_name = "comments"];
-    string document_location = 5 [json_name = "document_location"];
-    string document_text = 6 [json_name = "document_text"];
-    bytes image_data = 7 [json_name = "image_data"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 8 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 9 [json_name = "created_tx_stamp"];
-    
-        
+    string document_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string document_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp date_created = 3 [(routines.opts).field_type = "date-time"];
+    string comments = 4 [(routines.opts).field_type = "comment"];
+    string document_location = 5 [(routines.opts).field_type = "long-varchar"];
+    string document_text = 6 [(routines.opts).field_type = "long-varchar"];
+    bytes image_data = 7 [(routines.opts).field_type = "object"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -44,7 +44,7 @@ message DocumentData {
 
 
 message DocumentKey{
-    string document_id = 1 [json_name = "document_id", (google.api.graphql.relay_options).id = true];
+    string document_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message DocumentList{
@@ -68,15 +68,15 @@ message DocumentAttributeData {
     option (routines.has_table) = true;
     // keys: documentId, attrName
     // fields
-    string document_id = 1 [json_name = "document_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string document_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -85,8 +85,8 @@ message DocumentAttributeData {
 
 
 message DocumentAttributeKey{
-    string document_id = 1 [json_name = "document_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string document_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message DocumentAttributeList{
@@ -110,14 +110,14 @@ message DocumentTypeAttrData {
     option (routines.has_table) = true;
     // keys: documentTypeId, attrName
     // fields
-    string document_type_id = 1 [json_name = "document_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string document_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -126,8 +126,8 @@ message DocumentTypeAttrData {
 
 
 message DocumentTypeAttrKey{
-    string document_type_id = 1 [json_name = "document_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string document_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message DocumentTypeAttrList{

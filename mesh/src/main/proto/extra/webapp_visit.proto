@@ -25,13 +25,13 @@ message BrowserTypeData {
     option (routines.has_table) = true;
     // keys: browserTypeId
     // fields
-    string browser_type_id = 1 [json_name = "browser_type_id", (google.api.graphql.relay_options).id = true];
-    string browser_name = 2 [json_name = "browser_name"];
-    string browser_version = 3 [json_name = "browser_version"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string browser_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string browser_name = 2 [(routines.opts).field_type = "name"];
+    string browser_version = 3 [(routines.opts).field_type = "very-short"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -40,7 +40,7 @@ message BrowserTypeData {
 
 
 message BrowserTypeKey{
-    string browser_type_id = 1 [json_name = "browser_type_id", (google.api.graphql.relay_options).id = true];
+    string browser_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BrowserTypeList{
@@ -64,13 +64,13 @@ message PlatformTypeData {
     option (routines.has_table) = true;
     // keys: platformTypeId
     // fields
-    string platform_type_id = 1 [json_name = "platform_type_id", (google.api.graphql.relay_options).id = true];
-    string platform_name = 2 [json_name = "platform_name"];
-    string platform_version = 3 [json_name = "platform_version"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string platform_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string platform_name = 2 [(routines.opts).field_type = "name"];
+    string platform_version = 3 [(routines.opts).field_type = "very-short"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -79,7 +79,7 @@ message PlatformTypeData {
 
 
 message PlatformTypeKey{
-    string platform_type_id = 1 [json_name = "platform_type_id", (google.api.graphql.relay_options).id = true];
+    string platform_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message PlatformTypeList{
@@ -103,12 +103,12 @@ message ProtocolTypeData {
     option (routines.has_table) = true;
     // keys: protocolTypeId
     // fields
-    string protocol_type_id = 1 [json_name = "protocol_type_id", (google.api.graphql.relay_options).id = true];
-    string protocol_name = 2 [json_name = "protocol_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string protocol_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string protocol_name = 2 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -117,7 +117,7 @@ message ProtocolTypeData {
 
 
 message ProtocolTypeKey{
-    string protocol_type_id = 1 [json_name = "protocol_type_id", (google.api.graphql.relay_options).id = true];
+    string protocol_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ProtocolTypeList{
@@ -141,25 +141,25 @@ message ServerHitData {
     option (routines.has_table) = true;
     // keys: visitId, contentId, hitStartDateTime, hitTypeId
     // fields
-    string visit_id = 1 [json_name = "visit_id"];
-    string content_id = 2 [json_name = "content_id"];
-    google.protobuf.Timestamp hit_start_date_time = 3 [json_name = "hit_start_date_time"];
-    string hit_type_id = 4 [json_name = "hit_type_id"];
-    int64 num_of_bytes = 5 [json_name = "num_of_bytes"];
-    int64 running_time_millis = 6 [json_name = "running_time_millis"];
-    string user_login_id = 7 [json_name = "user_login_id"];
-    string status_id = 8 [json_name = "status_id"];
-    string request_url = 9 [json_name = "request_url"];
-    string referrer_url = 10 [json_name = "referrer_url"];
-    string server_ip_address = 11 [json_name = "server_ip_address"];
-    string server_host_name = 12 [json_name = "server_host_name"];
-    string internal_content_id = 13 [json_name = "internal_content_id"];
-    string party_id = 14 [json_name = "party_id"];
-    string id_by_ip_contact_mech_id = 15 [json_name = "id_by_ip_contact_mech_id"];
-    string ref_by_web_contact_mech_id = 16 [json_name = "ref_by_web_contact_mech_id"];
-    string id = 17 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp hit_start_date_time = 3 [(routines.opts).field_type = "date-time"];
+    string hit_type_id = 4 [(routines.opts).field_type = "id"];
+    int64 num_of_bytes = 5 [(routines.opts).field_type = "numeric"];
+    int64 running_time_millis = 6 [(routines.opts).field_type = "numeric"];
+    string user_login_id = 7 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 8 [(routines.opts).field_type = "id"];
+    string request_url = 9 [(routines.opts).field_type = "url"];
+    string referrer_url = 10 [(routines.opts).field_type = "url"];
+    string server_ip_address = 11 [(routines.opts).field_type = "id"];
+    string server_host_name = 12 [(routines.opts).field_type = "long-varchar"];
+    string internal_content_id = 13 [(routines.opts).field_type = "id"];
+    string party_id = 14 [(routines.opts).field_type = "id"];
+    string id_by_ip_contact_mech_id = 15 [(routines.opts).field_type = "id"];
+    string ref_by_web_contact_mech_id = 16 [(routines.opts).field_type = "id"];
+    string id = 17 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -168,10 +168,10 @@ message ServerHitData {
 
 
 message ServerHitKey{
-    string visit_id = 1 [json_name = "visit_id"];
-    string content_id = 2 [json_name = "content_id"];
-    google.protobuf.Timestamp hit_start_date_time = 3 [json_name = "hit_start_date_time"];
-    string hit_type_id = 4 [json_name = "hit_type_id"];
+    string visit_id = 1 [(routines.opts).field_type = "id"];
+    string content_id = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp hit_start_date_time = 3 [(routines.opts).field_type = "date-time"];
+    string hit_type_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message ServerHitList{
@@ -195,20 +195,20 @@ message ServerHitBinData {
     option (routines.has_table) = true;
     // keys: serverHitBinId
     // fields
-    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id", (google.api.graphql.relay_options).id = true];
-    string content_id = 2 [json_name = "content_id"];
-    string hit_type_id = 3 [json_name = "hit_type_id"];
-    string server_ip_address = 4 [json_name = "server_ip_address"];
-    string server_host_name = 5 [json_name = "server_host_name"];
-    google.protobuf.Timestamp bin_start_date_time = 6 [json_name = "bin_start_date_time"];
-    google.protobuf.Timestamp bin_end_date_time = 7 [json_name = "bin_end_date_time"];
-    int64 number_hits = 8 [json_name = "number_hits"];
-    int64 total_time_millis = 9 [json_name = "total_time_millis"];
-    int64 min_time_millis = 10 [json_name = "min_time_millis"];
-    int64 max_time_millis = 11 [json_name = "max_time_millis"];
-    string internal_content_id = 12 [json_name = "internal_content_id"];
-    
-        
+    string server_hit_bin_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string content_id = 2 [(routines.opts).field_type = "id-vlong"];
+    string hit_type_id = 3 [(routines.opts).field_type = "id"];
+    string server_ip_address = 4 [(routines.opts).field_type = "id"];
+    string server_host_name = 5 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp bin_start_date_time = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp bin_end_date_time = 7 [(routines.opts).field_type = "date-time"];
+    int64 number_hits = 8 [(routines.opts).field_type = "numeric"];
+    int64 total_time_millis = 9 [(routines.opts).field_type = "numeric"];
+    int64 min_time_millis = 10 [(routines.opts).field_type = "numeric"];
+    int64 max_time_millis = 11 [(routines.opts).field_type = "numeric"];
+    string internal_content_id = 12 [(routines.opts).field_type = "id"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -217,7 +217,7 @@ message ServerHitBinData {
 
 
 message ServerHitBinKey{
-    string server_hit_bin_id = 1 [json_name = "server_hit_bin_id", (google.api.graphql.relay_options).id = true];
+    string server_hit_bin_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ServerHitBinList{
@@ -241,16 +241,16 @@ message UserAgentData {
     option (routines.has_table) = true;
     // keys: userAgentId
     // fields
-    string user_agent_id = 1 [json_name = "user_agent_id", (google.api.graphql.relay_options).id = true];
-    string browser_type_id = 2 [json_name = "browser_type_id"];
-    string platform_type_id = 3 [json_name = "platform_type_id"];
-    string protocol_type_id = 4 [json_name = "protocol_type_id"];
-    string user_agent_type_id = 5 [json_name = "user_agent_type_id"];
-    string user_agent_method_type_id = 6 [json_name = "user_agent_method_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    
-        
+    string user_agent_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string browser_type_id = 2 [(routines.opts).field_type = "id"];
+    string platform_type_id = 3 [(routines.opts).field_type = "id"];
+    string protocol_type_id = 4 [(routines.opts).field_type = "id"];
+    string user_agent_type_id = 5 [(routines.opts).field_type = "id"];
+    string user_agent_method_type_id = 6 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -259,7 +259,7 @@ message UserAgentData {
 
 
 message UserAgentKey{
-    string user_agent_id = 1 [json_name = "user_agent_id", (google.api.graphql.relay_options).id = true];
+    string user_agent_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message UserAgentList{
@@ -283,12 +283,12 @@ message UserAgentMethodTypeData {
     option (routines.has_table) = true;
     // keys: userAgentMethodTypeId
     // fields
-    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string user_agent_method_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -297,7 +297,7 @@ message UserAgentMethodTypeData {
 
 
 message UserAgentMethodTypeKey{
-    string user_agent_method_type_id = 1 [json_name = "user_agent_method_type_id", (google.api.graphql.relay_options).id = true];
+    string user_agent_method_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message UserAgentMethodTypeList{
@@ -321,12 +321,12 @@ message UserAgentTypeData {
     option (routines.has_table) = true;
     // keys: userAgentTypeId
     // fields
-    string user_agent_type_id = 1 [json_name = "user_agent_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string user_agent_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -335,7 +335,7 @@ message UserAgentTypeData {
 
 
 message UserAgentTypeKey{
-    string user_agent_type_id = 1 [json_name = "user_agent_type_id", (google.api.graphql.relay_options).id = true];
+    string user_agent_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message UserAgentTypeList{
@@ -359,34 +359,34 @@ message VisitData {
     option (routines.has_table) = true;
     // keys: visitId
     // fields
-    string visit_id = 1 [json_name = "visit_id", (google.api.graphql.relay_options).id = true];
-    string visitor_id = 2 [json_name = "visitor_id"];
-    string user_login_id = 3 [json_name = "user_login_id"];
-    routines.Indicator user_created = 4 [json_name = "user_created"];
-    string session_id = 5 [json_name = "session_id"];
-    string server_ip_address = 6 [json_name = "server_ip_address"];
-    string server_host_name = 7 [json_name = "server_host_name"];
-    string webapp_name = 8 [json_name = "webapp_name"];
-    string initial_locale = 9 [json_name = "initial_locale"];
-    string initial_request = 10 [json_name = "initial_request"];
-    string initial_referrer = 11 [json_name = "initial_referrer"];
-    string initial_user_agent = 12 [json_name = "initial_user_agent"];
-    string user_agent_id = 13 [json_name = "user_agent_id"];
-    string client_ip_address = 14 [json_name = "client_ip_address"];
-    string client_host_name = 15 [json_name = "client_host_name"];
-    string client_user = 16 [json_name = "client_user"];
-    string client_ip_isp_name = 17 [json_name = "client_ip_isp_name"];
-    string client_ip_postal_code = 18 [json_name = "client_ip_postal_code"];
-    string cookie = 19 [json_name = "cookie"];
-    google.protobuf.Timestamp from_date = 20 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 21 [json_name = "thru_date"];
-    string client_ip_state_prov_geo_id = 22 [json_name = "client_ip_state_prov_geo_id"];
-    string client_ip_country_geo_id = 23 [json_name = "client_ip_country_geo_id"];
-    string contact_mech_id = 24 [json_name = "contact_mech_id"];
-    string party_id = 25 [json_name = "party_id"];
-    string role_type_id = 26 [json_name = "role_type_id"];
-    
-        
+    string visit_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string visitor_id = 2 [(routines.opts).field_type = "id"];
+    string user_login_id = 3 [(routines.opts).field_type = "id-vlong"];
+    routines.Indicator user_created = 4 [(routines.opts).field_type = "indicator"];
+    string session_id = 5 [(routines.opts).field_type = "id-vlong"];
+    string server_ip_address = 6 [(routines.opts).field_type = "id"];
+    string server_host_name = 7 [(routines.opts).field_type = "long-varchar"];
+    string webapp_name = 8 [(routines.opts).field_type = "short-varchar"];
+    string initial_locale = 9 [(routines.opts).field_type = "short-varchar"];
+    string initial_request = 10 [(routines.opts).field_type = "url"];
+    string initial_referrer = 11 [(routines.opts).field_type = "url"];
+    string initial_user_agent = 12 [(routines.opts).field_type = "long-varchar"];
+    string user_agent_id = 13 [(routines.opts).field_type = "id"];
+    string client_ip_address = 14 [(routines.opts).field_type = "short-varchar"];
+    string client_host_name = 15 [(routines.opts).field_type = "long-varchar"];
+    string client_user = 16 [(routines.opts).field_type = "short-varchar"];
+    string client_ip_isp_name = 17 [(routines.opts).field_type = "short-varchar"];
+    string client_ip_postal_code = 18 [(routines.opts).field_type = "short-varchar"];
+    string cookie = 19 [(routines.opts).field_type = "short-varchar"];
+    google.protobuf.Timestamp from_date = 20 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 21 [(routines.opts).field_type = "date-time"];
+    string client_ip_state_prov_geo_id = 22 [(routines.opts).field_type = "id"];
+    string client_ip_country_geo_id = 23 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 24 [(routines.opts).field_type = "id"];
+    string party_id = 25 [(routines.opts).field_type = "id"];
+    string role_type_id = 26 [(routines.opts).field_type = "id"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 30;
@@ -395,7 +395,7 @@ message VisitData {
 
 
 message VisitKey{
-    string visit_id = 1 [json_name = "visit_id", (google.api.graphql.relay_options).id = true];
+    string visit_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message VisitList{
@@ -419,13 +419,13 @@ message VisitorData {
     option (routines.has_table) = true;
     // keys: visitorId
     // fields
-    string visitor_id = 1 [json_name = "visitor_id", (google.api.graphql.relay_options).id = true];
-    string user_login_id = 2 [json_name = "user_login_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string party_id = 5 [json_name = "party_id"];
-    
-        
+    string visitor_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string user_login_id = 2 [(routines.opts).field_type = "id-vlong"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string party_id = 5 [(routines.opts).field_type = "id"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -434,7 +434,7 @@ message VisitorData {
 
 
 message VisitorKey{
-    string visitor_id = 1 [json_name = "visitor_id", (google.api.graphql.relay_options).id = true];
+    string visitor_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message VisitorList{

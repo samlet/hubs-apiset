@@ -25,13 +25,13 @@ message CommunicationEventOrderData {
     option (routines.has_table) = true;
     // keys: orderId, communicationEventId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -40,8 +40,8 @@ message CommunicationEventOrderData {
 
 
 message CommunicationEventOrderKey{
-    string order_id = 1 [json_name = "order_id"];
-    string communication_event_id = 2 [json_name = "communication_event_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string communication_event_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message CommunicationEventOrderList{
@@ -65,13 +65,13 @@ message OldOrderBlacklistData {
     option (routines.has_table) = true;
     // keys: blacklistString, orderBlacklistTypeId
     // fields
-    string blacklist_string = 1 [json_name = "blacklist_string"];
-    string order_blacklist_type_id = 2 [json_name = "order_blacklist_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string blacklist_string = 1 [(routines.opts).field_type = "long-varchar"];
+    string order_blacklist_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -80,8 +80,8 @@ message OldOrderBlacklistData {
 
 
 message OldOrderBlacklistKey{
-    string blacklist_string = 1 [json_name = "blacklist_string"];
-    string order_blacklist_type_id = 2 [json_name = "order_blacklist_type_id"];
+    string blacklist_string = 1 [(routines.opts).field_type = "long-varchar"];
+    string order_blacklist_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OldOrderBlacklistList{
@@ -105,12 +105,12 @@ message OldOrderBlacklistTypeData {
     option (routines.has_table) = true;
     // keys: orderBlacklistTypeId
     // fields
-    string order_blacklist_type_id = 1 [json_name = "order_blacklist_type_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string order_blacklist_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 6;
@@ -119,7 +119,7 @@ message OldOrderBlacklistTypeData {
 
 
 message OldOrderBlacklistTypeKey{
-    string order_blacklist_type_id = 1 [json_name = "order_blacklist_type_id", (google.api.graphql.relay_options).id = true];
+    string order_blacklist_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message OldOrderBlacklistTypeList{
@@ -143,15 +143,15 @@ message OrderAdjustmentAttributeData {
     option (routines.has_table) = true;
     // keys: orderAdjustmentId, attrName
     // fields
-    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_adjustment_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -160,8 +160,8 @@ message OrderAdjustmentAttributeData {
 
 
 message OrderAdjustmentAttributeKey{
-    string order_adjustment_id = 1 [json_name = "order_adjustment_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string order_adjustment_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderAdjustmentAttributeList{
@@ -185,14 +185,14 @@ message OrderAdjustmentTypeAttrData {
     option (routines.has_table) = true;
     // keys: orderAdjustmentTypeId, attrName
     // fields
-    string order_adjustment_type_id = 1 [json_name = "order_adjustment_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_adjustment_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -201,8 +201,8 @@ message OrderAdjustmentTypeAttrData {
 
 
 message OrderAdjustmentTypeAttrKey{
-    string order_adjustment_type_id = 1 [json_name = "order_adjustment_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string order_adjustment_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderAdjustmentTypeAttrList{
@@ -226,15 +226,15 @@ message OrderAttributeData {
     option (routines.has_table) = true;
     // keys: orderId, attrName
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -243,8 +243,8 @@ message OrderAttributeData {
 
 
 message OrderAttributeKey{
-    string order_id = 1 [json_name = "order_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderAttributeList{
@@ -268,17 +268,17 @@ message OrderContentData {
     option (routines.has_table) = true;
     // keys: contentId, orderId, orderItemSeqId, orderContentTypeId, fromDate
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string content_id = 3 [json_name = "content_id"];
-    string order_content_type_id = 4 [json_name = "order_content_type_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
-    google.protobuf.Timestamp thru_date = 6 [json_name = "thru_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string content_id = 3 [(routines.opts).field_type = "id"];
+    string order_content_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp thru_date = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -287,11 +287,11 @@ message OrderContentData {
 
 
 message OrderContentKey{
-    string content_id = 1 [json_name = "content_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string order_content_type_id = 4 [json_name = "order_content_type_id"];
-    google.protobuf.Timestamp from_date = 5 [json_name = "from_date"];
+    string content_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string order_content_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp from_date = 5 [(routines.opts).field_type = "date-time"];
 }
 
 message OrderContentList{
@@ -315,14 +315,14 @@ message OrderContentTypeData {
     option (routines.has_table) = true;
     // keys: orderContentTypeId
     // fields
-    string order_content_type_id = 1 [json_name = "order_content_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    routines.Indicator has_table = 3 [json_name = "has_table"];
-    string description = 4 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    
-        
+    string order_content_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator has_table = 3 [(routines.opts).field_type = "indicator"];
+    string description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -331,7 +331,7 @@ message OrderContentTypeData {
 
 
 message OrderContentTypeKey{
-    string order_content_type_id = 1 [json_name = "order_content_type_id", (google.api.graphql.relay_options).id = true];
+    string order_content_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderContentTypeList{
@@ -355,22 +355,22 @@ message OrderDeliveryScheduleData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    google.protobuf.Timestamp estimated_ready_date = 3 [json_name = "estimated_ready_date"];
-    int64 cartons = 4 [json_name = "cartons"];
-    int64 skids_pallets = 5 [json_name = "skids_pallets"];
-    routines.FixedPoint units_pieces = 6 [json_name = "units_pieces"];
-    routines.FixedPoint total_cubic_size = 7 [json_name = "total_cubic_size"];
-    string total_cubic_uom_id = 8 [json_name = "total_cubic_uom_id"];
-    routines.FixedPoint total_weight = 9 [json_name = "total_weight"];
-    string total_weight_uom_id = 10 [json_name = "total_weight_uom_id"];
-    string status_id = 11 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    string id = 14 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp estimated_ready_date = 3 [(routines.opts).field_type = "date-time"];
+    int64 cartons = 4 [(routines.opts).field_type = "numeric"];
+    int64 skids_pallets = 5 [(routines.opts).field_type = "numeric"];
+    routines.FixedPoint units_pieces = 6 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint total_cubic_size = 7 [(routines.opts).field_type = "fixed-point"];
+    string total_cubic_uom_id = 8 [(routines.opts).field_type = "id"];
+    routines.FixedPoint total_weight = 9 [(routines.opts).field_type = "fixed-point"];
+    string total_weight_uom_id = 10 [(routines.opts).field_type = "id"];
+    string status_id = 11 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    string id = 14 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -379,8 +379,8 @@ message OrderDeliveryScheduleData {
 
 
 message OrderDeliveryScheduleKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderDeliveryScheduleList{
@@ -404,13 +404,13 @@ message OrderDenylistData {
     option (routines.has_table) = true;
     // keys: denylistString, orderDenylistTypeId
     // fields
-    string denylist_string = 1 [json_name = "denylist_string"];
-    string order_denylist_type_id = 2 [json_name = "order_denylist_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string denylist_string = 1 [(routines.opts).field_type = "long-varchar"];
+    string order_denylist_type_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -419,8 +419,8 @@ message OrderDenylistData {
 
 
 message OrderDenylistKey{
-    string denylist_string = 1 [json_name = "denylist_string"];
-    string order_denylist_type_id = 2 [json_name = "order_denylist_type_id"];
+    string denylist_string = 1 [(routines.opts).field_type = "long-varchar"];
+    string order_denylist_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderDenylistList{
@@ -444,14 +444,14 @@ message OrderHeaderNoteData {
     option (routines.has_table) = true;
     // keys: orderId, noteId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string note_id = 2 [json_name = "note_id"];
-    routines.Indicator internal_note = 3 [json_name = "internal_note"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
+    routines.Indicator internal_note = 3 [(routines.opts).field_type = "indicator"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -460,8 +460,8 @@ message OrderHeaderNoteData {
 
 
 message OrderHeaderNoteKey{
-    string order_id = 1 [json_name = "order_id"];
-    string note_id = 2 [json_name = "note_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string note_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderHeaderNoteList{
@@ -485,13 +485,13 @@ message OrderHeaderWorkEffortData {
     option (routines.has_table) = true;
     // keys: orderId, workEffortId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -500,8 +500,8 @@ message OrderHeaderWorkEffortData {
 
 
 message OrderHeaderWorkEffortKey{
-    string order_id = 1 [json_name = "order_id"];
-    string work_effort_id = 2 [json_name = "work_effort_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string work_effort_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderHeaderWorkEffortList{
@@ -525,19 +525,19 @@ message OrderItemAssocData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, shipGroupSeqId, toOrderId, toOrderItemSeqId, toShipGroupSeqId, orderItemAssocTypeId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
-    string to_order_id = 4 [json_name = "to_order_id"];
-    string to_order_item_seq_id = 5 [json_name = "to_order_item_seq_id"];
-    string to_ship_group_seq_id = 6 [json_name = "to_ship_group_seq_id"];
-    string order_item_assoc_type_id = 7 [json_name = "order_item_assoc_type_id"];
-    routines.FixedPoint quantity = 8 [json_name = "quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 3 [(routines.opts).field_type = "id"];
+    string to_order_id = 4 [(routines.opts).field_type = "id"];
+    string to_order_item_seq_id = 5 [(routines.opts).field_type = "id"];
+    string to_ship_group_seq_id = 6 [(routines.opts).field_type = "id"];
+    string order_item_assoc_type_id = 7 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 8 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 21;
@@ -546,13 +546,13 @@ message OrderItemAssocData {
 
 
 message OrderItemAssocKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
-    string to_order_id = 4 [json_name = "to_order_id"];
-    string to_order_item_seq_id = 5 [json_name = "to_order_item_seq_id"];
-    string to_ship_group_seq_id = 6 [json_name = "to_ship_group_seq_id"];
-    string order_item_assoc_type_id = 7 [json_name = "order_item_assoc_type_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 3 [(routines.opts).field_type = "id"];
+    string to_order_id = 4 [(routines.opts).field_type = "id"];
+    string to_order_item_seq_id = 5 [(routines.opts).field_type = "id"];
+    string to_ship_group_seq_id = 6 [(routines.opts).field_type = "id"];
+    string order_item_assoc_type_id = 7 [(routines.opts).field_type = "id"];
 }
 
 message OrderItemAssocList{
@@ -576,16 +576,16 @@ message OrderItemAttributeData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, attrName
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string attr_name = 3 [json_name = "attr_name"];
-    string attr_value = 4 [json_name = "attr_value"];
-    string attr_description = 5 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string attr_name = 3 [(routines.opts).field_type = "id-long"];
+    string attr_value = 4 [(routines.opts).field_type = "value"];
+    string attr_description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -594,9 +594,9 @@ message OrderItemAttributeData {
 
 
 message OrderItemAttributeKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string attr_name = 3 [json_name = "attr_name"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string attr_name = 3 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderItemAttributeList{
@@ -620,22 +620,22 @@ message OrderItemChangeData {
     option (routines.has_table) = true;
     // keys: orderItemChangeId
     // fields
-    string order_item_change_id = 1 [json_name = "order_item_change_id", (google.api.graphql.relay_options).id = true];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string change_type_enum_id = 4 [json_name = "change_type_enum_id"];
-    google.protobuf.Timestamp change_datetime = 5 [json_name = "change_datetime"];
-    string change_user_login = 6 [json_name = "change_user_login"];
-    routines.FixedPoint quantity = 7 [json_name = "quantity"];
-    routines.FixedPoint cancel_quantity = 8 [json_name = "cancel_quantity"];
-    routines.Currency unit_price = 9 [json_name = "unit_price"];
-    string item_description = 10 [json_name = "item_description"];
-    string reason_enum_id = 11 [json_name = "reason_enum_id"];
-    string change_comments = 12 [json_name = "change_comments"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 13 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 14 [json_name = "created_tx_stamp"];
-    
-        
+    string order_item_change_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string change_type_enum_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp change_datetime = 5 [(routines.opts).field_type = "date-time"];
+    string change_user_login = 6 [(routines.opts).field_type = "id-vlong"];
+    routines.FixedPoint quantity = 7 [(routines.opts).field_type = "fixed-point"];
+    routines.FixedPoint cancel_quantity = 8 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency unit_price = 9 [(routines.opts).field_type = "currency-amount"];
+    string item_description = 10 [(routines.opts).field_type = "description"];
+    string reason_enum_id = 11 [(routines.opts).field_type = "id"];
+    string change_comments = 12 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 20;
@@ -644,7 +644,7 @@ message OrderItemChangeData {
 
 
 message OrderItemChangeKey{
-    string order_item_change_id = 1 [json_name = "order_item_change_id", (google.api.graphql.relay_options).id = true];
+    string order_item_change_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderItemChangeList{
@@ -668,15 +668,15 @@ message OrderItemContactMechData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, contactMechPurposeTypeId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"];
-    string contact_mech_id = 4 [json_name = "contact_mech_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string contact_mech_purpose_type_id = 3 [(routines.opts).field_type = "id"];
+    string contact_mech_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -685,9 +685,9 @@ message OrderItemContactMechData {
 
 
 message OrderItemContactMechKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string contact_mech_purpose_type_id = 3 [json_name = "contact_mech_purpose_type_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string contact_mech_purpose_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message OrderItemContactMechList{
@@ -711,15 +711,15 @@ message OrderItemGroupData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemGroupSeqId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_group_seq_id = 2 [json_name = "order_item_group_seq_id"];
-    string parent_group_seq_id = 3 [json_name = "parent_group_seq_id"];
-    string group_name = 4 [json_name = "group_name"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_group_seq_id = 2 [(routines.opts).field_type = "id"];
+    string parent_group_seq_id = 3 [(routines.opts).field_type = "id"];
+    string group_name = 4 [(routines.opts).field_type = "name"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -728,8 +728,8 @@ message OrderItemGroupData {
 
 
 message OrderItemGroupKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_group_seq_id = 2 [json_name = "order_item_group_seq_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_group_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderItemGroupList{
@@ -753,14 +753,14 @@ message OrderItemGroupOrderData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, groupOrderId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string group_order_id = 3 [json_name = "group_order_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string group_order_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -769,9 +769,9 @@ message OrderItemGroupOrderData {
 
 
 message OrderItemGroupOrderKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string group_order_id = 3 [json_name = "group_order_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string group_order_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message OrderItemGroupOrderList{
@@ -795,15 +795,15 @@ message OrderItemRoleData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, partyId, roleTypeId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string role_type_id = 4 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string role_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -812,10 +812,10 @@ message OrderItemRoleData {
 
 
 message OrderItemRoleKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string role_type_id = 4 [json_name = "role_type_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string role_type_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message OrderItemRoleList{
@@ -839,14 +839,14 @@ message OrderItemTypeAttrData {
     option (routines.has_table) = true;
     // keys: orderItemTypeId, attrName
     // fields
-    string order_item_type_id = 1 [json_name = "order_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -855,8 +855,8 @@ message OrderItemTypeAttrData {
 
 
 message OrderItemTypeAttrKey{
-    string order_item_type_id = 1 [json_name = "order_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string order_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderItemTypeAttrList{
@@ -880,15 +880,15 @@ message OrderNotificationData {
     option (routines.has_table) = true;
     // keys: orderNotificationId
     // fields
-    string order_notification_id = 1 [json_name = "order_notification_id", (google.api.graphql.relay_options).id = true];
-    string order_id = 2 [json_name = "order_id"];
-    string email_type = 3 [json_name = "email_type"];
-    string comments = 4 [json_name = "comments"];
-    google.protobuf.Timestamp notification_date = 5 [json_name = "notification_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    
-        
+    string order_notification_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string email_type = 3 [(routines.opts).field_type = "id"];
+    string comments = 4 [(routines.opts).field_type = "comment"];
+    google.protobuf.Timestamp notification_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -897,7 +897,7 @@ message OrderNotificationData {
 
 
 message OrderNotificationKey{
-    string order_notification_id = 1 [json_name = "order_notification_id", (google.api.graphql.relay_options).id = true];
+    string order_notification_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message OrderNotificationList{
@@ -921,13 +921,13 @@ message OrderProductPromoCodeData {
     option (routines.has_table) = true;
     // keys: orderId, productPromoCodeId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string product_promo_code_id = 2 [json_name = "product_promo_code_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    string id = 5 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_code_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string id = 5 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -936,8 +936,8 @@ message OrderProductPromoCodeData {
 
 
 message OrderProductPromoCodeKey{
-    string order_id = 1 [json_name = "order_id"];
-    string product_promo_code_id = 2 [json_name = "product_promo_code_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string product_promo_code_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message OrderProductPromoCodeList{
@@ -961,17 +961,17 @@ message OrderShipmentData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, shipGroupSeqId, shipmentId, shipmentItemSeqId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
-    string shipment_id = 4 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 5 [json_name = "shipment_item_seq_id"];
-    routines.FixedPoint quantity = 6 [json_name = "quantity"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 3 [(routines.opts).field_type = "id"];
+    string shipment_id = 4 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 5 [(routines.opts).field_type = "id"];
+    routines.FixedPoint quantity = 6 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 15;
@@ -980,11 +980,11 @@ message OrderShipmentData {
 
 
 message OrderShipmentKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 3 [json_name = "ship_group_seq_id"];
-    string shipment_id = 4 [json_name = "shipment_id"];
-    string shipment_item_seq_id = 5 [json_name = "shipment_item_seq_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 3 [(routines.opts).field_type = "id"];
+    string shipment_id = 4 [(routines.opts).field_type = "id"];
+    string shipment_item_seq_id = 5 [(routines.opts).field_type = "id"];
 }
 
 message OrderShipmentList{
@@ -1008,17 +1008,17 @@ message OrderSummaryEntryData {
     option (routines.has_table) = true;
     // keys: entryDate, productId, facilityId
     // fields
-    google.type.Date entry_date = 1 [json_name = "entry_date"];
-    string product_id = 2 [json_name = "product_id"];
-    string facility_id = 3 [json_name = "facility_id"];
-    routines.FixedPoint total_quantity = 4 [json_name = "total_quantity"];
-    routines.Currency gross_sales = 5 [json_name = "gross_sales"];
-    routines.Currency product_cost = 6 [json_name = "product_cost"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    google.type.Date entry_date = 1 [(routines.opts).field_type = "date"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string facility_id = 3 [(routines.opts).field_type = "id"];
+    routines.FixedPoint total_quantity = 4 [(routines.opts).field_type = "fixed-point"];
+    routines.Currency gross_sales = 5 [(routines.opts).field_type = "currency-amount"];
+    routines.Currency product_cost = 6 [(routines.opts).field_type = "currency-amount"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -1027,9 +1027,9 @@ message OrderSummaryEntryData {
 
 
 message OrderSummaryEntryKey{
-    google.type.Date entry_date = 1 [json_name = "entry_date"];
-    string product_id = 2 [json_name = "product_id"];
-    string facility_id = 3 [json_name = "facility_id"];
+    google.type.Date entry_date = 1 [(routines.opts).field_type = "date"];
+    string product_id = 2 [(routines.opts).field_type = "id"];
+    string facility_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message OrderSummaryEntryList{
@@ -1053,19 +1053,19 @@ message OrderTermData {
     option (routines.has_table) = true;
     // keys: termTypeId, orderId, orderItemSeqId
     // fields
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    routines.Currency term_value = 4 [json_name = "term_value"];
-    int64 term_days = 5 [json_name = "term_days"];
-    string text_value = 6 [json_name = "text_value"];
-    string description = 7 [json_name = "description"];
-    string uom_id = 8 [json_name = "uom_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 9 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 10 [json_name = "created_tx_stamp"];
-    string id = 11 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    routines.Currency term_value = 4 [(routines.opts).field_type = "currency-amount"];
+    int64 term_days = 5 [(routines.opts).field_type = "numeric"];
+    string text_value = 6 [(routines.opts).field_type = "description"];
+    string description = 7 [(routines.opts).field_type = "description"];
+    string uom_id = 8 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string id = 11 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 17;
@@ -1074,9 +1074,9 @@ message OrderTermData {
 
 
 message OrderTermKey{
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message OrderTermList{
@@ -1100,17 +1100,17 @@ message OrderTermAttributeData {
     option (routines.has_table) = true;
     // keys: termTypeId, orderId, orderItemSeqId, attrName
     // fields
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string attr_name = 4 [json_name = "attr_name"];
-    string attr_value = 5 [json_name = "attr_value"];
-    string attr_description = 6 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
+    string attr_value = 5 [(routines.opts).field_type = "value"];
+    string attr_description = 6 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -1119,10 +1119,10 @@ message OrderTermAttributeData {
 
 
 message OrderTermAttributeKey{
-    string term_type_id = 1 [json_name = "term_type_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string attr_name = 4 [json_name = "attr_name"];
+    string term_type_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string attr_name = 4 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderTermAttributeList{
@@ -1146,14 +1146,14 @@ message OrderTypeAttrData {
     option (routines.has_table) = true;
     // keys: orderTypeId, attrName
     // fields
-    string order_type_id = 1 [json_name = "order_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -1162,8 +1162,8 @@ message OrderTypeAttrData {
 
 
 message OrderTypeAttrKey{
-    string order_type_id = 1 [json_name = "order_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string order_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message OrderTypeAttrList{
@@ -1187,16 +1187,16 @@ message ProductOrderItemData {
     option (routines.has_table) = true;
     // keys: orderId, orderItemSeqId, engagementId, engagementItemSeqId
     // fields
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string engagement_id = 3 [json_name = "engagement_id"];
-    string engagement_item_seq_id = 4 [json_name = "engagement_item_seq_id"];
-    string product_id = 5 [json_name = "product_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string engagement_id = 3 [(routines.opts).field_type = "id"];
+    string engagement_item_seq_id = 4 [(routines.opts).field_type = "id"];
+    string product_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 14;
@@ -1205,10 +1205,10 @@ message ProductOrderItemData {
 
 
 message ProductOrderItemKey{
-    string order_id = 1 [json_name = "order_id"];
-    string order_item_seq_id = 2 [json_name = "order_item_seq_id"];
-    string engagement_id = 3 [json_name = "engagement_id"];
-    string engagement_item_seq_id = 4 [json_name = "engagement_item_seq_id"];
+    string order_id = 1 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string engagement_id = 3 [(routines.opts).field_type = "id"];
+    string engagement_item_seq_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message ProductOrderItemList{
@@ -1232,15 +1232,15 @@ message WorkOrderItemFulfillmentData {
     option (routines.has_table) = true;
     // keys: workEffortId, orderId, orderItemSeqId
     // fields
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
-    string ship_group_seq_id = 4 [json_name = "ship_group_seq_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
+    string ship_group_seq_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -1249,9 +1249,9 @@ message WorkOrderItemFulfillmentData {
 
 
 message WorkOrderItemFulfillmentKey{
-    string work_effort_id = 1 [json_name = "work_effort_id"];
-    string order_id = 2 [json_name = "order_id"];
-    string order_item_seq_id = 3 [json_name = "order_item_seq_id"];
+    string work_effort_id = 1 [(routines.opts).field_type = "id"];
+    string order_id = 2 [(routines.opts).field_type = "id"];
+    string order_item_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message WorkOrderItemFulfillmentList{

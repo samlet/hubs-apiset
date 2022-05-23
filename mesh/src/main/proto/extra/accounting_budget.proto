@@ -25,15 +25,15 @@ message BudgetAttributeData {
     option (routines.has_table) = true;
     // keys: budgetId, attrName
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string attr_value = 3 [json_name = "attr_value"];
-    string attr_description = 4 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string attr_value = 3 [(routines.opts).field_type = "value"];
+    string attr_description = 4 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -42,8 +42,8 @@ message BudgetAttributeData {
 
 
 message BudgetAttributeKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message BudgetAttributeList{
@@ -67,17 +67,17 @@ message BudgetItemData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetItemSeqId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string budget_item_type_id = 3 [json_name = "budget_item_type_id"];
-    routines.Currency amount = 4 [json_name = "amount"];
-    string purpose = 5 [json_name = "purpose"];
-    string justification = 6 [json_name = "justification"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string budget_item_type_id = 3 [(routines.opts).field_type = "id"];
+    routines.Currency amount = 4 [(routines.opts).field_type = "currency-amount"];
+    string purpose = 5 [(routines.opts).field_type = "long-varchar"];
+    string justification = 6 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -86,8 +86,8 @@ message BudgetItemData {
 
 
 message BudgetItemKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message BudgetItemList{
@@ -111,16 +111,16 @@ message BudgetItemAttributeData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetItemSeqId, attrName
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string attr_name = 3 [json_name = "attr_name"];
-    string attr_value = 4 [json_name = "attr_value"];
-    string attr_description = 5 [json_name = "attr_description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string attr_name = 3 [(routines.opts).field_type = "id-long"];
+    string attr_value = 4 [(routines.opts).field_type = "value"];
+    string attr_description = 5 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -129,9 +129,9 @@ message BudgetItemAttributeData {
 
 
 message BudgetItemAttributeKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string attr_name = 3 [json_name = "attr_name"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string attr_name = 3 [(routines.opts).field_type = "id-long"];
 }
 
 message BudgetItemAttributeList{
@@ -155,14 +155,14 @@ message BudgetItemTypeAttrData {
     option (routines.has_table) = true;
     // keys: budgetItemTypeId, attrName
     // fields
-    string budget_item_type_id = 1 [json_name = "budget_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -171,8 +171,8 @@ message BudgetItemTypeAttrData {
 
 
 message BudgetItemTypeAttrKey{
-    string budget_item_type_id = 1 [json_name = "budget_item_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string budget_item_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message BudgetItemTypeAttrList{
@@ -196,16 +196,16 @@ message BudgetReviewData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetReviewId, partyId, budgetReviewResultTypeId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_review_id = 2 [json_name = "budget_review_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string budget_review_result_type_id = 4 [json_name = "budget_review_result_type_id"];
-    google.protobuf.Timestamp review_date = 5 [json_name = "review_date"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_review_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string budget_review_result_type_id = 4 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp review_date = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -214,10 +214,10 @@ message BudgetReviewData {
 
 
 message BudgetReviewKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_review_id = 2 [json_name = "budget_review_id"];
-    string party_id = 3 [json_name = "party_id"];
-    string budget_review_result_type_id = 4 [json_name = "budget_review_result_type_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_review_id = 2 [(routines.opts).field_type = "id"];
+    string party_id = 3 [(routines.opts).field_type = "id"];
+    string budget_review_result_type_id = 4 [(routines.opts).field_type = "id"];
 }
 
 message BudgetReviewList{
@@ -241,14 +241,14 @@ message BudgetRevisionData {
     option (routines.has_table) = true;
     // keys: budgetId, revisionSeqId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string revision_seq_id = 2 [json_name = "revision_seq_id"];
-    google.protobuf.Timestamp date_revised = 3 [json_name = "date_revised"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string revision_seq_id = 2 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp date_revised = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 9;
@@ -257,8 +257,8 @@ message BudgetRevisionData {
 
 
 message BudgetRevisionKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string revision_seq_id = 2 [json_name = "revision_seq_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string revision_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message BudgetRevisionList{
@@ -282,17 +282,17 @@ message BudgetRevisionImpactData {
     option (routines.has_table) = true;
     // keys: budgetId, budgetItemSeqId, revisionSeqId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string revision_seq_id = 3 [json_name = "revision_seq_id"];
-    routines.Currency revised_amount = 4 [json_name = "revised_amount"];
-    routines.Indicator add_delete_flag = 5 [json_name = "add_delete_flag"];
-    string revision_reason = 6 [json_name = "revision_reason"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string revision_seq_id = 3 [(routines.opts).field_type = "id"];
+    routines.Currency revised_amount = 4 [(routines.opts).field_type = "currency-amount"];
+    routines.Indicator add_delete_flag = 5 [(routines.opts).field_type = "indicator"];
+    string revision_reason = 6 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -301,9 +301,9 @@ message BudgetRevisionImpactData {
 
 
 message BudgetRevisionImpactKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string budget_item_seq_id = 2 [json_name = "budget_item_seq_id"];
-    string revision_seq_id = 3 [json_name = "revision_seq_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string revision_seq_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message BudgetRevisionImpactList{
@@ -327,14 +327,14 @@ message BudgetRoleData {
     option (routines.has_table) = true;
     // keys: budgetId, partyId, roleTypeId
     // fields
-    string budget_id = 1 [json_name = "budget_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -343,9 +343,9 @@ message BudgetRoleData {
 
 
 message BudgetRoleKey{
-    string budget_id = 1 [json_name = "budget_id"];
-    string party_id = 2 [json_name = "party_id"];
-    string role_type_id = 3 [json_name = "role_type_id"];
+    string budget_id = 1 [(routines.opts).field_type = "id"];
+    string party_id = 2 [(routines.opts).field_type = "id"];
+    string role_type_id = 3 [(routines.opts).field_type = "id"];
 }
 
 message BudgetRoleList{
@@ -369,12 +369,12 @@ message BudgetScenarioData {
     option (routines.has_table) = true;
     // keys: budgetScenarioId
     // fields
-    string budget_scenario_id = 1 [json_name = "budget_scenario_id", (google.api.graphql.relay_options).id = true];
-    string description = 2 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 3 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 4 [json_name = "created_tx_stamp"];
-    
-        
+    string budget_scenario_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string description = 2 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 7;
@@ -383,7 +383,7 @@ message BudgetScenarioData {
 
 
 message BudgetScenarioKey{
-    string budget_scenario_id = 1 [json_name = "budget_scenario_id", (google.api.graphql.relay_options).id = true];
+    string budget_scenario_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message BudgetScenarioList{
@@ -407,17 +407,17 @@ message BudgetScenarioApplicationData {
     option (routines.has_table) = true;
     // keys: budgetScenarioApplicId, budgetScenarioId
     // fields
-    string budget_scenario_applic_id = 1 [json_name = "budget_scenario_applic_id"];
-    string budget_scenario_id = 2 [json_name = "budget_scenario_id"];
-    string budget_id = 3 [json_name = "budget_id"];
-    string budget_item_seq_id = 4 [json_name = "budget_item_seq_id"];
-    routines.Currency amount_change = 5 [json_name = "amount_change"];
-    routines.FixedPoint percentage_change = 6 [json_name = "percentage_change"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 7 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 8 [json_name = "created_tx_stamp"];
-    string id = 9 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_scenario_applic_id = 1 [(routines.opts).field_type = "id"];
+    string budget_scenario_id = 2 [(routines.opts).field_type = "id"];
+    string budget_id = 3 [(routines.opts).field_type = "id"];
+    string budget_item_seq_id = 4 [(routines.opts).field_type = "id"];
+    routines.Currency amount_change = 5 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint percentage_change = 6 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 13;
@@ -426,8 +426,8 @@ message BudgetScenarioApplicationData {
 
 
 message BudgetScenarioApplicationKey{
-    string budget_scenario_applic_id = 1 [json_name = "budget_scenario_applic_id"];
-    string budget_scenario_id = 2 [json_name = "budget_scenario_id"];
+    string budget_scenario_applic_id = 1 [(routines.opts).field_type = "id"];
+    string budget_scenario_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message BudgetScenarioApplicationList{
@@ -451,15 +451,15 @@ message BudgetScenarioRuleData {
     option (routines.has_table) = true;
     // keys: budgetScenarioId, budgetItemTypeId
     // fields
-    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];
-    string budget_item_type_id = 2 [json_name = "budget_item_type_id"];
-    routines.Currency amount_change = 3 [json_name = "amount_change"];
-    routines.FixedPoint percentage_change = 4 [json_name = "percentage_change"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 5 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 6 [json_name = "created_tx_stamp"];
-    string id = 7 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_scenario_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_type_id = 2 [(routines.opts).field_type = "id"];
+    routines.Currency amount_change = 3 [(routines.opts).field_type = "currency-amount"];
+    routines.FixedPoint percentage_change = 4 [(routines.opts).field_type = "fixed-point"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string id = 7 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -468,8 +468,8 @@ message BudgetScenarioRuleData {
 
 
 message BudgetScenarioRuleKey{
-    string budget_scenario_id = 1 [json_name = "budget_scenario_id"];
-    string budget_item_type_id = 2 [json_name = "budget_item_type_id"];
+    string budget_scenario_id = 1 [(routines.opts).field_type = "id"];
+    string budget_item_type_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message BudgetScenarioRuleList{
@@ -493,14 +493,14 @@ message BudgetTypeAttrData {
     option (routines.has_table) = true;
     // keys: budgetTypeId, attrName
     // fields
-    string budget_type_id = 1 [json_name = "budget_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    string id = 6 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string budget_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string id = 6 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 10;
@@ -509,8 +509,8 @@ message BudgetTypeAttrData {
 
 
 message BudgetTypeAttrKey{
-    string budget_type_id = 1 [json_name = "budget_type_id"];
-    string attr_name = 2 [json_name = "attr_name"];
+    string budget_type_id = 1 [(routines.opts).field_type = "id"];
+    string attr_name = 2 [(routines.opts).field_type = "id-long"];
 }
 
 message BudgetTypeAttrList{

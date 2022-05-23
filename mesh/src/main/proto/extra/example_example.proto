@@ -25,21 +25,21 @@ message ExampleData {
     option (routines.has_table) = true;
     // keys: exampleId
     // fields
-    string example_id = 1 [json_name = "example_id", (google.api.graphql.relay_options).id = true];
-    string example_type_id = 2 [json_name = "example_type_id"];
-    string status_id = 3 [json_name = "status_id"];
-    string example_name = 4 [json_name = "example_name"];
-    string description = 5 [json_name = "description"];
-    string long_description = 6 [json_name = "long_description"];
-    string comments = 7 [json_name = "comments"];
-    int64 example_size = 8 [json_name = "example_size"];
-    google.protobuf.Timestamp example_date = 9 [json_name = "example_date"];
-    google.protobuf.Timestamp another_date = 10 [json_name = "another_date"];
-    string another_text = 11 [json_name = "another_text"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 12 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 13 [json_name = "created_tx_stamp"];
-    
-        
+    string example_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string example_type_id = 2 [(routines.opts).field_type = "id"];
+    string status_id = 3 [(routines.opts).field_type = "id"];
+    string example_name = 4 [(routines.opts).field_type = "name"];
+    string description = 5 [(routines.opts).field_type = "description"];
+    string long_description = 6 [(routines.opts).field_type = "very-long"];
+    string comments = 7 [(routines.opts).field_type = "comment"];
+    int64 example_size = 8 [(routines.opts).field_type = "numeric"];
+    google.protobuf.Timestamp example_date = 9 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp another_date = 10 [(routines.opts).field_type = "date-time"];
+    string another_text = 11 [(routines.opts).field_type = "long-varchar"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 19;
@@ -48,7 +48,7 @@ message ExampleData {
 
 
 message ExampleKey{
-    string example_id = 1 [json_name = "example_id", (google.api.graphql.relay_options).id = true];
+    string example_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ExampleList{
@@ -72,16 +72,16 @@ message ExampleItemData {
     option (routines.has_table) = true;
     // keys: exampleId, exampleItemSeqId
     // fields
-    string example_id = 1 [json_name = "example_id"];
-    string example_item_seq_id = 2 [json_name = "example_item_seq_id"];
-    string description = 3 [json_name = "description"];
-    double amount = 4 [json_name = "amount"];
-    string amount_uom_id = 5 [json_name = "amount_uom_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string example_id = 1 [(routines.opts).field_type = "id"];
+    string example_item_seq_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    double amount = 4 [(routines.opts).field_type = "floating-point"];
+    string amount_uom_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 11;
@@ -90,8 +90,8 @@ message ExampleItemData {
 
 
 message ExampleItemKey{
-    string example_id = 1 [json_name = "example_id"];
-    string example_item_seq_id = 2 [json_name = "example_item_seq_id"];
+    string example_id = 1 [(routines.opts).field_type = "id"];
+    string example_item_seq_id = 2 [(routines.opts).field_type = "id"];
 }
 
 message ExampleItemList{
@@ -115,16 +115,16 @@ message ExampleStatusData {
     option (routines.has_table) = true;
     // keys: exampleId, statusDate
     // fields
-    string example_id = 1 [json_name = "example_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
-    google.protobuf.Timestamp status_end_date = 3 [json_name = "status_end_date"];
-    string change_by_user_login_id = 4 [json_name = "change_by_user_login_id"];
-    string status_id = 5 [json_name = "status_id"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 6 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 7 [json_name = "created_tx_stamp"];
-    string id = 8 [json_name = "id", (google.api.graphql.relay_options).id = true];
-    
-        
+    string example_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp status_end_date = 3 [(routines.opts).field_type = "date-time"];
+    string change_by_user_login_id = 4 [(routines.opts).field_type = "id-vlong"];
+    string status_id = 5 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
+    string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 12;
@@ -133,8 +133,8 @@ message ExampleStatusData {
 
 
 message ExampleStatusKey{
-    string example_id = 1 [json_name = "example_id"];
-    google.protobuf.Timestamp status_date = 2 [json_name = "status_date"];
+    string example_id = 1 [(routines.opts).field_type = "id"];
+    google.protobuf.Timestamp status_date = 2 [(routines.opts).field_type = "date-time"];
 }
 
 message ExampleStatusList{
@@ -158,13 +158,13 @@ message ExampleTypeData {
     option (routines.has_table) = true;
     // keys: exampleTypeId
     // fields
-    string example_type_id = 1 [json_name = "example_type_id", (google.api.graphql.relay_options).id = true];
-    string parent_type_id = 2 [json_name = "parent_type_id"];
-    string description = 3 [json_name = "description"];
-    google.protobuf.Timestamp last_updated_tx_stamp = 4 [json_name = "last_updated_tx_stamp"];
-    google.protobuf.Timestamp created_tx_stamp = 5 [json_name = "created_tx_stamp"];
-    
-        
+    string example_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string parent_type_id = 2 [(routines.opts).field_type = "id"];
+    string description = 3 [(routines.opts).field_type = "description"];
+    google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+            
+             
 
     // extra
     google.protobuf.Struct extra = 8;
@@ -173,7 +173,7 @@ message ExampleTypeData {
 
 
 message ExampleTypeKey{
-    string example_type_id = 1 [json_name = "example_type_id", (google.api.graphql.relay_options).id = true];
+    string example_type_id = 1 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
 }
 
 message ExampleTypeList{
