@@ -37,12 +37,13 @@ message SurveyResponseData {
     string status_id = 10 [(routines.opts).field_type = "id"];
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 13 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 22;
-    map<string, google.protobuf.Any> attachments = 23;
+    google.protobuf.Struct extra = 24;
+    map<string, google.protobuf.Any> attachments = 25;
 }
 
 

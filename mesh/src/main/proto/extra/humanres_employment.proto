@@ -132,12 +132,13 @@ message EmploymentAppData {
     string job_requisition_id = 9 [(routines.opts).field_type = "id"];
     google.protobuf.Timestamp last_updated_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 12 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 19;
-    map<string, google.protobuf.Any> attachments = 20;
+    google.protobuf.Struct extra = 21;
+    map<string, google.protobuf.Any> attachments = 22;
 }
 
 
@@ -224,12 +225,13 @@ message PayGradeData {
     string comments = 3 [(routines.opts).field_type = "comment"];
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 6 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 8;
-    map<string, google.protobuf.Any> attachments = 9;
+    google.protobuf.Struct extra = 10;
+    map<string, google.protobuf.Any> attachments = 11;
 }
 
 
@@ -415,12 +417,13 @@ message TerminationReasonData {
     string description = 2 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -461,12 +464,13 @@ message UnemploymentClaimData {
     google.protobuf.Timestamp thru_date = 10 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 13 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
 }
 
 

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "ExpressionsProto";
+
+import "common_data_types.proto";
+
+package proto;
+
+message ExpressionProto{
+  string content=1;
+  repeated ExpressionProto children=2;
+}
+
+message MatchProto{
+  string bundle_name=1;
+  string region_id=2;
+  ExpressionProto expr=3;
+  QueryOpts opts=4;
+}
+

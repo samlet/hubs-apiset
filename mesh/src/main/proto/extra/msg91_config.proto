@@ -33,12 +33,13 @@ message Msg91GatewayConfigData {
     string sender = 6 [(routines.opts).field_type = "short-varchar"];
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 

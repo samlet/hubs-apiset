@@ -29,11 +29,12 @@ message GeoData {
     string well_known_text = 7 [(routines.opts).field_type = "very-long"];
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 10 [(routines.opts).field_type = "id"];
      
 
     // extra
-    google.protobuf.Struct extra = 44;
-    map<string, google.protobuf.Any> attachments = 45 ;
+    google.protobuf.Struct extra = 46;
+    map<string, google.protobuf.Any> attachments = 47 ;
 }
 
 message GeoKey{

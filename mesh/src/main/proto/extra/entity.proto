@@ -29,12 +29,13 @@ message JavaResourceData {
     bytes resource_value = 2 [(routines.opts).field_type = "byte-array"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 5;
-    map<string, google.protobuf.Any> attachments = 6;
+    google.protobuf.Struct extra = 7;
+    map<string, google.protobuf.Any> attachments = 8;
 }
 
 

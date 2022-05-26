@@ -14,6 +14,7 @@ import "routines.proto";
 import "facade_common.proto";
 
 
+import "types/product_category_type.proto";
 import "ents/product_category.proto";
 import "ents/product_promo.proto";
 
@@ -37,6 +38,7 @@ service ProductCategoryOperations {
   
 
   // -- relations: one --
+  rpc ModifyProductCategoryType(ModifyProductCategoryTypeParams) returns (routines.Response) {}
 
   // -- extensions --
   
@@ -137,6 +139,15 @@ message RemoveProductPromoCategoryParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductCategoryType
+
+message ModifyProductCategoryTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductCategoryTypeData data = 3;
   string comment = 4;
 }
 

@@ -35,12 +35,13 @@ message NoteDataData {
     string more_info_url = 8 [(routines.opts).field_type = "value"];
     string more_info_item_id = 9 [(routines.opts).field_type = "value"];
     string more_info_item_name = 10 [(routines.opts).field_type = "value"];
+    string tenant_id = 11 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 21;
-    map<string, google.protobuf.Any> attachments = 22;
+    google.protobuf.Struct extra = 23;
+    map<string, google.protobuf.Any> attachments = 24;
 }
 
 

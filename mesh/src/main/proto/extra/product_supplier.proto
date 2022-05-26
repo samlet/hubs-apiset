@@ -80,12 +80,13 @@ message ReorderGuidelineData {
     routines.FixedPoint reorder_level = 10 [(routines.opts).field_type = "fixed-point"];
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 13 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 17;
-    map<string, google.protobuf.Any> attachments = 18;
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
 }
 
 
@@ -118,12 +119,13 @@ message SupplierRatingTypeData {
     string description = 2 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 

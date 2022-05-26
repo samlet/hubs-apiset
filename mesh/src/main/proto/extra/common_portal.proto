@@ -36,12 +36,13 @@ message PortalPageData {
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
     string help_content_id = 11 [(routines.opts).field_type = "id"];
+    string tenant_id = 12 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 18;
-    map<string, google.protobuf.Any> attachments = 19;
+    google.protobuf.Struct extra = 20;
+    map<string, google.protobuf.Any> attachments = 21;
 }
 
 
@@ -168,12 +169,13 @@ message PortalPortletData {
     string security_main_action = 10 [(routines.opts).field_type = "short-varchar"];
     google.protobuf.Timestamp last_updated_tx_stamp = 11 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 13 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 16;
-    map<string, google.protobuf.Any> attachments = 17;
+    google.protobuf.Struct extra = 18;
+    map<string, google.protobuf.Any> attachments = 19;
 }
 
 
@@ -253,12 +255,13 @@ message PortletCategoryData {
     string description = 2 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 

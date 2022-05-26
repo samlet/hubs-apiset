@@ -30,12 +30,13 @@ message BrowserTypeData {
     string browser_version = 3 [(routines.opts).field_type = "very-short"];
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 6 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 
@@ -69,12 +70,13 @@ message PlatformTypeData {
     string platform_version = 3 [(routines.opts).field_type = "very-short"];
     google.protobuf.Timestamp last_updated_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 6 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 
@@ -107,12 +109,13 @@ message ProtocolTypeData {
     string protocol_name = 2 [(routines.opts).field_type = "name"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -207,12 +210,13 @@ message ServerHitBinData {
     int64 min_time_millis = 10 [(routines.opts).field_type = "numeric"];
     int64 max_time_millis = 11 [(routines.opts).field_type = "numeric"];
     string internal_content_id = 12 [(routines.opts).field_type = "id"];
+    string tenant_id = 13 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 14;
-    map<string, google.protobuf.Any> attachments = 15;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -249,12 +253,13 @@ message UserAgentData {
     string user_agent_method_type_id = 6 [(routines.opts).field_type = "id"];
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18;
 }
 
 
@@ -287,12 +292,13 @@ message UserAgentMethodTypeData {
     string description = 2 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -325,12 +331,13 @@ message UserAgentTypeData {
     string description = 2 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 5 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 6;
-    map<string, google.protobuf.Any> attachments = 7;
+    google.protobuf.Struct extra = 8;
+    map<string, google.protobuf.Any> attachments = 9;
 }
 
 
@@ -385,12 +392,13 @@ message VisitData {
     string contact_mech_id = 24 [(routines.opts).field_type = "id"];
     string party_id = 25 [(routines.opts).field_type = "id"];
     string role_type_id = 26 [(routines.opts).field_type = "id"];
+    string tenant_id = 27 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 30;
-    map<string, google.protobuf.Any> attachments = 31;
+    google.protobuf.Struct extra = 32;
+    map<string, google.protobuf.Any> attachments = 33;
 }
 
 
@@ -424,12 +432,13 @@ message VisitorData {
     google.protobuf.Timestamp last_updated_tx_stamp = 3 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 4 [(routines.opts).field_type = "date-time"];
     string party_id = 5 [(routines.opts).field_type = "id"];
+    string tenant_id = 6 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 7;
-    map<string, google.protobuf.Any> attachments = 8;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 

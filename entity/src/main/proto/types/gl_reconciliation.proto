@@ -35,11 +35,12 @@ message GlReconciliationData {
     google.protobuf.Timestamp reconciled_date = 13 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp last_updated_tx_stamp = 14 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 16 [(routines.opts).field_type = "id"];
      
 
     // extra
-    google.protobuf.Struct extra = 21;
-    map<string, google.protobuf.Any> attachments = 22 ;
+    google.protobuf.Struct extra = 23;
+    map<string, google.protobuf.Any> attachments = 24 ;
 }
 
 message GlReconciliationKey{

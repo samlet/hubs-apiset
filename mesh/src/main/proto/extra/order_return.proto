@@ -98,12 +98,13 @@ message ReturnAdjustmentData {
     string last_modified_by_user_login = 31 [(routines.opts).field_type = "id-vlong"];
     google.protobuf.Timestamp last_updated_tx_stamp = 32 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 33 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 34 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 48;
-    map<string, google.protobuf.Any> attachments = 49;
+    google.protobuf.Struct extra = 50;
+    map<string, google.protobuf.Any> attachments = 51;
 }
 
 
@@ -231,12 +232,13 @@ message ReturnItemResponseData {
     google.protobuf.Timestamp response_date = 8 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp last_updated_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 10 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 11 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 17;
-    map<string, google.protobuf.Any> attachments = 18;
+    google.protobuf.Struct extra = 19;
+    map<string, google.protobuf.Any> attachments = 20;
 }
 
 
@@ -318,12 +320,13 @@ message ReturnStatusData {
     google.protobuf.Timestamp status_datetime = 6 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
 }
 
 

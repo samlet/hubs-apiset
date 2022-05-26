@@ -41,12 +41,13 @@ message EmplPositionData {
     google.protobuf.Timestamp actual_thru_date = 14 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 17 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 27;
-    map<string, google.protobuf.Any> attachments = 28;
+    google.protobuf.Struct extra = 29;
+    map<string, google.protobuf.Any> attachments = 30;
 }
 
 
@@ -81,12 +82,13 @@ message EmplPositionClassTypeData {
     string description = 4 [(routines.opts).field_type = "description"];
     google.protobuf.Timestamp last_updated_tx_stamp = 5 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 7 [(routines.opts).field_type = "id"];
             
              
 
     // extra
-    google.protobuf.Struct extra = 10;
-    map<string, google.protobuf.Any> attachments = 11;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 

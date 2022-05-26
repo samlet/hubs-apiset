@@ -33,11 +33,12 @@ message ShipmentGatewayDhlData {
     string rate_estimate_template = 11 [(routines.opts).field_type = "value"];
     google.protobuf.Timestamp last_updated_tx_stamp = 12 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 13 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 14 [(routines.opts).field_type = "id"];
      
 
     // extra
-    google.protobuf.Struct extra = 15;
-    map<string, google.protobuf.Any> attachments = 16 ;
+    google.protobuf.Struct extra = 17;
+    map<string, google.protobuf.Any> attachments = 18 ;
 }
 
 message ShipmentGatewayDhlKey{

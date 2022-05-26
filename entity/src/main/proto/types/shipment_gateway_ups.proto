@@ -43,11 +43,12 @@ message ShipmentGatewayUpsData {
     string default_return_label_subject = 21 [(routines.opts).field_type = "value"];
     google.protobuf.Timestamp last_updated_tx_stamp = 22 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 23 [(routines.opts).field_type = "date-time"];
+    string tenant_id = 24 [(routines.opts).field_type = "id"];
      
 
     // extra
-    google.protobuf.Struct extra = 25;
-    map<string, google.protobuf.Any> attachments = 26 ;
+    google.protobuf.Struct extra = 27;
+    map<string, google.protobuf.Any> attachments = 28 ;
 }
 
 message ShipmentGatewayUpsKey{
