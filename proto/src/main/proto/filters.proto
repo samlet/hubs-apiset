@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "FiltersProto";
+
+package proto;
+
+import "google/protobuf/struct.proto";
+
+message FilterCondition{
+  string field = 1;
+  google.protobuf.Value value = 2;
+}
+
+message FilterGroup{
+  repeated FilterProto query=30;
+}
+
+message FilterProto{
+  oneof kind {
+    FilterCondition equal = 1;
+    FilterCondition less_than = 2;
+    FilterCondition less_than_or_equal_to = 3;
+    FilterCondition in = 4;
+    FilterCondition between = 5;
+    FilterGroup and = 6;
+    FilterGroup or = 7;
+    FilterCondition greater_than = 8;
+    FilterCondition greater_than_or_equal_to = 9;
+
+    FilterCondition starts_with = 11;
+    FilterCondition ends_with = 12;
+    FilterCondition contains = 13;
+    FilterCondition matches_regex = 14;
+  }
+
+}
+

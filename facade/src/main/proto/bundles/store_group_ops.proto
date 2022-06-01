@@ -14,6 +14,7 @@ import "routines.proto";
 import "facade_common.proto";
 
 
+import "extra/product_product.proto";
 import "types/product_store_group.proto";
 import "extra/product_store.proto";
 
@@ -22,6 +23,18 @@ service StoreGroupOperations {
   rpc UpdateStoreGroup(UpdateStoreGroupParams) returns (domain.ProductStoreGroupData) {}
   rpc GetStoreGroup(BundleGetRequest) returns (domain.ProductStoreGroupData) {}
 
+  
+  rpc AddVendorProduct(AddVendorProductParams) returns (routines.Response) {}
+  rpc UpdateVendorProduct(UpdateVendorProductParams) returns (routines.Response) {}
+  rpc RemoveVendorProduct(RemoveVendorProductParams) returns (routines.Response) {}
+  
+  rpc AddProductStoreGroupMember(AddProductStoreGroupMemberParams) returns (routines.Response) {}
+  rpc UpdateProductStoreGroupMember(UpdateProductStoreGroupMemberParams) returns (routines.Response) {}
+  rpc RemoveProductStoreGroupMember(RemoveProductStoreGroupMemberParams) returns (routines.Response) {}
+  
+  rpc AddProductStoreGroupRole(AddProductStoreGroupRoleParams) returns (routines.Response) {}
+  rpc UpdateProductStoreGroupRole(UpdateProductStoreGroupRoleParams) returns (routines.Response) {}
+  rpc RemoveProductStoreGroupRole(RemoveProductStoreGroupRoleParams) returns (routines.Response) {}
   
 
   // -- relations: one --
@@ -59,6 +72,75 @@ message UpdateStoreGroupParams{
   string comment = 4;
 }
 
+
+// Mutations for VendorProduct
+
+message AddVendorProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.VendorProductData data = 3;
+  string comment = 4;
+}
+
+message UpdateVendorProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.VendorProductData data = 3;
+  string comment = 4;
+}
+
+message RemoveVendorProductParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductStoreGroupMember
+
+message AddProductStoreGroupMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupMemberData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStoreGroupMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupMemberData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStoreGroupMemberParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductStoreGroupRole
+
+message AddProductStoreGroupRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupRoleData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStoreGroupRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreGroupRoleData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStoreGroupRoleParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
 
 // Mutations for ProductStoreGroupType
 

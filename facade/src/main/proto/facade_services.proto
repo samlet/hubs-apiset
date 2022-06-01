@@ -29,9 +29,9 @@ service GenericEntityService {
 }
 
 // query with graphql
-service GenericQueryService {
-  rpc QueryList(FilterCond) returns (stream GenericEntity) {}
-}
+//service GenericQueryService {
+//  rpc QueryList(FilterCond) returns (stream GenericEntity) {}
+//}
 
 // state-machine and workflow
 service ActivatorService {
@@ -70,11 +70,11 @@ message ServiceComposer{
   InvocationType invocation_type=2;
 }
 
-message FilterCond{
-  string query_name = 1;
-  google.protobuf.Struct cond = 2;
-  int32 max_rows = 3;
-}
+//message FilterCond{
+//  string query_name = 1;
+//  google.protobuf.Struct cond = 2;
+//  int32 max_rows = 3;
+//}
 
 message GenericEventData{
   string channel = 1;

@@ -38,6 +38,10 @@ service StoreOperations {
   rpc UpdateProductStorePaymentSetting(UpdateProductStorePaymentSettingParams) returns (routines.Response) {}
   rpc RemoveProductStorePaymentSetting(RemoveProductStorePaymentSettingParams) returns (routines.Response) {}
   
+  rpc AddProductStoreKeywordOvrd(AddProductStoreKeywordOvrdParams) returns (routines.Response) {}
+  rpc UpdateProductStoreKeywordOvrd(UpdateProductStoreKeywordOvrdParams) returns (routines.Response) {}
+  rpc RemoveProductStoreKeywordOvrd(RemoveProductStoreKeywordOvrdParams) returns (routines.Response) {}
+  
   rpc AddProductStoreCatalog(AddProductStoreCatalogParams) returns (routines.Response) {}
   rpc UpdateProductStoreCatalog(UpdateProductStoreCatalogParams) returns (routines.Response) {}
   rpc RemoveProductStoreCatalog(RemoveProductStoreCatalogParams) returns (routines.Response) {}
@@ -168,6 +172,29 @@ message UpdateProductStorePaymentSettingParams{
 }
 
 message RemoveProductStorePaymentSettingParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for ProductStoreKeywordOvrd
+
+message AddProductStoreKeywordOvrdParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreKeywordOvrdData data = 3;
+  string comment = 4;
+}
+
+message UpdateProductStoreKeywordOvrdParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.ProductStoreKeywordOvrdData data = 3;
+  string comment = 4;
+}
+
+message RemoveProductStoreKeywordOvrdParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;

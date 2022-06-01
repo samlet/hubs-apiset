@@ -76,17 +76,17 @@ message ConfigItem{
 //}
 
 
-message Filter{
-  message Value {
-    oneof value {
-      string string_value = 2;
-      int64 int_value = 3;
-      double real_value = 4;
-    }
-  }
-
-  map<string, Value> data = 1;
-}
+//message Filter{
+//  message Value {
+//    oneof value {
+//      string string_value = 2;
+//      int64 int_value = 3;
+//      double real_value = 4;
+//    }
+//  }
+//
+//  map<string, Value> data = 1;
+//}
 
 message ValueObject {
   message Value {
