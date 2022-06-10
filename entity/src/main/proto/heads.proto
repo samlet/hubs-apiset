@@ -275,17 +275,19 @@ message ProductStoreFacilityData {
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
     
     // relations
-    ProductStoreData product_store = 9 [json_name = "product_store"]; // ref(ProductStore): productStoreId
-    FacilityData facility = 10 [json_name = "facility"]; // ref(Facility): facilityId
+    ProductStoreData product_store = 10 [json_name = "product_store"]; // ref(ProductStore): productStoreId
+    FacilityData facility = 11 [json_name = "facility"]; // ref(Facility): facilityId
+    TenantData tenant = 12 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 
@@ -322,17 +324,19 @@ message ProductStoreCatalogData {
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
     
     // relations
-    ProductStoreData product_store = 9 [json_name = "product_store"]; // ref(ProductStore): productStoreId
-    ProdCatalogData prod_catalog = 10 [json_name = "prod_catalog"]; // ref(ProdCatalog): prodCatalogId
+    ProductStoreData product_store = 10 [json_name = "product_store"]; // ref(ProductStore): productStoreId
+    ProdCatalogData prod_catalog = 11 [json_name = "prod_catalog"]; // ref(ProdCatalog): prodCatalogId
+    TenantData tenant = 12 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 13;
+    map<string, google.protobuf.Any> attachments = 14;
 }
 
 
@@ -434,17 +438,19 @@ message ProdCatalogCategoryData {
     google.protobuf.Timestamp last_updated_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
     string id = 9 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 10 [(routines.opts).field_type = "id"];
             
     
     // relations
-    ProdCatalogData prod_catalog = 10 [json_name = "prod_catalog"]; // ref(ProdCatalog): prodCatalogId
-    ProductCategoryData product_category = 11 [json_name = "product_category"]; // ref(ProductCategory): productCategoryId
+    ProdCatalogData prod_catalog = 11 [json_name = "prod_catalog"]; // ref(ProdCatalog): prodCatalogId
+    ProductCategoryData product_category = 12 [json_name = "product_category"]; // ref(ProductCategory): productCategoryId
+    TenantData tenant = 14 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
 }
 
 
@@ -548,20 +554,22 @@ message ProductCategoryRollupData {
     google.protobuf.Timestamp last_updated_tx_stamp = 6 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 7 [(routines.opts).field_type = "date-time"];
     string id = 8 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 9 [(routines.opts).field_type = "id"];
             
     
     // relations
-    ProductCategoryData current_product_category = 9 [json_name = "current_product_category"]; // ref(CurrentProductCategory): productCategoryId
-    ProductCategoryData parent_product_category = 10 [json_name = "parent_product_category"]; // ref(ParentProductCategory): parentProductCategoryId
-    repeated ProductCategoryRollupData child_product_category_rollup = 11 [json_name = "child_product_category_rollup"]; // ref(ChildProductCategoryRollup): productCategoryId
-    repeated ProductCategoryRollupData parent_product_category_rollup = 12 [json_name = "parent_product_category_rollup"]; // ref(ParentProductCategoryRollup): parentProductCategoryId
-    repeated ProductCategoryRollupData sibling_product_category_rollup = 13 [json_name = "sibling_product_category_rollup"]; // ref(SiblingProductCategoryRollup): parentProductCategoryId
+    ProductCategoryData current_product_category = 10 [json_name = "current_product_category"]; // ref(CurrentProductCategory): productCategoryId
+    ProductCategoryData parent_product_category = 11 [json_name = "parent_product_category"]; // ref(ParentProductCategory): parentProductCategoryId
+    repeated ProductCategoryRollupData child_product_category_rollup = 12 [json_name = "child_product_category_rollup"]; // ref(ChildProductCategoryRollup): productCategoryId
+    repeated ProductCategoryRollupData parent_product_category_rollup = 13 [json_name = "parent_product_category_rollup"]; // ref(ParentProductCategoryRollup): parentProductCategoryId
+    repeated ProductCategoryRollupData sibling_product_category_rollup = 14 [json_name = "sibling_product_category_rollup"]; // ref(SiblingProductCategoryRollup): parentProductCategoryId
+    TenantData tenant = 15 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 14;
-    map<string, google.protobuf.Any> attachments = 15;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -600,17 +608,19 @@ message ProductCategoryMemberData {
     google.protobuf.Timestamp last_updated_tx_stamp = 8 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 9 [(routines.opts).field_type = "date-time"];
     string id = 10 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 11 [(routines.opts).field_type = "id"];
             
     
     // relations
-    ProductData product = 11 [json_name = "product"]; // ref(Product): productId
-    ProductCategoryData product_category = 12 [json_name = "product_category"]; // ref(ProductCategory): productCategoryId
+    ProductData product = 12 [json_name = "product"]; // ref(Product): productId
+    ProductCategoryData product_category = 13 [json_name = "product_category"]; // ref(ProductCategory): productCategoryId
+    TenantData tenant = 14 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 15;
+    map<string, google.protobuf.Any> attachments = 16;
 }
 
 
@@ -994,34 +1004,36 @@ message OrderItemData {
     google.protobuf.Timestamp last_updated_tx_stamp = 48 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 49 [(routines.opts).field_type = "date-time"];
     string id = 50 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 51 [(routines.opts).field_type = "id"];
             
     
     // relations
-    OrderHeaderData order_header = 51 [json_name = "order_header"]; // ref(OrderHeader): orderId
-    ProductData product = 55 [json_name = "product"]; // ref(Product): productId
-    InventoryItemData from_inventory_item = 56 [json_name = "from_inventory_item"]; // ref(FromInventoryItem): fromInventoryItemId
-    repeated ProductFacilityLocationData product_facility_location = 59 [json_name = "product_facility_location"]; // ref(ProductFacilityLocation): productId
-    QuoteItemData quote_item = 63 [json_name = "quote_item"]; // ref(QuoteItem): quoteId + quoteItemSeqId
-    ShoppingListItemData shopping_list_item = 64 [json_name = "shopping_list_item"]; // ref(ShoppingListItem): shoppingListId + shoppingListItemSeqId
-    GlAccountData override_gl_account = 65 [json_name = "override_gl_account"]; // ref(OverrideGlAccount): overrideGlAccountId
-    repeated FinAccountTransData fin_account_trans = 69 [json_name = "fin_account_trans"]; // ref(FinAccountTrans): orderId + orderItemSeqId
-    repeated FixedAssetData acquire_fixed_asset = 70 [json_name = "acquire_fixed_asset"]; // ref(AcquireFixedAsset): orderId + orderItemSeqId
-    repeated ItemIssuanceData item_issuance = 73 [json_name = "item_issuance"]; // ref(ItemIssuance): orderId + orderItemSeqId
-    repeated OrderAdjustmentData order_adjustment = 74 [json_name = "order_adjustment"]; // ref(OrderAdjustment): orderId + orderItemSeqId
-    repeated OrderItemBillingData order_item_billing = 79 [json_name = "order_item_billing"]; // ref(OrderItemBilling): orderId + orderItemSeqId
-    repeated OrderItemPriceInfoData order_item_price_info = 83 [json_name = "order_item_price_info"]; // ref(OrderItemPriceInfo): orderId + orderItemSeqId
-    repeated OrderItemShipGroupAssocData order_item_ship_group_assoc = 85 [json_name = "order_item_ship_group_assoc"]; // ref(OrderItemShipGroupAssoc): orderId + orderItemSeqId
-    repeated OrderItemShipGrpInvResData order_item_ship_grp_inv_res = 86 [json_name = "order_item_ship_grp_inv_res"]; // ref(OrderItemShipGrpInvRes): orderId + orderItemSeqId
-    repeated OrderPaymentPreferenceData order_payment_preference = 87 [json_name = "order_payment_preference"]; // ref(OrderPaymentPreference): orderId + orderItemSeqId
-    repeated OrderStatusData order_status = 90 [json_name = "order_status"]; // ref(OrderStatus): orderId + orderItemSeqId
-    repeated ReturnItemData return_item = 95 [json_name = "return_item"]; // ref(ReturnItem): orderId + orderItemSeqId
-    repeated ShipmentReceiptData shipment_receipt = 96 [json_name = "shipment_receipt"]; // ref(ShipmentReceipt): orderId + orderItemSeqId
+    OrderHeaderData order_header = 52 [json_name = "order_header"]; // ref(OrderHeader): orderId
+    ProductData product = 56 [json_name = "product"]; // ref(Product): productId
+    InventoryItemData from_inventory_item = 57 [json_name = "from_inventory_item"]; // ref(FromInventoryItem): fromInventoryItemId
+    repeated ProductFacilityLocationData product_facility_location = 60 [json_name = "product_facility_location"]; // ref(ProductFacilityLocation): productId
+    QuoteItemData quote_item = 64 [json_name = "quote_item"]; // ref(QuoteItem): quoteId + quoteItemSeqId
+    ShoppingListItemData shopping_list_item = 65 [json_name = "shopping_list_item"]; // ref(ShoppingListItem): shoppingListId + shoppingListItemSeqId
+    GlAccountData override_gl_account = 66 [json_name = "override_gl_account"]; // ref(OverrideGlAccount): overrideGlAccountId
+    repeated FinAccountTransData fin_account_trans = 70 [json_name = "fin_account_trans"]; // ref(FinAccountTrans): orderId + orderItemSeqId
+    repeated FixedAssetData acquire_fixed_asset = 71 [json_name = "acquire_fixed_asset"]; // ref(AcquireFixedAsset): orderId + orderItemSeqId
+    repeated ItemIssuanceData item_issuance = 74 [json_name = "item_issuance"]; // ref(ItemIssuance): orderId + orderItemSeqId
+    repeated OrderAdjustmentData order_adjustment = 75 [json_name = "order_adjustment"]; // ref(OrderAdjustment): orderId + orderItemSeqId
+    repeated OrderItemBillingData order_item_billing = 80 [json_name = "order_item_billing"]; // ref(OrderItemBilling): orderId + orderItemSeqId
+    repeated OrderItemPriceInfoData order_item_price_info = 84 [json_name = "order_item_price_info"]; // ref(OrderItemPriceInfo): orderId + orderItemSeqId
+    repeated OrderItemShipGroupAssocData order_item_ship_group_assoc = 86 [json_name = "order_item_ship_group_assoc"]; // ref(OrderItemShipGroupAssoc): orderId + orderItemSeqId
+    repeated OrderItemShipGrpInvResData order_item_ship_grp_inv_res = 87 [json_name = "order_item_ship_grp_inv_res"]; // ref(OrderItemShipGrpInvRes): orderId + orderItemSeqId
+    repeated OrderPaymentPreferenceData order_payment_preference = 88 [json_name = "order_payment_preference"]; // ref(OrderPaymentPreference): orderId + orderItemSeqId
+    repeated OrderStatusData order_status = 91 [json_name = "order_status"]; // ref(OrderStatus): orderId + orderItemSeqId
+    repeated ReturnItemData return_item = 96 [json_name = "return_item"]; // ref(ReturnItem): orderId + orderItemSeqId
+    repeated ShipmentReceiptData shipment_receipt = 97 [json_name = "shipment_receipt"]; // ref(ShipmentReceipt): orderId + orderItemSeqId
+    TenantData tenant = 101 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 100;
-    map<string, google.protobuf.Any> attachments = 101;
+    google.protobuf.Struct extra = 102;
+    map<string, google.protobuf.Any> attachments = 103;
 }
 
 
@@ -1291,29 +1303,31 @@ message InvoiceItemData {
     google.protobuf.Timestamp last_updated_tx_stamp = 20 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 21 [(routines.opts).field_type = "date-time"];
     string id = 22 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 23 [(routines.opts).field_type = "id"];
             
     
     // relations
-    InvoiceData invoice = 25 [json_name = "invoice"]; // ref(Invoice): invoiceId
-    InventoryItemData inventory_item = 26 [json_name = "inventory_item"]; // ref(InventoryItem): inventoryItemId
-    ProductData product = 27 [json_name = "product"]; // ref(Product): productId
-    ProductFeatureData product_feature = 28 [json_name = "product_feature"]; // ref(ProductFeature): productFeatureId
-    InvoiceItemData invoice_item = 29 [json_name = "invoice_item"]; // ref(InvoiceItem): parentInvoiceId + parentInvoiceItemSeqId
-    repeated InvoiceItemData children_invoice_item = 30 [json_name = "children_invoice_item"]; // ref(ChildrenInvoiceItem): invoiceId + invoiceItemSeqId
-    GlAccountData override_gl_account = 32 [json_name = "override_gl_account"]; // ref(OverrideGlAccount): overrideGlAccountId
-    PartyData tax_authority_party = 33 [json_name = "tax_authority_party"]; // ref(TaxAuthorityParty): taxAuthPartyId
-    TaxAuthorityRateProductData tax_authority_rate_product = 35 [json_name = "tax_authority_rate_product"]; // ref(TaxAuthorityRateProduct): taxAuthorityRateSeqId
-    PartyData override_org_party = 36 [json_name = "override_org_party"]; // ref(OverrideOrgParty): overrideOrgPartyId
-    repeated OrderAdjustmentBillingData order_adjustment_billing = 42 [json_name = "order_adjustment_billing"]; // ref(OrderAdjustmentBilling): invoiceId + invoiceItemSeqId
-    repeated OrderItemBillingData order_item_billing = 43 [json_name = "order_item_billing"]; // ref(OrderItemBilling): invoiceId + invoiceItemSeqId
-    repeated PaymentApplicationData payment_application = 44 [json_name = "payment_application"]; // ref(PaymentApplication): invoiceId + invoiceItemSeqId
-    repeated ShipmentItemBillingData shipment_item_billing = 46 [json_name = "shipment_item_billing"]; // ref(ShipmentItemBilling): invoiceId + invoiceItemSeqId
+    InvoiceData invoice = 26 [json_name = "invoice"]; // ref(Invoice): invoiceId
+    InventoryItemData inventory_item = 27 [json_name = "inventory_item"]; // ref(InventoryItem): inventoryItemId
+    ProductData product = 28 [json_name = "product"]; // ref(Product): productId
+    ProductFeatureData product_feature = 29 [json_name = "product_feature"]; // ref(ProductFeature): productFeatureId
+    InvoiceItemData invoice_item = 30 [json_name = "invoice_item"]; // ref(InvoiceItem): parentInvoiceId + parentInvoiceItemSeqId
+    repeated InvoiceItemData children_invoice_item = 31 [json_name = "children_invoice_item"]; // ref(ChildrenInvoiceItem): invoiceId + invoiceItemSeqId
+    GlAccountData override_gl_account = 33 [json_name = "override_gl_account"]; // ref(OverrideGlAccount): overrideGlAccountId
+    PartyData tax_authority_party = 34 [json_name = "tax_authority_party"]; // ref(TaxAuthorityParty): taxAuthPartyId
+    TaxAuthorityRateProductData tax_authority_rate_product = 36 [json_name = "tax_authority_rate_product"]; // ref(TaxAuthorityRateProduct): taxAuthorityRateSeqId
+    PartyData override_org_party = 37 [json_name = "override_org_party"]; // ref(OverrideOrgParty): overrideOrgPartyId
+    repeated OrderAdjustmentBillingData order_adjustment_billing = 43 [json_name = "order_adjustment_billing"]; // ref(OrderAdjustmentBilling): invoiceId + invoiceItemSeqId
+    repeated OrderItemBillingData order_item_billing = 44 [json_name = "order_item_billing"]; // ref(OrderItemBilling): invoiceId + invoiceItemSeqId
+    repeated PaymentApplicationData payment_application = 45 [json_name = "payment_application"]; // ref(PaymentApplication): invoiceId + invoiceItemSeqId
+    repeated ShipmentItemBillingData shipment_item_billing = 47 [json_name = "shipment_item_billing"]; // ref(ShipmentItemBilling): invoiceId + invoiceItemSeqId
+    TenantData tenant = 50 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 49;
-    map<string, google.protobuf.Any> attachments = 50;
+    google.protobuf.Struct extra = 51;
+    map<string, google.protobuf.Any> attachments = 52;
 }
 
 
@@ -1903,20 +1917,22 @@ message PartyRelationshipData {
     google.protobuf.Timestamp last_updated_tx_stamp = 15 [(routines.opts).field_type = "date-time"];
     google.protobuf.Timestamp created_tx_stamp = 16 [(routines.opts).field_type = "date-time"];
     string id = 17 [(routines.opts).field_type = "id", (google.api.graphql.relay_options).id = true];
+    string tenant_id = 18 [(routines.opts).field_type = "id"];
             
     
     // relations
-    PartyData from_party = 18 [json_name = "from_party"]; // ref(FromParty): partyIdFrom
-    PartyData to_party = 19 [json_name = "to_party"]; // ref(ToParty): partyIdTo
-    PartyRoleData from_party_role = 22 [json_name = "from_party_role"]; // ref(FromPartyRole): partyIdFrom + roleTypeIdFrom
-    PartyRoleData to_party_role = 23 [json_name = "to_party_role"]; // ref(ToPartyRole): partyIdTo + roleTypeIdTo
-    SecurityGroupData security_group = 27 [json_name = "security_group"]; // ref(SecurityGroup): securityGroupId
+    PartyData from_party = 19 [json_name = "from_party"]; // ref(FromParty): partyIdFrom
+    PartyData to_party = 20 [json_name = "to_party"]; // ref(ToParty): partyIdTo
+    PartyRoleData from_party_role = 23 [json_name = "from_party_role"]; // ref(FromPartyRole): partyIdFrom + roleTypeIdFrom
+    PartyRoleData to_party_role = 24 [json_name = "to_party_role"]; // ref(ToPartyRole): partyIdTo + roleTypeIdTo
+    SecurityGroupData security_group = 28 [json_name = "security_group"]; // ref(SecurityGroup): securityGroupId
+    TenantData tenant = 29 [json_name = "tenant"]; // ref(Tenant): tenantId
             
              
 
     // extra
-    google.protobuf.Struct extra = 28;
-    map<string, google.protobuf.Any> attachments = 29;
+    google.protobuf.Struct extra = 30;
+    map<string, google.protobuf.Any> attachments = 31;
 }
 
 

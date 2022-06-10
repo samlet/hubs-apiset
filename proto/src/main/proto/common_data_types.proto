@@ -38,9 +38,11 @@ message CreateId{
 message ExtractedToken{
   string token_string=1;  // the original token
   string region_id=2;
-  string jwt_id=3;        // the slug id
+  string zone_id=3;     // represent: channel, tenant, group, ...
   string login_id=4;
   string owner_id=5;      // party id
+
+  string jwt_id=6;        // the slug id
 }
 
 // query opts

@@ -333,8 +333,8 @@ message TypesEntityData {
              
 
     // extra
-    google.protobuf.Struct extra = 311;
-    map<string, google.protobuf.Any> attachments = 312;
+    google.protobuf.Struct extra = 308;
+    map<string, google.protobuf.Any> attachments = 309;
 }
 
 
@@ -373,8 +373,8 @@ message TypesEntityTypeData {
              
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 
@@ -415,8 +415,8 @@ message TypesEntityStatusData {
              
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 

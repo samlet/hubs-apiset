@@ -1,0 +1,412 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.types";
+option java_outer_classname = "CommonTypesProto";
+
+package types;
+
+
+message UomTypeCat {
+  enum Type{    
+    // Liquid Volume
+    VOLUME_LIQ_MEASURE = 0;    
+    // Energy
+    ENERGY_MEASURE = 1;    
+    // Length
+    LENGTH_MEASURE = 2;    
+    // Temperature
+    TEMP_MEASURE = 3;    
+    // Time/Frequency
+    TIME_FREQ_MEASURE = 4;    
+    // Other
+    OTHER_MEASURE = 5;    
+    // Dry Volume
+    VOLUME_DRY_MEASURE = 6;    
+    // Currency
+    CURRENCY_MEASURE = 7;    
+    // Data Size
+    DATA_MEASURE = 8;    
+    // Weight
+    WEIGHT_MEASURE = 9;    
+    // Area
+    AREA_MEASURE = 10;    
+    // Data Speed
+    DATASPD_MEASURE = 11;
+  }
+  Type type = 1;
+}
+
+message EnumerationTypeCat {
+  enum Type{    
+    // Marital Status
+    MARITAL_STATUS = 0;    
+    // Product Promotion Condition
+    PROD_PROMO_COND = 1;    
+    // Financial Account Replenish Type
+    FARP_TYPE = 2;    
+    // Points of Title Transfer
+    PTSOFTTFR = 3;    
+    // Interview Rating
+    INTR_RATNG = 4;    
+    // Product Promotion Input Parameter
+    PROD_PROMO_IN_PARAM = 5;    
+    // Fixed Asset Class
+    FXAST_CLASS = 6;    
+    // Order Sales Channel
+    ORDER_SALES_CHANNEL = 7;    
+    // Order Item Change Type
+    ODR_ITM_CHANGE_TYPE = 8;    
+    // OFBiz Instance
+    JM_OFBIZ_INSTANCE = 9;    
+    // Subscription Level
+    SUBSCRIPTION_TYPE = 10;    
+    // Residence Status
+    PTY_RESID_STTS = 11;    
+    // Product Price Input Parameter
+    PROD_PRICE_IN_PARAM = 12;    
+    // Product Geo Data
+    PROD_GEO = 13;    
+    // Calendar Type
+    CALENDAR_TYPE = 14;    
+    // Virtual Variant Method
+    PROD_VVMETHOD = 15;    
+    // Work Effort Expectation
+    WORK_EFF_EXPECT = 16;    
+    // Product Promotion Parent Enum Type
+    PROD_PROMO = 17;    
+    // Parent Type for all Work Effort enum types
+    WORK_EFFORT = 18;    
+    // Product Promotion Action
+    PROD_PROMO_ACTION = 19;    
+    // Invoice Sequence Mode
+    INVOICE_SEQMD = 20;    
+    // Product Store Email Notification
+    PRDS_EMAIL = 21;    
+    // Work Effort Scope Classification
+    WORK_EFF_SCOPE = 22;    
+    // Inventory Reservation Order
+    INV_RES_ORDER = 23;    
+    // Inventory Item Detail Reason
+    IID_REASON = 24;    
+    // Product Requirement Method
+    PROD_REQ_METHOD = 25;    
+    // Image Reject Reason
+    IMAGE_REJECT_REASON = 26;    
+    // Thesaurus Relationship Type
+    KW_THES_REL = 27;    
+    // Global preferences
+    GLOBAL_PREFERENCES = 28;    
+    // Tax Forms
+    TAX_FORMS = 29;    
+    // Party Email Notification
+    PARTY_EMAIL = 30;    
+    // Order Sequence Mode
+    ORDER_SEQMD = 31;    
+    // Service Debit Reasons
+    FINACCT_TRANS_REASON = 32;    
+    // Content Privilege
+    CONTENT_PRIVILEGE = 33;    
+    // Computer Software
+    FXAST_COMPU_SOFTWARE = 34;    
+    // COGS Methods
+    COGS_METHODS = 35;    
+    // Product Promotion Product/Category Application Type
+    PROD_PROMO_PCAPPL = 36;    
+    // Payment Gateway Transaction Code
+    PGT_CODE = 37;    
+    // Keyword Override Target Type
+    KWOVRD_TRGT_TYPE = 38;    
+    // Order Item Change Reason
+    ODR_ITM_CH_REASON = 39;    
+    // Telcom Message Type Enum
+    TELECOM_MSG = 40;    
+    // Example Feature Source
+    EXMPL_FEAT_SOURCE = 41;    
+    // Allocation Plan Method
+    ALLOC_PLAN_METHOD = 42;    
+    // Taxable Invoice Item Types
+    TAXABLE_INV_ITM_TY = 43;    
+    // Product Category Link Type
+    PCAT_LINK_TYPE = 44;    
+    // Computer Hardware
+    FXAST_COMPU_HARDWARE = 45;    
+    // Exam Type
+    EXAM_TYPE = 46;    
+    // Keyword Type
+    KEYWORD_TYPE = 47;    
+    // Work Effort Delegate Reason
+    WORK_EFF_DEL_REAS = 48;    
+    // Facility Location Type
+    FACLOC_TYPE = 49;    
+    // Gift Card Fulfillment
+    GC_FULFILL = 50;    
+    // Conversion Purpose
+    CONVERSION_PURPOSE = 51;    
+    // Not Applicable
+    _NA_ = 52;    
+    // Financial Account Replenish Method
+    FARP_METHOD = 53;    
+    // Product Price Condition
+    PROD_PRICE_COND = 54;    
+    // Product Price Parent Enum Type
+    PROD_PRICE = 55;    
+    // Quote Sequence Mode
+    QUOTE_SEQMD = 56;    
+    // Store Credit Account
+    STR_CRDT_ACT = 57;    
+    // Tracking Code Source
+    TRACKINGCODE_SRC = 58;    
+    // Job Posting Types
+    JOB_POSTING = 59;    
+    // Employment Status
+    EMPLOY_STTS = 60;    
+    // Product Store Payment Service Type
+    PRDS_PAYSVC = 61;    
+    // Sales Opportunity Type
+    SLSOPP_TYP_ENUM = 62;    
+    // User preference groups
+    USER_PREF_GROUPS = 63;    
+    // Credit Card Type
+    CREDIT_CARD_TYPE = 64;    
+    // Product Rating Field Type
+    PROD_RATING_TYPE = 65;    
+    // Parent Type for all Workflow enum types
+    WORKFLOW = 66;    
+    // Visual Theme Resource Type (stylesheet, javascript file, etc)
+    VT_RES_TYPE = 67;
+  }
+  Type type = 1;
+}
+
+message StatusTypeCat {
+  enum Type{    
+    // Lead Status
+    LEAD_STATUS = 0;    
+    // Party Relationship
+    PARTY_REL_STATUS = 1;    
+    // Internal Job Posting Status
+    IJP_STATUS = 2;    
+    // Party Invitation
+    PARTY_INV_STATUS = 3;    
+    // Content Approval Status
+    CNTNTAPPR_STATUS = 4;    
+    // Order Delivery Schedule
+    ORDER_DEL_SCH = 5;    
+    // Communication Event Role
+    COM_EVENT_ROL_STATUS = 6;    
+    // Production Run Status
+    PRODUCTION_RUN = 7;    
+    // Relocation Status
+    RELOCATION_STATUS = 8;    
+    // Calendar
+    CALENDAR_STATUS = 9;    
+    // Inventory Transfer
+    INVENTORY_XFER_STTS = 10;    
+    // Server Hit
+    SERVER_HIT_STATUS = 11;    
+    // Employee Leave Status
+    LEAVE_STATUS = 12;    
+    // Employee Position Status
+    EMPL_POSITION_STATUS = 13;    
+    // Payment Preference
+    PAYMENT_PREF_STATUS = 14;    
+    // Group Order Status
+    GROUP_ORDER_STATUS = 15;    
+    // Party
+    PARTY_STATUS = 16;    
+    // Project
+    PROJECT = 17;    
+    // Invoice Status
+    INVOICE_STATUS = 18;    
+    // Manufacturing Task and Routing status
+    ROUTING_STATUS = 19;    
+    // ShipmentRouteSegment:CarrierService
+    SHPRTSG_CS_STATUS = 20;    
+    // Order Return Status For Customer Returns
+    ORDER_RETURN_STTS = 21;    
+    // Gl Reconciliation Status
+    GLREC_STATUS = 22;    
+    // Image Management
+    IMAGE_MANAGEMENT_ST = 23;    
+    // Budget
+    BUDGET_STATUS = 24;    
+    // Picklist
+    PICKLIST_STATUS = 25;    
+    // Product Review
+    PRODUCT_REVIEW_STTS = 26;    
+    // Picklist Item
+    PICKITEM_STATUS = 27;    
+    // Shipment
+    SHIPMENT_STATUS = 28;    
+    // Requirement Status
+    REQUIREMENT_STATUS = 29;    
+    // Payment Status
+    PMNT_STATUS = 30;    
+    // WorkEffort Assignment
+    WORK_EFFORT_ASSIGN = 31;    
+    // Communication Event
+    COM_EVENT_STATUS = 32;    
+    // Purchase Shipment
+    PURCH_SHIP_STATUS = 33;    
+    // WorkEffort Review
+    WEFF_REVIEW_STTS = 34;    
+    // Contact List Party
+    CONTACTLST_PARTY = 35;    
+    // Marketing Campaign
+    MKTG_CAMP_STATUS = 36;    
+    // Acctg Entry Reconcile
+    ACCTG_ENREC_STATUS = 37;    
+    // Order Return Status For Supplier Returns
+    PORDER_RETURN_STTS = 38;    
+    // Training Status
+    TRAINING_STATUS = 39;    
+    // Task
+    TASK_STATUS = 40;    
+    // Serialized Inventory Item
+    INV_SERIALIZED_STTS = 41;    
+    // PartyQual verification status
+    PARTYQUAL_VERIFY = 42;    
+    // Allocation Plan Status
+    ALLOC_PLAN_STATUS = 43;    
+    // Case
+    CASE_STATUS = 44;    
+    // Keyword
+    KEYWORD_STATUS = 45;    
+    // Non-Serialized Inventory Item
+    INV_NON_SER_STTS = 46;    
+    // Inventory Item
+    INVENTORY_ITEM_STTS = 47;    
+    // Event
+    EVENT_STATUS = 48;    
+    // Allocation Plan Item Status
+    ALLOC_PLAN_ITEM_STTS = 49;    
+    // Order
+    ORDER_STATUS = 50;    
+    // Financial Account Status
+    FINACCT_STATUS = 51;    
+    // Work Effort Good Standard Status
+    WEFG_STATUS = 52;    
+    // Web Content
+    WEB_CONTENT_STATUS = 53;    
+    // Not Applicable
+    _NA_ = 54;    
+    // Degree status
+    HR_DEGREE_STATUS = 55;    
+    // Project status
+    PROJECT_STATUS = 56;    
+    // Content
+    CONTENT_STATUS = 57;    
+    // Order Item
+    ORDER_ITEM_STATUS = 58;    
+    // Fixed Asset Maintenance
+    FIXEDAST_MNT_STATUS = 59;    
+    // Employment Application
+    EMPLOYMENT_APP_STTS = 60;    
+    // Custom Request Status
+    CUSTREQ_STTS = 61;    
+    // Project Assignment
+    PROJECT_ASSGN_STATUS = 62;    
+    // Timesheet
+    TIMESHEET_STATUS = 63;    
+    // Quote Status
+    QUOTE_STATUS = 64;    
+    // Workeffort
+    WORK_EFFORT_STATUS = 65;    
+    // Synchronize
+    SYNCHRONIZE_STATUS = 66;    
+    // Project Task
+    PROJECT_TASK_STATUS = 67;    
+    // Financial Account Trans Status
+    FINACT_TRNS_STATUS = 68;    
+    // Unemployment Claim
+    UNEMPL_CLAIM_STATUS = 69;    
+    // Party Asset
+    PARTY_ASSET_STATUS = 70;    
+    // Example
+    EXAMPLE_STATUS = 71;    
+    // WorkEffort Asset
+    WORK_EFF_ASSET_STTS = 72;    
+    // Job status
+    HR_JOB_STATUS = 73;
+  }
+  Type type = 1;
+}
+
+message DataSourceTypeCat {
+  enum Type{    
+    // Administrative Data Entry
+    ADMIN_ENTRY = 0;    
+    // Partner
+    PARTNER = 1;    
+    // Mailing List Signup
+    MAILING_LIST_SIGNUP = 2;    
+    // Name of GeoPoints publisher
+    GEOPOINT_SUPPLIER = 3;    
+    // Web
+    WEB = 4;    
+    // Lead Source
+    LEAD_SOURCE = 5;    
+    // Purchased Data
+    PURCHASED_DATA = 6;    
+    // Advertisement
+    ADVERTISEMENT = 7;    
+    // Website Data Entry
+    WEBSITE_ENTRY = 8;    
+    // My Portal
+    MY_PORTAL = 9;    
+    // Contest Signup
+    CONTEST_SIGNUP = 10;    
+    // Content and Data Resource Creation
+    CONTENT_CREATION = 11;
+  }
+  Type type = 1;
+}
+
+message AgreementTypeCat {
+  enum Type{    
+    // Product
+    PRODUCT_AGREEMENT = 0;    
+    // Other
+    OTHER_AGREEMENT = 1;    
+    // Sales
+    SALES_AGREEMENT = 2;    
+    // End User License Agreement
+    EULA = 3;    
+    // Employment
+    EMPLOYMENT_AGREEMENT = 4;    
+    // Purchase
+    PURCHASE_AGREEMENT = 5;    
+    // Commission
+    COMMISSION_AGREEMENT = 6;
+  }
+  Type type = 1;
+}
+
+message ContactMechTypeCat {
+  enum Type{    
+    // Ftp server connection
+    FTP_ADDRESS = 0;    
+    // Internal Note via partyId
+    INTERNAL_PARTYID = 1;    
+    // Web URL/Address
+    WEB_ADDRESS = 2;    
+    // Email Address
+    EMAIL_ADDRESS = 3;    
+    // Phone Number
+    TELECOM_NUMBER = 4;    
+    // Electronic Address
+    ELECTRONIC_ADDRESS = 5;    
+    // Internet IP Address
+    IP_ADDRESS = 6;    
+    // Postal Address
+    POSTAL_ADDRESS = 7;    
+    // LDAP URL
+    LDAP_ADDRESS = 8;    
+    // Internet Domain Name
+    DOMAIN_NAME = 9;
+  }
+  Type type = 1;
+}
+
+

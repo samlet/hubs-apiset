@@ -41,8 +41,8 @@ message OrderFactData {
              
 
     // extra
-    google.protobuf.Struct extra = 19;
-    map<string, google.protobuf.Any> attachments = 20;
+    google.protobuf.Struct extra = 16;
+    map<string, google.protobuf.Any> attachments = 17;
 }
 
 
@@ -81,8 +81,8 @@ message OrderFactTypeData {
              
 
     // extra
-    google.protobuf.Struct extra = 11;
-    map<string, google.protobuf.Any> attachments = 12;
+    google.protobuf.Struct extra = 9;
+    map<string, google.protobuf.Any> attachments = 10;
 }
 
 
@@ -123,8 +123,8 @@ message OrderFactStatusData {
              
 
     // extra
-    google.protobuf.Struct extra = 13;
-    map<string, google.protobuf.Any> attachments = 14;
+    google.protobuf.Struct extra = 12;
+    map<string, google.protobuf.Any> attachments = 13;
 }
 
 
