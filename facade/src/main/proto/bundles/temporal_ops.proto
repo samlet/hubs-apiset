@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.stub";
+option java_outer_classname = "TemporalOpsProto";
+
+package facade;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "routines.proto";
+import "facade_common.proto";
+
+
+import "ents/service_schedule.proto";
+
+service TemporalOperations {
+  rpc CreateTemporal(CreateTemporalParams) returns (domain.TemporalExpressionFlatData) {}
+  rpc UpdateTemporal(UpdateTemporalParams) returns (domain.TemporalExpressionFlatData) {}
+  rpc GetTemporal(BundleGetRequest) returns (domain.TemporalExpressionFlatData) {}
+
+  
+  rpc AddToTemporalExpressionAssoc(AddToTemporalExpressionAssocParams) returns (routines.Response) {}
+  rpc UpdateToTemporalExpressionAssoc(UpdateToTemporalExpressionAssocParams) returns (routines.Response) {}
+  rpc RemoveToTemporalExpressionAssoc(RemoveToTemporalExpressionAssocParams) returns (routines.Response) {}
+  
+  rpc AddFromTemporalExpressionAssoc(AddFromTemporalExpressionAssocParams) returns (routines.Response) {}
+  rpc UpdateFromTemporalExpressionAssoc(UpdateFromTemporalExpressionAssocParams) returns (routines.Response) {}
+  rpc RemoveFromTemporalExpressionAssoc(RemoveFromTemporalExpressionAssocParams) returns (routines.Response) {}
+  
+
+  // -- relations: one --
+
+  // -- extensions --
+  
+
+    // -- query --
+  rpc QueryAll(BundleHandle) returns (domain.TemporalExpressionList) {}
+  rpc QueryIds(BundleHandle) returns (routines.Strings) {}
+  rpc QueryList(BundleQueryMap) returns (domain.TemporalExpressionList) {}
+  rpc QueryOne(BundleQueryMap) returns (domain.TemporalExpressionFlatData) {}
+  rpc Select(BundleHandle) returns (domain.TemporalExpressionList) {}
+
+  rpc ListTemporalExpressions(BundleListRequest) returns (domain.TemporalExpressionList) {}
+  rpc LoadTemporalExpressions(BundleIdsRequest) returns (domain.TemporalExpressionList) {}
+  rpc StreamTemporalExpressions(BundleListRequest) returns (stream domain.TemporalExpressionList) {}
+  rpc RemoveTemporalExpression(BundleDeleteRequest) returns (routines.Response) {}
+}
+
+
+// Mutations for main entity
+
+message CreateTemporalParams{
+  BundleHandle handle = 1;
+  domain.TemporalExpressionFlatData temporalExpression = 2;
+  string comment = 3;
+}
+
+message UpdateTemporalParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TemporalExpressionFlatData temporalExpression = 3;
+  string comment = 4;
+}
+
+
+// Mutations for ToTemporalExpressionAssoc
+
+message AddToTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TemporalExpressionAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateToTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TemporalExpressionAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveToTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for FromTemporalExpressionAssoc
+
+message AddFromTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TemporalExpressionAssocData data = 3;
+  string comment = 4;
+}
+
+message UpdateFromTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.TemporalExpressionAssocData data = 3;
+  string comment = 4;
+}
+
+message RemoveFromTemporalExpressionAssocParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
