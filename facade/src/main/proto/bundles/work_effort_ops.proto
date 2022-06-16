@@ -15,6 +15,8 @@ import "facade_common.proto";
 
 
 import "ents/workeffort_workeffort.proto";
+import "types/work_effort_type.proto";
+import "extra/workeffort_workeffort.proto";
 
 service WorkEffortOperations {
   rpc CreateWorkEffort(CreateWorkEffortParams) returns (domain.WorkEffortFlatData) {}
@@ -22,9 +24,21 @@ service WorkEffortOperations {
   rpc GetWorkEffort(BundleGetRequest) returns (domain.WorkEffortFlatData) {}
 
   
+  rpc AddWorkEffortFixedAssetAssign(AddWorkEffortFixedAssetAssignParams) returns (routines.Response) {}
+  rpc UpdateWorkEffortFixedAssetAssign(UpdateWorkEffortFixedAssetAssignParams) returns (routines.Response) {}
+  rpc RemoveWorkEffortFixedAssetAssign(RemoveWorkEffortFixedAssetAssignParams) returns (routines.Response) {}
+  
+  rpc AddWorkEffortSkillStandard(AddWorkEffortSkillStandardParams) returns (routines.Response) {}
+  rpc UpdateWorkEffortSkillStandard(UpdateWorkEffortSkillStandardParams) returns (routines.Response) {}
+  rpc RemoveWorkEffortSkillStandard(RemoveWorkEffortSkillStandardParams) returns (routines.Response) {}
+  
   rpc AddWorkEffortPartyAssignment(AddWorkEffortPartyAssignmentParams) returns (routines.Response) {}
   rpc UpdateWorkEffortPartyAssignment(UpdateWorkEffortPartyAssignmentParams) returns (routines.Response) {}
   rpc RemoveWorkEffortPartyAssignment(RemoveWorkEffortPartyAssignmentParams) returns (routines.Response) {}
+  
+  rpc AddWorkEffortStatus(AddWorkEffortStatusParams) returns (routines.Response) {}
+  rpc UpdateWorkEffortStatus(UpdateWorkEffortStatusParams) returns (routines.Response) {}
+  rpc RemoveWorkEffortStatus(RemoveWorkEffortStatusParams) returns (routines.Response) {}
   
   rpc AddFromWorkEffortAssoc(AddFromWorkEffortAssocParams) returns (routines.Response) {}
   rpc UpdateFromWorkEffortAssoc(UpdateFromWorkEffortAssocParams) returns (routines.Response) {}
@@ -36,6 +50,7 @@ service WorkEffortOperations {
   
 
   // -- relations: one --
+  rpc ModifyWorkEffortType(ModifyWorkEffortTypeParams) returns (routines.Response) {}
 
   // -- extensions --
   
@@ -70,6 +85,52 @@ message UpdateWorkEffortParams{
 }
 
 
+// Mutations for WorkEffortFixedAssetAssign
+
+message AddWorkEffortFixedAssetAssignParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortFixedAssetAssignData data = 3;
+  string comment = 4;
+}
+
+message UpdateWorkEffortFixedAssetAssignParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortFixedAssetAssignData data = 3;
+  string comment = 4;
+}
+
+message RemoveWorkEffortFixedAssetAssignParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for WorkEffortSkillStandard
+
+message AddWorkEffortSkillStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortSkillStandardData data = 3;
+  string comment = 4;
+}
+
+message UpdateWorkEffortSkillStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortSkillStandardData data = 3;
+  string comment = 4;
+}
+
+message RemoveWorkEffortSkillStandardParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
 // Mutations for WorkEffortPartyAssignment
 
 message AddWorkEffortPartyAssignmentParams{
@@ -87,6 +148,29 @@ message UpdateWorkEffortPartyAssignmentParams{
 }
 
 message RemoveWorkEffortPartyAssignmentParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for WorkEffortStatus
+
+message AddWorkEffortStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortStatusData data = 3;
+  string comment = 4;
+}
+
+message UpdateWorkEffortStatusParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortStatusData data = 3;
+  string comment = 4;
+}
+
+message RemoveWorkEffortStatusParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
@@ -136,6 +220,15 @@ message RemoveToWorkEffortAssocParams{
   BundleHandle handle = 1;
   string main_id = 2;
   string item_id = 3;
+  string comment = 4;
+}
+
+// Mutations for WorkEffortType
+
+message ModifyWorkEffortTypeParams{
+  BundleHandle handle = 1;
+  string main_id = 2;
+  domain.WorkEffortTypeData data = 3;
   string comment = 4;
 }
 

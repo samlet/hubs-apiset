@@ -7,6 +7,7 @@ option java_outer_classname = "CommonDataTypesProto";
 package proto;
 
 import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
 
 message StringMap{
   map<string, string> values = 1;
@@ -15,6 +16,19 @@ message StringMap{
 message RawResultSet{
   string type_name=1;
   repeated bytes data=2;
+}
+
+message MirrorProto {
+  enum Type {
+    MAIN = 0;
+    ATTACHMENT = 1;
+    TYPE_ENT = 2;
+  }
+  string entity=1;
+  string data=2;
+  string key=3;
+  Type type=4;
+  google.protobuf.Timestamp retrieve_ts=5;
 }
 
 message FieldCats{

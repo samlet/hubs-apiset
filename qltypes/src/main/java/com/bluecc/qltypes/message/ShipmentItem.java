@@ -1,0 +1,32 @@
+package com.bluecc.qltypes.message;
+
+import com.bluecc.qltypes.pubs.*;
+import lombok.Data;
+import lombok.experimental.Accessors;
+import java.util.List;
+
+@Data
+@Accessors(chain = true)
+public class ShipmentItem implements WithKey{
+    String shipmentId;
+    String shipmentItemSeqId;
+    String productId;
+    FixedPointValue quantity;
+    String shipmentContentDescription;
+    TimestampValue lastUpdatedTxStamp;
+    TimestampValue createdTxStamp;
+    String id;
+    String format;
+    ModelEntity model;
+    FieldCatsValue cats;
+    Product product;
+    Shipment shipment;
+    String proto;
+    @Override
+    public String getKey() {
+        return id;
+    }
+}
+
+
+
