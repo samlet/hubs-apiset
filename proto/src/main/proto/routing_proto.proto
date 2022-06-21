@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bluecc.hubs.proto";
+option java_outer_classname = "RoutingsProto";
+
+import "google/protobuf/timestamp.proto";
+
+package proto;
+
+message OrderProfile{
+  string order_id=1;
+  string order_item_seq_id=2;
+}
+
+message EffortProfile{
+  string work_effort_id=1;
+  google.protobuf.Timestamp start_ts=2;
+  string proto=3; // will be job context
+}
+
+//
+//message ProductRoutingProto{
+//  OrderProfile order_profile=1;
+//  string product_id=3;
+//}
+//
+//message ProductTypeRoutingProto{
+//  OrderProfile order_profile=1;
+//  string product_type_id=3;
+//}
+//
+//message CategoryRoutingProto{
+//  OrderProfile order_profile=1;
+//  string product_category_id=3;
+//}
+//

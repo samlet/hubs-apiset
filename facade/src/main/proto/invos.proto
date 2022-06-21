@@ -40,5 +40,7 @@ message InvocationDataList{
 
   // for snapshot
   map<string, bytes> snapshot=6;
+  // for history
+  map<string, bytes> history=7;
 }
 

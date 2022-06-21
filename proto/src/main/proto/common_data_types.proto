@@ -65,3 +65,10 @@ message QueryOpts{
 //  int64 offset=2;
   string page_token=2;
 }
+
+message TreeNodeProto{
+  string label=1;
+  bytes data=2;
+  string type=3;  // default is plain
+  repeated TreeNodeProto nodes=4;
+}
