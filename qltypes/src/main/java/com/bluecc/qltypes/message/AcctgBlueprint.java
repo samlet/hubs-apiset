@@ -13,10 +13,10 @@ public class AcctgBlueprint {
     ExtractedTokenValue token;
     AcctgTrans entity;
     List<ResponseValue> response;
-    AcctgBlueprint removeAcctgTransEntry;
     AcctgBlueprint updateAcctgTransEntry;
     AcctgBlueprint addAcctgTransEntryList;
     AcctgBlueprint addAcctgTransEntry;
+    AcctgBlueprint removeAcctgTransEntry;
 }
 
 
