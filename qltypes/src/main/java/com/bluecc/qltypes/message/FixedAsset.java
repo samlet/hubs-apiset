@@ -36,21 +36,21 @@ public class FixedAsset implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FixedAssetMaintCollection fixedAssetMaints;
-    TypesEntity type;
-    FixedAssetProductCollection fixedAssetProducts;
-    FixedAsset parentFixedAsset;
-    FieldCatsValue cats;
-    String proto;
-    ModelEntity model;
-    Facility locatedAtFacility;
-    FixedAssetGeoPointCollection fixedAssetGeoPoints;
-    Product instanceOfProduct;
-    OrderHeader acquireOrderHeader;
     ListItemProtoValue subview;
-    Party party;
-    String format;
     FixedAssetAttributeCollection fixedAssetAttributes;
+    Product instanceOfProduct;
+    FixedAssetMaintCollection fixedAssetMaints;
+    ModelEntity model;
+    Party party;
+    FieldCatsValue cats;
+    FixedAsset parentFixedAsset;
+    FixedAssetProductCollection fixedAssetProducts;
+    String proto;
+    FixedAssetGeoPointCollection fixedAssetGeoPoints;
+    OrderHeader acquireOrderHeader;
+    TypesEntity type;
+    String format;
+    Facility locatedAtFacility;
     @Override
     public String getKey() {
         return fixedAssetId;

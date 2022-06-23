@@ -15,11 +15,11 @@ public class UserLoginPasswordHistory implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    String format;
-    UserLogin userLogin;
-    String proto;
     ModelEntity model;
+    String format;
+    FieldCatsValue cats;
+    String proto;
+    UserLogin userLogin;
     @Override
     public String getKey() {
         return id;

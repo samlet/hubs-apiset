@@ -30,15 +30,15 @@ public class Payment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    TypesEntity type;
-    String format;
-    ListItemProtoValue subview;
-    Party toParty;
-    ModelEntity model;
-    FieldCatsValue cats;
     PaymentApplicationCollection paymentApplications;
-    Party fromParty;
+    Party toParty;
+    ListItemProtoValue subview;
     String proto;
+    ModelEntity model;
+    TypesEntity type;
+    FieldCatsValue cats;
+    String format;
+    Party fromParty;
     @Override
     public String getKey() {
         return paymentId;

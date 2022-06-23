@@ -14,11 +14,11 @@ public class OrderContactMech implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    OrderHeader orderHeader;
     String format;
     ContactMech contactMech;
-    ModelEntity model;
+    OrderHeader orderHeader;
     String proto;
+    ModelEntity model;
     FieldCatsValue cats;
     @Override
     public String getKey() {

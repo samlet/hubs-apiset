@@ -22,7 +22,7 @@ public class OrderPaymentPreference implements WithKey{
     String swipedFlag;
     String overflowFlag;
     CurrencyValue maxAmount;
-    long processAttempt;
+    Long processAttempt;
     String billingPostalCode;
     String manualAuthCode;
     String manualRefNum;
@@ -36,10 +36,10 @@ public class OrderPaymentPreference implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     OrderHeader orderHeader;
-    ModelEntity model;
-    String proto;
-    FieldCatsValue cats;
     String format;
+    ModelEntity model;
+    FieldCatsValue cats;
+    String proto;
     UserLogin userLogin;
     @Override
     public String getKey() {

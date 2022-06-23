@@ -15,10 +15,10 @@ public class UserLoginSession implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     UserLogin userLogin;
-    ModelEntity model;
-    String format;
     FieldCatsValue cats;
     String proto;
+    String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return userLoginId;

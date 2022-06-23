@@ -16,12 +16,12 @@ public class ExampleStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    UserLogin userLogin;
     FieldCatsValue cats;
-    Example example;
     ModelEntity model;
-    String proto;
+    Example example;
+    UserLogin userLogin;
     String format;
+    String proto;
     @Override
     public String getKey() {
         return id;

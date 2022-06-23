@@ -19,12 +19,12 @@ public class OrderItemBilling implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Invoice invoice;
+    String format;
     OrderHeader orderHeader;
+    Invoice invoice;
+    ModelEntity model;
     String proto;
     FieldCatsValue cats;
-    String format;
-    ModelEntity model;
     @Override
     public String getKey() {
         return id;

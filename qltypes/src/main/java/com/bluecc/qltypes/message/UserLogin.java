@@ -19,7 +19,7 @@ public class UserLogin implements WithKey{
     String lastLocale;
     String lastTimeZone;
     TimestampValue disabledDateTime;
-    long successiveFailedLogins;
+    Long successiveFailedLogins;
     String externalAuthId;
     String userLdapDn;
     String disabledBy;
@@ -27,15 +27,15 @@ public class UserLogin implements WithKey{
     TimestampValue createdTxStamp;
     String partyId;
     String tenantId;
-    FieldCatsValue cats;
-    UserPreferenceCollection userPreferences;
     String format;
-    UserLoginPasswordHistoryCollection userLoginPasswordHistories;
-    ListItemProtoValue subview;
-    ModelEntity model;
     String proto;
-    UserLoginSecurityGroupCollection userLoginSecurityGroups;
+    ListItemProtoValue subview;
+    UserLoginPasswordHistoryCollection userLoginPasswordHistories;
     Party party;
+    UserPreferenceCollection userPreferences;
+    FieldCatsValue cats;
+    ModelEntity model;
+    UserLoginSecurityGroupCollection userLoginSecurityGroups;
     @Override
     public String getKey() {
         return userLoginId;

@@ -16,10 +16,10 @@ public class AgreementTermFlatData {
     Timestamp fromDate;
     Timestamp thruDate;
     Currency termValue;
-    long termDays;
+    Long termDays;
     String textValue;
-    double minQuantity;
-    double maxQuantity;
+    Double minQuantity;
+    Double maxQuantity;
     String description;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

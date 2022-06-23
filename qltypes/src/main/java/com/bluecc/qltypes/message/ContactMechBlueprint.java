@@ -13,9 +13,9 @@ public class ContactMechBlueprint {
     ExtractedTokenValue token;
     ContactMech entity;
     List<ResponseValue> response;
-    ContactMechBlueprint modifyPostalAddress;
-    ContactMechBlueprint modifyTelecomNumber;
     ContactMechBlueprint modifyContactMechType;
+    ContactMechBlueprint modifyTelecomNumber;
+    ContactMechBlueprint modifyPostalAddress;
 }
 
 

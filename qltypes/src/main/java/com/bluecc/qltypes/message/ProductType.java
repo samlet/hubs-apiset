@@ -17,10 +17,10 @@ public class ProductType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
     String proto;
-    String format;
+    FieldCatsValue cats;
     ModelEntity model;
+    String format;
     @Override
     public String getKey() {
         return productTypeId;

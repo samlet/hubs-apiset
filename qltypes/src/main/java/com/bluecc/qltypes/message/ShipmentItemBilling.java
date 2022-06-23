@@ -15,12 +15,12 @@ public class ShipmentItemBilling implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
-    Shipment shipment;
+    String proto;
     String format;
     FieldCatsValue cats;
+    Shipment shipment;
     Invoice invoice;
-    String proto;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

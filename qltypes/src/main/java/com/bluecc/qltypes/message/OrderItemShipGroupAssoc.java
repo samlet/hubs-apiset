@@ -16,11 +16,11 @@ public class OrderItemShipGroupAssoc implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    ModelEntity model;
-    FieldCatsValue cats;
-    String format;
     OrderHeader orderHeader;
+    String format;
+    ModelEntity model;
+    String proto;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

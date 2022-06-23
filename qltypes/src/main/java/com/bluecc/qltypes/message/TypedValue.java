@@ -9,9 +9,9 @@ import java.util.List;
 @Accessors(chain = true)
 public class TypedValue {
     String nullValue;
-    double numberValue;
+    Double numberValue;
     String stringValue;
-    boolean boolValue;
+    Boolean boolValue;
     StructValue structValue;
     ListValueValue listValue;
 }

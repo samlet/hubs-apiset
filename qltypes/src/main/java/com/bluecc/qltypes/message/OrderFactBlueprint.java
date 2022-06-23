@@ -13,10 +13,10 @@ public class OrderFactBlueprint {
     ExtractedTokenValue token;
     OrderFact entity;
     List<ResponseValue> response;
-    OrderFactBlueprint modifyOrderFactType;
     OrderFactBlueprint addOrderFactStatusList;
-    OrderFactBlueprint updateOrderFactStatus;
     OrderFactBlueprint addOrderFactStatus;
+    OrderFactBlueprint updateOrderFactStatus;
+    OrderFactBlueprint modifyOrderFactType;
     OrderFactBlueprint removeOrderFactStatus;
 }
 

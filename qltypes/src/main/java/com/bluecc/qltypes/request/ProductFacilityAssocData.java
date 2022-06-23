@@ -14,8 +14,8 @@ public class ProductFacilityAssocData {
     String facilityAssocTypeId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
-    long transitTime;
+    Long sequenceNum;
+    Long transitTime;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

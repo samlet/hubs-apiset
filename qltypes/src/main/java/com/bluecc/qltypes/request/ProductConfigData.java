@@ -10,7 +10,7 @@ import java.util.List;
 public class ProductConfigData {
     String productId;
     String configItemId;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp fromDate;
     String description;
     String longDescription;

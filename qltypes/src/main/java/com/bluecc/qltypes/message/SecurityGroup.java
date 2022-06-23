@@ -16,10 +16,10 @@ public class SecurityGroup implements WithKey{
     String tenantId;
     String proto;
     ListItemProtoValue subview;
-    ModelEntity model;
-    String format;
     SecurityGroupPermissionCollection securityGroupPermissions;
+    String format;
     FieldCatsValue cats;
+    ModelEntity model;
     @Override
     public String getKey() {
         return groupId;

@@ -15,12 +15,12 @@ public class FactProto implements WithKey{
     String tenantId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
-    TypesEntity type;
+    FieldCatsValue cats;
     ListItemProtoValue subview;
+    TypesEntity type;
     String proto;
     FactProtoStatusCollection factProtoStatuses;
     String format;
-    FieldCatsValue cats;
     ModelEntity model;
     @Override
     public String getKey() {

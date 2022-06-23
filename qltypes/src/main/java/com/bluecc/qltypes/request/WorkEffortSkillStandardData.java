@@ -10,8 +10,8 @@ import java.util.List;
 public class WorkEffortSkillStandardData {
     String workEffortId;
     String skillTypeId;
-    double estimatedNumPeople;
-    double estimatedDuration;
+    Double estimatedNumPeople;
+    Double estimatedDuration;
     Currency estimatedCost;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

@@ -13,7 +13,7 @@ public class PartyGroupFlatData {
     String groupNameLocal;
     String officeSiteName;
     Currency annualRevenue;
-    long numEmployees;
+    Long numEmployees;
     String tickerSymbol;
     String comments;
     String logoImageUrl;

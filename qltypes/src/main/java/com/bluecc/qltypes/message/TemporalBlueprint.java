@@ -13,14 +13,14 @@ public class TemporalBlueprint {
     ExtractedTokenValue token;
     TemporalExpression entity;
     List<ResponseValue> response;
+    TemporalBlueprint addToTemporalExpressionAssocList;
+    TemporalBlueprint updateToTemporalExpressionAssoc;
+    TemporalBlueprint updateFromTemporalExpressionAssoc;
+    TemporalBlueprint addToTemporalExpressionAssoc;
+    TemporalBlueprint removeToTemporalExpressionAssoc;
     TemporalBlueprint addFromTemporalExpressionAssocList;
     TemporalBlueprint removeFromTemporalExpressionAssoc;
-    TemporalBlueprint updateToTemporalExpressionAssoc;
     TemporalBlueprint addFromTemporalExpressionAssoc;
-    TemporalBlueprint addToTemporalExpressionAssoc;
-    TemporalBlueprint updateFromTemporalExpressionAssoc;
-    TemporalBlueprint removeToTemporalExpressionAssoc;
-    TemporalBlueprint addToTemporalExpressionAssocList;
 }
 
 

@@ -14,12 +14,12 @@ public class OrderRole implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Party party;
     ModelEntity model;
-    String proto;
-    String format;
     FieldCatsValue cats;
+    Party party;
+    String proto;
     OrderHeader orderHeader;
+    String format;
     @Override
     public String getKey() {
         return id;

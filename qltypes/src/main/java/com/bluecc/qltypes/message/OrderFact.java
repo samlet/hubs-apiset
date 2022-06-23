@@ -20,13 +20,13 @@ public class OrderFact implements WithKey{
     String tenantId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
-    FieldCatsValue cats;
     OrderFactStatusCollection orderFactStatuses;
-    ListItemProtoValue subview;
     String proto;
+    String format;
+    ListItemProtoValue subview;
+    FieldCatsValue cats;
     TypesEntity type;
     ModelEntity model;
-    String format;
     @Override
     public String getKey() {
         return orderId;

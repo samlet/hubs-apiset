@@ -14,9 +14,9 @@ public class ProductPromo implements WithKey{
     String userEntered;
     String showToCustomer;
     String requireCode;
-    long useLimitPerOrder;
-    long useLimitPerCustomer;
-    long useLimitPerPromotion;
+    Long useLimitPerOrder;
+    Long useLimitPerCustomer;
+    Long useLimitPerPromotion;
     FixedPointValue billbackFactor;
     String overrideOrgPartyId;
     TimestampValue createdDate;
@@ -26,16 +26,16 @@ public class ProductPromo implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    UserLogin createdbyuserlogin;
-    Party party;
-    String format;
-    String proto;
-    FieldCatsValue cats;
-    UserLogin lastmodifiedbyuserlogin;
-    ModelEntity model;
     ListItemProtoValue subview;
+    ModelEntity model;
     ProductPromoActionCollection productPromoActions;
+    String proto;
+    UserLogin createdbyuserlogin;
+    UserLogin lastmodifiedbyuserlogin;
+    FieldCatsValue cats;
+    String format;
     ProductPromoRuleCollection productPromoRules;
+    Party party;
     @Override
     public String getKey() {
         return productPromoId;

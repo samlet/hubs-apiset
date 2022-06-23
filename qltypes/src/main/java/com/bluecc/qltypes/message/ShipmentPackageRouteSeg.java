@@ -27,11 +27,11 @@ public class ShipmentPackageRouteSeg implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
     ModelEntity model;
-    String format;
     Shipment shipment;
     FieldCatsValue cats;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return id;

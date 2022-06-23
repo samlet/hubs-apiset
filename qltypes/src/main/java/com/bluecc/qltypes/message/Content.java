@@ -25,8 +25,8 @@ public class Content implements WithKey{
     String localeString;
     String mimeTypeId;
     String characterSetId;
-    long childLeafCount;
-    long childBranchCount;
+    Long childLeafCount;
+    Long childBranchCount;
     TimestampValue createdDate;
     String createdByUserLogin;
     TimestampValue lastModifiedDate;
@@ -34,21 +34,21 @@ public class Content implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    DataResource templateDataResource;
-    FieldCatsValue cats;
-    String format;
-    ContentAssocCollection toContentAssocs;
-    Content decoratorContent;
-    Content instanceOfContent;
-    ModelEntity model;
     ContentAttributeCollection contentAttributes;
-    ListItemProtoValue subview;
-    Content ownerContent;
-    UserLogin lastmodifiedbyuserlogin;
-    DataResource dataResource;
-    UserLogin createdbyuserlogin;
-    ContentPurposeCollection contentPurposes;
+    ModelEntity model;
+    FieldCatsValue cats;
     String proto;
+    ContentPurposeCollection contentPurposes;
+    String format;
+    UserLogin lastmodifiedbyuserlogin;
+    Content instanceOfContent;
+    UserLogin createdbyuserlogin;
+    ListItemProtoValue subview;
+    DataResource dataResource;
+    Content ownerContent;
+    Content decoratorContent;
+    ContentAssocCollection toContentAssocs;
+    DataResource templateDataResource;
     @Override
     public String getKey() {
         return contentId;

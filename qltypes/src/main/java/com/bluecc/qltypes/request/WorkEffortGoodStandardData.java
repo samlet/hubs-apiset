@@ -14,7 +14,7 @@ public class WorkEffortGoodStandardData {
     Timestamp fromDate;
     Timestamp thruDate;
     String statusId;
-    double estimatedQuantity;
+    Double estimatedQuantity;
     Currency estimatedCost;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

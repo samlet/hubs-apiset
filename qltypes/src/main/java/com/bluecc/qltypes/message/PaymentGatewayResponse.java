@@ -34,8 +34,8 @@ public class PaymentGatewayResponse implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     String format;
-    FieldCatsValue cats;
     ModelEntity model;
+    FieldCatsValue cats;
     String proto;
     @Override
     public String getKey() {

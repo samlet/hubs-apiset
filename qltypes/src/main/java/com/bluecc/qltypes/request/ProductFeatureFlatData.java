@@ -15,7 +15,7 @@ public class ProductFeatureFlatData {
     String uomId;
     FixedPoint numberSpecified;
     Currency defaultAmount;
-    long defaultSequenceNum;
+    Long defaultSequenceNum;
     String abbrev;
     String idCode;
     Timestamp lastUpdatedTxStamp;

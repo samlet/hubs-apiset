@@ -17,17 +17,17 @@ public class PartyContactMech implements WithKey{
     String extension;
     String verified;
     String comments;
-    long yearsWithContactMech;
-    long monthsWithContactMech;
+    Long yearsWithContactMech;
+    Long monthsWithContactMech;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    ContactMech contactMech;
-    String format;
-    Party party;
     ModelEntity model;
+    ContactMech contactMech;
+    String proto;
+    Party party;
     FieldCatsValue cats;
+    String format;
     @Override
     public String getKey() {
         return id;

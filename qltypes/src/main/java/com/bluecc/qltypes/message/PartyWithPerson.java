@@ -11,8 +11,8 @@ public class PartyWithPerson {
     String id;
     Party party;
     Person person;
-    ListItemProtoValue subview;
     String proto;
+    ListItemProtoValue subview;
 }
 
 

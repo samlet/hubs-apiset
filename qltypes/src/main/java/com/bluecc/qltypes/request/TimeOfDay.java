@@ -8,10 +8,10 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class TimeOfDay {
-    int hours;
-    int minutes;
-    int seconds;
-    int nanos;
+    Integer hours;
+    Integer minutes;
+    Integer seconds;
+    Integer nanos;
 }
 
 

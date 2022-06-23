@@ -8,9 +8,9 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class Date {
-    int year;
-    int month;
-    int day;
+    Integer year;
+    Integer month;
+    Integer day;
 }
 
 

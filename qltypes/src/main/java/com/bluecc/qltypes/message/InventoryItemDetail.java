@@ -33,12 +33,12 @@ public class InventoryItemDetail implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
-    WorkEffort workEffort;
     String format;
     FieldCatsValue cats;
-    InventoryItem inventoryItem;
+    ModelEntity model;
+    WorkEffort workEffort;
     String proto;
+    InventoryItem inventoryItem;
     @Override
     public String getKey() {
         return id;

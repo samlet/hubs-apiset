@@ -13,19 +13,19 @@ public class ProductCategoryBlueprint {
     ExtractedTokenValue token;
     ProductCategory entity;
     List<ResponseValue> response;
-    ProductCategoryBlueprint addCurrentProductCategoryRollupList;
-    ProductCategoryBlueprint addProductCategoryMember;
     ProductCategoryBlueprint modifyProductCategoryType;
+    ProductCategoryBlueprint removeCurrentProductCategoryRollup;
+    ProductCategoryBlueprint addProductPromoCategoryList;
+    ProductCategoryBlueprint updateProductCategoryMember;
     ProductCategoryBlueprint addProductCategoryMemberList;
     ProductCategoryBlueprint removeProductCategoryMember;
-    ProductCategoryBlueprint removeCurrentProductCategoryRollup;
     ProductCategoryBlueprint removeProductPromoCategory;
-    ProductCategoryBlueprint updateProductCategoryMember;
     ProductCategoryBlueprint updateProductPromoCategory;
-    ProductCategoryBlueprint updateCurrentProductCategoryRollup;
+    ProductCategoryBlueprint addCurrentProductCategoryRollupList;
     ProductCategoryBlueprint addCurrentProductCategoryRollup;
-    ProductCategoryBlueprint addProductPromoCategoryList;
+    ProductCategoryBlueprint addProductCategoryMember;
     ProductCategoryBlueprint addProductPromoCategory;
+    ProductCategoryBlueprint updateCurrentProductCategoryRollup;
 }
 
 

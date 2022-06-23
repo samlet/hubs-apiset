@@ -20,13 +20,13 @@ public class BillingAccount implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     BillingAccountRoleCollection billingAccountRoles;
-    ContactMech contactMech;
-    String format;
-    BillingAccountTermCollection billingAccountTerms;
-    ListItemProtoValue subview;
     String proto;
-    ModelEntity model;
     FieldCatsValue cats;
+    ModelEntity model;
+    ListItemProtoValue subview;
+    ContactMech contactMech;
+    BillingAccountTermCollection billingAccountTerms;
+    String format;
     @Override
     public String getKey() {
         return billingAccountId;

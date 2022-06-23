@@ -13,7 +13,7 @@ public class ProductAssocData {
     String productAssocTypeId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     String reason;
     FixedPoint quantity;
     FixedPoint scrapFactor;

@@ -13,11 +13,11 @@ public class DataResourceBlueprint {
     ExtractedTokenValue token;
     DataResource entity;
     List<ResponseValue> response;
-    DataResourceBlueprint modifyAudioDataResource;
-    DataResourceBlueprint modifyElectronicText;
-    DataResourceBlueprint modifyImageDataResource;
     DataResourceBlueprint modifyVideoDataResource;
+    DataResourceBlueprint modifyImageDataResource;
+    DataResourceBlueprint modifyAudioDataResource;
     DataResourceBlueprint modifyDataResourceType;
+    DataResourceBlueprint modifyElectronicText;
 }
 
 

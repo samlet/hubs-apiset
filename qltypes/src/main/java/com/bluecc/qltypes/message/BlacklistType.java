@@ -14,10 +14,10 @@ public class BlacklistType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String format;
-    String proto;
     FieldCatsValue cats;
     ModelEntity model;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return blacklistTypeId;

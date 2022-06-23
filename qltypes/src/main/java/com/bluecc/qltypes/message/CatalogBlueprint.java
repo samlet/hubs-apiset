@@ -13,10 +13,10 @@ public class CatalogBlueprint {
     ExtractedTokenValue token;
     ProdCatalog entity;
     List<ResponseValue> response;
-    CatalogBlueprint addProdCatalogCategoryList;
-    CatalogBlueprint addProdCatalogCategory;
     CatalogBlueprint updateProdCatalogCategory;
     CatalogBlueprint removeProdCatalogCategory;
+    CatalogBlueprint addProdCatalogCategoryList;
+    CatalogBlueprint addProdCatalogCategory;
 }
 
 

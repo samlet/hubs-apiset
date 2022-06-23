@@ -13,12 +13,12 @@ public class PartyNote implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
     String proto;
-    NoteData noteData;
     FieldCatsValue cats;
     ModelEntity model;
+    String format;
     Party party;
+    NoteData noteData;
     @Override
     public String getKey() {
         return id;

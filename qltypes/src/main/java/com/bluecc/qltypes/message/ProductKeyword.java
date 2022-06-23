@@ -11,16 +11,16 @@ public class ProductKeyword implements WithKey{
     String productId;
     String keyword;
     String keywordTypeId;
-    long relevancyWeight;
+    Long relevancyWeight;
     String statusId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
     Product product;
+    FieldCatsValue cats;
     ModelEntity model;
-    String format;
     String proto;
+    String format;
     @Override
     public String getKey() {
         return id;

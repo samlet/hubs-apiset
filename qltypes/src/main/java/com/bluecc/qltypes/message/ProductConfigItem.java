@@ -18,12 +18,12 @@ public class ProductConfigItem implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     ModelEntity model;
-    FieldCatsValue cats;
-    String format;
-    String proto;
-    ListItemProtoValue subview;
     ProductConfigProductCollection configItemProductConfigProducts;
     ProductConfigOptionCollection configItemProductConfigOptions;
+    FieldCatsValue cats;
+    ListItemProtoValue subview;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return configItemId;

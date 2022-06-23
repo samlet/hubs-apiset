@@ -23,17 +23,17 @@ public class Agreement implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    Party toParty;
-    AgreementTermCollection agreementTerms;
-    String proto;
-    ModelEntity model;
-    AgreementProductApplCollection agreementProductAppls;
-    Product product;
     String format;
+    AgreementTermCollection agreementTerms;
+    Party toParty;
+    FieldCatsValue cats;
+    Product product;
+    String proto;
+    AgreementProductApplCollection agreementProductAppls;
+    AgreementItemCollection agreementItems;
     Party fromParty;
     ListItemProtoValue subview;
-    FieldCatsValue cats;
-    AgreementItemCollection agreementItems;
+    ModelEntity model;
     @Override
     public String getKey() {
         return agreementId;

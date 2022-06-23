@@ -13,11 +13,11 @@ public class AudioDataResource implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    DataResource dataResource;
-    ModelEntity model;
-    String format;
-    String proto;
     FieldCatsValue cats;
+    String proto;
+    DataResource dataResource;
+    String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return dataResourceId;

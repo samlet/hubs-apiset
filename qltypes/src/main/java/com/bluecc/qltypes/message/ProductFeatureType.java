@@ -15,10 +15,10 @@ public class ProductFeatureType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
     String format;
-    FieldCatsValue cats;
     ModelEntity model;
+    FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return productFeatureTypeId;

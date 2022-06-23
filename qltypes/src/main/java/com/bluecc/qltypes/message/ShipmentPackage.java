@@ -22,11 +22,11 @@ public class ShipmentPackage implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
     String proto;
-    FieldCatsValue cats;
     Shipment shipment;
+    String format;
     ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

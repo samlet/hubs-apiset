@@ -16,9 +16,9 @@ public class DataResourceType implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     ModelEntity model;
-    String proto;
     FieldCatsValue cats;
     String format;
+    String proto;
     @Override
     public String getKey() {
         return dataResourceTypeId;

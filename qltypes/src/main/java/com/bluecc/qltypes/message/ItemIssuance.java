@@ -24,13 +24,13 @@ public class ItemIssuance implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    UserLogin issuedByUserLogin;
-    String format;
-    InventoryItem inventoryItem;
-    Shipment shipment;
     String proto;
-    FieldCatsValue cats;
+    Shipment shipment;
+    InventoryItem inventoryItem;
     OrderHeader orderHeader;
+    UserLogin issuedByUserLogin;
+    FieldCatsValue cats;
+    String format;
     ModelEntity model;
     @Override
     public String getKey() {

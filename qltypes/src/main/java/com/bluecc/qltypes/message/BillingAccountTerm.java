@@ -12,16 +12,16 @@ public class BillingAccountTerm implements WithKey{
     String billingAccountId;
     String termTypeId;
     CurrencyValue termValue;
-    long termDays;
+    Long termDays;
     String uomId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
     FieldCatsValue cats;
-    String format;
-    BillingAccount billingAccount;
-    String proto;
     ModelEntity model;
+    BillingAccount billingAccount;
+    String format;
+    String proto;
     @Override
     public String getKey() {
         return billingAccountTermId;

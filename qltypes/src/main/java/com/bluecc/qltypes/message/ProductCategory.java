@@ -23,15 +23,15 @@ public class ProductCategory implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     ProductCollection primaryProducts;
+    String format;
+    ProductCategory primaryParentProductCategory;
+    ModelEntity model;
     FieldCatsValue cats;
     ProductCategoryMemberCollection productCategoryMembers;
-    ProductCategory primaryParentProductCategory;
-    ProductPromoCategoryCollection productPromoCategories;
-    ModelEntity model;
-    String format;
-    TypesEntity type;
-    ProductCategoryRollupCollection currentProductCategoryRollups;
     String proto;
+    ProductPromoCategoryCollection productPromoCategories;
+    ProductCategoryRollupCollection currentProductCategoryRollups;
+    TypesEntity type;
     ListItemProtoValue subview;
     @Override
     public String getKey() {

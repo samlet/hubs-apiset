@@ -15,8 +15,8 @@ public class ProductCategoryType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
     ModelEntity model;
+    FieldCatsValue cats;
     String proto;
     String format;
     @Override

@@ -16,12 +16,12 @@ public class TypesEntityStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    String format;
-    TypesEntity typesEntity;
     ModelEntity model;
     FieldCatsValue cats;
+    String format;
     UserLogin userLogin;
+    String proto;
+    TypesEntity typesEntity;
     @Override
     public String getKey() {
         return id;

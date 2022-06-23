@@ -13,11 +13,11 @@ public class VideoDataResource implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
     String proto;
+    String format;
     ModelEntity model;
     DataResource dataResource;
-    String format;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return dataResourceId;

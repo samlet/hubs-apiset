@@ -17,12 +17,12 @@ public class FacilityContactMech implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    ModelEntity model;
     ContactMech contactMech;
-    Facility facility;
     String format;
     String proto;
+    ModelEntity model;
+    FieldCatsValue cats;
+    Facility facility;
     @Override
     public String getKey() {
         return id;

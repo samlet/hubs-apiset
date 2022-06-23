@@ -15,8 +15,8 @@ public class ShoppingListType implements WithKey{
     String tenantId;
     String format;
     FieldCatsValue cats;
-    String proto;
     ModelEntity model;
+    String proto;
     @Override
     public String getKey() {
         return shoppingListTypeId;

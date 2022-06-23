@@ -47,16 +47,16 @@ public class ShipmentRouteSegment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Shipment shipment;
-    ContactMech destContactMech;
-    FieldCatsValue cats;
-    ModelEntity model;
     Party carrierParty;
     String format;
     Facility originFacility;
+    FieldCatsValue cats;
+    ContactMech destContactMech;
+    ModelEntity model;
     String proto;
-    ContactMech originContactMech;
     Facility destFacility;
+    ContactMech originContactMech;
+    Shipment shipment;
     @Override
     public String getKey() {
         return id;

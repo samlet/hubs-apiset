@@ -20,13 +20,13 @@ public class BlacklistItem implements WithKey{
     String tenantId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
-    Blacklist blacklist;
-    String proto;
-    UserLogin blockByLogin;
-    ModelEntity model;
     UserLogin login;
-    String format;
+    ModelEntity model;
+    Blacklist blacklist;
+    UserLogin blockByLogin;
+    String proto;
     FieldCatsValue cats;
+    String format;
     @Override
     public String getKey() {
         return blacklistItemId;

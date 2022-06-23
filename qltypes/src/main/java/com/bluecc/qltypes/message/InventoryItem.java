@@ -37,20 +37,20 @@ public class InventoryItem implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    InventoryItemDetailCollection inventoryItemDetails;
     InventoryItemStatusCollection inventoryItemStatuses;
+    TypesEntity type;
+    Product product;
+    Party ownerParty;
+    InventoryItemDetailCollection inventoryItemDetails;
     ListItemProtoValue subview;
-    FixedAsset fixedAssetFixedAsset;
+    String proto;
+    Facility facility;
+    ModelEntity model;
     Party party;
     FieldCatsValue cats;
-    TypesEntity type;
     String format;
-    Party ownerParty;
+    FixedAsset fixedAssetFixedAsset;
     InventoryTransferCollection inventoryTransfers;
-    String proto;
-    Product product;
-    ModelEntity model;
-    Facility facility;
     @Override
     public String getKey() {
         return inventoryItemId;

@@ -16,17 +16,17 @@ public class ProductStoreGroup implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ProductStoreCollection primaryProductStores;
-    ProductStoreGroupRoleCollection productStoreGroupRoles;
-    ProductStoreGroup primaryParentProductStoreGroup;
-    String proto;
-    ProductStoreGroupMemberCollection productStoreGroupMembers;
     FieldCatsValue cats;
-    TypesEntity type;
     ModelEntity model;
-    ListItemProtoValue subview;
-    VendorProductCollection vendorProducts;
+    ProductStoreGroup primaryParentProductStoreGroup;
+    ProductStoreGroupRoleCollection productStoreGroupRoles;
     String format;
+    TypesEntity type;
+    ListItemProtoValue subview;
+    ProductStoreGroupMemberCollection productStoreGroupMembers;
+    ProductStoreCollection primaryProductStores;
+    String proto;
+    VendorProductCollection vendorProducts;
     @Override
     public String getKey() {
         return productStoreGroupId;

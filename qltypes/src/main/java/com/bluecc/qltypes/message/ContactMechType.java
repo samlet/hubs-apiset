@@ -15,9 +15,9 @@ public class ContactMechType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
-    String format;
     FieldCatsValue cats;
+    String format;
+    String proto;
     ModelEntity model;
     @Override
     public String getKey() {

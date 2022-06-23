@@ -17,11 +17,11 @@ public class ProductPromoProduct implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
     ModelEntity model;
+    ProductPromo productPromo;
     String proto;
     Product product;
-    ProductPromo productPromo;
+    String format;
     FieldCatsValue cats;
     @Override
     public String getKey() {

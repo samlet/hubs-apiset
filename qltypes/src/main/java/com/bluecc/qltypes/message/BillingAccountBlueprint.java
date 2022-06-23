@@ -14,13 +14,13 @@ public class BillingAccountBlueprint {
     BillingAccount entity;
     List<ResponseValue> response;
     BillingAccountBlueprint removeBillingAccountRole;
-    BillingAccountBlueprint addBillingAccountRoleList;
     BillingAccountBlueprint addBillingAccountRole;
-    BillingAccountBlueprint addBillingAccountTerm;
-    BillingAccountBlueprint addBillingAccountTermList;
-    BillingAccountBlueprint updateBillingAccountTerm;
-    BillingAccountBlueprint updateBillingAccountRole;
     BillingAccountBlueprint removeBillingAccountTerm;
+    BillingAccountBlueprint addBillingAccountRoleList;
+    BillingAccountBlueprint addBillingAccountTerm;
+    BillingAccountBlueprint updateBillingAccountRole;
+    BillingAccountBlueprint updateBillingAccountTerm;
+    BillingAccountBlueprint addBillingAccountTermList;
 }
 
 

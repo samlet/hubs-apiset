@@ -17,12 +17,12 @@ public class ReturnStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    UserLogin changeByUserLogin;
-    FieldCatsValue cats;
-    ReturnHeader returnHeader;
-    String format;
-    String proto;
     ModelEntity model;
+    String proto;
+    UserLogin changeByUserLogin;
+    String format;
+    ReturnHeader returnHeader;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return returnStatusId;

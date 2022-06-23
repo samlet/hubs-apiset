@@ -13,7 +13,7 @@ public class PostalAddressFlatData {
     String attnName;
     String address1;
     String address2;
-    long houseNumber;
+    Long houseNumber;
     String houseNumberExt;
     String directions;
     String city;

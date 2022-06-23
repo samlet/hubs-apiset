@@ -13,18 +13,18 @@ public class AgreementBlueprint {
     ExtractedTokenValue token;
     Agreement entity;
     List<ResponseValue> response;
-    AgreementBlueprint addAgreementItemList;
     AgreementBlueprint updateAgreementProductAppl;
-    AgreementBlueprint removeAgreementTerm;
-    AgreementBlueprint addAgreementItem;
-    AgreementBlueprint addAgreementProductApplList;
-    AgreementBlueprint removeAgreementProductAppl;
-    AgreementBlueprint addAgreementProductAppl;
+    AgreementBlueprint addAgreementItemList;
     AgreementBlueprint removeAgreementItem;
-    AgreementBlueprint addAgreementTerm;
-    AgreementBlueprint updateAgreementTerm;
+    AgreementBlueprint addAgreementProductApplList;
     AgreementBlueprint updateAgreementItem;
+    AgreementBlueprint addAgreementTerm;
+    AgreementBlueprint removeAgreementTerm;
     AgreementBlueprint addAgreementTermList;
+    AgreementBlueprint addAgreementProductAppl;
+    AgreementBlueprint updateAgreementTerm;
+    AgreementBlueprint addAgreementItem;
+    AgreementBlueprint removeAgreementProductAppl;
 }
 
 

@@ -14,8 +14,8 @@ public class OrderFactType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
     String format;
+    String proto;
     FieldCatsValue cats;
     ModelEntity model;
     @Override

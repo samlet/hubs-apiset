@@ -11,8 +11,8 @@ public class OrderWithPurchaseOrder {
     String id;
     OrderHeader orderHeader;
     OrderHeaderNoteCollection orderHeaderNotes;
-    String proto;
     ListItemProtoValue subview;
+    String proto;
 }
 
 

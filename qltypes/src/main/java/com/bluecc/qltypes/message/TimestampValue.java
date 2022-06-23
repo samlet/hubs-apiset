@@ -8,12 +8,12 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class TimestampValue {
-    long seconds;
-    int nanos;
-    String china;
-    boolean afterNow;
-    String iso;
+    Long seconds;
+    Integer nanos;
     String localTime;
+    String china;
+    Boolean afterNow;
+    String iso;
 }
 
 

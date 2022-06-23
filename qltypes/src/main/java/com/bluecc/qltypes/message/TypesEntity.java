@@ -11,7 +11,7 @@ public class TypesEntity implements WithKey{
     String entityId;
     String entity;
     String partyContentTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     String enumCode;
     String mimeTypeId;
     String returnTypeId;
@@ -28,7 +28,7 @@ public class TypesEntity implements WithKey{
     String langCode3b;
     String glFiscalTypeId;
     String glJournalId;
-    long termValue;
+    Long termValue;
     String supplierPrefOrderId;
     String langCode3t;
     String perfReviewItemTypeId;
@@ -40,7 +40,7 @@ public class TypesEntity implements WithKey{
     String agreementContentTypeId;
     String statusCode;
     String geoName;
-    double employerPaidPercentage;
+    Double employerPaidPercentage;
     String statusTypeId;
     String labelImageFormat;
     String contactListTypeId;
@@ -87,7 +87,7 @@ public class TypesEntity implements WithKey{
     String sequenceId;
     String geoSecCode;
     String codSurchargeCurrencyUomId;
-    long numericCode;
+    Long numericCode;
     String privilegeEnumId;
     String returnAdjustmentTypeId;
     String contentAssocPredicateId;
@@ -118,7 +118,7 @@ public class TypesEntity implements WithKey{
     String finAccountTransTypeId;
     String contactMechPurposeTypeId;
     String glAccountGroupTypeId;
-    long periodLength;
+    Long periodLength;
     String countryName;
     String glXbrlClassId;
     String segmentGroupTypeId;
@@ -174,7 +174,7 @@ public class TypesEntity implements WithKey{
     String uomId;
     String applEnumId;
     String headVersion;
-    long perMilliSecond;
+    Long perMilliSecond;
     String customMethodTypeId;
     String prodCatContentTypeId;
     String shipperPickupType;
@@ -187,7 +187,7 @@ public class TypesEntity implements WithKey{
     String roleTypeIdValidFrom;
     String extension;
     String communicationEventPrpTypId;
-    long decimalScale;
+    Long decimalScale;
     String rateEstimateTemplate;
     String contentTypeId;
     String glAccountId;
@@ -236,7 +236,7 @@ public class TypesEntity implements WithKey{
     String shipmentGatewayConfTypeId;
     String returnHeaderTypeId;
     String geoId;
-    long connectTimeout;
+    Long connectTimeout;
     String deductionTypeId;
     CurrencyValue openingBalance;
     String glAccountGroupId;
@@ -259,9 +259,9 @@ public class TypesEntity implements WithKey{
     String leaveTypeId;
     String taxAuthorityRateTypeId;
     String customTimePeriodId;
-    long periodNum;
+    Long periodNum;
     String geoTypeId;
-    double conversionFactor;
+    Double conversionFactor;
     String documentTypeId;
     String defaultDropoffType;
     String orderTypeId;
@@ -297,7 +297,7 @@ public class TypesEntity implements WithKey{
     String paymentGatewayConfigTypeId;
     String defaultReturnLabelSubject;
     String langCharset;
-    long maxEstimateWeight;
+    Long maxEstimateWeight;
     String characterSetId;
     String customMethodId;
     String paymentGroupTypeId;
@@ -312,13 +312,13 @@ public class TypesEntity implements WithKey{
     String tenantId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
-    ListItemProtoValue subview;
-    String format;
-    String proto;
-    TypesEntityStatusCollection typesEntityStatuses;
     ModelEntity model;
-    FieldCatsValue cats;
     TypesEntity type;
+    ListItemProtoValue subview;
+    String proto;
+    String format;
+    FieldCatsValue cats;
+    TypesEntityStatusCollection typesEntityStatuses;
     ProductType asProductType;
     @Override
     public String getKey() {

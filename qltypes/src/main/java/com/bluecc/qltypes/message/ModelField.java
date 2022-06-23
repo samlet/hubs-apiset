@@ -10,9 +10,9 @@ import java.util.List;
 public class ModelField {
     String name;
     String type;
-    boolean pk;
-    boolean notNull;
-    boolean internal;
+    Boolean pk;
+    Boolean notNull;
+    Boolean internal;
 }
 
 

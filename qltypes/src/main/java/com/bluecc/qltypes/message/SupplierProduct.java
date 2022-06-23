@@ -32,11 +32,11 @@ public class SupplierProduct implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     Product product;
-    String format;
-    FieldCatsValue cats;
     ModelEntity model;
-    Party party;
+    FieldCatsValue cats;
     String proto;
+    String format;
+    Party party;
     @Override
     public String getKey() {
         return id;

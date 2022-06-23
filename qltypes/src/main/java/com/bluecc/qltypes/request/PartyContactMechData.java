@@ -17,8 +17,8 @@ public class PartyContactMechData {
     String extension;
     String verified;
     String comments;
-    long yearsWithContactMech;
-    long monthsWithContactMech;
+    Long yearsWithContactMech;
+    Long monthsWithContactMech;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

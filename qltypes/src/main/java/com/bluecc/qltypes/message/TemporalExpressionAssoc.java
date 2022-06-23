@@ -14,12 +14,12 @@ public class TemporalExpressionAssoc implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    String proto;
+    TemporalExpression toTemporalExpression;
+    ModelEntity model;
     TemporalExpression fromTemporalExpression;
     String format;
     FieldCatsValue cats;
-    ModelEntity model;
-    TemporalExpression toTemporalExpression;
-    String proto;
     @Override
     public String getKey() {
         return id;

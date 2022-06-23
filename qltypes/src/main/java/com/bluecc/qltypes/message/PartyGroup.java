@@ -13,7 +13,7 @@ public class PartyGroup implements WithKey{
     String groupNameLocal;
     String officeSiteName;
     CurrencyValue annualRevenue;
-    long numEmployees;
+    Long numEmployees;
     String tickerSymbol;
     String comments;
     String logoImageUrl;
@@ -21,10 +21,10 @@ public class PartyGroup implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     String format;
-    ModelEntity model;
     String proto;
-    Party party;
     FieldCatsValue cats;
+    Party party;
+    ModelEntity model;
     @Override
     public String getKey() {
         return partyId;

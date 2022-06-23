@@ -13,7 +13,7 @@ public class ProductFeatureApplData {
     String productFeatureApplTypeId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     Currency amount;
     Currency recurringAmount;
     Timestamp lastUpdatedTxStamp;

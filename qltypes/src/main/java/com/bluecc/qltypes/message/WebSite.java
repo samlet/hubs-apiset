@@ -31,9 +31,9 @@ public class WebSite implements WithKey{
     FieldCatsValue cats;
     String proto;
     ProductStore productStore;
-    ListItemProtoValue subview;
-    String format;
     ModelEntity model;
+    String format;
+    ListItemProtoValue subview;
     @Override
     public String getKey() {
         return webSiteId;

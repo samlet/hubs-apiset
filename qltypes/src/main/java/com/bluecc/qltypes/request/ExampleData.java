@@ -15,7 +15,7 @@ public class ExampleData {
     String description;
     String longDescription;
     String comments;
-    long exampleSize;
+    Long exampleSize;
     Timestamp exampleDate;
     Timestamp anotherDate;
     String anotherText;

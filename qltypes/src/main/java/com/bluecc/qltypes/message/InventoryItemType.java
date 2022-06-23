@@ -16,9 +16,9 @@ public class InventoryItemType implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     FieldCatsValue cats;
-    ModelEntity model;
     String proto;
     String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return inventoryItemTypeId;

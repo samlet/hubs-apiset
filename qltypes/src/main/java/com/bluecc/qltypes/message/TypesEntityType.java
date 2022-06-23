@@ -14,10 +14,10 @@ public class TypesEntityType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String format;
-    FieldCatsValue cats;
-    ModelEntity model;
     String proto;
+    FieldCatsValue cats;
+    String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return typesEntityTypeId;

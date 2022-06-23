@@ -12,9 +12,9 @@ public class ContactMechCollection {
     String nextPageToken;
     String regionId;
     List<ContactMechWithEmailAddress> matchEmailAddress;
+    List<ContactMechWithTelecomNumber> matchTelecomNumber;
     List<ContactMechWithPostalAddress> matchPostalAddress;
     ContactMechCollection filter;
-    List<ContactMechWithTelecomNumber> matchTelecomNumber;
 }
 
 

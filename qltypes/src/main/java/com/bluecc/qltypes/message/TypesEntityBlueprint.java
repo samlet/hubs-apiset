@@ -14,10 +14,10 @@ public class TypesEntityBlueprint {
     TypesEntity entity;
     List<ResponseValue> response;
     TypesEntityBlueprint addTypesEntityStatus;
-    TypesEntityBlueprint modifyTypesEntityType;
     TypesEntityBlueprint addTypesEntityStatusList;
-    TypesEntityBlueprint updateTypesEntityStatus;
+    TypesEntityBlueprint modifyTypesEntityType;
     TypesEntityBlueprint removeTypesEntityStatus;
+    TypesEntityBlueprint updateTypesEntityStatus;
 }
 
 

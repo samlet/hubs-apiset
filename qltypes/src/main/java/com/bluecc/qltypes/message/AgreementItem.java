@@ -18,9 +18,9 @@ public class AgreementItem implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     ModelEntity model;
+    FieldCatsValue cats;
     String proto;
     String format;
-    FieldCatsValue cats;
     Agreement agreement;
     @Override
     public String getKey() {

@@ -13,7 +13,7 @@ public class PostalAddress implements WithKey{
     String attnName;
     String address1;
     String address2;
-    long houseNumber;
+    Long houseNumber;
     String houseNumberExt;
     String directions;
     String city;
@@ -29,11 +29,11 @@ public class PostalAddress implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
-    FieldCatsValue cats;
     String format;
     ModelEntity model;
     ContactMech contactMech;
+    String proto;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return contactMechId;

@@ -18,6 +18,11 @@ message RawResultSet{
   repeated bytes data=2;
 }
 
+message RawInvos{
+  string proto=1;
+  string tx_id=2;
+}
+
 message MirrorProto {
   enum Type {
     MAIN = 0;

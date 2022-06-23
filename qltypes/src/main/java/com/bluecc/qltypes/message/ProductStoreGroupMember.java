@@ -12,16 +12,16 @@ public class ProductStoreGroupMember implements WithKey{
     String productStoreGroupId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    String format;
     FieldCatsValue cats;
-    ProductStoreGroup productStoreGroup;
-    ProductStore productStore;
     ModelEntity model;
     String proto;
-    String format;
+    ProductStoreGroup productStoreGroup;
+    ProductStore productStore;
     @Override
     public String getKey() {
         return id;

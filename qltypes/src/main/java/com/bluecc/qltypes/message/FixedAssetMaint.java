@@ -21,12 +21,12 @@ public class FixedAssetMaint implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    ModelEntity model;
+    OrderHeader purchaseOrderHeader;
+    WorkEffort scheduleWorkEffort;
     String format;
     FixedAsset fixedAsset;
     String proto;
-    OrderHeader purchaseOrderHeader;
-    WorkEffort scheduleWorkEffort;
-    ModelEntity model;
     FieldCatsValue cats;
     @Override
     public String getKey() {

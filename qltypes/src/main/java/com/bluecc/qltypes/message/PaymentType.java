@@ -15,10 +15,10 @@ public class PaymentType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    ModelEntity model;
     String format;
     FieldCatsValue cats;
     String proto;
-    ModelEntity model;
     @Override
     public String getKey() {
         return paymentTypeId;

@@ -13,14 +13,14 @@ public class ProductConfigItemBlueprint {
     ExtractedTokenValue token;
     ProductConfigItem entity;
     List<ResponseValue> response;
-    ProductConfigItemBlueprint removeConfigItemProductConfigProduct;
     ProductConfigItemBlueprint updateConfigItemProductConfigOption;
-    ProductConfigItemBlueprint addConfigItemProductConfigOption;
-    ProductConfigItemBlueprint updateConfigItemProductConfigProduct;
+    ProductConfigItemBlueprint addConfigItemProductConfigOptionList;
     ProductConfigItemBlueprint addConfigItemProductConfigProductList;
     ProductConfigItemBlueprint removeConfigItemProductConfigOption;
-    ProductConfigItemBlueprint addConfigItemProductConfigOptionList;
+    ProductConfigItemBlueprint addConfigItemProductConfigOption;
     ProductConfigItemBlueprint addConfigItemProductConfigProduct;
+    ProductConfigItemBlueprint removeConfigItemProductConfigProduct;
+    ProductConfigItemBlueprint updateConfigItemProductConfigProduct;
 }
 
 

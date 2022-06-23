@@ -19,7 +19,7 @@ public class UserLoginFlatData {
     String lastLocale;
     String lastTimeZone;
     Timestamp disabledDateTime;
-    long successiveFailedLogins;
+    Long successiveFailedLogins;
     String externalAuthId;
     String userLdapDn;
     String disabledBy;

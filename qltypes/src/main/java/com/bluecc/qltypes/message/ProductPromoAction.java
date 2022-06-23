@@ -23,11 +23,11 @@ public class ProductPromoAction implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    FieldCatsValue cats;
-    ProductPromo productPromo;
     ModelEntity model;
     String format;
+    ProductPromo productPromo;
+    FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return id;

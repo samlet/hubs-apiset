@@ -44,13 +44,13 @@ public class OrderAdjustment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
-    FieldCatsValue cats;
-    String format;
+    ModelEntity model;
     UserLogin userLogin;
     ProductPromo productPromo;
+    FieldCatsValue cats;
     OrderHeader orderHeader;
-    ModelEntity model;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return orderAdjustmentId;

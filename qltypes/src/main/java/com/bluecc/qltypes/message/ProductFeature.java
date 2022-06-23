@@ -15,18 +15,18 @@ public class ProductFeature implements WithKey{
     String uomId;
     FixedPointValue numberSpecified;
     CurrencyValue defaultAmount;
-    long defaultSequenceNum;
+    Long defaultSequenceNum;
     String abbrev;
     String idCode;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String format;
     String proto;
+    ModelEntity model;
     ProductFeatureCategory productFeatureCategory;
+    String format;
     ListItemProtoValue subview;
     FieldCatsValue cats;
-    ModelEntity model;
     TypesEntity type;
     @Override
     public String getKey() {

@@ -14,12 +14,12 @@ public class ProductStoreGroupRole implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Party party;
     ModelEntity model;
-    String proto;
     ProductStoreGroup productStoreGroup;
-    FieldCatsValue cats;
     String format;
+    FieldCatsValue cats;
+    Party party;
+    String proto;
     @Override
     public String getKey() {
         return id;

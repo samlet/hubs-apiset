@@ -14,11 +14,11 @@ public class ProductPromoRule implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
     String format;
     String proto;
-    ProductPromo productPromo;
+    ModelEntity model;
     FieldCatsValue cats;
+    ProductPromo productPromo;
     @Override
     public String getKey() {
         return id;

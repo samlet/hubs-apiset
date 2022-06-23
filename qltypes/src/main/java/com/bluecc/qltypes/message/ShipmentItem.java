@@ -16,11 +16,11 @@ public class ShipmentItem implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    ModelEntity model;
-    FieldCatsValue cats;
     Product product;
     Shipment shipment;
+    ModelEntity model;
+    String format;
+    FieldCatsValue cats;
     String proto;
     @Override
     public String getKey() {

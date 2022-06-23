@@ -13,11 +13,11 @@ public class ImageDataResource implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
-    String format;
-    ModelEntity model;
     DataResource dataResource;
+    String format;
     String proto;
+    FieldCatsValue cats;
+    ModelEntity model;
     @Override
     public String getKey() {
         return dataResourceId;

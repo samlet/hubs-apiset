@@ -15,12 +15,12 @@ public class InvoiceStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Invoice invoice;
     UserLogin changeByUserLogin;
-    ModelEntity model;
-    String proto;
-    FieldCatsValue cats;
     String format;
+    String proto;
+    Invoice invoice;
+    FieldCatsValue cats;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

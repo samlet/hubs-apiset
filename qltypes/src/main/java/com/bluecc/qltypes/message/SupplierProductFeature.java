@@ -16,12 +16,12 @@ public class SupplierProductFeature implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    String proto;
+    Party party;
     String format;
+    ProductFeature productFeature;
     FieldCatsValue cats;
     ModelEntity model;
-    String proto;
-    ProductFeature productFeature;
-    Party party;
     @Override
     public String getKey() {
         return id;

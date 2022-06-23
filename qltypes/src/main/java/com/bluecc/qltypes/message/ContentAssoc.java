@@ -15,10 +15,10 @@ public class ContentAssoc implements WithKey{
     TimestampValue thruDate;
     String contentAssocPredicateId;
     String dataSourceId;
-    long sequenceNum;
+    Long sequenceNum;
     String mapKey;
-    long upperCoordinate;
-    long leftCoordinate;
+    Long upperCoordinate;
+    Long leftCoordinate;
     TimestampValue createdDate;
     String createdByUserLogin;
     TimestampValue lastModifiedDate;
@@ -26,14 +26,14 @@ public class ContentAssoc implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    Content toContent;
-    FieldCatsValue cats;
     Content fromContent;
-    UserLogin lastmodifiedbyuserlogin;
-    UserLogin createdbyuserlogin;
-    String format;
+    FieldCatsValue cats;
     ModelEntity model;
+    String proto;
+    UserLogin lastmodifiedbyuserlogin;
+    String format;
+    Content toContent;
+    UserLogin createdbyuserlogin;
     @Override
     public String getKey() {
         return id;

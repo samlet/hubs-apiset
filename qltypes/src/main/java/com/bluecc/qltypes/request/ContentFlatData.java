@@ -25,8 +25,8 @@ public class ContentFlatData {
     String localeString;
     String mimeTypeId;
     String characterSetId;
-    long childLeafCount;
-    long childBranchCount;
+    Long childLeafCount;
+    Long childBranchCount;
     Timestamp createdDate;
     String createdByUserLogin;
     Timestamp lastModifiedDate;

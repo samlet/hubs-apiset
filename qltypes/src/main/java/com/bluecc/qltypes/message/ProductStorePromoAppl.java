@@ -12,17 +12,17 @@ public class ProductStorePromoAppl implements WithKey{
     String productPromoId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     String manualOnly;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ProductStore productStore;
-    ModelEntity model;
     ProductPromo productPromo;
-    FieldCatsValue cats;
-    String proto;
     String format;
+    ProductStore productStore;
+    FieldCatsValue cats;
+    ModelEntity model;
+    String proto;
     @Override
     public String getKey() {
         return id;

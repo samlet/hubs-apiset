@@ -15,12 +15,12 @@ public class SecurityGroupPermission implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
     String format;
-    SecurityGroup securityGroup;
-    SecurityPermission securityPermission;
     FieldCatsValue cats;
     String proto;
+    SecurityPermission securityPermission;
+    ModelEntity model;
+    SecurityGroup securityGroup;
     @Override
     public String getKey() {
         return id;

@@ -19,12 +19,12 @@ public class WorkEffortFixedAssetAssign implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    ModelEntity model;
+    String proto;
     String format;
     FieldCatsValue cats;
-    String proto;
-    FixedAsset fixedAsset;
     WorkEffort workEffort;
-    ModelEntity model;
+    FixedAsset fixedAsset;
     @Override
     public String getKey() {
         return id;

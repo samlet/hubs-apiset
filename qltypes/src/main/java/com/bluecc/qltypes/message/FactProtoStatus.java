@@ -16,12 +16,12 @@ public class FactProtoStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    UserLogin userLogin;
-    ModelEntity model;
     FieldCatsValue cats;
     String format;
     FactProto factProto;
+    UserLogin userLogin;
     String proto;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

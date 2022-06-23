@@ -13,11 +13,11 @@ public class SecurityPermission implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
+    ModelEntity model;
     String format;
     FieldCatsValue cats;
-    ModelEntity model;
     ListItemProtoValue subview;
+    String proto;
     @Override
     public String getKey() {
         return permissionId;

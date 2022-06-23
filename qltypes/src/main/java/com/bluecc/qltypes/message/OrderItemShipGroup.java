@@ -31,18 +31,18 @@ public class OrderItemShipGroup implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
-    Party carrierParty;
-    ContactMech contactMech;
-    String proto;
-    ContactMech telecomContactMech;
-    Facility facility;
-    Party supplierParty;
-    Agreement supplierAgreement;
-    String format;
-    Party vendorParty;
-    FieldCatsValue cats;
     OrderHeader orderHeader;
+    String proto;
+    Agreement supplierAgreement;
+    ContactMech telecomContactMech;
+    ModelEntity model;
+    Facility facility;
+    FieldCatsValue cats;
+    ContactMech contactMech;
+    Party supplierParty;
+    Party vendorParty;
+    Party carrierParty;
+    String format;
     @Override
     public String getKey() {
         return id;

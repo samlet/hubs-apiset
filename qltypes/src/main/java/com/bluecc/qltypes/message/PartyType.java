@@ -15,10 +15,10 @@ public class PartyType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ModelEntity model;
-    String format;
-    FieldCatsValue cats;
     String proto;
+    String format;
+    ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return partyTypeId;

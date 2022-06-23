@@ -11,7 +11,7 @@ public class ExampleItemData {
     String exampleId;
     String exampleItemSeqId;
     String description;
-    double amount;
+    Double amount;
     String amountUomId;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

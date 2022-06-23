@@ -14,15 +14,15 @@ public class ContactMech implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    ContactMechWithTelecomNumber asTelecomNumber;
     TypesEntity type;
+    ModelEntity model;
     String format;
-    ListItemProtoValue subview;
     FieldCatsValue cats;
     String proto;
-    ContactMechWithEmailAddress asEmailAddress;
-    ContactMechWithTelecomNumber asTelecomNumber;
     ContactMechWithPostalAddress asPostalAddress;
-    ModelEntity model;
+    ContactMechWithEmailAddress asEmailAddress;
+    ListItemProtoValue subview;
     @Override
     public String getKey() {
         return contactMechId;

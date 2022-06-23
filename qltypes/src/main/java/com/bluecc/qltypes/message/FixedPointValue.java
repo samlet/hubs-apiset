@@ -8,8 +8,8 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class FixedPointValue {
-    long value;
-    int scalingPosition;
+    Long value;
+    Integer scalingPosition;
     String decimal;
 }
 

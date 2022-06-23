@@ -16,11 +16,11 @@ public class UserPreference implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    String format;
-    ModelEntity model;
     FieldCatsValue cats;
     UserLogin userLogin;
+    ModelEntity model;
+    String format;
+    String proto;
     @Override
     public String getKey() {
         return id;

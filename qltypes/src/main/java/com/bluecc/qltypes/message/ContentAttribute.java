@@ -15,11 +15,11 @@ public class ContentAttribute implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
     String format;
     Content content;
     String proto;
     ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

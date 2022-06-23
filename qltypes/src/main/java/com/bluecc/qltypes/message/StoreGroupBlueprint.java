@@ -13,19 +13,19 @@ public class StoreGroupBlueprint {
     ExtractedTokenValue token;
     ProductStoreGroup entity;
     List<ResponseValue> response;
-    StoreGroupBlueprint removeVendorProduct;
-    StoreGroupBlueprint addProductStoreGroupRole;
-    StoreGroupBlueprint modifyProductStoreGroupType;
-    StoreGroupBlueprint updateVendorProduct;
     StoreGroupBlueprint addProductStoreGroupRoleList;
-    StoreGroupBlueprint addVendorProductList;
-    StoreGroupBlueprint updateProductStoreGroupRole;
-    StoreGroupBlueprint removeProductStoreGroupRole;
-    StoreGroupBlueprint addProductStoreGroupMemberList;
-    StoreGroupBlueprint addVendorProduct;
-    StoreGroupBlueprint removeProductStoreGroupMember;
+    StoreGroupBlueprint modifyProductStoreGroupType;
     StoreGroupBlueprint updateProductStoreGroupMember;
+    StoreGroupBlueprint updateProductStoreGroupRole;
+    StoreGroupBlueprint addProductStoreGroupMemberList;
+    StoreGroupBlueprint addProductStoreGroupRole;
+    StoreGroupBlueprint removeProductStoreGroupMember;
     StoreGroupBlueprint addProductStoreGroupMember;
+    StoreGroupBlueprint addVendorProduct;
+    StoreGroupBlueprint removeProductStoreGroupRole;
+    StoreGroupBlueprint removeVendorProduct;
+    StoreGroupBlueprint addVendorProductList;
+    StoreGroupBlueprint updateVendorProduct;
 }
 
 

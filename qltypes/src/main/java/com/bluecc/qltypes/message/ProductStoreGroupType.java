@@ -13,10 +13,10 @@ public class ProductStoreGroupType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String format;
-    FieldCatsValue cats;
     String proto;
+    FieldCatsValue cats;
     ModelEntity model;
+    String format;
     @Override
     public String getKey() {
         return productStoreGroupTypeId;

@@ -14,7 +14,7 @@ public class ProductConfigOptionData {
     Timestamp thruDate;
     String configOptionName;
     String description;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

@@ -12,17 +12,17 @@ public class ProductCategoryRollup implements WithKey{
     String parentProductCategoryId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
     ModelEntity model;
-    String format;
-    FieldCatsValue cats;
     String proto;
-    ProductCategory currentProductCategory;
+    String format;
     ProductCategory parentProductCategory;
+    ProductCategory currentProductCategory;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

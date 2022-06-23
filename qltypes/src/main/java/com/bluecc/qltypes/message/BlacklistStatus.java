@@ -16,12 +16,12 @@ public class BlacklistStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    UserLogin userLogin;
-    ModelEntity model;
-    String proto;
-    Blacklist blacklist;
     String format;
     FieldCatsValue cats;
+    UserLogin userLogin;
+    String proto;
+    ModelEntity model;
+    Blacklist blacklist;
     @Override
     public String getKey() {
         return id;

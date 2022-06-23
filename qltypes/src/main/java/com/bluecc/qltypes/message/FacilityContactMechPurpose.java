@@ -16,11 +16,11 @@ public class FacilityContactMechPurpose implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    FieldCatsValue cats;
+    Facility facility;
+    String proto;
     ModelEntity model;
     ContactMech contactMech;
-    String proto;
-    Facility facility;
-    FieldCatsValue cats;
     String format;
     @Override
     public String getKey() {

@@ -32,16 +32,16 @@ public class ProductPrice implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    UserLogin createdbyuserlogin;
-    String format;
-    UserLogin lastmodifiedbyuserlogin;
-    String proto;
-    ProductStoreGroup productStoreGroup;
     Product product;
-    FieldCatsValue cats;
-    ModelEntity model;
     Party taxAuthorityParty;
+    ProductStoreGroup productStoreGroup;
+    ModelEntity model;
+    FieldCatsValue cats;
+    UserLogin lastmodifiedbyuserlogin;
+    String format;
+    UserLogin createdbyuserlogin;
     String desc;
+    String proto;
     @Override
     public String getKey() {
         return id;

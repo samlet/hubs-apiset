@@ -13,17 +13,17 @@ public class ProdCatalogCategory implements WithKey{
     String prodCatalogCategoryTypeId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
-    ProdCatalog prodCatalog;
-    ModelEntity model;
-    FieldCatsValue cats;
-    ProductCategory productCategory;
     String format;
+    ProductCategory productCategory;
+    FieldCatsValue cats;
     String proto;
+    ModelEntity model;
+    ProdCatalog prodCatalog;
     @Override
     public String getKey() {
         return id;

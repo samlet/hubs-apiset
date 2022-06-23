@@ -13,18 +13,18 @@ public class ProductCategoryMember implements WithKey{
     TimestampValue fromDate;
     TimestampValue thruDate;
     String comments;
-    long sequenceNum;
+    Long sequenceNum;
     FixedPointValue quantity;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
-    String proto;
     Product product;
-    ProductCategory productCategory;
+    String proto;
     FieldCatsValue cats;
-    String format;
+    ProductCategory productCategory;
     ModelEntity model;
+    String format;
     @Override
     public String getKey() {
         return id;

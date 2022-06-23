@@ -13,18 +13,18 @@ public class ContentBlueprint {
     ExtractedTokenValue token;
     Content entity;
     List<ResponseValue> response;
-    ContentBlueprint addContentPurpose;
-    ContentBlueprint addToContentAssoc;
-    ContentBlueprint addContentAttributeList;
-    ContentBlueprint removeToContentAssoc;
-    ContentBlueprint updateContentPurpose;
-    ContentBlueprint removeContentAttribute;
     ContentBlueprint updateToContentAssoc;
+    ContentBlueprint removeContentPurpose;
+    ContentBlueprint addToContentAssoc;
+    ContentBlueprint removeContentAttribute;
+    ContentBlueprint addContentPurpose;
     ContentBlueprint updateContentAttribute;
+    ContentBlueprint addContentAttribute;
     ContentBlueprint addToContentAssocList;
     ContentBlueprint addContentPurposeList;
-    ContentBlueprint removeContentPurpose;
-    ContentBlueprint addContentAttribute;
+    ContentBlueprint removeToContentAssoc;
+    ContentBlueprint updateContentPurpose;
+    ContentBlueprint addContentAttributeList;
 }
 
 

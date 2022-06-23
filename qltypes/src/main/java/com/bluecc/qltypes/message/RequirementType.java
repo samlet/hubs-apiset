@@ -15,10 +15,10 @@ public class RequirementType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    String format;
     ModelEntity model;
     FieldCatsValue cats;
     String proto;
-    String format;
     @Override
     public String getKey() {
         return requirementTypeId;

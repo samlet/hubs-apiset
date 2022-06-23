@@ -26,13 +26,13 @@ public class ReturnItem implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ReturnHeader returnHeader;
-    String format;
+    ModelEntity model;
+    OrderHeader orderHeader;
     Product product;
     String proto;
-    OrderHeader orderHeader;
-    ModelEntity model;
     FieldCatsValue cats;
+    String format;
+    ReturnHeader returnHeader;
     @Override
     public String getKey() {
         return id;

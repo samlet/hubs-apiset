@@ -24,30 +24,30 @@ public class Person implements WithKey{
     String gender;
     DateValue birthDate;
     DateValue deceasedDate;
-    double height;
-    double weight;
+    Double height;
+    Double weight;
     String mothersMaidenName;
     String maritalStatusEnumId;
     String socialSecurityNumber;
     String passportNumber;
     DateValue passportExpireDate;
-    double totalYearsWorkExperience;
+    Double totalYearsWorkExperience;
     String comments;
     String employmentStatusEnumId;
     String residenceStatusEnumId;
     String occupation;
-    long yearsWithEmployer;
-    long monthsWithEmployer;
+    Long yearsWithEmployer;
+    Long monthsWithEmployer;
     String existingCustomer;
     String cardId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
     String proto;
+    FieldCatsValue cats;
     String format;
     ModelEntity model;
     Party party;
-    FieldCatsValue cats;
     @Override
     public String getKey() {
         return partyId;

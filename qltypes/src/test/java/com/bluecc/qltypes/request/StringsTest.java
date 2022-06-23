@@ -18,3 +18,4 @@ public class StringsTest {
         System.out.println(result);
     }
 }
+

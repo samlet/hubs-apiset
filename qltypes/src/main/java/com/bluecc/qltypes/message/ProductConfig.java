@@ -10,7 +10,7 @@ import java.util.List;
 public class ProductConfig implements WithKey{
     String productId;
     String configItemId;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue fromDate;
     String description;
     String longDescription;
@@ -21,12 +21,12 @@ public class ProductConfig implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    String proto;
-    ModelEntity model;
+    Product productProduct;
     FieldCatsValue cats;
     ProductConfigItem configItemProductConfigItem;
-    Product productProduct;
+    ModelEntity model;
+    String format;
+    String proto;
     @Override
     public String getKey() {
         return id;

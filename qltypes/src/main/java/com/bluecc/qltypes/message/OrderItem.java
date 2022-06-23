@@ -61,13 +61,13 @@ public class OrderItem implements WithKey{
     String tenantId;
     UserLogin changeByUserLogin;
     ModelEntity model;
-    String format;
-    String proto;
     InventoryItem fromInventoryItem;
-    ShoppingList addSuggestionsToShoppingList;
-    Product product;
     UserLogin dontcancelsetuserlogin;
     OrderHeader orderHeader;
+    String proto;
+    ShoppingList addSuggestionsToShoppingList;
+    String format;
+    Product product;
     FieldCatsValue cats;
     @Override
     public String getKey() {

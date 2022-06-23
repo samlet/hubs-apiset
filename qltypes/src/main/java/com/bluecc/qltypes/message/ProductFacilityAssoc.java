@@ -14,18 +14,18 @@ public class ProductFacilityAssoc implements WithKey{
     String facilityAssocTypeId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
-    long transitTime;
+    Long sequenceNum;
+    Long transitTime;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    Facility fromFacility;
     String proto;
-    String format;
-    ModelEntity model;
+    Product product;
     Facility toFacility;
     FieldCatsValue cats;
-    Facility fromFacility;
-    Product product;
+    String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

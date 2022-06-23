@@ -36,13 +36,13 @@ public class AcctgTransEntry implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    AcctgTrans acctgTrans;
-    String proto;
     ModelEntity model;
     Party party;
-    FieldCatsValue cats;
+    String proto;
     InventoryItem inventoryItem;
+    FieldCatsValue cats;
     String format;
+    AcctgTrans acctgTrans;
     @Override
     public String getKey() {
         return id;

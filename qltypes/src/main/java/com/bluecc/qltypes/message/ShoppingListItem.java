@@ -23,10 +23,10 @@ public class ShoppingListItem implements WithKey{
     String id;
     ModelEntity model;
     FieldCatsValue cats;
+    ShoppingList shoppingList;
     String proto;
     String format;
     Product product;
-    ShoppingList shoppingList;
     @Override
     public String getKey() {
         return id;

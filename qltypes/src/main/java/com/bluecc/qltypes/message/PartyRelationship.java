@@ -26,13 +26,13 @@ public class PartyRelationship implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
-    SecurityGroup securityGroup;
     FieldCatsValue cats;
-    String proto;
-    ModelEntity model;
-    String format;
     Party fromParty;
     Party toParty;
+    String proto;
+    String format;
+    SecurityGroup securityGroup;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

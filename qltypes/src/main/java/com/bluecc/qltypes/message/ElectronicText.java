@@ -14,10 +14,10 @@ public class ElectronicText implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     String proto;
-    DataResource dataResource;
-    String format;
     ModelEntity model;
     FieldCatsValue cats;
+    DataResource dataResource;
+    String format;
     @Override
     public String getKey() {
         return dataResourceId;

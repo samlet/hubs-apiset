@@ -15,11 +15,11 @@ public class ProductContentData {
     Timestamp thruDate;
     Timestamp purchaseFromDate;
     Timestamp purchaseThruDate;
-    long useCountLimit;
-    long useTime;
+    Long useCountLimit;
+    Long useTime;
     String useTimeUomId;
     String useRoleTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

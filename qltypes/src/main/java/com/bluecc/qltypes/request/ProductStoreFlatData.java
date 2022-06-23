@@ -15,7 +15,7 @@ public class ProductStoreFlatData {
     String title;
     String subtitle;
     String payToPartyId;
-    long daysToCancelNonPay;
+    Long daysToCancelNonPay;
     String manualAuthIsCapture;
     String prorateShipping;
     String prorateTaxes;
@@ -71,8 +71,8 @@ public class ProductStoreFlatData {
     String autoOrderCcTryExp;
     String autoOrderCcTryOtherCards;
     String autoOrderCcTryLaterNsf;
-    long autoOrderCcTryLaterMax;
-    long storeCreditValidDays;
+    Long autoOrderCcTryLaterMax;
+    Long storeCreditValidDays;
     String autoApproveInvoice;
     String autoApproveOrder;
     String shipIfCaptureFails;

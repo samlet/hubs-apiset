@@ -12,7 +12,7 @@ public class ProductStoreFacilityFlatData {
     String facilityId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

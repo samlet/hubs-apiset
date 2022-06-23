@@ -14,26 +14,26 @@ public class InvoiceBlueprint {
     Invoice entity;
     List<ResponseValue> response;
     InvoiceBlueprint addAcctgTransList;
-    InvoiceBlueprint updateAcctgTrans;
-    InvoiceBlueprint addInvoiceItemList;
-    InvoiceBlueprint removeInvoiceStatus;
-    InvoiceBlueprint removeAcctgTrans;
-    InvoiceBlueprint updateInvoiceItem;
-    InvoiceBlueprint addOrderItemBilling;
     InvoiceBlueprint addOrderAdjustmentBilling;
-    InvoiceBlueprint addAcctgTrans;
     InvoiceBlueprint addInvoiceStatus;
-    InvoiceBlueprint addOrderAdjustmentBillingList;
-    InvoiceBlueprint addInvoiceItem;
-    InvoiceBlueprint removeOrderAdjustmentBilling;
-    InvoiceBlueprint updateInvoiceStatus;
-    InvoiceBlueprint updateOrderItemBilling;
-    InvoiceBlueprint addInvoiceStatusList;
     InvoiceBlueprint removeInvoiceItem;
-    InvoiceBlueprint updateOrderAdjustmentBilling;
-    InvoiceBlueprint addOrderItemBillingList;
     InvoiceBlueprint removeOrderItemBilling;
+    InvoiceBlueprint addOrderItemBillingList;
+    InvoiceBlueprint addInvoiceItem;
+    InvoiceBlueprint addOrderAdjustmentBillingList;
+    InvoiceBlueprint removeOrderAdjustmentBilling;
+    InvoiceBlueprint addInvoiceItemList;
+    InvoiceBlueprint addAcctgTrans;
+    InvoiceBlueprint addInvoiceStatusList;
+    InvoiceBlueprint updateOrderAdjustmentBilling;
+    InvoiceBlueprint updateInvoiceItem;
+    InvoiceBlueprint removeInvoiceStatus;
+    InvoiceBlueprint updateOrderItemBilling;
     InvoiceBlueprint modifyInvoiceType;
+    InvoiceBlueprint addOrderItemBilling;
+    InvoiceBlueprint updateAcctgTrans;
+    InvoiceBlueprint updateInvoiceStatus;
+    InvoiceBlueprint removeAcctgTrans;
 }
 
 

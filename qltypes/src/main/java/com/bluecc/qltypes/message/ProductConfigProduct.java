@@ -12,16 +12,16 @@ public class ProductConfigProduct implements WithKey{
     String configOptionId;
     String productId;
     FixedPointValue quantity;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     Product productProduct;
-    FieldCatsValue cats;
-    ModelEntity model;
+    String proto;
     ProductConfigItem configItemProductConfigItem;
     String format;
-    String proto;
+    ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

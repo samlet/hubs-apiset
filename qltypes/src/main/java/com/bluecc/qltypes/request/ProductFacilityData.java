@@ -12,7 +12,7 @@ public class ProductFacilityData {
     String facilityId;
     FixedPoint minimumStock;
     FixedPoint reorderQuantity;
-    long daysToShip;
+    Long daysToShip;
     String replenishMethodEnumId;
     FixedPoint lastInventoryCount;
     String requirementMethodEnumId;

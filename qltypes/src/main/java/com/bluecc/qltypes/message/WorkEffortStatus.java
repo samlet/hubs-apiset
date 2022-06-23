@@ -16,12 +16,12 @@ public class WorkEffortStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    FieldCatsValue cats;
     String proto;
-    UserLogin setbyuserlogin;
     ModelEntity model;
+    UserLogin setbyuserlogin;
     String format;
     WorkEffort workEffort;
-    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

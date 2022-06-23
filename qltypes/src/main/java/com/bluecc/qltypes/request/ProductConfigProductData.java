@@ -12,7 +12,7 @@ public class ProductConfigProductData {
     String configOptionId;
     String productId;
     FixedPoint quantity;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

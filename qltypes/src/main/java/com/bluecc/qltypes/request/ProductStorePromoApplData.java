@@ -12,7 +12,7 @@ public class ProductStorePromoApplData {
     String productPromoId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     String manualOnly;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

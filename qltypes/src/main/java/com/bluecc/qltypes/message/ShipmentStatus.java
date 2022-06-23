@@ -15,11 +15,11 @@ public class ShipmentStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    Shipment shipment;
+    String proto;
     FieldCatsValue cats;
     String format;
     UserLogin changeByUserLogin;
-    Shipment shipment;
-    String proto;
     ModelEntity model;
     @Override
     public String getKey() {

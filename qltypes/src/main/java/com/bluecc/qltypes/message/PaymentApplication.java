@@ -20,14 +20,14 @@ public class PaymentApplication implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
-    FieldCatsValue cats;
-    Payment payment;
-    String format;
-    ModelEntity model;
     Payment toPayment;
+    String proto;
+    ModelEntity model;
+    Payment payment;
     BillingAccount billingAccount;
     Invoice invoice;
+    String format;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return paymentApplicationId;

@@ -26,22 +26,22 @@ public class ReturnHeader implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
-    ContactMech contactMech;
     Facility facility;
-    ReturnItemCollection returnItems;
-    Party party;
-    ReturnItemBillingCollection returnItemBillings;
+    ListItemProtoValue subview;
     FieldCatsValue cats;
-    UserLogin userLogin;
-    ReturnItemShipmentCollection returnItemShipments;
     ReturnAdjustmentCollection returnAdjustments;
-    Party toParty;
+    ReturnItemBillingCollection returnItemBillings;
     ModelEntity model;
     ReturnStatusCollection returnStatuses;
-    ListItemProtoValue subview;
-    String format;
+    String proto;
+    ReturnItemShipmentCollection returnItemShipments;
+    Party toParty;
+    ReturnItemCollection returnItems;
+    ContactMech contactMech;
     BillingAccount billingAccount;
+    UserLogin userLogin;
+    String format;
+    Party party;
     @Override
     public String getKey() {
         return returnId;

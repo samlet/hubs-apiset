@@ -13,11 +13,11 @@ public class ShoppingListBlueprint {
     ExtractedTokenValue token;
     ShoppingList entity;
     List<ResponseValue> response;
-    ShoppingListBlueprint addShoppingListItem;
-    ShoppingListBlueprint removeShoppingListItem;
     ShoppingListBlueprint updateShoppingListItem;
-    CurrencyValue grandTotal;
     ShoppingListBlueprint modifyShoppingListType;
+    ShoppingListBlueprint addShoppingListItem;
+    CurrencyValue grandTotal;
+    ShoppingListBlueprint removeShoppingListItem;
     ShoppingListBlueprint addShoppingListItemList;
 }
 

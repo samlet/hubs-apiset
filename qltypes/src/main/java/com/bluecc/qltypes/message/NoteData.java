@@ -19,12 +19,12 @@ public class NoteData implements WithKey{
     String moreInfoItemId;
     String moreInfoItemName;
     String tenantId;
-    ListItemProtoValue subview;
-    Party noteparty;
     ModelEntity model;
-    String format;
-    String proto;
+    Party noteparty;
+    ListItemProtoValue subview;
     FieldCatsValue cats;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return noteId;

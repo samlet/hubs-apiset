@@ -12,7 +12,7 @@ public class ProductStoreGroupMemberData {
     String productStoreGroupId;
     Timestamp fromDate;
     Timestamp thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

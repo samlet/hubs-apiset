@@ -10,17 +10,17 @@ import java.util.List;
 public class WorkEffortSkillStandard implements WithKey{
     String workEffortId;
     String skillTypeId;
-    double estimatedNumPeople;
-    double estimatedDuration;
+    Double estimatedNumPeople;
+    Double estimatedDuration;
     CurrencyValue estimatedCost;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    String format;
     FieldCatsValue cats;
-    ModelEntity model;
     WorkEffort workEffort;
+    String format;
+    String proto;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

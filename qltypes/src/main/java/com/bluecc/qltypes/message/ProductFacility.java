@@ -12,7 +12,7 @@ public class ProductFacility implements WithKey{
     String facilityId;
     FixedPointValue minimumStock;
     FixedPointValue reorderQuantity;
-    long daysToShip;
+    Long daysToShip;
     String replenishMethodEnumId;
     FixedPointValue lastInventoryCount;
     String requirementMethodEnumId;
@@ -21,10 +21,10 @@ public class ProductFacility implements WithKey{
     String id;
     String format;
     Product product;
-    String proto;
-    FieldCatsValue cats;
-    Facility facility;
     ModelEntity model;
+    String proto;
+    Facility facility;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

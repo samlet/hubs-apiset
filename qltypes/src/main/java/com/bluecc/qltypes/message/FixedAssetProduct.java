@@ -14,18 +14,18 @@ public class FixedAssetProduct implements WithKey{
     TimestampValue fromDate;
     TimestampValue thruDate;
     String comments;
-    long sequenceNum;
+    Long sequenceNum;
     FixedPointValue quantity;
     String quantityUomId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
     Product product;
-    FixedAsset fixedAsset;
-    String format;
-    ModelEntity model;
     FieldCatsValue cats;
+    String format;
+    String proto;
+    FixedAsset fixedAsset;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

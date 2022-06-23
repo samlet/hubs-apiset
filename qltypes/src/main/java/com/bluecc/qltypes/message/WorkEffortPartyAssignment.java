@@ -25,14 +25,14 @@ public class WorkEffortPartyAssignment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    UserLogin assignedByUserLogin;
+    ModelEntity model;
     Facility facility;
     String proto;
-    String format;
-    Party party;
+    UserLogin assignedByUserLogin;
     FieldCatsValue cats;
+    Party party;
+    String format;
     WorkEffort workEffort;
-    ModelEntity model;
     @Override
     public String getKey() {
         return id;

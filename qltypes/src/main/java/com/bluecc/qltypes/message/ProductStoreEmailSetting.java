@@ -20,11 +20,11 @@ public class ProductStoreEmailSetting implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    ProductStore productStore;
     FieldCatsValue cats;
+    String proto;
     ModelEntity model;
     String format;
-    String proto;
-    ProductStore productStore;
     @Override
     public String getKey() {
         return id;

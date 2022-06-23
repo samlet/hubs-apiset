@@ -15,10 +15,10 @@ public class OrderHeaderNote implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     String format;
-    ModelEntity model;
-    String proto;
-    OrderHeader orderHeader;
     FieldCatsValue cats;
+    ModelEntity model;
+    OrderHeader orderHeader;
+    String proto;
     NoteData noteData;
     @Override
     public String getKey() {

@@ -11,8 +11,8 @@ public class ContactMechWithPostalAddress {
     String id;
     ContactMech contactMech;
     PostalAddress postalAddress;
-    ListItemProtoValue subview;
     String proto;
+    ListItemProtoValue subview;
 }
 
 

@@ -13,15 +13,15 @@ public class ExampleBlueprint {
     ExtractedTokenValue token;
     Example entity;
     List<ResponseValue> response;
-    ExampleBlueprint addExampleStatus;
-    ExampleBlueprint modifyExampleType;
-    ExampleBlueprint addExampleItemList;
-    ExampleBlueprint updateExampleItem;
-    ExampleBlueprint removeExampleItem;
     ExampleBlueprint updateExampleStatus;
-    ExampleBlueprint removeExampleStatus;
-    ExampleBlueprint addExampleItem;
     ExampleBlueprint addExampleStatusList;
+    ExampleBlueprint removeExampleStatus;
+    ExampleBlueprint removeExampleItem;
+    ExampleBlueprint addExampleItemList;
+    ExampleBlueprint addExampleItem;
+    ExampleBlueprint modifyExampleType;
+    ExampleBlueprint updateExampleItem;
+    ExampleBlueprint addExampleStatus;
 }
 
 

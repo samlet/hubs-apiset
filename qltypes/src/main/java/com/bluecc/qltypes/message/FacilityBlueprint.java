@@ -13,15 +13,15 @@ public class FacilityBlueprint {
     ExtractedTokenValue token;
     Facility entity;
     List<ResponseValue> response;
-    FacilityBlueprint removeFacilityContactMechPurpose;
-    FacilityBlueprint addFacilityContactMechList;
-    FacilityBlueprint modifyFacilityType;
-    FacilityBlueprint addFacilityContactMech;
-    FacilityBlueprint addFacilityContactMechPurpose;
     FacilityBlueprint removeFacilityContactMech;
-    FacilityBlueprint addFacilityContactMechPurposeList;
     FacilityBlueprint updateFacilityContactMechPurpose;
+    FacilityBlueprint addFacilityContactMech;
+    FacilityBlueprint removeFacilityContactMechPurpose;
+    FacilityBlueprint addFacilityContactMechPurposeList;
+    FacilityBlueprint modifyFacilityType;
     FacilityBlueprint updateFacilityContactMech;
+    FacilityBlueprint addFacilityContactMechList;
+    FacilityBlueprint addFacilityContactMechPurpose;
 }
 
 

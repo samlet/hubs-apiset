@@ -13,16 +13,16 @@ public class ProductStoreRole implements WithKey{
     String productStoreId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    ProductStore productStore;
-    String proto;
-    ModelEntity model;
     FieldCatsValue cats;
     Party party;
+    ProductStore productStore;
+    String format;
+    ModelEntity model;
+    String proto;
     @Override
     public String getKey() {
         return id;

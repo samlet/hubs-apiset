@@ -8,8 +8,8 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class Timestamp {
-    long seconds;
-    int nanos;
+    Long seconds;
+    Integer nanos;
 }
 
 

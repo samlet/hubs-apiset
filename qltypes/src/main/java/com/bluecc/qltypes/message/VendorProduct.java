@@ -14,13 +14,13 @@ public class VendorProduct implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    String format;
-    Product product;
-    Party vendorParty;
     String proto;
-    ProductStoreGroup productStoreGroup;
+    Party vendorParty;
     ModelEntity model;
+    FieldCatsValue cats;
+    Product product;
+    String format;
+    ProductStoreGroup productStoreGroup;
     @Override
     public String getKey() {
         return id;

@@ -31,17 +31,17 @@ public class ShoppingList implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ListItemProtoValue subview;
-    FieldCatsValue cats;
-    ShoppingList parentShoppingList;
     ContactMech contactMech;
-    ModelEntity model;
-    TypesEntity type;
-    String format;
-    Party party;
-    ShoppingListItemCollection shoppingListItems;
     ProductStore productStore;
+    TypesEntity type;
+    FieldCatsValue cats;
+    ModelEntity model;
     String proto;
+    ListItemProtoValue subview;
+    Party party;
+    String format;
+    ShoppingList parentShoppingList;
+    ShoppingListItemCollection shoppingListItems;
     @Override
     public String getKey() {
         return shoppingListId;

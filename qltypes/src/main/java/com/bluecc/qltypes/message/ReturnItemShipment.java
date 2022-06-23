@@ -16,12 +16,12 @@ public class ReturnItemShipment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    String format;
-    String proto;
-    Shipment shipment;
-    ReturnHeader returnHeader;
     ModelEntity model;
+    ReturnHeader returnHeader;
+    String proto;
+    String format;
+    Shipment shipment;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

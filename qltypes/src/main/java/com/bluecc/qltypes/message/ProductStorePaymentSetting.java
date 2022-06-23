@@ -19,8 +19,8 @@ public class ProductStorePaymentSetting implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ProductStore productStore;
     String format;
+    ProductStore productStore;
     String proto;
     ModelEntity model;
     FieldCatsValue cats;

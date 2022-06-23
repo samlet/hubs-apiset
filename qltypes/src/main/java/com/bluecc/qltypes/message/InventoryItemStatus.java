@@ -18,12 +18,12 @@ public class InventoryItemStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    InventoryItem inventoryItem;
-    String proto;
-    ModelEntity model;
-    UserLogin userLogin;
     FieldCatsValue cats;
+    String proto;
+    InventoryItem inventoryItem;
+    UserLogin userLogin;
     String format;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

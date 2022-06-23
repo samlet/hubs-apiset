@@ -16,9 +16,9 @@ public class FixedAssetType implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     FieldCatsValue cats;
-    String proto;
-    String format;
     ModelEntity model;
+    String format;
+    String proto;
     @Override
     public String getKey() {
         return fixedAssetTypeId;

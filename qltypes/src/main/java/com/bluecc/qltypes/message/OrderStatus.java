@@ -20,10 +20,10 @@ public class OrderStatus implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     OrderHeader orderHeader;
-    FieldCatsValue cats;
-    String format;
-    UserLogin userLogin;
     String proto;
+    UserLogin userLogin;
+    String format;
+    FieldCatsValue cats;
     ModelEntity model;
     @Override
     public String getKey() {

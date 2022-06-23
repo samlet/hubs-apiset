@@ -20,14 +20,14 @@ public class ProductReview implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    UserLogin userLogin;
-    FieldCatsValue cats;
-    String proto;
     ListItemProtoValue subview;
-    ModelEntity model;
     Product product;
-    String format;
+    String proto;
     ProductStore productStore;
+    FieldCatsValue cats;
+    String format;
+    ModelEntity model;
+    UserLogin userLogin;
     @Override
     public String getKey() {
         return productReviewId;

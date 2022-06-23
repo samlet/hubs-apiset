@@ -10,14 +10,14 @@ import java.util.List;
 public class ModelEntity {
     String name;
     String title;
-    boolean combine;
+    Boolean combine;
     String description;
     List<ModelEntityFieldsEntry> fields;
     List<ModelEntityRelationsEntry> relations;
     String pkg;
-    String proto;
     StringsValue keys;
     List<ModelRelation> nonAutoRels;
+    String proto;
 }
 
 

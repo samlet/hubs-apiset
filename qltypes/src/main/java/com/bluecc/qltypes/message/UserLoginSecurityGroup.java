@@ -15,12 +15,12 @@ public class UserLoginSecurityGroup implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    SecurityGroup securityGroup;
-    String proto;
+    UserLogin userLogin;
     String format;
     FieldCatsValue cats;
-    UserLogin userLogin;
     ModelEntity model;
+    SecurityGroup securityGroup;
+    String proto;
     @Override
     public String getKey() {
         return id;

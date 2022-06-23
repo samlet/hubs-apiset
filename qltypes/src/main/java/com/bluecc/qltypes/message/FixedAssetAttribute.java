@@ -15,10 +15,10 @@ public class FixedAssetAttribute implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FixedAsset fixedAsset;
-    String format;
     String proto;
     ModelEntity model;
+    String format;
+    FixedAsset fixedAsset;
     FieldCatsValue cats;
     @Override
     public String getKey() {

@@ -13,23 +13,23 @@ public class FixedAssetBlueprint {
     ExtractedTokenValue token;
     FixedAsset entity;
     List<ResponseValue> response;
-    FixedAssetBlueprint addFixedAssetGeoPointList;
+    FixedAssetBlueprint addFixedAssetAttributeList;
+    FixedAssetBlueprint addFixedAssetProductList;
+    FixedAssetBlueprint updateFixedAssetAttribute;
     FixedAssetBlueprint addFixedAssetAttribute;
-    FixedAssetBlueprint updateFixedAssetGeoPoint;
-    FixedAssetBlueprint addFixedAssetProduct;
-    FixedAssetBlueprint addFixedAssetMaint;
-    FixedAssetBlueprint removeFixedAssetGeoPoint;
     FixedAssetBlueprint modifyFixedAssetType;
-    FixedAssetBlueprint updateFixedAssetProduct;
     FixedAssetBlueprint addFixedAssetMaintList;
     FixedAssetBlueprint removeFixedAssetMaint;
-    FixedAssetBlueprint addFixedAssetAttributeList;
     FixedAssetBlueprint removeFixedAssetAttribute;
-    FixedAssetBlueprint updateFixedAssetAttribute;
-    FixedAssetBlueprint addFixedAssetGeoPoint;
     FixedAssetBlueprint removeFixedAssetProduct;
+    FixedAssetBlueprint addFixedAssetProduct;
+    FixedAssetBlueprint removeFixedAssetGeoPoint;
+    FixedAssetBlueprint addFixedAssetGeoPointList;
+    FixedAssetBlueprint updateFixedAssetGeoPoint;
     FixedAssetBlueprint updateFixedAssetMaint;
-    FixedAssetBlueprint addFixedAssetProductList;
+    FixedAssetBlueprint addFixedAssetGeoPoint;
+    FixedAssetBlueprint updateFixedAssetProduct;
+    FixedAssetBlueprint addFixedAssetMaint;
 }
 
 

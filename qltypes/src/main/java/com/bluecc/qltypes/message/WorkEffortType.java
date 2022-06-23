@@ -16,9 +16,9 @@ public class WorkEffortType implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     String format;
-    String proto;
-    FieldCatsValue cats;
     ModelEntity model;
+    FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return workEffortTypeId;

@@ -11,7 +11,7 @@ public class WorkEffortAssocData {
     String workEffortIdFrom;
     String workEffortIdTo;
     String workEffortAssocTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp fromDate;
     Timestamp thruDate;
     Timestamp lastUpdatedTxStamp;

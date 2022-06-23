@@ -13,11 +13,11 @@ public class FactBlueprint {
     ExtractedTokenValue token;
     FactProto entity;
     List<ResponseValue> response;
+    FactBlueprint modifyFactProtoType;
     FactBlueprint addFactProtoStatusList;
+    FactBlueprint removeFactProtoStatus;
     FactBlueprint addFactProtoStatus;
     FactBlueprint updateFactProtoStatus;
-    FactBlueprint removeFactProtoStatus;
-    FactBlueprint modifyFactProtoType;
 }
 
 

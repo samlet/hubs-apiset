@@ -13,14 +13,14 @@ public class PaymentBlueprint {
     ExtractedTokenValue token;
     Payment entity;
     List<ResponseValue> response;
-    PaymentBlueprint addPaymentApplication;
-    PaymentBlueprint addPaymentApplicationList;
-    PaymentBlueprint updateAcctgTrans;
-    PaymentBlueprint updatePaymentApplication;
     PaymentBlueprint addAcctgTransList;
-    PaymentBlueprint addAcctgTrans;
-    PaymentBlueprint removePaymentApplication;
     PaymentBlueprint modifyPaymentGatewayResponse;
+    PaymentBlueprint addPaymentApplicationList;
+    PaymentBlueprint addPaymentApplication;
+    PaymentBlueprint removePaymentApplication;
+    PaymentBlueprint updatePaymentApplication;
+    PaymentBlueprint addAcctgTrans;
+    PaymentBlueprint updateAcctgTrans;
     PaymentBlueprint removeAcctgTrans;
     PaymentBlueprint modifyPaymentType;
 }

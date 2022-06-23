@@ -15,12 +15,12 @@ public class AgreementProductAppl implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    FieldCatsValue cats;
-    ModelEntity model;
     Product product;
     Agreement agreement;
     String proto;
+    ModelEntity model;
+    String format;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

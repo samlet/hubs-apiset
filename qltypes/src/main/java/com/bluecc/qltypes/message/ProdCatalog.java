@@ -20,12 +20,12 @@ public class ProdCatalog implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
-    ListItemProtoValue subview;
     String proto;
-    ProdCatalogCategoryCollection prodCatalogCategories;
-    ModelEntity model;
     String format;
+    ProdCatalogCategoryCollection prodCatalogCategories;
+    ListItemProtoValue subview;
+    ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return prodCatalogId;

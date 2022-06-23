@@ -27,15 +27,15 @@ public class ShipmentReceipt implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FieldCatsValue cats;
-    OrderHeader orderHeader;
     UserLogin userLogin;
-    InventoryItem inventoryItem;
-    Shipment shipment;
     String format;
-    Product product;
-    String proto;
+    InventoryItem inventoryItem;
+    OrderHeader orderHeader;
+    Shipment shipment;
     ModelEntity model;
+    Product product;
+    FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return receiptId;

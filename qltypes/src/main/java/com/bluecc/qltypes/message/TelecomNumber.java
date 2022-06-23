@@ -16,11 +16,11 @@ public class TelecomNumber implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    ContactMech contactMech;
+    String proto;
+    String format;
     FieldCatsValue cats;
     ModelEntity model;
-    String format;
-    String proto;
-    ContactMech contactMech;
     @Override
     public String getKey() {
         return contactMechId;

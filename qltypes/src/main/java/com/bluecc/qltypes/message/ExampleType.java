@@ -16,8 +16,8 @@ public class ExampleType implements WithKey{
     String tenantId;
     String proto;
     ModelEntity model;
-    String format;
     FieldCatsValue cats;
+    String format;
     @Override
     public String getKey() {
         return exampleTypeId;

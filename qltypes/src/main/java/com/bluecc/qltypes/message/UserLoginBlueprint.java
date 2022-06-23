@@ -13,18 +13,18 @@ public class UserLoginBlueprint {
     ExtractedTokenValue token;
     UserLogin entity;
     List<ResponseValue> response;
-    UserLoginBlueprint updateUserLoginPasswordHistory;
-    UserLoginBlueprint updateUserLoginSecurityGroup;
-    UserLoginBlueprint addUserLoginPasswordHistory;
-    UserLoginBlueprint updateUserPreference;
     UserLoginBlueprint addUserPreference;
-    UserLoginBlueprint modifyUserLoginSession;
+    UserLoginBlueprint addUserLoginSecurityGroupList;
+    UserLoginBlueprint updateUserLoginPasswordHistory;
+    UserLoginBlueprint updateUserPreference;
+    UserLoginBlueprint addUserPreferenceList;
     UserLoginBlueprint removeUserLoginPasswordHistory;
+    UserLoginBlueprint removeUserLoginSecurityGroup;
     UserLoginBlueprint addUserLoginSecurityGroup;
     UserLoginBlueprint addUserLoginPasswordHistoryList;
-    UserLoginBlueprint addUserLoginSecurityGroupList;
-    UserLoginBlueprint removeUserLoginSecurityGroup;
-    UserLoginBlueprint addUserPreferenceList;
+    UserLoginBlueprint addUserLoginPasswordHistory;
+    UserLoginBlueprint updateUserLoginSecurityGroup;
+    UserLoginBlueprint modifyUserLoginSession;
     UserLoginBlueprint removeUserPreference;
 }
 

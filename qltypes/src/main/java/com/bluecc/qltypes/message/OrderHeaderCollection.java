@@ -11,9 +11,9 @@ public class OrderHeaderCollection {
     List<OrderHeader> values;
     String nextPageToken;
     String regionId;
-    List<OrderWithPurchaseOrder> matchPurchaseOrder;
-    OrderHeaderCollection filter;
     List<OrderWithSalesOrder> matchSalesOrder;
+    OrderHeaderCollection filter;
+    List<OrderWithPurchaseOrder> matchPurchaseOrder;
 }
 
 

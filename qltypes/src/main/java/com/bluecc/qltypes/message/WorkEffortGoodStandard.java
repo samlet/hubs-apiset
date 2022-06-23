@@ -14,17 +14,17 @@ public class WorkEffortGoodStandard implements WithKey{
     TimestampValue fromDate;
     TimestampValue thruDate;
     String statusId;
-    double estimatedQuantity;
+    Double estimatedQuantity;
     CurrencyValue estimatedCost;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     FieldCatsValue cats;
+    Product product;
     WorkEffort workEffort;
-    ModelEntity model;
     String format;
     String proto;
-    Product product;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

@@ -13,15 +13,15 @@ public class BlacklistBlueprint {
     ExtractedTokenValue token;
     Blacklist entity;
     List<ResponseValue> response;
-    BlacklistBlueprint updateBlacklistStatus;
+    BlacklistBlueprint addBlacklistItem;
+    BlacklistBlueprint modifyBlacklistType;
     BlacklistBlueprint addBlacklistStatus;
+    BlacklistBlueprint addBlacklistItemList;
+    BlacklistBlueprint updateBlacklistItem;
+    BlacklistBlueprint removeBlacklistItem;
+    BlacklistBlueprint updateBlacklistStatus;
     BlacklistBlueprint addBlacklistStatusList;
     BlacklistBlueprint removeBlacklistStatus;
-    BlacklistBlueprint addBlacklistItem;
-    BlacklistBlueprint updateBlacklistItem;
-    BlacklistBlueprint addBlacklistItemList;
-    BlacklistBlueprint removeBlacklistItem;
-    BlacklistBlueprint modifyBlacklistType;
 }
 
 

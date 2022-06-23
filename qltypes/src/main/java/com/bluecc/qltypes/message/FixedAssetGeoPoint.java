@@ -16,10 +16,10 @@ public class FixedAssetGeoPoint implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     FixedAsset fixedAsset;
+    String format;
     String proto;
     ModelEntity model;
     FieldCatsValue cats;
-    String format;
     @Override
     public String getKey() {
         return id;

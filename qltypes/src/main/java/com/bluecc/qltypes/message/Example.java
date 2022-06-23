@@ -15,21 +15,21 @@ public class Example implements WithKey{
     String description;
     String longDescription;
     String comments;
-    long exampleSize;
+    Long exampleSize;
     TimestampValue exampleDate;
     TimestampValue anotherDate;
     String anotherText;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    TypesEntity type;
+    ListItemProtoValue subview;
     ExampleStatusCollection exampleStatuses;
     ExampleItemCollection exampleItems;
-    ListItemProtoValue subview;
     ModelEntity model;
-    String format;
-    FieldCatsValue cats;
     String proto;
+    TypesEntity type;
+    FieldCatsValue cats;
+    String format;
     @Override
     public String getKey() {
         return exampleId;

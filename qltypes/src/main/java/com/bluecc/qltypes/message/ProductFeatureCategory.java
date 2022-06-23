@@ -14,14 +14,14 @@ public class ProductFeatureCategory implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ProductFeatureCategory parentProductFeatureCategory;
+    FieldCatsValue cats;
     ModelEntity model;
     String proto;
-    String format;
-    ListItemProtoValue subview;
+    ProductFeatureCategory parentProductFeatureCategory;
     ProductFeatureCategoryCollection childProductFeatureCategories;
-    FieldCatsValue cats;
+    String format;
     ProductFeatureCollection productFeatures;
+    ListItemProtoValue subview;
     @Override
     public String getKey() {
         return productFeatureCategoryId;

@@ -13,26 +13,26 @@ public class OrderReturnBlueprint {
     ExtractedTokenValue token;
     ReturnHeader entity;
     List<ResponseValue> response;
-    OrderReturnBlueprint addReturnItemShipment;
+    OrderReturnBlueprint addReturnItem;
+    OrderReturnBlueprint addReturnItemBillingList;
+    OrderReturnBlueprint removeReturnItem;
     OrderReturnBlueprint removeReturnItemShipment;
+    OrderReturnBlueprint addReturnStatus;
+    OrderReturnBlueprint updateReturnItemShipment;
+    OrderReturnBlueprint updateReturnItemBilling;
+    OrderReturnBlueprint addReturnItemList;
+    OrderReturnBlueprint addReturnItemShipment;
     OrderReturnBlueprint addReturnItemShipmentList;
+    OrderReturnBlueprint removeReturnItemBilling;
+    OrderReturnBlueprint updateReturnStatus;
     OrderReturnBlueprint removeReturnStatus;
+    OrderReturnBlueprint addReturnAdjustment;
+    OrderReturnBlueprint addReturnAdjustmentList;
     OrderReturnBlueprint updateReturnItem;
     OrderReturnBlueprint removeReturnAdjustment;
     OrderReturnBlueprint updateReturnAdjustment;
-    OrderReturnBlueprint addReturnItemBillingList;
-    OrderReturnBlueprint updateReturnStatus;
-    OrderReturnBlueprint updateReturnItemBilling;
-    OrderReturnBlueprint removeReturnItemBilling;
-    OrderReturnBlueprint addReturnItem;
     OrderReturnBlueprint addReturnItemBilling;
-    OrderReturnBlueprint addReturnStatus;
-    OrderReturnBlueprint addReturnItemList;
-    OrderReturnBlueprint addReturnAdjustment;
-    OrderReturnBlueprint removeReturnItem;
     OrderReturnBlueprint addReturnStatusList;
-    OrderReturnBlueprint addReturnAdjustmentList;
-    OrderReturnBlueprint updateReturnItemShipment;
 }
 
 

@@ -16,19 +16,19 @@ public class AgreementTerm implements WithKey{
     TimestampValue fromDate;
     TimestampValue thruDate;
     CurrencyValue termValue;
-    long termDays;
+    Long termDays;
     String textValue;
-    double minQuantity;
-    double maxQuantity;
+    Double minQuantity;
+    Double maxQuantity;
     String description;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String format;
+    FieldCatsValue cats;
     String proto;
     Agreement agreement;
     ModelEntity model;
-    FieldCatsValue cats;
+    String format;
     @Override
     public String getKey() {
         return agreementTermId;

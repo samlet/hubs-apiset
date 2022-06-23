@@ -14,10 +14,10 @@ public class FactProtoType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ModelEntity model;
-    String proto;
-    FieldCatsValue cats;
     String format;
+    String proto;
+    ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return factProtoTypeId;

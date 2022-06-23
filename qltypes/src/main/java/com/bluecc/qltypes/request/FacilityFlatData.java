@@ -18,14 +18,14 @@ public class FacilityFlatData {
     FixedPoint facilitySize;
     String facilitySizeUomId;
     String productStoreId;
-    long defaultDaysToShip;
+    Long defaultDaysToShip;
     Timestamp openedDate;
     Timestamp closedDate;
     String description;
     String defaultDimensionUomId;
     String defaultWeightUomId;
     String geoPointId;
-    long facilityLevel;
+    Long facilityLevel;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String tenantId;

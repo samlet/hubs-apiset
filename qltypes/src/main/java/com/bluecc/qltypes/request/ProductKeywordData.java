@@ -11,7 +11,7 @@ public class ProductKeywordData {
     String productId;
     String keyword;
     String keywordTypeId;
-    long relevancyWeight;
+    Long relevancyWeight;
     String statusId;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

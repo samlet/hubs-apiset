@@ -35,7 +35,7 @@ public class ProductFlatData {
     String requireInventory;
     String quantityUomId;
     FixedPoint quantityIncluded;
-    long piecesIncluded;
+    Long piecesIncluded;
     String requireAmount;
     Currency fixedAmount;
     String amountUomTypeId;
@@ -65,7 +65,7 @@ public class ProductFlatData {
     String virtualVariantMethodEnum;
     String originGeoId;
     String requirementMethodEnumId;
-    long billOfMaterialLevel;
+    Long billOfMaterialLevel;
     FixedPoint reservMaxPersons;
     FixedPoint reserv2ndPPPerc;
     FixedPoint reservNthPPPerc;

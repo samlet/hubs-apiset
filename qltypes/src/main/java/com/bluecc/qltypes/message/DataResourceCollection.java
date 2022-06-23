@@ -11,11 +11,11 @@ public class DataResourceCollection {
     List<DataResource> values;
     String nextPageToken;
     String regionId;
-    List<DataResourceWithImage> matchImage;
-    List<DataResourceWithAudio> matchAudio;
+    List<DataResourceWithVideo> matchVideo;
     DataResourceCollection filter;
     List<DataResourceWithText> matchText;
-    List<DataResourceWithVideo> matchVideo;
+    List<DataResourceWithImage> matchImage;
+    List<DataResourceWithAudio> matchAudio;
 }
 
 

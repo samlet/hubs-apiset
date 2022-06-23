@@ -13,8 +13,8 @@ public class TemporalExpressionFlatData {
     String description;
     Timestamp date1;
     Timestamp date2;
-    long integer1;
-    long integer2;
+    Long integer1;
+    Long integer2;
     String string1;
     String string2;
     Timestamp lastUpdatedTxStamp;

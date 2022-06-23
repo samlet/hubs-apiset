@@ -18,12 +18,12 @@ public class ReturnItemBilling implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Invoice invoice;
-    String proto;
     FieldCatsValue cats;
     String format;
-    ReturnHeader returnHeader;
+    String proto;
     ModelEntity model;
+    ReturnHeader returnHeader;
+    Invoice invoice;
     @Override
     public String getKey() {
         return id;

@@ -14,15 +14,15 @@ public class ProductConfigOption implements WithKey{
     TimestampValue thruDate;
     String configOptionName;
     String description;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     ProductConfigItem configItemProductConfigItem;
-    FieldCatsValue cats;
     String format;
     String proto;
     ModelEntity model;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

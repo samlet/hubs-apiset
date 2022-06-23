@@ -13,10 +13,10 @@ public class PartyRole implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
     String proto;
-    FieldCatsValue cats;
     Party party;
+    FieldCatsValue cats;
+    ModelEntity model;
     String format;
     @Override
     public String getKey() {

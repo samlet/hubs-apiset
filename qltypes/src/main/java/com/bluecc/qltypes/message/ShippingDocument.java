@@ -18,8 +18,8 @@ public class ShippingDocument implements WithKey{
     String tenantId;
     ModelEntity model;
     String format;
-    FieldCatsValue cats;
     String proto;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return documentId;

@@ -11,11 +11,11 @@ public class PartyCollection {
     List<Party> values;
     String nextPageToken;
     String regionId;
+    List<PartyWithSupplier> matchSupplier;
+    List<PartyWithPartyGroup> matchPartyGroup;
     List<PartyWithPerson> matchPerson;
     PartyCollection filter;
-    List<PartyWithPartyGroup> matchPartyGroup;
     List<PartyWithCorporation> matchCorporation;
-    List<PartyWithSupplier> matchSupplier;
 }
 
 

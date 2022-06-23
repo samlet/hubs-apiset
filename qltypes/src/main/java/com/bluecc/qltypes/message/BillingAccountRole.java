@@ -16,11 +16,11 @@ public class BillingAccountRole implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    BillingAccount billingAccount;
     String proto;
+    ModelEntity model;
     FieldCatsValue cats;
     String format;
-    ModelEntity model;
+    BillingAccount billingAccount;
     Party party;
     @Override
     public String getKey() {

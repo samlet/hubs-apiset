@@ -15,12 +15,12 @@ public class PartyStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
     String proto;
-    FieldCatsValue cats;
     UserLogin changeByUserLogin;
-    Party party;
+    FieldCatsValue cats;
     ModelEntity model;
+    String format;
+    Party party;
     @Override
     public String getKey() {
         return id;

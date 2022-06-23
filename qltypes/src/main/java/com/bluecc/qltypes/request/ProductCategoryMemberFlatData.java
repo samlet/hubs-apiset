@@ -13,7 +13,7 @@ public class ProductCategoryMemberFlatData {
     Timestamp fromDate;
     Timestamp thruDate;
     String comments;
-    long sequenceNum;
+    Long sequenceNum;
     FixedPoint quantity;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

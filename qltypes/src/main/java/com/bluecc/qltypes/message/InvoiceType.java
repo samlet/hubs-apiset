@@ -15,10 +15,10 @@ public class InvoiceType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    ModelEntity model;
     String format;
-    String proto;
     FieldCatsValue cats;
+    ModelEntity model;
+    String proto;
     @Override
     public String getKey() {
         return invoiceTypeId;

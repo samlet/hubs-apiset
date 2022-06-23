@@ -43,12 +43,12 @@ public class ReturnAdjustment implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     UserLogin userLogin;
-    String format;
-    String proto;
-    ProductPromo productPromo;
-    FieldCatsValue cats;
-    ModelEntity model;
     ReturnHeader returnHeader;
+    ProductPromo productPromo;
+    ModelEntity model;
+    String proto;
+    String format;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return returnAdjustmentId;

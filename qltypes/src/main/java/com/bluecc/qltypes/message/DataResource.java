@@ -31,17 +31,17 @@ public class DataResource implements WithKey{
     TimestampValue createdTxStamp;
     String tenantId;
     FieldCatsValue cats;
-    TypesEntity type;
-    UserLogin createdbyuserlogin;
-    String format;
-    ListItemProtoValue subview;
-    DataResourceWithVideo asVideo;
     UserLogin lastmodifiedbyuserlogin;
-    ModelEntity model;
-    String proto;
-    DataResourceWithAudio asAudio;
-    DataResourceWithImage asImage;
     DataResourceWithText asText;
+    ModelEntity model;
+    TypesEntity type;
+    DataResourceWithAudio asAudio;
+    String format;
+    DataResourceWithVideo asVideo;
+    DataResourceWithImage asImage;
+    String proto;
+    ListItemProtoValue subview;
+    UserLogin createdbyuserlogin;
     @Override
     public String getKey() {
         return dataResourceId;

@@ -11,18 +11,18 @@ public class WorkEffortAssoc implements WithKey{
     String workEffortIdFrom;
     String workEffortIdTo;
     String workEffortAssocTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue fromDate;
     TimestampValue thruDate;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ModelEntity model;
-    String proto;
-    WorkEffort toWorkEffort;
     WorkEffort fromWorkEffort;
-    FieldCatsValue cats;
+    WorkEffort toWorkEffort;
     String format;
+    ModelEntity model;
+    FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return id;

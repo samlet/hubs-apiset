@@ -12,17 +12,17 @@ public class ProductStoreFacility implements WithKey{
     String facilityId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
-    ProductStore productStore;
+    ModelEntity model;
+    String format;
+    FieldCatsValue cats;
     Facility facility;
     String proto;
-    String format;
-    ModelEntity model;
-    FieldCatsValue cats;
+    ProductStore productStore;
     @Override
     public String getKey() {
         return id;

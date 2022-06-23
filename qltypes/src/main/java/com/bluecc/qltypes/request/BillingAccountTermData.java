@@ -12,7 +12,7 @@ public class BillingAccountTermData {
     String billingAccountId;
     String termTypeId;
     Currency termValue;
-    long termDays;
+    Long termDays;
     String uomId;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;

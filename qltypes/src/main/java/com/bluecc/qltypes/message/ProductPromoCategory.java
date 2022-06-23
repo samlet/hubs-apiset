@@ -19,12 +19,12 @@ public class ProductPromoCategory implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
+    String proto;
+    ModelEntity model;
     ProductPromo productPromo;
     FieldCatsValue cats;
+    String format;
     ProductCategory productCategory;
-    ModelEntity model;
-    String proto;
     @Override
     public String getKey() {
         return id;

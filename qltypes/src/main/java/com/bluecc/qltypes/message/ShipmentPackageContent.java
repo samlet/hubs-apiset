@@ -17,12 +17,12 @@ public class ShipmentPackageContent implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
     ModelEntity model;
-    Product subProduct;
-    String format;
     Shipment shipment;
+    String format;
+    String proto;
     FieldCatsValue cats;
+    Product subProduct;
     @Override
     public String getKey() {
         return id;

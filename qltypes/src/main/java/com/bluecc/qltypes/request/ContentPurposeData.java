@@ -10,7 +10,7 @@ import java.util.List;
 public class ContentPurposeData {
     String contentId;
     String contentPurposeTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     Timestamp lastUpdatedTxStamp;
     Timestamp createdTxStamp;
     String id;

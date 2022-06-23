@@ -11,8 +11,8 @@ public class ExampleCollection {
     List<Example> values;
     String nextPageToken;
     String regionId;
-    StructValue groupBy;
     ExampleCollection filter;
+    StructValue groupBy;
 }
 
 

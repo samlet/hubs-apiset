@@ -13,18 +13,18 @@ public class ProductFeatureAppl implements WithKey{
     String productFeatureApplTypeId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     CurrencyValue amount;
     CurrencyValue recurringAmount;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    String proto;
-    Product product;
-    ProductFeature productFeature;
-    String format;
     ModelEntity model;
+    ProductFeature productFeature;
+    FieldCatsValue cats;
+    String format;
+    Product product;
+    String proto;
     @Override
     public String getKey() {
         return id;

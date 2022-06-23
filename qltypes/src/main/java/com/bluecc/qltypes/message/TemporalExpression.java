@@ -13,20 +13,20 @@ public class TemporalExpression implements WithKey{
     String description;
     TimestampValue date1;
     TimestampValue date2;
-    long integer1;
-    long integer2;
+    Long integer1;
+    Long integer2;
     String string1;
     String string2;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    TemporalExpressionAssocCollection fromTemporalExpressionAssocs;
-    TemporalExpressionAssocCollection toTemporalExpressionAssocs;
     String format;
-    ListItemProtoValue subview;
-    String proto;
-    ModelEntity model;
     FieldCatsValue cats;
+    ModelEntity model;
+    String proto;
+    TemporalExpressionAssocCollection toTemporalExpressionAssocs;
+    ListItemProtoValue subview;
+    TemporalExpressionAssocCollection fromTemporalExpressionAssocs;
     @Override
     public String getKey() {
         return tempExprId;

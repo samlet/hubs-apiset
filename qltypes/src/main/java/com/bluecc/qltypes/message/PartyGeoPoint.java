@@ -15,11 +15,11 @@ public class PartyGeoPoint implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    ModelEntity model;
     FieldCatsValue cats;
-    String format;
     Party party;
+    ModelEntity model;
+    String proto;
+    String format;
     @Override
     public String getKey() {
         return id;

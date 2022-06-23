@@ -15,10 +15,10 @@ public class ContentAssocData {
     Timestamp thruDate;
     String contentAssocPredicateId;
     String dataSourceId;
-    long sequenceNum;
+    Long sequenceNum;
     String mapKey;
-    long upperCoordinate;
-    long leftCoordinate;
+    Long upperCoordinate;
+    Long leftCoordinate;
     Timestamp createdDate;
     String createdByUserLogin;
     Timestamp lastModifiedDate;

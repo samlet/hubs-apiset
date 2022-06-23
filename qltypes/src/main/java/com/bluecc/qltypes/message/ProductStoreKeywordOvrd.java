@@ -17,11 +17,11 @@ public class ProductStoreKeywordOvrd implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    FieldCatsValue cats;
-    ProductStore productStore;
     ModelEntity model;
-    String format;
     String proto;
+    String format;
+    ProductStore productStore;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

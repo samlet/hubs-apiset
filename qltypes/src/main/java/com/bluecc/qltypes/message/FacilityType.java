@@ -15,10 +15,10 @@ public class FacilityType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    ModelEntity model;
     FieldCatsValue cats;
     String proto;
     String format;
-    ModelEntity model;
     @Override
     public String getKey() {
         return facilityTypeId;

@@ -15,12 +15,12 @@ public class WorkOrderItemFulfillment implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    ModelEntity model;
     String proto;
+    FieldCatsValue cats;
     String format;
     OrderHeader orderHeader;
     WorkEffort workEffort;
-    FieldCatsValue cats;
-    ModelEntity model;
     @Override
     public String getKey() {
         return id;

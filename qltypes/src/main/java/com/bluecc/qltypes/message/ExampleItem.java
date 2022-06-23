@@ -11,16 +11,16 @@ public class ExampleItem implements WithKey{
     String exampleId;
     String exampleItemSeqId;
     String description;
-    double amount;
+    Double amount;
     String amountUomId;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    Example example;
     String format;
-    ModelEntity model;
     FieldCatsValue cats;
+    Example example;
+    String proto;
+    ModelEntity model;
     @Override
     public String getKey() {
         return id;

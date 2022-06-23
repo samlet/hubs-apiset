@@ -16,12 +16,12 @@ public class PartyContactMechPurpose implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    ContactMech contactMech;
     Party party;
-    String format;
     String proto;
-    ModelEntity model;
+    ContactMech contactMech;
     FieldCatsValue cats;
+    ModelEntity model;
+    String format;
     @Override
     public String getKey() {
         return id;

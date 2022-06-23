@@ -19,11 +19,11 @@ public class OrderItemPriceInfo implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    OrderHeader orderHeader;
-    FieldCatsValue cats;
     String proto;
-    ModelEntity model;
     String format;
+    FieldCatsValue cats;
+    OrderHeader orderHeader;
+    ModelEntity model;
     @Override
     public String getKey() {
         return orderItemPriceInfoId;

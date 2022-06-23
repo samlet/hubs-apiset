@@ -27,20 +27,20 @@ public class Invoice implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    OrderItemBillingCollection orderItemBillings;
-    TypesEntity type;
-    ModelEntity model;
     Party party;
-    Party fromParty;
     InvoiceItemCollection invoiceItems;
-    String proto;
-    OrderAdjustmentBillingCollection orderAdjustmentBillings;
-    ContactMech contactMech;
-    InvoiceStatusCollection invoiceStatuses;
-    FieldCatsValue cats;
-    BillingAccount billingAccount;
+    TypesEntity type;
     String format;
+    String proto;
+    InvoiceStatusCollection invoiceStatuses;
     ListItemProtoValue subview;
+    ContactMech contactMech;
+    FieldCatsValue cats;
+    OrderAdjustmentBillingCollection orderAdjustmentBillings;
+    ModelEntity model;
+    Party fromParty;
+    BillingAccount billingAccount;
+    OrderItemBillingCollection orderItemBillings;
     @Override
     public String getKey() {
         return invoiceId;

@@ -16,11 +16,11 @@ public class ProductFacilityLocation implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Facility facility;
-    ModelEntity model;
-    Product product;
-    String format;
     String proto;
+    String format;
+    Product product;
+    ModelEntity model;
+    Facility facility;
     FieldCatsValue cats;
     @Override
     public String getKey() {

@@ -13,14 +13,14 @@ public class ProductPromoBlueprint {
     ExtractedTokenValue token;
     ProductPromo entity;
     List<ResponseValue> response;
-    ProductPromoBlueprint addProductPromoActionList;
-    ProductPromoBlueprint addProductPromoRule;
-    ProductPromoBlueprint removeProductPromoRule;
-    ProductPromoBlueprint updateProductPromoAction;
     ProductPromoBlueprint addProductPromoAction;
-    ProductPromoBlueprint removeProductPromoAction;
+    ProductPromoBlueprint addProductPromoActionList;
     ProductPromoBlueprint updateProductPromoRule;
+    ProductPromoBlueprint updateProductPromoAction;
+    ProductPromoBlueprint removeProductPromoAction;
+    ProductPromoBlueprint removeProductPromoRule;
     ProductPromoBlueprint addProductPromoRuleList;
+    ProductPromoBlueprint addProductPromoRule;
 }
 
 

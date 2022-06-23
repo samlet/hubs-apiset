@@ -24,13 +24,13 @@ public class InventoryTransfer implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
+    String proto;
+    ModelEntity model;
+    InventoryItem inventoryItem;
     FieldCatsValue cats;
     Facility toFacility;
     Facility facility;
     String format;
-    String proto;
-    ModelEntity model;
-    InventoryItem inventoryItem;
     @Override
     public String getKey() {
         return inventoryTransferId;

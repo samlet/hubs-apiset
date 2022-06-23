@@ -14,7 +14,7 @@ public class FixedAssetProductData {
     Timestamp fromDate;
     Timestamp thruDate;
     String comments;
-    long sequenceNum;
+    Long sequenceNum;
     FixedPoint quantity;
     String quantityUomId;
     Timestamp lastUpdatedTxStamp;

@@ -16,12 +16,12 @@ public class OrderFactStatus implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    UserLogin userLogin;
-    FieldCatsValue cats;
-    OrderFact orderFact;
     String proto;
     ModelEntity model;
+    OrderFact orderFact;
+    UserLogin userLogin;
+    String format;
+    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

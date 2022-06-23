@@ -15,20 +15,20 @@ public class ProductContent implements WithKey{
     TimestampValue thruDate;
     TimestampValue purchaseFromDate;
     TimestampValue purchaseThruDate;
-    long useCountLimit;
-    long useTime;
+    Long useCountLimit;
+    Long useTime;
     String useTimeUomId;
     String useRoleTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String proto;
-    ModelEntity model;
-    Product product;
-    String format;
-    FieldCatsValue cats;
     Content content;
+    ModelEntity model;
+    String proto;
+    FieldCatsValue cats;
+    String format;
+    Product product;
     @Override
     public String getKey() {
         return id;

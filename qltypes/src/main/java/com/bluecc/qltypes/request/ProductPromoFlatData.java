@@ -14,9 +14,9 @@ public class ProductPromoFlatData {
     String userEntered;
     String showToCustomer;
     String requireCode;
-    long useLimitPerOrder;
-    long useLimitPerCustomer;
-    long useLimitPerPromotion;
+    Long useLimitPerOrder;
+    Long useLimitPerCustomer;
+    Long useLimitPerPromotion;
     FixedPoint billbackFactor;
     String overrideOrgPartyId;
     Timestamp createdDate;

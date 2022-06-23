@@ -15,10 +15,10 @@ public class OrderType implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    String proto;
     String format;
     ModelEntity model;
     FieldCatsValue cats;
+    String proto;
     @Override
     public String getKey() {
         return orderTypeId;

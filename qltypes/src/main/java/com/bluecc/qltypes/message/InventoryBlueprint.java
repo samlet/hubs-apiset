@@ -14,18 +14,18 @@ public class InventoryBlueprint {
     InventoryItem entity;
     List<ResponseValue> response;
     InventoryBlueprint addInventoryTransferList;
-    InventoryBlueprint addInventoryItemDetail;
-    InventoryBlueprint modifyInventoryItemType;
-    InventoryBlueprint updateInventoryTransfer;
-    InventoryBlueprint updateInventoryItemDetail;
     InventoryBlueprint removeInventoryItemDetail;
+    InventoryBlueprint addInventoryItemStatusList;
+    InventoryBlueprint addInventoryItemDetail;
     InventoryBlueprint removeInventoryItemStatus;
-    InventoryBlueprint addInventoryItemDetailList;
+    InventoryBlueprint updateInventoryItemDetail;
     InventoryBlueprint addInventoryItemStatus;
     InventoryBlueprint removeInventoryTransfer;
     InventoryBlueprint updateInventoryItemStatus;
+    InventoryBlueprint updateInventoryTransfer;
     InventoryBlueprint addInventoryTransfer;
-    InventoryBlueprint addInventoryItemStatusList;
+    InventoryBlueprint addInventoryItemDetailList;
+    InventoryBlueprint modifyInventoryItemType;
 }
 
 

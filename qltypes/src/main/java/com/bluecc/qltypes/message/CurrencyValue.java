@@ -11,7 +11,7 @@ public class CurrencyValue {
     String currencyUomId;
     String value;
     String decimal;
-    double floatValue;
+    Double floatValue;
 }
 
 

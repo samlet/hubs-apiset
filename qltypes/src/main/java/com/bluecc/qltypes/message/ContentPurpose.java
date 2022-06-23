@@ -10,15 +10,15 @@ import java.util.List;
 public class ContentPurpose implements WithKey{
     String contentId;
     String contentPurposeTypeId;
-    long sequenceNum;
+    Long sequenceNum;
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
+    FieldCatsValue cats;
     String proto;
+    ModelEntity model;
     String format;
     Content content;
-    ModelEntity model;
-    FieldCatsValue cats;
     @Override
     public String getKey() {
         return id;

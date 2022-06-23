@@ -31,16 +31,16 @@ public class InvoiceItem implements WithKey{
     TimestampValue createdTxStamp;
     String id;
     String tenantId;
-    String proto;
-    FieldCatsValue cats;
     ProductFeature productFeature;
-    Invoice invoice;
-    Party taxAuthorityParty;
+    String format;
     Product product;
+    String proto;
+    Party taxAuthorityParty;
+    Party overrideOrgParty;
     ModelEntity model;
     InventoryItem inventoryItem;
-    Party overrideOrgParty;
-    String format;
+    FieldCatsValue cats;
+    Invoice invoice;
     @Override
     public String getKey() {
         return id;

@@ -30,15 +30,15 @@ public class Requirement implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String tenantId;
-    FixedAsset fixedAsset;
+    ListItemProtoValue subview;
     Product product;
     TypesEntity type;
-    FieldCatsValue cats;
-    Facility facility;
-    ListItemProtoValue subview;
     String proto;
     String format;
+    Facility facility;
+    FieldCatsValue cats;
     ModelEntity model;
+    FixedAsset fixedAsset;
     @Override
     public String getKey() {
         return requirementId;

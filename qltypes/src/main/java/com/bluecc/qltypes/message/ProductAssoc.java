@@ -13,7 +13,7 @@ public class ProductAssoc implements WithKey{
     String productAssocTypeId;
     TimestampValue fromDate;
     TimestampValue thruDate;
-    long sequenceNum;
+    Long sequenceNum;
     String reason;
     FixedPointValue quantity;
     FixedPointValue scrapFactor;
@@ -24,13 +24,13 @@ public class ProductAssoc implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    String proto;
-    WorkEffort routingWorkEffort;
     ModelEntity model;
-    Product mainProduct;
     Product assocProduct;
+    String proto;
+    String format;
+    WorkEffort routingWorkEffort;
     FieldCatsValue cats;
+    Product mainProduct;
     @Override
     public String getKey() {
         return id;

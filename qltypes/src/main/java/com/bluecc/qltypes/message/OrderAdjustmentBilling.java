@@ -15,11 +15,11 @@ public class OrderAdjustmentBilling implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    Invoice invoice;
     FieldCatsValue cats;
     ModelEntity model;
-    String proto;
     String format;
+    Invoice invoice;
+    String proto;
     @Override
     public String getKey() {
         return id;

@@ -14,12 +14,12 @@ public class AgreementRole implements WithKey{
     TimestampValue lastUpdatedTxStamp;
     TimestampValue createdTxStamp;
     String id;
-    String format;
-    String proto;
+    ModelEntity model;
     Party party;
+    String proto;
     Agreement agreement;
     FieldCatsValue cats;
-    ModelEntity model;
+    String format;
     @Override
     public String getKey() {
         return id;

@@ -22,7 +22,7 @@ public class OrderPaymentPreferenceFlatData {
     String swipedFlag;
     String overflowFlag;
     Currency maxAmount;
-    long processAttempt;
+    Long processAttempt;
     String billingPostalCode;
     String manualAuthCode;
     String manualRefNum;

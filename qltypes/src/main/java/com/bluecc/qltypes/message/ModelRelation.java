@@ -13,7 +13,7 @@ public class ModelRelation {
     String relEntityName;
     String title;
     List<MapEntry> keymaps;
-    boolean autoRelation;
+    Boolean autoRelation;
     ModelEntity relModel;
 }
 
